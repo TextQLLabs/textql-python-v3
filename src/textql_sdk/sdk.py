@@ -38,7 +38,7 @@ if TYPE_CHECKING:
     from textql_sdk.teams import Teams
 
 
-class TextQL(BaseSDK):
+class Textql(BaseSDK):
     r"""TextQL API: TextQL public API. Generated from protobuf service definitions; internal
     endpoints are excluded via google.api.visibility / file_visibility.
 

@@ -19,12 +19,12 @@ CreateScimOAuthClient
 
 <!-- UsageSnippet language="python" operationID="ScimService_CreateScimOAuthClient" method="post" path="/textql.rpc.public.scim.ScimService/CreateScimOAuthClient" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.scim.create_o_auth_client()
+    res = textql.scim.create_o_auth_client()
 
     # Handle response
     print(res)
@@ -58,12 +58,12 @@ CreateScimToken
 
 <!-- UsageSnippet language="python" operationID="ScimService_CreateScimToken" method="post" path="/textql.rpc.public.scim.ScimService/CreateScimToken" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.scim.create_scim_token()
+    res = textql.scim.create_scim_token()
 
     # Handle response
     print(res)
@@ -97,12 +97,12 @@ ListScimOAuthClients
 
 <!-- UsageSnippet language="python" operationID="ScimService_ListScimOAuthClients" method="post" path="/textql.rpc.public.scim.ScimService/ListScimOAuthClients" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.scim.list_scim_o_auth_clients(body={})
+    res = textql.scim.list_scim_o_auth_clients(body={})
 
     # Handle response
     print(res)
@@ -135,12 +135,12 @@ ListScimTokens
 
 <!-- UsageSnippet language="python" operationID="ScimService_ListScimTokens" method="post" path="/textql.rpc.public.scim.ScimService/ListScimTokens" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.scim.list(body={})
+    res = textql.scim.list(body={})
 
     # Handle response
     print(res)
@@ -173,12 +173,12 @@ RevokeScimOAuthClient
 
 <!-- UsageSnippet language="python" operationID="ScimService_RevokeScimOAuthClient" method="post" path="/textql.rpc.public.scim.ScimService/RevokeScimOAuthClient" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.scim.revoke_o_auth_client()
+    res = textql.scim.revoke_o_auth_client()
 
     # Handle response
     print(res)
@@ -211,12 +211,12 @@ RevokeScimToken
 
 <!-- UsageSnippet language="python" operationID="ScimService_RevokeScimToken" method="post" path="/textql.rpc.public.scim.ScimService/RevokeScimToken" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.scim.revoke_scim_token()
+    res = textql.scim.revoke_scim_token()
 
     # Handle response
     print(res)

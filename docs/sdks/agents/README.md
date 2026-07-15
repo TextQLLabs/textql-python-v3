@@ -24,12 +24,12 @@ CreateAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_CreateAgent" method="post" path="/textql.rpc.public.agent.AgentService/CreateAgent" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.create()
+    res = textql.agents.create()
 
     # Handle response
     print(res)
@@ -78,12 +78,12 @@ DeleteAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_DeleteAgent" method="post" path="/textql.rpc.public.agent.AgentService/DeleteAgent" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.delete()
+    res = textql.agents.delete()
 
     # Handle response
     print(res)
@@ -116,12 +116,12 @@ DuplicateAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_DuplicateAgent" method="post" path="/textql.rpc.public.agent.AgentService/DuplicateAgent" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.duplicate()
+    res = textql.agents.duplicate()
 
     # Handle response
     print(res)
@@ -154,12 +154,12 @@ GetAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_GetAgent" method="post" path="/textql.rpc.public.agent.AgentService/GetAgent" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.get_agent()
+    res = textql.agents.get_agent()
 
     # Handle response
     print(res)
@@ -192,12 +192,12 @@ GetAgentRun
 
 <!-- UsageSnippet language="python" operationID="AgentService_GetAgentRun" method="post" path="/textql.rpc.public.agent.AgentService/GetAgentRun" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.get_run()
+    res = textql.agents.get_run()
 
     # Handle response
     print(res)
@@ -230,12 +230,12 @@ ListAgentRuns
 
 <!-- UsageSnippet language="python" operationID="AgentService_ListAgentRuns" method="post" path="/textql.rpc.public.agent.AgentService/ListAgentRuns" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.list_runs()
+    res = textql.agents.list_runs()
 
     # Handle response
     print(res)
@@ -272,12 +272,12 @@ ListAgents
 
 <!-- UsageSnippet language="python" operationID="AgentService_ListAgents" method="post" path="/textql.rpc.public.agent.AgentService/ListAgents" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.list()
+    res = textql.agents.list()
 
     # Handle response
     print(res)
@@ -312,12 +312,12 @@ ResetAgentAvatar
 
 <!-- UsageSnippet language="python" operationID="AgentService_ResetAgentAvatar" method="post" path="/textql.rpc.public.agent.AgentService/ResetAgentAvatar" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.reset_agent_avatar()
+    res = textql.agents.reset_agent_avatar()
 
     # Handle response
     print(res)
@@ -350,12 +350,12 @@ TriggerAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_TriggerAgent" method="post" path="/textql.rpc.public.agent.AgentService/TriggerAgent" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.trigger_agent()
+    res = textql.agents.trigger_agent()
 
     # Handle response
     print(res)
@@ -388,12 +388,12 @@ UpdateAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_UpdateAgent" method="post" path="/textql.rpc.public.agent.AgentService/UpdateAgent" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.update()
+    res = textql.agents.update()
 
     # Handle response
     print(res)
@@ -445,12 +445,12 @@ UploadAgentAvatar
 
 <!-- UsageSnippet language="python" operationID="AgentService_UploadAgentAvatar" method="post" path="/textql.rpc.public.agent.AgentService/UploadAgentAvatar" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.upload_agent_avatar()
+    res = textql.agents.upload_agent_avatar()
 
     # Handle response
     print(res)

@@ -23,12 +23,12 @@ ExportPowerBIReportImage
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ExportPowerBIReportImage" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ExportPowerBIReportImage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.export_report_image()
+    res = textql.powerbi.export_report_image()
 
     # Handle response
     print(res)
@@ -63,12 +63,12 @@ GeneratePowerBIEmbedToken
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_GeneratePowerBIEmbedToken" method="post" path="/textql.rpc.public.powerbi.PowerBIService/GeneratePowerBIEmbedToken" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.generate_embed_token()
+    res = textql.powerbi.generate_embed_token()
 
     # Handle response
     print(res)
@@ -104,12 +104,12 @@ GetPowerBIDatasetPreview
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_GetPowerBIDatasetPreview" method="post" path="/textql.rpc.public.powerbi.PowerBIService/GetPowerBIDatasetPreview" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.get_dataset_preview()
+    res = textql.powerbi.get_dataset_preview()
 
     # Handle response
     print(res)
@@ -146,12 +146,12 @@ GetSyncedPowerBIItems
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_GetSyncedPowerBIItems" method="post" path="/textql.rpc.public.powerbi.PowerBIService/GetSyncedPowerBIItems" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.get_synced_items()
+    res = textql.powerbi.get_synced_items()
 
     # Handle response
     print(res)
@@ -184,12 +184,12 @@ ListPowerBIDatasets
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ListPowerBIDatasets" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIDatasets" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.list()
+    res = textql.powerbi.list()
 
     # Handle response
     print(res)
@@ -223,12 +223,12 @@ ListPowerBIReports
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ListPowerBIReports" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIReports" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.list_reports()
+    res = textql.powerbi.list_reports()
 
     # Handle response
     print(res)
@@ -262,12 +262,12 @@ ListPowerBIWorkspaces
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ListPowerBIWorkspaces" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIWorkspaces" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.list_workspaces()
+    res = textql.powerbi.list_workspaces()
 
     # Handle response
     print(res)
@@ -300,13 +300,13 @@ SyncPowerBIItems
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_SyncPowerBIItems" method="post" path="/textql.rpc.public.powerbi.PowerBIService/SyncPowerBIItems" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.sync_power_bi_items(reports=[
+    res = textql.powerbi.sync_power_bi_items(reports=[
         {
             "created_date": parse_datetime("2023-01-15T01:30:15.01Z"),
         },
@@ -351,12 +351,12 @@ TestPowerBIConnection
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_TestPowerBIConnection" method="post" path="/textql.rpc.public.powerbi.PowerBIService/TestPowerBIConnection" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.test_connection()
+    res = textql.powerbi.test_connection()
 
     # Handle response
     print(res)
@@ -392,12 +392,12 @@ UnsyncPowerBIItems
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_UnsyncPowerBIItems" method="post" path="/textql.rpc.public.powerbi.PowerBIService/UnsyncPowerBIItems" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.powerbi.unsync_items()
+    res = textql.powerbi.unsync_items()
 
     # Handle response
     print(res)

@@ -51,12 +51,12 @@ ApproveContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_ApproveContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/ApproveContextPromptChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.approve_context_prompt_change()
+    res = textql.chats.approve_context_prompt_change()
 
     # Handle response
     print(res)
@@ -93,12 +93,12 @@ Resolve a halted ask_approval form cell. Submit runs the form's submission
 
 <!-- UsageSnippet language="python" operationID="ChatService_ApproveOntologyChange" method="post" path="/textql.rpc.public.chat.ChatService/ApproveOntologyChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.approve_ontology_change()
+    res = textql.chats.approve_ontology_change()
 
     # Handle response
     print(res)
@@ -131,12 +131,12 @@ External API users
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachAgentToChat" method="post" path="/textql.rpc.public.chat.ChatService/AttachAgentToChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.attach_agent()
+    res = textql.chats.attach_agent()
 
     # Handle response
     print(res)
@@ -170,12 +170,12 @@ AttachApp
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachApp" method="post" path="/textql.rpc.public.chat.ChatService/AttachApp" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.attach_app()
+    res = textql.chats.attach_app()
 
     # Handle response
     print(res)
@@ -209,12 +209,12 @@ AttachDashboard
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachDashboard" method="post" path="/textql.rpc.public.chat.ChatService/AttachDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.attach_dashboard()
+    res = textql.chats.attach_dashboard()
 
     # Handle response
     print(res)
@@ -248,12 +248,12 @@ AttachDataset
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachDataset" method="post" path="/textql.rpc.public.chat.ChatService/AttachDataset" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.attach_dataset()
+    res = textql.chats.attach_dataset()
 
     # Handle response
     print(res)
@@ -287,12 +287,12 @@ BookmarkChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_BookmarkChat" method="post" path="/textql.rpc.public.chat.ChatService/BookmarkChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.bookmark()
+    res = textql.chats.bookmark()
 
     # Handle response
     print(res)
@@ -325,12 +325,12 @@ CancelStream
 
 <!-- UsageSnippet language="python" operationID="ChatService_CancelStream" method="post" path="/textql.rpc.public.chat.ChatService/CancelStream" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.cancel_stream()
+    res = textql.chats.cancel_stream()
 
     # Handle response
     print(res)
@@ -363,12 +363,12 @@ CheckChatPermissions
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckChatPermissions" method="post" path="/textql.rpc.public.chat.ChatService/CheckChatPermissions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.check_permissions()
+    res = textql.chats.check_permissions()
 
     # Handle response
     print(res)
@@ -401,12 +401,12 @@ CheckHealth
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckHealth" method="post" path="/textql.rpc.public.chat.ChatService/CheckHealth" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.check_health()
+    res = textql.chats.check_health()
 
     # Handle response
     print(res)
@@ -440,12 +440,12 @@ CheckStreamlitHealth
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckStreamlitHealth" method="post" path="/textql.rpc.public.chat.ChatService/CheckStreamlitHealth" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.check_streamlit_health()
+    res = textql.chats.check_streamlit_health()
 
     # Handle response
     print(res)
@@ -479,12 +479,12 @@ CreateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_CreateChat" method="post" path="/textql.rpc.public.chat.ChatService/CreateChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.create_chat()
+    res = textql.chats.create_chat()
 
     # Handle response
     print(res)
@@ -525,12 +525,12 @@ DeleteChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_DeleteChat" method="post" path="/textql.rpc.public.chat.ChatService/DeleteChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.delete()
+    res = textql.chats.delete()
 
     # Handle response
     print(res)
@@ -563,12 +563,12 @@ DismissQuestions
 
 <!-- UsageSnippet language="python" operationID="ChatService_DismissQuestions" method="post" path="/textql.rpc.public.chat.ChatService/DismissQuestions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.dismiss_questions()
+    res = textql.chats.dismiss_questions()
 
     # Handle response
     print(res)
@@ -602,12 +602,12 @@ DuplicateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_DuplicateChat" method="post" path="/textql.rpc.public.chat.ChatService/DuplicateChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.duplicate_chat()
+    res = textql.chats.duplicate_chat()
 
     # Handle response
     print(res)
@@ -641,12 +641,12 @@ GetAPIChatAnswer
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetAPIChatAnswer" method="post" path="/textql.rpc.public.chat.ChatService/GetAPIChatAnswer" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_api_answer()
+    res = textql.chats.get_api_answer()
 
     # Handle response
     print(res)
@@ -679,12 +679,12 @@ GetArtifact
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetArtifact" method="post" path="/textql.rpc.public.chat.ChatService/GetArtifact" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_artifact()
+    res = textql.chats.get_artifact()
 
     # Handle response
     print(res)
@@ -718,12 +718,12 @@ GetChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChat" method="post" path="/textql.rpc.public.chat.ChatService/GetChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get()
+    res = textql.chats.get()
 
     # Handle response
     print(res)
@@ -756,12 +756,12 @@ GetChatArtifactsSummary
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatArtifactsSummary" method="post" path="/textql.rpc.public.chat.ChatService/GetChatArtifactsSummary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_artifacts_summary()
+    res = textql.chats.get_artifacts_summary()
 
     # Handle response
     print(res)
@@ -794,12 +794,12 @@ GetChatExecutionTiming
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatExecutionTiming" method="post" path="/textql.rpc.public.chat.ChatService/GetChatExecutionTiming" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_chat_execution_timing()
+    res = textql.chats.get_chat_execution_timing()
 
     # Handle response
     print(res)
@@ -832,12 +832,12 @@ GetChatHistory
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatHistory" method="post" path="/textql.rpc.public.chat.ChatService/GetChatHistory" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_history()
+    res = textql.chats.get_history()
 
     # Handle response
     print(res)
@@ -872,13 +872,13 @@ GetChats
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChats" method="post" path="/textql.rpc.public.chat.ChatService/GetChats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_all(created_after=parse_datetime("2023-01-15T01:30:15.01Z"), created_before=parse_datetime("2023-01-15T01:30:15.01Z"))
+    res = textql.chats.get_all(created_after=parse_datetime("2023-01-15T01:30:15.01Z"), created_before=parse_datetime("2023-01-15T01:30:15.01Z"))
 
     # Handle response
     print(res)
@@ -930,12 +930,12 @@ GetCompletionParameters
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetCompletionParameters" method="post" path="/textql.rpc.public.chat.ChatService/GetCompletionParameters" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_completion_parameters()
+    res = textql.chats.get_completion_parameters()
 
     # Handle response
     print(res)
@@ -969,12 +969,12 @@ GetCompletionParametersBatch
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetCompletionParametersBatch" method="post" path="/textql.rpc.public.chat.ChatService/GetCompletionParametersBatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_completion_parameters_batch()
+    res = textql.chats.get_completion_parameters_batch()
 
     # Handle response
     print(res)
@@ -1008,12 +1008,12 @@ GetLlmUsage
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetLlmUsage" method="post" path="/textql.rpc.public.chat.ChatService/GetLlmUsage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_llm_usage()
+    res = textql.chats.get_llm_usage()
 
     # Handle response
     print(res)
@@ -1047,12 +1047,12 @@ List distinct chat creators the user can access
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetMembersWithChats" method="post" path="/textql.rpc.public.chat.ChatService/GetMembersWithChats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_members_with_chats(body={})
+    res = textql.chats.get_members_with_chats(body={})
 
     # Handle response
     print(res)
@@ -1085,12 +1085,12 @@ GetPlaybookChats
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetPlaybookChats" method="post" path="/textql.rpc.public.chat.ChatService/GetPlaybookChats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_playbook_chats()
+    res = textql.chats.get_playbook_chats()
 
     # Handle response
     print(res)
@@ -1125,12 +1125,12 @@ PollChatEvents
 
 <!-- UsageSnippet language="python" operationID="ChatService_PollChatEvents" method="post" path="/textql.rpc.public.chat.ChatService/PollChatEvents" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.poll_events()
+    res = textql.chats.poll_events()
 
     # Handle response
     print(res)
@@ -1165,12 +1165,12 @@ QueryOneShot
 
 <!-- UsageSnippet language="python" operationID="ChatService_QueryOneShot" method="post" path="/textql.rpc.public.chat.ChatService/QueryOneShot" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.query_one_shot()
+    res = textql.chats.query_one_shot()
 
     # Handle response
     print(res)
@@ -1206,12 +1206,12 @@ RateChatCell appends a row to cell_rating for every click; thumbs-down also upse
 
 <!-- UsageSnippet language="python" operationID="ChatService_RateChatCell" method="post" path="/textql.rpc.public.chat.ChatService/RateChatCell" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.rate_cell()
+    res = textql.chats.rate_cell()
 
     # Handle response
     print(res)
@@ -1247,12 +1247,12 @@ RejectContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_RejectContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/RejectContextPromptChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.reject_context_prompt_change()
+    res = textql.chats.reject_context_prompt_change()
 
     # Handle response
     print(res)
@@ -1285,12 +1285,12 @@ RejectOntologyChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_RejectOntologyChange" method="post" path="/textql.rpc.public.chat.ChatService/RejectOntologyChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.reject_ontology_change()
+    res = textql.chats.reject_ontology_change()
 
     # Handle response
     print(res)
@@ -1323,12 +1323,12 @@ RunChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_RunChat" method="post" path="/textql.rpc.public.chat.ChatService/RunChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.run()
+    res = textql.chats.run()
 
     # Handle response
     print(res)
@@ -1365,12 +1365,12 @@ SendMessage
 
 <!-- UsageSnippet language="python" operationID="ChatService_SendMessage" method="post" path="/textql.rpc.public.chat.ChatService/SendMessage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.send()
+    res = textql.chats.send()
 
     # Handle response
     print(res)
@@ -1407,12 +1407,12 @@ SubmitContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_SubmitContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/SubmitContextPromptChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.submit_context_prompt_change()
+    res = textql.chats.submit_context_prompt_change()
 
     # Handle response
     print(res)
@@ -1448,12 +1448,12 @@ Resolve a halted questions cell. Submit hands the answers to the agent and
 
 <!-- UsageSnippet language="python" operationID="ChatService_SubmitQuestions" method="post" path="/textql.rpc.public.chat.ChatService/SubmitQuestions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.submit_questions()
+    res = textql.chats.submit_questions()
 
     # Handle response
     print(res)
@@ -1487,12 +1487,12 @@ UnbookmarkChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_UnbookmarkChat" method="post" path="/textql.rpc.public.chat.ChatService/UnbookmarkChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.unbookmark()
+    res = textql.chats.unbookmark()
 
     # Handle response
     print(res)
@@ -1525,12 +1525,12 @@ UpdateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_UpdateChat" method="post" path="/textql.rpc.public.chat.ChatService/UpdateChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.update()
+    res = textql.chats.update()
 
     # Handle response
     print(res)

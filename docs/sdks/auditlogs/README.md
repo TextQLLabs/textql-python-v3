@@ -24,12 +24,12 @@ ConfigureOtlpExport
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_ConfigureOtlpExport" method="post" path="/textql.rpc.public.audit_log.AuditLogService/ConfigureOtlpExport" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.configure_otlp_export()
+    res = textql.audit_logs.configure_otlp_export()
 
     # Handle response
     print(res)
@@ -66,12 +66,12 @@ ConfigureS3Export
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_ConfigureS3Export" method="post" path="/textql.rpc.public.audit_log.AuditLogService/ConfigureS3Export" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.configure_s3_export()
+    res = textql.audit_logs.configure_s3_export()
 
     # Handle response
     print(res)
@@ -113,12 +113,12 @@ DeleteOtlpExportConfig
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_DeleteOtlpExportConfig" method="post" path="/textql.rpc.public.audit_log.AuditLogService/DeleteOtlpExportConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.delete_otlp_export_config(body={})
+    res = textql.audit_logs.delete_otlp_export_config(body={})
 
     # Handle response
     print(res)
@@ -151,12 +151,12 @@ DeleteS3ExportConfig
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_DeleteS3ExportConfig" method="post" path="/textql.rpc.public.audit_log.AuditLogService/DeleteS3ExportConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.delete_s3_export_config(body={})
+    res = textql.audit_logs.delete_s3_export_config(body={})
 
     # Handle response
     print(res)
@@ -189,12 +189,12 @@ GetOtlpExportConfig
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_GetOtlpExportConfig" method="post" path="/textql.rpc.public.audit_log.AuditLogService/GetOtlpExportConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.get_otlp_export_config(body={})
+    res = textql.audit_logs.get_otlp_export_config(body={})
 
     # Handle response
     print(res)
@@ -227,12 +227,12 @@ GetS3ExportConfig
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_GetS3ExportConfig" method="post" path="/textql.rpc.public.audit_log.AuditLogService/GetS3ExportConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.get_s3_export_config(body={})
+    res = textql.audit_logs.get_s3_export_config(body={})
 
     # Handle response
     print(res)
@@ -265,13 +265,13 @@ ListAuditLogs
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_ListAuditLogs" method="post" path="/textql.rpc.public.audit_log.AuditLogService/ListAuditLogs" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.list(after=parse_datetime("2023-01-15T01:30:15.01Z"))
+    res = textql.audit_logs.list(after=parse_datetime("2023-01-15T01:30:15.01Z"))
 
     # Handle response
     print(res)
@@ -311,12 +311,12 @@ TestOtlpExportConnection
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_TestOtlpExportConnection" method="post" path="/textql.rpc.public.audit_log.AuditLogService/TestOtlpExportConnection" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.test_otlp_export_connection()
+    res = textql.audit_logs.test_otlp_export_connection()
 
     # Handle response
     print(res)
@@ -351,12 +351,12 @@ TestS3ExportConnection
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_TestS3ExportConnection" method="post" path="/textql.rpc.public.audit_log.AuditLogService/TestS3ExportConnection" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.test_s3_export_connection()
+    res = textql.audit_logs.test_s3_export_connection()
 
     # Handle response
     print(res)
@@ -395,12 +395,12 @@ TriggerOtlpExport
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_TriggerOtlpExport" method="post" path="/textql.rpc.public.audit_log.AuditLogService/TriggerOtlpExport" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.trigger_otlp_export(body={})
+    res = textql.audit_logs.trigger_otlp_export(body={})
 
     # Handle response
     print(res)
@@ -433,12 +433,12 @@ TriggerS3Export
 
 <!-- UsageSnippet language="python" operationID="AuditLogService_TriggerS3Export" method="post" path="/textql.rpc.public.audit_log.AuditLogService/TriggerS3Export" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.audit_logs.trigger_s3_export(body={})
+    res = textql.audit_logs.trigger_s3_export(body={})
 
     # Handle response
     print(res)
