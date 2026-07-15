@@ -38252,7 +38252,6 @@ components:
       type: apiKey
       in: header
       name: tql_api_key
-security: [{apiKey: []}]
 tags:
   - name: ConnectorService
   - name: DashboardService
@@ -38280,3 +38279,5 @@ tags:
   - name: SecretService
   - name: SlackService
   - name: TeamsService
+security:
+  - apiKey: []

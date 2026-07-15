@@ -15,6 +15,12 @@ actions:
           type: apiKey
           in: header
           name: tql_api_key
+  # Clear any existing top-level security before setting exactly one entry.
+  # Speakeasy pushes the overlaid spec back to the registry, so a plain add
+  # would compound (security: [apiKey, apiKey]) on the next run and break the
+  # hoisted api_key constructor arg. remove-then-add keeps it idempotent.
+  - target: $["security"]
+    remove: true
   - target: $
     update:
       security:
