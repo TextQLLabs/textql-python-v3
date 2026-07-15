@@ -23,10 +23,13 @@ ExportPowerBIReportImage
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ExportPowerBIReportImage" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ExportPowerBIReportImage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.export_report_image()
 
@@ -63,10 +66,13 @@ GeneratePowerBIEmbedToken
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_GeneratePowerBIEmbedToken" method="post" path="/textql.rpc.public.powerbi.PowerBIService/GeneratePowerBIEmbedToken" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.generate_embed_token()
 
@@ -104,10 +110,13 @@ GetPowerBIDatasetPreview
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_GetPowerBIDatasetPreview" method="post" path="/textql.rpc.public.powerbi.PowerBIService/GetPowerBIDatasetPreview" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.get_dataset_preview()
 
@@ -146,10 +155,13 @@ GetSyncedPowerBIItems
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_GetSyncedPowerBIItems" method="post" path="/textql.rpc.public.powerbi.PowerBIService/GetSyncedPowerBIItems" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.get_synced_items()
 
@@ -184,10 +196,13 @@ ListPowerBIDatasets
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ListPowerBIDatasets" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIDatasets" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.list()
 
@@ -223,10 +238,13 @@ ListPowerBIReports
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ListPowerBIReports" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIReports" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.list_reports()
 
@@ -262,10 +280,13 @@ ListPowerBIWorkspaces
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_ListPowerBIWorkspaces" method="post" path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIWorkspaces" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.list_workspaces()
 
@@ -300,11 +321,14 @@ SyncPowerBIItems
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_SyncPowerBIItems" method="post" path="/textql.rpc.public.powerbi.PowerBIService/SyncPowerBIItems" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.sync_power_bi_items(reports=[
         {
@@ -351,10 +375,13 @@ TestPowerBIConnection
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_TestPowerBIConnection" method="post" path="/textql.rpc.public.powerbi.PowerBIService/TestPowerBIConnection" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.test_connection()
 
@@ -392,10 +419,13 @@ UnsyncPowerBIItems
 
 <!-- UsageSnippet language="python" operationID="PowerBIService_UnsyncPowerBIItems" method="post" path="/textql.rpc.public.powerbi.PowerBIService/UnsyncPowerBIItems" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.powerbi.unsync_items()
 

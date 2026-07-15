@@ -5,6 +5,7 @@ from datetime import datetime
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -57,10 +58,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -86,7 +88,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_AddGroupMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -161,10 +165,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -190,7 +195,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_AddGroupMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -262,10 +269,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -291,7 +299,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ApproveAccessRequest",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -363,10 +373,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -392,7 +403,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ApproveAccessRequest",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -467,10 +480,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -496,7 +510,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_AssignPermissionToRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -571,10 +587,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -600,7 +617,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_AssignPermissionToRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -677,10 +696,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -706,7 +726,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_AssignRoleToMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -783,10 +805,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -812,7 +835,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_AssignRoleToMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -887,10 +912,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -916,7 +942,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ConvertRoleToGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -991,10 +1019,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1020,7 +1049,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ConvertRoleToGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1128,10 +1159,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1157,7 +1189,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1265,10 +1299,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1294,7 +1329,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1372,10 +1409,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1401,7 +1439,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1479,10 +1519,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1508,7 +1549,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1585,10 +1628,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1614,7 +1658,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1691,10 +1737,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1720,7 +1767,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1803,10 +1852,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1832,7 +1882,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateServiceAccount",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -1915,10 +1967,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1944,7 +1997,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_CreateServiceAccount",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2016,10 +2071,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2045,7 +2101,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_DeleteGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2117,10 +2175,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2146,7 +2205,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_DeleteGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2218,10 +2279,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2247,7 +2309,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_DeleteRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2319,10 +2383,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2348,7 +2413,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_DeleteRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2420,10 +2487,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2449,7 +2517,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_DeleteServiceAccount",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2521,10 +2591,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2550,7 +2621,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_DeleteServiceAccount",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2625,10 +2698,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2654,7 +2728,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GenerateShareLink",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2729,10 +2805,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2758,7 +2835,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GenerateShareLink",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2836,10 +2915,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2865,7 +2945,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetCurrentMemberRolesAndPermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -2944,10 +3026,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2973,7 +3056,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetCurrentMemberRolesAndPermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3046,10 +3131,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3075,7 +3161,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetEmbedUserApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3147,10 +3235,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3176,7 +3265,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetEmbedUserApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3248,10 +3339,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3277,7 +3369,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3349,10 +3443,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3378,7 +3473,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3450,10 +3547,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3479,7 +3577,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetMemberGroups",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3551,10 +3651,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3580,7 +3681,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetMemberGroups",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3652,10 +3755,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3681,7 +3785,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetMemberRoles",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3753,10 +3859,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3782,7 +3889,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetMemberRoles",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3857,10 +3966,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3886,7 +3996,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -3961,10 +4073,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3990,7 +4103,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4062,10 +4177,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4091,7 +4207,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4163,10 +4281,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4192,7 +4311,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4264,10 +4385,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4293,7 +4415,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetRolePermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4365,10 +4489,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4394,7 +4519,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_GetRolePermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4478,10 +4605,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4507,7 +4635,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_HasObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4591,10 +4721,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4620,7 +4751,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_HasObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4698,10 +4831,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4727,7 +4861,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListAccessRequests",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4805,10 +4941,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4834,7 +4971,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListAccessRequests",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -4927,10 +5066,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4956,7 +5096,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListApiKeys",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5049,10 +5191,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5078,7 +5221,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListApiKeys",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5150,10 +5295,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5179,7 +5325,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListGroupConnectors",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5251,10 +5399,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5280,7 +5429,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListGroupConnectors",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5355,10 +5506,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5384,7 +5536,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListGroups",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5459,10 +5613,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5488,7 +5643,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListGroups",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5565,10 +5722,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5594,7 +5752,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListPermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5671,10 +5831,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5700,7 +5861,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListPermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5775,10 +5938,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5804,7 +5968,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListRoles",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5879,10 +6045,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5908,7 +6075,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListRoles",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -5983,10 +6152,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6012,7 +6182,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListScimGroupMappings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6087,10 +6259,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6116,7 +6289,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListScimGroupMappings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6194,10 +6369,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6223,7 +6399,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListServiceAccounts",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6301,10 +6479,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6330,7 +6509,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ListServiceAccounts",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6405,10 +6586,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6434,7 +6616,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_MigrateAllScimGroupMappings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6509,10 +6693,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6538,7 +6723,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_MigrateAllScimGroupMappings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6610,10 +6797,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6639,7 +6827,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_MigrateScimGroupMappingToGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6712,10 +6902,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6741,7 +6932,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_MigrateScimGroupMappingToGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6817,10 +7010,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6846,7 +7040,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RejectAccessRequest",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -6921,10 +7117,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6950,7 +7147,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RejectAccessRequest",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7025,10 +7224,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7054,7 +7254,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RemoveGroupMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7129,10 +7331,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7158,7 +7361,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RemoveGroupMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7233,10 +7438,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7262,7 +7468,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RemovePermissionFromRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7337,10 +7545,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7366,7 +7575,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RemovePermissionFromRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7441,10 +7652,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7470,7 +7682,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RemoveRoleFromMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7545,10 +7759,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7574,7 +7789,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RemoveRoleFromMember",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7660,10 +7877,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7689,7 +7907,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RequestAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7775,10 +7995,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7804,7 +8025,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RequestAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7876,10 +8099,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7905,7 +8129,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RevertScimGroupMappingToRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -7977,10 +8203,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8006,7 +8233,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RevertScimGroupMappingToRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8078,10 +8307,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8107,7 +8337,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RevokeApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8179,10 +8411,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8208,7 +8441,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RevokeApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8292,10 +8527,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8321,7 +8557,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RevokeObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8405,10 +8643,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8434,7 +8673,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RevokeObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8506,10 +8747,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8535,7 +8777,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RotateApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8607,10 +8851,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8636,7 +8881,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_RotateApiKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -8813,10 +9060,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8842,7 +9090,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ShareObject",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -9019,10 +9269,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9048,7 +9299,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ShareObject",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -9223,10 +9476,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9252,7 +9506,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ShareObjectWithGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -9427,10 +9683,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9456,7 +9713,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ShareObjectWithGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -9631,10 +9890,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9660,7 +9920,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ShareObjectWithRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -9835,10 +10097,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9864,7 +10127,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_ShareObjectWithRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -9942,10 +10207,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9971,7 +10237,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10049,10 +10317,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10078,7 +10347,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateGroup",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10244,10 +10515,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10273,7 +10545,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10439,10 +10713,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10468,7 +10743,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateObjectAccess",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10546,10 +10823,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10575,7 +10853,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateObjectVisibility",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10653,10 +10933,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10682,7 +10963,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateObjectVisibility",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10786,10 +11069,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10815,7 +11099,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),
@@ -10919,10 +11205,11 @@ class Rbac(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10948,7 +11235,9 @@ class Rbac(BaseSDK):
                 base_url=base_url or "",
                 operation_id="RBACService_UpdateRole",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["RBACService"],
                 extensions=None,
             ),

@@ -21,10 +21,13 @@ CreateTeamsUuid
 
 <!-- UsageSnippet language="python" operationID="TeamsService_CreateTeamsUuid" method="post" path="/textql.rpc.public.teams.TeamsService/CreateTeamsUuid" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.create_uuid(body={})
 
@@ -59,10 +62,13 @@ DeleteInstallation
 
 <!-- UsageSnippet language="python" operationID="TeamsService_DeleteInstallation" method="post" path="/textql.rpc.public.teams.TeamsService/DeleteInstallation" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.delete_installation()
 
@@ -97,10 +103,13 @@ GetCurrentUser
 
 <!-- UsageSnippet language="python" operationID="TeamsService_GetCurrentUser" method="post" path="/textql.rpc.public.teams.TeamsService/GetCurrentUser" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.get_current_user(body={})
 
@@ -135,10 +144,13 @@ HandleTeamsOAuthCallback
 
 <!-- UsageSnippet language="python" operationID="TeamsService_HandleTeamsOAuthCallback" method="post" path="/textql.rpc.public.teams.TeamsService/HandleTeamsOAuthCallback" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.handle_o_auth_callback()
 
@@ -174,10 +186,13 @@ ListChannels
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListChannels" method="post" path="/textql.rpc.public.teams.TeamsService/ListChannels" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.list(body={})
 
@@ -212,10 +227,13 @@ ListInstallations
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListInstallations" method="post" path="/textql.rpc.public.teams.TeamsService/ListInstallations" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.list_installations(body={})
 
@@ -250,10 +268,13 @@ ListUsers
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListUsers" method="post" path="/textql.rpc.public.teams.TeamsService/ListUsers" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.list_users(body={})
 
@@ -288,10 +309,13 @@ SyncWorkspace
 
 <!-- UsageSnippet language="python" operationID="TeamsService_SyncWorkspace" method="post" path="/textql.rpc.public.teams.TeamsService/SyncWorkspace" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.teams.sync_workspace()
 

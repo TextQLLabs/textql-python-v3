@@ -27,10 +27,13 @@ CreateApiRevision
 
 <!-- UsageSnippet language="python" operationID="SecretService_CreateApiRevision" method="post" path="/textql.rpc.public.secret.SecretService/CreateApiRevision" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.create_api_revision()
 
@@ -65,10 +68,13 @@ DeleteApiAccessKey
 
 <!-- UsageSnippet language="python" operationID="SecretService_DeleteApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/DeleteApiAccessKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.delete_api_access_key()
 
@@ -103,10 +109,13 @@ DeleteApiRevision
 
 <!-- UsageSnippet language="python" operationID="SecretService_DeleteApiRevision" method="post" path="/textql.rpc.public.secret.SecretService/DeleteApiRevision" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.delete_api_revision()
 
@@ -141,10 +150,13 @@ DeleteSecret
 
 <!-- UsageSnippet language="python" operationID="SecretService_DeleteSecret" method="post" path="/textql.rpc.public.secret.SecretService/DeleteSecret" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.delete_secret()
 
@@ -179,10 +191,13 @@ GetApiAccessKey
 
 <!-- UsageSnippet language="python" operationID="SecretService_GetApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/GetApiAccessKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.get_api_access_key()
 
@@ -217,10 +232,13 @@ GetMembersWithSecrets
 
 <!-- UsageSnippet language="python" operationID="SecretService_GetMembersWithSecrets" method="post" path="/textql.rpc.public.secret.SecretService/GetMembersWithSecrets" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.get_members_with_secrets(body={})
 
@@ -255,10 +273,13 @@ ListApiAccessKeys
 
 <!-- UsageSnippet language="python" operationID="SecretService_ListApiAccessKeys" method="post" path="/textql.rpc.public.secret.SecretService/ListApiAccessKeys" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.list_api_access_keys(body={})
 
@@ -293,10 +314,13 @@ ListApiProviders
 
 <!-- UsageSnippet language="python" operationID="SecretService_ListApiProviders" method="post" path="/textql.rpc.public.secret.SecretService/ListApiProviders" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.list_api_providers(body={})
 
@@ -331,10 +355,13 @@ ListSecrets
 
 <!-- UsageSnippet language="python" operationID="SecretService_ListSecrets" method="post" path="/textql.rpc.public.secret.SecretService/ListSecrets" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.list_secrets(body={})
 
@@ -369,10 +396,13 @@ MigrateSecretToApiConnector
 
 <!-- UsageSnippet language="python" operationID="SecretService_MigrateSecretToApiConnector" method="post" path="/textql.rpc.public.secret.SecretService/MigrateSecretToApiConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.migrate_secret_to_api_connector()
 
@@ -413,10 +443,13 @@ PutSecret
 
 <!-- UsageSnippet language="python" operationID="SecretService_PutSecret" method="post" path="/textql.rpc.public.secret.SecretService/PutSecret" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.put_secret()
 
@@ -455,10 +488,13 @@ TestApiAccessKey
 
 <!-- UsageSnippet language="python" operationID="SecretService_TestApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/TestApiAccessKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.test_api_access_key()
 
@@ -493,10 +529,13 @@ UpdateSecret
 
 <!-- UsageSnippet language="python" operationID="SecretService_UpdateSecret" method="post" path="/textql.rpc.public.secret.SecretService/UpdateSecret" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.update()
 
@@ -534,11 +573,14 @@ UpsertApiAccessKey
 
 <!-- UsageSnippet language="python" operationID="SecretService_UpsertApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/UpsertApiAccessKey" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.secrets.upsert_api_access_key(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
 

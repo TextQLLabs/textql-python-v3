@@ -18,10 +18,13 @@ ConfigureMetricsExport
 
 <!-- UsageSnippet language="python" operationID="MetricsExportService_ConfigureMetricsExport" method="post" path="/textql.rpc.public.metrics_export.MetricsExportService/ConfigureMetricsExport" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.metrics_exports.configure()
 
@@ -61,10 +64,13 @@ DeleteMetricsExportConfig
 
 <!-- UsageSnippet language="python" operationID="MetricsExportService_DeleteMetricsExportConfig" method="post" path="/textql.rpc.public.metrics_export.MetricsExportService/DeleteMetricsExportConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.metrics_exports.delete_config(body={})
 
@@ -99,10 +105,13 @@ GetMetricsExportConfig
 
 <!-- UsageSnippet language="python" operationID="MetricsExportService_GetMetricsExportConfig" method="post" path="/textql.rpc.public.metrics_export.MetricsExportService/GetMetricsExportConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.metrics_exports.get_metrics_export_config(body={})
 
@@ -137,10 +146,13 @@ TestMetricsExportConnection
 
 <!-- UsageSnippet language="python" operationID="MetricsExportService_TestMetricsExportConnection" method="post" path="/textql.rpc.public.metrics_export.MetricsExportService/TestMetricsExportConnection" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.metrics_exports.test_connection()
 
@@ -177,10 +189,13 @@ TriggerMetricsPush
 
 <!-- UsageSnippet language="python" operationID="MetricsExportService_TriggerMetricsPush" method="post" path="/textql.rpc.public.metrics_export.MetricsExportService/TriggerMetricsPush" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.metrics_exports.trigger_push(body={})
 

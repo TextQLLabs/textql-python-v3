@@ -20,10 +20,13 @@ ClearOAuthToken
 
 <!-- UsageSnippet language="python" operationID="MCPService_ClearOAuthToken" method="post" path="/textql.rpc.public.mcp.MCPService/ClearOAuthToken" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.clear_o_auth_token()
 
@@ -58,10 +61,13 @@ DeleteMCPServer
 
 <!-- UsageSnippet language="python" operationID="MCPService_DeleteMCPServer" method="post" path="/textql.rpc.public.mcp.MCPService/DeleteMCPServer" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.delete()
 
@@ -96,10 +102,13 @@ GetMCPServers
 
 <!-- UsageSnippet language="python" operationID="MCPService_GetMCPServers" method="post" path="/textql.rpc.public.mcp.MCPService/GetMCPServers" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.get_servers(body={})
 
@@ -134,10 +143,13 @@ HandleOAuthCallback
 
 <!-- UsageSnippet language="python" operationID="MCPService_HandleOAuthCallback" method="post" path="/textql.rpc.public.mcp.MCPService/HandleOAuthCallback" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.handle_o_auth_callback()
 
@@ -174,10 +186,13 @@ InitiateOAuthFlow
 
 <!-- UsageSnippet language="python" operationID="MCPService_InitiateOAuthFlow" method="post" path="/textql.rpc.public.mcp.MCPService/InitiateOAuthFlow" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.initiate_o_auth_flow()
 
@@ -212,10 +227,13 @@ ToggleMCPServer
 
 <!-- UsageSnippet language="python" operationID="MCPService_ToggleMCPServer" method="post" path="/textql.rpc.public.mcp.MCPService/ToggleMCPServer" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.toggle_server()
 
@@ -250,11 +268,14 @@ UpsertMCPServers
 
 <!-- UsageSnippet language="python" operationID="MCPService_UpsertMCPServers" method="post" path="/textql.rpc.public.mcp.MCPService/UpsertMCPServers" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.mcp.upsert_mcp_servers(mcp_servers=[
         {

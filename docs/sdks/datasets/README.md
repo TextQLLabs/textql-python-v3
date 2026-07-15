@@ -27,10 +27,13 @@ CreateFolder
 
 <!-- UsageSnippet language="python" operationID="DatasetService_CreateFolder" method="post" path="/textql.rpc.public.dataset.DatasetService/CreateFolder" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.create_folder()
 
@@ -66,11 +69,14 @@ CreatePowerBIDataset
 
 <!-- UsageSnippet language="python" operationID="DatasetService_CreatePowerBIDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/CreatePowerBIDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.create_power_bi_dataset(reports=[
         {
@@ -119,11 +125,14 @@ Create Tableau dataset from views/datasources
 
 <!-- UsageSnippet language="python" operationID="DatasetService_CreateTableauDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/CreateTableauDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.create_tableau_dataset(views=[
         {
@@ -174,10 +183,13 @@ uploads
 
 <!-- UsageSnippet language="python" operationID="DatasetService_CreateUploadPresignUrl" method="post" path="/textql.rpc.public.dataset.DatasetService/CreateUploadPresignUrl" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.create_upload_presign_url()
 
@@ -216,10 +228,13 @@ Delete a dataset (soft delete)
 
 <!-- UsageSnippet language="python" operationID="DatasetService_DeleteDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/DeleteDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.delete()
 
@@ -254,10 +269,13 @@ export dataset in "raw" format – original if dataset is uploaded, converted fo
 
 <!-- UsageSnippet language="python" operationID="DatasetService_ExportDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/ExportDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.export()
 
@@ -294,10 +312,13 @@ GetDataset, GetDatasets only return metadata
 
 <!-- UsageSnippet language="python" operationID="DatasetService_GetDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/GetDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.fetch()
 
@@ -332,10 +353,13 @@ GetDatasetStats
 
 <!-- UsageSnippet language="python" operationID="DatasetService_GetDatasetStats" method="post" path="/textql.rpc.public.dataset.DatasetService/GetDatasetStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.get_stats()
 
@@ -371,10 +395,13 @@ GetDatasetValues
 
 <!-- UsageSnippet language="python" operationID="DatasetService_GetDatasetValues" method="post" path="/textql.rpc.public.dataset.DatasetService/GetDatasetValues" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.get_dataset_values()
 
@@ -413,10 +440,13 @@ GetDatasets
 
 <!-- UsageSnippet language="python" operationID="DatasetService_GetDatasets" method="post" path="/textql.rpc.public.dataset.DatasetService/GetDatasets" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.get()
 
@@ -458,10 +488,13 @@ GetDatasetsByIds
 
 <!-- UsageSnippet language="python" operationID="DatasetService_GetDatasetsByIds" method="post" path="/textql.rpc.public.dataset.DatasetService/GetDatasetsByIds" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.get_by_ids()
 
@@ -496,10 +529,13 @@ for AR: CreateFolderACL, UpdateFolderACL, DeleteFolderACL
 
 <!-- UsageSnippet language="python" operationID="DatasetService_GetFolders" method="post" path="/textql.rpc.public.dataset.DatasetService/GetFolders" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.get_folders()
 
@@ -534,10 +570,13 @@ for AR: CreateDatasetACL, UpdateDatasetACL, DeleteDatasetACL
 
 <!-- UsageSnippet language="python" operationID="DatasetService_ProcessUploadPresignUrl" method="post" path="/textql.rpc.public.dataset.DatasetService/ProcessUploadPresignUrl" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.process_upload_presign_url()
 
@@ -573,10 +612,13 @@ Update dataset metadata
 
 <!-- UsageSnippet language="python" operationID="DatasetService_UpdateDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/UpdateDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.datasets.update_dataset()
 

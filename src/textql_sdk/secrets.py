@@ -5,6 +5,7 @@ from datetime import datetime
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Dict, Iterable, List, Mapping, Optional, Union
 
@@ -54,10 +55,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -83,7 +85,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_CreateApiRevision",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -155,10 +159,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -184,7 +189,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_CreateApiRevision",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -256,10 +263,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -285,7 +293,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_DeleteApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -357,10 +367,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -386,7 +397,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_DeleteApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -465,10 +478,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -494,7 +508,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_DeleteApiRevision",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -573,10 +589,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -602,7 +619,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_DeleteApiRevision",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -674,10 +693,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -703,7 +723,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_DeleteSecret",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -775,10 +797,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -804,7 +827,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_DeleteSecret",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -876,10 +901,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -905,7 +931,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_GetApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -977,10 +1005,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1006,7 +1035,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_GetApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1081,10 +1112,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1110,7 +1142,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_GetMembersWithSecrets",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1185,10 +1219,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1214,7 +1249,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_GetMembersWithSecrets",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1289,10 +1326,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1318,7 +1356,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_ListApiAccessKeys",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1393,10 +1433,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1422,7 +1463,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_ListApiAccessKeys",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1497,10 +1540,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1526,7 +1570,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_ListApiProviders",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1601,10 +1647,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1630,7 +1677,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_ListApiProviders",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1705,10 +1754,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1734,7 +1784,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_ListSecrets",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1809,10 +1861,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1838,7 +1891,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_ListSecrets",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -1928,10 +1983,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1957,7 +2013,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_MigrateSecretToApiConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2048,10 +2106,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2077,7 +2136,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_MigrateSecretToApiConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2162,10 +2223,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2191,7 +2253,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_PutSecret",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2275,10 +2339,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2304,7 +2369,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_PutSecret",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2383,10 +2450,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2412,7 +2480,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_TestApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2491,10 +2561,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2520,7 +2591,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_TestApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2601,10 +2674,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2630,7 +2704,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_UpdateSecret",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2711,10 +2787,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2740,7 +2817,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_UpdateSecret",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -2959,10 +3038,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2988,7 +3068,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_UpsertApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),
@@ -3207,10 +3289,11 @@ class Secrets(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3236,7 +3319,9 @@ class Secrets(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SecretService_UpsertApiAccessKey",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SecretService"],
                 extensions=None,
             ),

@@ -24,6 +24,7 @@ endpoints are excluded via google.api.visibility / file_visibility.
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
@@ -124,10 +125,13 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.create()
 
@@ -142,11 +146,14 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
+import os
 from textql_sdk import Textql
 
 async def main():
 
-    async with Textql() as textql:
+    async with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
 
         res = await textql.agents.create_async()
 
@@ -156,6 +163,35 @@ async def main():
 asyncio.run(main())
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name      | Type   | Scheme  | Environment Variable |
+| --------- | ------ | ------- | -------------------- |
+| `api_key` | apiKey | API key | `TEXTQL_API_KEY`     |
+
+To authenticate with the API the `api_key` parameter must be set when initializing the SDK client instance. For example:
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.agents.create()
+
+    # Handle response
+    print(res)
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -638,11 +674,14 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.create(,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
@@ -654,12 +693,14 @@ with Textql() as textql:
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Textql(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
     res = textql.agents.create()
@@ -685,10 +726,13 @@ with Textql(
 
 ### Example
 ```python
+import os
 from textql_sdk import Textql, errors
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
     res = None
     try:
 
@@ -735,11 +779,13 @@ with Textql() as textql:
 
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
+import os
 from textql_sdk import Textql
 
 
 with Textql(
     server_url="https://app.textql.com",
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
     res = textql.agents.create()
@@ -839,17 +885,22 @@ The `Textql` class implements the context manager protocol and registers a final
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
+import os
 from textql_sdk import Textql
 def main():
 
-    with Textql() as textql:
+    with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with Textql() as textql:
+    async with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->

@@ -8,6 +8,17 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
+  - target: $["components"]
+    update:
+      securitySchemes:
+        apiKey:
+          type: apiKey
+          in: header
+          name: tql_api_key
+  - target: $
+    update:
+      security:
+        - apiKey: []
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/RemoveLibrarySubmodule"]["post"]
     update:
       x-speakeasy-group: libraries

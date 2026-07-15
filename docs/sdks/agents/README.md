@@ -24,10 +24,13 @@ CreateAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_CreateAgent" method="post" path="/textql.rpc.public.agent.AgentService/CreateAgent" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.create()
 
@@ -78,10 +81,13 @@ DeleteAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_DeleteAgent" method="post" path="/textql.rpc.public.agent.AgentService/DeleteAgent" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.delete()
 
@@ -116,10 +122,13 @@ DuplicateAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_DuplicateAgent" method="post" path="/textql.rpc.public.agent.AgentService/DuplicateAgent" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.duplicate()
 
@@ -154,10 +163,13 @@ GetAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_GetAgent" method="post" path="/textql.rpc.public.agent.AgentService/GetAgent" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.get_agent()
 
@@ -192,10 +204,13 @@ GetAgentRun
 
 <!-- UsageSnippet language="python" operationID="AgentService_GetAgentRun" method="post" path="/textql.rpc.public.agent.AgentService/GetAgentRun" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.get_run()
 
@@ -230,10 +245,13 @@ ListAgentRuns
 
 <!-- UsageSnippet language="python" operationID="AgentService_ListAgentRuns" method="post" path="/textql.rpc.public.agent.AgentService/ListAgentRuns" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.list_runs()
 
@@ -272,10 +290,13 @@ ListAgents
 
 <!-- UsageSnippet language="python" operationID="AgentService_ListAgents" method="post" path="/textql.rpc.public.agent.AgentService/ListAgents" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.list()
 
@@ -312,10 +333,13 @@ ResetAgentAvatar
 
 <!-- UsageSnippet language="python" operationID="AgentService_ResetAgentAvatar" method="post" path="/textql.rpc.public.agent.AgentService/ResetAgentAvatar" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.reset_agent_avatar()
 
@@ -350,10 +374,13 @@ TriggerAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_TriggerAgent" method="post" path="/textql.rpc.public.agent.AgentService/TriggerAgent" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.trigger_agent()
 
@@ -388,10 +415,13 @@ UpdateAgent
 
 <!-- UsageSnippet language="python" operationID="AgentService_UpdateAgent" method="post" path="/textql.rpc.public.agent.AgentService/UpdateAgent" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.update()
 
@@ -445,10 +475,13 @@ UploadAgentAvatar
 
 <!-- UsageSnippet language="python" operationID="AgentService_UploadAgentAvatar" method="post" path="/textql.rpc.public.agent.AgentService/UploadAgentAvatar" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.upload_agent_avatar()
 

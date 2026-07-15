@@ -5,6 +5,7 @@ from datetime import datetime
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional
 
@@ -54,10 +55,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -83,7 +85,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_ActivateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -155,10 +159,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -184,7 +189,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_ActivateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -438,10 +445,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -467,7 +475,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_BackfillCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -721,10 +731,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -750,7 +761,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_BackfillCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -831,10 +844,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -860,7 +874,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_BackfillThreadWarnings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -941,10 +957,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -970,7 +987,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_BackfillThreadWarnings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1051,10 +1070,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1080,7 +1100,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_CreateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1161,10 +1183,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1190,7 +1213,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_CreateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1262,10 +1287,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1291,7 +1317,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_DeactivateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1363,10 +1391,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1392,7 +1421,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_DeactivateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1464,10 +1495,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1493,7 +1525,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_DeleteCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1565,10 +1599,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1594,7 +1629,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_DeleteCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1669,10 +1706,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1698,7 +1736,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_ExportObservabilityCsv",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1773,10 +1813,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1802,7 +1843,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_ExportObservabilityCsv",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1874,10 +1917,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1903,7 +1947,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_FixCheckRecord",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -1975,10 +2021,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2004,7 +2051,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_FixCheckRecord",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -2076,10 +2125,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2105,7 +2155,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_FixWarning",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -2177,10 +2229,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2206,7 +2259,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_FixWarning",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -2460,10 +2515,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2489,7 +2545,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetAccessMethodStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -2743,10 +2801,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2772,7 +2831,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetAccessMethodStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -2844,10 +2905,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2873,7 +2935,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetActivePeopleStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -2945,10 +3009,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2974,7 +3039,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetActivePeopleStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -3228,10 +3295,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3257,7 +3325,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetActivePeopleTrend",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -3511,10 +3581,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3540,7 +3611,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetActivePeopleTrend",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -3618,10 +3691,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3647,7 +3721,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetBackfillPreview",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -3725,10 +3801,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3754,7 +3831,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetBackfillPreview",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -3826,10 +3905,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3855,7 +3935,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetBackfillStatus",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -3927,10 +4009,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3956,7 +4039,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetBackfillStatus",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -4028,10 +4113,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4057,7 +4143,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetBillingStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -4129,10 +4217,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4158,7 +4247,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetBillingStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -4418,10 +4509,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4447,7 +4539,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetChatSourceStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -4707,10 +4801,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4736,7 +4831,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetChatSourceStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -4808,10 +4905,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4837,7 +4935,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetChatTopics",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -4909,10 +5009,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4938,7 +5039,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetChatTopics",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5010,10 +5113,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5039,7 +5143,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCheckRecordFix",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5111,10 +5217,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5140,7 +5247,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCheckRecordFix",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5394,10 +5503,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5423,7 +5533,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5677,10 +5789,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5706,7 +5819,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5778,10 +5893,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5807,7 +5923,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCustomTopicPeople",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5879,10 +5997,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5908,7 +6027,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCustomTopicPeople",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -5992,10 +6113,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6021,7 +6143,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCustomTopicThreads",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6105,10 +6229,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6134,7 +6259,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetCustomTopicThreads",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6206,10 +6333,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6235,7 +6363,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetEngagementSpectrum",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6307,10 +6437,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6336,7 +6467,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetEngagementSpectrum",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6408,10 +6541,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6437,7 +6571,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetMemberActivity",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6509,10 +6645,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6538,7 +6675,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetMemberActivity",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6610,10 +6749,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6639,7 +6779,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetObservabilityStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6711,10 +6853,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6740,7 +6883,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetObservabilityStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6812,10 +6957,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6841,7 +6987,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetThreadWarnings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -6913,10 +7061,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6942,7 +7091,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_GetThreadWarnings",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -7193,10 +7344,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7222,7 +7374,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_ListCustomTopics",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -7473,10 +7627,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7502,7 +7657,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_ListCustomTopics",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -7582,10 +7739,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7611,7 +7769,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_RefineTopicDraft",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -7691,10 +7851,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7720,7 +7881,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_RefineTopicDraft",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -7801,10 +7964,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7830,7 +7994,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_SetTopicTagFeedback",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -7911,10 +8077,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7940,7 +8107,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_SetTopicTagFeedback",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -8023,10 +8192,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8052,7 +8222,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_UpdateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),
@@ -8135,10 +8307,11 @@ class Observability(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8164,7 +8337,9 @@ class Observability(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ObservabilityService_UpdateCustomTopic",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ObservabilityService"],
                 extensions=None,
             ),

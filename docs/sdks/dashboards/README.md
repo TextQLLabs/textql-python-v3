@@ -37,10 +37,13 @@ CheckDashboardHealth
 
 <!-- UsageSnippet language="python" operationID="DashboardService_CheckDashboardHealth" method="post" path="/textql.rpc.public.dashboard.DashboardService/CheckDashboardHealth" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.check_health()
 
@@ -75,10 +78,13 @@ CRUD operations
 
 <!-- UsageSnippet language="python" operationID="DashboardService_CreateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/CreateDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.create_dashboard()
 
@@ -120,10 +126,13 @@ Folder management
 
 <!-- UsageSnippet language="python" operationID="DashboardService_CreateDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/CreateDashboardFolder" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.create_folder()
 
@@ -159,10 +168,13 @@ DeleteDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DeleteDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/DeleteDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.delete()
 
@@ -197,10 +209,13 @@ DeleteDashboardFolder
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DeleteDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/DeleteDashboardFolder" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.delete_folder()
 
@@ -235,10 +250,13 @@ DiscardDashboardChanges
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DiscardDashboardChanges" method="post" path="/textql.rpc.public.dashboard.DashboardService/DiscardDashboardChanges" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.discard_changes()
 
@@ -273,10 +291,13 @@ DuplicateDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DuplicateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/DuplicateDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.duplicate()
 
@@ -312,10 +333,13 @@ GetDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.get()
 
@@ -350,10 +374,13 @@ GetDashboardVersion
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetDashboardVersion" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboardVersion" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.get_version()
 
@@ -389,10 +416,13 @@ View analytics
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetDashboardViewStats" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboardViewStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.get_dashboard_view_stats()
 
@@ -427,10 +457,13 @@ Member management
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetMembersWithDashboards" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetMembersWithDashboards" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.get_members_with_dashboards(body={})
 
@@ -465,10 +498,13 @@ ListDashboardFolders
 
 <!-- UsageSnippet language="python" operationID="DashboardService_ListDashboardFolders" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboardFolders" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.list_folders(body={})
 
@@ -503,10 +539,13 @@ Version history
 
 <!-- UsageSnippet language="python" operationID="DashboardService_ListDashboardVersions" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboardVersions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.list_versions()
 
@@ -543,10 +582,13 @@ ListDashboards
 
 <!-- UsageSnippet language="python" operationID="DashboardService_ListDashboards" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboards" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.list()
 
@@ -592,10 +634,13 @@ MoveDashboardToFolder
 
 <!-- UsageSnippet language="python" operationID="DashboardService_MoveDashboardToFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/MoveDashboardToFolder" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.move_to_folder()
 
@@ -633,10 +678,13 @@ Config-managed dashboards: render a `.dashboard` straight from a patch ref befor
 
 <!-- UsageSnippet language="python" operationID="DashboardService_PreviewConfigDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/PreviewConfigDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.preview_config()
 
@@ -672,10 +720,13 @@ Publishing workflow
 
 <!-- UsageSnippet language="python" operationID="DashboardService_PublishDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/PublishDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.publish()
 
@@ -711,10 +762,13 @@ Screenshot management
 
 <!-- UsageSnippet language="python" operationID="DashboardService_RegenerateScreenshot" method="post" path="/textql.rpc.public.dashboard.DashboardService/RegenerateScreenshot" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.regenerate_screenshot()
 
@@ -749,10 +803,13 @@ RestoreDashboardVersion
 
 <!-- UsageSnippet language="python" operationID="DashboardService_RestoreDashboardVersion" method="post" path="/textql.rpc.public.dashboard.DashboardService/RestoreDashboardVersion" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.restore_dashboard_version()
 
@@ -788,10 +845,13 @@ RunScheduledDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_RunScheduledDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/RunScheduledDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.run_scheduled_dashboard()
 
@@ -826,10 +886,13 @@ Dashboard execution
 
 <!-- UsageSnippet language="python" operationID="DashboardService_SpawnDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/SpawnDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.spawn()
 
@@ -868,10 +931,13 @@ UpdateDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.update_dashboard()
 
@@ -912,10 +978,13 @@ UpdateDashboardFolder
 
 <!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboardFolder" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.update_dashboard_folder()
 
@@ -952,10 +1021,13 @@ Scheduling
 
 <!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboardSchedule" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboardSchedule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.dashboards.update_dashboard_schedule()
 

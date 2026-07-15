@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -53,10 +54,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -82,7 +84,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_CheckDashboardHealth",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -154,10 +158,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -183,7 +188,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_CheckDashboardHealth",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -278,10 +285,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -307,7 +315,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_CreateDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -402,10 +412,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -431,7 +442,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_CreateDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -508,10 +521,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -537,7 +551,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_CreateDashboardFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -614,10 +630,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -643,7 +660,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_CreateDashboardFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -715,10 +734,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -744,7 +764,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DeleteDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -814,10 +836,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -843,7 +866,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DeleteDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -913,10 +938,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -942,7 +968,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DeleteDashboardFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1012,10 +1040,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1041,7 +1070,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DeleteDashboardFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1111,10 +1142,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1140,7 +1172,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DiscardDashboardChanges",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1212,10 +1246,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1241,7 +1276,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DiscardDashboardChanges",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1316,10 +1353,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1345,7 +1383,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DuplicateDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1420,10 +1460,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1449,7 +1490,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_DuplicateDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1521,10 +1564,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1550,7 +1594,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1622,10 +1668,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1651,7 +1698,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1726,10 +1775,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1755,7 +1805,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetDashboardVersion",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1830,10 +1882,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1859,7 +1912,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetDashboardVersion",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -1933,10 +1988,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1962,7 +2018,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetDashboardViewStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2036,10 +2094,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2065,7 +2124,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetDashboardViewStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2142,10 +2203,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2171,7 +2233,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetMembersWithDashboards",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2249,10 +2313,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2278,7 +2343,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_GetMembersWithDashboards",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2354,10 +2421,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2383,7 +2451,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_ListDashboardFolders",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2458,10 +2528,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2487,7 +2558,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_ListDashboardFolders",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2567,10 +2640,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2596,7 +2670,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_ListDashboardVersions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2676,10 +2752,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2705,7 +2782,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_ListDashboardVersions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2812,10 +2891,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2841,7 +2921,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_ListDashboards",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -2948,10 +3030,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2977,7 +3060,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_ListDashboards",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3052,10 +3137,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3081,7 +3167,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_MoveDashboardToFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3156,10 +3244,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3185,7 +3274,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_MoveDashboardToFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3264,10 +3355,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3293,7 +3385,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_PreviewConfigDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3372,10 +3466,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3401,7 +3496,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_PreviewConfigDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3478,10 +3575,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3507,7 +3605,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_PublishDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3584,10 +3684,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3613,7 +3714,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_PublishDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3687,10 +3790,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3716,7 +3820,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_RegenerateScreenshot",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3790,10 +3896,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3819,7 +3926,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_RegenerateScreenshot",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3894,10 +4003,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3923,7 +4033,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_RestoreDashboardVersion",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -3998,10 +4110,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4027,7 +4140,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_RestoreDashboardVersion",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4099,10 +4214,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4128,7 +4244,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_RunScheduledDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4200,10 +4318,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4229,7 +4348,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_RunScheduledDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4317,10 +4438,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4346,7 +4468,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_SpawnDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4434,10 +4558,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4463,7 +4588,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_SpawnDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4561,10 +4688,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4590,7 +4718,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_UpdateDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4688,10 +4818,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4717,7 +4848,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_UpdateDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4795,10 +4928,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4824,7 +4958,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_UpdateDashboardFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -4902,10 +5038,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4931,7 +5068,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_UpdateDashboardFolder",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -5022,10 +5161,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5051,7 +5191,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_UpdateDashboardSchedule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),
@@ -5142,10 +5284,11 @@ class Dashboards(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5171,7 +5314,9 @@ class Dashboards(BaseSDK):
                 base_url=base_url or "",
                 operation_id="DashboardService_UpdateDashboardSchedule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["DashboardService"],
                 extensions=None,
             ),

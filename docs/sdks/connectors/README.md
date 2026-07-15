@@ -30,10 +30,13 @@ CreateConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_CreateConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/CreateConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.create()
 
@@ -71,10 +74,13 @@ DeleteConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_DeleteConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/DeleteConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.delete()
 
@@ -109,10 +115,13 @@ DuplicateConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_DuplicateConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/DuplicateConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.duplicate_connector()
 
@@ -147,10 +156,13 @@ ExecuteQuery
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_ExecuteQuery" method="post" path="/textql.rpc.public.connector.ConnectorService/ExecuteQuery" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.execute_query()
 
@@ -187,10 +199,13 @@ GetConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get()
 
@@ -225,10 +240,13 @@ GetConnectorCellDurations
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorCellDurations" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorCellDurations" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_connector_cell_durations()
 
@@ -266,10 +284,13 @@ GetConnectorChats
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorChats" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorChats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_chats()
 
@@ -304,10 +325,13 @@ GetConnectorDashboards
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorDashboards" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorDashboards" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_dashboards()
 
@@ -342,10 +366,13 @@ GetConnectorStats
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorStats" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_connector_stats()
 
@@ -380,10 +407,13 @@ GetConnectorUsage
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorUsage" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorUsage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_usage()
 
@@ -419,10 +449,13 @@ GetConnectors
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectors" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectors" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_connectors(body={})
 
@@ -457,10 +490,13 @@ GetExampleQueries
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetExampleQueries" method="post" path="/textql.rpc.public.connector.ConnectorService/GetExampleQueries" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_example_queries()
 
@@ -496,10 +532,13 @@ GetTablePreview
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetTablePreview" method="post" path="/textql.rpc.public.connector.ConnectorService/GetTablePreview" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.get_table_preview()
 
@@ -538,10 +577,13 @@ ListConnectorTables
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_ListConnectorTables" method="post" path="/textql.rpc.public.connector.ConnectorService/ListConnectorTables" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.list_tables()
 
@@ -576,10 +618,13 @@ ListQueryTemplates
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_ListQueryTemplates" method="post" path="/textql.rpc.public.connector.ConnectorService/ListQueryTemplates" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.list_query_templates()
 
@@ -617,10 +662,13 @@ TestConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_TestConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/TestConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.test()
 
@@ -656,10 +704,13 @@ UpdateConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_UpdateConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/UpdateConnector" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.connectors.update()
 

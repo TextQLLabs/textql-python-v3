@@ -51,10 +51,13 @@ ApproveContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_ApproveContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/ApproveContextPromptChange" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.approve_context_prompt_change()
 
@@ -93,10 +96,13 @@ Resolve a halted ask_approval form cell. Submit runs the form's submission
 
 <!-- UsageSnippet language="python" operationID="ChatService_ApproveOntologyChange" method="post" path="/textql.rpc.public.chat.ChatService/ApproveOntologyChange" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.approve_ontology_change()
 
@@ -131,10 +137,13 @@ External API users
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachAgentToChat" method="post" path="/textql.rpc.public.chat.ChatService/AttachAgentToChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.attach_agent()
 
@@ -170,10 +179,13 @@ AttachApp
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachApp" method="post" path="/textql.rpc.public.chat.ChatService/AttachApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.attach_app()
 
@@ -209,10 +221,13 @@ AttachDashboard
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachDashboard" method="post" path="/textql.rpc.public.chat.ChatService/AttachDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.attach_dashboard()
 
@@ -248,10 +263,13 @@ AttachDataset
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachDataset" method="post" path="/textql.rpc.public.chat.ChatService/AttachDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.attach_dataset()
 
@@ -287,10 +305,13 @@ BookmarkChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_BookmarkChat" method="post" path="/textql.rpc.public.chat.ChatService/BookmarkChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.bookmark()
 
@@ -325,10 +346,13 @@ CancelStream
 
 <!-- UsageSnippet language="python" operationID="ChatService_CancelStream" method="post" path="/textql.rpc.public.chat.ChatService/CancelStream" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.cancel_stream()
 
@@ -363,10 +387,13 @@ CheckChatPermissions
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckChatPermissions" method="post" path="/textql.rpc.public.chat.ChatService/CheckChatPermissions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.check_permissions()
 
@@ -401,10 +428,13 @@ CheckHealth
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckHealth" method="post" path="/textql.rpc.public.chat.ChatService/CheckHealth" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.check_health()
 
@@ -440,10 +470,13 @@ CheckStreamlitHealth
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckStreamlitHealth" method="post" path="/textql.rpc.public.chat.ChatService/CheckStreamlitHealth" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.check_streamlit_health()
 
@@ -479,10 +512,13 @@ CreateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_CreateChat" method="post" path="/textql.rpc.public.chat.ChatService/CreateChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.create_chat()
 
@@ -525,10 +561,13 @@ DeleteChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_DeleteChat" method="post" path="/textql.rpc.public.chat.ChatService/DeleteChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.delete()
 
@@ -563,10 +602,13 @@ DismissQuestions
 
 <!-- UsageSnippet language="python" operationID="ChatService_DismissQuestions" method="post" path="/textql.rpc.public.chat.ChatService/DismissQuestions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.dismiss_questions()
 
@@ -602,10 +644,13 @@ DuplicateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_DuplicateChat" method="post" path="/textql.rpc.public.chat.ChatService/DuplicateChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.duplicate_chat()
 
@@ -641,10 +686,13 @@ GetAPIChatAnswer
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetAPIChatAnswer" method="post" path="/textql.rpc.public.chat.ChatService/GetAPIChatAnswer" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_api_answer()
 
@@ -679,10 +727,13 @@ GetArtifact
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetArtifact" method="post" path="/textql.rpc.public.chat.ChatService/GetArtifact" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_artifact()
 
@@ -718,10 +769,13 @@ GetChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChat" method="post" path="/textql.rpc.public.chat.ChatService/GetChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get()
 
@@ -756,10 +810,13 @@ GetChatArtifactsSummary
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatArtifactsSummary" method="post" path="/textql.rpc.public.chat.ChatService/GetChatArtifactsSummary" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_artifacts_summary()
 
@@ -794,10 +851,13 @@ GetChatExecutionTiming
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatExecutionTiming" method="post" path="/textql.rpc.public.chat.ChatService/GetChatExecutionTiming" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_chat_execution_timing()
 
@@ -832,10 +892,13 @@ GetChatHistory
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatHistory" method="post" path="/textql.rpc.public.chat.ChatService/GetChatHistory" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_history()
 
@@ -872,11 +935,14 @@ GetChats
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChats" method="post" path="/textql.rpc.public.chat.ChatService/GetChats" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_all(created_after=parse_datetime("2023-01-15T01:30:15.01Z"), created_before=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -930,10 +996,13 @@ GetCompletionParameters
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetCompletionParameters" method="post" path="/textql.rpc.public.chat.ChatService/GetCompletionParameters" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_completion_parameters()
 
@@ -969,10 +1038,13 @@ GetCompletionParametersBatch
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetCompletionParametersBatch" method="post" path="/textql.rpc.public.chat.ChatService/GetCompletionParametersBatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_completion_parameters_batch()
 
@@ -1008,10 +1080,13 @@ GetLlmUsage
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetLlmUsage" method="post" path="/textql.rpc.public.chat.ChatService/GetLlmUsage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_llm_usage()
 
@@ -1047,10 +1122,13 @@ List distinct chat creators the user can access
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetMembersWithChats" method="post" path="/textql.rpc.public.chat.ChatService/GetMembersWithChats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_members_with_chats(body={})
 
@@ -1085,10 +1163,13 @@ GetPlaybookChats
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetPlaybookChats" method="post" path="/textql.rpc.public.chat.ChatService/GetPlaybookChats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.get_playbook_chats()
 
@@ -1125,10 +1206,13 @@ PollChatEvents
 
 <!-- UsageSnippet language="python" operationID="ChatService_PollChatEvents" method="post" path="/textql.rpc.public.chat.ChatService/PollChatEvents" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.poll_events()
 
@@ -1165,10 +1249,13 @@ QueryOneShot
 
 <!-- UsageSnippet language="python" operationID="ChatService_QueryOneShot" method="post" path="/textql.rpc.public.chat.ChatService/QueryOneShot" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.query_one_shot()
 
@@ -1206,10 +1293,13 @@ RateChatCell appends a row to cell_rating for every click; thumbs-down also upse
 
 <!-- UsageSnippet language="python" operationID="ChatService_RateChatCell" method="post" path="/textql.rpc.public.chat.ChatService/RateChatCell" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.rate_cell()
 
@@ -1247,10 +1337,13 @@ RejectContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_RejectContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/RejectContextPromptChange" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.reject_context_prompt_change()
 
@@ -1285,10 +1378,13 @@ RejectOntologyChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_RejectOntologyChange" method="post" path="/textql.rpc.public.chat.ChatService/RejectOntologyChange" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.reject_ontology_change()
 
@@ -1323,10 +1419,13 @@ RunChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_RunChat" method="post" path="/textql.rpc.public.chat.ChatService/RunChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.run()
 
@@ -1365,10 +1464,13 @@ SendMessage
 
 <!-- UsageSnippet language="python" operationID="ChatService_SendMessage" method="post" path="/textql.rpc.public.chat.ChatService/SendMessage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.send()
 
@@ -1407,10 +1509,13 @@ SubmitContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_SubmitContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/SubmitContextPromptChange" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.submit_context_prompt_change()
 
@@ -1448,10 +1553,13 @@ Resolve a halted questions cell. Submit hands the answers to the agent and
 
 <!-- UsageSnippet language="python" operationID="ChatService_SubmitQuestions" method="post" path="/textql.rpc.public.chat.ChatService/SubmitQuestions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.submit_questions()
 
@@ -1487,10 +1595,13 @@ UnbookmarkChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_UnbookmarkChat" method="post" path="/textql.rpc.public.chat.ChatService/UnbookmarkChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.unbookmark()
 
@@ -1525,10 +1636,13 @@ UpdateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_UpdateChat" method="post" path="/textql.rpc.public.chat.ChatService/UpdateChat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.chats.update()
 

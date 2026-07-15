@@ -2276,6 +2276,7 @@ if TYPE_CHECKING:
         SecretServiceUpsertAPIAccessKeyResponse,
         SecretServiceUpsertAPIAccessKeyResponseTypedDict,
     )
+    from .security import Security, SecurityTypedDict
     from .slackservice_createslackuuidop import (
         SlackServiceCreateSlackUUIDRequest,
         SlackServiceCreateSlackUUIDRequestTypedDict,
@@ -9731,6 +9732,8 @@ __all__ = [
     "SecretServiceUpsertAPIAccessKeyRequestTypedDict",
     "SecretServiceUpsertAPIAccessKeyResponse",
     "SecretServiceUpsertAPIAccessKeyResponseTypedDict",
+    "Security",
+    "SecurityTypedDict",
     "Size",
     "SizeTypedDict",
     "SlackServiceCreateSlackUUIDRequest",
@@ -14056,6 +14059,8 @@ _dynamic_imports: dict[str, str] = {
     "SecretServiceUpsertAPIAccessKeyRequestTypedDict": ".secretservice_upsertapiaccesskeyop",
     "SecretServiceUpsertAPIAccessKeyResponse": ".secretservice_upsertapiaccesskeyop",
     "SecretServiceUpsertAPIAccessKeyResponseTypedDict": ".secretservice_upsertapiaccesskeyop",
+    "Security": ".security",
+    "SecurityTypedDict": ".security",
     "SlackServiceCreateSlackUUIDRequest": ".slackservice_createslackuuidop",
     "SlackServiceCreateSlackUUIDRequestTypedDict": ".slackservice_createslackuuidop",
     "SlackServiceCreateSlackUUIDResponse": ".slackservice_createslackuuidop",

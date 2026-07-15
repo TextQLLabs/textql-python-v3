@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -56,10 +57,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -85,7 +87,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_AttachDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -160,10 +164,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -189,7 +194,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_AttachDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -264,10 +271,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -293,7 +301,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_AttachDataset",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -368,10 +378,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -397,7 +408,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_AttachDataset",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -474,10 +487,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -503,7 +517,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_CancelTemplateExecution",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -580,10 +596,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -609,7 +626,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_CancelTemplateExecution",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -684,10 +703,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -713,7 +733,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_CreatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -788,10 +810,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -817,7 +840,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_CreatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -889,10 +914,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -918,7 +944,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DeactivatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -988,10 +1016,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1017,7 +1046,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DeactivatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1087,10 +1118,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1116,7 +1148,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DeletePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1188,10 +1222,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1217,7 +1252,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DeletePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1298,10 +1335,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1327,7 +1365,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DemoPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1408,10 +1448,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1437,7 +1478,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DemoPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1509,10 +1552,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1538,7 +1582,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DeployPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1610,10 +1656,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1639,7 +1686,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DeployPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1711,10 +1760,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1740,7 +1790,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DuplicatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1812,10 +1864,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1841,7 +1894,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_DuplicatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -1918,10 +1973,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1947,7 +2003,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_FavoriteReport",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2024,10 +2082,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2053,7 +2112,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_FavoriteReport",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2129,10 +2190,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2158,7 +2220,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetActiveSubscribedPlaybooksCount",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2235,10 +2299,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2264,7 +2329,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetActiveSubscribedPlaybooksCount",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2339,10 +2406,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2368,7 +2436,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetChatReportsSummary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2442,10 +2512,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2471,7 +2542,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetChatReportsSummary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2546,10 +2619,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2575,7 +2649,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetMembersWithPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2650,10 +2726,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2679,7 +2756,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetMembersWithPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2757,10 +2836,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2786,7 +2866,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2864,10 +2946,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2893,7 +2976,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -2967,10 +3052,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2996,7 +3082,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookBatchRun",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3070,10 +3158,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3099,7 +3188,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookBatchRun",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3173,10 +3264,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3202,7 +3294,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookExtendedQn",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3276,10 +3370,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3305,7 +3400,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookExtendedQn",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3377,10 +3474,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3406,7 +3504,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookLineage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3478,10 +3578,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3507,7 +3608,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookLineage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3594,10 +3697,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3623,7 +3727,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookReports",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3710,10 +3816,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3739,7 +3846,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookReports",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3824,10 +3933,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3853,7 +3963,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookReportsBatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -3938,10 +4050,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3967,7 +4080,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybookReportsBatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4085,10 +4200,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4114,7 +4230,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4232,10 +4350,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4261,7 +4380,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4336,10 +4457,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4365,7 +4487,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybooksPreviews",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4440,10 +4564,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4469,7 +4594,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetPlaybooksPreviews",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4541,10 +4668,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4570,7 +4698,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetQNPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4642,10 +4772,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4671,7 +4802,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetQNPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4745,10 +4878,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4774,7 +4908,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetReportById",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4848,10 +4984,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4877,7 +5014,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetReportById",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -4956,10 +5095,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4985,7 +5125,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetReportsWithFilters",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5064,10 +5206,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5093,7 +5236,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_GetReportsWithFilters",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5171,10 +5316,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5200,7 +5346,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListAllSlackChannelContextPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5279,10 +5427,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5308,7 +5457,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListAllSlackChannelContextPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5385,10 +5536,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5414,7 +5566,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListAllTeamsChannelContextPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5491,10 +5645,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5520,7 +5675,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListAllTeamsChannelContextPlaybooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5601,10 +5758,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5630,7 +5788,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListPlaybookBatchRuns",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5710,10 +5870,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5739,7 +5900,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListPlaybookBatchRuns",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5813,10 +5976,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5842,7 +6006,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListSlackChannelsForContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -5917,10 +6083,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5946,7 +6113,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListSlackChannelsForContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6019,10 +6188,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6048,7 +6218,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListTeamsChannelsForContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6121,10 +6293,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6150,7 +6323,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_ListTeamsChannelsForContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6225,10 +6400,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6254,7 +6430,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_MarkReportAsRead",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6328,10 +6506,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6357,7 +6536,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_MarkReportAsRead",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6445,10 +6626,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6474,7 +6656,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_PreviewSlackReport",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6562,10 +6746,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6591,7 +6776,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_PreviewSlackReport",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6666,10 +6853,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6695,7 +6883,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_RemoveDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6770,10 +6960,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6799,7 +6990,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_RemoveDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6874,10 +7067,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6903,7 +7097,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_RemoveDataset",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -6978,10 +7174,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7007,7 +7204,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_RemoveDataset",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7085,10 +7284,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7114,7 +7314,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_RunPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7192,10 +7394,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7221,7 +7424,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_RunPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7300,10 +7505,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7329,7 +7535,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_SetSlackChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7409,10 +7617,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7438,7 +7647,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_SetSlackChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7514,10 +7725,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7543,7 +7755,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_SetTeamsChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7619,10 +7833,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7648,7 +7863,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_SetTeamsChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7721,10 +7938,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7750,7 +7968,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_SubscribeToPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7822,10 +8042,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7851,7 +8072,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_SubscribeToPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -7926,10 +8149,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7955,7 +8179,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UnsetSlackChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8031,10 +8257,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8060,7 +8287,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UnsetSlackChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8133,10 +8362,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8162,7 +8392,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UnsetTeamsChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8235,10 +8467,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8264,7 +8497,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UnsetTeamsChannelContextPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8337,10 +8572,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8366,7 +8602,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UnsubscribeFromPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8438,10 +8676,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8467,7 +8706,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UnsubscribeFromPlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8703,10 +8944,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8732,7 +8974,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UpdatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -8968,10 +9212,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8997,7 +9242,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UpdatePlaybook",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -9084,10 +9331,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9113,7 +9361,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UpdatePlaybookExtendedQn",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),
@@ -9200,10 +9450,11 @@ class Playbooks(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9229,7 +9480,9 @@ class Playbooks(BaseSDK):
                 base_url=base_url or "",
                 operation_id="PlaybookService_UpdatePlaybookExtendedQn",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["PlaybookService"],
                 extensions=None,
             ),

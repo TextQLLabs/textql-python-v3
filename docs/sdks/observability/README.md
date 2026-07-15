@@ -42,10 +42,13 @@ ActivateCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_ActivateCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/ActivateCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.activate_custom_topic()
 
@@ -80,11 +83,14 @@ BackfillCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_BackfillCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/BackfillCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.backfill_custom_topic(start_date=parse_datetime("2023-01-15T01:30:15.01Z"), end_date=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -121,10 +127,13 @@ BackfillThreadWarnings
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_BackfillThreadWarnings" method="post" path="/textql.rpc.public.observe.ObservabilityService/BackfillThreadWarnings" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.backfill_thread_warnings()
 
@@ -162,10 +171,13 @@ CreateCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_CreateCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/CreateCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.create_custom_topic()
 
@@ -203,10 +215,13 @@ DeactivateCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_DeactivateCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/DeactivateCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.deactivate_custom_topic()
 
@@ -241,10 +256,13 @@ DeleteCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_DeleteCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/DeleteCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.delete_custom_topic()
 
@@ -279,10 +297,13 @@ ExportObservabilityCsv
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_ExportObservabilityCsv" method="post" path="/textql.rpc.public.observe.ObservabilityService/ExportObservabilityCsv" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.export_csv()
 
@@ -318,10 +339,13 @@ FixCheckRecord
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_FixCheckRecord" method="post" path="/textql.rpc.public.observe.ObservabilityService/FixCheckRecord" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.fix_check_record()
 
@@ -356,10 +380,13 @@ FixWarning
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_FixWarning" method="post" path="/textql.rpc.public.observe.ObservabilityService/FixWarning" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.fix_warning()
 
@@ -394,11 +421,14 @@ GetAccessMethodStats
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetAccessMethodStats" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetAccessMethodStats" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_access_method_stats(start_date=parse_datetime("2023-01-15T01:30:15.01Z"), end_date=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -435,10 +465,13 @@ GetActivePeopleStats
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetActivePeopleStats" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetActivePeopleStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_active_people_stats()
 
@@ -473,11 +506,14 @@ GetActivePeopleTrend
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetActivePeopleTrend" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetActivePeopleTrend" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_active_people_trend(start_date=parse_datetime("2023-01-15T01:30:15.01Z"), end_date=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -514,10 +550,13 @@ GetBackfillPreview
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetBackfillPreview" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetBackfillPreview" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_backfill_preview()
 
@@ -554,10 +593,13 @@ GetBackfillStatus
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetBackfillStatus" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetBackfillStatus" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_backfill_status()
 
@@ -592,10 +634,13 @@ GetBillingStats
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetBillingStats" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetBillingStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_billing_stats()
 
@@ -630,11 +675,14 @@ GetChatSourceStats
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetChatSourceStats" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetChatSourceStats" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_chat_source_stats(start_date=parse_datetime("2023-01-15T01:30:15.01Z"), end_date=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -673,10 +721,13 @@ GetChatTopics
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetChatTopics" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetChatTopics" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_chat_topics()
 
@@ -711,10 +762,13 @@ GetCheckRecordFix
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetCheckRecordFix" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetCheckRecordFix" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_check_record_fix()
 
@@ -749,11 +803,14 @@ GetCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_custom_topic(trend_start=parse_datetime("2023-01-15T01:30:15.01Z"), trend_end=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -790,10 +847,13 @@ GetCustomTopicPeople
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetCustomTopicPeople" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetCustomTopicPeople" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_custom_topic_people()
 
@@ -828,10 +888,13 @@ GetCustomTopicThreads
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetCustomTopicThreads" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetCustomTopicThreads" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_custom_topic_threads()
 
@@ -870,10 +933,13 @@ GetEngagementSpectrum
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetEngagementSpectrum" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetEngagementSpectrum" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_engagement_spectrum()
 
@@ -908,10 +974,13 @@ GetMemberActivity
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetMemberActivity" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetMemberActivity" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_member_activity()
 
@@ -946,10 +1015,13 @@ GetObservabilityStats
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetObservabilityStats" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetObservabilityStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_observability_stats()
 
@@ -984,10 +1056,13 @@ GetThreadWarnings
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_GetThreadWarnings" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetThreadWarnings" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.get_thread_warnings()
 
@@ -1022,11 +1097,14 @@ ListCustomTopics
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_ListCustomTopics" method="post" path="/textql.rpc.public.observe.ObservabilityService/ListCustomTopics" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.list_custom_topics(trend_start=parse_datetime("2023-01-15T01:30:15.01Z"), trend_end=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -1062,10 +1140,13 @@ Custom topics
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_RefineTopicDraft" method="post" path="/textql.rpc.public.observe.ObservabilityService/RefineTopicDraft" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.refine_draft()
 
@@ -1102,10 +1183,13 @@ SetTopicTagFeedback
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_SetTopicTagFeedback" method="post" path="/textql.rpc.public.observe.ObservabilityService/SetTopicTagFeedback" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.set_topic_tag_feedback()
 
@@ -1143,10 +1227,13 @@ UpdateCustomTopic
 
 <!-- UsageSnippet language="python" operationID="ObservabilityService_UpdateCustomTopic" method="post" path="/textql.rpc.public.observe.ObservabilityService/UpdateCustomTopic" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.observability.update_custom_topic()
 

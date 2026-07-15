@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Mapping, Optional
 
@@ -53,10 +54,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -82,7 +84,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_GetSandbox",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -154,10 +158,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -183,7 +188,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_GetSandbox",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -261,10 +268,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -290,7 +298,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxEgress",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -368,10 +378,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -397,7 +408,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxEgress",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -475,10 +488,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -504,7 +518,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxExecutions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -583,10 +599,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -612,7 +629,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxExecutions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -691,10 +710,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -720,7 +740,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxFiles",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -798,10 +820,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -827,7 +850,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxFiles",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -903,10 +928,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -932,7 +958,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxSpend",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1008,10 +1036,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1037,7 +1066,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxSpend",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1115,10 +1146,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1144,7 +1176,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxes",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1222,10 +1256,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1251,7 +1286,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ListSandboxes",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1326,10 +1363,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1355,7 +1393,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ReadSandboxFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1430,10 +1470,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1459,7 +1500,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_ReadSandboxFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1535,10 +1578,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1564,7 +1608,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_RestartSandbox",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1640,10 +1686,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1669,7 +1716,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_RestartSandbox",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1741,10 +1790,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1770,7 +1820,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_StopSandbox",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),
@@ -1842,10 +1894,11 @@ class SandboxAdmin(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1871,7 +1924,9 @@ class SandboxAdmin(BaseSDK):
                 base_url=base_url or "",
                 operation_id="SandboxAdminService_StopSandbox",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["SandboxAdminService"],
                 extensions=None,
             ),

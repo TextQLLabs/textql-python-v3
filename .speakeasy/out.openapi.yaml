@@ -38247,7 +38247,12 @@ components:
           nullable: true
       title: TeamsUser
       additionalProperties: false
-security: []
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: tql_api_key
+security: [{apiKey: []}]
 tags:
   - name: ConnectorService
   - name: DashboardService
