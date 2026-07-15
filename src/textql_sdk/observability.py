@@ -10,6 +10,208 @@ from typing import Iterable, List, Mapping, Optional
 
 
 class Observability(BaseSDK):
+    def activate_custom_topic(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceActivateCustomTopicResponse:
+        r"""ActivateCustomTopic
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceActivateCustomTopicRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveTopicLifecycleRequest(
+                topic_id=topic_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/ActivateCustomTopic",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveTopicLifecycleRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_ActivateCustomTopic",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveTopicLifecycleResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def activate_custom_topic_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceActivateCustomTopicResponse:
+        r"""ActivateCustomTopic
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceActivateCustomTopicRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveTopicLifecycleRequest(
+                topic_id=topic_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/ActivateCustomTopic",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveTopicLifecycleRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_ActivateCustomTopic",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveTopicLifecycleResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def backfill_custom_topic(
         self,
         *,
@@ -1218,6 +1420,618 @@ class Observability(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def delete_custom_topic(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceDeleteCustomTopicResponse:
+        r"""DeleteCustomTopic
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceDeleteCustomTopicRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveTopicLifecycleRequest(
+                topic_id=topic_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/DeleteCustomTopic",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveTopicLifecycleRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_DeleteCustomTopic",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveTopicLifecycleResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def delete_custom_topic_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceDeleteCustomTopicResponse:
+        r"""DeleteCustomTopic
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceDeleteCustomTopicRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveTopicLifecycleRequest(
+                topic_id=topic_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/DeleteCustomTopic",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveTopicLifecycleRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_DeleteCustomTopic",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveTopicLifecycleResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def export_csv(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        tab: Optional[str] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceExportObservabilityCsvResponse:
+        r"""ExportObservabilityCsv
+
+        :param connect_timeout_ms:
+        :param tab:
+        :param days:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceExportObservabilityCsvRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveExportObservabilityCsvRequest(
+                tab=tab,
+                days=days,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/ExportObservabilityCsv",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveExportObservabilityCsvRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_ExportObservabilityCsv",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveExportObservabilityCsvResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def export_csv_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        tab: Optional[str] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceExportObservabilityCsvResponse:
+        r"""ExportObservabilityCsv
+
+        :param connect_timeout_ms:
+        :param tab:
+        :param days:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceExportObservabilityCsvRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveExportObservabilityCsvRequest(
+                tab=tab,
+                days=days,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/ExportObservabilityCsv",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveExportObservabilityCsvRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_ExportObservabilityCsv",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveExportObservabilityCsvResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def fix_check_record(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        record_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceFixCheckRecordResponse:
+        r"""FixCheckRecord
+
+        :param connect_timeout_ms:
+        :param record_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceFixCheckRecordRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveFixCheckRecordRequest(
+                record_id=record_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/FixCheckRecord",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveFixCheckRecordRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_FixCheckRecord",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveFixCheckRecordResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def fix_check_record_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        record_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceFixCheckRecordResponse:
+        r"""FixCheckRecord
+
+        :param connect_timeout_ms:
+        :param record_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceFixCheckRecordRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveFixCheckRecordRequest(
+                record_id=record_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/FixCheckRecord",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveFixCheckRecordRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_FixCheckRecord",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveFixCheckRecordResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def fix_warning(
         self,
         *,
@@ -1404,6 +2218,572 @@ class Observability(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicObserveFixWarningResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_access_method_stats(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        start_date: Optional[datetime] = None,
+        end_date: Optional[datetime] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetAccessMethodStatsResponse:
+        r"""GetAccessMethodStats
+
+        :param connect_timeout_ms:
+        :param days:
+        :param start_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param end_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetAccessMethodStatsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetAccessMethodStatsRequest(
+                days=days,
+                start_date=start_date,
+                end_date=end_date,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetAccessMethodStats",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetAccessMethodStatsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetAccessMethodStats",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetAccessMethodStatsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_access_method_stats_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        start_date: Optional[datetime] = None,
+        end_date: Optional[datetime] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetAccessMethodStatsResponse:
+        r"""GetAccessMethodStats
+
+        :param connect_timeout_ms:
+        :param days:
+        :param start_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param end_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetAccessMethodStatsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetAccessMethodStatsRequest(
+                days=days,
+                start_date=start_date,
+                end_date=end_date,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetAccessMethodStats",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetAccessMethodStatsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetAccessMethodStats",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetAccessMethodStatsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -2188,6 +3568,220 @@ class Observability(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def get_backfill_preview(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        org_id: OptionalNullable[str] = UNSET,
+        redo_all_threads: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetBackfillPreviewResponse:
+        r"""GetBackfillPreview
+
+        :param connect_timeout_ms:
+        :param days:
+        :param org_id:
+        :param redo_all_threads:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetBackfillPreviewRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetBackfillPreviewRequest(
+                days=days,
+                org_id=org_id,
+                redo_all_threads=redo_all_threads,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetBackfillPreview",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetBackfillPreviewRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetBackfillPreview",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetBackfillPreviewResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_backfill_preview_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        org_id: OptionalNullable[str] = UNSET,
+        redo_all_threads: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetBackfillPreviewResponse:
+        r"""GetBackfillPreview
+
+        :param connect_timeout_ms:
+        :param days:
+        :param org_id:
+        :param redo_all_threads:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetBackfillPreviewRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetBackfillPreviewRequest(
+                days=days,
+                org_id=org_id,
+                redo_all_threads=redo_all_threads,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetBackfillPreview",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetBackfillPreviewRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetBackfillPreview",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetBackfillPreviewResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def get_backfill_status(
         self,
         *,
@@ -2576,6 +4170,584 @@ class Observability(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicObserveGetBillingStatsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_chat_source_stats(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        exclude_textql: OptionalNullable[bool] = UNSET,
+        member_id: OptionalNullable[str] = UNSET,
+        start_date: Optional[datetime] = None,
+        end_date: Optional[datetime] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetChatSourceStatsResponse:
+        r"""GetChatSourceStats
+
+        :param connect_timeout_ms:
+        :param days:
+        :param exclude_textql:
+        :param member_id:
+        :param start_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param end_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetChatSourceStatsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetChatSourceStatsRequest(
+                days=days,
+                exclude_textql=exclude_textql,
+                member_id=member_id,
+                start_date=start_date,
+                end_date=end_date,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetChatSourceStats",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetChatSourceStatsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetChatSourceStats",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetChatSourceStatsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_chat_source_stats_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        exclude_textql: OptionalNullable[bool] = UNSET,
+        member_id: OptionalNullable[str] = UNSET,
+        start_date: Optional[datetime] = None,
+        end_date: Optional[datetime] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetChatSourceStatsResponse:
+        r"""GetChatSourceStats
+
+        :param connect_timeout_ms:
+        :param days:
+        :param exclude_textql:
+        :param member_id:
+        :param start_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param end_date: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetChatSourceStatsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetChatSourceStatsRequest(
+                days=days,
+                exclude_textql=exclude_textql,
+                member_id=member_id,
+                start_date=start_date,
+                end_date=end_date,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetChatSourceStats",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetChatSourceStatsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetChatSourceStats",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetChatSourceStatsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -3562,6 +5734,208 @@ class Observability(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def get_custom_topic_people(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetCustomTopicPeopleResponse:
+        r"""GetCustomTopicPeople
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetCustomTopicPeopleRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetCustomTopicPeopleRequest(
+                topic_id=topic_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetCustomTopicPeople",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetCustomTopicPeopleRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetCustomTopicPeople",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetCustomTopicPeopleResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_custom_topic_people_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetCustomTopicPeopleResponse:
+        r"""GetCustomTopicPeople
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetCustomTopicPeopleRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetCustomTopicPeopleRequest(
+                topic_id=topic_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetCustomTopicPeople",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetCustomTopicPeopleRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetCustomTopicPeople",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetCustomTopicPeopleResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def get_custom_topic_threads(
         self,
         *,
@@ -3772,6 +6146,1812 @@ class Observability(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicObserveGetCustomTopicThreadsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_engagement_spectrum(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetEngagementSpectrumResponse:
+        r"""GetEngagementSpectrum
+
+        :param connect_timeout_ms:
+        :param days:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetEngagementSpectrumRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetEngagementSpectrumRequest(
+                days=days,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetEngagementSpectrum",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetEngagementSpectrumRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetEngagementSpectrum",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetEngagementSpectrumResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_engagement_spectrum_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetEngagementSpectrumResponse:
+        r"""GetEngagementSpectrum
+
+        :param connect_timeout_ms:
+        :param days:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetEngagementSpectrumRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetEngagementSpectrumRequest(
+                days=days,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetEngagementSpectrum",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetEngagementSpectrumRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetEngagementSpectrum",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetEngagementSpectrumResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_member_activity(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetMemberActivityResponse:
+        r"""GetMemberActivity
+
+        :param connect_timeout_ms:
+        :param days:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetMemberActivityRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetMemberActivityRequest(
+                days=days,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetMemberActivity",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetMemberActivityRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetMemberActivity",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetMemberActivityResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_member_activity_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetMemberActivityResponse:
+        r"""GetMemberActivity
+
+        :param connect_timeout_ms:
+        :param days:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetMemberActivityRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetMemberActivityRequest(
+                days=days,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetMemberActivity",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetMemberActivityRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetMemberActivity",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetMemberActivityResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_observability_stats(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetObservabilityStatsResponse:
+        r"""GetObservabilityStats
+
+        :param connect_timeout_ms:
+        :param days: time window: 7, 14, 30, 90
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetObservabilityStatsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetObservabilityStatsRequest(
+                days=days,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetObservabilityStats",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetObservabilityStatsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetObservabilityStats",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetObservabilityStatsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_observability_stats_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        days: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetObservabilityStatsResponse:
+        r"""GetObservabilityStats
+
+        :param connect_timeout_ms:
+        :param days: time window: 7, 14, 30, 90
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetObservabilityStatsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetObservabilityStatsRequest(
+                days=days,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetObservabilityStats",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetObservabilityStatsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetObservabilityStats",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetObservabilityStatsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_thread_warnings(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        chat_ids: Optional[Iterable[str]] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetThreadWarningsResponse:
+        r"""GetThreadWarnings
+
+        :param connect_timeout_ms:
+        :param chat_ids:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetThreadWarningsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetThreadWarningsRequest(
+                chat_ids=utils.unmarshal(chat_ids, Optional[List[str]]),
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetThreadWarnings",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetThreadWarningsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetThreadWarnings",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetThreadWarningsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_thread_warnings_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        chat_ids: Optional[Iterable[str]] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceGetThreadWarningsResponse:
+        r"""GetThreadWarnings
+
+        :param connect_timeout_ms:
+        :param chat_ids:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceGetThreadWarningsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveGetThreadWarningsRequest(
+                chat_ids=utils.unmarshal(chat_ids, Optional[List[str]]),
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/GetThreadWarnings",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveGetThreadWarningsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_GetThreadWarnings",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveGetThreadWarningsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def list_custom_topics(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        trend_start: Optional[datetime] = None,
+        trend_end: Optional[datetime] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceListCustomTopicsResponse:
+        r"""ListCustomTopics
+
+        :param connect_timeout_ms:
+        :param trend_start: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param trend_end: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceListCustomTopicsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveListCustomTopicsRequest(
+                trend_start=trend_start,
+                trend_end=trend_end,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/ListCustomTopics",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveListCustomTopicsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_ListCustomTopics",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveListCustomTopicsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def list_custom_topics_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        trend_start: Optional[datetime] = None,
+        trend_end: Optional[datetime] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceListCustomTopicsResponse:
+        r"""ListCustomTopics
+
+        :param connect_timeout_ms:
+        :param trend_start: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param trend_end: A Timestamp represents a point in time independent of any time zone or local
+            calendar, encoded as a count of seconds and fractions of seconds at
+            nanosecond resolution. The count is relative to an epoch at UTC midnight on
+            January 1, 1970, in the proleptic Gregorian calendar which extends the
+            Gregorian calendar backwards to year one.
+
+            All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+            second table is needed for interpretation, using a [24-hour linear
+            smear](https://developers.google.com/time/smear).
+
+            The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+            restricting to that range, we ensure that we can convert to and from [RFC
+            3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+            # Examples
+
+            Example 1: Compute Timestamp from POSIX `time()`.
+
+            Timestamp timestamp;
+            timestamp.set_seconds(time(NULL));
+            timestamp.set_nanos(0);
+
+            Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+            struct timeval tv;
+            gettimeofday(&tv, NULL);
+
+            Timestamp timestamp;
+            timestamp.set_seconds(tv.tv_sec);
+            timestamp.set_nanos(tv.tv_usec * 1000);
+
+            Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+            FILETIME ft;
+            GetSystemTimeAsFileTime(&ft);
+            UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+            // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+            // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+            Timestamp timestamp;
+            timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+            timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+            Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+            long millis = System.currentTimeMillis();
+
+            Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+            .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+            Example 5: Compute Timestamp from Java `Instant.now()`.
+
+            Instant now = Instant.now();
+
+            Timestamp timestamp =
+            Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+            .setNanos(now.getNano()).build();
+
+            Example 6: Compute Timestamp from current time in Python.
+
+            timestamp = Timestamp()
+            timestamp.GetCurrentTime()
+
+            # JSON Mapping
+
+            In JSON format, the Timestamp type is encoded as a string in the
+            [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+            format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\"
+            where {year} is always expressed using four digits while {month}, {day},
+            {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+            seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+            are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+            is required. A proto3 JSON serializer should always use UTC (as indicated by
+            \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+            able to accept both UTC and other timezones (as indicated by an offset).
+
+            For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+            01:30 UTC on January 15, 2017.
+
+            In JavaScript, one can convert a Date object to this format using the
+            standard
+            [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+            method. In Python, a standard `datetime.datetime` object can be converted
+            to this format using
+            [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+            the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+            the Joda Time's [`ISODateTimeFormat.dateTime()`](
+            http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+            ) to obtain a formatter capable of generating timestamps in this format.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceListCustomTopicsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveListCustomTopicsRequest(
+                trend_start=trend_start,
+                trend_end=trend_end,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/ListCustomTopics",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveListCustomTopicsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_ListCustomTopics",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveListCustomTopicsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def refine_draft(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        prompt: Optional[str] = None,
+        examples: Optional[Iterable[str]] = None,
+        exclusions: Optional[Iterable[str]] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceRefineTopicDraftResponse:
+        r"""Custom topics
+
+        Custom topics
+
+        :param connect_timeout_ms:
+        :param prompt:
+        :param examples: example questions users ask
+        :param exclusions: \"should NOT be tagged\" phrases
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceRefineTopicDraftRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveRefineTopicDraftRequest(
+                prompt=prompt,
+                examples=utils.unmarshal(examples, Optional[List[str]]),
+                exclusions=utils.unmarshal(exclusions, Optional[List[str]]),
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/RefineTopicDraft",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveRefineTopicDraftRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_RefineTopicDraft",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveRefineTopicDraftResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def refine_draft_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        prompt: Optional[str] = None,
+        examples: Optional[Iterable[str]] = None,
+        exclusions: Optional[Iterable[str]] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceRefineTopicDraftResponse:
+        r"""Custom topics
+
+        Custom topics
+
+        :param connect_timeout_ms:
+        :param prompt:
+        :param examples: example questions users ask
+        :param exclusions: \"should NOT be tagged\" phrases
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceRefineTopicDraftRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveRefineTopicDraftRequest(
+                prompt=prompt,
+                examples=utils.unmarshal(examples, Optional[List[str]]),
+                exclusions=utils.unmarshal(exclusions, Optional[List[str]]),
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/RefineTopicDraft",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveRefineTopicDraftRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_RefineTopicDraft",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveRefineTopicDraftResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def set_topic_tag_feedback(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        chat_id: Optional[str] = None,
+        excluded: Optional[bool] = None,
+        reason: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceSetTopicTagFeedbackResponse:
+        r"""SetTopicTagFeedback
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param chat_id:
+        :param excluded: false restores verdict='tagged'
+        :param reason: optional; fed to the judge as a negative example
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceSetTopicTagFeedbackRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveSetTopicTagFeedbackRequest(
+                topic_id=topic_id,
+                chat_id=chat_id,
+                excluded=excluded,
+                reason=reason,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/SetTopicTagFeedback",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveSetTopicTagFeedbackRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_SetTopicTagFeedback",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveSetTopicTagFeedbackResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def set_topic_tag_feedback_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        topic_id: Optional[str] = None,
+        chat_id: Optional[str] = None,
+        excluded: Optional[bool] = None,
+        reason: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ObservabilityServiceSetTopicTagFeedbackResponse:
+        r"""SetTopicTagFeedback
+
+        :param connect_timeout_ms:
+        :param topic_id:
+        :param chat_id:
+        :param excluded: false restores verdict='tagged'
+        :param reason: optional; fed to the judge as a negative example
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ObservabilityServiceSetTopicTagFeedbackRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicObserveSetTopicTagFeedbackRequest(
+                topic_id=topic_id,
+                chat_id=chat_id,
+                excluded=excluded,
+                reason=reason,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.observe.ObservabilityService/SetTopicTagFeedback",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicObserveSetTopicTagFeedbackRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ObservabilityService_SetTopicTagFeedback",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ObservabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicObserveSetTopicTagFeedbackResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

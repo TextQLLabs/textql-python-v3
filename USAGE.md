@@ -6,7 +6,7 @@ from textql_sdk import TextQL
 
 with TextQL() as text_ql:
 
-    res = text_ql.agent_services.create()
+    res = text_ql.agents.create()
 
     # Handle response
     print(res)
@@ -25,7 +25,7 @@ async def main():
 
     async with TextQL() as text_ql:
 
-        res = await text_ql.agent_services.create_async()
+        res = await text_ql.agents.create_async()
 
         # Handle response
         print(res)

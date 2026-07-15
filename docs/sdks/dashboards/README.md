@@ -4,15 +4,113 @@
 
 ### Available Operations
 
+* [check_health](#check_health) - CheckDashboardHealth
+* [create_dashboard](#create_dashboard) - CRUD operations
 * [create_folder](#create_folder) - Folder management
+* [delete](#delete) - DeleteDashboard
 * [delete_folder](#delete_folder) - DeleteDashboardFolder
+* [discard_changes](#discard_changes) - DiscardDashboardChanges
 * [duplicate](#duplicate) - DuplicateDashboard
+* [get](#get) - GetDashboard
+* [get_version](#get_version) - GetDashboardVersion
+* [get_dashboard_view_stats](#get_dashboard_view_stats) - View analytics
+* [get_members_with_dashboards](#get_members_with_dashboards) - Member management
 * [list_folders](#list_folders) - ListDashboardFolders
+* [list_versions](#list_versions) - Version history
 * [list](#list) - ListDashboards
 * [move_to_folder](#move_to_folder) - MoveDashboardToFolder
+* [preview_config](#preview_config) - Config-managed dashboards: render a `.dashboard` straight from a patch ref before  it merges (ADR-0022). Runs as the file's run_as, gated on the previewer being  authorized for it; persists nothing.
 * [publish](#publish) - Publishing workflow
 * [regenerate_screenshot](#regenerate_screenshot) - Screenshot management
+* [restore_dashboard_version](#restore_dashboard_version) - RestoreDashboardVersion
 * [run_scheduled_dashboard](#run_scheduled_dashboard) - RunScheduledDashboard
+* [spawn](#spawn) - Dashboard execution
+* [update_dashboard](#update_dashboard) - UpdateDashboard
+* [update_dashboard_folder](#update_dashboard_folder) - UpdateDashboardFolder
+* [update_dashboard_schedule](#update_dashboard_schedule) - Scheduling
+
+## check_health
+
+CheckDashboardHealth
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_CheckDashboardHealth" method="post" path="/textql.rpc.public.dashboard.DashboardService/CheckDashboardHealth" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.check_health()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_ids`                                                     | List[*str*]                                                         | :heavy_minus_sign:                                                  | Batch check multiple dashboards                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceCheckDashboardHealthResponse](../../models/dashboardservicecheckdashboardhealthresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## create_dashboard
+
+CRUD operations
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_CreateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/CreateDashboard" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.create_dashboard()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                       | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                            | *Optional[float]*                                                                                               | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `name`                                                                                                          | *Optional[str]*                                                                                                 | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `description`                                                                                                   | *OptionalNullable[str]*                                                                                         | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `code`                                                                                                          | *Optional[str]*                                                                                                 | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `type`                                                                                                          | [Optional[models.TextqlRPCPublicDashboardDashboardType]](../../models/textqlrpcpublicdashboarddashboardtype.md) | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `html_url`                                                                                                      | *OptionalNullable[str]*                                                                                         | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `chat_id`                                                                                                       | *OptionalNullable[str]*                                                                                         | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `cell_id`                                                                                                       | *OptionalNullable[str]*                                                                                         | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `folder_id`                                                                                                     | *OptionalNullable[str]*                                                                                         | :heavy_minus_sign:                                                                                              | N/A                                                                                                             |
+| `retries`                                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                | :heavy_minus_sign:                                                                                              | Configuration to override the default retry behavior of the client.                                             |
+
+### Response
+
+**[models.DashboardServiceCreateDashboardResponse](../../models/dashboardservicecreatedashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
 ## create_folder
 
@@ -53,6 +151,44 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## delete
+
+DeleteDashboard
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_DeleteDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/DeleteDashboard" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.delete()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceDeleteDashboardResponse](../../models/dashboardservicedeletedashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## delete_folder
 
 DeleteDashboardFolder
@@ -84,6 +220,44 @@ with TextQL() as text_ql:
 ### Response
 
 **[models.DashboardServiceDeleteDashboardFolderResponse](../../models/dashboardservicedeletedashboardfolderresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## discard_changes
+
+DiscardDashboardChanges
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_DiscardDashboardChanges" method="post" path="/textql.rpc.public.dashboard.DashboardService/DiscardDashboardChanges" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.discard_changes()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceDiscardDashboardChangesResponse](../../models/dashboardservicediscarddashboardchangesresponse.md)**
 
 ### Errors
 
@@ -130,6 +304,159 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## get
+
+GetDashboard
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_GetDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboard" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.get()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceGetDashboardResponse](../../models/dashboardservicegetdashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_version
+
+GetDashboardVersion
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_GetDashboardVersion" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboardVersion" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.get_version()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `version_number`                                                    | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceGetDashboardVersionResponse](../../models/dashboardservicegetdashboardversionresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_dashboard_view_stats
+
+View analytics
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_GetDashboardViewStats" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboardViewStats" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.get_dashboard_view_stats()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceGetDashboardViewStatsResponse](../../models/dashboardservicegetdashboardviewstatsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_members_with_dashboards
+
+Member management
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_GetMembersWithDashboards" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetMembersWithDashboards" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.get_members_with_dashboards(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                 | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                                                    | [models.TextqlRPCPublicDashboardGetMembersWithDashboardsRequest](../../models/textqlrpcpublicdashboardgetmemberswithdashboardsrequest.md) | :heavy_check_mark:                                                                                                                        | N/A                                                                                                                                       |
+| `connect_timeout_ms`                                                                                                                      | *Optional[float]*                                                                                                                         | :heavy_minus_sign:                                                                                                                        | N/A                                                                                                                                       |
+| `retries`                                                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                          | :heavy_minus_sign:                                                                                                                        | Configuration to override the default retry behavior of the client.                                                                       |
+
+### Response
+
+**[models.DashboardServiceGetMembersWithDashboardsResponse](../../models/dashboardservicegetmemberswithdashboardsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## list_folders
 
 ListDashboardFolders
@@ -161,6 +488,46 @@ with TextQL() as text_ql:
 ### Response
 
 **[models.DashboardServiceListDashboardFoldersResponse](../../models/dashboardservicelistdashboardfoldersresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## list_versions
+
+Version history
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_ListDashboardVersions" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboardVersions" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.list_versions()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceListDashboardVersionsResponse](../../models/dashboardservicelistdashboardversionsresponse.md)**
 
 ### Errors
 
@@ -256,6 +623,47 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## preview_config
+
+Config-managed dashboards: render a `.dashboard` straight from a patch ref before
+ it merges (ADR-0022). Runs as the file's run_as, gated on the previewer being
+ authorized for it; persists nothing.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_PreviewConfigDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/PreviewConfigDashboard" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.preview_config()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | git ref of the patch to preview from                                |
+| `dashboard_path`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Library path of the .dashboard file                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServicePreviewConfigDashboardResponse](../../models/dashboardservicepreviewconfigdashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## publish
 
 Publishing workflow
@@ -333,6 +741,45 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## restore_dashboard_version
+
+RestoreDashboardVersion
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_RestoreDashboardVersion" method="post" path="/textql.rpc.public.dashboard.DashboardService/RestoreDashboardVersion" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.restore_dashboard_version()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `version_number`                                                    | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceRestoreDashboardVersionResponse](../../models/dashboardservicerestoredashboardversionresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## run_scheduled_dashboard
 
 RunScheduledDashboard
@@ -364,6 +811,173 @@ with TextQL() as text_ql:
 ### Response
 
 **[models.DashboardServiceRunScheduledDashboardResponse](../../models/dashboardservicerunscheduleddashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## spawn
+
+Dashboard execution
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_SpawnDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/SpawnDashboard" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.spawn()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                          | *Optional[float]*                                                             | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `dashboard_id`                                                                | *Optional[str]*                                                               | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `force_restart`                                                               | *Optional[bool]*                                                              | :heavy_minus_sign:                                                            | Force restart even if already running                                         |
+| `refresh_data_only`                                                           | *Optional[bool]*                                                              | :heavy_minus_sign:                                                            | Re-fetch data sources and reload without restarting the app                   |
+| `refresh_source_names`                                                        | List[*str*]                                                                   | :heavy_minus_sign:                                                            | If non-empty with refresh_data_only, only refresh these sources by name       |
+| `refresh_code_only`                                                           | *Optional[bool]*                                                              | :heavy_minus_sign:                                                            | Update code in-place via Streamlit's runOnSave without restarting the process |
+| `retries`                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                            | Configuration to override the default retry behavior of the client.           |
+
+### Response
+
+**[models.DashboardServiceSpawnDashboardResponse](../../models/dashboardservicespawndashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_dashboard
+
+UpdateDashboard
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboard" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.update_dashboard()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                                  | *Optional[float]*                                                                                                     | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `dashboard_id`                                                                                                        | *Optional[str]*                                                                                                       | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `name`                                                                                                                | *OptionalNullable[str]*                                                                                               | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `description`                                                                                                         | *OptionalNullable[str]*                                                                                               | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `code`                                                                                                                | *OptionalNullable[str]*                                                                                               | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `type`                                                                                                                | [Optional[models.TextqlRPCPublicDashboardDashboardType]](../../models/textqlrpcpublicdashboarddashboardtype.md)       | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `html_url`                                                                                                            | *OptionalNullable[str]*                                                                                               | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `data_sources`                                                                                                        | [Optional[models.TextqlRPCPublicDashboardDataSourcesPatch]](../../models/textqlrpcpublicdashboarddatasourcespatch.md) | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `retries`                                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                      | :heavy_minus_sign:                                                                                                    | Configuration to override the default retry behavior of the client.                                                   |
+
+### Response
+
+**[models.DashboardServiceUpdateDashboardResponse](../../models/dashboardserviceupdatedashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_dashboard_folder
+
+UpdateDashboardFolder
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboardFolder" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.update_dashboard_folder()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `folder_id`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `parent_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Move folder to different parent (empty string = move to root)       |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.DashboardServiceUpdateDashboardFolderResponse](../../models/dashboardserviceupdatedashboardfolderresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_dashboard_schedule
+
+Scheduling
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboardSchedule" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboardSchedule" -->
+```python
+from textql_sdk import TextQL
+
+
+with TextQL() as text_ql:
+
+    res = text_ql.dashboards.update_dashboard_schedule()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                  | *Optional[float]*                                                                                     | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `dashboard_id`                                                                                        | *Optional[str]*                                                                                       | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `schedule_enabled`                                                                                    | *Optional[bool]*                                                                                      | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `cron_string`                                                                                         | *OptionalNullable[str]*                                                                               | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `data_sources`                                                                                        | List[[models.TextqlRPCPublicDashboardDataSource](../../models/textqlrpcpublicdashboarddatasource.md)] | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `retries`                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                      | :heavy_minus_sign:                                                                                    | Configuration to override the default retry behavior of the client.                                   |
+
+### Response
+
+**[models.DashboardServiceUpdateDashboardScheduleResponse](../../models/dashboardserviceupdatedashboardscheduleresponse.md)**
 
 ### Errors
 
