@@ -30,12 +30,12 @@ CreateConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_CreateConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/CreateConnector" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.create()
+    res = textql.connectors.create()
 
     # Handle response
     print(res)
@@ -71,12 +71,12 @@ DeleteConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_DeleteConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/DeleteConnector" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.delete()
+    res = textql.connectors.delete()
 
     # Handle response
     print(res)
@@ -109,12 +109,12 @@ DuplicateConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_DuplicateConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/DuplicateConnector" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.duplicate_connector()
+    res = textql.connectors.duplicate_connector()
 
     # Handle response
     print(res)
@@ -147,12 +147,12 @@ ExecuteQuery
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_ExecuteQuery" method="post" path="/textql.rpc.public.connector.ConnectorService/ExecuteQuery" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.execute_query()
+    res = textql.connectors.execute_query()
 
     # Handle response
     print(res)
@@ -187,12 +187,12 @@ GetConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnector" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get()
+    res = textql.connectors.get()
 
     # Handle response
     print(res)
@@ -225,12 +225,12 @@ GetConnectorCellDurations
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorCellDurations" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorCellDurations" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_connector_cell_durations()
+    res = textql.connectors.get_connector_cell_durations()
 
     # Handle response
     print(res)
@@ -266,12 +266,12 @@ GetConnectorChats
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorChats" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorChats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_chats()
+    res = textql.connectors.get_chats()
 
     # Handle response
     print(res)
@@ -304,12 +304,12 @@ GetConnectorDashboards
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorDashboards" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorDashboards" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_dashboards()
+    res = textql.connectors.get_dashboards()
 
     # Handle response
     print(res)
@@ -342,12 +342,12 @@ GetConnectorStats
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorStats" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorStats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_connector_stats()
+    res = textql.connectors.get_connector_stats()
 
     # Handle response
     print(res)
@@ -380,12 +380,12 @@ GetConnectorUsage
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectorUsage" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectorUsage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_usage()
+    res = textql.connectors.get_usage()
 
     # Handle response
     print(res)
@@ -419,12 +419,12 @@ GetConnectors
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetConnectors" method="post" path="/textql.rpc.public.connector.ConnectorService/GetConnectors" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_connectors(body={})
+    res = textql.connectors.get_connectors(body={})
 
     # Handle response
     print(res)
@@ -457,12 +457,12 @@ GetExampleQueries
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetExampleQueries" method="post" path="/textql.rpc.public.connector.ConnectorService/GetExampleQueries" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_example_queries()
+    res = textql.connectors.get_example_queries()
 
     # Handle response
     print(res)
@@ -496,12 +496,12 @@ GetTablePreview
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_GetTablePreview" method="post" path="/textql.rpc.public.connector.ConnectorService/GetTablePreview" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.get_table_preview()
+    res = textql.connectors.get_table_preview()
 
     # Handle response
     print(res)
@@ -538,12 +538,12 @@ ListConnectorTables
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_ListConnectorTables" method="post" path="/textql.rpc.public.connector.ConnectorService/ListConnectorTables" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.list_tables()
+    res = textql.connectors.list_tables()
 
     # Handle response
     print(res)
@@ -576,12 +576,12 @@ ListQueryTemplates
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_ListQueryTemplates" method="post" path="/textql.rpc.public.connector.ConnectorService/ListQueryTemplates" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.list_query_templates()
+    res = textql.connectors.list_query_templates()
 
     # Handle response
     print(res)
@@ -617,12 +617,12 @@ TestConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_TestConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/TestConnector" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.test()
+    res = textql.connectors.test()
 
     # Handle response
     print(res)
@@ -656,12 +656,12 @@ UpdateConnector
 
 <!-- UsageSnippet language="python" operationID="ConnectorService_UpdateConnector" method="post" path="/textql.rpc.public.connector.ConnectorService/UpdateConnector" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.connectors.update()
+    res = textql.connectors.update()
 
     # Handle response
     print(res)

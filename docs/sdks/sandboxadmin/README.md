@@ -22,12 +22,12 @@ GetSandbox
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_GetSandbox" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/GetSandbox" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.get_sandbox()
+    res = textql.sandbox_admin.get_sandbox()
 
     # Handle response
     print(res)
@@ -61,12 +61,12 @@ Outbound HTTP(S) calls a sandbox made (the egress ledger). Durable — reads
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxEgress" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxEgress" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.list_sandbox_egress()
+    res = textql.sandbox_admin.list_sandbox_egress()
 
     # Handle response
     print(res)
@@ -100,12 +100,12 @@ ListSandboxExecutions
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxExecutions" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxExecutions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.list_executions()
+    res = textql.sandbox_admin.list_executions()
 
     # Handle response
     print(res)
@@ -141,12 +141,12 @@ Live filesystem of a running sandbox. Both are NO-OP (read-only) and only
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxFiles" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxFiles" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.list_sandbox_files()
+    res = textql.sandbox_admin.list_sandbox_files()
 
     # Handle response
     print(res)
@@ -182,12 +182,12 @@ Per-lease compute usage for a sandbox, computed from lease durations × the
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxSpend" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxSpend" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.list_sandbox_spend()
+    res = textql.sandbox_admin.list_sandbox_spend()
 
     # Handle response
     print(res)
@@ -220,12 +220,12 @@ ListSandboxes
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxes" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxes" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.list()
+    res = textql.sandbox_admin.list()
 
     # Handle response
     print(res)
@@ -260,12 +260,12 @@ ReadSandboxFile
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ReadSandboxFile" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ReadSandboxFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.read_file()
+    res = textql.sandbox_admin.read_file()
 
     # Handle response
     print(res)
@@ -301,12 +301,12 @@ Restart a stopped/reaped sandbox by re-acquiring a worker for the same
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_RestartSandbox" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/RestartSandbox" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.restart_sandbox()
+    res = textql.sandbox_admin.restart_sandbox()
 
     # Handle response
     print(res)
@@ -339,12 +339,12 @@ StopSandbox
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_StopSandbox" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/StopSandbox" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.sandbox_admin.stop()
+    res = textql.sandbox_admin.stop()
 
     # Handle response
     print(res)

@@ -26,12 +26,12 @@ Generate JWT token for embedding views
 
 <!-- UsageSnippet language="python" operationID="TableauService_GenerateEmbedToken" method="post" path="/textql.rpc.public.tableau.TableauService/GenerateEmbedToken" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.generate_embed_token()
+    res = textql.tableau.generate_embed_token()
 
     # Handle response
     print(res)
@@ -65,12 +65,12 @@ Get collection thumbnail (first view image)
 
 <!-- UsageSnippet language="python" operationID="TableauService_GetCollectionThumbnail" method="post" path="/textql.rpc.public.tableau.TableauService/GetCollectionThumbnail" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.get_collection_thumbnail()
+    res = textql.tableau.get_collection_thumbnail()
 
     # Handle response
     print(res)
@@ -103,12 +103,12 @@ GetConnectedAppStatus
 
 <!-- UsageSnippet language="python" operationID="TableauService_GetConnectedAppStatus" method="post" path="/textql.rpc.public.tableau.TableauService/GetConnectedAppStatus" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.get_connected_app_status()
+    res = textql.tableau.get_connected_app_status()
 
     # Handle response
     print(res)
@@ -141,12 +141,12 @@ GetStarredTableauItems
 
 <!-- UsageSnippet language="python" operationID="TableauService_GetStarredTableauItems" method="post" path="/textql.rpc.public.tableau.TableauService/GetStarredTableauItems" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.get_starred_items()
+    res = textql.tableau.get_starred_items()
 
     # Handle response
     print(res)
@@ -179,12 +179,12 @@ List Tableau datasources
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauDatasources" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauDatasources" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.list_tableau_datasources(body={
+    res = textql.tableau.list_tableau_datasources(body={
         "project_id": "<id>",
     })
 
@@ -219,12 +219,12 @@ List Tableau projects
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauProjects" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauProjects" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.list_projects()
+    res = textql.tableau.list_projects()
 
     # Handle response
     print(res)
@@ -257,12 +257,12 @@ List Tableau views
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauViews" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauViews" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.list_views()
+    res = textql.tableau.list_views()
 
     # Handle response
     print(res)
@@ -297,12 +297,12 @@ List Tableau workbooks
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauWorkbooks" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauWorkbooks" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.list_workbooks()
+    res = textql.tableau.list_workbooks()
 
     # Handle response
     print(res)
@@ -337,12 +337,12 @@ RefreshTableauCollection
 
 <!-- UsageSnippet language="python" operationID="TableauService_RefreshTableauCollection" method="post" path="/textql.rpc.public.tableau.TableauService/RefreshTableauCollection" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.refresh_collection()
+    res = textql.tableau.refresh_collection()
 
     # Handle response
     print(res)
@@ -375,12 +375,12 @@ ResetConnectedApp
 
 <!-- UsageSnippet language="python" operationID="TableauService_ResetConnectedApp" method="post" path="/textql.rpc.public.tableau.TableauService/ResetConnectedApp" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.reset_connected_app()
+    res = textql.tableau.reset_connected_app()
 
     # Handle response
     print(res)
@@ -413,12 +413,12 @@ Star/unstar items
 
 <!-- UsageSnippet language="python" operationID="TableauService_StarTableauItem" method="post" path="/textql.rpc.public.tableau.TableauService/StarTableauItem" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.star_item()
+    res = textql.tableau.star_item()
 
     # Handle response
     print(res)
@@ -454,12 +454,12 @@ Test a Tableau connection
 
 <!-- UsageSnippet language="python" operationID="TableauService_TestTableauConnection" method="post" path="/textql.rpc.public.tableau.TableauService/TestTableauConnection" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.test_tableau_connection()
+    res = textql.tableau.test_tableau_connection()
 
     # Handle response
     print(res)
@@ -496,12 +496,12 @@ UnstarTableauItem
 
 <!-- UsageSnippet language="python" operationID="TableauService_UnstarTableauItem" method="post" path="/textql.rpc.public.tableau.TableauService/UnstarTableauItem" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.tableau.unstar_tableau_item()
+    res = textql.tableau.unstar_tableau_item()
 
     # Handle response
     print(res)

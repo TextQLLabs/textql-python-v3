@@ -20,12 +20,12 @@ ClearOAuthToken
 
 <!-- UsageSnippet language="python" operationID="MCPService_ClearOAuthToken" method="post" path="/textql.rpc.public.mcp.MCPService/ClearOAuthToken" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.clear_o_auth_token()
+    res = textql.mcp.clear_o_auth_token()
 
     # Handle response
     print(res)
@@ -58,12 +58,12 @@ DeleteMCPServer
 
 <!-- UsageSnippet language="python" operationID="MCPService_DeleteMCPServer" method="post" path="/textql.rpc.public.mcp.MCPService/DeleteMCPServer" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.delete()
+    res = textql.mcp.delete()
 
     # Handle response
     print(res)
@@ -96,12 +96,12 @@ GetMCPServers
 
 <!-- UsageSnippet language="python" operationID="MCPService_GetMCPServers" method="post" path="/textql.rpc.public.mcp.MCPService/GetMCPServers" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.get_servers(body={})
+    res = textql.mcp.get_servers(body={})
 
     # Handle response
     print(res)
@@ -134,12 +134,12 @@ HandleOAuthCallback
 
 <!-- UsageSnippet language="python" operationID="MCPService_HandleOAuthCallback" method="post" path="/textql.rpc.public.mcp.MCPService/HandleOAuthCallback" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.handle_o_auth_callback()
+    res = textql.mcp.handle_o_auth_callback()
 
     # Handle response
     print(res)
@@ -174,12 +174,12 @@ InitiateOAuthFlow
 
 <!-- UsageSnippet language="python" operationID="MCPService_InitiateOAuthFlow" method="post" path="/textql.rpc.public.mcp.MCPService/InitiateOAuthFlow" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.initiate_o_auth_flow()
+    res = textql.mcp.initiate_o_auth_flow()
 
     # Handle response
     print(res)
@@ -212,12 +212,12 @@ ToggleMCPServer
 
 <!-- UsageSnippet language="python" operationID="MCPService_ToggleMCPServer" method="post" path="/textql.rpc.public.mcp.MCPService/ToggleMCPServer" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.toggle_server()
+    res = textql.mcp.toggle_server()
 
     # Handle response
     print(res)
@@ -250,13 +250,13 @@ UpsertMCPServers
 
 <!-- UsageSnippet language="python" operationID="MCPService_UpsertMCPServers" method="post" path="/textql.rpc.public.mcp.MCPService/UpsertMCPServers" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.mcp.upsert_mcp_servers(mcp_servers=[
+    res = textql.mcp.upsert_mcp_servers(mcp_servers=[
         {
             "sse_config": {},
             "created_at": parse_datetime("2023-01-15T01:30:15.01Z"),

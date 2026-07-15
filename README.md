@@ -94,9 +94,9 @@ It's also possible to write a standalone Python script without needing to set up
 # ]
 # ///
 
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
-sdk = TextQL(
+sdk = Textql(
   # SDK arguments
 )
 
@@ -124,12 +124,12 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.create()
+    res = textql.agents.create()
 
     # Handle response
     print(res)
@@ -142,13 +142,13 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 async def main():
 
-    async with TextQL() as text_ql:
+    async with Textql() as textql:
 
-        res = await text_ql.agents.create_async()
+        res = await textql.agents.create_async()
 
         # Handle response
         print(res)
@@ -638,13 +638,13 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agents.create(,
+    res = textql.agents.create(,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -654,15 +654,15 @@ with TextQL() as text_ql:
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
-with TextQL(
+with Textql(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-) as text_ql:
+) as textql:
 
-    res = text_ql.agents.create()
+    res = textql.agents.create()
 
     # Handle response
     print(res)
@@ -685,14 +685,14 @@ with TextQL(
 
 ### Example
 ```python
-from textql_sdk import TextQL, errors
+from textql_sdk import Textql, errors
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
     res = None
     try:
 
-        res = text_ql.agents.create()
+        res = textql.agents.create()
 
         # Handle response
         print(res)
@@ -735,14 +735,14 @@ with TextQL() as text_ql:
 
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL(
+with Textql(
     server_url="https://app.textql.com",
-) as text_ql:
+) as textql:
 
-    res = text_ql.agents.create()
+    res = textql.agents.create()
 
     # Handle response
     print(res)
@@ -759,16 +759,16 @@ This allows you to wrap the client with your own custom logic, such as adding cu
 
 For example, you could specify a header for every request that this sdk makes as follows:
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 import httpx
 
 http_client = httpx.Client(headers={"x-custom-header": "someValue"})
-s = TextQL(client=http_client)
+s = Textql(client=http_client)
 ```
 
 or you could wrap the client with your own custom logic:
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.httpclient import AsyncHttpClient
 import httpx
 
@@ -827,29 +827,29 @@ class CustomClient(AsyncHttpClient):
             extensions=extensions,
         )
 
-s = TextQL(async_client=CustomClient(httpx.AsyncClient()))
+s = Textql(async_client=CustomClient(httpx.AsyncClient()))
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
 <!-- Start Resource Management [resource-management] -->
 ## Resource Management
 
-The `TextQL` class implements the context manager protocol and registers a finalizer function to close the underlying sync and async HTTPX clients it uses under the hood. This will close HTTP connections, release memory and free up other resources held by the SDK. In short-lived Python programs and notebooks that make a few SDK method calls, resource management may not be a concern. However, in longer-lived programs, it is beneficial to create a single SDK instance via a [context manager][context-manager] and reuse it across the application.
+The `Textql` class implements the context manager protocol and registers a finalizer function to close the underlying sync and async HTTPX clients it uses under the hood. This will close HTTP connections, release memory and free up other resources held by the SDK. In short-lived Python programs and notebooks that make a few SDK method calls, resource management may not be a concern. However, in longer-lived programs, it is beneficial to create a single SDK instance via a [context manager][context-manager] and reuse it across the application.
 
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 def main():
 
-    with TextQL() as text_ql:
+    with Textql() as textql:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with TextQL() as text_ql:
+    async with Textql() as textql:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->
@@ -861,11 +861,11 @@ You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-s = TextQL(debug_logger=logging.getLogger("textql_sdk"))
+s = Textql(debug_logger=logging.getLogger("textql_sdk"))
 ```
 
 You can also enable a default debug logger by setting an environment variable `TEXTQL_DEBUG` to true.

@@ -83,12 +83,12 @@ AddLibrarySubmodule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_AddLibrarySubmodule" method="post" path="/textql.rpc.public.patches.LibraryService/AddLibrarySubmodule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.add_submodule()
+    res = textql.libraries.add_submodule()
 
     # Handle response
     print(res)
@@ -123,12 +123,12 @@ ApprovePatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ApprovePatch" method="post" path="/textql.rpc.public.patches.LibraryService/ApprovePatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.approve_patch()
+    res = textql.libraries.approve_patch()
 
     # Handle response
     print(res)
@@ -162,12 +162,12 @@ ConfigureLibraryRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ConfigureLibraryRemote" method="post" path="/textql.rpc.public.patches.LibraryService/ConfigureLibraryRemote" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.configure_library_remote()
+    res = textql.libraries.configure_library_remote()
 
     # Handle response
     print(res)
@@ -212,12 +212,12 @@ CreateApprovalRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateApprovalRule" method="post" path="/textql.rpc.public.patches.LibraryService/CreateApprovalRule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.create_approval_rule()
+    res = textql.libraries.create_approval_rule()
 
     # Handle response
     print(res)
@@ -250,12 +250,12 @@ CreateContextPatchAutoApproveRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateContextPatchAutoApproveRule" method="post" path="/textql.rpc.public.patches.LibraryService/CreateContextPatchAutoApproveRule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.create_context_patch_auto_approve_rule()
+    res = textql.libraries.create_context_patch_auto_approve_rule()
 
     # Handle response
     print(res)
@@ -288,12 +288,12 @@ CreateLibraryDirectory
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateLibraryDirectory" method="post" path="/textql.rpc.public.patches.LibraryService/CreateLibraryDirectory" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.create_library_directory()
+    res = textql.libraries.create_library_directory()
 
     # Handle response
     print(res)
@@ -327,12 +327,12 @@ CreateLibraryFileUploadUrl
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateLibraryFileUploadUrl" method="post" path="/textql.rpc.public.patches.LibraryService/CreateLibraryFileUploadUrl" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.create_file_upload_url()
+    res = textql.libraries.create_file_upload_url()
 
     # Handle response
     print(res)
@@ -367,12 +367,12 @@ DeleteApprovalRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteApprovalRule" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteApprovalRule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.delete_approval_rule()
+    res = textql.libraries.delete_approval_rule()
 
     # Handle response
     print(res)
@@ -405,12 +405,12 @@ DeleteContextPatchAutoApproveRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteContextPatchAutoApproveRule" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteContextPatchAutoApproveRule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.delete_context_patch_auto_approve_rule()
+    res = textql.libraries.delete_context_patch_auto_approve_rule()
 
     # Handle response
     print(res)
@@ -443,12 +443,12 @@ DeleteLibraryDirectory
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteLibraryDirectory" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteLibraryDirectory" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.delete_library_directory()
+    res = textql.libraries.delete_library_directory()
 
     # Handle response
     print(res)
@@ -483,12 +483,12 @@ DeleteLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteLibraryFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.delete_library_file()
+    res = textql.libraries.delete_library_file()
 
     # Handle response
     print(res)
@@ -522,12 +522,12 @@ DeleteLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteLibraryOwners" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.delete_owners()
+    res = textql.libraries.delete_owners()
 
     # Handle response
     print(res)
@@ -562,12 +562,12 @@ DenyPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DenyPatch" method="post" path="/textql.rpc.public.patches.LibraryService/DenyPatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.deny_patch()
+    res = textql.libraries.deny_patch()
 
     # Handle response
     print(res)
@@ -601,12 +601,12 @@ ExchangeLibraryGithubCode
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ExchangeLibraryGithubCode" method="post" path="/textql.rpc.public.patches.LibraryService/ExchangeLibraryGithubCode" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.exchange_github_code()
+    res = textql.libraries.exchange_github_code()
 
     # Handle response
     print(res)
@@ -641,12 +641,12 @@ FinalizeLibraryFileUpload
 
 <!-- UsageSnippet language="python" operationID="LibraryService_FinalizeLibraryFileUpload" method="post" path="/textql.rpc.public.patches.LibraryService/FinalizeLibraryFileUpload" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.finalize_file_upload()
+    res = textql.libraries.finalize_file_upload()
 
     # Handle response
     print(res)
@@ -681,12 +681,12 @@ GetCodeownerCoverage
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetCodeownerCoverage" method="post" path="/textql.rpc.public.patches.LibraryService/GetCodeownerCoverage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_codeowner_coverage(body={})
+    res = textql.libraries.get_codeowner_coverage(body={})
 
     # Handle response
     print(res)
@@ -719,12 +719,12 @@ GetConfigExportCapabilities
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetConfigExportCapabilities" method="post" path="/textql.rpc.public.patches.LibraryService/GetConfigExportCapabilities" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_config_export_capabilities(body={})
+    res = textql.libraries.get_config_export_capabilities(body={})
 
     # Handle response
     print(res)
@@ -757,12 +757,12 @@ GetEffectiveLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetEffectiveLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/GetEffectiveLibraryOwners" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_effective_owners()
+    res = textql.libraries.get_effective_owners()
 
     # Handle response
     print(res)
@@ -795,12 +795,12 @@ GetFileUsage
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetFileUsage" method="post" path="/textql.rpc.public.patches.LibraryService/GetFileUsage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_file_usage()
+    res = textql.libraries.get_file_usage()
 
     # Handle response
     print(res)
@@ -837,12 +837,12 @@ GetFileUsageTimeline
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetFileUsageTimeline" method="post" path="/textql.rpc.public.patches.LibraryService/GetFileUsageTimeline" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_file_usage_timeline()
+    res = textql.libraries.get_file_usage_timeline()
 
     # Handle response
     print(res)
@@ -876,12 +876,12 @@ GetLibraryAnaConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryAnaConfig" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryAnaConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_ana_config()
+    res = textql.libraries.get_ana_config()
 
     # Handle response
     print(res)
@@ -914,12 +914,12 @@ GetLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_file()
+    res = textql.libraries.get_file()
 
     # Handle response
     print(res)
@@ -952,12 +952,12 @@ GetLibraryGithubOAuthURL
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryGithubOAuthURL" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryGithubOAuthURL" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_library_github_o_auth_url()
+    res = textql.libraries.get_library_github_o_auth_url()
 
     # Handle response
     print(res)
@@ -991,12 +991,12 @@ GetLibraryHistoryFileDiff
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryHistoryFileDiff" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryHistoryFileDiff" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_history_file_diff()
+    res = textql.libraries.get_history_file_diff()
 
     # Handle response
     print(res)
@@ -1030,12 +1030,12 @@ GetLibraryMigrationStatus
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryMigrationStatus" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryMigrationStatus" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_migration_status(body={})
+    res = textql.libraries.get_migration_status(body={})
 
     # Handle response
     print(res)
@@ -1068,12 +1068,12 @@ GetLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryOwners" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_library_owners()
+    res = textql.libraries.get_library_owners()
 
     # Handle response
     print(res)
@@ -1106,12 +1106,12 @@ GetLibraryRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryRemote" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryRemote" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_remote(body={})
+    res = textql.libraries.get_remote(body={})
 
     # Handle response
     print(res)
@@ -1144,12 +1144,12 @@ GetLibrarySizeTimeline
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibrarySizeTimeline" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibrarySizeTimeline" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_size_timeline()
+    res = textql.libraries.get_size_timeline()
 
     # Handle response
     print(res)
@@ -1182,12 +1182,12 @@ GetLibrarySyncConflicts
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibrarySyncConflicts" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibrarySyncConflicts" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_library_sync_conflicts(body={})
+    res = textql.libraries.get_library_sync_conflicts(body={})
 
     # Handle response
     print(res)
@@ -1220,12 +1220,12 @@ GetOntologyUsageSummary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetOntologyUsageSummary" method="post" path="/textql.rpc.public.patches.LibraryService/GetOntologyUsageSummary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_ontology_usage_summary()
+    res = textql.libraries.get_ontology_usage_summary()
 
     # Handle response
     print(res)
@@ -1258,12 +1258,12 @@ GetPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetPatch" method="post" path="/textql.rpc.public.patches.LibraryService/GetPatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_patch()
+    res = textql.libraries.get_patch()
 
     # Handle response
     print(res)
@@ -1297,12 +1297,12 @@ GetPatchByNumber
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetPatchByNumber" method="post" path="/textql.rpc.public.patches.LibraryService/GetPatchByNumber" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_patch_by_number()
+    res = textql.libraries.get_patch_by_number()
 
     # Handle response
     print(res)
@@ -1335,12 +1335,12 @@ GetPatchCapabilities
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetPatchCapabilities" method="post" path="/textql.rpc.public.patches.LibraryService/GetPatchCapabilities" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_patch_capabilities()
+    res = textql.libraries.get_patch_capabilities()
 
     # Handle response
     print(res)
@@ -1373,12 +1373,12 @@ GetRawPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetRawPatch" method="post" path="/textql.rpc.public.patches.LibraryService/GetRawPatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_raw_patch()
+    res = textql.libraries.get_raw_patch()
 
     # Handle response
     print(res)
@@ -1411,12 +1411,12 @@ GetUsageDetailsForFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetUsageDetailsForFile" method="post" path="/textql.rpc.public.patches.LibraryService/GetUsageDetailsForFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.get_usage_details_for_file()
+    res = textql.libraries.get_usage_details_for_file()
 
     # Handle response
     print(res)
@@ -1450,12 +1450,12 @@ ListApprovalRules
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListApprovalRules" method="post" path="/textql.rpc.public.patches.LibraryService/ListApprovalRules" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_approval_rules(body={})
+    res = textql.libraries.list_approval_rules(body={})
 
     # Handle response
     print(res)
@@ -1488,12 +1488,12 @@ ListChatsForFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListChatsForFile" method="post" path="/textql.rpc.public.patches.LibraryService/ListChatsForFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_chats_for_file()
+    res = textql.libraries.list_chats_for_file()
 
     # Handle response
     print(res)
@@ -1528,12 +1528,12 @@ ListContextPatchAutoApproveRules
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListContextPatchAutoApproveRules" method="post" path="/textql.rpc.public.patches.LibraryService/ListContextPatchAutoApproveRules" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_context_patch_auto_approve_rules(body={})
+    res = textql.libraries.list_context_patch_auto_approve_rules(body={})
 
     # Handle response
     print(res)
@@ -1566,12 +1566,12 @@ ListLibraryEntries
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibraryEntries" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibraryEntries" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_library_entries()
+    res = textql.libraries.list_library_entries()
 
     # Handle response
     print(res)
@@ -1606,12 +1606,12 @@ ListLibraryHistory
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibraryHistory" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibraryHistory" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_library_history()
+    res = textql.libraries.list_library_history()
 
     # Handle response
     print(res)
@@ -1646,12 +1646,12 @@ ListLibraryImports
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibraryImports" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibraryImports" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_imports(body={})
+    res = textql.libraries.list_imports(body={})
 
     # Handle response
     print(res)
@@ -1684,12 +1684,12 @@ ListLibrarySubmodules
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibrarySubmodules" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibrarySubmodules" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_library_submodules(body={})
+    res = textql.libraries.list_library_submodules(body={})
 
     # Handle response
     print(res)
@@ -1722,12 +1722,12 @@ ListLibrarySyncRuns
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibrarySyncRuns" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibrarySyncRuns" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_library_sync_runs()
+    res = textql.libraries.list_library_sync_runs()
 
     # Handle response
     print(res)
@@ -1761,12 +1761,12 @@ ListPatchReviewers
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListPatchReviewers" method="post" path="/textql.rpc.public.patches.LibraryService/ListPatchReviewers" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_patch_reviewers()
+    res = textql.libraries.list_patch_reviewers()
 
     # Handle response
     print(res)
@@ -1799,12 +1799,12 @@ ListPatches
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListPatches" method="post" path="/textql.rpc.public.patches.LibraryService/ListPatches" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_patches()
+    res = textql.libraries.list_patches()
 
     # Handle response
     print(res)
@@ -1842,12 +1842,12 @@ Lists the skills under the library's flat skills/ root that the caller can
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListSkills" method="post" path="/textql.rpc.public.patches.LibraryService/ListSkills" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.list_skills(body={})
+    res = textql.libraries.list_skills(body={})
 
     # Handle response
     print(res)
@@ -1880,12 +1880,12 @@ MigrateLegacyContextToLibrary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_MigrateLegacyContextToLibrary" method="post" path="/textql.rpc.public.patches.LibraryService/MigrateLegacyContextToLibrary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.migrate_legacy_context()
+    res = textql.libraries.migrate_legacy_context()
 
     # Handle response
     print(res)
@@ -1919,12 +1919,12 @@ MigrateOntologyToLibrary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_MigrateOntologyToLibrary" method="post" path="/textql.rpc.public.patches.LibraryService/MigrateOntologyToLibrary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.migrate_ontology()
+    res = textql.libraries.migrate_ontology()
 
     # Handle response
     print(res)
@@ -1958,12 +1958,12 @@ PlanLibraryMerge
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PlanLibraryMerge" method="post" path="/textql.rpc.public.patches.LibraryService/PlanLibraryMerge" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.plan_merge(body={})
+    res = textql.libraries.plan_merge(body={})
 
     # Handle response
     print(res)
@@ -1996,12 +1996,12 @@ PreviewLibraryPullFromRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PreviewLibraryPullFromRemote" method="post" path="/textql.rpc.public.patches.LibraryService/PreviewLibraryPullFromRemote" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.preview_library_pull_from_remote(body={})
+    res = textql.libraries.preview_library_pull_from_remote(body={})
 
     # Handle response
     print(res)
@@ -2034,12 +2034,12 @@ PullLibraryFromRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PullLibraryFromRemote" method="post" path="/textql.rpc.public.patches.LibraryService/PullLibraryFromRemote" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.pull_from_remote()
+    res = textql.libraries.pull_from_remote()
 
     # Handle response
     print(res)
@@ -2074,12 +2074,12 @@ PushLibraryToRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PushLibraryToRemote" method="post" path="/textql.rpc.public.patches.LibraryService/PushLibraryToRemote" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.push_library_to_remote(body={})
+    res = textql.libraries.push_library_to_remote(body={})
 
     # Handle response
     print(res)
@@ -2112,12 +2112,12 @@ RecoverLibrary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RecoverLibrary" method="post" path="/textql.rpc.public.patches.LibraryService/RecoverLibrary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.recover()
+    res = textql.libraries.recover()
 
     # Handle response
     print(res)
@@ -2150,12 +2150,12 @@ RemoveLibraryRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RemoveLibraryRemote" method="post" path="/textql.rpc.public.patches.LibraryService/RemoveLibraryRemote" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.remove_remote(body={})
+    res = textql.libraries.remove_remote(body={})
 
     # Handle response
     print(res)
@@ -2188,12 +2188,12 @@ RemoveLibrarySubmodule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RemoveLibrarySubmodule" method="post" path="/textql.rpc.public.patches.LibraryService/RemoveLibrarySubmodule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.remove_library_submodule()
+    res = textql.libraries.remove_library_submodule()
 
     # Handle response
     print(res)
@@ -2226,12 +2226,12 @@ RenameLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RenameLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/RenameLibraryFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.rename_file()
+    res = textql.libraries.rename_file()
 
     # Handle response
     print(res)
@@ -2266,12 +2266,12 @@ RequestPatchReview
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RequestPatchReview" method="post" path="/textql.rpc.public.patches.LibraryService/RequestPatchReview" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.request_patch_review()
+    res = textql.libraries.request_patch_review()
 
     # Handle response
     print(res)
@@ -2305,12 +2305,12 @@ ResolveLibrarySyncConflict
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ResolveLibrarySyncConflict" method="post" path="/textql.rpc.public.patches.LibraryService/ResolveLibrarySyncConflict" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.resolve_sync_conflict()
+    res = textql.libraries.resolve_sync_conflict()
 
     # Handle response
     print(res)
@@ -2344,12 +2344,12 @@ RestorePatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RestorePatch" method="post" path="/textql.rpc.public.patches.LibraryService/RestorePatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.restore_patch()
+    res = textql.libraries.restore_patch()
 
     # Handle response
     print(res)
@@ -2383,12 +2383,12 @@ RevertPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RevertPatch" method="post" path="/textql.rpc.public.patches.LibraryService/RevertPatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.revert_patch()
+    res = textql.libraries.revert_patch()
 
     # Handle response
     print(res)
@@ -2421,12 +2421,12 @@ SaveAllObjectsAsConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_SaveAllObjectsAsConfig" method="post" path="/textql.rpc.public.patches.LibraryService/SaveAllObjectsAsConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.save_all_objects_as_config()
+    res = textql.libraries.save_all_objects_as_config()
 
     # Handle response
     print(res)
@@ -2459,12 +2459,12 @@ SaveObjectAsConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_SaveObjectAsConfig" method="post" path="/textql.rpc.public.patches.LibraryService/SaveObjectAsConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.save_as_config()
+    res = textql.libraries.save_as_config()
 
     # Handle response
     print(res)
@@ -2501,12 +2501,12 @@ TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
 
 <!-- UsageSnippet language="python" operationID="LibraryService_TriggerConfigDriftReconcile" method="post" path="/textql.rpc.public.patches.LibraryService/TriggerConfigDriftReconcile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.trigger_config_drift_reconcile(body={})
+    res = textql.libraries.trigger_config_drift_reconcile(body={})
 
     # Handle response
     print(res)
@@ -2539,12 +2539,12 @@ UpdateApprovalRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpdateApprovalRule" method="post" path="/textql.rpc.public.patches.LibraryService/UpdateApprovalRule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.update_approval_rule()
+    res = textql.libraries.update_approval_rule()
 
     # Handle response
     print(res)
@@ -2578,12 +2578,12 @@ UpdateContextPatchAutoApproveRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpdateContextPatchAutoApproveRule" method="post" path="/textql.rpc.public.patches.LibraryService/UpdateContextPatchAutoApproveRule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.update_context_patch_auto_approve_rule()
+    res = textql.libraries.update_context_patch_auto_approve_rule()
 
     # Handle response
     print(res)
@@ -2617,12 +2617,12 @@ UpdateLibrarySyncConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpdateLibrarySyncConfig" method="post" path="/textql.rpc.public.patches.LibraryService/UpdateLibrarySyncConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.update_library_sync_config()
+    res = textql.libraries.update_library_sync_config()
 
     # Handle response
     print(res)
@@ -2656,12 +2656,12 @@ UpsertLibraryAnaConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpsertLibraryAnaConfig" method="post" path="/textql.rpc.public.patches.LibraryService/UpsertLibraryAnaConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.upsert_ana_config()
+    res = textql.libraries.upsert_ana_config()
 
     # Handle response
     print(res)
@@ -2697,12 +2697,12 @@ UpsertLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpsertLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/UpsertLibraryFile" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.upsert_library_file()
+    res = textql.libraries.upsert_library_file()
 
     # Handle response
     print(res)
@@ -2737,12 +2737,12 @@ UpsertLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpsertLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/UpsertLibraryOwners" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.upsert_owners()
+    res = textql.libraries.upsert_owners()
 
     # Handle response
     print(res)
@@ -2781,12 +2781,12 @@ Read-only functional validation of a proposed config: parse + dependency
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ValidateConfig" method="post" path="/textql.rpc.public.patches.LibraryService/ValidateConfig" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.libraries.validate_config()
+    res = textql.libraries.validate_config()
 
     # Handle response
     print(res)

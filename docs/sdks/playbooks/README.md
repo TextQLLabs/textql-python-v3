@@ -55,12 +55,12 @@ AttachDashboard
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_AttachDashboard" method="post" path="/textql.rpc.public.playbook.PlaybookService/AttachDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.attach_dashboard()
+    res = textql.playbooks.attach_dashboard()
 
     # Handle response
     print(res)
@@ -94,12 +94,12 @@ AttachDataset
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_AttachDataset" method="post" path="/textql.rpc.public.playbook.PlaybookService/AttachDataset" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.attach_dataset()
+    res = textql.playbooks.attach_dataset()
 
     # Handle response
     print(res)
@@ -133,12 +133,12 @@ Cancel template execution for a specific template header
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_CancelTemplateExecution" method="post" path="/textql.rpc.public.playbook.PlaybookService/CancelTemplateExecution" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.cancel_template_execution()
+    res = textql.playbooks.cancel_template_execution()
 
     # Handle response
     print(res)
@@ -172,12 +172,12 @@ CreatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_CreatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/CreatePlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.create_playbook(body={})
+    res = textql.playbooks.create_playbook(body={})
 
     # Handle response
     print(res)
@@ -210,12 +210,12 @@ DeactivatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DeactivatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DeactivatePlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.deactivate()
+    res = textql.playbooks.deactivate()
 
     # Handle response
     print(res)
@@ -248,12 +248,12 @@ DeletePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DeletePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DeletePlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.delete()
+    res = textql.playbooks.delete()
 
     # Handle response
     print(res)
@@ -286,12 +286,12 @@ DemoPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DemoPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DemoPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.demo_playbook()
+    res = textql.playbooks.demo_playbook()
 
     # Handle response
     print(res)
@@ -327,12 +327,12 @@ DeployPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DeployPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DeployPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.deploy()
+    res = textql.playbooks.deploy()
 
     # Handle response
     print(res)
@@ -365,12 +365,12 @@ DuplicatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DuplicatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DuplicatePlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.duplicate()
+    res = textql.playbooks.duplicate()
 
     # Handle response
     print(res)
@@ -403,12 +403,12 @@ Favorite report management
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_FavoriteReport" method="post" path="/textql.rpc.public.playbook.PlaybookService/FavoriteReport" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.favorite_report()
+    res = textql.playbooks.favorite_report()
 
     # Handle response
     print(res)
@@ -442,12 +442,12 @@ GetActiveSubscribedPlaybooksCount
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetActiveSubscribedPlaybooksCount" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetActiveSubscribedPlaybooksCount" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_active_subscribed_count(body={})
+    res = textql.playbooks.get_active_subscribed_count(body={})
 
     # Handle response
     print(res)
@@ -480,12 +480,12 @@ Lightweight endpoint for chat report drawer - returns summaries without full blo
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetChatReportsSummary" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetChatReportsSummary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_chat_reports_summary()
+    res = textql.playbooks.get_chat_reports_summary()
 
     # Handle response
     print(res)
@@ -518,12 +518,12 @@ GetMembersWithPlaybooks
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetMembersWithPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetMembersWithPlaybooks" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_members_with(body={})
+    res = textql.playbooks.get_members_with(body={})
 
     # Handle response
     print(res)
@@ -556,12 +556,12 @@ GetPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.fetch()
+    res = textql.playbooks.fetch()
 
     # Handle response
     print(res)
@@ -596,12 +596,12 @@ Get a specific batch run
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookBatchRun" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookBatchRun" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_batch_run()
+    res = textql.playbooks.get_batch_run()
 
     # Handle response
     print(res)
@@ -634,12 +634,12 @@ Playbook Extended quant.new operations
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookExtendedQn" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookExtendedQn" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_extended_qn()
+    res = textql.playbooks.get_extended_qn()
 
     # Handle response
     print(res)
@@ -672,12 +672,12 @@ GetPlaybookLineage
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookLineage" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookLineage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_playbook_lineage()
+    res = textql.playbooks.get_playbook_lineage()
 
     # Handle response
     print(res)
@@ -710,12 +710,12 @@ GetPlaybookReports
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookReports" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookReports" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_reports()
+    res = textql.playbooks.get_reports()
 
     # Handle response
     print(res)
@@ -753,12 +753,12 @@ Get reports for multiple template data IDs in a single batch request
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookReportsBatch" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookReportsBatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_playbook_reports_batch()
+    res = textql.playbooks.get_playbook_reports_batch()
 
     # Handle response
     print(res)
@@ -794,12 +794,12 @@ GetPlaybooks
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybooks" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get()
+    res = textql.playbooks.get()
 
     # Handle response
     print(res)
@@ -845,12 +845,12 @@ GetPlaybooksPreviews
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybooksPreviews" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybooksPreviews" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_playbooks_previews()
+    res = textql.playbooks.get_playbooks_previews()
 
     # Handle response
     print(res)
@@ -884,12 +884,12 @@ GetQNPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetQNPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetQNPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_qn_playbook()
+    res = textql.playbooks.get_qn_playbook()
 
     # Handle response
     print(res)
@@ -922,12 +922,12 @@ Get a single report by ID
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetReportById" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetReportById" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_report_by_id()
+    res = textql.playbooks.get_report_by_id()
 
     # Handle response
     print(res)
@@ -960,13 +960,13 @@ GetReportsWithFilters
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetReportsWithFilters" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetReportsWithFilters" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.get_reports_with_filters(filters={
+    res = textql.playbooks.get_reports_with_filters(filters={
         "start_time": parse_datetime("2023-01-15T01:30:15.01Z"),
         "end_time": parse_datetime("2023-01-15T01:30:15.01Z"),
     })
@@ -1002,12 +1002,12 @@ List all Slack channels context playbook mappings for the organization
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListAllSlackChannelContextPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListAllSlackChannelContextPlaybooks" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.list_slack_channel_context_playbooks(body={})
+    res = textql.playbooks.list_slack_channel_context_playbooks(body={})
 
     # Handle response
     print(res)
@@ -1040,12 +1040,12 @@ ListAllTeamsChannelContextPlaybooks
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListAllTeamsChannelContextPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListAllTeamsChannelContextPlaybooks" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.list_all_teams_channel_context_playbooks(body={})
+    res = textql.playbooks.list_all_teams_channel_context_playbooks(body={})
 
     # Handle response
     print(res)
@@ -1078,12 +1078,12 @@ List batch runs for a playbook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListPlaybookBatchRuns" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListPlaybookBatchRuns" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.list_batch_runs()
+    res = textql.playbooks.list_batch_runs()
 
     # Handle response
     print(res)
@@ -1118,12 +1118,12 @@ List Slack channel IDs where the given playbook is set as the context
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListSlackChannelsForContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListSlackChannelsForContextPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.list_slack_channels_for_context()
+    res = textql.playbooks.list_slack_channels_for_context()
 
     # Handle response
     print(res)
@@ -1156,12 +1156,12 @@ ListTeamsChannelsForContextPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListTeamsChannelsForContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListTeamsChannelsForContextPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.list_teams_channels_for_context_playbook()
+    res = textql.playbooks.list_teams_channels_for_context_playbook()
 
     # Handle response
     print(res)
@@ -1194,12 +1194,12 @@ Report read tracking
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_MarkReportAsRead" method="post" path="/textql.rpc.public.playbook.PlaybookService/MarkReportAsRead" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.mark_report_as_read()
+    res = textql.playbooks.mark_report_as_read()
 
     # Handle response
     print(res)
@@ -1232,12 +1232,12 @@ PreviewSlackReport
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_PreviewSlackReport" method="post" path="/textql.rpc.public.playbook.PlaybookService/PreviewSlackReport" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.preview_slack_report()
+    res = textql.playbooks.preview_slack_report()
 
     # Handle response
     print(res)
@@ -1273,12 +1273,12 @@ RemoveDashboard
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_RemoveDashboard" method="post" path="/textql.rpc.public.playbook.PlaybookService/RemoveDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.remove_dashboard()
+    res = textql.playbooks.remove_dashboard()
 
     # Handle response
     print(res)
@@ -1312,12 +1312,12 @@ RemoveDataset
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_RemoveDataset" method="post" path="/textql.rpc.public.playbook.PlaybookService/RemoveDataset" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.remove_dataset()
+    res = textql.playbooks.remove_dataset()
 
     # Handle response
     print(res)
@@ -1351,12 +1351,12 @@ RunPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_RunPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/RunPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.run()
+    res = textql.playbooks.run()
 
     # Handle response
     print(res)
@@ -1393,12 +1393,12 @@ Set the context playbook for a Slack channel. This associates the given
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_SetSlackChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/SetSlackChannelContextPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.set_slack_channel_context_playbook()
+    res = textql.playbooks.set_slack_channel_context_playbook()
 
     # Handle response
     print(res)
@@ -1432,12 +1432,12 @@ SetTeamsChannelContextPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_SetTeamsChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/SetTeamsChannelContextPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.set_teams_channel_context()
+    res = textql.playbooks.set_teams_channel_context()
 
     # Handle response
     print(res)
@@ -1471,12 +1471,12 @@ SubscribeToPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_SubscribeToPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/SubscribeToPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.subscribe()
+    res = textql.playbooks.subscribe()
 
     # Handle response
     print(res)
@@ -1510,12 +1510,12 @@ Unset the context playbook for a Slack channel. This clears any association
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UnsetSlackChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UnsetSlackChannelContextPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.unset_slack_channel_context_playbook()
+    res = textql.playbooks.unset_slack_channel_context_playbook()
 
     # Handle response
     print(res)
@@ -1548,12 +1548,12 @@ UnsetTeamsChannelContextPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UnsetTeamsChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UnsetTeamsChannelContextPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.unset_teams_channel_context()
+    res = textql.playbooks.unset_teams_channel_context()
 
     # Handle response
     print(res)
@@ -1586,12 +1586,12 @@ UnsubscribeFromPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UnsubscribeFromPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UnsubscribeFromPlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.unsubscribe()
+    res = textql.playbooks.unsubscribe()
 
     # Handle response
     print(res)
@@ -1624,12 +1624,12 @@ UpdatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UpdatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybook" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.update()
+    res = textql.playbooks.update()
 
     # Handle response
     print(res)
@@ -1690,12 +1690,12 @@ UpdatePlaybookExtendedQn
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UpdatePlaybookExtendedQn" method="post" path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybookExtendedQn" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.playbooks.update_extended_qn()
+    res = textql.playbooks.update_extended_qn()
 
     # Handle response
     print(res)

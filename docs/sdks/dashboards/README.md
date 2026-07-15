@@ -37,12 +37,12 @@ CheckDashboardHealth
 
 <!-- UsageSnippet language="python" operationID="DashboardService_CheckDashboardHealth" method="post" path="/textql.rpc.public.dashboard.DashboardService/CheckDashboardHealth" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.check_health()
+    res = textql.dashboards.check_health()
 
     # Handle response
     print(res)
@@ -75,12 +75,12 @@ CRUD operations
 
 <!-- UsageSnippet language="python" operationID="DashboardService_CreateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/CreateDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.create_dashboard()
+    res = textql.dashboards.create_dashboard()
 
     # Handle response
     print(res)
@@ -120,12 +120,12 @@ Folder management
 
 <!-- UsageSnippet language="python" operationID="DashboardService_CreateDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/CreateDashboardFolder" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.create_folder()
+    res = textql.dashboards.create_folder()
 
     # Handle response
     print(res)
@@ -159,12 +159,12 @@ DeleteDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DeleteDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/DeleteDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.delete()
+    res = textql.dashboards.delete()
 
     # Handle response
     print(res)
@@ -197,12 +197,12 @@ DeleteDashboardFolder
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DeleteDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/DeleteDashboardFolder" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.delete_folder()
+    res = textql.dashboards.delete_folder()
 
     # Handle response
     print(res)
@@ -235,12 +235,12 @@ DiscardDashboardChanges
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DiscardDashboardChanges" method="post" path="/textql.rpc.public.dashboard.DashboardService/DiscardDashboardChanges" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.discard_changes()
+    res = textql.dashboards.discard_changes()
 
     # Handle response
     print(res)
@@ -273,12 +273,12 @@ DuplicateDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_DuplicateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/DuplicateDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.duplicate()
+    res = textql.dashboards.duplicate()
 
     # Handle response
     print(res)
@@ -312,12 +312,12 @@ GetDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.get()
+    res = textql.dashboards.get()
 
     # Handle response
     print(res)
@@ -350,12 +350,12 @@ GetDashboardVersion
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetDashboardVersion" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboardVersion" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.get_version()
+    res = textql.dashboards.get_version()
 
     # Handle response
     print(res)
@@ -389,12 +389,12 @@ View analytics
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetDashboardViewStats" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetDashboardViewStats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.get_dashboard_view_stats()
+    res = textql.dashboards.get_dashboard_view_stats()
 
     # Handle response
     print(res)
@@ -427,12 +427,12 @@ Member management
 
 <!-- UsageSnippet language="python" operationID="DashboardService_GetMembersWithDashboards" method="post" path="/textql.rpc.public.dashboard.DashboardService/GetMembersWithDashboards" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.get_members_with_dashboards(body={})
+    res = textql.dashboards.get_members_with_dashboards(body={})
 
     # Handle response
     print(res)
@@ -465,12 +465,12 @@ ListDashboardFolders
 
 <!-- UsageSnippet language="python" operationID="DashboardService_ListDashboardFolders" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboardFolders" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.list_folders(body={})
+    res = textql.dashboards.list_folders(body={})
 
     # Handle response
     print(res)
@@ -503,12 +503,12 @@ Version history
 
 <!-- UsageSnippet language="python" operationID="DashboardService_ListDashboardVersions" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboardVersions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.list_versions()
+    res = textql.dashboards.list_versions()
 
     # Handle response
     print(res)
@@ -543,12 +543,12 @@ ListDashboards
 
 <!-- UsageSnippet language="python" operationID="DashboardService_ListDashboards" method="post" path="/textql.rpc.public.dashboard.DashboardService/ListDashboards" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.list()
+    res = textql.dashboards.list()
 
     # Handle response
     print(res)
@@ -592,12 +592,12 @@ MoveDashboardToFolder
 
 <!-- UsageSnippet language="python" operationID="DashboardService_MoveDashboardToFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/MoveDashboardToFolder" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.move_to_folder()
+    res = textql.dashboards.move_to_folder()
 
     # Handle response
     print(res)
@@ -633,12 +633,12 @@ Config-managed dashboards: render a `.dashboard` straight from a patch ref befor
 
 <!-- UsageSnippet language="python" operationID="DashboardService_PreviewConfigDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/PreviewConfigDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.preview_config()
+    res = textql.dashboards.preview_config()
 
     # Handle response
     print(res)
@@ -672,12 +672,12 @@ Publishing workflow
 
 <!-- UsageSnippet language="python" operationID="DashboardService_PublishDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/PublishDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.publish()
+    res = textql.dashboards.publish()
 
     # Handle response
     print(res)
@@ -711,12 +711,12 @@ Screenshot management
 
 <!-- UsageSnippet language="python" operationID="DashboardService_RegenerateScreenshot" method="post" path="/textql.rpc.public.dashboard.DashboardService/RegenerateScreenshot" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.regenerate_screenshot()
+    res = textql.dashboards.regenerate_screenshot()
 
     # Handle response
     print(res)
@@ -749,12 +749,12 @@ RestoreDashboardVersion
 
 <!-- UsageSnippet language="python" operationID="DashboardService_RestoreDashboardVersion" method="post" path="/textql.rpc.public.dashboard.DashboardService/RestoreDashboardVersion" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.restore_dashboard_version()
+    res = textql.dashboards.restore_dashboard_version()
 
     # Handle response
     print(res)
@@ -788,12 +788,12 @@ RunScheduledDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_RunScheduledDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/RunScheduledDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.run_scheduled_dashboard()
+    res = textql.dashboards.run_scheduled_dashboard()
 
     # Handle response
     print(res)
@@ -826,12 +826,12 @@ Dashboard execution
 
 <!-- UsageSnippet language="python" operationID="DashboardService_SpawnDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/SpawnDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.spawn()
+    res = textql.dashboards.spawn()
 
     # Handle response
     print(res)
@@ -868,12 +868,12 @@ UpdateDashboard
 
 <!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboard" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.update_dashboard()
+    res = textql.dashboards.update_dashboard()
 
     # Handle response
     print(res)
@@ -912,12 +912,12 @@ UpdateDashboardFolder
 
 <!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboardFolder" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboardFolder" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.update_dashboard_folder()
+    res = textql.dashboards.update_dashboard_folder()
 
     # Handle response
     print(res)
@@ -952,12 +952,12 @@ Scheduling
 
 <!-- UsageSnippet language="python" operationID="DashboardService_UpdateDashboardSchedule" method="post" path="/textql.rpc.public.dashboard.DashboardService/UpdateDashboardSchedule" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.dashboards.update_dashboard_schedule()
+    res = textql.dashboards.update_dashboard_schedule()
 
     # Handle response
     print(res)

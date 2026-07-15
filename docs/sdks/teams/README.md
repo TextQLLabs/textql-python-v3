@@ -21,12 +21,12 @@ CreateTeamsUuid
 
 <!-- UsageSnippet language="python" operationID="TeamsService_CreateTeamsUuid" method="post" path="/textql.rpc.public.teams.TeamsService/CreateTeamsUuid" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.create_uuid(body={})
+    res = textql.teams.create_uuid(body={})
 
     # Handle response
     print(res)
@@ -59,12 +59,12 @@ DeleteInstallation
 
 <!-- UsageSnippet language="python" operationID="TeamsService_DeleteInstallation" method="post" path="/textql.rpc.public.teams.TeamsService/DeleteInstallation" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.delete_installation()
+    res = textql.teams.delete_installation()
 
     # Handle response
     print(res)
@@ -97,12 +97,12 @@ GetCurrentUser
 
 <!-- UsageSnippet language="python" operationID="TeamsService_GetCurrentUser" method="post" path="/textql.rpc.public.teams.TeamsService/GetCurrentUser" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.get_current_user(body={})
+    res = textql.teams.get_current_user(body={})
 
     # Handle response
     print(res)
@@ -135,12 +135,12 @@ HandleTeamsOAuthCallback
 
 <!-- UsageSnippet language="python" operationID="TeamsService_HandleTeamsOAuthCallback" method="post" path="/textql.rpc.public.teams.TeamsService/HandleTeamsOAuthCallback" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.handle_o_auth_callback()
+    res = textql.teams.handle_o_auth_callback()
 
     # Handle response
     print(res)
@@ -174,12 +174,12 @@ ListChannels
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListChannels" method="post" path="/textql.rpc.public.teams.TeamsService/ListChannels" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.list(body={})
+    res = textql.teams.list(body={})
 
     # Handle response
     print(res)
@@ -212,12 +212,12 @@ ListInstallations
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListInstallations" method="post" path="/textql.rpc.public.teams.TeamsService/ListInstallations" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.list_installations(body={})
+    res = textql.teams.list_installations(body={})
 
     # Handle response
     print(res)
@@ -250,12 +250,12 @@ ListUsers
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListUsers" method="post" path="/textql.rpc.public.teams.TeamsService/ListUsers" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.list_users(body={})
+    res = textql.teams.list_users(body={})
 
     # Handle response
     print(res)
@@ -288,12 +288,12 @@ SyncWorkspace
 
 <!-- UsageSnippet language="python" operationID="TeamsService_SyncWorkspace" method="post" path="/textql.rpc.public.teams.TeamsService/SyncWorkspace" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.sync_workspace()
+    res = textql.teams.sync_workspace()
 
     # Handle response
     print(res)
