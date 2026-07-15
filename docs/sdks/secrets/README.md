@@ -5,9 +5,17 @@
 ### Available Operations
 
 * [create_api_revision](#create_api_revision) - CreateApiRevision
+* [delete_api_access_key](#delete_api_access_key) - DeleteApiAccessKey
 * [delete_api_revision](#delete_api_revision) - DeleteApiRevision
+* [delete_secret](#delete_secret) - DeleteSecret
+* [get_api_access_key](#get_api_access_key) - GetApiAccessKey
 * [get_members_with_secrets](#get_members_with_secrets) - GetMembersWithSecrets
+* [list_api_access_keys](#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](#list_api_providers) - ListApiProviders
+* [list_secrets](#list_secrets) - ListSecrets
+* [migrate_secret_to_api_connector](#migrate_secret_to_api_connector) - MigrateSecretToApiConnector
+* [put_secret](#put_secret) - PutSecret
+* [test_api_access_key](#test_api_access_key) - TestApiAccessKey
 * [update](#update) - UpdateSecret
 * [upsert_api_access_key](#upsert_api_access_key) - UpsertApiAccessKey
 
@@ -19,12 +27,12 @@ CreateApiRevision
 
 <!-- UsageSnippet language="python" operationID="SecretService_CreateApiRevision" method="post" path="/textql.rpc.public.secret.SecretService/CreateApiRevision" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.secrets.create_api_revision()
+    res = textql.secrets.create_api_revision()
 
     # Handle response
     print(res)
@@ -49,6 +57,44 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## delete_api_access_key
+
+DeleteApiAccessKey
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_DeleteApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/DeleteApiAccessKey" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.delete_api_access_key()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `id`                                                                | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SecretServiceDeleteAPIAccessKeyResponse](../../models/secretservicedeleteapiaccesskeyresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## delete_api_revision
 
 DeleteApiRevision
@@ -57,12 +103,12 @@ DeleteApiRevision
 
 <!-- UsageSnippet language="python" operationID="SecretService_DeleteApiRevision" method="post" path="/textql.rpc.public.secret.SecretService/DeleteApiRevision" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.secrets.delete_api_revision()
+    res = textql.secrets.delete_api_revision()
 
     # Handle response
     print(res)
@@ -87,6 +133,82 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## delete_secret
+
+DeleteSecret
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_DeleteSecret" method="post" path="/textql.rpc.public.secret.SecretService/DeleteSecret" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.delete_secret()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SecretServiceDeleteSecretResponse](../../models/secretservicedeletesecretresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_api_access_key
+
+GetApiAccessKey
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_GetApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/GetApiAccessKey" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.get_api_access_key()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `id`                                                                | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SecretServiceGetAPIAccessKeyResponse](../../models/secretservicegetapiaccesskeyresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## get_members_with_secrets
 
 GetMembersWithSecrets
@@ -95,12 +217,12 @@ GetMembersWithSecrets
 
 <!-- UsageSnippet language="python" operationID="SecretService_GetMembersWithSecrets" method="post" path="/textql.rpc.public.secret.SecretService/GetMembersWithSecrets" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.secrets.get_members_with_secrets(body={})
+    res = textql.secrets.get_members_with_secrets(body={})
 
     # Handle response
     print(res)
@@ -125,6 +247,44 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list_api_access_keys
+
+ListApiAccessKeys
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_ListApiAccessKeys" method="post" path="/textql.rpc.public.secret.SecretService/ListApiAccessKeys" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.list_api_access_keys(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                             | Type                                                                                                                  | Required                                                                                                              | Description                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                                | [models.TextqlRPCPublicSecretListAPIAccessKeysRequest](../../models/textqlrpcpublicsecretlistapiaccesskeysrequest.md) | :heavy_check_mark:                                                                                                    | N/A                                                                                                                   |
+| `connect_timeout_ms`                                                                                                  | *Optional[float]*                                                                                                     | :heavy_minus_sign:                                                                                                    | N/A                                                                                                                   |
+| `retries`                                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                      | :heavy_minus_sign:                                                                                                    | Configuration to override the default retry behavior of the client.                                                   |
+
+### Response
+
+**[models.SecretServiceListAPIAccessKeysResponse](../../models/secretservicelistapiaccesskeysresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## list_api_providers
 
 ListApiProviders
@@ -133,12 +293,12 @@ ListApiProviders
 
 <!-- UsageSnippet language="python" operationID="SecretService_ListApiProviders" method="post" path="/textql.rpc.public.secret.SecretService/ListApiProviders" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.secrets.list_api_providers(body={})
+    res = textql.secrets.list_api_providers(body={})
 
     # Handle response
     print(res)
@@ -163,6 +323,168 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list_secrets
+
+ListSecrets
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_ListSecrets" method="post" path="/textql.rpc.public.secret.SecretService/ListSecrets" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.list_secrets(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                    | [models.TextqlRPCPublicSecretListSecretsRequest](../../models/textqlrpcpublicsecretlistsecretsrequest.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
+| `connect_timeout_ms`                                                                                      | *Optional[float]*                                                                                         | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
+| `retries`                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                          | :heavy_minus_sign:                                                                                        | Configuration to override the default retry behavior of the client.                                       |
+
+### Response
+
+**[models.SecretServiceListSecretsResponse](../../models/secretservicelistsecretsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## migrate_secret_to_api_connector
+
+MigrateSecretToApiConnector
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_MigrateSecretToApiConnector" method="post" path="/textql.rpc.public.secret.SecretService/MigrateSecretToApiConnector" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.migrate_secret_to_api_connector()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                       | *Optional[float]*                                                          | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `secret_name`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `api_access_key_id`                                                        | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | empty = create new API connector                                           |
+| `header_name`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `hosts`                                                                    | List[*str*]                                                                | :heavy_minus_sign:                                                         | Fields used when creating a new API connector (api_access_key_id is empty) |
+| `description`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `value_prefix`                                                             | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | e.g. "Bearer ", prepended to the secret value                              |
+| `name`                                                                     | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | display name for the new API connector                                     |
+| `retries`                                                                  | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)           | :heavy_minus_sign:                                                         | Configuration to override the default retry behavior of the client.        |
+
+### Response
+
+**[models.SecretServiceMigrateSecretToAPIConnectorResponse](../../models/secretservicemigratesecrettoapiconnectorresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## put_secret
+
+PutSecret
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_PutSecret" method="post" path="/textql.rpc.public.secret.SecretService/PutSecret" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.put_secret()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `value`                                                             | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `description`                                                       | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `link`                                                              | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `is_private`                                                        | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SecretServicePutSecretResponse](../../models/secretserviceputsecretresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## test_api_access_key
+
+TestApiAccessKey
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SecretService_TestApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/TestApiAccessKey" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.secrets.test_api_access_key()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                               | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                    | *Optional[float]*                                                                                       | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `ref`                                                                                                   | [Optional[models.TextqlRPCPublicSecretAPIAccessRef]](../../models/textqlrpcpublicsecretapiaccessref.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `retries`                                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                        | :heavy_minus_sign:                                                                                      | Configuration to override the default retry behavior of the client.                                     |
+
+### Response
+
+**[models.SecretServiceTestAPIAccessKeyResponse](../../models/secretservicetestapiaccesskeyresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## update
 
 UpdateSecret
@@ -171,12 +493,12 @@ UpdateSecret
 
 <!-- UsageSnippet language="python" operationID="SecretService_UpdateSecret" method="post" path="/textql.rpc.public.secret.SecretService/UpdateSecret" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.secrets.update()
+    res = textql.secrets.update()
 
     # Handle response
     print(res)
@@ -212,13 +534,13 @@ UpsertApiAccessKey
 
 <!-- UsageSnippet language="python" operationID="SecretService_UpsertApiAccessKey" method="post" path="/textql.rpc.public.secret.SecretService/UpsertApiAccessKey" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.secrets.upsert_api_access_key(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
+    res = textql.secrets.upsert_api_access_key(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
 
     # Handle response
     print(res)

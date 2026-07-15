@@ -16,258 +16,77 @@ import weakref
 
 if TYPE_CHECKING:
     from textql_sdk.agents import Agents
-    from textql_sdk.agentservice import AgentService
-    from textql_sdk.agentservices import AgentServices
     from textql_sdk.apps import Apps
-    from textql_sdk.appservice import AppService
-    from textql_sdk.appservices import AppServices
     from textql_sdk.auditlogs import AuditLogs
-    from textql_sdk.auditlogservice import AuditLogService
-    from textql_sdk.channels import Channels
-    from textql_sdk.chat import Chat
     from textql_sdk.chats import Chats
-    from textql_sdk.chatservice import ChatService
-    from textql_sdk.chatservices import ChatServices
-    from textql_sdk.connector import Connector
     from textql_sdk.connectors import Connectors
-    from textql_sdk.connectorservice import ConnectorService
-    from textql_sdk.connectorservices import ConnectorServices
     from textql_sdk.dashboards import Dashboards
-    from textql_sdk.dashboardservice import DashboardService
-    from textql_sdk.dashboardservices import DashboardServices
     from textql_sdk.datasets import Datasets
-    from textql_sdk.datasetservice import DatasetService
-    from textql_sdk.datasetservices import DatasetServices
     from textql_sdk.libraries import Libraries
-    from textql_sdk.library import Library
-    from textql_sdk.libraryservice import LibraryService
-    from textql_sdk.libraryservices import LibraryServices
     from textql_sdk.mcp import Mcp
-    from textql_sdk.mcps import Mcps
-    from textql_sdk.mcpservers import McpServers
-    from textql_sdk.mcpservice import McpService
-    from textql_sdk.mcpservices import McpServices
     from textql_sdk.metricsexports import MetricsExports
-    from textql_sdk.metricsexportservice import MetricsExportService
-    from textql_sdk.metricsexportservices import MetricsExportServices
-    from textql_sdk.observabilities import Observabilities
     from textql_sdk.observability import Observability
-    from textql_sdk.observabilityservice import ObservabilityService
-    from textql_sdk.observabilityservices import ObservabilityServices
     from textql_sdk.playbooks import Playbooks
-    from textql_sdk.playbookservice import PlaybookService
-    from textql_sdk.playbookservices import PlaybookServices
-    from textql_sdk.powerbi_sdk_1 import PowerbiSDK1
-    from textql_sdk.powerbi_sdk_2 import PowerBiSDK2
-    from textql_sdk.powerbidatasets import PowerbiDatasets
-    from textql_sdk.powerbiservice import PowerBiService
-    from textql_sdk.powerbiservices import PowerBiServices
+    from textql_sdk.powerbi_sdk import PowerbiSDK
     from textql_sdk.rbac import Rbac
-    from textql_sdk.rbacs import Rbacs
-    from textql_sdk.rbacservice import RbacService
-    from textql_sdk.rbacservices import RbacServices
+    from textql_sdk.sandbox import Sandbox
     from textql_sdk.sandboxadmin import SandboxAdmin
-    from textql_sdk.sandboxadmins import SandboxAdmins
-    from textql_sdk.sandboxadminservice import SandboxAdminService
-    from textql_sdk.sandboxadminservices import SandboxAdminServices
-    from textql_sdk.sandboxes import Sandboxes
-    from textql_sdk.sandboxqueryservice import SandboxQueryService
-    from textql_sdk.scimservice import ScimService
-    from textql_sdk.scimservices import ScimServices
-    from textql_sdk.scimtokens import ScimTokens
+    from textql_sdk.scim import Scim
     from textql_sdk.secrets import Secrets
-    from textql_sdk.secretservice import SecretService
-    from textql_sdk.secretservices import SecretServices
     from textql_sdk.slack import Slack
-    from textql_sdk.slackservice import SlackService
-    from textql_sdk.slackservices import SlackServices
     from textql_sdk.tableau_sdk import TableauSDK
-    from textql_sdk.tableaus import Tableaus
-    from textql_sdk.tableauservice import TableauService
-    from textql_sdk.tableauservices import TableauServices
     from textql_sdk.teams import Teams
-    from textql_sdk.teamsservice import TeamsService
-    from textql_sdk.topics import Topics
 
 
-class TextQL(BaseSDK):
+class Textql(BaseSDK):
     r"""TextQL API: TextQL public API. Generated from protobuf service definitions; internal
     endpoints are excluded via google.api.visibility / file_visibility.
 
     """
 
-    agent_services: "AgentServices"
     agents: "Agents"
-    agent_service: "AgentService"
-    app_service: "AppService"
-    r"""AppService manages data apps: the generative app execution primitive.
-    An app is agent-authored single-file HTML/JS/CSS executing in a CSP sandbox,
-    fed a snapshot of its declared data sources. First-class resource, not a dashboard.
-    """
-    app_services: "AppServices"
     apps: "Apps"
     audit_logs: "AuditLogs"
-    audit_log_service: "AuditLogService"
-    chat: "Chat"
-    chat_services: "ChatServices"
     chats: "Chats"
-    chat_service: "ChatService"
-    connector_service: "ConnectorService"
     connectors: "Connectors"
-    connector_services: "ConnectorServices"
-    connector: "Connector"
-    dashboard_services: "DashboardServices"
-    dashboard_service: "DashboardService"
     dashboards: "Dashboards"
-    dataset_service: "DatasetService"
-    dataset_services: "DatasetServices"
     datasets: "Datasets"
-    mcps: "Mcps"
-    mcp_servers: "McpServers"
-    mcp_service: "McpService"
     mcp: "Mcp"
-    mcp_services: "McpServices"
     metrics_exports: "MetricsExports"
-    metrics_export_service: "MetricsExportService"
-    metrics_export_services: "MetricsExportServices"
-    observability_service: "ObservabilityService"
     observability: "Observability"
-    observability_services: "ObservabilityServices"
-    observabilities: "Observabilities"
-    topics: "Topics"
     libraries: "Libraries"
-    library_service: "LibraryService"
-    library_services: "LibraryServices"
-    library: "Library"
     playbooks: "Playbooks"
-    playbook_service: "PlaybookService"
-    playbook_services: "PlaybookServices"
-    power_bi_services: "PowerBiServices"
-    powerbi: "PowerbiSDK1"
-    power_bi: "PowerBiSDK2"
-    powerbi_datasets: "PowerbiDatasets"
-    power_bi_service: "PowerBiService"
+    powerbi: "PowerbiSDK"
     rbac: "Rbac"
-    rbac_services: "RbacServices"
-    rbac_service: "RbacService"
-    rbacs: "Rbacs"
-    sandbox_admins: "SandboxAdmins"
-    sandbox_admin_services: "SandboxAdminServices"
-    sandboxes: "Sandboxes"
-    sandbox_admin_service: "SandboxAdminService"
     sandbox_admin: "SandboxAdmin"
-    sandbox_query_service: "SandboxQueryService"
-    scim_services: "ScimServices"
-    scim_service: "ScimService"
-    scim_tokens: "ScimTokens"
+    sandbox: "Sandbox"
+    scim: "Scim"
     secrets: "Secrets"
-    secret_services: "SecretServices"
-    secret_service: "SecretService"
     slack: "Slack"
-    slack_services: "SlackServices"
-    slack_service: "SlackService"
     tableau: "TableauSDK"
-    tableau_services: "TableauServices"
-    tableaus: "Tableaus"
-    tableau_service: "TableauService"
     teams: "Teams"
-    channels: "Channels"
-    teams_service: "TeamsService"
     _sub_sdk_map = {
-        "agent_services": ("textql_sdk.agentservices", "AgentServices"),
         "agents": ("textql_sdk.agents", "Agents"),
-        "agent_service": ("textql_sdk.agentservice", "AgentService"),
-        "app_service": ("textql_sdk.appservice", "AppService"),
-        "app_services": ("textql_sdk.appservices", "AppServices"),
         "apps": ("textql_sdk.apps", "Apps"),
         "audit_logs": ("textql_sdk.auditlogs", "AuditLogs"),
-        "audit_log_service": ("textql_sdk.auditlogservice", "AuditLogService"),
-        "chat": ("textql_sdk.chat", "Chat"),
-        "chat_services": ("textql_sdk.chatservices", "ChatServices"),
         "chats": ("textql_sdk.chats", "Chats"),
-        "chat_service": ("textql_sdk.chatservice", "ChatService"),
-        "connector_service": ("textql_sdk.connectorservice", "ConnectorService"),
         "connectors": ("textql_sdk.connectors", "Connectors"),
-        "connector_services": ("textql_sdk.connectorservices", "ConnectorServices"),
-        "connector": ("textql_sdk.connector", "Connector"),
-        "dashboard_services": ("textql_sdk.dashboardservices", "DashboardServices"),
-        "dashboard_service": ("textql_sdk.dashboardservice", "DashboardService"),
         "dashboards": ("textql_sdk.dashboards", "Dashboards"),
-        "dataset_service": ("textql_sdk.datasetservice", "DatasetService"),
-        "dataset_services": ("textql_sdk.datasetservices", "DatasetServices"),
         "datasets": ("textql_sdk.datasets", "Datasets"),
-        "mcps": ("textql_sdk.mcps", "Mcps"),
-        "mcp_servers": ("textql_sdk.mcpservers", "McpServers"),
-        "mcp_service": ("textql_sdk.mcpservice", "McpService"),
         "mcp": ("textql_sdk.mcp", "Mcp"),
-        "mcp_services": ("textql_sdk.mcpservices", "McpServices"),
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
-        "metrics_export_service": (
-            "textql_sdk.metricsexportservice",
-            "MetricsExportService",
-        ),
-        "metrics_export_services": (
-            "textql_sdk.metricsexportservices",
-            "MetricsExportServices",
-        ),
-        "observability_service": (
-            "textql_sdk.observabilityservice",
-            "ObservabilityService",
-        ),
         "observability": ("textql_sdk.observability", "Observability"),
-        "observability_services": (
-            "textql_sdk.observabilityservices",
-            "ObservabilityServices",
-        ),
-        "observabilities": ("textql_sdk.observabilities", "Observabilities"),
-        "topics": ("textql_sdk.topics", "Topics"),
         "libraries": ("textql_sdk.libraries", "Libraries"),
-        "library_service": ("textql_sdk.libraryservice", "LibraryService"),
-        "library_services": ("textql_sdk.libraryservices", "LibraryServices"),
-        "library": ("textql_sdk.library", "Library"),
         "playbooks": ("textql_sdk.playbooks", "Playbooks"),
-        "playbook_service": ("textql_sdk.playbookservice", "PlaybookService"),
-        "playbook_services": ("textql_sdk.playbookservices", "PlaybookServices"),
-        "power_bi_services": ("textql_sdk.powerbiservices", "PowerBiServices"),
-        "powerbi": ("textql_sdk.powerbi_sdk_1", "PowerbiSDK1"),
-        "power_bi": ("textql_sdk.powerbi_sdk_2", "PowerBiSDK2"),
-        "powerbi_datasets": ("textql_sdk.powerbidatasets", "PowerbiDatasets"),
-        "power_bi_service": ("textql_sdk.powerbiservice", "PowerBiService"),
+        "powerbi": ("textql_sdk.powerbi_sdk", "PowerbiSDK"),
         "rbac": ("textql_sdk.rbac", "Rbac"),
-        "rbac_services": ("textql_sdk.rbacservices", "RbacServices"),
-        "rbac_service": ("textql_sdk.rbacservice", "RbacService"),
-        "rbacs": ("textql_sdk.rbacs", "Rbacs"),
-        "sandbox_admins": ("textql_sdk.sandboxadmins", "SandboxAdmins"),
-        "sandbox_admin_services": (
-            "textql_sdk.sandboxadminservices",
-            "SandboxAdminServices",
-        ),
-        "sandboxes": ("textql_sdk.sandboxes", "Sandboxes"),
-        "sandbox_admin_service": (
-            "textql_sdk.sandboxadminservice",
-            "SandboxAdminService",
-        ),
         "sandbox_admin": ("textql_sdk.sandboxadmin", "SandboxAdmin"),
-        "sandbox_query_service": (
-            "textql_sdk.sandboxqueryservice",
-            "SandboxQueryService",
-        ),
-        "scim_services": ("textql_sdk.scimservices", "ScimServices"),
-        "scim_service": ("textql_sdk.scimservice", "ScimService"),
-        "scim_tokens": ("textql_sdk.scimtokens", "ScimTokens"),
+        "sandbox": ("textql_sdk.sandbox", "Sandbox"),
+        "scim": ("textql_sdk.scim", "Scim"),
         "secrets": ("textql_sdk.secrets", "Secrets"),
-        "secret_services": ("textql_sdk.secretservices", "SecretServices"),
-        "secret_service": ("textql_sdk.secretservice", "SecretService"),
         "slack": ("textql_sdk.slack", "Slack"),
-        "slack_services": ("textql_sdk.slackservices", "SlackServices"),
-        "slack_service": ("textql_sdk.slackservice", "SlackService"),
         "tableau": ("textql_sdk.tableau_sdk", "TableauSDK"),
-        "tableau_services": ("textql_sdk.tableauservices", "TableauServices"),
-        "tableaus": ("textql_sdk.tableaus", "Tableaus"),
-        "tableau_service": ("textql_sdk.tableauservice", "TableauService"),
         "teams": ("textql_sdk.teams", "Teams"),
-        "channels": ("textql_sdk.channels", "Channels"),
-        "teams_service": ("textql_sdk.teamsservice", "TeamsService"),
     }
 
     def __init__(

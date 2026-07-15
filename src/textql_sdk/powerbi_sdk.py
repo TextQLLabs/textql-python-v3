@@ -8,65 +8,25 @@ from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
 
-class Agents(BaseSDK):
-    def create(
+class PowerbiSDK(BaseSDK):
+    def export_report_image(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        name: Optional[str] = None,
-        prompt: Optional[str] = None,
-        paradigm_options: Optional[
-            Union[
-                models.TextqlRPCPublicParadigmParadigmOptions,
-                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
-            ]
-        ] = None,
-        source_suggestion_id: Optional[str] = None,
-        slack_channel_id: OptionalNullable[str] = UNSET,
-        slack_dm_user_ids: Optional[Iterable[str]] = None,
-        skip_org_default_channel: Optional[bool] = None,
-        llm_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
-        fast_mode: OptionalNullable[bool] = UNSET,
-        is_stateful: OptionalNullable[bool] = UNSET,
-        posting_frequency_crons: Optional[Iterable[str]] = None,
-        email_recipient_member_ids: Optional[Iterable[str]] = None,
-        channel_ids: Optional[Iterable[str]] = None,
-        teams_channel_id: OptionalNullable[str] = UNSET,
-        teams_dm_user_aad_ids: Optional[Iterable[str]] = None,
-        slack_trigger: Optional[
-            Union[
-                models.TextqlRPCPublicAgentSlackAgentTrigger,
-                models.TextqlRPCPublicAgentSlackAgentTriggerTypedDict,
-            ]
-        ] = None,
-        posting_frequency_cadences: Optional[Iterable[str]] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        report_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceCreateAgentResponse:
-        r"""CreateAgent
+    ) -> models.PowerBIServiceExportPowerBIReportImageResponse:
+        r"""ExportPowerBIReportImage
 
         :param connect_timeout_ms:
-        :param name:
-        :param prompt:
-        :param paradigm_options:
-        :param source_suggestion_id:
-        :param slack_channel_id:
-        :param slack_dm_user_ids:
-        :param skip_org_default_channel:
-        :param llm_model:
-        :param fast_mode:
-        :param is_stateful:
-        :param posting_frequency_crons:
-        :param email_recipient_member_ids:
-        :param channel_ids:
-        :param teams_channel_id:
-        :param teams_dm_user_aad_ids:
-        :param slack_trigger:
-        :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
-            (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
-            cron the backend generates; \"\" (or an empty list) means exact.
+        :param connector_id:
+        :param workspace_id:
+        :param report_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -82,48 +42,18 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceCreateAgentRequest(
+        request = models.PowerBIServiceExportPowerBIReportImageRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentCreateAgentRequest(
-                name=name,
-                prompt=prompt,
-                paradigm_options=utils.get_pydantic_model(
-                    paradigm_options,
-                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
-                ),
-                source_suggestion_id=source_suggestion_id,
-                slack_channel_id=slack_channel_id,
-                slack_dm_user_ids=utils.unmarshal(
-                    slack_dm_user_ids, Optional[List[str]]
-                ),
-                skip_org_default_channel=skip_org_default_channel,
-                llm_model=llm_model,
-                fast_mode=fast_mode,
-                is_stateful=is_stateful,
-                posting_frequency_crons=utils.unmarshal(
-                    posting_frequency_crons, Optional[List[str]]
-                ),
-                email_recipient_member_ids=utils.unmarshal(
-                    email_recipient_member_ids, Optional[List[str]]
-                ),
-                channel_ids=utils.unmarshal(channel_ids, Optional[List[str]]),
-                teams_channel_id=teams_channel_id,
-                teams_dm_user_aad_ids=utils.unmarshal(
-                    teams_dm_user_aad_ids, Optional[List[str]]
-                ),
-                slack_trigger=utils.get_pydantic_model(
-                    slack_trigger,
-                    Optional[models.TextqlRPCPublicAgentSlackAgentTrigger],
-                ),
-                posting_frequency_cadences=utils.unmarshal(
-                    posting_frequency_cadences, Optional[List[str]]
-                ),
+            body=models.TextqlRPCPublicPowerbiExportPowerBIReportImageRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                report_id=report_id,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/CreateAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/ExportPowerBIReportImage",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -138,7 +68,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentCreateAgentRequest,
+                models.TextqlRPCPublicPowerbiExportPowerBIReportImageRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -156,10 +86,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_CreateAgent",
+                operation_id="PowerBIService_ExportPowerBIReportImage",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -169,7 +99,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentCreateAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiExportPowerBIReportImageResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -186,64 +116,24 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def create_async(
+    async def export_report_image_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        name: Optional[str] = None,
-        prompt: Optional[str] = None,
-        paradigm_options: Optional[
-            Union[
-                models.TextqlRPCPublicParadigmParadigmOptions,
-                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
-            ]
-        ] = None,
-        source_suggestion_id: Optional[str] = None,
-        slack_channel_id: OptionalNullable[str] = UNSET,
-        slack_dm_user_ids: Optional[Iterable[str]] = None,
-        skip_org_default_channel: Optional[bool] = None,
-        llm_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
-        fast_mode: OptionalNullable[bool] = UNSET,
-        is_stateful: OptionalNullable[bool] = UNSET,
-        posting_frequency_crons: Optional[Iterable[str]] = None,
-        email_recipient_member_ids: Optional[Iterable[str]] = None,
-        channel_ids: Optional[Iterable[str]] = None,
-        teams_channel_id: OptionalNullable[str] = UNSET,
-        teams_dm_user_aad_ids: Optional[Iterable[str]] = None,
-        slack_trigger: Optional[
-            Union[
-                models.TextqlRPCPublicAgentSlackAgentTrigger,
-                models.TextqlRPCPublicAgentSlackAgentTriggerTypedDict,
-            ]
-        ] = None,
-        posting_frequency_cadences: Optional[Iterable[str]] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        report_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceCreateAgentResponse:
-        r"""CreateAgent
+    ) -> models.PowerBIServiceExportPowerBIReportImageResponse:
+        r"""ExportPowerBIReportImage
 
         :param connect_timeout_ms:
-        :param name:
-        :param prompt:
-        :param paradigm_options:
-        :param source_suggestion_id:
-        :param slack_channel_id:
-        :param slack_dm_user_ids:
-        :param skip_org_default_channel:
-        :param llm_model:
-        :param fast_mode:
-        :param is_stateful:
-        :param posting_frequency_crons:
-        :param email_recipient_member_ids:
-        :param channel_ids:
-        :param teams_channel_id:
-        :param teams_dm_user_aad_ids:
-        :param slack_trigger:
-        :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
-            (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
-            cron the backend generates; \"\" (or an empty list) means exact.
+        :param connector_id:
+        :param workspace_id:
+        :param report_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -259,48 +149,18 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceCreateAgentRequest(
+        request = models.PowerBIServiceExportPowerBIReportImageRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentCreateAgentRequest(
-                name=name,
-                prompt=prompt,
-                paradigm_options=utils.get_pydantic_model(
-                    paradigm_options,
-                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
-                ),
-                source_suggestion_id=source_suggestion_id,
-                slack_channel_id=slack_channel_id,
-                slack_dm_user_ids=utils.unmarshal(
-                    slack_dm_user_ids, Optional[List[str]]
-                ),
-                skip_org_default_channel=skip_org_default_channel,
-                llm_model=llm_model,
-                fast_mode=fast_mode,
-                is_stateful=is_stateful,
-                posting_frequency_crons=utils.unmarshal(
-                    posting_frequency_crons, Optional[List[str]]
-                ),
-                email_recipient_member_ids=utils.unmarshal(
-                    email_recipient_member_ids, Optional[List[str]]
-                ),
-                channel_ids=utils.unmarshal(channel_ids, Optional[List[str]]),
-                teams_channel_id=teams_channel_id,
-                teams_dm_user_aad_ids=utils.unmarshal(
-                    teams_dm_user_aad_ids, Optional[List[str]]
-                ),
-                slack_trigger=utils.get_pydantic_model(
-                    slack_trigger,
-                    Optional[models.TextqlRPCPublicAgentSlackAgentTrigger],
-                ),
-                posting_frequency_cadences=utils.unmarshal(
-                    posting_frequency_cadences, Optional[List[str]]
-                ),
+            body=models.TextqlRPCPublicPowerbiExportPowerBIReportImageRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                report_id=report_id,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/CreateAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/ExportPowerBIReportImage",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -315,7 +175,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentCreateAgentRequest,
+                models.TextqlRPCPublicPowerbiExportPowerBIReportImageRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -333,10 +193,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_CreateAgent",
+                operation_id="PowerBIService_ExportPowerBIReportImage",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -346,7 +206,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentCreateAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiExportPowerBIReportImageResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -363,20 +223,26 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def delete(
+    def generate_embed_token(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        report_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceDeleteAgentResponse:
-        r"""DeleteAgent
+    ) -> models.PowerBIServiceGeneratePowerBIEmbedTokenResponse:
+        r"""GeneratePowerBIEmbedToken
 
         :param connect_timeout_ms:
-        :param agent_id:
+        :param connector_id:
+        :param workspace_id:
+        :param report_id:
+        :param dataset_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -392,16 +258,19 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceDeleteAgentRequest(
+        request = models.PowerBIServiceGeneratePowerBIEmbedTokenRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentDeleteAgentRequest(
-                agent_id=agent_id,
+            body=models.TextqlRPCPublicPowerbiGeneratePowerBIEmbedTokenRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                report_id=report_id,
+                dataset_id=dataset_id,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/DeleteAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/GeneratePowerBIEmbedToken",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -416,7 +285,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentDeleteAgentRequest,
+                models.TextqlRPCPublicPowerbiGeneratePowerBIEmbedTokenRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -434,10 +303,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_DeleteAgent",
+                operation_id="PowerBIService_GeneratePowerBIEmbedToken",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -446,7 +315,9 @@ class Agents(BaseSDK):
         )
 
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.GoogleProtobufEmpty, http_res)
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPowerbiGeneratePowerBIEmbedTokenResponse, http_res
+            )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.TextqlDefaultError(
@@ -462,20 +333,26 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def delete_async(
+    async def generate_embed_token_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        report_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceDeleteAgentResponse:
-        r"""DeleteAgent
+    ) -> models.PowerBIServiceGeneratePowerBIEmbedTokenResponse:
+        r"""GeneratePowerBIEmbedToken
 
         :param connect_timeout_ms:
-        :param agent_id:
+        :param connector_id:
+        :param workspace_id:
+        :param report_id:
+        :param dataset_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -491,16 +368,19 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceDeleteAgentRequest(
+        request = models.PowerBIServiceGeneratePowerBIEmbedTokenRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentDeleteAgentRequest(
-                agent_id=agent_id,
+            body=models.TextqlRPCPublicPowerbiGeneratePowerBIEmbedTokenRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                report_id=report_id,
+                dataset_id=dataset_id,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/DeleteAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/GeneratePowerBIEmbedToken",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -515,7 +395,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentDeleteAgentRequest,
+                models.TextqlRPCPublicPowerbiGeneratePowerBIEmbedTokenRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -533,109 +413,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_DeleteAgent",
+                operation_id="PowerBIService_GeneratePowerBIEmbedToken",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.GoogleProtobufEmpty, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def duplicate(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceDuplicateAgentResponse:
-        r"""DuplicateAgent
-
-        :param connect_timeout_ms:
-        :param agent_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.AgentServiceDuplicateAgentRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentDuplicateAgentRequest(
-                agent_id=agent_id,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.agent.AgentService/DuplicateAgent",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicAgentDuplicateAgentRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="AgentService_DuplicateAgent",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -645,108 +426,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentDuplicateAgentResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def duplicate_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceDuplicateAgentResponse:
-        r"""DuplicateAgent
-
-        :param connect_timeout_ms:
-        :param agent_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.AgentServiceDuplicateAgentRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentDuplicateAgentRequest(
-                agent_id=agent_id,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.agent.AgentService/DuplicateAgent",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicAgentDuplicateAgentRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="AgentService_DuplicateAgent",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["AgentService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicAgentDuplicateAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiGeneratePowerBIEmbedTokenResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -763,432 +443,28 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def get_agent(
+    def get_dataset_preview(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceGetAgentResponse:
-        r"""GetAgent
-
-        :param connect_timeout_ms:
-        :param agent_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.AgentServiceGetAgentRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentGetAgentRequest(
-                agent_id=agent_id,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.agent.AgentService/GetAgent",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicAgentGetAgentRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="AgentService_GetAgent",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["AgentService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicAgentGetAgentResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def get_agent_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceGetAgentResponse:
-        r"""GetAgent
-
-        :param connect_timeout_ms:
-        :param agent_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.AgentServiceGetAgentRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentGetAgentRequest(
-                agent_id=agent_id,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.agent.AgentService/GetAgent",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicAgentGetAgentRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="AgentService_GetAgent",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["AgentService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicAgentGetAgentResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def get_run(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        run_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceGetAgentRunResponse:
-        r"""GetAgentRun
-
-        :param connect_timeout_ms:
-        :param run_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.AgentServiceGetAgentRunRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentGetAgentRunRequest(
-                run_id=run_id,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.agent.AgentService/GetAgentRun",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicAgentGetAgentRunRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="AgentService_GetAgentRun",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["AgentService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicAgentGetAgentRunResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def get_run_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        run_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceGetAgentRunResponse:
-        r"""GetAgentRun
-
-        :param connect_timeout_ms:
-        :param run_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.AgentServiceGetAgentRunRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentGetAgentRunRequest(
-                run_id=run_id,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.agent.AgentService/GetAgentRun",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicAgentGetAgentRunRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="AgentService_GetAgentRun",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["AgentService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicAgentGetAgentRunResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def list_runs(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        trigger_source: OptionalNullable[str] = UNSET,
-        status: OptionalNullable[str] = UNSET,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
+        dataset_name: Optional[str] = None,
         limit: Optional[int] = None,
-        offset: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceListAgentRunsResponse:
-        r"""ListAgentRuns
+    ) -> models.PowerBIServiceGetPowerBIDatasetPreviewResponse:
+        r"""GetPowerBIDatasetPreview
 
         :param connect_timeout_ms:
-        :param agent_id:
-        :param trigger_source:
-        :param status:
+        :param connector_id:
+        :param workspace_id:
+        :param dataset_id:
+        :param dataset_name:
         :param limit:
-        :param offset:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1204,20 +480,20 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceListAgentRunsRequest(
+        request = models.PowerBIServiceGetPowerBIDatasetPreviewRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentListAgentRunsRequest(
-                agent_id=agent_id,
-                trigger_source=trigger_source,
-                status=status,
+            body=models.TextqlRPCPublicPowerbiGetPowerBIDatasetPreviewRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                dataset_id=dataset_id,
+                dataset_name=dataset_name,
                 limit=limit,
-                offset=offset,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/ListAgentRuns",
+            path="/textql.rpc.public.powerbi.PowerBIService/GetPowerBIDatasetPreview",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1232,7 +508,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentListAgentRunsRequest,
+                models.TextqlRPCPublicPowerbiGetPowerBIDatasetPreviewRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1250,10 +526,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_ListAgentRuns",
+                operation_id="PowerBIService_GetPowerBIDatasetPreview",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1263,7 +539,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentListAgentRunsResponse, http_res
+                models.TextqlRPCPublicPowerbiGetPowerBIDatasetPreviewResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1280,28 +556,28 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def list_runs_async(
+    async def get_dataset_preview_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        trigger_source: OptionalNullable[str] = UNSET,
-        status: OptionalNullable[str] = UNSET,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
+        dataset_name: Optional[str] = None,
         limit: Optional[int] = None,
-        offset: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceListAgentRunsResponse:
-        r"""ListAgentRuns
+    ) -> models.PowerBIServiceGetPowerBIDatasetPreviewResponse:
+        r"""GetPowerBIDatasetPreview
 
         :param connect_timeout_ms:
-        :param agent_id:
-        :param trigger_source:
-        :param status:
+        :param connector_id:
+        :param workspace_id:
+        :param dataset_id:
+        :param dataset_name:
         :param limit:
-        :param offset:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1317,20 +593,20 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceListAgentRunsRequest(
+        request = models.PowerBIServiceGetPowerBIDatasetPreviewRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentListAgentRunsRequest(
-                agent_id=agent_id,
-                trigger_source=trigger_source,
-                status=status,
+            body=models.TextqlRPCPublicPowerbiGetPowerBIDatasetPreviewRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                dataset_id=dataset_id,
+                dataset_name=dataset_name,
                 limit=limit,
-                offset=offset,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/ListAgentRuns",
+            path="/textql.rpc.public.powerbi.PowerBIService/GetPowerBIDatasetPreview",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1345,7 +621,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentListAgentRunsRequest,
+                models.TextqlRPCPublicPowerbiGetPowerBIDatasetPreviewRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1363,10 +639,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_ListAgentRuns",
+                operation_id="PowerBIService_GetPowerBIDatasetPreview",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1376,7 +652,209 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentListAgentRunsResponse, http_res
+                models.TextqlRPCPublicPowerbiGetPowerBIDatasetPreviewResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_synced_items(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        connector_id: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PowerBIServiceGetSyncedPowerBIItemsResponse:
+        r"""GetSyncedPowerBIItems
+
+        :param connect_timeout_ms:
+        :param connector_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PowerBIServiceGetSyncedPowerBIItemsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPowerbiGetSyncedPowerBIItemsRequest(
+                connector_id=connector_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.powerbi.PowerBIService/GetSyncedPowerBIItems",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPowerbiGetSyncedPowerBIItemsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PowerBIService_GetSyncedPowerBIItems",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PowerBIService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPowerbiGetSyncedPowerBIItemsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_synced_items_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        connector_id: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PowerBIServiceGetSyncedPowerBIItemsResponse:
+        r"""GetSyncedPowerBIItems
+
+        :param connect_timeout_ms:
+        :param connector_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PowerBIServiceGetSyncedPowerBIItemsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPowerbiGetSyncedPowerBIItemsRequest(
+                connector_id=connector_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.powerbi.PowerBIService/GetSyncedPowerBIItems",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPowerbiGetSyncedPowerBIItemsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PowerBIService_GetSyncedPowerBIItems",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PowerBIService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPowerbiGetSyncedPowerBIItemsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1397,20 +875,18 @@ class Agents(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        include_inactive: Optional[bool] = None,
-        include_all_org: Optional[bool] = None,
-        days: Optional[int] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceListAgentsResponse:
-        r"""ListAgents
+    ) -> models.PowerBIServiceListPowerBIDatasetsResponse:
+        r"""ListPowerBIDatasets
 
         :param connect_timeout_ms:
-        :param include_inactive:
-        :param include_all_org:
-        :param days:
+        :param connector_id:
+        :param workspace_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1426,18 +902,17 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceListAgentsRequest(
+        request = models.PowerBIServiceListPowerBIDatasetsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentListAgentsRequest(
-                include_inactive=include_inactive,
-                include_all_org=include_all_org,
-                days=days,
+            body=models.TextqlRPCPublicPowerbiListPowerBIDatasetsRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/ListAgents",
+            path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIDatasets",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1452,7 +927,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentListAgentsRequest,
+                models.TextqlRPCPublicPowerbiListPowerBIDatasetsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1470,10 +945,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_ListAgents",
+                operation_id="PowerBIService_ListPowerBIDatasets",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1483,7 +958,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentListAgentsResponse, http_res
+                models.TextqlRPCPublicPowerbiListPowerBIDatasetsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1504,20 +979,18 @@ class Agents(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        include_inactive: Optional[bool] = None,
-        include_all_org: Optional[bool] = None,
-        days: Optional[int] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceListAgentsResponse:
-        r"""ListAgents
+    ) -> models.PowerBIServiceListPowerBIDatasetsResponse:
+        r"""ListPowerBIDatasets
 
         :param connect_timeout_ms:
-        :param include_inactive:
-        :param include_all_org:
-        :param days:
+        :param connector_id:
+        :param workspace_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1533,18 +1006,17 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceListAgentsRequest(
+        request = models.PowerBIServiceListPowerBIDatasetsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentListAgentsRequest(
-                include_inactive=include_inactive,
-                include_all_org=include_all_org,
-                days=days,
+            body=models.TextqlRPCPublicPowerbiListPowerBIDatasetsRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/ListAgents",
+            path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIDatasets",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1559,7 +1031,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentListAgentsRequest,
+                models.TextqlRPCPublicPowerbiListPowerBIDatasetsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1577,10 +1049,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_ListAgents",
+                operation_id="PowerBIService_ListPowerBIDatasets",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1590,7 +1062,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentListAgentsResponse, http_res
+                models.TextqlRPCPublicPowerbiListPowerBIDatasetsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1607,20 +1079,22 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def reset_agent_avatar(
+    def list_reports(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceResetAgentAvatarResponse:
-        r"""ResetAgentAvatar
+    ) -> models.PowerBIServiceListPowerBIReportsResponse:
+        r"""ListPowerBIReports
 
         :param connect_timeout_ms:
-        :param agent_id:
+        :param connector_id:
+        :param workspace_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1636,16 +1110,17 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceResetAgentAvatarRequest(
+        request = models.PowerBIServiceListPowerBIReportsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentResetAgentAvatarRequest(
-                agent_id=agent_id,
+            body=models.TextqlRPCPublicPowerbiListPowerBIReportsRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/ResetAgentAvatar",
+            path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIReports",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1660,7 +1135,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentResetAgentAvatarRequest,
+                models.TextqlRPCPublicPowerbiListPowerBIReportsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1678,10 +1153,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_ResetAgentAvatar",
+                operation_id="PowerBIService_ListPowerBIReports",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1691,7 +1166,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentResetAgentAvatarResponse, http_res
+                models.TextqlRPCPublicPowerbiListPowerBIReportsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1708,20 +1183,22 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def reset_agent_avatar_async(
+    async def list_reports_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceResetAgentAvatarResponse:
-        r"""ResetAgentAvatar
+    ) -> models.PowerBIServiceListPowerBIReportsResponse:
+        r"""ListPowerBIReports
 
         :param connect_timeout_ms:
-        :param agent_id:
+        :param connector_id:
+        :param workspace_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1737,16 +1214,17 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceResetAgentAvatarRequest(
+        request = models.PowerBIServiceListPowerBIReportsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentResetAgentAvatarRequest(
-                agent_id=agent_id,
+            body=models.TextqlRPCPublicPowerbiListPowerBIReportsRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/ResetAgentAvatar",
+            path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIReports",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1761,7 +1239,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentResetAgentAvatarRequest,
+                models.TextqlRPCPublicPowerbiListPowerBIReportsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1779,10 +1257,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_ResetAgentAvatar",
+                operation_id="PowerBIService_ListPowerBIReports",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1792,7 +1270,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentResetAgentAvatarResponse, http_res
+                models.TextqlRPCPublicPowerbiListPowerBIReportsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1809,20 +1287,20 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def trigger_agent(
+    def list_workspaces(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
+        connector_id: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceTriggerAgentResponse:
-        r"""TriggerAgent
+    ) -> models.PowerBIServiceListPowerBIWorkspacesResponse:
+        r"""ListPowerBIWorkspaces
 
         :param connect_timeout_ms:
-        :param agent_id:
+        :param connector_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1838,16 +1316,16 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceTriggerAgentRequest(
+        request = models.PowerBIServiceListPowerBIWorkspacesRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentTriggerAgentRequest(
-                agent_id=agent_id,
+            body=models.TextqlRPCPublicPowerbiListPowerBIWorkspacesRequest(
+                connector_id=connector_id,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/TriggerAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIWorkspaces",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1862,7 +1340,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentTriggerAgentRequest,
+                models.TextqlRPCPublicPowerbiListPowerBIWorkspacesRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1880,10 +1358,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_TriggerAgent",
+                operation_id="PowerBIService_ListPowerBIWorkspaces",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1893,7 +1371,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentTriggerAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiListPowerBIWorkspacesResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1910,20 +1388,20 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def trigger_agent_async(
+    async def list_workspaces_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
+        connector_id: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceTriggerAgentResponse:
-        r"""TriggerAgent
+    ) -> models.PowerBIServiceListPowerBIWorkspacesResponse:
+        r"""ListPowerBIWorkspaces
 
         :param connect_timeout_ms:
-        :param agent_id:
+        :param connector_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1939,16 +1417,16 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceTriggerAgentRequest(
+        request = models.PowerBIServiceListPowerBIWorkspacesRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentTriggerAgentRequest(
-                agent_id=agent_id,
+            body=models.TextqlRPCPublicPowerbiListPowerBIWorkspacesRequest(
+                connector_id=connector_id,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/TriggerAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/ListPowerBIWorkspaces",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1963,7 +1441,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentTriggerAgentRequest,
+                models.TextqlRPCPublicPowerbiListPowerBIWorkspacesRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1981,10 +1459,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_TriggerAgent",
+                operation_id="PowerBIService_ListPowerBIWorkspaces",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -1994,7 +1472,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentTriggerAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiListPowerBIWorkspacesResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -2011,70 +1489,38 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def update(
+    def sync_power_bi_items(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        name: Optional[str] = None,
-        prompt: Optional[str] = None,
-        is_active: Optional[bool] = None,
-        paradigm_options: Optional[
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        workspace_name: Optional[str] = None,
+        reports: Optional[
             Union[
-                models.TextqlRPCPublicParadigmParadigmOptions,
-                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIReport],
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIReportTypedDict],
             ]
         ] = None,
-        slack_channel_id: OptionalNullable[str] = UNSET,
-        slack_dm_user_ids: Optional[Iterable[str]] = None,
-        skip_org_default_channel: Optional[bool] = None,
-        llm_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
-        fast_mode: OptionalNullable[bool] = UNSET,
-        is_stateful: OptionalNullable[bool] = UNSET,
-        posting_frequency_crons: Optional[Iterable[str]] = None,
-        email_recipient_member_ids: Optional[Iterable[str]] = None,
-        update_email_recipients: OptionalNullable[bool] = UNSET,
-        channel_ids: Optional[Iterable[str]] = None,
-        update_channel_ids: OptionalNullable[bool] = UNSET,
-        teams_channel_id: OptionalNullable[str] = UNSET,
-        teams_dm_user_aad_ids: Optional[Iterable[str]] = None,
-        slack_trigger: Optional[
+        datasets: Optional[
             Union[
-                models.TextqlRPCPublicAgentSlackAgentTrigger,
-                models.TextqlRPCPublicAgentSlackAgentTriggerTypedDict,
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIDataset],
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIDatasetTypedDict],
             ]
         ] = None,
-        posting_frequency_cadences: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceUpdateAgentResponse:
-        r"""UpdateAgent
+    ) -> models.PowerBIServiceSyncPowerBIItemsResponse:
+        r"""SyncPowerBIItems
 
         :param connect_timeout_ms:
-        :param agent_id:
-        :param name:
-        :param prompt:
-        :param is_active:
-        :param paradigm_options:
-        :param slack_channel_id:
-        :param slack_dm_user_ids:
-        :param skip_org_default_channel:
-        :param llm_model:
-        :param fast_mode:
-        :param is_stateful:
-        :param posting_frequency_crons:
-        :param email_recipient_member_ids:
-        :param update_email_recipients:
-        :param channel_ids:
-        :param update_channel_ids:
-        :param teams_channel_id:
-        :param teams_dm_user_aad_ids:
-        :param slack_trigger:
-        :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
-            (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
-            cron the backend generates; \"\" (or an empty list) means exact.
+        :param connector_id:
+        :param workspace_id:
+        :param workspace_name:
+        :param reports:
+        :param datasets:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2090,51 +1536,25 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceUpdateAgentRequest(
+        request = models.PowerBIServiceSyncPowerBIItemsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentUpdateAgentRequest(
-                agent_id=agent_id,
-                name=name,
-                prompt=prompt,
-                is_active=is_active,
-                paradigm_options=utils.get_pydantic_model(
-                    paradigm_options,
-                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
+            body=models.TextqlRPCPublicPowerbiSyncPowerBIItemsRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                workspace_name=workspace_name,
+                reports=utils.get_pydantic_model(
+                    reports, Optional[List[models.TextqlRPCPublicPowerbiPowerBIReport]]
                 ),
-                slack_channel_id=slack_channel_id,
-                slack_dm_user_ids=utils.unmarshal(
-                    slack_dm_user_ids, Optional[List[str]]
-                ),
-                skip_org_default_channel=skip_org_default_channel,
-                llm_model=llm_model,
-                fast_mode=fast_mode,
-                is_stateful=is_stateful,
-                posting_frequency_crons=utils.unmarshal(
-                    posting_frequency_crons, Optional[List[str]]
-                ),
-                email_recipient_member_ids=utils.unmarshal(
-                    email_recipient_member_ids, Optional[List[str]]
-                ),
-                update_email_recipients=update_email_recipients,
-                channel_ids=utils.unmarshal(channel_ids, Optional[List[str]]),
-                update_channel_ids=update_channel_ids,
-                teams_channel_id=teams_channel_id,
-                teams_dm_user_aad_ids=utils.unmarshal(
-                    teams_dm_user_aad_ids, Optional[List[str]]
-                ),
-                slack_trigger=utils.get_pydantic_model(
-                    slack_trigger,
-                    Optional[models.TextqlRPCPublicAgentSlackAgentTrigger],
-                ),
-                posting_frequency_cadences=utils.unmarshal(
-                    posting_frequency_cadences, Optional[List[str]]
+                datasets=utils.get_pydantic_model(
+                    datasets,
+                    Optional[List[models.TextqlRPCPublicPowerbiPowerBIDataset]],
                 ),
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/UpdateAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/SyncPowerBIItems",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -2149,7 +1569,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentUpdateAgentRequest,
+                models.TextqlRPCPublicPowerbiSyncPowerBIItemsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -2167,10 +1587,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_UpdateAgent",
+                operation_id="PowerBIService_SyncPowerBIItems",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -2180,7 +1600,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentUpdateAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiSyncPowerBIItemsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -2197,70 +1617,38 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def update_async(
+    async def sync_power_bi_items_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        name: Optional[str] = None,
-        prompt: Optional[str] = None,
-        is_active: Optional[bool] = None,
-        paradigm_options: Optional[
+        connector_id: Optional[int] = None,
+        workspace_id: Optional[str] = None,
+        workspace_name: Optional[str] = None,
+        reports: Optional[
             Union[
-                models.TextqlRPCPublicParadigmParadigmOptions,
-                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIReport],
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIReportTypedDict],
             ]
         ] = None,
-        slack_channel_id: OptionalNullable[str] = UNSET,
-        slack_dm_user_ids: Optional[Iterable[str]] = None,
-        skip_org_default_channel: Optional[bool] = None,
-        llm_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
-        fast_mode: OptionalNullable[bool] = UNSET,
-        is_stateful: OptionalNullable[bool] = UNSET,
-        posting_frequency_crons: Optional[Iterable[str]] = None,
-        email_recipient_member_ids: Optional[Iterable[str]] = None,
-        update_email_recipients: OptionalNullable[bool] = UNSET,
-        channel_ids: Optional[Iterable[str]] = None,
-        update_channel_ids: OptionalNullable[bool] = UNSET,
-        teams_channel_id: OptionalNullable[str] = UNSET,
-        teams_dm_user_aad_ids: Optional[Iterable[str]] = None,
-        slack_trigger: Optional[
+        datasets: Optional[
             Union[
-                models.TextqlRPCPublicAgentSlackAgentTrigger,
-                models.TextqlRPCPublicAgentSlackAgentTriggerTypedDict,
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIDataset],
+                Iterable[models.TextqlRPCPublicPowerbiPowerBIDatasetTypedDict],
             ]
         ] = None,
-        posting_frequency_cadences: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceUpdateAgentResponse:
-        r"""UpdateAgent
+    ) -> models.PowerBIServiceSyncPowerBIItemsResponse:
+        r"""SyncPowerBIItems
 
         :param connect_timeout_ms:
-        :param agent_id:
-        :param name:
-        :param prompt:
-        :param is_active:
-        :param paradigm_options:
-        :param slack_channel_id:
-        :param slack_dm_user_ids:
-        :param skip_org_default_channel:
-        :param llm_model:
-        :param fast_mode:
-        :param is_stateful:
-        :param posting_frequency_crons:
-        :param email_recipient_member_ids:
-        :param update_email_recipients:
-        :param channel_ids:
-        :param update_channel_ids:
-        :param teams_channel_id:
-        :param teams_dm_user_aad_ids:
-        :param slack_trigger:
-        :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
-            (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
-            cron the backend generates; \"\" (or an empty list) means exact.
+        :param connector_id:
+        :param workspace_id:
+        :param workspace_name:
+        :param reports:
+        :param datasets:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2276,51 +1664,25 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceUpdateAgentRequest(
+        request = models.PowerBIServiceSyncPowerBIItemsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentUpdateAgentRequest(
-                agent_id=agent_id,
-                name=name,
-                prompt=prompt,
-                is_active=is_active,
-                paradigm_options=utils.get_pydantic_model(
-                    paradigm_options,
-                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
+            body=models.TextqlRPCPublicPowerbiSyncPowerBIItemsRequest(
+                connector_id=connector_id,
+                workspace_id=workspace_id,
+                workspace_name=workspace_name,
+                reports=utils.get_pydantic_model(
+                    reports, Optional[List[models.TextqlRPCPublicPowerbiPowerBIReport]]
                 ),
-                slack_channel_id=slack_channel_id,
-                slack_dm_user_ids=utils.unmarshal(
-                    slack_dm_user_ids, Optional[List[str]]
-                ),
-                skip_org_default_channel=skip_org_default_channel,
-                llm_model=llm_model,
-                fast_mode=fast_mode,
-                is_stateful=is_stateful,
-                posting_frequency_crons=utils.unmarshal(
-                    posting_frequency_crons, Optional[List[str]]
-                ),
-                email_recipient_member_ids=utils.unmarshal(
-                    email_recipient_member_ids, Optional[List[str]]
-                ),
-                update_email_recipients=update_email_recipients,
-                channel_ids=utils.unmarshal(channel_ids, Optional[List[str]]),
-                update_channel_ids=update_channel_ids,
-                teams_channel_id=teams_channel_id,
-                teams_dm_user_aad_ids=utils.unmarshal(
-                    teams_dm_user_aad_ids, Optional[List[str]]
-                ),
-                slack_trigger=utils.get_pydantic_model(
-                    slack_trigger,
-                    Optional[models.TextqlRPCPublicAgentSlackAgentTrigger],
-                ),
-                posting_frequency_cadences=utils.unmarshal(
-                    posting_frequency_cadences, Optional[List[str]]
+                datasets=utils.get_pydantic_model(
+                    datasets,
+                    Optional[List[models.TextqlRPCPublicPowerbiPowerBIDataset]],
                 ),
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/UpdateAgent",
+            path="/textql.rpc.public.powerbi.PowerBIService/SyncPowerBIItems",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -2335,7 +1697,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentUpdateAgentRequest,
+                models.TextqlRPCPublicPowerbiSyncPowerBIItemsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -2353,10 +1715,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_UpdateAgent",
+                operation_id="PowerBIService_SyncPowerBIItems",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -2366,7 +1728,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentUpdateAgentResponse, http_res
+                models.TextqlRPCPublicPowerbiSyncPowerBIItemsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -2383,24 +1745,26 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def upload_agent_avatar(
+    def test_connection(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        image_data: Optional[str] = None,
-        file_name: Optional[str] = None,
+        connector_id: OptionalNullable[int] = UNSET,
+        tenant_id: OptionalNullable[str] = UNSET,
+        client_id: OptionalNullable[str] = UNSET,
+        client_secret: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceUploadAgentAvatarResponse:
-        r"""UploadAgentAvatar
+    ) -> models.PowerBIServiceTestPowerBIConnectionResponse:
+        r"""TestPowerBIConnection
 
         :param connect_timeout_ms:
-        :param agent_id:
-        :param image_data:
-        :param file_name:
+        :param connector_id:
+        :param tenant_id:
+        :param client_id:
+        :param client_secret:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2416,18 +1780,19 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceUploadAgentAvatarRequest(
+        request = models.PowerBIServiceTestPowerBIConnectionRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentUploadAgentAvatarRequest(
-                agent_id=agent_id,
-                image_data=image_data,
-                file_name=file_name,
+            body=models.TextqlRPCPublicPowerbiTestPowerBIConnectionRequest(
+                connector_id=connector_id,
+                tenant_id=tenant_id,
+                client_id=client_id,
+                client_secret=client_secret,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/UploadAgentAvatar",
+            path="/textql.rpc.public.powerbi.PowerBIService/TestPowerBIConnection",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -2442,7 +1807,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentUploadAgentAvatarRequest,
+                models.TextqlRPCPublicPowerbiTestPowerBIConnectionRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -2460,10 +1825,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_UploadAgentAvatar",
+                operation_id="PowerBIService_TestPowerBIConnection",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -2473,7 +1838,7 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentUploadAgentAvatarResponse, http_res
+                models.TextqlRPCPublicPowerbiTestPowerBIConnectionResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -2490,24 +1855,26 @@ class Agents(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def upload_agent_avatar_async(
+    async def test_connection_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        agent_id: Optional[str] = None,
-        image_data: Optional[str] = None,
-        file_name: Optional[str] = None,
+        connector_id: OptionalNullable[int] = UNSET,
+        tenant_id: OptionalNullable[str] = UNSET,
+        client_id: OptionalNullable[str] = UNSET,
+        client_secret: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.AgentServiceUploadAgentAvatarResponse:
-        r"""UploadAgentAvatar
+    ) -> models.PowerBIServiceTestPowerBIConnectionResponse:
+        r"""TestPowerBIConnection
 
         :param connect_timeout_ms:
-        :param agent_id:
-        :param image_data:
-        :param file_name:
+        :param connector_id:
+        :param tenant_id:
+        :param client_id:
+        :param client_secret:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2523,18 +1890,19 @@ class Agents(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.AgentServiceUploadAgentAvatarRequest(
+        request = models.PowerBIServiceTestPowerBIConnectionRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicAgentUploadAgentAvatarRequest(
-                agent_id=agent_id,
-                image_data=image_data,
-                file_name=file_name,
+            body=models.TextqlRPCPublicPowerbiTestPowerBIConnectionRequest(
+                connector_id=connector_id,
+                tenant_id=tenant_id,
+                client_id=client_id,
+                client_secret=client_secret,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.agent.AgentService/UploadAgentAvatar",
+            path="/textql.rpc.public.powerbi.PowerBIService/TestPowerBIConnection",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -2549,7 +1917,7 @@ class Agents(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicAgentUploadAgentAvatarRequest,
+                models.TextqlRPCPublicPowerbiTestPowerBIConnectionRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -2567,10 +1935,10 @@ class Agents(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="AgentService_UploadAgentAvatar",
+                operation_id="PowerBIService_TestPowerBIConnection",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["AgentService"],
+                tags=["PowerBIService"],
                 extensions=None,
             ),
             request=req,
@@ -2580,7 +1948,221 @@ class Agents(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicAgentUploadAgentAvatarResponse, http_res
+                models.TextqlRPCPublicPowerbiTestPowerBIConnectionResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def unsync_items(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        connector_id: Optional[int] = None,
+        report_ids: Optional[Iterable[str]] = None,
+        dataset_ids: Optional[Iterable[str]] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PowerBIServiceUnsyncPowerBIItemsResponse:
+        r"""UnsyncPowerBIItems
+
+        :param connect_timeout_ms:
+        :param connector_id:
+        :param report_ids:
+        :param dataset_ids:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PowerBIServiceUnsyncPowerBIItemsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest(
+                connector_id=connector_id,
+                report_ids=utils.unmarshal(report_ids, Optional[List[str]]),
+                dataset_ids=utils.unmarshal(dataset_ids, Optional[List[str]]),
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.powerbi.PowerBIService/UnsyncPowerBIItems",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PowerBIService_UnsyncPowerBIItems",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PowerBIService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def unsync_items_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        connector_id: Optional[int] = None,
+        report_ids: Optional[Iterable[str]] = None,
+        dataset_ids: Optional[Iterable[str]] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PowerBIServiceUnsyncPowerBIItemsResponse:
+        r"""UnsyncPowerBIItems
+
+        :param connect_timeout_ms:
+        :param connector_id:
+        :param report_ids:
+        :param dataset_ids:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PowerBIServiceUnsyncPowerBIItemsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest(
+                connector_id=connector_id,
+                report_ids=utils.unmarshal(report_ids, Optional[List[str]]),
+                dataset_ids=utils.unmarshal(dataset_ids, Optional[List[str]]),
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.powerbi.PowerBIService/UnsyncPowerBIItems",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PowerBIService_UnsyncPowerBIItems",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PowerBIService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

@@ -8,7 +8,9 @@
 * [delete_installation](#delete_installation) - DeleteInstallation
 * [get_current_user](#get_current_user) - GetCurrentUser
 * [handle_o_auth_callback](#handle_o_auth_callback) - HandleTeamsOAuthCallback
+* [list](#list) - ListChannels
 * [list_installations](#list_installations) - ListInstallations
+* [list_users](#list_users) - ListUsers
 * [sync_workspace](#sync_workspace) - SyncWorkspace
 
 ## create_uuid
@@ -19,12 +21,12 @@ CreateTeamsUuid
 
 <!-- UsageSnippet language="python" operationID="TeamsService_CreateTeamsUuid" method="post" path="/textql.rpc.public.teams.TeamsService/CreateTeamsUuid" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.create_uuid(body={})
+    res = textql.teams.create_uuid(body={})
 
     # Handle response
     print(res)
@@ -57,12 +59,12 @@ DeleteInstallation
 
 <!-- UsageSnippet language="python" operationID="TeamsService_DeleteInstallation" method="post" path="/textql.rpc.public.teams.TeamsService/DeleteInstallation" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.delete_installation()
+    res = textql.teams.delete_installation()
 
     # Handle response
     print(res)
@@ -95,12 +97,12 @@ GetCurrentUser
 
 <!-- UsageSnippet language="python" operationID="TeamsService_GetCurrentUser" method="post" path="/textql.rpc.public.teams.TeamsService/GetCurrentUser" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.get_current_user(body={})
+    res = textql.teams.get_current_user(body={})
 
     # Handle response
     print(res)
@@ -133,12 +135,12 @@ HandleTeamsOAuthCallback
 
 <!-- UsageSnippet language="python" operationID="TeamsService_HandleTeamsOAuthCallback" method="post" path="/textql.rpc.public.teams.TeamsService/HandleTeamsOAuthCallback" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.handle_o_auth_callback()
+    res = textql.teams.handle_o_auth_callback()
 
     # Handle response
     print(res)
@@ -164,6 +166,44 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list
+
+ListChannels
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="TeamsService_ListChannels" method="post" path="/textql.rpc.public.teams.TeamsService/ListChannels" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.teams.list(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `body`                                                              | [models.GoogleProtobufEmpty](../../models/googleprotobufempty.md)   | :heavy_check_mark:                                                  | N/A                                                                 |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.TeamsServiceListChannelsResponse](../../models/teamsservicelistchannelsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## list_installations
 
 ListInstallations
@@ -172,12 +212,12 @@ ListInstallations
 
 <!-- UsageSnippet language="python" operationID="TeamsService_ListInstallations" method="post" path="/textql.rpc.public.teams.TeamsService/ListInstallations" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.list_installations(body={})
+    res = textql.teams.list_installations(body={})
 
     # Handle response
     print(res)
@@ -202,6 +242,44 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list_users
+
+ListUsers
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="TeamsService_ListUsers" method="post" path="/textql.rpc.public.teams.TeamsService/ListUsers" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.teams.list_users(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `body`                                                              | [models.GoogleProtobufEmpty](../../models/googleprotobufempty.md)   | :heavy_check_mark:                                                  | N/A                                                                 |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.TeamsServiceListUsersResponse](../../models/teamsservicelistusersresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## sync_workspace
 
 SyncWorkspace
@@ -210,12 +288,12 @@ SyncWorkspace
 
 <!-- UsageSnippet language="python" operationID="TeamsService_SyncWorkspace" method="post" path="/textql.rpc.public.teams.TeamsService/SyncWorkspace" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.teams.sync_workspace()
+    res = textql.teams.sync_workspace()
 
     # Handle response
     print(res)

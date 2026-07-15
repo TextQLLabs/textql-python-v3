@@ -40,7 +40,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/SyncPowerBIItems"]["post"]
     update:
-      x-speakeasy-group: powerBIServices
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: syncPowerBIItems
     x-speakeasy-metadata:
       after: sdk.powerBIServices.syncPowerBIItems()
@@ -50,6 +50,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/TestTableauConnection"]["post"]
     update:
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: testTableauConnection
     x-speakeasy-metadata:
       after: sdk.tableauService.testTableauConnection()
@@ -59,6 +60,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/AppHeartbeat"]["post"]
     update:
+      x-speakeasy-group: apps
       x-speakeasy-name-override: heartbeat
     x-speakeasy-metadata:
       after: sdk.appService.heartbeat()
@@ -68,7 +70,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/UpdateApp"]["post"]
     update:
-      x-speakeasy-group: appServices
+      x-speakeasy-group: apps
       x-speakeasy-name-override: update
     x-speakeasy-metadata:
       after: sdk.appServices.update()
@@ -78,6 +80,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/DeleteContextPatchAutoApproveRule"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: deleteContextPatchAutoApproveRule
     x-speakeasy-metadata:
       after: sdk.libraryService.deleteContextPatchAutoApproveRule()
@@ -87,7 +90,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/UnstarTableauItem"]["post"]
     update:
-      x-speakeasy-group: tableauServices
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: unstarTableauItem
     x-speakeasy-metadata:
       after: sdk.tableauServices.unstarTableauItem()
@@ -117,6 +120,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/DenyPatch"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: denyPatch
     x-speakeasy-metadata:
       after: sdk.libraryService.denyPatch()
@@ -136,7 +140,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetLibraryOwners"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getLibraryOwners
     x-speakeasy-metadata:
       after: sdk.libraryServices.getLibraryOwners()
@@ -166,7 +170,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetLibrarySyncConflicts"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getLibrarySyncConflicts
     x-speakeasy-metadata:
       after: sdk.libraryServices.getLibrarySyncConflicts()
@@ -206,7 +210,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/PutSecret"]["post"]
     update:
-      x-speakeasy-group: secretServices
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: putSecret
     x-speakeasy-metadata:
       after: sdk.secretServices.putSecret()
@@ -226,7 +230,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetCustomTopicPeople"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getCustomTopicPeople
     x-speakeasy-metadata:
       after: sdk.observabilityServices.getCustomTopicPeople()
@@ -256,6 +260,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/CreateApprovalRule"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: createApprovalRule
     x-speakeasy-metadata:
       after: sdk.libraryService.createApprovalRule()
@@ -285,7 +290,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ListGroups"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: listGroups
     x-speakeasy-metadata:
       after: sdk.rbacService.listGroups()
@@ -305,6 +310,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxFiles"]["post"]
     update:
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: listSandboxFiles
     x-speakeasy-metadata:
       after: sdk.sandboxAdminService.listSandboxFiles()
@@ -324,6 +330,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListPatches"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listPatches
     x-speakeasy-metadata:
       after: sdk.libraryService.listPatches()
@@ -363,7 +370,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/ListQueryTemplates"]["post"]
     update:
-      x-speakeasy-group: connectorServices
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: listQueryTemplates
     x-speakeasy-metadata:
       after: sdk.connectorServices.listQueryTemplates()
@@ -383,7 +390,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ListScimGroupMappings"]["post"]
     update:
-      x-speakeasy-group: rbacServices
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: listScimGroupMappings
     x-speakeasy-metadata:
       after: sdk.rbacServices.listScimGroupMappings()
@@ -393,10 +400,10 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/UploadAgentAvatar"]["post"]
     update:
-      x-speakeasy-group: agentServices
+      x-speakeasy-group: agents
       x-speakeasy-name-override: uploadAgentAvatar
     x-speakeasy-metadata:
-      after: sdk.agentServices.uploadAgentAvatar()
+      after: sdk.agents.uploadAgentAvatar()
       before: sdk.AgentService.AgentService_UploadAgentAvatar()
       created_at: 1784134047110
       reviewed_at: 1784134060142
@@ -433,7 +440,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/ListPowerBIDatasets"]["post"]
     update:
-      x-speakeasy-group: powerbiDatasets
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: list
     x-speakeasy-metadata:
       after: sdk.powerbiDatasets.list()
@@ -473,7 +480,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.mcp.MCPService/HandleOAuthCallback"]["post"]
     update:
-      x-speakeasy-group: mcpService
+      x-speakeasy-group: mcp
       x-speakeasy-name-override: handleOAuthCallback
     x-speakeasy-metadata:
       after: sdk.mcpService.handleOAuthCallback()
@@ -493,7 +500,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/UpdateContextPatchAutoApproveRule"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: updateContextPatchAutoApproveRule
     x-speakeasy-metadata:
       after: sdk.libraryServices.updateContextPatchAutoApproveRule()
@@ -503,6 +510,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/GetAppViewStats"]["post"]
     update:
+      x-speakeasy-group: apps
       x-speakeasy-name-override: getAppViewStats
     x-speakeasy-metadata:
       after: sdk.appService.getAppViewStats()
@@ -532,7 +540,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ListApiKeys"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: listApiKeys
     x-speakeasy-metadata:
       after: sdk.rbacService.listApiKeys()
@@ -572,7 +580,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ConvertRoleToGroup"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: convertRoleToGroup
     x-speakeasy-metadata:
       after: sdk.rbacService.convertRoleToGroup()
@@ -592,7 +600,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetAccessMethodStats"]["post"]
     update:
-      x-speakeasy-group: observabilities
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getAccessMethodStats
     x-speakeasy-metadata:
       after: sdk.observabilities.getAccessMethodStats()
@@ -602,7 +610,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.mcp.MCPService/UpsertMCPServers"]["post"]
     update:
-      x-speakeasy-group: mcpServices
+      x-speakeasy-group: mcp
       x-speakeasy-name-override: upsertMCPServers
     x-speakeasy-metadata:
       after: sdk.mcpServices.upsertMCPServers()
@@ -622,7 +630,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/ListPowerBIReports"]["post"]
     update:
-      x-speakeasy-group: powerBi
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: listReports
     x-speakeasy-metadata:
       after: sdk.powerBi.listReports()
@@ -642,6 +650,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/MoveAppToFolder"]["post"]
     update:
+      x-speakeasy-group: apps
       x-speakeasy-name-override: moveAppToFolder
     x-speakeasy-metadata:
       after: sdk.appService.moveAppToFolder()
@@ -671,7 +680,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/GetConnectors"]["post"]
     update:
-      x-speakeasy-group: connectorServices
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: getConnectors
     x-speakeasy-metadata:
       after: sdk.connectorServices.getConnectors()
@@ -691,7 +700,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/CancelStream"]["post"]
     update:
-      x-speakeasy-group: chat
+      x-speakeasy-group: chats
       x-speakeasy-name-override: cancelStream
     x-speakeasy-metadata:
       after: sdk.chat.cancelStream()
@@ -701,7 +710,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/GetChatHistory"]["post"]
     update:
-      x-speakeasy-group: chat
+      x-speakeasy-group: chats
       x-speakeasy-name-override: getHistory
     x-speakeasy-metadata:
       after: sdk.chat.getHistory()
@@ -711,17 +720,17 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/GetAgentRun"]["post"]
     update:
-      x-speakeasy-group: agentServices
+      x-speakeasy-group: agents
       x-speakeasy-name-override: getRun
     x-speakeasy-metadata:
-      after: sdk.agentServices.getRun()
+      after: sdk.agents.getRun()
       before: sdk.AgentService.AgentService_GetAgentRun()
       created_at: 1784134047110
       reviewed_at: 1784134060142
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/DeleteApiAccessKey"]["post"]
     update:
-      x-speakeasy-group: secretServices
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: deleteApiAccessKey
     x-speakeasy-metadata:
       after: sdk.secretServices.deleteApiAccessKey()
@@ -731,6 +740,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/ActivateCustomTopic"]["post"]
     update:
+      x-speakeasy-group: observability
       x-speakeasy-name-override: activateCustomTopic
     x-speakeasy-metadata:
       after: sdk.observabilityService.activateCustomTopic()
@@ -740,7 +750,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/UpdateDashboardFolder"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: updateDashboardFolder
     x-speakeasy-metadata:
       after: sdk.dashboardServices.updateDashboardFolder()
@@ -760,7 +770,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxSpend"]["post"]
     update:
-      x-speakeasy-group: sandboxAdminServices
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: listSandboxSpend
     x-speakeasy-metadata:
       after: sdk.sandboxAdminServices.listSandboxSpend()
@@ -790,7 +800,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/FinalizeLibraryFileUpload"]["post"]
     update:
-      x-speakeasy-group: library
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: finalizeFileUpload
     x-speakeasy-metadata:
       after: sdk.library.finalizeFileUpload()
@@ -810,7 +820,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.mcp.MCPService/GetMCPServers"]["post"]
     update:
-      x-speakeasy-group: mcps
+      x-speakeasy-group: mcp
       x-speakeasy-name-override: getServers
     x-speakeasy-metadata:
       after: sdk.mcps.getServers()
@@ -850,7 +860,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/DeleteApp"]["post"]
     update:
-      x-speakeasy-group: appServices
+      x-speakeasy-group: apps
       x-speakeasy-name-override: deleteApp
     x-speakeasy-metadata:
       after: sdk.appServices.deleteApp()
@@ -860,6 +870,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetThreadWarnings"]["post"]
     update:
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getThreadWarnings
     x-speakeasy-metadata:
       after: sdk.observabilityService.getThreadWarnings()
@@ -889,6 +900,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/DuplicateAgent"]["post"]
     update:
+      x-speakeasy-group: agents
       x-speakeasy-name-override: duplicate
     x-speakeasy-metadata:
       after: sdk.agentService.duplicate()
@@ -908,6 +920,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/UnsetSlackChannelContextPlaybook"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: unsetSlackChannelContextPlaybook
     x-speakeasy-metadata:
       after: sdk.playbookService.unsetSlackChannelContextPlaybook()
@@ -937,7 +950,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ShareObject"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: shareObject
     x-speakeasy-metadata:
       after: sdk.rbacService.shareObject()
@@ -947,6 +960,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/RemoveLibraryRemote"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: removeRemote
     x-speakeasy-metadata:
       after: sdk.libraryService.removeRemote()
@@ -956,7 +970,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/SaveAllObjectsAsConfig"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: saveAllObjectsAsConfig
     x-speakeasy-metadata:
       after: sdk.libraryServices.saveAllObjectsAsConfig()
@@ -966,7 +980,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.slack.SlackService/GetCurrentUser"]["post"]
     update:
-      x-speakeasy-group: slackServices
+      x-speakeasy-group: slack
       x-speakeasy-name-override: getCurrentUser
     x-speakeasy-metadata:
       after: sdk.slackServices.getCurrentUser()
@@ -976,7 +990,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/GetRole"]["post"]
     update:
-      x-speakeasy-group: rbacs
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: getRole
     x-speakeasy-metadata:
       after: sdk.rbacs.getRole()
@@ -996,6 +1010,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/UpdatePlaybook"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: update
     x-speakeasy-metadata:
       after: sdk.playbookService.update()
@@ -1015,7 +1030,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/ListSecrets"]["post"]
     update:
-      x-speakeasy-group: secretServices
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: listSecrets
     x-speakeasy-metadata:
       after: sdk.secretServices.listSecrets()
@@ -1045,7 +1060,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.teams.TeamsService/ListChannels"]["post"]
     update:
-      x-speakeasy-group: channels
+      x-speakeasy-group: teams
       x-speakeasy-name-override: list
     x-speakeasy-metadata:
       after: sdk.channels.list()
@@ -1065,7 +1080,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/GetArtifact"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: getArtifact
     x-speakeasy-metadata:
       after: sdk.chatServices.getArtifact()
@@ -1075,6 +1090,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/MigrateOntologyToLibrary"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: migrateOntology
     x-speakeasy-metadata:
       after: sdk.libraryService.migrateOntology()
@@ -1084,7 +1100,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxes"]["post"]
     update:
-      x-speakeasy-group: sandboxes
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: list
     x-speakeasy-metadata:
       after: sdk.sandboxes.list()
@@ -1094,6 +1110,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetActiveSubscribedPlaybooksCount"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getActiveSubscribedCount
     x-speakeasy-metadata:
       after: sdk.playbookService.getActiveSubscribedCount()
@@ -1103,7 +1120,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/PreviewLibraryPullFromRemote"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: previewLibraryPullFromRemote
     x-speakeasy-metadata:
       after: sdk.libraryServices.previewLibraryPullFromRemote()
@@ -1113,7 +1130,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/UpsertLibraryFile"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: upsertLibraryFile
     x-speakeasy-metadata:
       after: sdk.libraryServices.upsertLibraryFile()
@@ -1123,7 +1140,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/RenameLibraryFile"]["post"]
     update:
-      x-speakeasy-group: library
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: renameFile
     x-speakeasy-metadata:
       after: sdk.library.renameFile()
@@ -1133,7 +1150,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/AttachApp"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: attachApp
     x-speakeasy-metadata:
       after: sdk.chatServices.attachApp()
@@ -1163,7 +1180,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ListAccessRequests"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: listAccessRequests
     x-speakeasy-metadata:
       after: sdk.rbacService.listAccessRequests()
@@ -1173,7 +1190,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/GetSyncedPowerBIItems"]["post"]
     update:
-      x-speakeasy-group: powerBi
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: getSyncedItems
     x-speakeasy-metadata:
       after: sdk.powerBi.getSyncedItems()
@@ -1203,10 +1220,10 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/GetAgent"]["post"]
     update:
-      x-speakeasy-group: agentServices
+      x-speakeasy-group: agents
       x-speakeasy-name-override: getAgent
     x-speakeasy-metadata:
-      after: sdk.agentServices.getAgent()
+      after: sdk.agents.getAgent()
       before: sdk.AgentService.AgentService_GetAgent()
       created_at: 1784134047110
       reviewed_at: 1784134060143
@@ -1223,7 +1240,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/SaveObjectAsConfig"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: saveAsConfig
     x-speakeasy-metadata:
       after: sdk.libraryServices.saveAsConfig()
@@ -1243,7 +1260,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/DuplicateChat"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: duplicateChat
     x-speakeasy-metadata:
       after: sdk.chatServices.duplicateChat()
@@ -1253,6 +1270,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetPatchCapabilities"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getPatchCapabilities
     x-speakeasy-metadata:
       after: sdk.libraryService.getPatchCapabilities()
@@ -1262,7 +1280,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dataset.DatasetService/GetDatasetValues"]["post"]
     update:
-      x-speakeasy-group: datasetServices
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: getDatasetValues
     x-speakeasy-metadata:
       after: sdk.datasetServices.getDatasetValues()
@@ -1272,6 +1290,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/GetApiAccessKey"]["post"]
     update:
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: getApiAccessKey
     x-speakeasy-metadata:
       after: sdk.secretService.getApiAccessKey()
@@ -1281,7 +1300,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/CreateApiKey"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: createApiKey
     x-speakeasy-metadata:
       after: sdk.rbacService.createApiKey()
@@ -1291,7 +1310,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListLibraryHistory"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listLibraryHistory
     x-speakeasy-metadata:
       after: sdk.libraryServices.listLibraryHistory()
@@ -1311,7 +1330,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/CreatePlaybook"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: createPlaybook
     x-speakeasy-metadata:
       after: sdk.playbookServices.createPlaybook()
@@ -1321,6 +1340,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ApprovePatch"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: approvePatch
     x-speakeasy-metadata:
       after: sdk.libraryService.approvePatch()
@@ -1330,6 +1350,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/DuplicatePlaybook"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: duplicate
     x-speakeasy-metadata:
       after: sdk.playbookService.duplicate()
@@ -1339,7 +1360,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/RevokeObjectAccess"]["post"]
     update:
-      x-speakeasy-group: rbacServices
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: revokeObjectAccess
     x-speakeasy-metadata:
       after: sdk.rbacServices.revokeObjectAccess()
@@ -1349,6 +1370,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetBackfillPreview"]["post"]
     update:
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getBackfillPreview
     x-speakeasy-metadata:
       after: sdk.observabilityService.getBackfillPreview()
@@ -1358,7 +1380,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/GetConnectedAppStatus"]["post"]
     update:
-      x-speakeasy-group: tableauServices
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: getConnectedAppStatus
     x-speakeasy-metadata:
       after: sdk.tableauServices.getConnectedAppStatus()
@@ -1378,7 +1400,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/CheckChatPermissions"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: checkPermissions
     x-speakeasy-metadata:
       after: sdk.chatServices.checkPermissions()
@@ -1398,7 +1420,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.mcp.MCPService/ClearOAuthToken"]["post"]
     update:
-      x-speakeasy-group: mcps
+      x-speakeasy-group: mcp
       x-speakeasy-name-override: clearOAuthToken
     x-speakeasy-metadata:
       after: sdk.mcps.clearOAuthToken()
@@ -1418,7 +1440,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/ListServiceAccounts"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: listServiceAccounts
     x-speakeasy-metadata:
       after: sdk.rbacService.listServiceAccounts()
@@ -1438,7 +1460,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/RateChatCell"]["post"]
     update:
-      x-speakeasy-group: chat
+      x-speakeasy-group: chats
       x-speakeasy-name-override: rateCell
     x-speakeasy-metadata:
       after: sdk.chat.rateCell()
@@ -1488,7 +1510,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/UpdateConnector"]["post"]
     update:
-      x-speakeasy-group: connectorServices
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: update
     x-speakeasy-metadata:
       after: sdk.connectorServices.update()
@@ -1518,7 +1540,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/GetDashboard"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: get
     x-speakeasy-metadata:
       after: sdk.dashboardServices.get()
@@ -1528,6 +1550,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/PullLibraryFromRemote"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: pullFromRemote
     x-speakeasy-metadata:
       after: sdk.libraryService.pullFromRemote()
@@ -1537,7 +1560,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/RemoveRoleFromMember"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: removeRoleFromMember
     x-speakeasy-metadata:
       after: sdk.rbacService.removeRoleFromMember()
@@ -1547,7 +1570,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ConfigureLibraryRemote"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: configureLibraryRemote
     x-speakeasy-metadata:
       after: sdk.libraryServices.configureLibraryRemote()
@@ -1557,6 +1580,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListLibrarySubmodules"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listLibrarySubmodules
     x-speakeasy-metadata:
       after: sdk.libraryService.listLibrarySubmodules()
@@ -1576,7 +1600,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/ListDashboardVersions"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: listVersions
     x-speakeasy-metadata:
       after: sdk.dashboardServices.listVersions()
@@ -1586,7 +1610,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/FixCheckRecord"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: fixCheckRecord
     x-speakeasy-metadata:
       after: sdk.observabilityServices.fixCheckRecord()
@@ -1596,6 +1620,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/GetConnectorCellDurations"]["post"]
     update:
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: getConnectorCellDurations
     x-speakeasy-metadata:
       after: sdk.connectorService.getConnectorCellDurations()
@@ -1615,7 +1640,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/SpawnDashboard"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: spawn
     x-speakeasy-metadata:
       after: sdk.dashboardServices.spawn()
@@ -1635,6 +1660,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/GetTablePreview"]["post"]
     update:
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: getTablePreview
     x-speakeasy-metadata:
       after: sdk.connectorService.getTablePreview()
@@ -1694,6 +1720,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.audit_log.AuditLogService/TestOtlpExportConnection"]["post"]
     update:
+      x-speakeasy-group: auditLogs
       x-speakeasy-name-override: testOtlpExportConnection
     x-speakeasy-metadata:
       after: sdk.auditLogService.testOtlpExportConnection()
@@ -1713,7 +1740,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetLibraryMigrationStatus"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getMigrationStatus
     x-speakeasy-metadata:
       after: sdk.libraryServices.getMigrationStatus()
@@ -1733,7 +1760,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/GetRolePermissions"]["post"]
     update:
-      x-speakeasy-group: rbacServices
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: getRolePermissions
     x-speakeasy-metadata:
       after: sdk.rbacServices.getRolePermissions()
@@ -1753,7 +1780,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.mcp.MCPService/DeleteMCPServer"]["post"]
     update:
-      x-speakeasy-group: mcpServers
+      x-speakeasy-group: mcp
       x-speakeasy-name-override: delete
     x-speakeasy-metadata:
       after: sdk.mcpServers.delete()
@@ -1803,6 +1830,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/CancelTemplateExecution"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: cancelTemplateExecution
     x-speakeasy-metadata:
       after: sdk.playbookService.cancelTemplateExecution()
@@ -1822,7 +1850,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListChatsForFile"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listChatsForFile
     x-speakeasy-metadata:
       after: sdk.libraryServices.listChatsForFile()
@@ -1862,7 +1890,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/DeleteDashboard"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: delete
     x-speakeasy-metadata:
       after: sdk.dashboardServices.delete()
@@ -1872,7 +1900,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/GetDashboardVersion"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: getVersion
     x-speakeasy-metadata:
       after: sdk.dashboardServices.getVersion()
@@ -1902,7 +1930,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetPlaybookBatchRun"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getBatchRun
     x-speakeasy-metadata:
       after: sdk.playbookServices.getBatchRun()
@@ -1922,7 +1950,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/CreateContextPatchAutoApproveRule"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: createContextPatchAutoApproveRule
     x-speakeasy-metadata:
       after: sdk.libraryServices.createContextPatchAutoApproveRule()
@@ -1932,6 +1960,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/CreateLibraryDirectory"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: createLibraryDirectory
     x-speakeasy-metadata:
       after: sdk.libraryService.createLibraryDirectory()
@@ -1941,6 +1970,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/RestoreAppVersion"]["post"]
     update:
+      x-speakeasy-group: apps
       x-speakeasy-name-override: restoreAppVersion
     x-speakeasy-metadata:
       after: sdk.appService.restoreAppVersion()
@@ -1950,6 +1980,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetConfigExportCapabilities"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getConfigExportCapabilities
     x-speakeasy-metadata:
       after: sdk.libraryService.getConfigExportCapabilities()
@@ -1959,6 +1990,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.audit_log.AuditLogService/ConfigureS3Export"]["post"]
     update:
+      x-speakeasy-group: auditLogs
       x-speakeasy-name-override: configureS3Export
     x-speakeasy-metadata:
       after: sdk.auditLogService.configureS3Export()
@@ -1968,7 +2000,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/PreviewConfigDashboard"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: previewConfig
     x-speakeasy-metadata:
       after: sdk.dashboardServices.previewConfig()
@@ -1978,6 +2010,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.scim.ScimService/RevokeScimOAuthClient"]["post"]
     update:
+      x-speakeasy-group: scim
       x-speakeasy-name-override: revokeOAuthClient
     x-speakeasy-metadata:
       after: sdk.scimService.revokeOAuthClient()
@@ -1987,7 +2020,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ExchangeLibraryGithubCode"]["post"]
     update:
-      x-speakeasy-group: library
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: exchangeGithubCode
     x-speakeasy-metadata:
       after: sdk.library.exchangeGithubCode()
@@ -2017,6 +2050,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetReportById"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getReportById
     x-speakeasy-metadata:
       after: sdk.playbookService.getReportById()
@@ -2076,6 +2110,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/GetMembersWithDashboards"]["post"]
     update:
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: getMembersWithDashboards
     x-speakeasy-metadata:
       after: sdk.dashboardService.getMembersWithDashboards()
@@ -2085,7 +2120,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/DemoPlaybook"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: demoPlaybook
     x-speakeasy-metadata:
       after: sdk.playbookServices.demoPlaybook()
@@ -2125,7 +2160,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxExecutions"]["post"]
     update:
-      x-speakeasy-group: sandboxes
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: listExecutions
     x-speakeasy-metadata:
       after: sdk.sandboxes.listExecutions()
@@ -2165,7 +2200,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.slack.SlackService/ListUsers"]["post"]
     update:
-      x-speakeasy-group: slackServices
+      x-speakeasy-group: slack
       x-speakeasy-name-override: listUsers
     x-speakeasy-metadata:
       after: sdk.slackServices.listUsers()
@@ -2175,7 +2210,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListPatchReviewers"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listPatchReviewers
     x-speakeasy-metadata:
       after: sdk.libraryServices.listPatchReviewers()
@@ -2215,6 +2250,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/GetConnectorStats"]["post"]
     update:
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: getConnectorStats
     x-speakeasy-metadata:
       after: sdk.connectorService.getConnectorStats()
@@ -2224,7 +2260,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/GetSandbox"]["post"]
     update:
-      x-speakeasy-group: sandboxAdmins
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: getSandbox
     x-speakeasy-metadata:
       after: sdk.sandboxAdmins.getSandbox()
@@ -2234,6 +2270,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/TriggerAgent"]["post"]
     update:
+      x-speakeasy-group: agents
       x-speakeasy-name-override: triggerAgent
     x-speakeasy-metadata:
       after: sdk.agentService.triggerAgent()
@@ -2243,7 +2280,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/DeleteLibraryDirectory"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: deleteLibraryDirectory
     x-speakeasy-metadata:
       after: sdk.libraryServices.deleteLibraryDirectory()
@@ -2263,7 +2300,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/ListTableauDatasources"]["post"]
     update:
-      x-speakeasy-group: tableauServices
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: listTableauDatasources
     x-speakeasy-metadata:
       after: sdk.tableauServices.listTableauDatasources()
@@ -2283,6 +2320,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.audit_log.AuditLogService/TriggerS3Export"]["post"]
     update:
+      x-speakeasy-group: auditLogs
       x-speakeasy-name-override: triggerS3Export
     x-speakeasy-metadata:
       after: sdk.auditLogService.triggerS3Export()
@@ -2312,7 +2350,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/DuplicateConnector"]["post"]
     update:
-      x-speakeasy-group: connectorServices
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: duplicateConnector
     x-speakeasy-metadata:
       after: sdk.connectorServices.duplicateConnector()
@@ -2322,7 +2360,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/DeleteCustomTopic"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: deleteCustomTopic
     x-speakeasy-metadata:
       after: sdk.observabilityServices.deleteCustomTopic()
@@ -2352,7 +2390,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.metrics_export.MetricsExportService/GetMetricsExportConfig"]["post"]
     update:
-      x-speakeasy-group: metricsExportServices
+      x-speakeasy-group: metricsExports
       x-speakeasy-name-override: getMetricsExportConfig
     x-speakeasy-metadata:
       after: sdk.metricsExportServices.getMetricsExportConfig()
@@ -2372,6 +2410,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetPatchByNumber"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getPatchByNumber
     x-speakeasy-metadata:
       after: sdk.libraryService.getPatchByNumber()
@@ -2381,7 +2420,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListLibrarySyncRuns"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listLibrarySyncRuns
     x-speakeasy-metadata:
       after: sdk.libraryServices.listLibrarySyncRuns()
@@ -2391,7 +2430,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/SetTopicTagFeedback"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: setTopicTagFeedback
     x-speakeasy-metadata:
       after: sdk.observabilityServices.setTopicTagFeedback()
@@ -2421,7 +2460,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetUsageDetailsForFile"]["post"]
     update:
-      x-speakeasy-group: library
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getUsageDetailsForFile
     x-speakeasy-metadata:
       after: sdk.library.getUsageDetailsForFile()
@@ -2451,7 +2490,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/GetExampleQueries"]["post"]
     update:
-      x-speakeasy-group: connectorServices
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: getExampleQueries
     x-speakeasy-metadata:
       after: sdk.connectorServices.getExampleQueries()
@@ -2491,6 +2530,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dataset.DatasetService/UpdateDataset"]["post"]
     update:
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: updateDataset
     x-speakeasy-metadata:
       after: sdk.datasetService.updateDataset()
@@ -2530,7 +2570,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxEgress"]["post"]
     update:
-      x-speakeasy-group: sandboxAdminServices
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: listSandboxEgress
     x-speakeasy-metadata:
       after: sdk.sandboxAdminServices.listSandboxEgress()
@@ -2540,7 +2580,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dataset.DatasetService/CreatePowerBIDataset"]["post"]
     update:
-      x-speakeasy-group: datasetServices
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: createPowerBIDataset
     x-speakeasy-metadata:
       after: sdk.datasetServices.createPowerBIDataset()
@@ -2550,17 +2590,17 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/CreateAgent"]["post"]
     update:
-      x-speakeasy-group: agentServices
+      x-speakeasy-group: agents
       x-speakeasy-name-override: create
     x-speakeasy-metadata:
-      after: sdk.agentServices.create()
+      after: sdk.agents.create()
       before: sdk.AgentService.AgentService_CreateAgent()
       created_at: 1784134047111
       reviewed_at: 1784134060143
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/SetSlackChannelContextPlaybook"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: setSlackChannelContextPlaybook
     x-speakeasy-metadata:
       after: sdk.playbookServices.setSlackChannelContextPlaybook()
@@ -2590,6 +2630,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.slack.SlackService/ListInstallations"]["post"]
     update:
+      x-speakeasy-group: slack
       x-speakeasy-name-override: listInstallations
     x-speakeasy-metadata:
       after: sdk.slackService.listInstallations()
@@ -2609,7 +2650,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/GetPlaybookChats"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: getPlaybookChats
     x-speakeasy-metadata:
       after: sdk.chatServices.getPlaybookChats()
@@ -2629,6 +2670,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.scim.ScimService/RevokeScimToken"]["post"]
     update:
+      x-speakeasy-group: scim
       x-speakeasy-name-override: revokeScimToken
     x-speakeasy-metadata:
       after: sdk.scimService.revokeScimToken()
@@ -2648,7 +2690,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/RejectContextPromptChange"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: rejectContextPromptChange
     x-speakeasy-metadata:
       after: sdk.chatServices.rejectContextPromptChange()
@@ -2658,7 +2700,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/ApproveOntologyChange"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: approveOntologyChange
     x-speakeasy-metadata:
       after: sdk.chatServices.approveOntologyChange()
@@ -2668,6 +2710,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/RestartSandbox"]["post"]
     update:
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: restartSandbox
     x-speakeasy-metadata:
       after: sdk.sandboxAdminService.restartSandbox()
@@ -2677,7 +2720,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/UnsyncPowerBIItems"]["post"]
     update:
-      x-speakeasy-group: powerBiServices
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: unsyncItems
     x-speakeasy-metadata:
       after: sdk.powerBiServices.unsyncItems()
@@ -2687,7 +2730,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/AssignRoleToMember"]["post"]
     update:
-      x-speakeasy-group: rbacServices
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: assignRoleToMember
     x-speakeasy-metadata:
       after: sdk.rbacServices.assignRoleToMember()
@@ -2697,6 +2740,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetEngagementSpectrum"]["post"]
     update:
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getEngagementSpectrum
     x-speakeasy-metadata:
       after: sdk.observabilityService.getEngagementSpectrum()
@@ -2716,7 +2760,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/RefineTopicDraft"]["post"]
     update:
-      x-speakeasy-group: topics
+      x-speakeasy-group: observability
       x-speakeasy-name-override: refineDraft
     x-speakeasy-metadata:
       after: sdk.topics.refineDraft()
@@ -2736,6 +2780,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dataset.DatasetService/CreateFolder"]["post"]
     update:
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: createFolder
     x-speakeasy-metadata:
       after: sdk.datasetService.createFolder()
@@ -2745,6 +2790,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/CreateDashboard"]["post"]
     update:
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: createDashboard
     x-speakeasy-metadata:
       after: sdk.dashboardService.createDashboard()
@@ -2764,7 +2810,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/GetCollectionThumbnail"]["post"]
     update:
-      x-speakeasy-group: tableauServices
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: getCollectionThumbnail
     x-speakeasy-metadata:
       after: sdk.tableauServices.getCollectionThumbnail()
@@ -2774,6 +2820,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetObservabilityStats"]["post"]
     update:
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getObservabilityStats
     x-speakeasy-metadata:
       after: sdk.observabilityService.getObservabilityStats()
@@ -2783,7 +2830,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.scim.ScimService/CreateScimOAuthClient"]["post"]
     update:
-      x-speakeasy-group: scimServices
+      x-speakeasy-group: scim
       x-speakeasy-name-override: createOAuthClient
     x-speakeasy-metadata:
       after: sdk.scimServices.createOAuthClient()
@@ -2793,6 +2840,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/AttachDataset"]["post"]
     update:
+      x-speakeasy-group: chats
       x-speakeasy-name-override: attachDataset
     x-speakeasy-metadata:
       after: sdk.chatService.attachDataset()
@@ -2802,7 +2850,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/ExportPowerBIReportImage"]["post"]
     update:
-      x-speakeasy-group: powerBiServices
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: exportReportImage
     x-speakeasy-metadata:
       after: sdk.powerBiServices.exportReportImage()
@@ -2812,6 +2860,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.teams.TeamsService/ListUsers"]["post"]
     update:
+      x-speakeasy-group: teams
       x-speakeasy-name-override: listUsers
     x-speakeasy-metadata:
       after: sdk.teamsService.listUsers()
@@ -2831,7 +2880,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetFileUsageTimeline"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getFileUsageTimeline
     x-speakeasy-metadata:
       after: sdk.libraryServices.getFileUsageTimeline()
@@ -2851,6 +2900,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/MigrateLegacyContextToLibrary"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: migrateLegacyContext
     x-speakeasy-metadata:
       after: sdk.libraryService.migrateLegacyContext()
@@ -2860,7 +2910,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/CheckDashboardHealth"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: checkHealth
     x-speakeasy-metadata:
       after: sdk.dashboardServices.checkHealth()
@@ -2870,7 +2920,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetPlaybookLineage"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getPlaybookLineage
     x-speakeasy-metadata:
       after: sdk.playbookServices.getPlaybookLineage()
@@ -2880,7 +2930,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/ResetConnectedApp"]["post"]
     update:
-      x-speakeasy-group: tableauServices
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: resetConnectedApp
     x-speakeasy-metadata:
       after: sdk.tableauServices.resetConnectedApp()
@@ -2890,7 +2940,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/AttachDashboard"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: attachDashboard
     x-speakeasy-metadata:
       after: sdk.chatServices.attachDashboard()
@@ -2900,7 +2950,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListApprovalRules"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listApprovalRules
     x-speakeasy-metadata:
       after: sdk.libraryServices.listApprovalRules()
@@ -2920,6 +2970,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/UpdateLibrarySyncConfig"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: updateLibrarySyncConfig
     x-speakeasy-metadata:
       after: sdk.libraryService.updateLibrarySyncConfig()
@@ -2929,7 +2980,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/ListAllSlackChannelContextPlaybooks"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: listSlackChannelContextPlaybooks
     x-speakeasy-metadata:
       after: sdk.playbookServices.listSlackChannelContextPlaybooks()
@@ -2939,7 +2990,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.metrics_export.MetricsExportService/TriggerMetricsPush"]["post"]
     update:
-      x-speakeasy-group: metricsExportServices
+      x-speakeasy-group: metricsExports
       x-speakeasy-name-override: triggerPush
     x-speakeasy-metadata:
       after: sdk.metricsExportServices.triggerPush()
@@ -3009,6 +3060,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_query.SandboxQueryService/ExecuteQuery"]["post"]
     update:
+      x-speakeasy-group: sandbox
       x-speakeasy-name-override: executeQuery
     x-speakeasy-metadata:
       after: sdk.sandboxQueryService.executeQuery()
@@ -3018,6 +3070,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/PollChatEvents"]["post"]
     update:
+      x-speakeasy-group: chats
       x-speakeasy-name-override: pollEvents
     x-speakeasy-metadata:
       after: sdk.chatService.pollEvents()
@@ -3047,6 +3100,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.metrics_export.MetricsExportService/DeleteMetricsExportConfig"]["post"]
     update:
+      x-speakeasy-group: metricsExports
       x-speakeasy-name-override: deleteConfig
     x-speakeasy-metadata:
       after: sdk.metricsExportService.deleteConfig()
@@ -3056,7 +3110,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.scim.ScimService/ListScimTokens"]["post"]
     update:
-      x-speakeasy-group: scimTokens
+      x-speakeasy-group: scim
       x-speakeasy-name-override: list
     x-speakeasy-metadata:
       after: sdk.scimTokens.list()
@@ -3076,7 +3130,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/ExecuteQuery"]["post"]
     update:
-      x-speakeasy-group: connectorServices
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: executeQuery
     x-speakeasy-metadata:
       after: sdk.connectorServices.executeQuery()
@@ -3106,7 +3160,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/RotateApiKey"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: rotateApiKey
     x-speakeasy-metadata:
       after: sdk.rbacService.rotateApiKey()
@@ -3116,7 +3170,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/DeleteLibraryFile"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: deleteLibraryFile
     x-speakeasy-metadata:
       after: sdk.libraryServices.deleteLibraryFile()
@@ -3126,7 +3180,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/DiscardDashboardChanges"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: discardChanges
     x-speakeasy-metadata:
       after: sdk.dashboardServices.discardChanges()
@@ -3136,7 +3190,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dataset.DatasetService/CreateTableauDataset"]["post"]
     update:
-      x-speakeasy-group: datasetServices
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: createTableauDataset
     x-speakeasy-metadata:
       after: sdk.datasetServices.createTableauDataset()
@@ -3146,6 +3200,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/RefreshTableauCollection"]["post"]
     update:
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: refreshCollection
     x-speakeasy-metadata:
       after: sdk.tableauService.refreshCollection()
@@ -3185,6 +3240,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/RestoreDashboardVersion"]["post"]
     update:
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: restoreDashboardVersion
     x-speakeasy-metadata:
       after: sdk.dashboardService.restoreDashboardVersion()
@@ -3194,7 +3250,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/GetConnectorDashboards"]["post"]
     update:
-      x-speakeasy-group: connector
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: getDashboards
     x-speakeasy-metadata:
       after: sdk.connector.getDashboards()
@@ -3204,7 +3260,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/GetDashboardViewStats"]["post"]
     update:
-      x-speakeasy-group: dashboardServices
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: getDashboardViewStats
     x-speakeasy-metadata:
       after: sdk.dashboardServices.getDashboardViewStats()
@@ -3214,6 +3270,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/TriggerConfigDriftReconcile"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: triggerConfigDriftReconcile
     x-speakeasy-metadata:
       after: sdk.libraryService.triggerConfigDriftReconcile()
@@ -3223,7 +3280,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/DeleteSecret"]["post"]
     update:
-      x-speakeasy-group: secretServices
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: deleteSecret
     x-speakeasy-metadata:
       after: sdk.secretServices.deleteSecret()
@@ -3233,6 +3290,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetPatch"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getPatch
     x-speakeasy-metadata:
       after: sdk.libraryService.getPatch()
@@ -3272,6 +3330,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/GetCompletionParameters"]["post"]
     update:
+      x-speakeasy-group: chats
       x-speakeasy-name-override: getCompletionParameters
     x-speakeasy-metadata:
       after: sdk.chatService.getCompletionParameters()
@@ -3291,7 +3350,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/PushLibraryToRemote"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: pushLibraryToRemote
     x-speakeasy-metadata:
       after: sdk.libraryServices.pushLibraryToRemote()
@@ -3301,7 +3360,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ValidateConfig"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: validateConfig
     x-speakeasy-metadata:
       after: sdk.libraryServices.validateConfig()
@@ -3311,6 +3370,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/UpdateDashboard"]["post"]
     update:
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: updateDashboard
     x-speakeasy-metadata:
       after: sdk.dashboardService.updateDashboard()
@@ -3320,6 +3380,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.slack.SlackService/ListChannels"]["post"]
     update:
+      x-speakeasy-group: slack
       x-speakeasy-name-override: listChannels
     x-speakeasy-metadata:
       after: sdk.slackService.listChannels()
@@ -3349,7 +3410,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.powerbi.PowerBIService/TestPowerBIConnection"]["post"]
     update:
-      x-speakeasy-group: powerBiService
+      x-speakeasy-group: powerbi
       x-speakeasy-name-override: testConnection
     x-speakeasy-metadata:
       after: sdk.powerBiService.testConnection()
@@ -3359,7 +3420,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.sandbox_admin.SandboxAdminService/ReadSandboxFile"]["post"]
     update:
-      x-speakeasy-group: sandboxes
+      x-speakeasy-group: sandboxAdmin
       x-speakeasy-name-override: readFile
     x-speakeasy-metadata:
       after: sdk.sandboxes.readFile()
@@ -3389,7 +3450,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/CreateApp"]["post"]
     update:
-      x-speakeasy-group: appServices
+      x-speakeasy-group: apps
       x-speakeasy-name-override: createApp
     x-speakeasy-metadata:
       after: sdk.appServices.createApp()
@@ -3409,7 +3470,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/TestApiAccessKey"]["post"]
     update:
-      x-speakeasy-group: secretServices
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: testApiAccessKey
     x-speakeasy-metadata:
       after: sdk.secretServices.testApiAccessKey()
@@ -3429,6 +3490,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.scim.ScimService/CreateScimToken"]["post"]
     update:
+      x-speakeasy-group: scim
       x-speakeasy-name-override: createScimToken
     x-speakeasy-metadata:
       after: sdk.scimService.createScimToken()
@@ -3438,6 +3500,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/MigrateSecretToApiConnector"]["post"]
     update:
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: migrateSecretToApiConnector
     x-speakeasy-metadata:
       after: sdk.secretService.migrateSecretToApiConnector()
@@ -3457,7 +3520,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/ApproveContextPromptChange"]["post"]
     update:
-      x-speakeasy-group: chat
+      x-speakeasy-group: chats
       x-speakeasy-name-override: approveContextPromptChange
     x-speakeasy-metadata:
       after: sdk.chat.approveContextPromptChange()
@@ -3467,7 +3530,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/RemoveDashboard"]["post"]
     update:
-      x-speakeasy-group: playbookServices
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: removeDashboard
     x-speakeasy-metadata:
       after: sdk.playbookServices.removeDashboard()
@@ -3487,7 +3550,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/UpdateObjectAccess"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: updateObjectAccess
     x-speakeasy-metadata:
       after: sdk.rbacService.updateObjectAccess()
@@ -3497,6 +3560,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dataset.DatasetService/GetFolders"]["post"]
     update:
+      x-speakeasy-group: datasets
       x-speakeasy-name-override: getFolders
     x-speakeasy-metadata:
       after: sdk.datasetService.getFolders()
@@ -3506,6 +3570,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/CheckStreamlitHealth"]["post"]
     update:
+      x-speakeasy-group: chats
       x-speakeasy-name-override: checkStreamlitHealth
     x-speakeasy-metadata:
       after: sdk.chatService.checkStreamlitHealth()
@@ -3535,6 +3600,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.connector.ConnectorService/CreateConnector"]["post"]
     update:
+      x-speakeasy-group: connectors
       x-speakeasy-name-override: create
     x-speakeasy-metadata:
       after: sdk.connectorService.create()
@@ -3554,7 +3620,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.tableau.TableauService/ListTableauWorkbooks"]["post"]
     update:
-      x-speakeasy-group: tableaus
+      x-speakeasy-group: tableau
       x-speakeasy-name-override: listWorkbooks
     x-speakeasy-metadata:
       after: sdk.tableaus.listWorkbooks()
@@ -3574,6 +3640,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.dashboard.DashboardService/UpdateDashboardSchedule"]["post"]
     update:
+      x-speakeasy-group: dashboards
       x-speakeasy-name-override: updateDashboardSchedule
     x-speakeasy-metadata:
       after: sdk.dashboardService.updateDashboardSchedule()
@@ -3583,7 +3650,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/CreateRole"]["post"]
     update:
-      x-speakeasy-group: rbacService
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: createRole
     x-speakeasy-metadata:
       after: sdk.rbacService.createRole()
@@ -3593,7 +3660,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetMemberActivity"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getMemberActivity
     x-speakeasy-metadata:
       after: sdk.observabilityServices.getMemberActivity()
@@ -3603,7 +3670,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/GetChatSourceStats"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: getChatSourceStats
     x-speakeasy-metadata:
       after: sdk.observabilityServices.getChatSourceStats()
@@ -3633,6 +3700,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/RemoveDataset"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: removeDataset
     x-speakeasy-metadata:
       after: sdk.playbookService.removeDataset()
@@ -3642,6 +3710,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetPlaybooksPreviews"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getPlaybooksPreviews
     x-speakeasy-metadata:
       after: sdk.playbookService.getPlaybooksPreviews()
@@ -3651,6 +3720,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/ListTeamsChannelsForContextPlaybook"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: listTeamsChannelsForContextPlaybook
     x-speakeasy-metadata:
       after: sdk.playbookService.listTeamsChannelsForContextPlaybook()
@@ -3660,6 +3730,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/GetAppVersion"]["post"]
     update:
+      x-speakeasy-group: apps
       x-speakeasy-name-override: getAppVersion
     x-speakeasy-metadata:
       after: sdk.appService.getAppVersion()
@@ -3669,6 +3740,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListLibraryEntries"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: listLibraryEntries
     x-speakeasy-metadata:
       after: sdk.libraryService.listLibraryEntries()
@@ -3688,7 +3760,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.app.AppService/RefreshApp"]["post"]
     update:
-      x-speakeasy-group: appServices
+      x-speakeasy-group: apps
       x-speakeasy-name-override: refresh
     x-speakeasy-metadata:
       after: sdk.appServices.refresh()
@@ -3718,7 +3790,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetOntologyUsageSummary"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getOntologyUsageSummary
     x-speakeasy-metadata:
       after: sdk.libraryServices.getOntologyUsageSummary()
@@ -3728,6 +3800,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/CreateChat"]["post"]
     update:
+      x-speakeasy-group: chats
       x-speakeasy-name-override: createChat
     x-speakeasy-metadata:
       after: sdk.chatService.createChat()
@@ -3757,7 +3830,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/SendMessage"]["post"]
     update:
-      x-speakeasy-group: chatServices
+      x-speakeasy-group: chats
       x-speakeasy-name-override: send
     x-speakeasy-metadata:
       after: sdk.chatServices.send()
@@ -3767,7 +3840,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/PlanLibraryMerge"]["post"]
     update:
-      x-speakeasy-group: library
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: planMerge
     x-speakeasy-metadata:
       after: sdk.library.planMerge()
@@ -3787,6 +3860,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.scim.ScimService/ListScimOAuthClients"]["post"]
     update:
+      x-speakeasy-group: scim
       x-speakeasy-name-override: listScimOAuthClients
     x-speakeasy-metadata:
       after: sdk.scimService.listScimOAuthClients()
@@ -3836,6 +3910,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ResolveLibrarySyncConflict"]["post"]
     update:
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: resolveSyncConflict
     x-speakeasy-metadata:
       after: sdk.libraryService.resolveSyncConflict()
@@ -3865,7 +3940,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/ListCustomTopics"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: listCustomTopics
     x-speakeasy-metadata:
       after: sdk.observabilityServices.listCustomTopics()
@@ -3875,7 +3950,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.secret.SecretService/ListApiAccessKeys"]["post"]
     update:
-      x-speakeasy-group: secretServices
+      x-speakeasy-group: secrets
       x-speakeasy-name-override: listApiAccessKeys
     x-speakeasy-metadata:
       after: sdk.secretServices.listApiAccessKeys()
@@ -3885,7 +3960,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.observe.ObservabilityService/ExportObservabilityCsv"]["post"]
     update:
-      x-speakeasy-group: observabilityServices
+      x-speakeasy-group: observability
       x-speakeasy-name-override: exportCsv
     x-speakeasy-metadata:
       after: sdk.observabilityServices.exportCsv()
@@ -3895,7 +3970,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.rbac.RBACService/MigrateAllScimGroupMappings"]["post"]
     update:
-      x-speakeasy-group: rbacServices
+      x-speakeasy-group: rbac
       x-speakeasy-name-override: migrateAllScimGroupMappings
     x-speakeasy-metadata:
       after: sdk.rbacServices.migrateAllScimGroupMappings()
@@ -3905,7 +3980,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/GetLibraryGithubOAuthURL"]["post"]
     update:
-      x-speakeasy-group: libraryServices
+      x-speakeasy-group: libraries
       x-speakeasy-name-override: getLibraryGithubOAuthURL
     x-speakeasy-metadata:
       after: sdk.libraryServices.getLibraryGithubOAuthURL()
@@ -3935,6 +4010,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.audit_log.AuditLogService/GetS3ExportConfig"]["post"]
     update:
+      x-speakeasy-group: auditLogs
       x-speakeasy-name-override: getS3ExportConfig
     x-speakeasy-metadata:
       after: sdk.auditLogService.getS3ExportConfig()
@@ -3944,6 +4020,7 @@ actions:
       type: method-name
   - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetPlaybookReportsBatch"]["post"]
     update:
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getPlaybookReportsBatch
     x-speakeasy-metadata:
       after: sdk.playbookService.getPlaybookReportsBatch()

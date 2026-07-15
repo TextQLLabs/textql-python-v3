@@ -425,6 +425,426 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def cancel_template_execution(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        template_header_id: Optional[str] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceCancelTemplateExecutionResponse:
+        r"""Cancel template execution for a specific template header
+
+        Cancel template execution for a specific template header
+
+        :param connect_timeout_ms:
+        :param template_header_id:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceCancelTemplateExecutionRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookCancelTemplateExecutionRequest(
+                template_header_id=template_header_id,
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/CancelTemplateExecution",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookCancelTemplateExecutionRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_CancelTemplateExecution",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookCancelTemplateExecutionResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def cancel_template_execution_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        template_header_id: Optional[str] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceCancelTemplateExecutionResponse:
+        r"""Cancel template execution for a specific template header
+
+        Cancel template execution for a specific template header
+
+        :param connect_timeout_ms:
+        :param template_header_id:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceCancelTemplateExecutionRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookCancelTemplateExecutionRequest(
+                template_header_id=template_header_id,
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/CancelTemplateExecution",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookCancelTemplateExecutionRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_CancelTemplateExecution",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookCancelTemplateExecutionResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def create_playbook(
+        self,
+        *,
+        body: Union[
+            models.TextqlRPCPublicPlaybookCreatePlaybookRequest,
+            models.TextqlRPCPublicPlaybookCreatePlaybookRequestTypedDict,
+        ],
+        connect_timeout_ms: Optional[float] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceCreatePlaybookResponse:
+        r"""CreatePlaybook
+
+        :param body:
+        :param connect_timeout_ms:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceCreatePlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=utils.get_pydantic_model(
+                body, models.TextqlRPCPublicPlaybookCreatePlaybookRequest
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/CreatePlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookCreatePlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_CreatePlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookCreatePlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def create_playbook_async(
+        self,
+        *,
+        body: Union[
+            models.TextqlRPCPublicPlaybookCreatePlaybookRequest,
+            models.TextqlRPCPublicPlaybookCreatePlaybookRequestTypedDict,
+        ],
+        connect_timeout_ms: Optional[float] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceCreatePlaybookResponse:
+        r"""CreatePlaybook
+
+        :param body:
+        :param connect_timeout_ms:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceCreatePlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=utils.get_pydantic_model(
+                body, models.TextqlRPCPublicPlaybookCreatePlaybookRequest
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/CreatePlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookCreatePlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_CreatePlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookCreatePlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def deactivate(
         self,
         *,
@@ -825,6 +1245,226 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def demo_playbook(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        chat_id: Optional[str] = None,
+        person_name: Optional[str] = None,
+        job_title: Optional[str] = None,
+        target_email: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceDemoPlaybookResponse:
+        r"""DemoPlaybook
+
+        :param connect_timeout_ms:
+        :param chat_id:
+        :param person_name:
+        :param job_title:
+        :param target_email:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceDemoPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookDemoPlaybookRequest(
+                chat_id=chat_id,
+                person_name=person_name,
+                job_title=job_title,
+                target_email=target_email,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/DemoPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookDemoPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_DemoPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookDemoPlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def demo_playbook_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        chat_id: Optional[str] = None,
+        person_name: Optional[str] = None,
+        job_title: Optional[str] = None,
+        target_email: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceDemoPlaybookResponse:
+        r"""DemoPlaybook
+
+        :param connect_timeout_ms:
+        :param chat_id:
+        :param person_name:
+        :param job_title:
+        :param target_email:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceDemoPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookDemoPlaybookRequest(
+                chat_id=chat_id,
+                person_name=person_name,
+                job_title=job_title,
+                target_email=target_email,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/DemoPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookDemoPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_DemoPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookDemoPlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def deploy(
         self,
         *,
@@ -1011,6 +1651,208 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookDeployPlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def duplicate(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceDuplicatePlaybookResponse:
+        r"""DuplicatePlaybook
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceDuplicatePlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookDuplicatePlaybookRequest(
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/DuplicatePlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookDuplicatePlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_DuplicatePlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookDuplicatePlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def duplicate_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceDuplicatePlaybookResponse:
+        r"""DuplicatePlaybook
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceDuplicatePlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookDuplicatePlaybookRequest(
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/DuplicatePlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookDuplicatePlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_DuplicatePlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookDuplicatePlaybookResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1223,6 +2065,218 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookFavoriteReportResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_active_subscribed_count(
+        self,
+        *,
+        body: Union[
+            models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequest,
+            models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequestTypedDict,
+        ],
+        connect_timeout_ms: Optional[float] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetActiveSubscribedPlaybooksCountResponse:
+        r"""GetActiveSubscribedPlaybooksCount
+
+        :param body:
+        :param connect_timeout_ms:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetActiveSubscribedPlaybooksCountRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=utils.get_pydantic_model(
+                body,
+                models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequest,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetActiveSubscribedPlaybooksCount",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetActiveSubscribedPlaybooksCount",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_active_subscribed_count_async(
+        self,
+        *,
+        body: Union[
+            models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequest,
+            models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequestTypedDict,
+        ],
+        connect_timeout_ms: Optional[float] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetActiveSubscribedPlaybooksCountResponse:
+        r"""GetActiveSubscribedPlaybooksCount
+
+        :param body:
+        :param connect_timeout_ms:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetActiveSubscribedPlaybooksCountRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=utils.get_pydantic_model(
+                body,
+                models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequest,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetActiveSubscribedPlaybooksCount",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetActiveSubscribedPlaybooksCount",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetActiveSubscribedPlaybooksCountResponse,
+                http_res,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1867,6 +2921,212 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def get_batch_run(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        batch_run_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybookBatchRunResponse:
+        r"""Get a specific batch run
+
+        Get a specific batch run
+
+        :param connect_timeout_ms:
+        :param batch_run_id: UUID
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybookBatchRunRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybookBatchRunRequest(
+                batch_run_id=batch_run_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookBatchRun",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybookBatchRunRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybookBatchRun",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybookBatchRunResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_batch_run_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        batch_run_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybookBatchRunResponse:
+        r"""Get a specific batch run
+
+        Get a specific batch run
+
+        :param connect_timeout_ms:
+        :param batch_run_id: UUID
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybookBatchRunRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybookBatchRunRequest(
+                batch_run_id=batch_run_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookBatchRun",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybookBatchRunRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybookBatchRun",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybookBatchRunResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def get_extended_qn(
         self,
         *,
@@ -2057,6 +3317,208 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_playbook_lineage(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybookLineageResponse:
+        r"""GetPlaybookLineage
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybookLineageRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybookLineageRequest(
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookLineage",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybookLineageRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybookLineage",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybookLineageResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_playbook_lineage_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybookLineageResponse:
+        r"""GetPlaybookLineage
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybookLineageRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybookLineageRequest(
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookLineage",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybookLineageRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybookLineage",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybookLineageResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -2289,6 +3751,234 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookGetPlaybookReportsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_playbook_reports_batch(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        template_data_ids: Optional[Iterable[str]] = None,
+        limit_per_template: Optional[int] = None,
+        batch_run_id: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybookReportsBatchResponse:
+        r"""Get reports for multiple template data IDs in a single batch request
+
+        Get reports for multiple template data IDs in a single batch request
+
+        :param connect_timeout_ms:
+        :param playbook_id: UUID
+        :param template_data_ids: List of template data UUIDs to fetch reports for
+        :param limit_per_template: Max reports to return per template_data_id (default: 100)
+        :param batch_run_id: UUID - filter reports and artifacts by batch run
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybookReportsBatchRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybookReportsBatchRequest(
+                playbook_id=playbook_id,
+                template_data_ids=utils.unmarshal(
+                    template_data_ids, Optional[List[str]]
+                ),
+                limit_per_template=limit_per_template,
+                batch_run_id=batch_run_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookReportsBatch",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybookReportsBatchRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybookReportsBatch",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybookReportsBatchResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_playbook_reports_batch_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        template_data_ids: Optional[Iterable[str]] = None,
+        limit_per_template: Optional[int] = None,
+        batch_run_id: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybookReportsBatchResponse:
+        r"""Get reports for multiple template data IDs in a single batch request
+
+        Get reports for multiple template data IDs in a single batch request
+
+        :param connect_timeout_ms:
+        :param playbook_id: UUID
+        :param template_data_ids: List of template data UUIDs to fetch reports for
+        :param limit_per_template: Max reports to return per template_data_id (default: 100)
+        :param batch_run_id: UUID - filter reports and artifacts by batch run
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybookReportsBatchRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybookReportsBatchRequest(
+                playbook_id=playbook_id,
+                template_data_ids=utils.unmarshal(
+                    template_data_ids, Optional[List[str]]
+                ),
+                limit_per_template=limit_per_template,
+                batch_run_id=batch_run_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookReportsBatch",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybookReportsBatchRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybookReportsBatch",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybookReportsBatchResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -2599,6 +4289,214 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def get_playbooks_previews(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        only_subscribed: Optional[bool] = None,
+        status_filter: Optional[models.TextqlRPCPublicPlaybookPlaybookStatus] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybooksPreviewsResponse:
+        r"""GetPlaybooksPreviews
+
+        :param connect_timeout_ms:
+        :param only_subscribed:
+        :param status_filter:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybooksPreviewsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybooksPreviewsRequest(
+                only_subscribed=only_subscribed,
+                status_filter=status_filter,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybooksPreviews",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybooksPreviewsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybooksPreviews",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybooksPreviewsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_playbooks_previews_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        only_subscribed: Optional[bool] = None,
+        status_filter: Optional[models.TextqlRPCPublicPlaybookPlaybookStatus] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetPlaybooksPreviewsResponse:
+        r"""GetPlaybooksPreviews
+
+        :param connect_timeout_ms:
+        :param only_subscribed:
+        :param status_filter:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetPlaybooksPreviewsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetPlaybooksPreviewsRequest(
+                only_subscribed=only_subscribed,
+                status_filter=status_filter,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetPlaybooksPreviews",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetPlaybooksPreviewsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetPlaybooksPreviews",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetPlaybooksPreviewsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def get_qn_playbook(
         self,
         *,
@@ -2785,6 +4683,212 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookGetQNPlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def get_report_by_id(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        report_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetReportByIDResponse:
+        r"""Get a single report by ID
+
+        Get a single report by ID
+
+        :param connect_timeout_ms:
+        :param report_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetReportByIDRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetReportByIDRequest(
+                report_id=report_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetReportById",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetReportByIDRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetReportById",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetReportByIDResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def get_report_by_id_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        report_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceGetReportByIDResponse:
+        r"""Get a single report by ID
+
+        Get a single report by ID
+
+        :param connect_timeout_ms:
+        :param report_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceGetReportByIDRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookGetReportByIDRequest(
+                report_id=report_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/GetReportById",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookGetReportByIDRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_GetReportById",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookGetReportByIDResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -3001,6 +5105,222 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookGetReportsWithFiltersResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def list_slack_channel_context_playbooks(
+        self,
+        *,
+        body: Union[
+            models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequest,
+            models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequestTypedDict,
+        ],
+        connect_timeout_ms: Optional[float] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceListAllSlackChannelContextPlaybooksResponse:
+        r"""List all Slack channels context playbook mappings for the organization
+
+        List all Slack channels context playbook mappings for the organization
+
+        :param body:
+        :param connect_timeout_ms:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceListAllSlackChannelContextPlaybooksRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=utils.get_pydantic_model(
+                body,
+                models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequest,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/ListAllSlackChannelContextPlaybooks",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_ListAllSlackChannelContextPlaybooks",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def list_slack_channel_context_playbooks_async(
+        self,
+        *,
+        body: Union[
+            models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequest,
+            models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequestTypedDict,
+        ],
+        connect_timeout_ms: Optional[float] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceListAllSlackChannelContextPlaybooksResponse:
+        r"""List all Slack channels context playbook mappings for the organization
+
+        List all Slack channels context playbook mappings for the organization
+
+        :param body:
+        :param connect_timeout_ms:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceListAllSlackChannelContextPlaybooksRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=utils.get_pydantic_model(
+                body,
+                models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequest,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/ListAllSlackChannelContextPlaybooks",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_ListAllSlackChannelContextPlaybooks",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookListAllSlackChannelContextPlaybooksResponse,
+                http_res,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -3655,6 +5975,210 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def list_teams_channels_for_context_playbook(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceListTeamsChannelsForContextPlaybookResponse:
+        r"""ListTeamsChannelsForContextPlaybook
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceListTeamsChannelsForContextPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookListTeamsChannelsForContextPlaybookRequest(
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/ListTeamsChannelsForContextPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookListTeamsChannelsForContextPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_ListTeamsChannelsForContextPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookListTeamsChannelsForContextPlaybookResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def list_teams_channels_for_context_playbook_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceListTeamsChannelsForContextPlaybookResponse:
+        r"""ListTeamsChannelsForContextPlaybook
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceListTeamsChannelsForContextPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookListTeamsChannelsForContextPlaybookRequest(
+                playbook_id=playbook_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/ListTeamsChannelsForContextPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookListTeamsChannelsForContextPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_ListTeamsChannelsForContextPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookListTeamsChannelsForContextPlaybookResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def mark_report_as_read(
         self,
         *,
@@ -4095,6 +6619,422 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def remove_dashboard(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        dashboard_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceRemoveDashboardResponse:
+        r"""RemoveDashboard
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param dashboard_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceRemoveDashboardRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookPlaybookRemoveDashboardRequest(
+                playbook_id=playbook_id,
+                dashboard_id=dashboard_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/RemoveDashboard",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDashboardRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_RemoveDashboard",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDashboardResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def remove_dashboard_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        dashboard_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceRemoveDashboardResponse:
+        r"""RemoveDashboard
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param dashboard_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceRemoveDashboardRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookPlaybookRemoveDashboardRequest(
+                playbook_id=playbook_id,
+                dashboard_id=dashboard_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/RemoveDashboard",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDashboardRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_RemoveDashboard",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDashboardResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def remove_dataset(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceRemoveDatasetResponse:
+        r"""RemoveDataset
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param dataset_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceRemoveDatasetRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookPlaybookRemoveDatasetRequest(
+                playbook_id=playbook_id,
+                dataset_id=dataset_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/RemoveDataset",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDatasetRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_RemoveDataset",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDatasetResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def remove_dataset_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceRemoveDatasetResponse:
+        r"""RemoveDataset
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param dataset_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceRemoveDatasetRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookPlaybookRemoveDatasetRequest(
+                playbook_id=playbook_id,
+                dataset_id=dataset_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/RemoveDataset",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDatasetRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_RemoveDataset",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookPlaybookRemoveDatasetResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def run(
         self,
         *,
@@ -4293,6 +7233,224 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookRunPlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def set_slack_channel_context_playbook(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        slack_channel_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceSetSlackChannelContextPlaybookResponse:
+        r"""Set the context playbook for a Slack channel. This associates the given  playbook to a Slack channel so that Slack messages in that channel use the  playbook's context by default.
+
+        Set the context playbook for a Slack channel. This associates the given
+        playbook to a Slack channel so that Slack messages in that channel use the
+        playbook's context by default.
+
+        :param connect_timeout_ms:
+        :param playbook_id: The playbook to associate
+        :param slack_channel_id: Slack channel ID (e.g., C123...)
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceSetSlackChannelContextPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookSetSlackChannelContextPlaybookRequest(
+                playbook_id=playbook_id,
+                slack_channel_id=slack_channel_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/SetSlackChannelContextPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookSetSlackChannelContextPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_SetSlackChannelContextPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookSetSlackChannelContextPlaybookResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def set_slack_channel_context_playbook_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        slack_channel_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceSetSlackChannelContextPlaybookResponse:
+        r"""Set the context playbook for a Slack channel. This associates the given  playbook to a Slack channel so that Slack messages in that channel use the  playbook's context by default.
+
+        Set the context playbook for a Slack channel. This associates the given
+        playbook to a Slack channel so that Slack messages in that channel use the
+        playbook's context by default.
+
+        :param connect_timeout_ms:
+        :param playbook_id: The playbook to associate
+        :param slack_channel_id: Slack channel ID (e.g., C123...)
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceSetSlackChannelContextPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookSetSlackChannelContextPlaybookRequest(
+                playbook_id=playbook_id,
+                slack_channel_id=slack_channel_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/SetSlackChannelContextPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookSetSlackChannelContextPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_SetSlackChannelContextPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookSetSlackChannelContextPlaybookResponse,
+                http_res,
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -4721,6 +7879,216 @@ class Playbooks(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def unset_slack_channel_context_playbook(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        slack_channel_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceUnsetSlackChannelContextPlaybookResponse:
+        r"""Unset the context playbook for a Slack channel. This clears any association  so that messages in this channel no longer use a specific playbook context.
+
+        Unset the context playbook for a Slack channel. This clears any association
+        so that messages in this channel no longer use a specific playbook context.
+
+        :param connect_timeout_ms:
+        :param slack_channel_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceUnsetSlackChannelContextPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookUnsetSlackChannelContextPlaybookRequest(
+                slack_channel_id=slack_channel_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/UnsetSlackChannelContextPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookUnsetSlackChannelContextPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_UnsetSlackChannelContextPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookUnsetSlackChannelContextPlaybookResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def unset_slack_channel_context_playbook_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        slack_channel_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceUnsetSlackChannelContextPlaybookResponse:
+        r"""Unset the context playbook for a Slack channel. This clears any association  so that messages in this channel no longer use a specific playbook context.
+
+        Unset the context playbook for a Slack channel. This clears any association
+        so that messages in this channel no longer use a specific playbook context.
+
+        :param connect_timeout_ms:
+        :param slack_channel_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceUnsetSlackChannelContextPlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookUnsetSlackChannelContextPlaybookRequest(
+                slack_channel_id=slack_channel_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/UnsetSlackChannelContextPlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookUnsetSlackChannelContextPlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_UnsetSlackChannelContextPlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookUnsetSlackChannelContextPlaybookResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def unset_teams_channel_context(
         self,
         *,
@@ -5111,6 +8479,536 @@ class Playbooks(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def update(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        name: OptionalNullable[str] = UNSET,
+        prompt: OptionalNullable[str] = UNSET,
+        status: Optional[models.TextqlRPCPublicPlaybookPlaybookStatus] = None,
+        trigger_type: Optional[
+            models.TextqlRPCPublicPlaybookPlaybookTriggerType
+        ] = None,
+        cron_string: OptionalNullable[str] = UNSET,
+        dataset_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        connector_id: OptionalNullable[int] = UNSET,
+        reference_report_id: OptionalNullable[str] = UNSET,
+        paradigm_options: Optional[
+            Union[
+                models.TextqlRPCPublicParadigmParadigmOptions,
+                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
+            ]
+        ] = None,
+        paradigm_type: Optional[models.TextqlRPCParadigmParamsParadigmType] = None,
+        email_addresses: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        slack_channel_id: OptionalNullable[str] = UNSET,
+        tagged_slack_user_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        report_output_style: Optional[
+            models.TextqlRPCPublicPlaybookPlaybookReportStyle
+        ] = None,
+        template_header_id: OptionalNullable[str] = UNSET,
+        selected_template_data_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        max_concurrent_templates: OptionalNullable[int] = UNSET,
+        auto_optimize_concurrency: OptionalNullable[bool] = UNSET,
+        connector_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookInt32List,
+                models.TextqlRPCPublicPlaybookInt32ListTypedDict,
+            ]
+        ] = None,
+        template_data_filters: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookFilterConditionList,
+                models.TextqlRPCPublicPlaybookFilterConditionListTypedDict,
+            ]
+        ] = None,
+        llm_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        chat_access_mode: Optional[models.TextqlRPCPublicPlaybookChatAccessMode] = None,
+        chat_access_overrides: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookChatAccessOverrideList,
+                models.TextqlRPCPublicPlaybookChatAccessOverrideListTypedDict,
+            ]
+        ] = None,
+        chat_is_public: OptionalNullable[bool] = UNSET,
+        dashboard_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        recipient_email_column: OptionalNullable[str] = UNSET,
+        teams_channel_id: OptionalNullable[str] = UNSET,
+        tagged_teams_user_aad_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceUpdatePlaybookResponse:
+        r"""UpdatePlaybook
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param name:
+        :param prompt:
+        :param status:
+        :param trigger_type:
+        :param cron_string:
+        :param dataset_ids:
+        :param connector_id: Deprecated: use connector_ids instead
+        :param reference_report_id:
+        :param paradigm_options:
+        :param paradigm_type:
+        :param email_addresses:
+        :param slack_channel_id:
+        :param tagged_slack_user_ids:
+        :param report_output_style:
+        :param template_header_id:
+        :param selected_template_data_ids:
+        :param max_concurrent_templates:
+        :param auto_optimize_concurrency:
+        :param connector_ids:
+        :param template_data_filters:
+        :param llm_model:
+        :param chat_access_mode:
+        :param chat_access_overrides:
+        :param chat_is_public:
+        :param dashboard_ids:
+        :param recipient_email_column:
+        :param teams_channel_id:
+        :param tagged_teams_user_aad_ids:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceUpdatePlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookUpdatePlaybookRequest(
+                playbook_id=playbook_id,
+                name=name,
+                prompt=prompt,
+                status=status,
+                trigger_type=trigger_type,
+                cron_string=cron_string,
+                dataset_ids=utils.get_pydantic_model(
+                    dataset_ids, Optional[models.TextqlRPCPublicPlaybookStringList]
+                ),
+                connector_id=connector_id,
+                reference_report_id=reference_report_id,
+                paradigm_options=utils.get_pydantic_model(
+                    paradigm_options,
+                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
+                ),
+                paradigm_type=paradigm_type,
+                email_addresses=utils.get_pydantic_model(
+                    email_addresses, Optional[models.TextqlRPCPublicPlaybookStringList]
+                ),
+                slack_channel_id=slack_channel_id,
+                tagged_slack_user_ids=utils.get_pydantic_model(
+                    tagged_slack_user_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+                report_output_style=report_output_style,
+                template_header_id=template_header_id,
+                selected_template_data_ids=utils.get_pydantic_model(
+                    selected_template_data_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+                max_concurrent_templates=max_concurrent_templates,
+                auto_optimize_concurrency=auto_optimize_concurrency,
+                connector_ids=utils.get_pydantic_model(
+                    connector_ids, Optional[models.TextqlRPCPublicPlaybookInt32List]
+                ),
+                template_data_filters=utils.get_pydantic_model(
+                    template_data_filters,
+                    Optional[models.TextqlRPCPublicPlaybookFilterConditionList],
+                ),
+                llm_model=llm_model,
+                chat_access_mode=chat_access_mode,
+                chat_access_overrides=utils.get_pydantic_model(
+                    chat_access_overrides,
+                    Optional[models.TextqlRPCPublicPlaybookChatAccessOverrideList],
+                ),
+                chat_is_public=chat_is_public,
+                dashboard_ids=utils.get_pydantic_model(
+                    dashboard_ids, Optional[models.TextqlRPCPublicPlaybookStringList]
+                ),
+                recipient_email_column=recipient_email_column,
+                teams_channel_id=teams_channel_id,
+                tagged_teams_user_aad_ids=utils.get_pydantic_model(
+                    tagged_teams_user_aad_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookUpdatePlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_UpdatePlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookUpdatePlaybookResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def update_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        playbook_id: Optional[str] = None,
+        name: OptionalNullable[str] = UNSET,
+        prompt: OptionalNullable[str] = UNSET,
+        status: Optional[models.TextqlRPCPublicPlaybookPlaybookStatus] = None,
+        trigger_type: Optional[
+            models.TextqlRPCPublicPlaybookPlaybookTriggerType
+        ] = None,
+        cron_string: OptionalNullable[str] = UNSET,
+        dataset_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        connector_id: OptionalNullable[int] = UNSET,
+        reference_report_id: OptionalNullable[str] = UNSET,
+        paradigm_options: Optional[
+            Union[
+                models.TextqlRPCPublicParadigmParadigmOptions,
+                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
+            ]
+        ] = None,
+        paradigm_type: Optional[models.TextqlRPCParadigmParamsParadigmType] = None,
+        email_addresses: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        slack_channel_id: OptionalNullable[str] = UNSET,
+        tagged_slack_user_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        report_output_style: Optional[
+            models.TextqlRPCPublicPlaybookPlaybookReportStyle
+        ] = None,
+        template_header_id: OptionalNullable[str] = UNSET,
+        selected_template_data_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        max_concurrent_templates: OptionalNullable[int] = UNSET,
+        auto_optimize_concurrency: OptionalNullable[bool] = UNSET,
+        connector_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookInt32List,
+                models.TextqlRPCPublicPlaybookInt32ListTypedDict,
+            ]
+        ] = None,
+        template_data_filters: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookFilterConditionList,
+                models.TextqlRPCPublicPlaybookFilterConditionListTypedDict,
+            ]
+        ] = None,
+        llm_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        chat_access_mode: Optional[models.TextqlRPCPublicPlaybookChatAccessMode] = None,
+        chat_access_overrides: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookChatAccessOverrideList,
+                models.TextqlRPCPublicPlaybookChatAccessOverrideListTypedDict,
+            ]
+        ] = None,
+        chat_is_public: OptionalNullable[bool] = UNSET,
+        dashboard_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        recipient_email_column: OptionalNullable[str] = UNSET,
+        teams_channel_id: OptionalNullable[str] = UNSET,
+        tagged_teams_user_aad_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PlaybookServiceUpdatePlaybookResponse:
+        r"""UpdatePlaybook
+
+        :param connect_timeout_ms:
+        :param playbook_id:
+        :param name:
+        :param prompt:
+        :param status:
+        :param trigger_type:
+        :param cron_string:
+        :param dataset_ids:
+        :param connector_id: Deprecated: use connector_ids instead
+        :param reference_report_id:
+        :param paradigm_options:
+        :param paradigm_type:
+        :param email_addresses:
+        :param slack_channel_id:
+        :param tagged_slack_user_ids:
+        :param report_output_style:
+        :param template_header_id:
+        :param selected_template_data_ids:
+        :param max_concurrent_templates:
+        :param auto_optimize_concurrency:
+        :param connector_ids:
+        :param template_data_filters:
+        :param llm_model:
+        :param chat_access_mode:
+        :param chat_access_overrides:
+        :param chat_is_public:
+        :param dashboard_ids:
+        :param recipient_email_column:
+        :param teams_channel_id:
+        :param tagged_teams_user_aad_ids:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PlaybookServiceUpdatePlaybookRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicPlaybookUpdatePlaybookRequest(
+                playbook_id=playbook_id,
+                name=name,
+                prompt=prompt,
+                status=status,
+                trigger_type=trigger_type,
+                cron_string=cron_string,
+                dataset_ids=utils.get_pydantic_model(
+                    dataset_ids, Optional[models.TextqlRPCPublicPlaybookStringList]
+                ),
+                connector_id=connector_id,
+                reference_report_id=reference_report_id,
+                paradigm_options=utils.get_pydantic_model(
+                    paradigm_options,
+                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
+                ),
+                paradigm_type=paradigm_type,
+                email_addresses=utils.get_pydantic_model(
+                    email_addresses, Optional[models.TextqlRPCPublicPlaybookStringList]
+                ),
+                slack_channel_id=slack_channel_id,
+                tagged_slack_user_ids=utils.get_pydantic_model(
+                    tagged_slack_user_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+                report_output_style=report_output_style,
+                template_header_id=template_header_id,
+                selected_template_data_ids=utils.get_pydantic_model(
+                    selected_template_data_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+                max_concurrent_templates=max_concurrent_templates,
+                auto_optimize_concurrency=auto_optimize_concurrency,
+                connector_ids=utils.get_pydantic_model(
+                    connector_ids, Optional[models.TextqlRPCPublicPlaybookInt32List]
+                ),
+                template_data_filters=utils.get_pydantic_model(
+                    template_data_filters,
+                    Optional[models.TextqlRPCPublicPlaybookFilterConditionList],
+                ),
+                llm_model=llm_model,
+                chat_access_mode=chat_access_mode,
+                chat_access_overrides=utils.get_pydantic_model(
+                    chat_access_overrides,
+                    Optional[models.TextqlRPCPublicPlaybookChatAccessOverrideList],
+                ),
+                chat_is_public=chat_is_public,
+                dashboard_ids=utils.get_pydantic_model(
+                    dashboard_ids, Optional[models.TextqlRPCPublicPlaybookStringList]
+                ),
+                recipient_email_column=recipient_email_column,
+                teams_channel_id=teams_channel_id,
+                tagged_teams_user_aad_ids=utils.get_pydantic_model(
+                    tagged_teams_user_aad_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybook",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicPlaybookUpdatePlaybookRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="PlaybookService_UpdatePlaybook",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["PlaybookService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicPlaybookUpdatePlaybookResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

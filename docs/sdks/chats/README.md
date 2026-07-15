@@ -4,26 +4,124 @@
 
 ### Available Operations
 
+* [approve_context_prompt_change](#approve_context_prompt_change) - ApproveContextPromptChange
+* [approve_ontology_change](#approve_ontology_change) - Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
 * [attach_agent](#attach_agent) - External API users
+* [attach_app](#attach_app) - AttachApp
+* [attach_dashboard](#attach_dashboard) - AttachDashboard
+* [attach_dataset](#attach_dataset) - AttachDataset
 * [bookmark](#bookmark) - BookmarkChat
+* [cancel_stream](#cancel_stream) - CancelStream
+* [check_permissions](#check_permissions) - CheckChatPermissions
 * [check_health](#check_health) - CheckHealth
+* [check_streamlit_health](#check_streamlit_health) - CheckStreamlitHealth
+* [create_chat](#create_chat) - CreateChat
 * [delete](#delete) - DeleteChat
 * [dismiss_questions](#dismiss_questions) - DismissQuestions
+* [duplicate_chat](#duplicate_chat) - DuplicateChat
 * [get_api_answer](#get_api_answer) - GetAPIChatAnswer
+* [get_artifact](#get_artifact) - GetArtifact
 * [get](#get) - GetChat
 * [get_artifacts_summary](#get_artifacts_summary) - GetChatArtifactsSummary
 * [get_chat_execution_timing](#get_chat_execution_timing) - GetChatExecutionTiming
+* [get_history](#get_history) - GetChatHistory
 * [get_all](#get_all) - GetChats
+* [get_completion_parameters](#get_completion_parameters) - GetCompletionParameters
 * [get_completion_parameters_batch](#get_completion_parameters_batch) - GetCompletionParametersBatch
 * [get_llm_usage](#get_llm_usage) - GetLlmUsage
 * [get_members_with_chats](#get_members_with_chats) - List distinct chat creators the user can access
+* [get_playbook_chats](#get_playbook_chats) - GetPlaybookChats
+* [poll_events](#poll_events) - PollChatEvents
 * [query_one_shot](#query_one_shot) - QueryOneShot
+* [rate_cell](#rate_cell) - RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+* [reject_context_prompt_change](#reject_context_prompt_change) - RejectContextPromptChange
 * [reject_ontology_change](#reject_ontology_change) - RejectOntologyChange
 * [run](#run) - RunChat
+* [send](#send) - SendMessage
 * [submit_context_prompt_change](#submit_context_prompt_change) - SubmitContextPromptChange
 * [submit_questions](#submit_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
 * [unbookmark](#unbookmark) - UnbookmarkChat
 * [update](#update) - UpdateChat
+
+## approve_context_prompt_change
+
+ApproveContextPromptChange
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_ApproveContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/ApproveContextPromptChange" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.approve_context_prompt_change()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
+| `edited_context`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceApproveContextPromptChangeResponse](../../models/chatserviceapprovecontextpromptchangeresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## approve_ontology_change
+
+Resolve a halted ask_approval form cell. Submit runs the form's submission
+ and continues the agent with the outcome; Reject discards it (passive, no
+ run); Dismiss treats it as a change request (no run, next message says what
+ to change). All three set the cell's outcome, like the other approve/deny cells.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_ApproveOntologyChange" method="post" path="/textql.rpc.public.chat.ChatService/ApproveOntologyChange" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.approve_ontology_change()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceApproveOntologyChangeResponse](../../models/chatserviceapproveontologychangeresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
 ## attach_agent
 
@@ -33,12 +131,12 @@ External API users
 
 <!-- UsageSnippet language="python" operationID="ChatService_AttachAgentToChat" method="post" path="/textql.rpc.public.chat.ChatService/AttachAgentToChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.attach_agent()
+    res = textql.chats.attach_agent()
 
     # Handle response
     print(res)
@@ -64,6 +162,123 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## attach_app
+
+AttachApp
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_AttachApp" method="post" path="/textql.rpc.public.chat.ChatService/AttachApp" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.attach_app()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceAttachAppResponse](../../models/chatserviceattachappresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## attach_dashboard
+
+AttachDashboard
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_AttachDashboard" method="post" path="/textql.rpc.public.chat.ChatService/AttachDashboard" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.attach_dashboard()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceAttachDashboardResponse](../../models/chatserviceattachdashboardresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## attach_dataset
+
+AttachDataset
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_AttachDataset" method="post" path="/textql.rpc.public.chat.ChatService/AttachDataset" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.attach_dataset()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dataset_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | uses latest version                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceAttachDatasetResponse](../../models/chatserviceattachdatasetresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## bookmark
 
 BookmarkChat
@@ -72,12 +287,12 @@ BookmarkChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_BookmarkChat" method="post" path="/textql.rpc.public.chat.ChatService/BookmarkChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.bookmark()
+    res = textql.chats.bookmark()
 
     # Handle response
     print(res)
@@ -102,6 +317,82 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## cancel_stream
+
+CancelStream
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_CancelStream" method="post" path="/textql.rpc.public.chat.ChatService/CancelStream" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.cancel_stream()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceCancelStreamResponse](../../models/chatservicecancelstreamresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## check_permissions
+
+CheckChatPermissions
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_CheckChatPermissions" method="post" path="/textql.rpc.public.chat.ChatService/CheckChatPermissions" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.check_permissions()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceCheckChatPermissionsResponse](../../models/chatservicecheckchatpermissionsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## check_health
 
 CheckHealth
@@ -110,12 +401,12 @@ CheckHealth
 
 <!-- UsageSnippet language="python" operationID="ChatService_CheckHealth" method="post" path="/textql.rpc.public.chat.ChatService/CheckHealth" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.check_health()
+    res = textql.chats.check_health()
 
     # Handle response
     print(res)
@@ -141,6 +432,91 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## check_streamlit_health
+
+CheckStreamlitHealth
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_CheckStreamlitHealth" method="post" path="/textql.rpc.public.chat.ChatService/CheckStreamlitHealth" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.check_streamlit_health()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceCheckStreamlitHealthResponse](../../models/chatservicecheckstreamlithealthresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## create_chat
+
+CreateChat
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_CreateChat" method="post" path="/textql.rpc.public.chat.ChatService/CreateChat" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.create_chat()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                          | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                                                               | *Optional[float]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `paradigm`                                                                                                                                         | [Optional[models.TextqlRPCPublicParadigmParadigm]](../../models/textqlrpcpublicparadigmparadigm.md)                                                | :heavy_minus_sign:                                                                                                                                 | ChatParadigm includes paradigm options                                                                                                             |
+| `model`                                                                                                                                            | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md)                                                        | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `message`                                                                                                                                          | *OptionalNullable[str]*                                                                                                                            | :heavy_minus_sign:                                                                                                                                 | optionally pre-fill first message                                                                                                                  |
+| `playbook_id`                                                                                                                                      | *OptionalNullable[str]*                                                                                                                            | :heavy_minus_sign:                                                                                                                                 | optionally associate with a playbook                                                                                                               |
+| `research`                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | whether to enable report mode for this chat                                                                                                        |
+| `dashboard_mode`                                                                                                                                   | *OptionalNullable[bool]*                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | whether to enable dashboard mode for this chat                                                                                                     |
+| `methodology`                                                                                                                                      | [Optional[models.TextqlRPCPublicChatMethodology]](../../models/textqlrpcpublicchatmethodology.md)                                                  | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
+| `vllm_model_id`                                                                                                                                    | *OptionalNullable[str]*                                                                                                                            | :heavy_minus_sign:                                                                                                                                 | vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.<br/> Only valid when model == MODEL_VLLM. Requires @textql.com superadmin. |
+| `fast_mode`                                                                                                                                        | *OptionalNullable[bool]*                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | fast_mode enables Anthropic's fast inference (speed: "fast") for this chat.<br/> Currently supported on Opus 4.6 only. Pricing is 6x standard rates. |
+| `retries`                                                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                   | :heavy_minus_sign:                                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                                |
+
+### Response
+
+**[models.ChatServiceCreateChatResponse](../../models/chatservicecreatechatresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## delete
 
 DeleteChat
@@ -149,12 +525,12 @@ DeleteChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_DeleteChat" method="post" path="/textql.rpc.public.chat.ChatService/DeleteChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.delete()
+    res = textql.chats.delete()
 
     # Handle response
     print(res)
@@ -187,12 +563,12 @@ DismissQuestions
 
 <!-- UsageSnippet language="python" operationID="ChatService_DismissQuestions" method="post" path="/textql.rpc.public.chat.ChatService/DismissQuestions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.dismiss_questions()
+    res = textql.chats.dismiss_questions()
 
     # Handle response
     print(res)
@@ -218,6 +594,45 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## duplicate_chat
+
+DuplicateChat
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_DuplicateChat" method="post" path="/textql.rpc.public.chat.ChatService/DuplicateChat" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.duplicate_chat()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `only_if_different_owner`                                           | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceDuplicateChatResponse](../../models/chatserviceduplicatechatresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## get_api_answer
 
 GetAPIChatAnswer
@@ -226,12 +641,12 @@ GetAPIChatAnswer
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetAPIChatAnswer" method="post" path="/textql.rpc.public.chat.ChatService/GetAPIChatAnswer" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_api_answer()
+    res = textql.chats.get_api_answer()
 
     # Handle response
     print(res)
@@ -256,6 +671,45 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## get_artifact
+
+GetArtifact
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_GetArtifact" method="post" path="/textql.rpc.public.chat.ChatService/GetArtifact" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.get_artifact()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `artifact_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Cell ID or composite "cellId:type:url" for multi-artifact cells     |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceGetArtifactResponse](../../models/chatservicegetartifactresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## get
 
 GetChat
@@ -264,12 +718,12 @@ GetChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChat" method="post" path="/textql.rpc.public.chat.ChatService/GetChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get()
+    res = textql.chats.get()
 
     # Handle response
     print(res)
@@ -302,12 +756,12 @@ GetChatArtifactsSummary
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatArtifactsSummary" method="post" path="/textql.rpc.public.chat.ChatService/GetChatArtifactsSummary" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_artifacts_summary()
+    res = textql.chats.get_artifacts_summary()
 
     # Handle response
     print(res)
@@ -340,12 +794,12 @@ GetChatExecutionTiming
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChatExecutionTiming" method="post" path="/textql.rpc.public.chat.ChatService/GetChatExecutionTiming" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_chat_execution_timing()
+    res = textql.chats.get_chat_execution_timing()
 
     # Handle response
     print(res)
@@ -370,6 +824,46 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## get_history
+
+GetChatHistory
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_GetChatHistory" method="post" path="/textql.rpc.public.chat.ChatService/GetChatHistory" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.get_history()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `limit`                                                             | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `skip`                                                              | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceGetChatHistoryResponse](../../models/chatservicegetchathistoryresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## get_all
 
 GetChats
@@ -378,13 +872,13 @@ GetChats
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetChats" method="post" path="/textql.rpc.public.chat.ChatService/GetChats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_all(created_after=parse_datetime("2023-01-15T01:30:15.01Z"), created_before=parse_datetime("2023-01-15T01:30:15.01Z"))
+    res = textql.chats.get_all(created_after=parse_datetime("2023-01-15T01:30:15.01Z"), created_before=parse_datetime("2023-01-15T01:30:15.01Z"))
 
     # Handle response
     print(res)
@@ -428,6 +922,45 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## get_completion_parameters
+
+GetCompletionParameters
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_GetCompletionParameters" method="post" path="/textql.rpc.public.chat.ChatService/GetCompletionParameters" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.get_completion_parameters()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceGetCompletionParametersResponse](../../models/chatservicegetcompletionparametersresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## get_completion_parameters_batch
 
 GetCompletionParametersBatch
@@ -436,12 +969,12 @@ GetCompletionParametersBatch
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetCompletionParametersBatch" method="post" path="/textql.rpc.public.chat.ChatService/GetCompletionParametersBatch" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_completion_parameters_batch()
+    res = textql.chats.get_completion_parameters_batch()
 
     # Handle response
     print(res)
@@ -475,12 +1008,12 @@ GetLlmUsage
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetLlmUsage" method="post" path="/textql.rpc.public.chat.ChatService/GetLlmUsage" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_llm_usage()
+    res = textql.chats.get_llm_usage()
 
     # Handle response
     print(res)
@@ -514,12 +1047,12 @@ List distinct chat creators the user can access
 
 <!-- UsageSnippet language="python" operationID="ChatService_GetMembersWithChats" method="post" path="/textql.rpc.public.chat.ChatService/GetMembersWithChats" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.get_members_with_chats(body={})
+    res = textql.chats.get_members_with_chats(body={})
 
     # Handle response
     print(res)
@@ -544,6 +1077,86 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## get_playbook_chats
+
+GetPlaybookChats
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_GetPlaybookChats" method="post" path="/textql.rpc.public.chat.ChatService/GetPlaybookChats" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.get_playbook_chats()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
+| `limit`                                                             | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `skip`                                                              | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceGetPlaybookChatsResponse](../../models/chatservicegetplaybookchatsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## poll_events
+
+PollChatEvents
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_PollChatEvents" method="post" path="/textql.rpc.public.chat.ChatService/PollChatEvents" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.poll_events()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `resume_cursor`                                                     | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `min_generation`                                                    | [Optional[models.MinGeneration]](../../models/mingeneration.md)     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServicePollChatEventsResponse](../../models/chatservicepollchateventsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## query_one_shot
 
 QueryOneShot
@@ -552,12 +1165,12 @@ QueryOneShot
 
 <!-- UsageSnippet language="python" operationID="ChatService_QueryOneShot" method="post" path="/textql.rpc.public.chat.ChatService/QueryOneShot" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.query_one_shot()
+    res = textql.chats.query_one_shot()
 
     # Handle response
     print(res)
@@ -585,6 +1198,85 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## rate_cell
+
+RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_RateChatCell" method="post" path="/textql.rpc.public.chat.ChatService/RateChatCell" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.rate_cell()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                            | *Optional[float]*                                                                               | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `chat_id`                                                                                       | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `cell_id`                                                                                       | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `rating`                                                                                        | [Optional[models.TextqlRPCPublicChatCellRating]](../../models/textqlrpcpublicchatcellrating.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `reason`                                                                                        | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | free-text "why" captured from the rating modal                                                  |
+| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |
+
+### Response
+
+**[models.ChatServiceRateChatCellResponse](../../models/chatserviceratechatcellresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## reject_context_prompt_change
+
+RejectContextPromptChange
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_RejectContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/RejectContextPromptChange" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.reject_context_prompt_change()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceRejectContextPromptChangeResponse](../../models/chatservicerejectcontextpromptchangeresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## reject_ontology_change
 
 RejectOntologyChange
@@ -593,12 +1285,12 @@ RejectOntologyChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_RejectOntologyChange" method="post" path="/textql.rpc.public.chat.ChatService/RejectOntologyChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.reject_ontology_change()
+    res = textql.chats.reject_ontology_change()
 
     # Handle response
     print(res)
@@ -631,12 +1323,12 @@ RunChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_RunChat" method="post" path="/textql.rpc.public.chat.ChatService/RunChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.run()
+    res = textql.chats.run()
 
     # Handle response
     print(res)
@@ -665,6 +1357,48 @@ with TextQL() as text_ql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## send
+
+SendMessage
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_SendMessage" method="post" path="/textql.rpc.public.chat.ChatService/SendMessage" -->
+```python
+from textql_sdk import Textql
+
+
+with Textql() as textql:
+
+    res = textql.chats.send()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `message`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `image_urls`                                                        | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `message_id`                                                        | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `steering`                                                          | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceSendMessageResponse](../../models/chatservicesendmessageresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## submit_context_prompt_change
 
 SubmitContextPromptChange
@@ -673,12 +1407,12 @@ SubmitContextPromptChange
 
 <!-- UsageSnippet language="python" operationID="ChatService_SubmitContextPromptChange" method="post" path="/textql.rpc.public.chat.ChatService/SubmitContextPromptChange" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.submit_context_prompt_change()
+    res = textql.chats.submit_context_prompt_change()
 
     # Handle response
     print(res)
@@ -714,12 +1448,12 @@ Resolve a halted questions cell. Submit hands the answers to the agent and
 
 <!-- UsageSnippet language="python" operationID="ChatService_SubmitQuestions" method="post" path="/textql.rpc.public.chat.ChatService/SubmitQuestions" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.submit_questions()
+    res = textql.chats.submit_questions()
 
     # Handle response
     print(res)
@@ -753,12 +1487,12 @@ UnbookmarkChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_UnbookmarkChat" method="post" path="/textql.rpc.public.chat.ChatService/UnbookmarkChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.unbookmark()
+    res = textql.chats.unbookmark()
 
     # Handle response
     print(res)
@@ -791,12 +1525,12 @@ UpdateChat
 
 <!-- UsageSnippet language="python" operationID="ChatService_UpdateChat" method="post" path="/textql.rpc.public.chat.ChatService/UpdateChat" -->
 ```python
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.chats.update()
+    res = textql.chats.update()
 
     # Handle response
     print(res)

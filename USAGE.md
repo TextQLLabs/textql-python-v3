@@ -1,12 +1,12 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 
-with TextQL() as text_ql:
+with Textql() as textql:
 
-    res = text_ql.agent_services.create()
+    res = textql.agents.create()
 
     # Handle response
     print(res)
@@ -19,13 +19,13 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from textql_sdk import TextQL
+from textql_sdk import Textql
 
 async def main():
 
-    async with TextQL() as text_ql:
+    async with Textql() as textql:
 
-        res = await text_ql.agent_services.create_async()
+        res = await textql.agents.create_async()
 
         # Handle response
         print(res)

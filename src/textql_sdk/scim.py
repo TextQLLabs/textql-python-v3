@@ -8,31 +8,23 @@ from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Mapping, Optional, Union
 
 
-class MetricsExports(BaseSDK):
-    def configure(
+class Scim(BaseSDK):
+    def create_o_auth_client(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        prometheus_enabled: Optional[bool] = None,
-        otlp_enabled: Optional[bool] = None,
-        otlp_endpoint: Optional[str] = None,
-        otlp_headers: Optional[str] = None,
-        otlp_protocol: Optional[str] = None,
-        push_interval_seconds: Optional[int] = None,
+        description: Optional[str] = None,
+        expires_in_days: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceConfigureMetricsExportResponse:
-        r"""ConfigureMetricsExport
+    ) -> models.ScimServiceCreateScimOAuthClientResponse:
+        r"""CreateScimOAuthClient
 
         :param connect_timeout_ms:
-        :param prometheus_enabled:
-        :param otlp_enabled:
-        :param otlp_endpoint:
-        :param otlp_headers:
-        :param otlp_protocol:
-        :param push_interval_seconds:
+        :param description:
+        :param expires_in_days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -48,21 +40,17 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceConfigureMetricsExportRequest(
+        request = models.ScimServiceCreateScimOAuthClientRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicMetricsExportConfigureMetricsExportRequest(
-                prometheus_enabled=prometheus_enabled,
-                otlp_enabled=otlp_enabled,
-                otlp_endpoint=otlp_endpoint,
-                otlp_headers=otlp_headers,
-                otlp_protocol=otlp_protocol,
-                push_interval_seconds=push_interval_seconds,
+            body=models.TextqlRPCPublicScimCreateScimOAuthClientRequest(
+                description=description,
+                expires_in_days=expires_in_days,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/ConfigureMetricsExport",
+            path="/textql.rpc.public.scim.ScimService/CreateScimOAuthClient",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -77,7 +65,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportConfigureMetricsExportRequest,
+                models.TextqlRPCPublicScimCreateScimOAuthClientRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -95,10 +83,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_ConfigureMetricsExport",
+                operation_id="ScimService_CreateScimOAuthClient",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -108,8 +96,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportConfigureMetricsExportResponse,
-                http_res,
+                models.TextqlRPCPublicScimCreateScimOAuthClientResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -126,30 +113,22 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def configure_async(
+    async def create_o_auth_client_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        prometheus_enabled: Optional[bool] = None,
-        otlp_enabled: Optional[bool] = None,
-        otlp_endpoint: Optional[str] = None,
-        otlp_headers: Optional[str] = None,
-        otlp_protocol: Optional[str] = None,
-        push_interval_seconds: Optional[int] = None,
+        description: Optional[str] = None,
+        expires_in_days: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceConfigureMetricsExportResponse:
-        r"""ConfigureMetricsExport
+    ) -> models.ScimServiceCreateScimOAuthClientResponse:
+        r"""CreateScimOAuthClient
 
         :param connect_timeout_ms:
-        :param prometheus_enabled:
-        :param otlp_enabled:
-        :param otlp_endpoint:
-        :param otlp_headers:
-        :param otlp_protocol:
-        :param push_interval_seconds:
+        :param description:
+        :param expires_in_days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -165,21 +144,17 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceConfigureMetricsExportRequest(
+        request = models.ScimServiceCreateScimOAuthClientRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicMetricsExportConfigureMetricsExportRequest(
-                prometheus_enabled=prometheus_enabled,
-                otlp_enabled=otlp_enabled,
-                otlp_endpoint=otlp_endpoint,
-                otlp_headers=otlp_headers,
-                otlp_protocol=otlp_protocol,
-                push_interval_seconds=push_interval_seconds,
+            body=models.TextqlRPCPublicScimCreateScimOAuthClientRequest(
+                description=description,
+                expires_in_days=expires_in_days,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/ConfigureMetricsExport",
+            path="/textql.rpc.public.scim.ScimService/CreateScimOAuthClient",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -194,7 +169,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportConfigureMetricsExportRequest,
+                models.TextqlRPCPublicScimCreateScimOAuthClientRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -212,10 +187,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_ConfigureMetricsExport",
+                operation_id="ScimService_CreateScimOAuthClient",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -225,8 +200,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportConfigureMetricsExportResponse,
-                http_res,
+                models.TextqlRPCPublicScimCreateScimOAuthClientResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -243,23 +217,22 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def delete_config(
+    def create_scim_token(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequest,
-            models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        description: Optional[str] = None,
+        expires_in_days: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceDeleteMetricsExportConfigResponse:
-        r"""DeleteMetricsExportConfig
+    ) -> models.ScimServiceCreateScimTokenResponse:
+        r"""CreateScimToken
 
-        :param body:
         :param connect_timeout_ms:
+        :param description:
+        :param expires_in_days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -275,17 +248,17 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceDeleteMetricsExportConfigRequest(
+        request = models.ScimServiceCreateScimTokenRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body,
-                models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequest,
+            body=models.TextqlRPCPublicScimCreateScimTokenRequest(
+                description=description,
+                expires_in_days=expires_in_days,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/DeleteMetricsExportConfig",
+            path="/textql.rpc.public.scim.ScimService/CreateScimToken",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -300,7 +273,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequest,
+                models.TextqlRPCPublicScimCreateScimTokenRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -318,10 +291,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_DeleteMetricsExportConfig",
+                operation_id="ScimService_CreateScimToken",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -331,8 +304,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigResponse,
-                http_res,
+                models.TextqlRPCPublicScimCreateScimTokenResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -349,23 +321,22 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def delete_config_async(
+    async def create_scim_token_async(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequest,
-            models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        description: Optional[str] = None,
+        expires_in_days: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceDeleteMetricsExportConfigResponse:
-        r"""DeleteMetricsExportConfig
+    ) -> models.ScimServiceCreateScimTokenResponse:
+        r"""CreateScimToken
 
-        :param body:
         :param connect_timeout_ms:
+        :param description:
+        :param expires_in_days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -381,17 +352,17 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceDeleteMetricsExportConfigRequest(
+        request = models.ScimServiceCreateScimTokenRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body,
-                models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequest,
+            body=models.TextqlRPCPublicScimCreateScimTokenRequest(
+                description=description,
+                expires_in_days=expires_in_days,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/DeleteMetricsExportConfig",
+            path="/textql.rpc.public.scim.ScimService/CreateScimToken",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -406,7 +377,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigRequest,
+                models.TextqlRPCPublicScimCreateScimTokenRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -424,10 +395,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_DeleteMetricsExportConfig",
+                operation_id="ScimService_CreateScimToken",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -437,8 +408,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportDeleteMetricsExportConfigResponse,
-                http_res,
+                models.TextqlRPCPublicScimCreateScimTokenResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -455,20 +425,20 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def get_metrics_export_config(
+    def list_scim_o_auth_clients(
         self,
         *,
         body: Union[
-            models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequest,
-            models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequestTypedDict,
+            models.TextqlRPCPublicScimListScimOAuthClientsRequest,
+            models.TextqlRPCPublicScimListScimOAuthClientsRequestTypedDict,
         ],
         connect_timeout_ms: Optional[float] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceGetMetricsExportConfigResponse:
-        r"""GetMetricsExportConfig
+    ) -> models.ScimServiceListScimOAuthClientsResponse:
+        r"""ListScimOAuthClients
 
         :param body:
         :param connect_timeout_ms:
@@ -487,16 +457,16 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceGetMetricsExportConfigRequest(
+        request = models.ScimServiceListScimOAuthClientsRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequest
+                body, models.TextqlRPCPublicScimListScimOAuthClientsRequest
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/GetMetricsExportConfig",
+            path="/textql.rpc.public.scim.ScimService/ListScimOAuthClients",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -511,7 +481,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequest,
+                models.TextqlRPCPublicScimListScimOAuthClientsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -529,10 +499,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_GetMetricsExportConfig",
+                operation_id="ScimService_ListScimOAuthClients",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -542,8 +512,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportGetMetricsExportConfigResponse,
-                http_res,
+                models.TextqlRPCPublicScimListScimOAuthClientsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -560,20 +529,20 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def get_metrics_export_config_async(
+    async def list_scim_o_auth_clients_async(
         self,
         *,
         body: Union[
-            models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequest,
-            models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequestTypedDict,
+            models.TextqlRPCPublicScimListScimOAuthClientsRequest,
+            models.TextqlRPCPublicScimListScimOAuthClientsRequestTypedDict,
         ],
         connect_timeout_ms: Optional[float] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceGetMetricsExportConfigResponse:
-        r"""GetMetricsExportConfig
+    ) -> models.ScimServiceListScimOAuthClientsResponse:
+        r"""ListScimOAuthClients
 
         :param body:
         :param connect_timeout_ms:
@@ -592,16 +561,16 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceGetMetricsExportConfigRequest(
+        request = models.ScimServiceListScimOAuthClientsRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequest
+                body, models.TextqlRPCPublicScimListScimOAuthClientsRequest
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/GetMetricsExportConfig",
+            path="/textql.rpc.public.scim.ScimService/ListScimOAuthClients",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -616,7 +585,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportGetMetricsExportConfigRequest,
+                models.TextqlRPCPublicScimListScimOAuthClientsRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -634,10 +603,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_GetMetricsExportConfig",
+                operation_id="ScimService_ListScimOAuthClients",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -647,8 +616,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportGetMetricsExportConfigResponse,
-                http_res,
+                models.TextqlRPCPublicScimListScimOAuthClientsResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -665,24 +633,23 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def test_connection(
+    def list(
         self,
         *,
+        body: Union[
+            models.TextqlRPCPublicScimListScimTokensRequest,
+            models.TextqlRPCPublicScimListScimTokensRequestTypedDict,
+        ],
         connect_timeout_ms: Optional[float] = None,
-        otlp_endpoint: Optional[str] = None,
-        otlp_headers: Optional[str] = None,
-        otlp_protocol: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceTestMetricsExportConnectionResponse:
-        r"""TestMetricsExportConnection
+    ) -> models.ScimServiceListScimTokensResponse:
+        r"""ListScimTokens
 
+        :param body:
         :param connect_timeout_ms:
-        :param otlp_endpoint:
-        :param otlp_headers:
-        :param otlp_protocol:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -698,18 +665,16 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceTestMetricsExportConnectionRequest(
+        request = models.ScimServiceListScimTokensRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicMetricsExportTestMetricsExportConnectionRequest(
-                otlp_endpoint=otlp_endpoint,
-                otlp_headers=otlp_headers,
-                otlp_protocol=otlp_protocol,
+            body=utils.get_pydantic_model(
+                body, models.TextqlRPCPublicScimListScimTokensRequest
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/TestMetricsExportConnection",
+            path="/textql.rpc.public.scim.ScimService/ListScimTokens",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -724,7 +689,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportTestMetricsExportConnectionRequest,
+                models.TextqlRPCPublicScimListScimTokensRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -742,10 +707,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_TestMetricsExportConnection",
+                operation_id="ScimService_ListScimTokens",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -755,8 +720,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportTestMetricsExportConnectionResponse,
-                http_res,
+                models.TextqlRPCPublicScimListScimTokensResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -773,128 +737,20 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def test_connection_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        otlp_endpoint: Optional[str] = None,
-        otlp_headers: Optional[str] = None,
-        otlp_protocol: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceTestMetricsExportConnectionResponse:
-        r"""TestMetricsExportConnection
-
-        :param connect_timeout_ms:
-        :param otlp_endpoint:
-        :param otlp_headers:
-        :param otlp_protocol:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.MetricsExportServiceTestMetricsExportConnectionRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicMetricsExportTestMetricsExportConnectionRequest(
-                otlp_endpoint=otlp_endpoint,
-                otlp_headers=otlp_headers,
-                otlp_protocol=otlp_protocol,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/TestMetricsExportConnection",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=False,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicMetricsExportTestMetricsExportConnectionRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="MetricsExportService_TestMetricsExportConnection",
-                oauth2_scopes=None,
-                security_source=None,
-                tags=["MetricsExportService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportTestMetricsExportConnectionResponse,
-                http_res,
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def trigger_push(
+    async def list_async(
         self,
         *,
         body: Union[
-            models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequest,
-            models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequestTypedDict,
+            models.TextqlRPCPublicScimListScimTokensRequest,
+            models.TextqlRPCPublicScimListScimTokensRequestTypedDict,
         ],
         connect_timeout_ms: Optional[float] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceTriggerMetricsPushResponse:
-        r"""TriggerMetricsPush
+    ) -> models.ScimServiceListScimTokensResponse:
+        r"""ListScimTokens
 
         :param body:
         :param connect_timeout_ms:
@@ -913,16 +769,16 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceTriggerMetricsPushRequest(
+        request = models.ScimServiceListScimTokensRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequest
+                body, models.TextqlRPCPublicScimListScimTokensRequest
             ),
         )
 
-        req = self._build_request(
+        req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/TriggerMetricsPush",
+            path="/textql.rpc.public.scim.ScimService/ListScimTokens",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -937,7 +793,108 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequest,
+                models.TextqlRPCPublicScimListScimTokensRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ScimService_ListScimTokens",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ScimService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicScimListScimTokensResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def revoke_o_auth_client(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ScimServiceRevokeScimOAuthClientResponse:
+        r"""RevokeScimOAuthClient
+
+        :param connect_timeout_ms:
+        :param id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ScimServiceRevokeScimOAuthClientRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicScimRevokeScimOAuthClientRequest(
+                id=id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.scim.ScimService/RevokeScimOAuthClient",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicScimRevokeScimOAuthClientRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -955,10 +912,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_TriggerMetricsPush",
+                operation_id="ScimService_RevokeScimOAuthClient",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -968,7 +925,7 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportTriggerMetricsPushResponse, http_res
+                models.TextqlRPCPublicScimRevokeScimOAuthClientResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -985,23 +942,20 @@ class MetricsExports(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def trigger_push_async(
+    async def revoke_o_auth_client_async(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequest,
-            models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.MetricsExportServiceTriggerMetricsPushResponse:
-        r"""TriggerMetricsPush
+    ) -> models.ScimServiceRevokeScimOAuthClientResponse:
+        r"""RevokeScimOAuthClient
 
-        :param body:
         :param connect_timeout_ms:
+        :param id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1017,16 +971,16 @@ class MetricsExports(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.MetricsExportServiceTriggerMetricsPushRequest(
+        request = models.ScimServiceRevokeScimOAuthClientRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequest
+            body=models.TextqlRPCPublicScimRevokeScimOAuthClientRequest(
+                id=id,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.metrics_export.MetricsExportService/TriggerMetricsPush",
+            path="/textql.rpc.public.scim.ScimService/RevokeScimOAuthClient",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1041,7 +995,7 @@ class MetricsExports(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicMetricsExportTriggerMetricsPushRequest,
+                models.TextqlRPCPublicScimRevokeScimOAuthClientRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1059,10 +1013,10 @@ class MetricsExports(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="MetricsExportService_TriggerMetricsPush",
+                operation_id="ScimService_RevokeScimOAuthClient",
                 oauth2_scopes=None,
                 security_source=None,
-                tags=["MetricsExportService"],
+                tags=["ScimService"],
                 extensions=None,
             ),
             request=req,
@@ -1072,7 +1026,209 @@ class MetricsExports(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicMetricsExportTriggerMetricsPushResponse, http_res
+                models.TextqlRPCPublicScimRevokeScimOAuthClientResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def revoke_scim_token(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ScimServiceRevokeScimTokenResponse:
+        r"""RevokeScimToken
+
+        :param connect_timeout_ms:
+        :param id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ScimServiceRevokeScimTokenRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicScimRevokeScimTokenRequest(
+                id=id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.scim.ScimService/RevokeScimToken",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicScimRevokeScimTokenRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ScimService_RevokeScimToken",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ScimService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicScimRevokeScimTokenResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def revoke_scim_token_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.ScimServiceRevokeScimTokenResponse:
+        r"""RevokeScimToken
+
+        :param connect_timeout_ms:
+        :param id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ScimServiceRevokeScimTokenRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicScimRevokeScimTokenRequest(
+                id=id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.scim.ScimService/RevokeScimToken",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=False,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicScimRevokeScimTokenRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="ScimService_RevokeScimToken",
+                oauth2_scopes=None,
+                security_source=None,
+                tags=["ScimService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicScimRevokeScimTokenResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
