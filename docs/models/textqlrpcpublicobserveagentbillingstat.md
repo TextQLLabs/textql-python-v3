@@ -1,0 +1,10 @@
+# TextqlRPCPublicObserveAgentBillingStat
+
+
+## Fields
+
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `agent_id`                                                      | *Optional[str]*                                                 | :heavy_minus_sign:                                              | N/A                                                             |
+| `estimated_acu`                                                 | *Optional[float]*                                               | :heavy_minus_sign:                                              | proportionally distributed from member's feed ACU by post count |
+| `is_internal`                                                   | *Optional[bool]*                                                | :heavy_minus_sign:                                              | N/A                                                             |

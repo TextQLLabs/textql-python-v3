@@ -1,0 +1,9 @@
+# TextqlRPCPublicConnectorGetExampleQueriesRequest
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `connector_contexts`                                                                                           | List[[models.TextqlRPCPublicConnectorConnectorContext](../models/textqlrpcpublicconnectorconnectorcontext.md)] | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `feature_filter`                                                                                               | [Optional[models.TextqlRPCPublicConnectorFeatureType]](../models/textqlrpcpublicconnectorfeaturetype.md)       | :heavy_minus_sign:                                                                                             | Feature types for nudge queries - identifies which feature a query promotes                                    |

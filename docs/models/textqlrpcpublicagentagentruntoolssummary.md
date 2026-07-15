@@ -1,0 +1,10 @@
+# TextqlRPCPublicAgentAgentRunToolsSummary
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `total_calls`                                                                                          | *Optional[int]*                                                                                        | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `tool_counts`                                                                                          | Dict[str, *int*]                                                                                       | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `details`                                                                                              | List[[models.TextqlRPCPublicAgentAgentRunToolCall](../models/textqlrpcpublicagentagentruntoolcall.md)] | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

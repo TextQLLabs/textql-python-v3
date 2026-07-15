@@ -1,0 +1,39 @@
+speakeasyVersion: 1.790.2
+sources:
+    TextQL API:
+        sourceNamespace: text-ql-api
+        sourceRevisionDigest: sha256:d078c2e7f35b5a53bc5510a4951832ef2be4a16b530db75340f207e249f57450
+        sourceBlobDigest: sha256:a043e6dca9c07cd28dc49735c7fbfc96cc54959020537e3e41006655794951a7
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    textql:
+        source: TextQL API
+        sourceNamespace: text-ql-api
+        sourceRevisionDigest: sha256:d078c2e7f35b5a53bc5510a4951832ef2be4a16b530db75340f207e249f57450
+        sourceBlobDigest: sha256:a043e6dca9c07cd28dc49735c7fbfc96cc54959020537e3e41006655794951a7
+        codeSamplesNamespace: text-ql-api-python-code-samples
+        codeSamplesRevisionDigest: sha256:b13424366bae009df3d99f0f7abc6aa3057bf72bb6cff1a33b0b346a54052b28
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        TextQL API:
+            inputs:
+                - location: ../docs/public/api-reference/openapi.yaml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/textql/home/text-ql-api
+    targets:
+        textql:
+            target: python
+            source: TextQL API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/textql/home/text-ql-api-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false

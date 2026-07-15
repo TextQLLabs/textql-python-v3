@@ -1,0 +1,10 @@
+# TextqlRPCPublicChatEgressSummary
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `total_calls`                                                                            | *Optional[int]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `outcome_counts`                                                                         | Dict[str, *int*]                                                                         | :heavy_minus_sign:                                                                       | outcome -> count (ok/denied/error)                                                       |
+| `calls`                                                                                  | List[[models.TextqlRPCPublicChatEgressCall](../models/textqlrpcpublicchategresscall.md)] | :heavy_minus_sign:                                                                       | bounded; newest first                                                                    |

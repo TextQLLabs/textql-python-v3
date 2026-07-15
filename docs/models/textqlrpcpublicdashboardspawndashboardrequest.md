@@ -1,0 +1,12 @@
+# TextqlRPCPublicDashboardSpawnDashboardRequest
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `dashboard_id`                                                                | *Optional[str]*                                                               | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `force_restart`                                                               | *Optional[bool]*                                                              | :heavy_minus_sign:                                                            | Force restart even if already running                                         |
+| `refresh_data_only`                                                           | *Optional[bool]*                                                              | :heavy_minus_sign:                                                            | Re-fetch data sources and reload without restarting the app                   |
+| `refresh_source_names`                                                        | List[*str*]                                                                   | :heavy_minus_sign:                                                            | If non-empty with refresh_data_only, only refresh these sources by name       |
+| `refresh_code_only`                                                           | *Optional[bool]*                                                              | :heavy_minus_sign:                                                            | Update code in-place via Streamlit's runOnSave without restarting the process |

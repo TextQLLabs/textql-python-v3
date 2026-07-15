@@ -1,0 +1,9 @@
+# TextqlRPCPublicRbacListServiceAccountsResponse
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `service_accounts`                                                                               | List[[models.TextqlRPCPublicRbacServiceAccount](../models/textqlrpcpublicrbacserviceaccount.md)] | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `next_page_token`                                                                                | *OptionalNullable[str]*                                                                          | :heavy_minus_sign:                                                                               | N/A                                                                                              |

@@ -1,0 +1,8 @@
+# TextqlRPCPublicConnectorGetConnectorStatsRequest
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `days`             | *Optional[int]*    | :heavy_minus_sign: | 0 = all-time       |

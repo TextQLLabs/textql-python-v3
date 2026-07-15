@@ -1,0 +1,9 @@
+# TextqlRPCPublicPlaybookFavoriteReportResponse
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `success`                                                                                                            | *Optional[bool]*                                                                                                     | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `extended_qn`                                                                                                        | [Optional[models.TextqlRPCPublicPlaybookPlaybookExtendedQn]](../models/textqlrpcpublicplaybookplaybookextendedqn.md) | :heavy_minus_sign:                                                                                                   | Playbook Extended quant.new messages                                                                                 |

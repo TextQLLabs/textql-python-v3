@@ -1,0 +1,9 @@
+# TextqlRPCPublicObserveGetChatSourceStatsResponse
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `org_by_source`                                                                                                    | List[[models.TextqlRPCPublicObserveChatSourceCount](../models/textqlrpcpublicobservechatsourcecount.md)]           | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |
+| `member_stats`                                                                                                     | List[[models.TextqlRPCPublicObserveMemberChatSourceStat](../models/textqlrpcpublicobservememberchatsourcestat.md)] | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |

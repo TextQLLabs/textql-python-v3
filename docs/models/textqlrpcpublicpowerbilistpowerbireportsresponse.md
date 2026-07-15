@@ -1,0 +1,9 @@
+# TextqlRPCPublicPowerbiListPowerBIReportsResponse
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `reports`                                                                                            | List[[models.TextqlRPCPublicPowerbiPowerBIReport](../models/textqlrpcpublicpowerbipowerbireport.md)] | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `error`                                                                                              | *OptionalNullable[str]*                                                                              | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

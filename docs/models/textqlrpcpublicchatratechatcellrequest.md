@@ -1,0 +1,11 @@
+# TextqlRPCPublicChatRateChatCellRequest
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `chat_id`                                                                                    | *Optional[str]*                                                                              | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `cell_id`                                                                                    | *Optional[str]*                                                                              | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `rating`                                                                                     | [Optional[models.TextqlRPCPublicChatCellRating]](../models/textqlrpcpublicchatcellrating.md) | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `reason`                                                                                     | *OptionalNullable[str]*                                                                      | :heavy_minus_sign:                                                                           | free-text "why" captured from the rating modal                                               |

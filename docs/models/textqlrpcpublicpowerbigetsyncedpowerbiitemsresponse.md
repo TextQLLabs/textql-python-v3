@@ -1,0 +1,9 @@
+# TextqlRPCPublicPowerbiGetSyncedPowerBIItemsResponse
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `reports`                                                                                                          | List[[models.TextqlRPCPublicPowerbiSyncedPowerBIReport](../models/textqlrpcpublicpowerbisyncedpowerbireport.md)]   | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |
+| `datasets`                                                                                                         | List[[models.TextqlRPCPublicPowerbiSyncedPowerBIDataset](../models/textqlrpcpublicpowerbisyncedpowerbidataset.md)] | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |

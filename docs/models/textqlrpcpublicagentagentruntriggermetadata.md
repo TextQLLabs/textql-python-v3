@@ -1,0 +1,13 @@
+# TextqlRPCPublicAgentAgentRunTriggerMetadata
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `auth_method`      | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `member_id`        | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `api_key_id`       | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `client_id`        | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `user_agent`       | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `ip`               | *Optional[str]*    | :heavy_minus_sign: | N/A                |

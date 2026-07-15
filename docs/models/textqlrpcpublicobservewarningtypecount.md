@@ -1,0 +1,9 @@
+# TextqlRPCPublicObserveWarningTypeCount
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `warning_type`                                                                                             | [Optional[models.TextqlRPCPublicChatThreadWarningType]](../models/textqlrpcpublicchatthreadwarningtype.md) | :heavy_minus_sign:                                                                                         | ThreadWarningType is the canonical set of thread warning types                                             |
+| `total`                                                                                                    | *Optional[int]*                                                                                            | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |

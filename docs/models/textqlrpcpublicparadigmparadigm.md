@@ -1,0 +1,12 @@
+# TextqlRPCPublicParadigmParadigm
+
+ChatParadigm includes paradigm options
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                         | [Optional[models.TextqlRPCParadigmParamsParadigmType]](../models/textqlrpcparadigmparamsparadigmtype.md)       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `version`                                                                                                      | *Optional[int]*                                                                                                | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `options`                                                                                                      | [Optional[models.TextqlRPCPublicParadigmParadigmOptions]](../models/textqlrpcpublicparadigmparadigmoptions.md) | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

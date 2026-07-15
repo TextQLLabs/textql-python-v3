@@ -1,0 +1,9 @@
+# TextqlRPCPublicCellsTableauCell
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `dataset_id`                                                                                                 | *Optional[str]*                                                                                              | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `message_blocks`                                                                                             | List[[models.TextqlRPCPublicCellsTableauMessageBlock](../models/textqlrpcpubliccellstableaumessageblock.md)] | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

@@ -1,0 +1,9 @@
+# TextqlRPCPublicObserveGetThreadWarningsResponse
+
+
+## Fields
+
+| Field                                                                                                             | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `warnings_by_chat`                                                                                                | Dict[str, [models.TextqlRPCPublicObserveThreadWarningList](../models/textqlrpcpublicobservethreadwarninglist.md)] | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `analyzed_chat_ids`                                                                                               | List[*str*]                                                                                                       | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |

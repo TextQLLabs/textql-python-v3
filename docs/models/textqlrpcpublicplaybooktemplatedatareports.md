@@ -1,0 +1,13 @@
+# TextqlRPCPublicPlaybookTemplateDataReports
+
+Grouped reports by template_data_id
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `template_data_id`                                                                                       | *Optional[str]*                                                                                          | :heavy_minus_sign:                                                                                       | UUID                                                                                                     |
+| `reports`                                                                                                | List[[models.TextqlRPCPublicPlaybookPlaybookReport](../models/textqlrpcpublicplaybookplaybookreport.md)] | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |
+| `total_count`                                                                                            | *Optional[int]*                                                                                          | :heavy_minus_sign:                                                                                       | Total number of reports for this template_data_id                                                        |
+| `preview_cells`                                                                                          | List[[models.TextqlRPCPublicCellsPreviewCellRef](../models/textqlrpcpubliccellspreviewcellref.md)]       | :heavy_minus_sign:                                                                                       | Execution artifacts (charts, CSVs, etc.) from latest execution                                           |

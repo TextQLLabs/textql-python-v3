@@ -1,0 +1,8 @@
+# TextqlRPCPublicDashboardGetDashboardVersionResponse
+
+
+## Fields
+
+| Field                                                                                                              | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `version`                                                                                                          | [Optional[models.TextqlRPCPublicDashboardDashboardVersion]](../models/textqlrpcpublicdashboarddashboardversion.md) | :heavy_minus_sign:                                                                                                 | Version history                                                                                                    |

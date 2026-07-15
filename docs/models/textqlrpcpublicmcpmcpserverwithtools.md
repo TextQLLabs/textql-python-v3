@@ -1,0 +1,10 @@
+# TextqlRPCPublicMCPMCPServerWithTools
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `mcp_server`                                                                             | [Optional[models.TextqlRPCPublicMCPMCPServer]](../models/textqlrpcpublicmcpmcpserver.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `tools`                                                                                  | List[[models.TextqlRPCPublicMCPMCPTool](../models/textqlrpcpublicmcpmcptool.md)]         | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `error`                                                                                  | [Optional[models.TextqlRPCPublicMCPMCPError]](../models/textqlrpcpublicmcpmcperror.md)   | :heavy_minus_sign:                                                                       | N/A                                                                                      |

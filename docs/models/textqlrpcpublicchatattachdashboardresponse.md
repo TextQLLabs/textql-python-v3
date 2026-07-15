@@ -1,0 +1,9 @@
+# TextqlRPCPublicChatAttachDashboardResponse
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `cell`                                                                                               | [Optional[models.TextqlRPCPublicChatCell]](../models/textqlrpcpublicchatcell.md)                     | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `dashboard`                                                                                          | [Optional[models.TextqlRPCPublicDashboardDashboard]](../models/textqlrpcpublicdashboarddashboard.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

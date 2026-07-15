@@ -1,0 +1,10 @@
+# TextqlRPCPublicChatGetChatResponse
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `chat`                                                                                       | [Optional[models.TextqlRPCPublicChatChat]](../models/textqlrpcpublicchatchat.md)             | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `messages`                                                                                   | List[[models.TextqlRPCPublicChatChatMessage](../models/textqlrpcpublicchatchatmessage.md)]   | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `assets`                                                                                     | List[[models.TextqlRPCPublicCellsPreviewCell](../models/textqlrpcpubliccellspreviewcell.md)] | :heavy_minus_sign:                                                                           | N/A                                                                                          |

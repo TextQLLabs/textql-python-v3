@@ -1,0 +1,14 @@
+# TextqlRPCPublicSecretMigrateSecretToAPIConnectorRequest
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `secret_name`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `api_access_key_id`                                                        | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | empty = create new API connector                                           |
+| `header_name`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `hosts`                                                                    | List[*str*]                                                                | :heavy_minus_sign:                                                         | Fields used when creating a new API connector (api_access_key_id is empty) |
+| `description`                                                              | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |
+| `value_prefix`                                                             | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | e.g. "Bearer ", prepended to the secret value                              |
+| `name`                                                                     | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | display name for the new API connector                                     |

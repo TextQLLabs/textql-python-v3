@@ -1,0 +1,10 @@
+# TextqlRPCPublicCellsAnswerCell
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `content`                                                                                          | *Optional[str]*                                                                                    | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `images`                                                                                           | List[[models.TextqlRPCPublicCellsImageReference](../models/textqlrpcpubliccellsimagereference.md)] | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `sql`                                                                                              | List[[models.TextqlRPCPublicCellsSQLReference](../models/textqlrpcpubliccellssqlreference.md)]     | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

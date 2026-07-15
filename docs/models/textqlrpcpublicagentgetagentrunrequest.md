@@ -1,0 +1,8 @@
+# TextqlRPCPublicAgentGetAgentRunRequest
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `run_id`           | *Optional[str]*    | :heavy_minus_sign: | N/A                |

@@ -1,0 +1,9 @@
+# TextqlRPCPublicAuditLogListAuditLogsResponse
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `entries`                                                                                              | List[[models.TextqlRPCPublicAuditLogAuditLogEntry](../models/textqlrpcpublicauditlogauditlogentry.md)] | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `next_cursor`                                                                                          | *OptionalNullable[str]*                                                                                | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

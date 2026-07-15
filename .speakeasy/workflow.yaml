@@ -1,0 +1,21 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    TextQL API:
+        inputs:
+            - location: registry.speakeasyapi.dev/textql/home/text-ql-api
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/textql/home/text-ql-api
+targets:
+    textql:
+        target: python
+        source: TextQL API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/textql/home/text-ql-api-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

@@ -1,0 +1,9 @@
+# TextqlRPCPublicSandboxAdminListSandboxesResponse
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `sandboxes`                                                                                                      | List[[models.TextqlRPCPublicSandboxAdminSandboxSummary](../models/textqlrpcpublicsandboxadminsandboxsummary.md)] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `next_cursor`                                                                                                    | *Optional[str]*                                                                                                  | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

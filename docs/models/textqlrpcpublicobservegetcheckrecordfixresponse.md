@@ -1,0 +1,11 @@
+# TextqlRPCPublicObserveGetCheckRecordFixResponse
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `fix_chat_id`                                                                    | *OptionalNullable[str]*                                                          | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `fix_patch_cell`                                                                 | [Optional[models.TextqlRPCPublicChatCell]](../models/textqlrpcpublicchatcell.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `fix_run_active`                                                                 | *Optional[bool]*                                                                 | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `fix_status`                                                                     | *OptionalNullable[str]*                                                          | :heavy_minus_sign:                                                               | N/A                                                                              |

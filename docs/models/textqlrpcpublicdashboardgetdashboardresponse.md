@@ -1,0 +1,9 @@
+# TextqlRPCPublicDashboardGetDashboardResponse
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `dashboard`                                                                                          | [Optional[models.TextqlRPCPublicDashboardDashboard]](../models/textqlrpcpublicdashboarddashboard.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `has_write_permission`                                                                               | *Optional[bool]*                                                                                     | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

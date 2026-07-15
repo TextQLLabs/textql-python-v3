@@ -1,0 +1,8 @@
+# TextqlRPCPublicChatGetCompletionParametersResponse
+
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `params`                                                                                                               | [Optional[models.TextqlRPCPublicChatLlmCompletionParameters]](../models/textqlrpcpublicchatllmcompletionparameters.md) | :heavy_minus_sign:                                                                                                     | LLM completion parameters used to create a cell                                                                        |

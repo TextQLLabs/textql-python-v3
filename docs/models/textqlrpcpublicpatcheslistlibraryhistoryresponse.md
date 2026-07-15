@@ -1,0 +1,9 @@
+# TextqlRPCPublicPatchesListLibraryHistoryResponse
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `history`                                                                                                        | List[[models.TextqlRPCPublicPatchesLibraryHistoryEntry](../models/textqlrpcpublicpatcheslibraryhistoryentry.md)] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `next_page_token`                                                                                                | *OptionalNullable[str]*                                                                                          | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

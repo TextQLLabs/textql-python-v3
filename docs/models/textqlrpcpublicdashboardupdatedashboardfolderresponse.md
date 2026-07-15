@@ -1,0 +1,8 @@
+# TextqlRPCPublicDashboardUpdateDashboardFolderResponse
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `folder`                                                                                                         | [Optional[models.TextqlRPCPublicDashboardDashboardFolder]](../models/textqlrpcpublicdashboarddashboardfolder.md) | :heavy_minus_sign:                                                                                               | Dashboard folder for hierarchical organization                                                                   |

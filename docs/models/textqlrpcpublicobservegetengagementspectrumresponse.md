@@ -1,0 +1,9 @@
+# TextqlRPCPublicObserveGetEngagementSpectrumResponse
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `tiers`                                                                                                          | List[[models.TextqlRPCPublicObserveEngagementTierCount](../models/textqlrpcpublicobserveengagementtiercount.md)] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `total_people`                                                                                                   | *Optional[int]*                                                                                                  | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

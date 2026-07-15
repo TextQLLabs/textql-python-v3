@@ -1,0 +1,9 @@
+# TextqlRPCPublicPlaybookGetPlaybooksPreviewsRequest
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `only_subscribed`                                                                                            | *Optional[bool]*                                                                                             | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `status_filter`                                                                                              | [Optional[models.TextqlRPCPublicPlaybookPlaybookStatus]](../models/textqlrpcpublicplaybookplaybookstatus.md) | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

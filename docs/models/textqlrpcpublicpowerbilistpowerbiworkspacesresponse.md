@@ -1,0 +1,9 @@
+# TextqlRPCPublicPowerbiListPowerBIWorkspacesResponse
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `workspaces`                                                                                               | List[[models.TextqlRPCPublicPowerbiPowerBIWorkspace](../models/textqlrpcpublicpowerbipowerbiworkspace.md)] | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `error`                                                                                                    | *OptionalNullable[str]*                                                                                    | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |

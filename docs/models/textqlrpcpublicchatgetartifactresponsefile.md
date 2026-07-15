@@ -1,0 +1,10 @@
+# TextqlRPCPublicChatGetArtifactResponseFile
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `file`                                                                                         | [models.TextqlRPCPublicChatFileArtifactData](../models/textqlrpcpublicchatfileartifactdata.md) | :heavy_check_mark:                                                                             | File-based artifacts (images, PDFs, CSVs, HTML, text files)                                    |
+| `id`                                                                                           | *Optional[str]*                                                                                | :heavy_minus_sign:                                                                             | N/A                                                                                            |
+| `name`                                                                                         | *Optional[str]*                                                                                | :heavy_minus_sign:                                                                             | N/A                                                                                            |

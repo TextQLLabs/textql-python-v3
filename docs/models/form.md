@@ -1,0 +1,10 @@
+# Form
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `form`                                                                                         | [models.TextqlRPCPublicChatFormArtifactData](../models/textqlrpcpublicchatformartifactdata.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `id`                                                                                           | *Optional[str]*                                                                                | :heavy_minus_sign:                                                                             | N/A                                                                                            |
+| `name`                                                                                         | *Optional[str]*                                                                                | :heavy_minus_sign:                                                                             | N/A                                                                                            |

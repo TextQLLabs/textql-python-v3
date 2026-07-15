@@ -1,0 +1,10 @@
+# TextqlRPCPublicCellsCompactionCell
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `content`                                                                                  | *Optional[str]*                                                                            | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `executed_python`                                                                          | *Optional[bool]*                                                                           | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `python_cells`                                                                             | List[[models.TextqlRPCPublicCellsPythonCell](../models/textqlrpcpubliccellspythoncell.md)] | :heavy_minus_sign:                                                                         | N/A                                                                                        |

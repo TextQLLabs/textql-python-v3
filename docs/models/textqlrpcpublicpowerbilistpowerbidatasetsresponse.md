@@ -1,0 +1,9 @@
+# TextqlRPCPublicPowerbiListPowerBIDatasetsResponse
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `datasets`                                                                                             | List[[models.TextqlRPCPublicPowerbiPowerBIDataset](../models/textqlrpcpublicpowerbipowerbidataset.md)] | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `error`                                                                                                | *OptionalNullable[str]*                                                                                | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

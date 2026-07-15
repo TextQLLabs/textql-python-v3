@@ -1,0 +1,9 @@
+# TextqlRPCPublicDataframeDataFrame
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `schema_`                                                                                                    | List[[models.TextqlRPCPublicDataframeDataFrameField](../models/textqlrpcpublicdataframedataframefield.md)]   | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `records`                                                                                                    | List[[models.TextqlRPCPublicDataframeDataFrameRecord](../models/textqlrpcpublicdataframedataframerecord.md)] | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

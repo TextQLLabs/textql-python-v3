@@ -1,0 +1,11 @@
+# TextqlRPCPublicChatApproveOntologyChangeResponse
+
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `success`          | *Optional[bool]*   | :heavy_minus_sign: | N/A                |
+| `message`          | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `resumed`          | *Optional[bool]*   | :heavy_minus_sign: | N/A                |
+| `resume_error`     | *Optional[str]*    | :heavy_minus_sign: | N/A                |

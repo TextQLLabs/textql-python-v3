@@ -1,0 +1,9 @@
+# TextqlRPCPublicConnectorListQueryTemplatesResponse
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `templates`                                                                                              | List[[models.TextqlRPCPublicConnectorQueryTemplate](../models/textqlrpcpublicconnectorquerytemplate.md)] | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |
+| `total_count`                                                                                            | *Optional[int]*                                                                                          | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |

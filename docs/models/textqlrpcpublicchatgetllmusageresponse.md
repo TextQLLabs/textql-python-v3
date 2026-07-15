@@ -1,0 +1,10 @@
+# TextqlRPCPublicChatGetLlmUsageResponse
+
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `usage`                                                                              | List[[models.TextqlRPCPublicChatLlmUsage](../models/textqlrpcpublicchatllmusage.md)] | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `context_window_used`                                                                | *Optional[float]*                                                                    | :heavy_minus_sign:                                                                   | range: [0, 1]                                                                        |
+| `estimated_cost`                                                                     | *OptionalNullable[float]*                                                            | :heavy_minus_sign:                                                                   | N/A                                                                                  |

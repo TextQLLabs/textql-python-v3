@@ -1,0 +1,13 @@
+# TextqlRPCPublicChatQueryOneShotRequest
+
+Simplified query request for external API users
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `question`                                                                                       | *Optional[str]*                                                                                  | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `paradigm`                                                                                       | [Optional[models.TextqlRPCPublicParadigmParadigm]](../models/textqlrpcpublicparadigmparadigm.md) | :heavy_minus_sign:                                                                               | ChatParadigm includes paradigm options                                                           |
+| `model`                                                                                          | [Optional[models.TextqlRPCPublicChatLlmModel]](../models/textqlrpcpublicchatllmmodel.md)         | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `chat_id`                                                                                        | *OptionalNullable[str]*                                                                          | :heavy_minus_sign:                                                                               | N/A                                                                                              |

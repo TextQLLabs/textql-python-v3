@@ -1,0 +1,10 @@
+# TextqlRPCPublicCellsMarkdownCell
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `content`                                                                              | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `rendered_html`                                                                        | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `citations`                                                                            | List[[models.TextqlRPCPublicCellsCitation](../models/textqlrpcpubliccellscitation.md)] | :heavy_minus_sign:                                                                     | N/A                                                                                    |

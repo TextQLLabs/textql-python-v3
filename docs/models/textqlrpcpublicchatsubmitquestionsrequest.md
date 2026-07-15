@@ -1,0 +1,9 @@
+# TextqlRPCPublicChatSubmitQuestionsRequest
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `cell_id`                                                                                          | *Optional[str]*                                                                                    | :heavy_minus_sign:                                                                                 | UUID                                                                                               |
+| `answers`                                                                                          | List[[models.TextqlRPCPublicCellsQuestionAnswer](../models/textqlrpcpubliccellsquestionanswer.md)] | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

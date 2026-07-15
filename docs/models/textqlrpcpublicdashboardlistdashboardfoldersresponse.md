@@ -1,0 +1,8 @@
+# TextqlRPCPublicDashboardListDashboardFoldersResponse
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `folders`                                                                                                    | List[[models.TextqlRPCPublicDashboardDashboardFolder](../models/textqlrpcpublicdashboarddashboardfolder.md)] | :heavy_minus_sign:                                                                                           | Full tree, root-level folders with children populated                                                        |

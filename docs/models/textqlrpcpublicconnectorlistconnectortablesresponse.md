@@ -1,0 +1,9 @@
+# TextqlRPCPublicConnectorListConnectorTablesResponse
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `tables`                                                                                                   | List[[models.TextqlRPCPublicConnectorConnectorTable](../models/textqlrpcpublicconnectorconnectortable.md)] | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `error`                                                                                                    | *Optional[str]*                                                                                            | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
