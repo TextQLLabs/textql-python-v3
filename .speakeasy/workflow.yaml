@@ -13,6 +13,9 @@ targets:
     textql:
         target: python
         source: TextQL API
+        publish:
+            pypi:
+                token: $pypi_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/textql/home/textql-api-python-code-samples
