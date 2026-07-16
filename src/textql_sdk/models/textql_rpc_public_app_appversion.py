@@ -32,10 +32,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
-    r"""Version history (mirrors dashboard.DashboardVersion). A snapshot of the
-    published app at publish time; restore writes it back into the draft.
-    """
-
     id: NotRequired[str]
     app_id: NotRequired[str]
     version_number: NotRequired[int]
@@ -144,10 +140,6 @@ class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
 
 
 class TextqlRPCPublicAppAppVersion(BaseModel):
-    r"""Version history (mirrors dashboard.DashboardVersion). A snapshot of the
-    published app at publish time; restore writes it back into the draft.
-    """
-
     id: Optional[str] = None
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None

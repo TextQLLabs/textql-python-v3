@@ -1,0 +1,12 @@
+# TextqlRPCPublicCellsListAppsCell
+
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `search_term`                                                                        | *Optional[str]*                                                                      | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `app_id`                                                                             | *Optional[str]*                                                                      | :heavy_minus_sign:                                                                   | Set for single-app lookup                                                            |
+| `total_count`                                                                        | *Optional[int]*                                                                      | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `error_message`                                                                      | *OptionalNullable[str]*                                                              | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `apps`                                                                               | List[[models.TextqlRPCPublicCellsAppInfo](../models/textqlrpcpubliccellsappinfo.md)] | :heavy_minus_sign:                                                                   | N/A                                                                                  |

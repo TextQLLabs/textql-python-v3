@@ -335,16 +335,6 @@ actions:
       created_at: 1784134047110
       reviewed_at: 1784134060142
       type: method-name
-  - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/UpdatePlaybookExtendedQn"]["post"]
-    update:
-      x-speakeasy-group: playbooks
-      x-speakeasy-name-override: updateExtendedQn
-    x-speakeasy-metadata:
-      after: sdk.playbooks.updateExtendedQn()
-      before: sdk.PlaybookService.PlaybookService_UpdatePlaybookExtendedQn()
-      created_at: 1784134047110
-      reviewed_at: 1784134060142
-      type: method-name
   - target: $["paths"]["/textql.rpc.public.patches.LibraryService/ListPatches"]["post"]
     update:
       x-speakeasy-group: libraries
@@ -572,16 +562,6 @@ actions:
     x-speakeasy-metadata:
       after: sdk.teams.handleOAuthCallback()
       before: sdk.TeamsService.TeamsService_HandleTeamsOAuthCallback()
-      created_at: 1784134047110
-      reviewed_at: 1784134060142
-      type: method-name
-  - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetQNPlaybook"]["post"]
-    update:
-      x-speakeasy-group: playbooks
-      x-speakeasy-name-override: getQnPlaybook
-    x-speakeasy-metadata:
-      after: sdk.playbooks.getQnPlaybook()
-      before: sdk.PlaybookService.PlaybookService_GetQNPlaybook()
       created_at: 1784134047110
       reviewed_at: 1784134060142
       type: method-name
@@ -2202,16 +2182,6 @@ actions:
     x-speakeasy-metadata:
       after: sdk.libraries.listSkills()
       before: sdk.LibraryService.LibraryService_ListSkills()
-      created_at: 1784134047111
-      reviewed_at: 1784134060143
-      type: method-name
-  - target: $["paths"]["/textql.rpc.public.playbook.PlaybookService/GetPlaybookExtendedQn"]["post"]
-    update:
-      x-speakeasy-group: playbooks
-      x-speakeasy-name-override: getExtendedQn
-    x-speakeasy-metadata:
-      after: sdk.playbooks.getExtendedQn()
-      before: sdk.PlaybookService.PlaybookService_GetPlaybookExtendedQn()
       created_at: 1784134047111
       reviewed_at: 1784134060143
       type: method-name

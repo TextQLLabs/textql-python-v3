@@ -1,7 +1,5 @@
 # TextqlRPCPublicAppGetAppViewStatsRequest
 
-View analytics
-
 
 ## Fields
 

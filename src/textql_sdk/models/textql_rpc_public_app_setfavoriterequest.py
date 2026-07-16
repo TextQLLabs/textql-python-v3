@@ -10,22 +10,22 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppSetFavoriteRequestTypedDict(TypedDict):
     primitive_type: NotRequired[str]
-    r"""'app' | 'dashboard'"""
+    r"""optional; empty = current default vendor set"""
     primitive_id: NotRequired[str]
+    r"""optional; empty = default indigo #6366f1"""
     favorited: NotRequired[bool]
-    r"""true = pin, false = unpin (hard delete)"""
 
 
 class TextqlRPCPublicAppSetFavoriteRequest(BaseModel):
     primitive_type: Annotated[Optional[str], pydantic.Field(alias="primitiveType")] = (
         None
     )
-    r"""'app' | 'dashboard'"""
+    r"""optional; empty = current default vendor set"""
 
     primitive_id: Annotated[Optional[str], pydantic.Field(alias="primitiveId")] = None
+    r"""optional; empty = default indigo #6366f1"""
 
     favorited: Optional[bool] = None
-    r"""true = pin, false = unpin (hard delete)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

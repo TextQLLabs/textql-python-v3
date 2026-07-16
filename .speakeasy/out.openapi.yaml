@@ -117,8 +117,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.agent.DuplicateAgentResponse'
-      x-speakeasy-name-override: duplicate
       x-speakeasy-group: agents
+      x-speakeasy-name-override: duplicate
   /textql.rpc.public.agent.AgentService/GetAgent:
     post:
       tags:
@@ -340,8 +340,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.agent.TriggerAgentResponse'
-      x-speakeasy-name-override: triggerAgent
       x-speakeasy-group: agents
+      x-speakeasy-name-override: triggerAgent
   /textql.rpc.public.agent.AgentService/UpdateAgent:
     post:
       tags:
@@ -455,8 +455,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/google.protobuf.Empty'
-      x-speakeasy-name-override: heartbeat
       x-speakeasy-group: apps
+      x-speakeasy-name-override: heartbeat
   /textql.rpc.public.app.AppService/CreateApp:
     post:
       tags:
@@ -644,8 +644,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.app.GetAppVersionResponse'
-      x-speakeasy-name-override: getAppVersion
       x-speakeasy-group: apps
+      x-speakeasy-name-override: getAppVersion
   /textql.rpc.public.app.AppService/GetAppViewStats:
     post:
       tags:
@@ -682,48 +682,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.app.GetAppViewStatsResponse'
+      x-speakeasy-group: apps
       x-speakeasy-name-override: getAppViewStats
-      x-speakeasy-group: apps
-  /textql.rpc.public.app.AppService/GetComponentGalleryUrl:
-    post:
-      tags:
-        - AppService
-      summary: 'Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.'
-      description: |-
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-         gallery as an app tree and returns its signed viewer URL.
-      operationId: AppService_GetComponentGalleryUrl
-      parameters:
-        - name: Connect-Protocol-Version
-          in: header
-          required: true
-          schema:
-            $ref: '#/components/schemas/connect-protocol-version'
-        - name: Connect-Timeout-Ms
-          in: header
-          schema:
-            $ref: '#/components/schemas/connect-timeout-header'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/textql.rpc.public.app.GetComponentGalleryUrlRequest'
-        required: true
-      responses:
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/connect.error'
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/textql.rpc.public.app.GetComponentGalleryUrlResponse'
-      x-speakeasy-group: apps
-      x-speakeasy-name-override: getComponentGalleryUrl
   /textql.rpc.public.app.AppService/GetMembersWithApps:
     post:
       tags:
@@ -910,8 +870,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.app.MoveAppToFolderResponse'
-      x-speakeasy-name-override: moveAppToFolder
       x-speakeasy-group: apps
+      x-speakeasy-name-override: moveAppToFolder
   /textql.rpc.public.app.AppService/RefreshApp:
     post:
       tags:
@@ -985,8 +945,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.app.RestoreAppVersionResponse'
-      x-speakeasy-name-override: restoreAppVersion
       x-speakeasy-group: apps
+      x-speakeasy-name-override: restoreAppVersion
   /textql.rpc.public.app.AppService/SetFavorite:
     post:
       tags:
@@ -1137,8 +1097,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.audit_log.ConfigureS3ExportResponse'
-      x-speakeasy-name-override: configureS3Export
       x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: configureS3Export
   /textql.rpc.public.audit_log.AuditLogService/DeleteOtlpExportConfig:
     post:
       tags:
@@ -1285,8 +1245,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.audit_log.GetS3ExportConfigResponse'
-      x-speakeasy-name-override: getS3ExportConfig
       x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: getS3ExportConfig
   /textql.rpc.public.audit_log.AuditLogService/ListAuditLogs:
     post:
       tags:
@@ -1359,8 +1319,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.audit_log.TestOtlpExportConnectionResponse'
-      x-speakeasy-name-override: testOtlpExportConnection
       x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: testOtlpExportConnection
   /textql.rpc.public.audit_log.AuditLogService/TestS3ExportConnection:
     post:
       tags:
@@ -1470,8 +1430,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.audit_log.TriggerS3ExportResponse'
-      x-speakeasy-name-override: triggerS3Export
       x-speakeasy-group: auditLogs
+      x-speakeasy-name-override: triggerS3Export
   /textql.rpc.public.chat.ChatService/ApproveContextPromptChange:
     post:
       tags:
@@ -1698,8 +1658,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.chat.AttachDatasetResponse'
-      x-speakeasy-name-override: attachDataset
       x-speakeasy-group: chats
+      x-speakeasy-name-override: attachDataset
   /textql.rpc.public.chat.ChatService/BookmarkChat:
     post:
       tags:
@@ -1883,8 +1843,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.chat.CheckStreamlitHealthResponse'
-      x-speakeasy-name-override: checkStreamlitHealth
       x-speakeasy-group: chats
+      x-speakeasy-name-override: checkStreamlitHealth
   /textql.rpc.public.chat.ChatService/CreateChat:
     post:
       tags:
@@ -1920,8 +1880,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.chat.CreateResponse'
-      x-speakeasy-name-override: createChat
       x-speakeasy-group: chats
+      x-speakeasy-name-override: createChat
   /textql.rpc.public.chat.ChatService/DeleteChat:
     post:
       tags:
@@ -2327,8 +2287,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.chat.GetCompletionParametersResponse'
-      x-speakeasy-name-override: getCompletionParameters
       x-speakeasy-group: chats
+      x-speakeasy-name-override: getCompletionParameters
   /textql.rpc.public.chat.ChatService/GetCompletionParametersBatch:
     post:
       tags:
@@ -2513,8 +2473,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.chat.PollChatEventsResponse'
-      x-speakeasy-name-override: pollEvents
       x-speakeasy-group: chats
+      x-speakeasy-name-override: pollEvents
   /textql.rpc.public.chat.ChatService/QueryOneShot:
     post:
       tags:
@@ -2927,8 +2887,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.connector.CreateConnectorResponse'
-      x-speakeasy-name-override: create
       x-speakeasy-group: connectors
+      x-speakeasy-name-override: create
   /textql.rpc.public.connector.ConnectorService/DeleteConnector:
     post:
       tags:
@@ -3112,8 +3072,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.connector.GetConnectorCellDurationsResponse'
-      x-speakeasy-name-override: getConnectorCellDurations
       x-speakeasy-group: connectors
+      x-speakeasy-name-override: getConnectorCellDurations
   /textql.rpc.public.connector.ConnectorService/GetConnectorChats:
     post:
       tags:
@@ -3223,8 +3183,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.connector.GetConnectorStatsResponse'
-      x-speakeasy-name-override: getConnectorStats
       x-speakeasy-group: connectors
+      x-speakeasy-name-override: getConnectorStats
   /textql.rpc.public.connector.ConnectorService/GetConnectorUsage:
     post:
       tags:
@@ -3371,8 +3331,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.connector.GetTablePreviewResponse'
-      x-speakeasy-name-override: getTablePreview
       x-speakeasy-group: connectors
+      x-speakeasy-name-override: getTablePreview
   /textql.rpc.public.connector.ConnectorService/ListConnectorTables:
     post:
       tags:
@@ -3594,8 +3554,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dashboard.CreateDashboardResponse'
-      x-speakeasy-name-override: createDashboard
       x-speakeasy-group: dashboards
+      x-speakeasy-name-override: createDashboard
   /textql.rpc.public.dashboard.DashboardService/CreateDashboardFolder:
     post:
       tags:
@@ -3930,8 +3890,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dashboard.GetMembersWithDashboardsResponse'
-      x-speakeasy-name-override: getMembersWithDashboards
       x-speakeasy-group: dashboards
+      x-speakeasy-name-override: getMembersWithDashboards
   /textql.rpc.public.dashboard.DashboardService/ListDashboardFolders:
     post:
       tags:
@@ -4233,8 +4193,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dashboard.RestoreDashboardVersionResponse'
-      x-speakeasy-name-override: restoreDashboardVersion
       x-speakeasy-group: dashboards
+      x-speakeasy-name-override: restoreDashboardVersion
   /textql.rpc.public.dashboard.DashboardService/RunScheduledDashboard:
     post:
       tags:
@@ -4345,8 +4305,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dashboard.UpdateDashboardResponse'
-      x-speakeasy-name-override: updateDashboard
       x-speakeasy-group: dashboards
+      x-speakeasy-name-override: updateDashboard
   /textql.rpc.public.dashboard.DashboardService/UpdateDashboardFolder:
     post:
       tags:
@@ -4420,8 +4380,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dashboard.UpdateDashboardScheduleResponse'
-      x-speakeasy-name-override: updateDashboardSchedule
       x-speakeasy-group: dashboards
+      x-speakeasy-name-override: updateDashboardSchedule
   /textql.rpc.public.dashboard.DashboardService/WatchDashboardHealth: {}
   /textql.rpc.public.dataset.DatasetService/CreateFolder:
     post:
@@ -4458,8 +4418,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dataset.CreateFolderResponse'
-      x-speakeasy-name-override: createFolder
       x-speakeasy-group: datasets
+      x-speakeasy-name-override: createFolder
   /textql.rpc.public.dataset.DatasetService/CreatePowerBIDataset:
     post:
       tags:
@@ -4871,8 +4831,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dataset.GetFoldersResponse'
-      x-speakeasy-name-override: getFolders
       x-speakeasy-group: datasets
+      x-speakeasy-name-override: getFolders
   /textql.rpc.public.dataset.DatasetService/ProcessUploadPresignUrl:
     post:
       tags:
@@ -4947,8 +4907,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.dataset.UpdateDatasetResponse'
-      x-speakeasy-name-override: updateDataset
       x-speakeasy-group: datasets
+      x-speakeasy-name-override: updateDataset
   /textql.rpc.public.mcp.MCPService/ClearOAuthToken:
     post:
       tags:
@@ -5280,8 +5240,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.metrics_export.DeleteMetricsExportConfigResponse'
-      x-speakeasy-name-override: deleteConfig
       x-speakeasy-group: metricsExports
+      x-speakeasy-name-override: deleteConfig
   /textql.rpc.public.metrics_export.MetricsExportService/GetMetricsExportConfig:
     post:
       tags:
@@ -5428,8 +5388,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.observe.TopicLifecycleResponse'
-      x-speakeasy-name-override: activateCustomTopic
       x-speakeasy-group: observability
+      x-speakeasy-name-override: activateCustomTopic
   /textql.rpc.public.observe.ObservabilityService/BackfillCustomTopic:
     post:
       tags:
@@ -5872,8 +5832,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.observe.GetBackfillPreviewResponse'
-      x-speakeasy-name-override: getBackfillPreview
       x-speakeasy-group: observability
+      x-speakeasy-name-override: getBackfillPreview
   /textql.rpc.public.observe.ObservabilityService/GetBackfillStatus:
     post:
       tags:
@@ -6205,8 +6165,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.observe.GetEngagementSpectrumResponse'
-      x-speakeasy-name-override: getEngagementSpectrum
       x-speakeasy-group: observability
+      x-speakeasy-name-override: getEngagementSpectrum
   /textql.rpc.public.observe.ObservabilityService/GetMemberActivity:
     post:
       tags:
@@ -6279,8 +6239,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.observe.GetObservabilityStatsResponse'
-      x-speakeasy-name-override: getObservabilityStats
       x-speakeasy-group: observability
+      x-speakeasy-name-override: getObservabilityStats
   /textql.rpc.public.observe.ObservabilityService/GetThreadWarnings:
     post:
       tags:
@@ -6316,8 +6276,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.observe.GetThreadWarningsResponse'
-      x-speakeasy-name-override: getThreadWarnings
       x-speakeasy-group: observability
+      x-speakeasy-name-override: getThreadWarnings
   /textql.rpc.public.observe.ObservabilityService/ListCustomTopics:
     post:
       tags:
@@ -6539,8 +6499,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.ApprovePatchResponse'
-      x-speakeasy-name-override: approvePatch
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: approvePatch
   /textql.rpc.public.patches.LibraryService/ConfigureLibraryRemote:
     post:
       tags:
@@ -6613,8 +6573,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.CreateApprovalRuleResponse'
-      x-speakeasy-name-override: createApprovalRule
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: createApprovalRule
   /textql.rpc.public.patches.LibraryService/CreateContextPatchAutoApproveRule:
     post:
       tags:
@@ -6687,8 +6647,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.CreateLibraryDirectoryResponse'
-      x-speakeasy-name-override: createLibraryDirectory
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: createLibraryDirectory
   /textql.rpc.public.patches.LibraryService/CreateLibraryFileUploadUrl:
     post:
       tags:
@@ -6798,8 +6758,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/google.protobuf.Empty'
-      x-speakeasy-name-override: deleteContextPatchAutoApproveRule
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: deleteContextPatchAutoApproveRule
   /textql.rpc.public.patches.LibraryService/DeleteLibraryDirectory:
     post:
       tags:
@@ -6946,8 +6906,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/google.protobuf.Empty'
-      x-speakeasy-name-override: denyPatch
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: denyPatch
   /textql.rpc.public.patches.LibraryService/ExchangeLibraryGithubCode:
     post:
       tags:
@@ -7094,8 +7054,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.GetConfigExportCapabilitiesResponse'
-      x-speakeasy-name-override: getConfigExportCapabilities
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: getConfigExportCapabilities
   /textql.rpc.public.patches.LibraryService/GetEffectiveLibraryOwners:
     post:
       tags:
@@ -7612,8 +7572,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.Patch'
-      x-speakeasy-name-override: getPatch
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: getPatch
   /textql.rpc.public.patches.LibraryService/GetPatchByNumber:
     post:
       tags:
@@ -7649,8 +7609,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.Patch'
-      x-speakeasy-name-override: getPatchByNumber
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: getPatchByNumber
   /textql.rpc.public.patches.LibraryService/GetPatchCapabilities:
     post:
       tags:
@@ -7686,8 +7646,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.GetPatchCapabilitiesResponse'
-      x-speakeasy-name-override: getPatchCapabilities
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: getPatchCapabilities
   /textql.rpc.public.patches.LibraryService/GetRawPatch:
     post:
       tags:
@@ -7873,6 +7833,41 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.patches.ListContextPatchAutoApproveRulesResponse'
       x-speakeasy-group: libraries
       x-speakeasy-name-override: listContextPatchAutoApproveRules
+  /textql.rpc.public.patches.LibraryService/ListGoldenFiles:
+    post:
+      tags:
+        - LibraryService
+      summary: ListGoldenFiles
+      operationId: LibraryService_ListGoldenFiles
+      parameters:
+        - name: Connect-Protocol-Version
+          in: header
+          required: true
+          schema:
+            $ref: '#/components/schemas/connect-protocol-version'
+        - name: Connect-Timeout-Ms
+          in: header
+          schema:
+            $ref: '#/components/schemas/connect-timeout-header'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/textql.rpc.public.patches.ListGoldenFilesRequest'
+        required: true
+      responses:
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connect.error'
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/textql.rpc.public.patches.ListGoldenFilesResponse'
   /textql.rpc.public.patches.LibraryService/ListLibraryEntries:
     post:
       tags:
@@ -7908,8 +7903,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.ListLibraryEntriesResponse'
-      x-speakeasy-name-override: listLibraryEntries
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: listLibraryEntries
   /textql.rpc.public.patches.LibraryService/ListLibraryHistory:
     post:
       tags:
@@ -8019,8 +8014,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.ListLibrarySubmodulesResponse'
-      x-speakeasy-name-override: listLibrarySubmodules
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: listLibrarySubmodules
   /textql.rpc.public.patches.LibraryService/ListLibrarySyncRuns:
     post:
       tags:
@@ -8130,8 +8125,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.ListPatchesResponse'
-      x-speakeasy-name-override: listPatches
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: listPatches
   /textql.rpc.public.patches.LibraryService/ListSkills:
     post:
       tags:
@@ -8208,8 +8203,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.MigrateLegacyContextToLibraryResponse'
-      x-speakeasy-name-override: migrateLegacyContext
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: migrateLegacyContext
   /textql.rpc.public.patches.LibraryService/MigrateOntologyToLibrary:
     post:
       tags:
@@ -8245,8 +8240,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.MigrateOntologyToLibraryResponse'
-      x-speakeasy-name-override: migrateOntology
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: migrateOntology
   /textql.rpc.public.patches.LibraryService/PlanLibraryMerge:
     post:
       tags:
@@ -8356,8 +8351,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/google.protobuf.Empty'
-      x-speakeasy-name-override: pullFromRemote
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: pullFromRemote
   /textql.rpc.public.patches.LibraryService/PushLibraryToRemote:
     post:
       tags:
@@ -8467,8 +8462,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/google.protobuf.Empty'
-      x-speakeasy-name-override: removeRemote
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: removeRemote
   /textql.rpc.public.patches.LibraryService/RemoveLibrarySubmodule:
     post:
       tags:
@@ -8615,8 +8610,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/google.protobuf.Empty'
-      x-speakeasy-name-override: resolveSyncConflict
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: resolveSyncConflict
   /textql.rpc.public.patches.LibraryService/RestorePatch:
     post:
       tags:
@@ -8765,6 +8760,41 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.patches.SaveObjectAsConfigResponse'
       x-speakeasy-group: libraries
       x-speakeasy-name-override: saveAsConfig
+  /textql.rpc.public.patches.LibraryService/SetLibraryFileGolden:
+    post:
+      tags:
+        - LibraryService
+      summary: SetLibraryFileGolden
+      operationId: LibraryService_SetLibraryFileGolden
+      parameters:
+        - name: Connect-Protocol-Version
+          in: header
+          required: true
+          schema:
+            $ref: '#/components/schemas/connect-protocol-version'
+        - name: Connect-Timeout-Ms
+          in: header
+          schema:
+            $ref: '#/components/schemas/connect-timeout-header'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/textql.rpc.public.patches.SetLibraryFileGoldenRequest'
+        required: true
+      responses:
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connect.error'
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/textql.rpc.public.patches.SetLibraryFileGoldenResponse'
   /textql.rpc.public.patches.LibraryService/TriggerConfigDriftReconcile:
     post:
       tags:
@@ -8805,8 +8835,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.TriggerConfigDriftReconcileResponse'
-      x-speakeasy-name-override: triggerConfigDriftReconcile
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: triggerConfigDriftReconcile
   /textql.rpc.public.patches.LibraryService/UpdateApprovalRule:
     post:
       tags:
@@ -8916,8 +8946,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.patches.UpdateLibrarySyncConfigResponse'
-      x-speakeasy-name-override: updateLibrarySyncConfig
       x-speakeasy-group: libraries
+      x-speakeasy-name-override: updateLibrarySyncConfig
   /textql.rpc.public.patches.LibraryService/UpsertLibraryAnaConfig:
     post:
       tags:
@@ -9181,8 +9211,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.CancelTemplateExecutionResponse'
-      x-speakeasy-name-override: cancelTemplateExecution
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: cancelTemplateExecution
   /textql.rpc.public.playbook.PlaybookService/CreatePlaybook:
     post:
       tags:
@@ -9403,8 +9433,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.DuplicatePlaybookResponse'
-      x-speakeasy-name-override: duplicate
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: duplicate
   /textql.rpc.public.playbook.PlaybookService/FavoriteReport:
     post:
       tags:
@@ -9478,8 +9508,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.GetActiveSubscribedPlaybooksCountResponse'
-      x-speakeasy-name-override: getActiveSubscribedCount
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: getActiveSubscribedCount
   /textql.rpc.public.playbook.PlaybookService/GetChatReportsSummary:
     post:
       tags:
@@ -9630,44 +9660,6 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.GetPlaybookBatchRunResponse'
       x-speakeasy-group: playbooks
       x-speakeasy-name-override: getBatchRun
-  /textql.rpc.public.playbook.PlaybookService/GetPlaybookExtendedQn:
-    post:
-      tags:
-        - PlaybookService
-      summary: Playbook Extended quant.new operations
-      description: Playbook Extended quant.new operations
-      operationId: PlaybookService_GetPlaybookExtendedQn
-      parameters:
-        - name: Connect-Protocol-Version
-          in: header
-          required: true
-          schema:
-            $ref: '#/components/schemas/connect-protocol-version'
-        - name: Connect-Timeout-Ms
-          in: header
-          schema:
-            $ref: '#/components/schemas/connect-timeout-header'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/textql.rpc.public.playbook.GetPlaybookExtendedQnRequest'
-        required: true
-      responses:
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/connect.error'
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/textql.rpc.public.playbook.GetPlaybookExtendedQnResponse'
-      x-speakeasy-group: playbooks
-      x-speakeasy-name-override: getExtendedQn
   /textql.rpc.public.playbook.PlaybookService/GetPlaybookLineage:
     post:
       tags:
@@ -9778,8 +9770,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.GetPlaybookReportsBatchResponse'
-      x-speakeasy-name-override: getPlaybookReportsBatch
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: getPlaybookReportsBatch
   /textql.rpc.public.playbook.PlaybookService/GetPlaybooks:
     post:
       tags:
@@ -9852,45 +9844,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.GetPlaybooksPreviewsResponse'
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: getPlaybooksPreviews
-      x-speakeasy-group: playbooks
-  /textql.rpc.public.playbook.PlaybookService/GetQNPlaybook:
-    post:
-      tags:
-        - PlaybookService
-      summary: GetQNPlaybook
-      operationId: PlaybookService_GetQNPlaybook
-      parameters:
-        - name: Connect-Protocol-Version
-          in: header
-          required: true
-          schema:
-            $ref: '#/components/schemas/connect-protocol-version'
-        - name: Connect-Timeout-Ms
-          in: header
-          schema:
-            $ref: '#/components/schemas/connect-timeout-header'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/textql.rpc.public.playbook.GetQNPlaybookRequest'
-        required: true
-      responses:
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/connect.error'
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/textql.rpc.public.playbook.GetQNPlaybookResponse'
-      x-speakeasy-group: playbooks
-      x-speakeasy-name-override: getQnPlaybook
   /textql.rpc.public.playbook.PlaybookService/GetReportById:
     post:
       tags:
@@ -9927,8 +9882,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.GetReportByIdResponse'
-      x-speakeasy-name-override: getReportById
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: getReportById
   /textql.rpc.public.playbook.PlaybookService/GetReportsWithFilters:
     post:
       tags:
@@ -10152,8 +10107,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.ListTeamsChannelsForContextPlaybookResponse'
-      x-speakeasy-name-override: listTeamsChannelsForContextPlaybook
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: listTeamsChannelsForContextPlaybook
   /textql.rpc.public.playbook.PlaybookService/MarkReportAsRead:
     post:
       tags:
@@ -10301,8 +10256,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.PlaybookRemoveDatasetResponse'
-      x-speakeasy-name-override: removeDataset
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: removeDataset
   /textql.rpc.public.playbook.PlaybookService/RunPlaybook:
     post:
       tags:
@@ -10494,8 +10449,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.UnsetSlackChannelContextPlaybookResponse'
-      x-speakeasy-name-override: unsetSlackChannelContextPlaybook
       x-speakeasy-group: playbooks
+      x-speakeasy-name-override: unsetSlackChannelContextPlaybook
   /textql.rpc.public.playbook.PlaybookService/UnsetTeamsChannelContextPlaybook:
     post:
       tags:
@@ -10605,45 +10560,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.UpdatePlaybookResponse'
+      x-speakeasy-group: playbooks
       x-speakeasy-name-override: update
-      x-speakeasy-group: playbooks
-  /textql.rpc.public.playbook.PlaybookService/UpdatePlaybookExtendedQn:
-    post:
-      tags:
-        - PlaybookService
-      summary: UpdatePlaybookExtendedQn
-      operationId: PlaybookService_UpdatePlaybookExtendedQn
-      parameters:
-        - name: Connect-Protocol-Version
-          in: header
-          required: true
-          schema:
-            $ref: '#/components/schemas/connect-protocol-version'
-        - name: Connect-Timeout-Ms
-          in: header
-          schema:
-            $ref: '#/components/schemas/connect-timeout-header'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/textql.rpc.public.playbook.UpdatePlaybookExtendedQnRequest'
-        required: true
-      responses:
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/connect.error'
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/textql.rpc.public.playbook.UpdatePlaybookExtendedQnResponse'
-      x-speakeasy-group: playbooks
-      x-speakeasy-name-override: updateExtendedQn
   /textql.rpc.public.powerbi.PowerBIService/ExportPowerBIReportImage:
     post:
       tags:
@@ -12950,8 +12868,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.sandbox_admin.ListSandboxFilesResponse'
-      x-speakeasy-name-override: listSandboxFiles
       x-speakeasy-group: sandboxAdmin
+      x-speakeasy-name-override: listSandboxFiles
   /textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxSpend:
     post:
       tags:
@@ -13106,8 +13024,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.sandbox_admin.RestartSandboxResponse'
-      x-speakeasy-name-override: restartSandbox
       x-speakeasy-group: sandboxAdmin
+      x-speakeasy-name-override: restartSandbox
   /textql.rpc.public.sandbox_admin.SandboxAdminService/StopSandbox:
     post:
       tags:
@@ -13180,8 +13098,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.sandbox_query.SandboxExecuteQueryResponse'
-      x-speakeasy-name-override: executeQuery
       x-speakeasy-group: sandbox
+      x-speakeasy-name-override: executeQuery
   /textql.rpc.public.scim.ScimService/CreateScimOAuthClient:
     post:
       tags:
@@ -13254,8 +13172,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.scim.CreateScimTokenResponse'
-      x-speakeasy-name-override: createScimToken
       x-speakeasy-group: scim
+      x-speakeasy-name-override: createScimToken
   /textql.rpc.public.scim.ScimService/ListScimOAuthClients:
     post:
       tags:
@@ -13291,8 +13209,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.scim.ListScimOAuthClientsResponse'
-      x-speakeasy-name-override: listScimOAuthClients
       x-speakeasy-group: scim
+      x-speakeasy-name-override: listScimOAuthClients
   /textql.rpc.public.scim.ScimService/ListScimTokens:
     post:
       tags:
@@ -13365,8 +13283,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.scim.RevokeScimOAuthClientResponse'
-      x-speakeasy-name-override: revokeOAuthClient
       x-speakeasy-group: scim
+      x-speakeasy-name-override: revokeOAuthClient
   /textql.rpc.public.scim.ScimService/RevokeScimToken:
     post:
       tags:
@@ -13402,8 +13320,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.scim.RevokeScimTokenResponse'
-      x-speakeasy-name-override: revokeScimToken
       x-speakeasy-group: scim
+      x-speakeasy-name-override: revokeScimToken
   /textql.rpc.public.secret.SecretService/CreateApiRevision:
     post:
       tags:
@@ -13587,8 +13505,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.secret.GetApiAccessKeyResponse'
-      x-speakeasy-name-override: getApiAccessKey
       x-speakeasy-group: secrets
+      x-speakeasy-name-override: getApiAccessKey
   /textql.rpc.public.secret.SecretService/GetMembersWithSecrets:
     post:
       tags:
@@ -13772,8 +13690,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.secret.MigrateSecretToApiConnectorResponse'
-      x-speakeasy-name-override: migrateSecretToApiConnector
       x-speakeasy-group: secrets
+      x-speakeasy-name-override: migrateSecretToApiConnector
   /textql.rpc.public.secret.SecretService/PutSecret:
     post:
       tags:
@@ -14105,8 +14023,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.slack.ListChannelsResponse'
-      x-speakeasy-name-override: listChannels
       x-speakeasy-group: slack
+      x-speakeasy-name-override: listChannels
   /textql.rpc.public.slack.SlackService/ListInstallations:
     post:
       tags:
@@ -14142,8 +14060,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.slack.ListInstallationsResponse'
-      x-speakeasy-name-override: listInstallations
       x-speakeasy-group: slack
+      x-speakeasy-name-override: listInstallations
   /textql.rpc.public.slack.SlackService/ListUsers:
     post:
       tags:
@@ -14555,8 +14473,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.tableau.RefreshTableauCollectionResponse'
-      x-speakeasy-name-override: refreshCollection
       x-speakeasy-group: tableau
+      x-speakeasy-name-override: refreshCollection
   /textql.rpc.public.tableau.TableauService/ResetConnectedApp:
     post:
       tags:
@@ -14668,8 +14586,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.tableau.TestTableauConnectionResponse'
-      x-speakeasy-name-override: testTableauConnection
       x-speakeasy-group: tableau
+      x-speakeasy-name-override: testTableauConnection
   /textql.rpc.public.tableau.TableauService/UnstarTableauItem:
     post:
       tags:
@@ -14964,8 +14882,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/textql.rpc.public.teams.TeamsListUsersResponse'
-      x-speakeasy-name-override: listUsers
       x-speakeasy-group: teams
+      x-speakeasy-name-override: listUsers
   /textql.rpc.public.teams.TeamsService/SyncWorkspace:
     post:
       tags:
@@ -15730,6 +15648,23 @@ components:
           format: int32
       title: ToolCountsEntry
       additionalProperties: false
+    textql.rpc.public.agent.AgentRunTriggerGeo:
+      type: object
+      properties:
+        city:
+          type: string
+          title: city
+        region:
+          type: string
+          title: region
+        country:
+          type: string
+          title: country
+        countryCode:
+          type: string
+          title: country_code
+      title: AgentRunTriggerGeo
+      additionalProperties: false
     textql.rpc.public.agent.AgentRunTriggerMetadata:
       type: object
       properties:
@@ -15751,6 +15686,10 @@ components:
         ip:
           type: string
           title: ip
+        geo:
+          title: geo
+          nullable: true
+          $ref: '#/components/schemas/textql.rpc.public.agent.AgentRunTriggerGeo'
       title: AgentRunTriggerMetadata
       additionalProperties: false
     textql.rpc.public.agent.AgentStatusUpdate:
@@ -16185,7 +16124,6 @@ components:
         code:
           type: string
           title: code
-          description: Agent-authored single-file HTML source (pre data-injection).
         dataSources:
           type: array
           items:
@@ -16194,7 +16132,6 @@ components:
         htmlUrl:
           type: string
           title: html_url
-          description: 'built artifact: CSP + data snapshot injected'
           nullable: true
         screenshotUrl:
           type: string
@@ -16205,26 +16142,21 @@ components:
           items:
             type: string
           title: console_errors
-          description: browser console errors/warnings from the last render (diagnostic)
         chatId:
           type: string
           title: chat_id
-          description: originating builder chat
           nullable: true
         publishedHtmlUrl:
           type: string
           title: published_html_url
-          description: snapshot shown to viewers; html_url is the draft
           nullable: true
         hasUnpublishedChanges:
           type: boolean
           title: has_unpublished_changes
-          description: 'computed: html_url != published_html_url'
         stalenessSeconds:
           type: integer
           title: staleness_seconds
           format: int32
-          description: auto-refresh timeout; null = org default
           nullable: true
         computeFunctions:
           type: array
@@ -16242,17 +16174,14 @@ components:
         cronString:
           type: string
           title: cron_string
-          description: UTC 5-field cron
           nullable: true
         folderId:
           type: string
           title: folder_id
-          description: library_folders.id, null/empty = uncategorized
           nullable: true
         isFavorited:
           type: boolean
           title: is_favorited
-          description: per-caller pin state (enriched, not stored on the app)
         createdAt:
           title: created_at
           $ref: '#/components/schemas/google.protobuf.Timestamp'
@@ -16275,19 +16204,18 @@ components:
         path:
           type: string
           title: path
-          description: normalized relative path, forward slashes, no .. or leading /
         content:
           type: string
           title: content
       title: AppFile
       additionalProperties: false
-      description: AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html.
     textql.rpc.public.app.AppHeartbeatRequest:
       type: object
       properties:
         appId:
           type: string
           title: app_id
+          description: '''app'' | ''dashboard'''
       title: AppHeartbeatRequest
       additionalProperties: false
     textql.rpc.public.app.AppVersion:
@@ -16349,14 +16277,10 @@ components:
           $ref: '#/components/schemas/google.protobuf.Timestamp'
         publisher:
           title: publisher
-          description: Enriched field
           nullable: true
           $ref: '#/components/schemas/textql.rpc.identity.MemberPreview'
       title: AppVersion
       additionalProperties: false
-      description: |-
-        Version history (mirrors dashboard.DashboardVersion). A snapshot of the
-         published app at publish time; restore writes it back into the draft.
     textql.rpc.public.app.AppViewerInfo:
       type: object
       properties:
@@ -16404,7 +16328,6 @@ components:
           title: code
       title: ComputeFunction
       additionalProperties: false
-      description: ComputeFunction is a declared server-side python function invocable from the app via the bridge.
     textql.rpc.public.app.ComputeFunctionParam:
       type: object
       properties:
@@ -16414,7 +16337,6 @@ components:
         type:
           type: string
           title: type
-          description: string | number | boolean | object | array
         description:
           type: string
           title: description
@@ -16500,7 +16422,6 @@ components:
         hasWritePermission:
           type: boolean
           title: has_write_permission
-          description: whether the caller may edit this app (HasAppWriteAccess)
       title: GetAppResponse
       additionalProperties: false
     textql.rpc.public.app.GetAppVersionRequest:
@@ -16531,7 +16452,6 @@ components:
           title: app_id
       title: GetAppViewStatsRequest
       additionalProperties: false
-      description: View analytics
     textql.rpc.public.app.GetAppViewStatsResponse:
       type: object
       properties:
@@ -16550,28 +16470,7 @@ components:
           title: recent_viewers
       title: GetAppViewStatsResponse
       additionalProperties: false
-    textql.rpc.public.app.GetComponentGalleryUrlRequest:
-      type: object
-      properties:
-        runtimeVersion:
-          type: string
-          title: runtime_version
-          description: optional; empty = current default vendor set
-        accentHex:
-          type: string
-          title: accent_hex
-          description: 'optional; empty = default indigo #6366f1'
-      title: GetComponentGalleryUrlRequest
-      additionalProperties: false
-    textql.rpc.public.app.GetComponentGalleryUrlResponse:
-      type: object
-      properties:
-        url:
-          type: string
-          title: url
-          description: signed /asset/apptree viewer URL for the published gallery tree
-      title: GetComponentGalleryUrlResponse
-      additionalProperties: false
+      description: View analytics
     textql.rpc.public.app.GetMembersWithAppsRequest:
       type: object
       title: GetMembersWithAppsRequest
@@ -16586,6 +16485,7 @@ components:
           title: members
       title: GetMembersWithAppsResponse
       additionalProperties: false
+      description: List responses omit code (heavyweight); fetch a single app for it.
     textql.rpc.public.app.InvokeAppComputeFunctionRequest:
       type: object
       properties:
@@ -16595,10 +16495,10 @@ components:
         functionName:
           type: string
           title: function_name
+          description: string | number | boolean | object | array
         paramsJson:
           type: string
           title: params_json
-          description: JSON object, keys map to function kwargs
       title: InvokeAppComputeFunctionRequest
       additionalProperties: false
     textql.rpc.public.app.InvokeAppComputeFunctionResponse:
@@ -16609,12 +16509,14 @@ components:
           title: result_json
       title: InvokeAppComputeFunctionResponse
       additionalProperties: false
+      description: ComputeFunction is a declared server-side python function invocable from the app via the bridge.
     textql.rpc.public.app.ListAppVersionsRequest:
       type: object
       properties:
         appId:
           type: string
           title: app_id
+          description: normalized relative path, forward slashes, no .. or leading /
         limit:
           type: integer
           title: limit
@@ -16625,6 +16527,7 @@ components:
           format: int32
       title: ListAppVersionsRequest
       additionalProperties: false
+      description: AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html.
     textql.rpc.public.app.ListAppVersionsResponse:
       type: object
       properties:
@@ -16639,6 +16542,9 @@ components:
           format: int32
       title: ListAppVersionsResponse
       additionalProperties: false
+      description: |-
+        Version history (mirrors dashboard.DashboardVersion). A snapshot of the
+         published app at publish time; restore writes it back into the draft.
     textql.rpc.public.app.ListAppsRequest:
       type: object
       properties:
@@ -16657,17 +16563,14 @@ components:
         folderId:
           type: string
           title: folder_id
-          description: Filter by specific folder
           nullable: true
         uncategorizedOnly:
           type: boolean
           title: uncategorized_only
-          description: Only show apps with no folder
           nullable: true
         sharedWithMe:
           type: boolean
           title: shared_with_me
-          description: Only apps shared with the caller (not authored by them)
           nullable: true
       title: ListAppsRequest
       additionalProperties: false
@@ -16683,9 +16586,9 @@ components:
           type: integer
           title: total_count
           format: int32
+          description: whether the caller may edit this app (HasAppWriteAccess)
       title: ListAppsResponse
       additionalProperties: false
-      description: List responses omit code (heavyweight); fetch a single app for it.
     textql.rpc.public.app.MoveAppToFolderRequest:
       type: object
       properties:
@@ -16695,7 +16598,6 @@ components:
         folderId:
           type: string
           title: folder_id
-          description: null/empty = move to root (uncategorized)
           nullable: true
       title: MoveAppToFolderRequest
       additionalProperties: false
@@ -16749,14 +16651,14 @@ components:
         primitiveType:
           type: string
           title: primitive_type
-          description: '''app'' | ''dashboard'''
+          description: optional; empty = current default vendor set
         primitiveId:
           type: string
           title: primitive_id
+          description: 'optional; empty = default indigo #6366f1'
         favorited:
           type: boolean
           title: favorited
-          description: true = pin, false = unpin (hard delete)
       title: SetFavoriteRequest
       additionalProperties: false
     textql.rpc.public.app.SetFavoriteResponse:
@@ -16765,6 +16667,7 @@ components:
         favorited:
           type: boolean
           title: favorited
+          description: signed /asset/apptree viewer URL for the published gallery tree
       title: SetFavoriteResponse
       additionalProperties: false
     textql.rpc.public.app.UpdateAppRequest:
@@ -17297,6 +17200,42 @@ components:
       title: AppCell
       additionalProperties: false
       description: AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table).
+    textql.rpc.public.cells.AppInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          title: id
+        name:
+          type: string
+          title: name
+        description:
+          type: string
+          title: description
+          nullable: true
+        status:
+          type: string
+          title: status
+          description: '"draft" or "published" (derived from published_at)'
+        creatorId:
+          type: string
+          title: creator_id
+        createdAt:
+          title: created_at
+          $ref: '#/components/schemas/google.protobuf.Timestamp'
+        updatedAt:
+          title: updated_at
+          $ref: '#/components/schemas/google.protobuf.Timestamp'
+        refreshedAt:
+          title: refreshed_at
+          nullable: true
+          $ref: '#/components/schemas/google.protobuf.Timestamp'
+        publishedAt:
+          title: published_at
+          nullable: true
+          $ref: '#/components/schemas/google.protobuf.Timestamp'
+      title: AppInfo
+      additionalProperties: false
     textql.rpc.public.cells.BashCell:
       type: object
       properties:
@@ -18383,6 +18322,31 @@ components:
           format: int64
           nullable: true
       title: LinkedinSearchCell
+      additionalProperties: false
+    textql.rpc.public.cells.ListAppsCell:
+      type: object
+      properties:
+        searchTerm:
+          type: string
+          title: search_term
+        appId:
+          type: string
+          title: app_id
+          description: Set for single-app lookup
+        totalCount:
+          type: integer
+          title: total_count
+          format: int32
+        errorMessage:
+          type: string
+          title: error_message
+          nullable: true
+        apps:
+          type: array
+          items:
+            $ref: '#/components/schemas/textql.rpc.public.cells.AppInfo'
+          title: apps
+      title: ListAppsCell
       additionalProperties: false
     textql.rpc.public.cells.ListDashboardsCell:
       type: object
@@ -20361,6 +20325,14 @@ components:
               title: linkedin_search_cell
               required:
                 - linkedinSearchCell
+            - properties:
+                listAppsCell:
+                  title: list_apps_cell
+                  description: 66 is duration_ms outside the oneof
+                  $ref: '#/components/schemas/textql.rpc.public.cells.ListAppsCell'
+              title: list_apps_cell
+              required:
+                - listAppsCell
             - properties:
                 listDashboardsCell:
                   title: list_dashboards_cell
@@ -27437,9 +27409,6 @@ components:
           title: estimated_acu
           format: double
           description: proportionally distributed from member's feed ACU by post count
-        isInternal:
-          type: boolean
-          title: is_internal
       title: AgentBillingStat
       additionalProperties: false
     textql.rpc.public.observe.AppBillingStat:
@@ -27465,9 +27434,6 @@ components:
           type: integer
           title: refresh_count
           format: int32
-        isInternal:
-          type: boolean
-          title: is_internal
         viewCount:
           type: integer
           title: view_count
@@ -27768,9 +27734,6 @@ components:
           type: integer
           title: refresh_count
           format: int32
-        isInternal:
-          type: boolean
-          title: is_internal
         viewCount:
           type: integer
           title: view_count
@@ -28087,10 +28050,6 @@ components:
           type: integer
           title: days
           format: int32
-        excludeTextql:
-          type: boolean
-          title: exclude_textql
-          nullable: true
         memberId:
           type: string
           title: member_id
@@ -28674,9 +28633,6 @@ components:
           type: integer
           title: run_count
           format: int32
-        isInternal:
-          type: boolean
-          title: is_internal
         dailyRunCounts:
           type: array
           items:
@@ -30628,6 +30584,23 @@ components:
           title: private
       title: GithubInstallationRepo
       additionalProperties: false
+    textql.rpc.public.patches.GoldenEntry:
+      type: object
+      properties:
+        path:
+          type: string
+          title: path
+        setByMemberId:
+          type: string
+          title: set_by_member_id
+          description: backend
+        setAt:
+          title: set_at
+          description: backend
+          nullable: true
+          $ref: '#/components/schemas/google.protobuf.Timestamp'
+      title: GoldenEntry
+      additionalProperties: false
     textql.rpc.public.patches.LibraryAnaConfig:
       type: object
       properties:
@@ -31088,6 +31061,20 @@ components:
             $ref: '#/components/schemas/textql.rpc.public.patches.ContextPatchAutoApproveRule'
           title: rules
       title: ListContextPatchAutoApproveRulesResponse
+      additionalProperties: false
+    textql.rpc.public.patches.ListGoldenFilesRequest:
+      type: object
+      title: ListGoldenFilesRequest
+      additionalProperties: false
+    textql.rpc.public.patches.ListGoldenFilesResponse:
+      type: object
+      properties:
+        golden:
+          type: array
+          items:
+            $ref: '#/components/schemas/textql.rpc.public.patches.GoldenEntry'
+          title: golden
+      title: ListGoldenFilesResponse
       additionalProperties: false
     textql.rpc.public.patches.ListLibraryEntriesRequest:
       type: object
@@ -32039,6 +32026,29 @@ components:
           description: Library-relative path the config file was placed at.
       title: SaveObjectAsConfigResponse
       additionalProperties: false
+    textql.rpc.public.patches.SetLibraryFileGoldenRequest:
+      type: object
+      properties:
+        path:
+          type: string
+          title: path
+        golden:
+          type: boolean
+          title: golden
+          description: true = certify, false = retire
+      title: SetLibraryFileGoldenRequest
+      additionalProperties: false
+    textql.rpc.public.patches.SetLibraryFileGoldenResponse:
+      type: object
+      properties:
+        golden:
+          type: array
+          items:
+            $ref: '#/components/schemas/textql.rpc.public.patches.GoldenEntry'
+          title: golden
+          description: full active list after the change
+      title: SetLibraryFileGoldenResponse
+      additionalProperties: false
     textql.rpc.public.patches.Skill:
       type: object
       properties:
@@ -32470,9 +32480,6 @@ components:
         success:
           type: boolean
           title: success
-        extendedQn:
-          title: extended_qn
-          $ref: '#/components/schemas/textql.rpc.public.playbook.PlaybookExtendedQn'
       title: FavoriteReportResponse
       additionalProperties: false
     textql.rpc.public.playbook.FilterCondition:
@@ -32567,24 +32574,6 @@ components:
       title: GetPlaybookBatchRunResponse
       additionalProperties: false
       description: Response containing batch run details
-    textql.rpc.public.playbook.GetPlaybookExtendedQnRequest:
-      type: object
-      properties:
-        playbookId:
-          type: string
-          title: playbook_id
-          description: UUID
-      title: GetPlaybookExtendedQnRequest
-      additionalProperties: false
-    textql.rpc.public.playbook.GetPlaybookExtendedQnResponse:
-      type: object
-      properties:
-        extendedQn:
-          title: extended_qn
-          nullable: true
-          $ref: '#/components/schemas/textql.rpc.public.playbook.PlaybookExtendedQn'
-      title: GetPlaybookExtendedQnResponse
-      additionalProperties: false
     textql.rpc.public.playbook.GetPlaybookLineageRequest:
       type: object
       properties:
@@ -32825,22 +32814,6 @@ components:
           title: total_count
           format: int32
       title: GetPlaybooksResponse
-      additionalProperties: false
-    textql.rpc.public.playbook.GetQNPlaybookRequest:
-      type: object
-      properties:
-        playbookId:
-          type: string
-          title: playbook_id
-      title: GetQNPlaybookRequest
-      additionalProperties: false
-    textql.rpc.public.playbook.GetQNPlaybookResponse:
-      type: object
-      properties:
-        playbook:
-          title: playbook
-          $ref: '#/components/schemas/textql.rpc.public.playbook.QNPlaybook'
-      title: GetQNPlaybookResponse
       additionalProperties: false
     textql.rpc.public.playbook.GetReportByIdRequest:
       type: object
@@ -33281,46 +33254,6 @@ components:
       title: PlaybookBatchRun
       additionalProperties: false
       description: Batch run record
-    textql.rpc.public.playbook.PlaybookExtendedQn:
-      type: object
-      properties:
-        playbookId:
-          type: string
-          title: playbook_id
-          description: UUID (PRIMARY KEY)
-        summary:
-          type: string
-          title: summary
-        template:
-          type: string
-          title: template
-          nullable: true
-        tags:
-          type: array
-          items:
-            type: string
-          title: tags
-        ratings:
-          type: string
-          title: ratings
-          description: JSON string for flexible rating data
-          nullable: true
-        orgId:
-          type: string
-          title: org_id
-        createdAt:
-          title: created_at
-          $ref: '#/components/schemas/google.protobuf.Timestamp'
-        updatedAt:
-          title: updated_at
-          $ref: '#/components/schemas/google.protobuf.Timestamp'
-        favoriteReport:
-          title: favorite_report
-          nullable: true
-          $ref: '#/components/schemas/textql.rpc.public.playbook.PlaybookReport'
-      title: PlaybookExtendedQn
-      additionalProperties: false
-      description: Playbook Extended quant.new messages
     textql.rpc.public.playbook.PlaybookLineageNode:
       type: object
       properties:
@@ -33499,40 +33432,6 @@ components:
     textql.rpc.public.playbook.PreviewSlackReportResponse:
       type: object
       title: PreviewSlackReportResponse
-      additionalProperties: false
-    textql.rpc.public.playbook.QNPlaybook:
-      type: object
-      properties:
-        id:
-          type: string
-          title: id
-          description: UUID
-        name:
-          type: string
-          title: name
-        prompt:
-          type: string
-          title: prompt
-        createdAt:
-          title: created_at
-          $ref: '#/components/schemas/google.protobuf.Timestamp'
-        cronString:
-          type: string
-          title: cron_string
-        owner:
-          title: owner
-          $ref: '#/components/schemas/textql.rpc.identity.MemberPreview'
-        summary:
-          type: string
-          title: summary
-        favoriteReport:
-          title: favorite_report
-          nullable: true
-          $ref: '#/components/schemas/textql.rpc.public.playbook.PlaybookReport'
-        isSubscribed:
-          type: boolean
-          title: is_subscribed
-      title: QNPlaybook
       additionalProperties: false
     textql.rpc.public.playbook.ReportFilters:
       type: object
@@ -33829,46 +33728,6 @@ components:
           type: boolean
           title: success
       title: UnsubscribeFromPlaybookResponse
-      additionalProperties: false
-    textql.rpc.public.playbook.UpdatePlaybookExtendedQnRequest:
-      type: object
-      properties:
-        playbookId:
-          type: string
-          title: playbook_id
-          description: UUID
-        summary:
-          type: string
-          title: summary
-          nullable: true
-        template:
-          type: string
-          title: template
-          nullable: true
-        tags:
-          type: array
-          items:
-            type: string
-          title: tags
-        ratings:
-          type: string
-          title: ratings
-          description: JSON string for flexible rating data
-          nullable: true
-        favoriteReportId:
-          type: string
-          title: favorite_report_id
-          description: UUID
-          nullable: true
-      title: UpdatePlaybookExtendedQnRequest
-      additionalProperties: false
-    textql.rpc.public.playbook.UpdatePlaybookExtendedQnResponse:
-      type: object
-      properties:
-        extendedQn:
-          title: extended_qn
-          $ref: '#/components/schemas/textql.rpc.public.playbook.PlaybookExtendedQn'
-      title: UpdatePlaybookExtendedQnResponse
       additionalProperties: false
     textql.rpc.public.playbook.UpdatePlaybookRequest:
       type: object

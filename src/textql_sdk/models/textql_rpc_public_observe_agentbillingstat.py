@@ -12,7 +12,6 @@ class TextqlRPCPublicObserveAgentBillingStatTypedDict(TypedDict):
     agent_id: NotRequired[str]
     estimated_acu: NotRequired[float]
     r"""proportionally distributed from member's feed ACU by post count"""
-    is_internal: NotRequired[bool]
 
 
 class TextqlRPCPublicObserveAgentBillingStat(BaseModel):
@@ -23,11 +22,9 @@ class TextqlRPCPublicObserveAgentBillingStat(BaseModel):
     )
     r"""proportionally distributed from member's feed ACU by post count"""
 
-    is_internal: Annotated[Optional[bool], pydantic.Field(alias="isInternal")] = None
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["agentId", "estimatedAcu", "isInternal"])
+        optional_fields = set(["agentId", "estimatedAcu"])
         serialized = handler(self)
         m = {}
 

@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from textql_sdk.dashboards import Dashboards
     from textql_sdk.datasets import Datasets
     from textql_sdk.libraries import Libraries
+    from textql_sdk.libraryservice import LibraryService
     from textql_sdk.mcp import Mcp
     from textql_sdk.metricsexports import MetricsExports
     from textql_sdk.observability import Observability
@@ -55,6 +56,7 @@ class Textql(BaseSDK):
     metrics_exports: "MetricsExports"
     observability: "Observability"
     libraries: "Libraries"
+    library_service: "LibraryService"
     playbooks: "Playbooks"
     powerbi: "PowerbiSDK"
     rbac: "Rbac"
@@ -77,6 +79,7 @@ class Textql(BaseSDK):
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
         "observability": ("textql_sdk.observability", "Observability"),
         "libraries": ("textql_sdk.libraries", "Libraries"),
+        "library_service": ("textql_sdk.libraryservice", "LibraryService"),
         "playbooks": ("textql_sdk.playbooks", "Playbooks"),
         "powerbi": ("textql_sdk.powerbi_sdk", "PowerbiSDK"),
         "rbac": ("textql_sdk.rbac", "Rbac"),

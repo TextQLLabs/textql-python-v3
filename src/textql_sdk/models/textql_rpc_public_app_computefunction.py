@@ -18,8 +18,6 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
-    r"""ComputeFunction is a declared server-side python function invocable from the app via the bridge."""
-
     name: NotRequired[str]
     description: NotRequired[str]
     params: NotRequired[List[TextqlRPCPublicAppComputeFunctionParamTypedDict]]
@@ -28,8 +26,6 @@ class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
 
 
 class TextqlRPCPublicAppComputeFunction(BaseModel):
-    r"""ComputeFunction is a declared server-side python function invocable from the app via the bridge."""
-
     name: Optional[str] = None
 
     description: Optional[str] = None

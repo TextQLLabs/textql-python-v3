@@ -13,18 +13,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppListAppsResponseTypedDict(TypedDict):
-    r"""List responses omit code (heavyweight); fetch a single app for it."""
-
     apps: NotRequired[List[TextqlRPCPublicAppAppTypedDict]]
     total_count: NotRequired[int]
+    r"""whether the caller may edit this app (HasAppWriteAccess)"""
 
 
 class TextqlRPCPublicAppListAppsResponse(BaseModel):
-    r"""List responses omit code (heavyweight); fetch a single app for it."""
-
     apps: Optional[List[TextqlRPCPublicAppApp]] = None
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
+    r"""whether the caller may edit this app (HasAppWriteAccess)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

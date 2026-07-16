@@ -238,7 +238,6 @@ with Textql(
 * [get](docs/sdks/apps/README.md#get) - GetApp
 * [get_app_version](docs/sdks/apps/README.md#get_app_version) - GetAppVersion
 * [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
-* [get_component_gallery_url](docs/sdks/apps/README.md#get_component_gallery_url) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 * [get_members_with_apps](docs/sdks/apps/README.md#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [list_versions](docs/sdks/apps/README.md#list_versions) - Version history: a snapshot is recorded on each publish; authors can list and restore.
@@ -441,6 +440,11 @@ with Textql(
 * [upsert_owners](docs/sdks/libraries/README.md#upsert_owners) - UpsertLibraryOwners
 * [validate_config](docs/sdks/libraries/README.md#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
 
+### [LibraryService](docs/sdks/libraryservice/README.md)
+
+* [library_service_list_golden_files](docs/sdks/libraryservice/README.md#library_service_list_golden_files) - ListGoldenFiles
+* [library_service_set_library_file_golden](docs/sdks/libraryservice/README.md#library_service_set_library_file_golden) - SetLibraryFileGolden
+
 ### [Mcp](docs/sdks/mcp/README.md)
 
 * [clear_o_auth_token](docs/sdks/mcp/README.md#clear_o_auth_token) - ClearOAuthToken
@@ -508,13 +512,11 @@ with Textql(
 * [get_members_with](docs/sdks/playbooks/README.md#get_members_with) - GetMembersWithPlaybooks
 * [fetch](docs/sdks/playbooks/README.md#fetch) - GetPlaybook
 * [get_batch_run](docs/sdks/playbooks/README.md#get_batch_run) - Get a specific batch run
-* [get_extended_qn](docs/sdks/playbooks/README.md#get_extended_qn) - Playbook Extended quant.new operations
 * [get_playbook_lineage](docs/sdks/playbooks/README.md#get_playbook_lineage) - GetPlaybookLineage
 * [get_reports](docs/sdks/playbooks/README.md#get_reports) - GetPlaybookReports
 * [get_playbook_reports_batch](docs/sdks/playbooks/README.md#get_playbook_reports_batch) - Get reports for multiple template data IDs in a single batch request
 * [get](docs/sdks/playbooks/README.md#get) - GetPlaybooks
 * [get_playbooks_previews](docs/sdks/playbooks/README.md#get_playbooks_previews) - GetPlaybooksPreviews
-* [get_qn_playbook](docs/sdks/playbooks/README.md#get_qn_playbook) - GetQNPlaybook
 * [get_report_by_id](docs/sdks/playbooks/README.md#get_report_by_id) - Get a single report by ID
 * [get_reports_with_filters](docs/sdks/playbooks/README.md#get_reports_with_filters) - GetReportsWithFilters
 * [list_slack_channel_context_playbooks](docs/sdks/playbooks/README.md#list_slack_channel_context_playbooks) - List all Slack channels context playbook mappings for the organization
@@ -534,7 +536,6 @@ with Textql(
 * [unset_teams_channel_context](docs/sdks/playbooks/README.md#unset_teams_channel_context) - UnsetTeamsChannelContextPlaybook
 * [unsubscribe](docs/sdks/playbooks/README.md#unsubscribe) - UnsubscribeFromPlaybook
 * [update](docs/sdks/playbooks/README.md#update) - UpdatePlaybook
-* [update_extended_qn](docs/sdks/playbooks/README.md#update_extended_qn) - UpdatePlaybookExtendedQn
 
 ### [Powerbi](docs/sdks/powerbisdk/README.md)
 

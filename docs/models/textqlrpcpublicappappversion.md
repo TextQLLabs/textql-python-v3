@@ -1,8 +1,5 @@
 # TextqlRPCPublicAppAppVersion
 
-Version history (mirrors dashboard.DashboardVersion). A snapshot of the
- published app at publish time; restore writes it back into the draft.
-
 
 ## Fields
 

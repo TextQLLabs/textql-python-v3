@@ -1,5 +1,7 @@
 # TextqlRPCPublicAppInvokeAppComputeFunctionResponse
 
+ComputeFunction is a declared server-side python function invocable from the app via the bridge.
+
 
 ## Fields
 

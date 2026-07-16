@@ -8,25 +8,25 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TextqlRPCPublicAppGetComponentGalleryURLRequestTypedDict(TypedDict):
-    runtime_version: NotRequired[str]
-    r"""optional; empty = current default vendor set"""
-    accent_hex: NotRequired[str]
-    r"""optional; empty = default indigo #6366f1"""
+class TextqlRPCPublicAgentAgentRunTriggerGeoTypedDict(TypedDict):
+    city: NotRequired[str]
+    region: NotRequired[str]
+    country: NotRequired[str]
+    country_code: NotRequired[str]
 
 
-class TextqlRPCPublicAppGetComponentGalleryURLRequest(BaseModel):
-    runtime_version: Annotated[
-        Optional[str], pydantic.Field(alias="runtimeVersion")
-    ] = None
-    r"""optional; empty = current default vendor set"""
+class TextqlRPCPublicAgentAgentRunTriggerGeo(BaseModel):
+    city: Optional[str] = None
 
-    accent_hex: Annotated[Optional[str], pydantic.Field(alias="accentHex")] = None
-    r"""optional; empty = default indigo #6366f1"""
+    region: Optional[str] = None
+
+    country: Optional[str] = None
+
+    country_code: Annotated[Optional[str], pydantic.Field(alias="countryCode")] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["runtimeVersion", "accentHex"])
+        optional_fields = set(["city", "region", "country", "countryCode"])
         serialized = handler(self)
         m = {}
 
@@ -42,6 +42,6 @@ class TextqlRPCPublicAppGetComponentGalleryURLRequest(BaseModel):
 
 
 try:
-    TextqlRPCPublicAppGetComponentGalleryURLRequest.model_rebuild()
+    TextqlRPCPublicAgentAgentRunTriggerGeo.model_rebuild()
 except NameError:
     pass

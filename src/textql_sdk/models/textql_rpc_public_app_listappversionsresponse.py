@@ -13,11 +13,19 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppListAppVersionsResponseTypedDict(TypedDict):
+    r"""Version history (mirrors dashboard.DashboardVersion). A snapshot of the
+    published app at publish time; restore writes it back into the draft.
+    """
+
     versions: NotRequired[List[TextqlRPCPublicAppAppVersionTypedDict]]
     total_count: NotRequired[int]
 
 
 class TextqlRPCPublicAppListAppVersionsResponse(BaseModel):
+    r"""Version history (mirrors dashboard.DashboardVersion). A snapshot of the
+    published app at publish time; restore writes it back into the draft.
+    """
+
     versions: Optional[List[TextqlRPCPublicAppAppVersion]] = None
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None

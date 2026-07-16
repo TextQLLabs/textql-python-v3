@@ -11,7 +11,6 @@
 * [get](#get) - GetApp
 * [get_app_version](#get_app_version) - GetAppVersion
 * [get_app_view_stats](#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
-* [get_component_gallery_url](#get_component_gallery_url) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [list_versions](#list_versions) - Version history: a snapshot is recorded on each publish; authors can list and restore.
@@ -52,7 +51,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | 'app' \| 'dashboard'                                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -319,49 +318,6 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## get_component_gallery_url
-
-Staff-only (superadmin gated in-handler): publishes the embedded component
- gallery as an app tree and returns its signed viewer URL.
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="AppService_GetComponentGalleryUrl" method="post" path="/textql.rpc.public.app.AppService/GetComponentGalleryUrl" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.apps.get_component_gallery_url()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `runtime_version`                                                   | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = current default vendor set                        |
-| `accent_hex`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = default indigo #6366f1                            |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.AppServiceGetComponentGalleryURLResponse](../../models/appservicegetcomponentgalleryurlresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
 ## get_members_with_apps
 
 GetMembersWithApps
@@ -432,8 +388,8 @@ with Textql(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `function_name`                                                     | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `params_json`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | JSON object, keys map to function kwargs                            |
+| `function_name`                                                     | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | string \| number \| boolean \| object \| array                      |
+| `params_json`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -474,7 +430,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | normalized relative path, forward slashes, no .. or leading /       |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
@@ -520,9 +476,9 @@ with Textql(
 | `search_term`                                                       | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Filter by specific folder                                           |
-| `uncategorized_only`                                                | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Only show apps with no folder                                       |
-| `shared_with_me`                                                    | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Only apps shared with the caller (not authored by them)             |
+| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `uncategorized_only`                                                | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `shared_with_me`                                                    | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -564,7 +520,7 @@ with Textql(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | null/empty = move to root (uncategorized)                           |
+| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -690,9 +646,9 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `primitive_type`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | 'app' \| 'dashboard'                                                |
-| `primitive_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `favorited`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | true = pin, false = unpin (hard delete)                             |
+| `primitive_type`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = current default vendor set                        |
+| `primitive_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = default indigo #6366f1                            |
+| `favorited`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

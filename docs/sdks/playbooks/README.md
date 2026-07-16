@@ -19,13 +19,11 @@
 * [get_members_with](#get_members_with) - GetMembersWithPlaybooks
 * [fetch](#fetch) - GetPlaybook
 * [get_batch_run](#get_batch_run) - Get a specific batch run
-* [get_extended_qn](#get_extended_qn) - Playbook Extended quant.new operations
 * [get_playbook_lineage](#get_playbook_lineage) - GetPlaybookLineage
 * [get_reports](#get_reports) - GetPlaybookReports
 * [get_playbook_reports_batch](#get_playbook_reports_batch) - Get reports for multiple template data IDs in a single batch request
 * [get](#get) - GetPlaybooks
 * [get_playbooks_previews](#get_playbooks_previews) - GetPlaybooksPreviews
-* [get_qn_playbook](#get_qn_playbook) - GetQNPlaybook
 * [get_report_by_id](#get_report_by_id) - Get a single report by ID
 * [get_reports_with_filters](#get_reports_with_filters) - GetReportsWithFilters
 * [list_slack_channel_context_playbooks](#list_slack_channel_context_playbooks) - List all Slack channels context playbook mappings for the organization
@@ -45,7 +43,6 @@
 * [unset_teams_channel_context](#unset_teams_channel_context) - UnsetTeamsChannelContextPlaybook
 * [unsubscribe](#unsubscribe) - UnsubscribeFromPlaybook
 * [update](#update) - UpdatePlaybook
-* [update_extended_qn](#update_extended_qn) - UpdatePlaybookExtendedQn
 
 ## attach_dashboard
 
@@ -671,47 +668,6 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## get_extended_qn
-
-Playbook Extended quant.new operations
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookExtendedQn" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookExtendedQn" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.playbooks.get_extended_qn()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PlaybookServiceGetPlaybookExtendedQnResponse](../../models/playbookservicegetplaybookextendedqnresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
 ## get_playbook_lineage
 
 GetPlaybookLineage
@@ -932,47 +888,6 @@ with Textql(
 ### Response
 
 **[models.PlaybookServiceGetPlaybooksPreviewsResponse](../../models/playbookservicegetplaybookspreviewsresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
-## get_qn_playbook
-
-GetQNPlaybook
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="PlaybookService_GetQNPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetQNPlaybook" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.playbooks.get_qn_playbook()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PlaybookServiceGetQNPlaybookResponse](../../models/playbookservicegetqnplaybookresponse.md)**
 
 ### Errors
 
@@ -1798,52 +1713,6 @@ with Textql(
 ### Response
 
 **[models.PlaybookServiceUpdatePlaybookResponse](../../models/playbookserviceupdateplaybookresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
-## update_extended_qn
-
-UpdatePlaybookExtendedQn
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="PlaybookService_UpdatePlaybookExtendedQn" method="post" path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybookExtendedQn" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.playbooks.update_extended_qn()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
-| `summary`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `template`                                                          | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `tags`                                                              | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `ratings`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | JSON string for flexible rating data                                |
-| `favorite_report_id`                                                | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | UUID                                                                |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PlaybookServiceUpdatePlaybookExtendedQnResponse](../../models/playbookserviceupdateplaybookextendedqnresponse.md)**
 
 ### Errors
 

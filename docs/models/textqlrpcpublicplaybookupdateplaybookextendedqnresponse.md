@@ -1,8 +1,0 @@
-# TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponse
-
-
-## Fields
-
-| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `extended_qn`                                                                                                        | [Optional[models.TextqlRPCPublicPlaybookPlaybookExtendedQn]](../models/textqlrpcpublicplaybookplaybookextendedqn.md) | :heavy_minus_sign:                                                                                                   | Playbook Extended quant.new messages                                                                                 |

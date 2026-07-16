@@ -8,18 +8,12 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppFileTypedDict(TypedDict):
-    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
-
     path: NotRequired[str]
-    r"""normalized relative path, forward slashes, no .. or leading /"""
     content: NotRequired[str]
 
 
 class TextqlRPCPublicAppAppFile(BaseModel):
-    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
-
     path: Optional[str] = None
-    r"""normalized relative path, forward slashes, no .. or leading /"""
 
     content: Optional[str] = None
 

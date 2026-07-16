@@ -13,16 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicAppGetAppVersionResponseTypedDict(TypedDict):
     version: NotRequired[TextqlRPCPublicAppAppVersionTypedDict]
-    r"""Version history (mirrors dashboard.DashboardVersion). A snapshot of the
-    published app at publish time; restore writes it back into the draft.
-    """
 
 
 class TextqlRPCPublicAppGetAppVersionResponse(BaseModel):
     version: Optional[TextqlRPCPublicAppAppVersion] = None
-    r"""Version history (mirrors dashboard.DashboardVersion). A snapshot of the
-    published app at publish time; restore writes it back into the draft.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
