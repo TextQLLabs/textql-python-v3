@@ -16,7 +16,6 @@ class TextqlRPCPublicObserveAppBillingStatTypedDict(TypedDict):
     owner_name: NotRequired[str]
     compute_acu: NotRequired[float]
     refresh_count: NotRequired[int]
-    is_internal: NotRequired[bool]
     view_count: NotRequired[int]
     last_viewed_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -125,8 +124,6 @@ class TextqlRPCPublicObserveAppBillingStat(BaseModel):
     compute_acu: Annotated[Optional[float], pydantic.Field(alias="computeAcu")] = None
 
     refresh_count: Annotated[Optional[int], pydantic.Field(alias="refreshCount")] = None
-
-    is_internal: Annotated[Optional[bool], pydantic.Field(alias="isInternal")] = None
 
     view_count: Annotated[Optional[int], pydantic.Field(alias="viewCount")] = None
 
@@ -240,7 +237,6 @@ class TextqlRPCPublicObserveAppBillingStat(BaseModel):
                 "ownerName",
                 "computeAcu",
                 "refreshCount",
-                "isInternal",
                 "viewCount",
                 "lastViewedAt",
                 "dailyViewCounts",

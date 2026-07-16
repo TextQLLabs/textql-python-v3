@@ -13,6 +13,5 @@
 | `llm_acu`          | *Optional[float]*  | :heavy_minus_sign: | N/A                |
 | `compute_acu`      | *Optional[float]*  | :heavy_minus_sign: | N/A                |
 | `run_count`        | *Optional[int]*    | :heavy_minus_sign: | N/A                |
-| `is_internal`      | *Optional[bool]*   | :heavy_minus_sign: | N/A                |
 | `daily_run_counts` | List[*int*]        | :heavy_minus_sign: | N/A                |
 | `is_active`        | *Optional[bool]*   | :heavy_minus_sign: | N/A                |

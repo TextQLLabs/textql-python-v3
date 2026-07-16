@@ -22,10 +22,13 @@ GetSandbox
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_GetSandbox" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/GetSandbox" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.get_sandbox()
 
@@ -61,10 +64,13 @@ Outbound HTTP(S) calls a sandbox made (the egress ledger). Durable — reads
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxEgress" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxEgress" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.list_sandbox_egress()
 
@@ -100,10 +106,13 @@ ListSandboxExecutions
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxExecutions" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxExecutions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.list_executions()
 
@@ -141,10 +150,13 @@ Live filesystem of a running sandbox. Both are NO-OP (read-only) and only
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxFiles" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxFiles" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.list_sandbox_files()
 
@@ -182,10 +194,13 @@ Per-lease compute usage for a sandbox, computed from lease durations × the
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxSpend" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxSpend" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.list_sandbox_spend()
 
@@ -220,10 +235,13 @@ ListSandboxes
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ListSandboxes" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ListSandboxes" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.list()
 
@@ -260,10 +278,13 @@ ReadSandboxFile
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_ReadSandboxFile" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/ReadSandboxFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.read_file()
 
@@ -301,10 +322,13 @@ Restart a stopped/reaped sandbox by re-acquiring a worker for the same
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_RestartSandbox" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/RestartSandbox" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.restart_sandbox()
 
@@ -339,10 +363,13 @@ StopSandbox
 
 <!-- UsageSnippet language="python" operationID="SandboxAdminService_StopSandbox" method="post" path="/textql.rpc.public.sandbox_admin.SandboxAdminService/StopSandbox" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox_admin.stop()
 

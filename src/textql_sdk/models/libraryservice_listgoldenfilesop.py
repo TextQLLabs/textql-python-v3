@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
-from .textql_rpc_public_app_getcomponentgalleryurlrequest import (
-    TextqlRPCPublicAppGetComponentGalleryURLRequest,
-    TextqlRPCPublicAppGetComponentGalleryURLRequestTypedDict,
+from .textql_rpc_public_patches_listgoldenfilesrequest import (
+    TextqlRPCPublicPatchesListGoldenFilesRequest,
+    TextqlRPCPublicPatchesListGoldenFilesRequestTypedDict,
 )
-from .textql_rpc_public_app_getcomponentgalleryurlresponse import (
-    TextqlRPCPublicAppGetComponentGalleryURLResponse,
-    TextqlRPCPublicAppGetComponentGalleryURLResponseTypedDict,
+from .textql_rpc_public_patches_listgoldenfilesresponse import (
+    TextqlRPCPublicPatchesListGoldenFilesResponse,
+    TextqlRPCPublicPatchesListGoldenFilesResponseTypedDict,
 )
 import pydantic
 from pydantic import model_serializer
@@ -24,15 +24,15 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-class AppServiceGetComponentGalleryURLRequestTypedDict(TypedDict):
-    body: TextqlRPCPublicAppGetComponentGalleryURLRequestTypedDict
+class LibraryServiceListGoldenFilesRequestTypedDict(TypedDict):
+    body: TextqlRPCPublicPatchesListGoldenFilesRequestTypedDict
     connect_protocol_version: float
     connect_timeout_ms: NotRequired[float]
 
 
-class AppServiceGetComponentGalleryURLRequest(BaseModel):
+class LibraryServiceListGoldenFilesRequest(BaseModel):
     body: Annotated[
-        TextqlRPCPublicAppGetComponentGalleryURLRequest,
+        TextqlRPCPublicPatchesListGoldenFilesRequest,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
 
@@ -65,21 +65,21 @@ class AppServiceGetComponentGalleryURLRequest(BaseModel):
         return m
 
 
-AppServiceGetComponentGalleryURLResponseTypedDict = TypeAliasType(
-    "AppServiceGetComponentGalleryURLResponseTypedDict",
+LibraryServiceListGoldenFilesResponseTypedDict = TypeAliasType(
+    "LibraryServiceListGoldenFilesResponseTypedDict",
     Union[
-        TextqlRPCPublicAppGetComponentGalleryURLResponseTypedDict, ConnectErrorTypedDict
+        TextqlRPCPublicPatchesListGoldenFilesResponseTypedDict, ConnectErrorTypedDict
     ],
 )
 
 
-AppServiceGetComponentGalleryURLResponse = TypeAliasType(
-    "AppServiceGetComponentGalleryURLResponse",
-    Union[TextqlRPCPublicAppGetComponentGalleryURLResponse, ConnectError],
+LibraryServiceListGoldenFilesResponse = TypeAliasType(
+    "LibraryServiceListGoldenFilesResponse",
+    Union[TextqlRPCPublicPatchesListGoldenFilesResponse, ConnectError],
 )
 
 
 try:
-    AppServiceGetComponentGalleryURLRequest.model_rebuild()
+    LibraryServiceListGoldenFilesRequest.model_rebuild()
 except NameError:
     pass

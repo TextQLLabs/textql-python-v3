@@ -32,7 +32,8 @@ if TYPE_CHECKING:
     from .queryparams import get_query_params
     from .retries import BackoffStrategy, Retries, retry, retry_async, RetryConfig
     from .requestbodies import serialize_request_body, SerializedRequestBody
-    from .security import get_security
+    from .security import get_security, get_security_from_env
+
     from .serializers import (
         get_pydantic_model,
         marshal_json,
@@ -77,6 +78,7 @@ __all__ = [
     "get_query_params",
     "get_response_headers",
     "get_security",
+    "get_security_from_env",
     "HeaderMetadata",
     "Logger",
     "marshal_json",
@@ -130,6 +132,7 @@ _dynamic_imports: dict[str, str] = {
     "get_query_params": ".queryparams",
     "get_response_headers": ".headers",
     "get_security": ".security",
+    "get_security_from_env": ".security",
     "HeaderMetadata": ".metadata",
     "Logger": ".logger",
     "marshal_json": ".serializers",

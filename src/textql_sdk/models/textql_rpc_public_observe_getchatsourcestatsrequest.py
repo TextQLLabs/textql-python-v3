@@ -17,7 +17,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicObserveGetChatSourceStatsRequestTypedDict(TypedDict):
     days: NotRequired[int]
-    exclude_textql: NotRequired[Nullable[bool]]
     member_id: NotRequired[Nullable[str]]
     start_date: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -205,10 +204,6 @@ class TextqlRPCPublicObserveGetChatSourceStatsRequestTypedDict(TypedDict):
 
 class TextqlRPCPublicObserveGetChatSourceStatsRequest(BaseModel):
     days: Optional[int] = None
-
-    exclude_textql: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="excludeTextql")
-    ] = UNSET
 
     member_id: Annotated[OptionalNullable[str], pydantic.Field(alias="memberId")] = (
         UNSET
@@ -400,10 +395,8 @@ class TextqlRPCPublicObserveGetChatSourceStatsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            ["days", "excludeTextql", "memberId", "startDate", "endDate"]
-        )
-        nullable_fields = set(["excludeTextql", "memberId"])
+        optional_fields = set(["days", "memberId", "startDate", "endDate"])
+        nullable_fields = set(["memberId"])
         serialized = handler(self)
         m = {}
 

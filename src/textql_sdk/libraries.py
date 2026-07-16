@@ -5,6 +5,7 @@ from datetime import timedelta
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -60,10 +61,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -89,7 +91,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_AddLibrarySubmodule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -167,10 +171,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -196,7 +201,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_AddLibrarySubmodule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -271,10 +278,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -300,7 +308,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ApprovePatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -375,10 +385,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -404,7 +415,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ApprovePatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -512,10 +525,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -541,7 +555,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ConfigureLibraryRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -649,10 +665,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -678,7 +695,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ConfigureLibraryRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -757,10 +776,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -786,7 +806,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateApprovalRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -865,10 +887,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -894,7 +917,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateApprovalRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -976,10 +1001,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1005,7 +1031,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateContextPatchAutoApproveRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1088,10 +1116,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1117,7 +1146,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateContextPatchAutoApproveRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1193,10 +1224,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1222,7 +1254,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateLibraryDirectory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1297,10 +1331,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1326,7 +1361,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateLibraryDirectory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1409,10 +1446,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1438,7 +1476,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateLibraryFileUploadUrl",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1522,10 +1562,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1551,7 +1592,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_CreateLibraryFileUploadUrl",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1624,10 +1667,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1653,7 +1697,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteApprovalRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1723,10 +1769,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1752,7 +1799,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteApprovalRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1822,10 +1871,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1851,7 +1901,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteContextPatchAutoApproveRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -1921,10 +1973,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1950,7 +2003,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteContextPatchAutoApproveRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2029,10 +2084,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2058,7 +2114,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteLibraryDirectory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2137,10 +2195,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2166,7 +2225,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteLibraryDirectory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2239,10 +2300,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2268,7 +2330,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2341,10 +2405,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2370,7 +2435,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2446,10 +2513,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2475,7 +2543,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2551,10 +2621,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2580,7 +2651,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DeleteLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2653,10 +2726,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2682,7 +2756,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DenyPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2755,10 +2831,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2784,7 +2861,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_DenyPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2860,10 +2939,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2889,7 +2969,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ExchangeLibraryGithubCode",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -2967,10 +3049,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2996,7 +3079,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ExchangeLibraryGithubCode",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3074,10 +3159,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3103,7 +3189,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_FinalizeLibraryFileUpload",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3181,10 +3269,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3210,7 +3299,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_FinalizeLibraryFileUpload",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3285,10 +3376,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3314,7 +3406,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetCodeownerCoverage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3389,10 +3483,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3418,7 +3513,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetCodeownerCoverage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3493,10 +3590,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3522,7 +3620,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetConfigExportCapabilities",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3598,10 +3698,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3627,7 +3728,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetConfigExportCapabilities",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3700,10 +3803,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3729,7 +3833,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetEffectiveLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3801,10 +3907,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3830,7 +3937,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetEffectiveLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -3971,10 +4080,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4000,7 +4110,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetFileUsage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4141,10 +4253,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4170,7 +4283,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetFileUsage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4302,10 +4417,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4331,7 +4447,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetFileUsageTimeline",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4463,10 +4581,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4492,7 +4611,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetFileUsageTimeline",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4564,10 +4685,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4593,7 +4715,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryAnaConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4665,10 +4789,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4694,7 +4819,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryAnaConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4766,10 +4893,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4795,7 +4923,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4867,10 +4997,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4896,7 +5027,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -4971,10 +5104,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5000,7 +5134,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryGithubOAuthURL",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5075,10 +5211,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5104,7 +5241,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryGithubOAuthURL",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5179,10 +5318,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5208,7 +5348,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryHistoryFileDiff",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5283,10 +5425,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5312,7 +5455,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryHistoryFileDiff",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5387,10 +5532,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5416,7 +5562,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryMigrationStatus",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5491,10 +5639,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5520,7 +5669,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryMigrationStatus",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5592,10 +5743,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5621,7 +5773,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5693,10 +5847,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5722,7 +5877,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5797,10 +5954,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5826,7 +5984,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -5901,10 +6061,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5930,7 +6091,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibraryRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6059,10 +6222,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6088,7 +6252,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibrarySizeTimeline",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6217,10 +6383,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6246,7 +6413,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibrarySizeTimeline",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6321,10 +6490,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6350,7 +6520,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibrarySyncConflicts",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6425,10 +6597,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6454,7 +6627,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetLibrarySyncConflicts",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6583,10 +6758,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6612,7 +6788,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetOntologyUsageSummary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6741,10 +6919,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6770,7 +6949,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetOntologyUsageSummary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6845,10 +7026,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6874,7 +7056,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -6947,10 +7131,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6976,7 +7161,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7046,10 +7233,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7075,7 +7263,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetPatchByNumber",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7145,10 +7335,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7174,7 +7365,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetPatchByNumber",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7244,10 +7437,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7273,7 +7467,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetPatchCapabilities",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7345,10 +7541,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7374,7 +7571,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetPatchCapabilities",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7446,10 +7645,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7475,7 +7675,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetRawPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7547,10 +7749,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7576,7 +7779,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetRawPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7708,10 +7913,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7737,7 +7943,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetUsageDetailsForFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7869,10 +8077,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7898,7 +8107,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_GetUsageDetailsForFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -7973,10 +8184,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8002,7 +8214,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListApprovalRules",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8077,10 +8291,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8106,7 +8321,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListApprovalRules",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8241,10 +8458,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8270,7 +8488,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListChatsForFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8405,10 +8625,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8434,7 +8655,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListChatsForFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8510,10 +8733,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8539,7 +8763,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListContextPatchAutoApproveRules",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8616,10 +8842,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8645,7 +8872,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListContextPatchAutoApproveRules",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8724,10 +8953,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8753,7 +8983,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibraryEntries",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8831,10 +9063,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8860,7 +9093,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibraryEntries",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -8938,10 +9173,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8967,7 +9203,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibraryHistory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9045,10 +9283,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9074,7 +9313,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibraryHistory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9149,10 +9390,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9178,7 +9420,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibraryImports",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9253,10 +9497,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9282,7 +9527,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibraryImports",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9357,10 +9604,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9386,7 +9634,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibrarySubmodules",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9461,10 +9711,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9490,7 +9741,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibrarySubmodules",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9565,10 +9818,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9594,7 +9848,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibrarySyncRuns",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9669,10 +9925,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9698,7 +9955,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListLibrarySyncRuns",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9770,10 +10029,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9799,7 +10059,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListPatchReviewers",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9871,10 +10133,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -9900,7 +10163,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListPatchReviewers",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -9983,10 +10248,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10012,7 +10278,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListPatches",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10095,10 +10363,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10124,7 +10393,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListPatches",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10203,10 +10474,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10232,7 +10504,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListSkills",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10311,10 +10585,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10340,7 +10615,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ListSkills",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10415,10 +10692,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10444,7 +10722,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_MigrateLegacyContextToLibrary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10520,10 +10800,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10549,7 +10830,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_MigrateLegacyContextToLibrary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10625,10 +10908,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10654,7 +10938,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_MigrateOntologyToLibrary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10729,10 +11015,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10758,7 +11045,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_MigrateOntologyToLibrary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10833,10 +11122,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10862,7 +11152,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PlanLibraryMerge",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -10937,10 +11229,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -10966,7 +11259,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PlanLibraryMerge",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11041,10 +11336,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11070,7 +11366,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PreviewLibraryPullFromRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11146,10 +11444,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11175,7 +11474,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PreviewLibraryPullFromRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11254,10 +11555,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11283,7 +11585,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PullLibraryFromRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11359,10 +11663,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11388,7 +11693,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PullLibraryFromRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11461,10 +11768,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11490,7 +11798,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PushLibraryToRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11563,10 +11873,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11592,7 +11903,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_PushLibraryToRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11662,10 +11975,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11691,7 +12005,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RecoverLibrary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11761,10 +12077,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11790,7 +12107,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RecoverLibrary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11863,10 +12182,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11892,7 +12212,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RemoveLibraryRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -11965,10 +12287,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -11994,7 +12317,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RemoveLibraryRemote",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12064,10 +12389,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12093,7 +12419,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RemoveLibrarySubmodule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12163,10 +12491,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12192,7 +12521,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RemoveLibrarySubmodule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12268,10 +12599,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12297,7 +12629,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RenameLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12375,10 +12709,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12404,7 +12739,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RenameLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12479,10 +12816,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12508,7 +12846,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RequestPatchReview",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12583,10 +12923,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12612,7 +12953,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RequestPatchReview",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12687,10 +13030,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12716,7 +13060,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ResolveLibrarySyncConflict",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12789,10 +13135,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12818,7 +13165,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ResolveLibrarySyncConflict",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12891,10 +13240,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -12920,7 +13270,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RestorePatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -12993,10 +13345,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13022,7 +13375,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RestorePatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13092,10 +13447,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13121,7 +13477,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RevertPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13193,10 +13551,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13222,7 +13581,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_RevertPatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13294,10 +13655,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13323,7 +13685,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_SaveAllObjectsAsConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13395,10 +13759,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13424,7 +13789,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_SaveAllObjectsAsConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13499,10 +13866,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13528,7 +13896,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_SaveObjectAsConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13603,10 +13973,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13632,7 +14003,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_SaveObjectAsConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13712,10 +14085,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13741,7 +14115,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_TriggerConfigDriftReconcile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13822,10 +14198,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13851,7 +14228,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_TriggerConfigDriftReconcile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -13934,10 +14313,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -13963,7 +14343,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpdateApprovalRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14045,10 +14427,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14074,7 +14457,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpdateApprovalRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14159,10 +14544,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14188,7 +14574,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpdateContextPatchAutoApproveRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14274,10 +14662,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14303,7 +14692,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpdateContextPatchAutoApproveRule",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14379,10 +14770,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14408,7 +14800,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpdateLibrarySyncConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14483,10 +14877,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14512,7 +14907,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpdateLibrarySyncConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14609,10 +15006,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14638,7 +15036,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpsertLibraryAnaConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14735,10 +15135,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14764,7 +15165,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpsertLibraryAnaConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14842,10 +15245,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14871,7 +15275,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpsertLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -14949,10 +15355,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -14978,7 +15385,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpsertLibraryFile",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -15064,10 +15473,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -15093,7 +15503,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpsertLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -15179,10 +15591,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -15208,7 +15621,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_UpsertLibraryOwners",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -15285,10 +15700,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -15314,7 +15730,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ValidateConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),
@@ -15391,10 +15809,11 @@ class Libraries(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -15420,7 +15839,9 @@ class Libraries(BaseSDK):
                 base_url=base_url or "",
                 operation_id="LibraryService_ValidateConfig",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["LibraryService"],
                 extensions=None,
             ),

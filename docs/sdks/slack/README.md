@@ -21,10 +21,13 @@ CreateSlackUuid
 
 <!-- UsageSnippet language="python" operationID="SlackService_CreateSlackUuid" method="post" path="/textql.rpc.public.slack.SlackService/CreateSlackUuid" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.create_uuid(body={})
 
@@ -59,10 +62,13 @@ DeleteInstallation
 
 <!-- UsageSnippet language="python" operationID="SlackService_DeleteInstallation" method="post" path="/textql.rpc.public.slack.SlackService/DeleteInstallation" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.delete_installation()
 
@@ -97,10 +103,13 @@ GetCurrentUser
 
 <!-- UsageSnippet language="python" operationID="SlackService_GetCurrentUser" method="post" path="/textql.rpc.public.slack.SlackService/GetCurrentUser" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.get_current_user(body={})
 
@@ -135,10 +144,13 @@ HandleSlackOAuthCallback
 
 <!-- UsageSnippet language="python" operationID="SlackService_HandleSlackOAuthCallback" method="post" path="/textql.rpc.public.slack.SlackService/HandleSlackOAuthCallback" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.handle_o_auth_callback()
 
@@ -174,10 +186,13 @@ ListChannels
 
 <!-- UsageSnippet language="python" operationID="SlackService_ListChannels" method="post" path="/textql.rpc.public.slack.SlackService/ListChannels" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.list_channels(body={})
 
@@ -212,10 +227,13 @@ ListInstallations
 
 <!-- UsageSnippet language="python" operationID="SlackService_ListInstallations" method="post" path="/textql.rpc.public.slack.SlackService/ListInstallations" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.list_installations(body={})
 
@@ -250,10 +268,13 @@ ListUsers
 
 <!-- UsageSnippet language="python" operationID="SlackService_ListUsers" method="post" path="/textql.rpc.public.slack.SlackService/ListUsers" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.list_users(body={})
 
@@ -288,10 +309,13 @@ SyncWorkspace
 
 <!-- UsageSnippet language="python" operationID="SlackService_SyncWorkspace" method="post" path="/textql.rpc.public.slack.SlackService/SyncWorkspace" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.slack.sync_workspace()
 

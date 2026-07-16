@@ -34,30 +34,20 @@ class TextqlRPCPublicAppAppTypedDict(TypedDict):
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     code: NotRequired[str]
-    r"""Agent-authored single-file HTML source (pre data-injection)."""
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     html_url: NotRequired[Nullable[str]]
-    r"""built artifact: CSP + data snapshot injected"""
     screenshot_url: NotRequired[Nullable[str]]
     console_errors: NotRequired[List[str]]
-    r"""browser console errors/warnings from the last render (diagnostic)"""
     chat_id: NotRequired[Nullable[str]]
-    r"""originating builder chat"""
     published_html_url: NotRequired[Nullable[str]]
-    r"""snapshot shown to viewers; html_url is the draft"""
     has_unpublished_changes: NotRequired[bool]
-    r"""computed: html_url != published_html_url"""
     staleness_seconds: NotRequired[Nullable[int]]
-    r"""auto-refresh timeout; null = org default"""
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
     schedule_enabled: NotRequired[bool]
     cron_string: NotRequired[Nullable[str]]
-    r"""UTC 5-field cron"""
     folder_id: NotRequired[Nullable[str]]
-    r"""library_folders.id, null/empty = uncategorized"""
     is_favorited: NotRequired[bool]
-    r"""per-caller pin state (enriched, not stored on the app)"""
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -436,7 +426,6 @@ class TextqlRPCPublicAppApp(BaseModel):
     description: OptionalNullable[str] = UNSET
 
     code: Optional[str] = None
-    r"""Agent-authored single-file HTML source (pre data-injection)."""
 
     data_sources: Annotated[
         Optional[List[TextqlRPCPublicDashboardDataSource]],
@@ -444,7 +433,6 @@ class TextqlRPCPublicAppApp(BaseModel):
     ] = None
 
     html_url: Annotated[OptionalNullable[str], pydantic.Field(alias="htmlUrl")] = UNSET
-    r"""built artifact: CSP + data snapshot injected"""
 
     screenshot_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="screenshotUrl")
@@ -453,25 +441,20 @@ class TextqlRPCPublicAppApp(BaseModel):
     console_errors: Annotated[
         Optional[List[str]], pydantic.Field(alias="consoleErrors")
     ] = None
-    r"""browser console errors/warnings from the last render (diagnostic)"""
 
     chat_id: Annotated[OptionalNullable[str], pydantic.Field(alias="chatId")] = UNSET
-    r"""originating builder chat"""
 
     published_html_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="publishedHtmlUrl")
     ] = UNSET
-    r"""snapshot shown to viewers; html_url is the draft"""
 
     has_unpublished_changes: Annotated[
         Optional[bool], pydantic.Field(alias="hasUnpublishedChanges")
     ] = None
-    r"""computed: html_url != published_html_url"""
 
     staleness_seconds: Annotated[
         OptionalNullable[int], pydantic.Field(alias="stalenessSeconds")
     ] = UNSET
-    r"""auto-refresh timeout; null = org default"""
 
     compute_functions: Annotated[
         Optional[List[TextqlRPCPublicAppComputeFunction]],
@@ -487,15 +470,12 @@ class TextqlRPCPublicAppApp(BaseModel):
     cron_string: Annotated[
         OptionalNullable[str], pydantic.Field(alias="cronString")
     ] = UNSET
-    r"""UTC 5-field cron"""
 
     folder_id: Annotated[OptionalNullable[str], pydantic.Field(alias="folderId")] = (
         UNSET
     )
-    r"""library_folders.id, null/empty = uncategorized"""
 
     is_favorited: Annotated[Optional[bool], pydantic.Field(alias="isFavorited")] = None
-    r"""per-caller pin state (enriched, not stored on the app)"""
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

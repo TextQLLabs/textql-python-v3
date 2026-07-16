@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Mapping, Optional, Union
 
@@ -58,10 +59,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -87,7 +89,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GenerateEmbedToken",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -164,10 +168,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -193,7 +198,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GenerateEmbedToken",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -267,10 +274,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -296,7 +304,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GetCollectionThumbnail",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -370,10 +380,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -399,7 +410,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GetCollectionThumbnail",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -471,10 +484,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -500,7 +514,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GetConnectedAppStatus",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -572,10 +588,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -601,7 +618,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GetConnectedAppStatus",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -673,10 +692,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -702,7 +722,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GetStarredTableauItems",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -774,10 +796,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -803,7 +826,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_GetStarredTableauItems",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -880,10 +905,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -909,7 +935,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauDatasources",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -986,10 +1014,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1015,7 +1044,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauDatasources",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1089,10 +1120,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1118,7 +1150,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauProjects",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1192,10 +1226,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1221,7 +1256,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauProjects",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1301,10 +1338,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1330,7 +1368,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauViews",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1410,10 +1450,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1439,7 +1480,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauViews",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1519,10 +1562,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1548,7 +1592,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauWorkbooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1628,10 +1674,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1657,7 +1704,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ListTableauWorkbooks",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1729,10 +1778,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1758,7 +1808,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_RefreshTableauCollection",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1830,10 +1882,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1859,7 +1912,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_RefreshTableauCollection",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -1931,10 +1986,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1960,7 +2016,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ResetConnectedApp",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2032,10 +2090,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2061,7 +2120,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_ResetConnectedApp",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2144,10 +2205,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2173,7 +2235,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_StarTableauItem",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2256,10 +2320,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2285,7 +2350,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_StarTableauItem",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2371,10 +2438,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2400,7 +2468,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_TestTableauConnection",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2486,10 +2556,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2515,7 +2586,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_TestTableauConnection",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2593,10 +2666,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2622,7 +2696,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_UnstarTableauItem",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),
@@ -2700,10 +2776,11 @@ class TableauSDK(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2729,7 +2806,9 @@ class TableauSDK(BaseSDK):
                 base_url=base_url or "",
                 operation_id="TableauService_UnstarTableauItem",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["TableauService"],
                 extensions=None,
             ),

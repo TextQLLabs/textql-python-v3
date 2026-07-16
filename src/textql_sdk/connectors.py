@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -77,10 +78,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -106,7 +108,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_CreateConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -202,10 +206,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -231,7 +236,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_CreateConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -303,10 +310,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -332,7 +340,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_DeleteConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -404,10 +414,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -433,7 +444,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_DeleteConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -505,10 +518,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -534,7 +548,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_DuplicateConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -606,10 +622,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -635,7 +652,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_DuplicateConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -713,10 +732,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -742,7 +762,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_ExecuteQuery",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -820,10 +842,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -849,7 +872,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_ExecuteQuery",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -921,10 +946,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -950,7 +976,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1022,10 +1050,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1051,7 +1080,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1132,10 +1163,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1161,7 +1193,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorCellDurations",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1243,10 +1277,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1272,7 +1307,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorCellDurations",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1345,10 +1382,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1374,7 +1412,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1446,10 +1486,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1475,7 +1516,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1547,10 +1590,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1576,7 +1620,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorDashboards",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1648,10 +1694,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1677,7 +1724,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorDashboards",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1749,10 +1798,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1778,7 +1828,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1850,10 +1902,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1879,7 +1932,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorStats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -1954,10 +2009,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1983,7 +2039,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorUsage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2058,10 +2116,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2087,7 +2146,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectorUsage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2162,10 +2223,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2191,7 +2253,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectors",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2266,10 +2330,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2295,7 +2360,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetConnectors",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2378,10 +2445,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2407,7 +2475,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetExampleQueries",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2490,10 +2560,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2519,7 +2590,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetExampleQueries",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2603,10 +2676,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2632,7 +2706,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetTablePreview",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2716,10 +2792,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2745,7 +2822,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_GetTablePreview",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2817,10 +2896,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2846,7 +2926,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_ListConnectorTables",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -2918,10 +3000,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2947,7 +3030,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_ListConnectorTables",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -3028,10 +3113,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3057,7 +3143,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_ListQueryTemplates",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -3138,10 +3226,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3167,7 +3256,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_ListQueryTemplates",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -3251,10 +3342,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3280,7 +3372,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_TestConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -3364,10 +3458,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3393,7 +3488,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_TestConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -3481,10 +3578,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3510,7 +3608,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_UpdateConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),
@@ -3598,10 +3698,11 @@ class Connectors(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3627,7 +3728,9 @@ class Connectors(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ConnectorService_UpdateConnector",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ConnectorService"],
                 extensions=None,
             ),

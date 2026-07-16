@@ -9,10 +9,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionResponseTypedDict(TypedDict):
+    r"""ComputeFunction is a declared server-side python function invocable from the app via the bridge."""
+
     result_json: NotRequired[str]
 
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionResponse(BaseModel):
+    r"""ComputeFunction is a declared server-side python function invocable from the app via the bridge."""
+
     result_json: Annotated[Optional[str], pydantic.Field(alias="resultJson")] = None
 
     @model_serializer(mode="wrap")

@@ -5,6 +5,7 @@ from datetime import datetime
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -57,10 +58,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -86,7 +88,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_ApproveContextPromptChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -161,10 +165,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -190,7 +195,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_ApproveContextPromptChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -267,10 +274,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -296,7 +304,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_ApproveOntologyChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -373,10 +383,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -402,7 +413,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_ApproveOntologyChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -479,10 +492,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -508,7 +522,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachAgentToChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -585,10 +601,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -614,7 +631,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachAgentToChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -689,10 +708,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -718,7 +738,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachApp",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -793,10 +815,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -822,7 +845,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachApp",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -897,10 +922,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -926,7 +952,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1001,10 +1029,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1030,7 +1059,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachDashboard",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1105,10 +1136,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1134,7 +1166,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachDataset",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1209,10 +1243,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1238,7 +1273,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_AttachDataset",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1310,10 +1347,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1339,7 +1377,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_BookmarkChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1409,10 +1449,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1438,7 +1479,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_BookmarkChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1508,10 +1551,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1537,7 +1581,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CancelStream",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1609,10 +1655,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1638,7 +1685,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CancelStream",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1710,10 +1759,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1739,7 +1789,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CheckChatPermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1811,10 +1863,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1840,7 +1893,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CheckChatPermissions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -1915,10 +1970,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1944,7 +2000,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CheckHealth",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2019,10 +2077,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2048,7 +2107,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CheckHealth",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2123,10 +2184,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2152,7 +2214,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CheckStreamlitHealth",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2227,10 +2291,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2256,7 +2321,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CheckStreamlitHealth",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2361,10 +2428,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2390,7 +2458,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CreateChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2495,10 +2565,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2524,7 +2595,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_CreateChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2596,10 +2669,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2625,7 +2699,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_DeleteChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2695,10 +2771,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2724,7 +2801,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_DeleteChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2804,10 +2883,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2833,7 +2913,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_DismissQuestions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -2915,10 +2997,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -2944,7 +3027,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_DismissQuestions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3019,10 +3104,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3048,7 +3134,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_DuplicateChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3123,10 +3211,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3152,7 +3241,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_DuplicateChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3224,10 +3315,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3253,7 +3345,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetAPIChatAnswer",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3325,10 +3419,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3354,7 +3449,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetAPIChatAnswer",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3429,10 +3526,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3458,7 +3556,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetArtifact",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3533,10 +3633,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3562,7 +3663,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetArtifact",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3634,10 +3737,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3663,7 +3767,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3735,10 +3841,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3764,7 +3871,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3836,10 +3945,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3865,7 +3975,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChatArtifactsSummary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -3937,10 +4049,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -3966,7 +4079,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChatArtifactsSummary",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -4038,10 +4153,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4067,7 +4183,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChatExecutionTiming",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -4139,10 +4257,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4168,7 +4287,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChatExecutionTiming",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -4246,10 +4367,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4275,7 +4397,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChatHistory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -4353,10 +4477,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4382,7 +4507,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChatHistory",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -4697,10 +4824,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -4726,7 +4854,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5041,10 +5171,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5070,7 +5201,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5145,10 +5278,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5174,7 +5308,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetCompletionParameters",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5249,10 +5385,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5278,7 +5415,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetCompletionParameters",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5353,10 +5492,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5382,7 +5522,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetCompletionParametersBatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5457,10 +5599,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5486,7 +5629,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetCompletionParametersBatch",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5561,10 +5706,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5590,7 +5736,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetLlmUsage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5665,10 +5813,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5694,7 +5843,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetLlmUsage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5771,10 +5922,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5800,7 +5952,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetMembersWithChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5877,10 +6031,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -5906,7 +6061,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetMembersWithChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -5984,10 +6141,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6013,7 +6171,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetPlaybookChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6091,10 +6251,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6120,7 +6281,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_GetPlaybookChats",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6200,10 +6363,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6229,7 +6393,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_PollChatEvents",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6309,10 +6475,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6338,7 +6505,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_PollChatEvents",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6426,10 +6595,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6455,7 +6625,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_QueryOneShot",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6543,10 +6715,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6572,7 +6745,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_QueryOneShot",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6655,10 +6830,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6684,7 +6860,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RateChatCell",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6765,10 +6943,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6794,7 +6973,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RateChatCell",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6864,10 +7045,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6893,7 +7075,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RejectContextPromptChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -6965,10 +7149,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -6994,7 +7179,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RejectContextPromptChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7066,10 +7253,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7095,7 +7283,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RejectOntologyChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7167,10 +7357,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7196,7 +7387,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RejectOntologyChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7280,10 +7473,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7309,7 +7503,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RunChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7393,10 +7589,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7422,7 +7619,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_RunChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7506,10 +7705,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7535,7 +7735,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_SendMessage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7619,10 +7821,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7648,7 +7851,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_SendMessage",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7723,10 +7928,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7752,7 +7958,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_SubmitContextPromptChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7827,10 +8035,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7856,7 +8065,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_SubmitContextPromptChange",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -7942,10 +8153,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -7971,7 +8183,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_SubmitQuestions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -8057,10 +8271,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8086,7 +8301,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_SubmitQuestions",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -8158,10 +8375,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8187,7 +8405,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_UnbookmarkChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -8257,10 +8477,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8286,7 +8507,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_UnbookmarkChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -8371,10 +8594,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8400,7 +8624,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_UpdateChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),
@@ -8487,10 +8713,11 @@ class Chats(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -8516,7 +8743,9 @@ class Chats(BaseSDK):
                 base_url=base_url or "",
                 operation_id="ChatService_UpdateChat",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["ChatService"],
                 extensions=None,
             ),

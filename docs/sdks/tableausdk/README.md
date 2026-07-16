@@ -26,10 +26,13 @@ Generate JWT token for embedding views
 
 <!-- UsageSnippet language="python" operationID="TableauService_GenerateEmbedToken" method="post" path="/textql.rpc.public.tableau.TableauService/GenerateEmbedToken" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.generate_embed_token()
 
@@ -65,10 +68,13 @@ Get collection thumbnail (first view image)
 
 <!-- UsageSnippet language="python" operationID="TableauService_GetCollectionThumbnail" method="post" path="/textql.rpc.public.tableau.TableauService/GetCollectionThumbnail" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.get_collection_thumbnail()
 
@@ -103,10 +109,13 @@ GetConnectedAppStatus
 
 <!-- UsageSnippet language="python" operationID="TableauService_GetConnectedAppStatus" method="post" path="/textql.rpc.public.tableau.TableauService/GetConnectedAppStatus" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.get_connected_app_status()
 
@@ -141,10 +150,13 @@ GetStarredTableauItems
 
 <!-- UsageSnippet language="python" operationID="TableauService_GetStarredTableauItems" method="post" path="/textql.rpc.public.tableau.TableauService/GetStarredTableauItems" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.get_starred_items()
 
@@ -179,10 +191,13 @@ List Tableau datasources
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauDatasources" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauDatasources" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.list_tableau_datasources(body={
         "project_id": "<id>",
@@ -219,10 +234,13 @@ List Tableau projects
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauProjects" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauProjects" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.list_projects()
 
@@ -257,10 +275,13 @@ List Tableau views
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauViews" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauViews" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.list_views()
 
@@ -297,10 +318,13 @@ List Tableau workbooks
 
 <!-- UsageSnippet language="python" operationID="TableauService_ListTableauWorkbooks" method="post" path="/textql.rpc.public.tableau.TableauService/ListTableauWorkbooks" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.list_workbooks()
 
@@ -337,10 +361,13 @@ RefreshTableauCollection
 
 <!-- UsageSnippet language="python" operationID="TableauService_RefreshTableauCollection" method="post" path="/textql.rpc.public.tableau.TableauService/RefreshTableauCollection" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.refresh_collection()
 
@@ -375,10 +402,13 @@ ResetConnectedApp
 
 <!-- UsageSnippet language="python" operationID="TableauService_ResetConnectedApp" method="post" path="/textql.rpc.public.tableau.TableauService/ResetConnectedApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.reset_connected_app()
 
@@ -413,10 +443,13 @@ Star/unstar items
 
 <!-- UsageSnippet language="python" operationID="TableauService_StarTableauItem" method="post" path="/textql.rpc.public.tableau.TableauService/StarTableauItem" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.star_item()
 
@@ -454,10 +487,13 @@ Test a Tableau connection
 
 <!-- UsageSnippet language="python" operationID="TableauService_TestTableauConnection" method="post" path="/textql.rpc.public.tableau.TableauService/TestTableauConnection" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.test_tableau_connection()
 
@@ -496,10 +532,13 @@ UnstarTableauItem
 
 <!-- UsageSnippet language="python" operationID="TableauService_UnstarTableauItem" method="post" path="/textql.rpc.public.tableau.TableauService/UnstarTableauItem" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.tableau.unstar_tableau_item()
 

@@ -14,10 +14,13 @@ ExecuteQuery
 
 <!-- UsageSnippet language="python" operationID="SandboxQueryService_ExecuteQuery" method="post" path="/textql.rpc.public.sandbox_query.SandboxQueryService/ExecuteQuery" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.sandbox.execute_query(body={
         "sql_query": {},

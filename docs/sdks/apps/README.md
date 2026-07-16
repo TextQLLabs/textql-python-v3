@@ -11,7 +11,6 @@
 * [get](#get) - GetApp
 * [get_app_version](#get_app_version) - GetAppVersion
 * [get_app_view_stats](#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
-* [get_component_gallery_url](#get_component_gallery_url) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [list_versions](#list_versions) - Version history: a snapshot is recorded on each publish; authors can list and restore.
@@ -32,10 +31,13 @@ Viewer heartbeat: keeps a warm compute worker alive while the app is open so its
 
 <!-- UsageSnippet language="python" operationID="AppService_AppHeartbeat" method="post" path="/textql.rpc.public.app.AppService/AppHeartbeat" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.heartbeat()
 
@@ -49,7 +51,7 @@ with Textql() as textql:
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | 'app' \| 'dashboard'                                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -70,10 +72,13 @@ CreateApp
 
 <!-- UsageSnippet language="python" operationID="AppService_CreateApp" method="post" path="/textql.rpc.public.app.AppService/CreateApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.create_app()
 
@@ -113,10 +118,13 @@ DeleteApp
 
 <!-- UsageSnippet language="python" operationID="AppService_DeleteApp" method="post" path="/textql.rpc.public.app.AppService/DeleteApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.delete_app()
 
@@ -153,10 +161,13 @@ Duplicates an app the caller can view into a new draft app they own,
 
 <!-- UsageSnippet language="python" operationID="AppService_DuplicateApp" method="post" path="/textql.rpc.public.app.AppService/DuplicateApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.duplicate()
 
@@ -191,10 +202,13 @@ GetApp
 
 <!-- UsageSnippet language="python" operationID="AppService_GetApp" method="post" path="/textql.rpc.public.app.AppService/GetApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.get()
 
@@ -229,10 +243,13 @@ GetAppVersion
 
 <!-- UsageSnippet language="python" operationID="AppService_GetAppVersion" method="post" path="/textql.rpc.public.app.AppService/GetAppVersion" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.get_app_version()
 
@@ -268,10 +285,13 @@ View analytics: reads the engagement views recorded on app page load.
 
 <!-- UsageSnippet language="python" operationID="AppService_GetAppViewStats" method="post" path="/textql.rpc.public.app.AppService/GetAppViewStats" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.get_app_view_stats()
 
@@ -298,46 +318,6 @@ with Textql() as textql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## get_component_gallery_url
-
-Staff-only (superadmin gated in-handler): publishes the embedded component
- gallery as an app tree and returns its signed viewer URL.
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="AppService_GetComponentGalleryUrl" method="post" path="/textql.rpc.public.app.AppService/GetComponentGalleryUrl" -->
-```python
-from textql_sdk import Textql
-
-
-with Textql() as textql:
-
-    res = textql.apps.get_component_gallery_url()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `runtime_version`                                                   | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = current default vendor set                        |
-| `accent_hex`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = default indigo #6366f1                            |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.AppServiceGetComponentGalleryURLResponse](../../models/appservicegetcomponentgalleryurlresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
 ## get_members_with_apps
 
 GetMembersWithApps
@@ -346,10 +326,13 @@ GetMembersWithApps
 
 <!-- UsageSnippet language="python" operationID="AppService_GetMembersWithApps" method="post" path="/textql.rpc.public.app.AppService/GetMembersWithApps" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.get_members_with_apps(body={})
 
@@ -384,10 +367,13 @@ Executes a declared compute function on a pooled sandbox worker; gated, org-scop
 
 <!-- UsageSnippet language="python" operationID="AppService_InvokeAppComputeFunction" method="post" path="/textql.rpc.public.app.AppService/InvokeAppComputeFunction" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.invoke_compute_function()
 
@@ -402,8 +388,8 @@ with Textql() as textql:
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `function_name`                                                     | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `params_json`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | JSON object, keys map to function kwargs                            |
+| `function_name`                                                     | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | string \| number \| boolean \| object \| array                      |
+| `params_json`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -424,10 +410,13 @@ Version history: a snapshot is recorded on each publish; authors can list and re
 
 <!-- UsageSnippet language="python" operationID="AppService_ListAppVersions" method="post" path="/textql.rpc.public.app.AppService/ListAppVersions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.list_versions()
 
@@ -441,7 +430,7 @@ with Textql() as textql:
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | normalized relative path, forward slashes, no .. or leading /       |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
@@ -464,10 +453,13 @@ ListApps
 
 <!-- UsageSnippet language="python" operationID="AppService_ListApps" method="post" path="/textql.rpc.public.app.AppService/ListApps" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.list()
 
@@ -484,9 +476,9 @@ with Textql() as textql:
 | `search_term`                                                       | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Filter by specific folder                                           |
-| `uncategorized_only`                                                | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Only show apps with no folder                                       |
-| `shared_with_me`                                                    | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Only apps shared with the caller (not authored by them)             |
+| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `uncategorized_only`                                                | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `shared_with_me`                                                    | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -507,10 +499,13 @@ Moves an app into a library folder (or to root when folder_id is empty).
 
 <!-- UsageSnippet language="python" operationID="AppService_MoveAppToFolder" method="post" path="/textql.rpc.public.app.AppService/MoveAppToFolder" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.move_app_to_folder()
 
@@ -525,7 +520,7 @@ with Textql() as textql:
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | null/empty = move to root (uncategorized)                           |
+| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -546,10 +541,13 @@ Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads
 
 <!-- UsageSnippet language="python" operationID="AppService_RefreshApp" method="post" path="/textql.rpc.public.app.AppService/RefreshApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.refresh()
 
@@ -584,10 +582,13 @@ RestoreAppVersion
 
 <!-- UsageSnippet language="python" operationID="AppService_RestoreAppVersion" method="post" path="/textql.rpc.public.app.AppService/RestoreAppVersion" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.restore_app_version()
 
@@ -625,10 +626,13 @@ Favorite/unfavorite a library item (app or dashboard) for the calling member.
 
 <!-- UsageSnippet language="python" operationID="AppService_SetFavorite" method="post" path="/textql.rpc.public.app.AppService/SetFavorite" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.set_favorite()
 
@@ -642,9 +646,9 @@ with Textql() as textql:
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `primitive_type`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | 'app' \| 'dashboard'                                                |
-| `primitive_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `favorited`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | true = pin, false = unpin (hard delete)                             |
+| `primitive_type`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = current default vendor set                        |
+| `primitive_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | optional; empty = default indigo #6366f1                            |
+| `favorited`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -665,10 +669,13 @@ UpdateApp
 
 <!-- UsageSnippet language="python" operationID="AppService_UpdateApp" method="post" path="/textql.rpc.public.app.AppService/UpdateApp" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.apps.update()
 

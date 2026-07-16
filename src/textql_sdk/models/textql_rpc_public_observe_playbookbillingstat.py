@@ -17,7 +17,6 @@ class TextqlRPCPublicObservePlaybookBillingStatTypedDict(TypedDict):
     llm_acu: NotRequired[float]
     compute_acu: NotRequired[float]
     run_count: NotRequired[int]
-    is_internal: NotRequired[bool]
     daily_run_counts: NotRequired[List[int]]
     is_active: NotRequired[bool]
 
@@ -39,8 +38,6 @@ class TextqlRPCPublicObservePlaybookBillingStat(BaseModel):
 
     run_count: Annotated[Optional[int], pydantic.Field(alias="runCount")] = None
 
-    is_internal: Annotated[Optional[bool], pydantic.Field(alias="isInternal")] = None
-
     daily_run_counts: Annotated[
         Optional[List[int]], pydantic.Field(alias="dailyRunCounts")
     ] = None
@@ -59,7 +56,6 @@ class TextqlRPCPublicObservePlaybookBillingStat(BaseModel):
                 "llmAcu",
                 "computeAcu",
                 "runCount",
-                "isInternal",
                 "dailyRunCounts",
                 "isActive",
             ]

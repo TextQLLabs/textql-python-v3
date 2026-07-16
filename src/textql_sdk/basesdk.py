@@ -2,7 +2,7 @@
 
 from .sdkconfiguration import SDKConfiguration
 import httpx
-from textql_sdk import errors, utils
+from textql_sdk import errors, models, utils
 from textql_sdk._hooks import (
     AfterErrorContext,
     AfterSuccessContext,
@@ -192,7 +192,7 @@ class BaseSDK:
         if security is not None:
             if callable(security):
                 security = security()
-
+        security = utils.get_security_from_env(security, models.Security)
         if security is not None:
             security_headers, security_query_params = utils.get_security(
                 security, allowed_fields

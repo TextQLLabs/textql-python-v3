@@ -17,7 +17,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppMoveAppToFolderRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
     folder_id: NotRequired[Nullable[str]]
-    r"""null/empty = move to root (uncategorized)"""
 
 
 class TextqlRPCPublicAppMoveAppToFolderRequest(BaseModel):
@@ -26,7 +25,6 @@ class TextqlRPCPublicAppMoveAppToFolderRequest(BaseModel):
     folder_id: Annotated[OptionalNullable[str], pydantic.Field(alias="folderId")] = (
         UNSET
     )
-    r"""null/empty = move to root (uncategorized)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

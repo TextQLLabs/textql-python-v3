@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from textql_sdk import errors, models, utils
 from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
+from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
@@ -53,10 +54,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -82,7 +84,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_ClearOAuthToken",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -154,10 +158,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -183,7 +188,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_ClearOAuthToken",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -255,10 +262,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -284,7 +292,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_DeleteMCPServer",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -356,10 +366,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -385,7 +396,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_DeleteMCPServer",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -460,10 +473,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -489,7 +503,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_GetMCPServers",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -564,10 +580,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -593,7 +610,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_GetMCPServers",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -671,10 +690,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -700,7 +720,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_HandleOAuthCallback",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -778,10 +800,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -807,7 +830,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_HandleOAuthCallback",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -879,10 +904,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -908,7 +934,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_InitiateOAuthFlow",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -980,10 +1008,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1009,7 +1038,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_InitiateOAuthFlow",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -1081,10 +1112,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1110,7 +1142,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_ToggleMCPServer",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -1182,10 +1216,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1211,7 +1246,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_ToggleMCPServer",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -1290,10 +1327,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1319,7 +1357,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_UpsertMCPServers",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),
@@ -1398,10 +1438,11 @@ class Mcp(BaseSDK):
             request=request,
             request_body_required=True,
             request_has_path_params=False,
-            request_has_query_params=False,
+            request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.body,
                 False,
@@ -1427,7 +1468,9 @@ class Mcp(BaseSDK):
                 base_url=base_url or "",
                 operation_id="MCPService_UpsertMCPServers",
                 oauth2_scopes=None,
-                security_source=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
                 tags=["MCPService"],
                 extensions=None,
             ),

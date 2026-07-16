@@ -137,12 +137,6 @@ if TYPE_CHECKING:
         AppServiceGetAppViewStatsResponse,
         AppServiceGetAppViewStatsResponseTypedDict,
     )
-    from .appservice_getcomponentgalleryurlop import (
-        AppServiceGetComponentGalleryURLRequest,
-        AppServiceGetComponentGalleryURLRequestTypedDict,
-        AppServiceGetComponentGalleryURLResponse,
-        AppServiceGetComponentGalleryURLResponseTypedDict,
-    )
     from .appservice_getmemberswithappsop import (
         AppServiceGetMembersWithAppsRequest,
         AppServiceGetMembersWithAppsRequestTypedDict,
@@ -1058,6 +1052,12 @@ if TYPE_CHECKING:
         LibraryServiceListContextPatchAutoApproveRulesResponse,
         LibraryServiceListContextPatchAutoApproveRulesResponseTypedDict,
     )
+    from .libraryservice_listgoldenfilesop import (
+        LibraryServiceListGoldenFilesRequest,
+        LibraryServiceListGoldenFilesRequestTypedDict,
+        LibraryServiceListGoldenFilesResponse,
+        LibraryServiceListGoldenFilesResponseTypedDict,
+    )
     from .libraryservice_listlibraryentriesop import (
         LibraryServiceListLibraryEntriesRequest,
         LibraryServiceListLibraryEntriesRequestTypedDict,
@@ -1201,6 +1201,12 @@ if TYPE_CHECKING:
         LibraryServiceSaveObjectAsConfigRequestTypedDict,
         LibraryServiceSaveObjectAsConfigResponse,
         LibraryServiceSaveObjectAsConfigResponseTypedDict,
+    )
+    from .libraryservice_setlibraryfilegoldenop import (
+        LibraryServiceSetLibraryFileGoldenRequest,
+        LibraryServiceSetLibraryFileGoldenRequestTypedDict,
+        LibraryServiceSetLibraryFileGoldenResponse,
+        LibraryServiceSetLibraryFileGoldenResponseTypedDict,
     )
     from .libraryservice_triggerconfigdriftreconcileop import (
         LibraryServiceTriggerConfigDriftReconcileRequest,
@@ -1580,12 +1586,6 @@ if TYPE_CHECKING:
         PlaybookServiceGetPlaybookBatchRunResponse,
         PlaybookServiceGetPlaybookBatchRunResponseTypedDict,
     )
-    from .playbookservice_getplaybookextendedqnop import (
-        PlaybookServiceGetPlaybookExtendedQnRequest,
-        PlaybookServiceGetPlaybookExtendedQnRequestTypedDict,
-        PlaybookServiceGetPlaybookExtendedQnResponse,
-        PlaybookServiceGetPlaybookExtendedQnResponseTypedDict,
-    )
     from .playbookservice_getplaybooklineageop import (
         PlaybookServiceGetPlaybookLineageRequest,
         PlaybookServiceGetPlaybookLineageRequestTypedDict,
@@ -1621,12 +1621,6 @@ if TYPE_CHECKING:
         PlaybookServiceGetPlaybooksPreviewsRequestTypedDict,
         PlaybookServiceGetPlaybooksPreviewsResponse,
         PlaybookServiceGetPlaybooksPreviewsResponseTypedDict,
-    )
-    from .playbookservice_getqnplaybookop import (
-        PlaybookServiceGetQNPlaybookRequest,
-        PlaybookServiceGetQNPlaybookRequestTypedDict,
-        PlaybookServiceGetQNPlaybookResponse,
-        PlaybookServiceGetQNPlaybookResponseTypedDict,
     )
     from .playbookservice_getreportbyidop import (
         PlaybookServiceGetReportByIDRequest,
@@ -1735,12 +1729,6 @@ if TYPE_CHECKING:
         PlaybookServiceUnsubscribeFromPlaybookRequestTypedDict,
         PlaybookServiceUnsubscribeFromPlaybookResponse,
         PlaybookServiceUnsubscribeFromPlaybookResponseTypedDict,
-    )
-    from .playbookservice_updateplaybookextendedqnop import (
-        PlaybookServiceUpdatePlaybookExtendedQnRequest,
-        PlaybookServiceUpdatePlaybookExtendedQnRequestTypedDict,
-        PlaybookServiceUpdatePlaybookExtendedQnResponse,
-        PlaybookServiceUpdatePlaybookExtendedQnResponseTypedDict,
     )
     from .playbookservice_updateplaybookop import (
         PlaybookServiceUpdatePlaybookRequest,
@@ -2276,6 +2264,7 @@ if TYPE_CHECKING:
         SecretServiceUpsertAPIAccessKeyResponse,
         SecretServiceUpsertAPIAccessKeyResponseTypedDict,
     )
+    from .security import Security, SecurityTypedDict
     from .slackservice_createslackuuidop import (
         SlackServiceCreateSlackUUIDRequest,
         SlackServiceCreateSlackUUIDRequestTypedDict,
@@ -2491,6 +2480,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicAgentAgentRunToolsSummary,
         TextqlRPCPublicAgentAgentRunToolsSummaryTypedDict,
     )
+    from .textql_rpc_public_agent_agentruntriggergeo import (
+        TextqlRPCPublicAgentAgentRunTriggerGeo,
+        TextqlRPCPublicAgentAgentRunTriggerGeoTypedDict,
+    )
     from .textql_rpc_public_agent_agentruntriggermetadata import (
         TextqlRPCPublicAgentAgentRunTriggerMetadata,
         TextqlRPCPublicAgentAgentRunTriggerMetadataTypedDict,
@@ -2654,14 +2647,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_app_getappviewstatsresponse import (
         TextqlRPCPublicAppGetAppViewStatsResponse,
         TextqlRPCPublicAppGetAppViewStatsResponseTypedDict,
-    )
-    from .textql_rpc_public_app_getcomponentgalleryurlrequest import (
-        TextqlRPCPublicAppGetComponentGalleryURLRequest,
-        TextqlRPCPublicAppGetComponentGalleryURLRequestTypedDict,
-    )
-    from .textql_rpc_public_app_getcomponentgalleryurlresponse import (
-        TextqlRPCPublicAppGetComponentGalleryURLResponse,
-        TextqlRPCPublicAppGetComponentGalleryURLResponseTypedDict,
     )
     from .textql_rpc_public_app_getmemberswithappsrequest import (
         TextqlRPCPublicAppGetMembersWithAppsRequest,
@@ -2850,6 +2835,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicCellsAppCell,
         TextqlRPCPublicCellsAppCellTypedDict,
     )
+    from .textql_rpc_public_cells_appinfo import (
+        TextqlRPCPublicCellsAppInfo,
+        TextqlRPCPublicCellsAppInfoTypedDict,
+    )
     from .textql_rpc_public_cells_bashcell import (
         TextqlRPCPublicCellsBashCell,
         TextqlRPCPublicCellsBashCellTypedDict,
@@ -3014,6 +3003,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicCellsLinkedinSearchCellExecutionTimeMs,
         TextqlRPCPublicCellsLinkedinSearchCellExecutionTimeMsTypedDict,
         TextqlRPCPublicCellsLinkedinSearchCellTypedDict,
+    )
+    from .textql_rpc_public_cells_listappscell import (
+        TextqlRPCPublicCellsListAppsCell,
+        TextqlRPCPublicCellsListAppsCellTypedDict,
     )
     from .textql_rpc_public_cells_listdashboardscell import (
         TextqlRPCPublicCellsListDashboardsCell,
@@ -3378,6 +3371,8 @@ if TYPE_CHECKING:
         JavascriptCellTypedDict,
         LinkedinSearchCell,
         LinkedinSearchCellTypedDict,
+        ListAppsCell,
+        ListAppsCellTypedDict,
         ListDashboardsCell,
         ListDashboardsCellTypedDict,
         ListUsersCell,
@@ -3542,6 +3537,8 @@ if TYPE_CHECKING:
         TextqlRPCPublicChatCellDurationMs55TypedDict,
         TextqlRPCPublicChatCellDurationMs56,
         TextqlRPCPublicChatCellDurationMs56TypedDict,
+        TextqlRPCPublicChatCellDurationMs57,
+        TextqlRPCPublicChatCellDurationMs57TypedDict,
         TextqlRPCPublicChatCellDurationMs5TypedDict,
         TextqlRPCPublicChatCellDurationMs6,
         TextqlRPCPublicChatCellDurationMs6TypedDict,
@@ -5913,6 +5910,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesGithubInstallationRepo,
         TextqlRPCPublicPatchesGithubInstallationRepoTypedDict,
     )
+    from .textql_rpc_public_patches_goldenentry import (
+        TextqlRPCPublicPatchesGoldenEntry,
+        TextqlRPCPublicPatchesGoldenEntryTypedDict,
+    )
     from .textql_rpc_public_patches_libraryanaconfig import (
         TextqlRPCPublicPatchesLibraryAnaConfig,
         TextqlRPCPublicPatchesLibraryAnaConfigTypedDict,
@@ -6009,6 +6010,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_patches_listcontextpatchautoapproverulesresponse import (
         TextqlRPCPublicPatchesListContextPatchAutoApproveRulesResponse,
         TextqlRPCPublicPatchesListContextPatchAutoApproveRulesResponseTypedDict,
+    )
+    from .textql_rpc_public_patches_listgoldenfilesrequest import (
+        TextqlRPCPublicPatchesListGoldenFilesRequest,
+        TextqlRPCPublicPatchesListGoldenFilesRequestTypedDict,
+    )
+    from .textql_rpc_public_patches_listgoldenfilesresponse import (
+        TextqlRPCPublicPatchesListGoldenFilesResponse,
+        TextqlRPCPublicPatchesListGoldenFilesResponseTypedDict,
     )
     from .textql_rpc_public_patches_listlibraryentriesrequest import (
         TextqlRPCPublicPatchesListLibraryEntriesRequest,
@@ -6247,6 +6256,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesSaveObjectAsConfigResponse,
         TextqlRPCPublicPatchesSaveObjectAsConfigResponseTypedDict,
     )
+    from .textql_rpc_public_patches_setlibraryfilegoldenrequest import (
+        TextqlRPCPublicPatchesSetLibraryFileGoldenRequest,
+        TextqlRPCPublicPatchesSetLibraryFileGoldenRequestTypedDict,
+    )
+    from .textql_rpc_public_patches_setlibraryfilegoldenresponse import (
+        TextqlRPCPublicPatchesSetLibraryFileGoldenResponse,
+        TextqlRPCPublicPatchesSetLibraryFileGoldenResponseTypedDict,
+    )
     from .textql_rpc_public_patches_skill import (
         TextqlRPCPublicPatchesSkill,
         TextqlRPCPublicPatchesSkillTypedDict,
@@ -6437,14 +6454,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicPlaybookGetPlaybookBatchRunResponse,
         TextqlRPCPublicPlaybookGetPlaybookBatchRunResponseTypedDict,
     )
-    from .textql_rpc_public_playbook_getplaybookextendedqnrequest import (
-        TextqlRPCPublicPlaybookGetPlaybookExtendedQnRequest,
-        TextqlRPCPublicPlaybookGetPlaybookExtendedQnRequestTypedDict,
-    )
-    from .textql_rpc_public_playbook_getplaybookextendedqnresponse import (
-        TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponse,
-        TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponseTypedDict,
-    )
     from .textql_rpc_public_playbook_getplaybooklineagerequest import (
         TextqlRPCPublicPlaybookGetPlaybookLineageRequest,
         TextqlRPCPublicPlaybookGetPlaybookLineageRequestTypedDict,
@@ -6492,14 +6501,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_playbook_getplaybooksresponse import (
         TextqlRPCPublicPlaybookGetPlaybooksResponse,
         TextqlRPCPublicPlaybookGetPlaybooksResponseTypedDict,
-    )
-    from .textql_rpc_public_playbook_getqnplaybookrequest import (
-        TextqlRPCPublicPlaybookGetQNPlaybookRequest,
-        TextqlRPCPublicPlaybookGetQNPlaybookRequestTypedDict,
-    )
-    from .textql_rpc_public_playbook_getqnplaybookresponse import (
-        TextqlRPCPublicPlaybookGetQNPlaybookResponse,
-        TextqlRPCPublicPlaybookGetQNPlaybookResponseTypedDict,
     )
     from .textql_rpc_public_playbook_getreportbyidrequest import (
         TextqlRPCPublicPlaybookGetReportByIDRequest,
@@ -6593,10 +6594,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicPlaybookPlaybookBatchRun,
         TextqlRPCPublicPlaybookPlaybookBatchRunTypedDict,
     )
-    from .textql_rpc_public_playbook_playbookextendedqn import (
-        TextqlRPCPublicPlaybookPlaybookExtendedQn,
-        TextqlRPCPublicPlaybookPlaybookExtendedQnTypedDict,
-    )
     from .textql_rpc_public_playbook_playbooklineagenode import (
         TextqlRPCPublicPlaybookPlaybookLineageNode,
         TextqlRPCPublicPlaybookPlaybookLineageNodeTypedDict,
@@ -6644,10 +6641,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_playbook_previewslackreportresponse import (
         TextqlRPCPublicPlaybookPreviewSlackReportResponse,
         TextqlRPCPublicPlaybookPreviewSlackReportResponseTypedDict,
-    )
-    from .textql_rpc_public_playbook_qnplaybook import (
-        TextqlRPCPublicPlaybookQNPlaybook,
-        TextqlRPCPublicPlaybookQNPlaybookTypedDict,
     )
     from .textql_rpc_public_playbook_reportfilters import (
         TextqlRPCPublicPlaybookReportFilters,
@@ -6724,14 +6717,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_playbook_unsubscribefromplaybookresponse import (
         TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponse,
         TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponseTypedDict,
-    )
-    from .textql_rpc_public_playbook_updateplaybookextendedqnrequest import (
-        TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnRequest,
-        TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnRequestTypedDict,
-    )
-    from .textql_rpc_public_playbook_updateplaybookextendedqnresponse import (
-        TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponse,
-        TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponseTypedDict,
     )
     from .textql_rpc_public_playbook_updateplaybookrequest import (
         TextqlRPCPublicPlaybookUpdatePlaybookRequest,
@@ -7968,10 +7953,6 @@ __all__ = [
     "AppServiceGetAppViewStatsRequestTypedDict",
     "AppServiceGetAppViewStatsResponse",
     "AppServiceGetAppViewStatsResponseTypedDict",
-    "AppServiceGetComponentGalleryURLRequest",
-    "AppServiceGetComponentGalleryURLRequestTypedDict",
-    "AppServiceGetComponentGalleryURLResponse",
-    "AppServiceGetComponentGalleryURLResponseTypedDict",
     "AppServiceGetMembersWithAppsRequest",
     "AppServiceGetMembersWithAppsRequestTypedDict",
     "AppServiceGetMembersWithAppsResponse",
@@ -8769,6 +8750,10 @@ __all__ = [
     "LibraryServiceListContextPatchAutoApproveRulesRequestTypedDict",
     "LibraryServiceListContextPatchAutoApproveRulesResponse",
     "LibraryServiceListContextPatchAutoApproveRulesResponseTypedDict",
+    "LibraryServiceListGoldenFilesRequest",
+    "LibraryServiceListGoldenFilesRequestTypedDict",
+    "LibraryServiceListGoldenFilesResponse",
+    "LibraryServiceListGoldenFilesResponseTypedDict",
     "LibraryServiceListLibraryEntriesRequest",
     "LibraryServiceListLibraryEntriesRequestTypedDict",
     "LibraryServiceListLibraryEntriesResponse",
@@ -8865,6 +8850,10 @@ __all__ = [
     "LibraryServiceSaveObjectAsConfigRequestTypedDict",
     "LibraryServiceSaveObjectAsConfigResponse",
     "LibraryServiceSaveObjectAsConfigResponseTypedDict",
+    "LibraryServiceSetLibraryFileGoldenRequest",
+    "LibraryServiceSetLibraryFileGoldenRequestTypedDict",
+    "LibraryServiceSetLibraryFileGoldenResponse",
+    "LibraryServiceSetLibraryFileGoldenResponseTypedDict",
     "LibraryServiceTriggerConfigDriftReconcileRequest",
     "LibraryServiceTriggerConfigDriftReconcileRequestTypedDict",
     "LibraryServiceTriggerConfigDriftReconcileResponse",
@@ -8905,6 +8894,8 @@ __all__ = [
     "LinkedTypedDict",
     "LinkedinSearchCell",
     "LinkedinSearchCellTypedDict",
+    "ListAppsCell",
+    "ListAppsCellTypedDict",
     "ListDashboardsCell",
     "ListDashboardsCellTypedDict",
     "ListT",
@@ -9209,10 +9200,6 @@ __all__ = [
     "PlaybookServiceGetPlaybookBatchRunRequestTypedDict",
     "PlaybookServiceGetPlaybookBatchRunResponse",
     "PlaybookServiceGetPlaybookBatchRunResponseTypedDict",
-    "PlaybookServiceGetPlaybookExtendedQnRequest",
-    "PlaybookServiceGetPlaybookExtendedQnRequestTypedDict",
-    "PlaybookServiceGetPlaybookExtendedQnResponse",
-    "PlaybookServiceGetPlaybookExtendedQnResponseTypedDict",
     "PlaybookServiceGetPlaybookLineageRequest",
     "PlaybookServiceGetPlaybookLineageRequestTypedDict",
     "PlaybookServiceGetPlaybookLineageResponse",
@@ -9237,10 +9224,6 @@ __all__ = [
     "PlaybookServiceGetPlaybooksRequestTypedDict",
     "PlaybookServiceGetPlaybooksResponse",
     "PlaybookServiceGetPlaybooksResponseTypedDict",
-    "PlaybookServiceGetQNPlaybookRequest",
-    "PlaybookServiceGetQNPlaybookRequestTypedDict",
-    "PlaybookServiceGetQNPlaybookResponse",
-    "PlaybookServiceGetQNPlaybookResponseTypedDict",
     "PlaybookServiceGetReportByIDRequest",
     "PlaybookServiceGetReportByIDRequestTypedDict",
     "PlaybookServiceGetReportByIDResponse",
@@ -9313,10 +9296,6 @@ __all__ = [
     "PlaybookServiceUnsubscribeFromPlaybookRequestTypedDict",
     "PlaybookServiceUnsubscribeFromPlaybookResponse",
     "PlaybookServiceUnsubscribeFromPlaybookResponseTypedDict",
-    "PlaybookServiceUpdatePlaybookExtendedQnRequest",
-    "PlaybookServiceUpdatePlaybookExtendedQnRequestTypedDict",
-    "PlaybookServiceUpdatePlaybookExtendedQnResponse",
-    "PlaybookServiceUpdatePlaybookExtendedQnResponseTypedDict",
     "PlaybookServiceUpdatePlaybookRequest",
     "PlaybookServiceUpdatePlaybookRequestTypedDict",
     "PlaybookServiceUpdatePlaybookResponse",
@@ -9731,6 +9710,8 @@ __all__ = [
     "SecretServiceUpsertAPIAccessKeyRequestTypedDict",
     "SecretServiceUpsertAPIAccessKeyResponse",
     "SecretServiceUpsertAPIAccessKeyResponseTypedDict",
+    "Security",
+    "SecurityTypedDict",
     "Size",
     "SizeTypedDict",
     "SlackServiceCreateSlackUUIDRequest",
@@ -9914,6 +9895,8 @@ __all__ = [
     "TextqlRPCPublicAgentAgentRunToolCallTypedDict",
     "TextqlRPCPublicAgentAgentRunToolsSummary",
     "TextqlRPCPublicAgentAgentRunToolsSummaryTypedDict",
+    "TextqlRPCPublicAgentAgentRunTriggerGeo",
+    "TextqlRPCPublicAgentAgentRunTriggerGeoTypedDict",
     "TextqlRPCPublicAgentAgentRunTriggerMetadata",
     "TextqlRPCPublicAgentAgentRunTriggerMetadataTypedDict",
     "TextqlRPCPublicAgentAgentRunTypedDict",
@@ -9998,10 +9981,6 @@ __all__ = [
     "TextqlRPCPublicAppGetAppViewStatsRequestTypedDict",
     "TextqlRPCPublicAppGetAppViewStatsResponse",
     "TextqlRPCPublicAppGetAppViewStatsResponseTypedDict",
-    "TextqlRPCPublicAppGetComponentGalleryURLRequest",
-    "TextqlRPCPublicAppGetComponentGalleryURLRequestTypedDict",
-    "TextqlRPCPublicAppGetComponentGalleryURLResponse",
-    "TextqlRPCPublicAppGetComponentGalleryURLResponseTypedDict",
     "TextqlRPCPublicAppGetMembersWithAppsRequest",
     "TextqlRPCPublicAppGetMembersWithAppsRequestTypedDict",
     "TextqlRPCPublicAppGetMembersWithAppsResponse",
@@ -10095,6 +10074,8 @@ __all__ = [
     "TextqlRPCPublicCellsAnswerCellTypedDict",
     "TextqlRPCPublicCellsAppCell",
     "TextqlRPCPublicCellsAppCellTypedDict",
+    "TextqlRPCPublicCellsAppInfo",
+    "TextqlRPCPublicCellsAppInfoTypedDict",
     "TextqlRPCPublicCellsBashCell",
     "TextqlRPCPublicCellsBashCellTypedDict",
     "TextqlRPCPublicCellsChartReference",
@@ -10176,6 +10157,8 @@ __all__ = [
     "TextqlRPCPublicCellsLinkedinSearchCellExecutionTimeMs",
     "TextqlRPCPublicCellsLinkedinSearchCellExecutionTimeMsTypedDict",
     "TextqlRPCPublicCellsLinkedinSearchCellTypedDict",
+    "TextqlRPCPublicCellsListAppsCell",
+    "TextqlRPCPublicCellsListAppsCellTypedDict",
     "TextqlRPCPublicCellsListDashboardsCell",
     "TextqlRPCPublicCellsListDashboardsCellTypedDict",
     "TextqlRPCPublicCellsListUsersCell",
@@ -10440,6 +10423,8 @@ __all__ = [
     "TextqlRPCPublicChatCellDurationMs55TypedDict",
     "TextqlRPCPublicChatCellDurationMs56",
     "TextqlRPCPublicChatCellDurationMs56TypedDict",
+    "TextqlRPCPublicChatCellDurationMs57",
+    "TextqlRPCPublicChatCellDurationMs57TypedDict",
     "TextqlRPCPublicChatCellDurationMs5TypedDict",
     "TextqlRPCPublicChatCellDurationMs6",
     "TextqlRPCPublicChatCellDurationMs6TypedDict",
@@ -11524,6 +11509,8 @@ __all__ = [
     "TextqlRPCPublicPatchesGithubInstallationRepo",
     "TextqlRPCPublicPatchesGithubInstallationRepoTypedDict",
     "TextqlRPCPublicPatchesGithubInstallationTypedDict",
+    "TextqlRPCPublicPatchesGoldenEntry",
+    "TextqlRPCPublicPatchesGoldenEntryTypedDict",
     "TextqlRPCPublicPatchesLibraryAnaConfig",
     "TextqlRPCPublicPatchesLibraryAnaConfigTypedDict",
     "TextqlRPCPublicPatchesLibraryEntry",
@@ -11571,6 +11558,10 @@ __all__ = [
     "TextqlRPCPublicPatchesListContextPatchAutoApproveRulesRequestTypedDict",
     "TextqlRPCPublicPatchesListContextPatchAutoApproveRulesResponse",
     "TextqlRPCPublicPatchesListContextPatchAutoApproveRulesResponseTypedDict",
+    "TextqlRPCPublicPatchesListGoldenFilesRequest",
+    "TextqlRPCPublicPatchesListGoldenFilesRequestTypedDict",
+    "TextqlRPCPublicPatchesListGoldenFilesResponse",
+    "TextqlRPCPublicPatchesListGoldenFilesResponseTypedDict",
     "TextqlRPCPublicPatchesListLibraryEntriesRequest",
     "TextqlRPCPublicPatchesListLibraryEntriesRequestTypedDict",
     "TextqlRPCPublicPatchesListLibraryEntriesResponse",
@@ -11680,6 +11671,10 @@ __all__ = [
     "TextqlRPCPublicPatchesSaveObjectAsConfigRequestTypedDict",
     "TextqlRPCPublicPatchesSaveObjectAsConfigResponse",
     "TextqlRPCPublicPatchesSaveObjectAsConfigResponseTypedDict",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenRequest",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenRequestTypedDict",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenResponse",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenResponseTypedDict",
     "TextqlRPCPublicPatchesSkill",
     "TextqlRPCPublicPatchesSkillTypedDict",
     "TextqlRPCPublicPatchesSkippedConfigExport",
@@ -11774,10 +11769,6 @@ __all__ = [
     "TextqlRPCPublicPlaybookGetPlaybookBatchRunRequestTypedDict",
     "TextqlRPCPublicPlaybookGetPlaybookBatchRunResponse",
     "TextqlRPCPublicPlaybookGetPlaybookBatchRunResponseTypedDict",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnRequest",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnRequestTypedDict",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponse",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponseTypedDict",
     "TextqlRPCPublicPlaybookGetPlaybookLineageRequest",
     "TextqlRPCPublicPlaybookGetPlaybookLineageRequestTypedDict",
     "TextqlRPCPublicPlaybookGetPlaybookLineageResponse",
@@ -11802,10 +11793,6 @@ __all__ = [
     "TextqlRPCPublicPlaybookGetPlaybooksRequestTypedDict",
     "TextqlRPCPublicPlaybookGetPlaybooksResponse",
     "TextqlRPCPublicPlaybookGetPlaybooksResponseTypedDict",
-    "TextqlRPCPublicPlaybookGetQNPlaybookRequest",
-    "TextqlRPCPublicPlaybookGetQNPlaybookRequestTypedDict",
-    "TextqlRPCPublicPlaybookGetQNPlaybookResponse",
-    "TextqlRPCPublicPlaybookGetQNPlaybookResponseTypedDict",
     "TextqlRPCPublicPlaybookGetReportByIDRequest",
     "TextqlRPCPublicPlaybookGetReportByIDRequestTypedDict",
     "TextqlRPCPublicPlaybookGetReportByIDResponse",
@@ -11851,8 +11838,6 @@ __all__ = [
     "TextqlRPCPublicPlaybookPlaybookAttachDatasetResponseTypedDict",
     "TextqlRPCPublicPlaybookPlaybookBatchRun",
     "TextqlRPCPublicPlaybookPlaybookBatchRunTypedDict",
-    "TextqlRPCPublicPlaybookPlaybookExtendedQn",
-    "TextqlRPCPublicPlaybookPlaybookExtendedQnTypedDict",
     "TextqlRPCPublicPlaybookPlaybookLineageNode",
     "TextqlRPCPublicPlaybookPlaybookLineageNodeTypedDict",
     "TextqlRPCPublicPlaybookPlaybookPreview",
@@ -11876,8 +11861,6 @@ __all__ = [
     "TextqlRPCPublicPlaybookPreviewSlackReportRequestTypedDict",
     "TextqlRPCPublicPlaybookPreviewSlackReportResponse",
     "TextqlRPCPublicPlaybookPreviewSlackReportResponseTypedDict",
-    "TextqlRPCPublicPlaybookQNPlaybook",
-    "TextqlRPCPublicPlaybookQNPlaybookTypedDict",
     "TextqlRPCPublicPlaybookReportFilters",
     "TextqlRPCPublicPlaybookReportFiltersTypedDict",
     "TextqlRPCPublicPlaybookRunPlaybookRequest",
@@ -11916,10 +11899,6 @@ __all__ = [
     "TextqlRPCPublicPlaybookUnsubscribeFromPlaybookRequestTypedDict",
     "TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponse",
     "TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponseTypedDict",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnRequest",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnRequestTypedDict",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponse",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponseTypedDict",
     "TextqlRPCPublicPlaybookUpdatePlaybookRequest",
     "TextqlRPCPublicPlaybookUpdatePlaybookRequestTypedDict",
     "TextqlRPCPublicPlaybookUpdatePlaybookResponse",
@@ -12625,10 +12604,6 @@ _dynamic_imports: dict[str, str] = {
     "AppServiceGetAppViewStatsRequestTypedDict": ".appservice_getappviewstatsop",
     "AppServiceGetAppViewStatsResponse": ".appservice_getappviewstatsop",
     "AppServiceGetAppViewStatsResponseTypedDict": ".appservice_getappviewstatsop",
-    "AppServiceGetComponentGalleryURLRequest": ".appservice_getcomponentgalleryurlop",
-    "AppServiceGetComponentGalleryURLRequestTypedDict": ".appservice_getcomponentgalleryurlop",
-    "AppServiceGetComponentGalleryURLResponse": ".appservice_getcomponentgalleryurlop",
-    "AppServiceGetComponentGalleryURLResponseTypedDict": ".appservice_getcomponentgalleryurlop",
     "AppServiceGetMembersWithAppsRequest": ".appservice_getmemberswithappsop",
     "AppServiceGetMembersWithAppsRequestTypedDict": ".appservice_getmemberswithappsop",
     "AppServiceGetMembersWithAppsResponse": ".appservice_getmemberswithappsop",
@@ -13244,6 +13219,10 @@ _dynamic_imports: dict[str, str] = {
     "LibraryServiceListContextPatchAutoApproveRulesRequestTypedDict": ".libraryservice_listcontextpatchautoapproverulesop",
     "LibraryServiceListContextPatchAutoApproveRulesResponse": ".libraryservice_listcontextpatchautoapproverulesop",
     "LibraryServiceListContextPatchAutoApproveRulesResponseTypedDict": ".libraryservice_listcontextpatchautoapproverulesop",
+    "LibraryServiceListGoldenFilesRequest": ".libraryservice_listgoldenfilesop",
+    "LibraryServiceListGoldenFilesRequestTypedDict": ".libraryservice_listgoldenfilesop",
+    "LibraryServiceListGoldenFilesResponse": ".libraryservice_listgoldenfilesop",
+    "LibraryServiceListGoldenFilesResponseTypedDict": ".libraryservice_listgoldenfilesop",
     "LibraryServiceListLibraryEntriesRequest": ".libraryservice_listlibraryentriesop",
     "LibraryServiceListLibraryEntriesRequestTypedDict": ".libraryservice_listlibraryentriesop",
     "LibraryServiceListLibraryEntriesResponse": ".libraryservice_listlibraryentriesop",
@@ -13340,6 +13319,10 @@ _dynamic_imports: dict[str, str] = {
     "LibraryServiceSaveObjectAsConfigRequestTypedDict": ".libraryservice_saveobjectasconfigop",
     "LibraryServiceSaveObjectAsConfigResponse": ".libraryservice_saveobjectasconfigop",
     "LibraryServiceSaveObjectAsConfigResponseTypedDict": ".libraryservice_saveobjectasconfigop",
+    "LibraryServiceSetLibraryFileGoldenRequest": ".libraryservice_setlibraryfilegoldenop",
+    "LibraryServiceSetLibraryFileGoldenRequestTypedDict": ".libraryservice_setlibraryfilegoldenop",
+    "LibraryServiceSetLibraryFileGoldenResponse": ".libraryservice_setlibraryfilegoldenop",
+    "LibraryServiceSetLibraryFileGoldenResponseTypedDict": ".libraryservice_setlibraryfilegoldenop",
     "LibraryServiceTriggerConfigDriftReconcileRequest": ".libraryservice_triggerconfigdriftreconcileop",
     "LibraryServiceTriggerConfigDriftReconcileRequestTypedDict": ".libraryservice_triggerconfigdriftreconcileop",
     "LibraryServiceTriggerConfigDriftReconcileResponse": ".libraryservice_triggerconfigdriftreconcileop",
@@ -13592,10 +13575,6 @@ _dynamic_imports: dict[str, str] = {
     "PlaybookServiceGetPlaybookBatchRunRequestTypedDict": ".playbookservice_getplaybookbatchrunop",
     "PlaybookServiceGetPlaybookBatchRunResponse": ".playbookservice_getplaybookbatchrunop",
     "PlaybookServiceGetPlaybookBatchRunResponseTypedDict": ".playbookservice_getplaybookbatchrunop",
-    "PlaybookServiceGetPlaybookExtendedQnRequest": ".playbookservice_getplaybookextendedqnop",
-    "PlaybookServiceGetPlaybookExtendedQnRequestTypedDict": ".playbookservice_getplaybookextendedqnop",
-    "PlaybookServiceGetPlaybookExtendedQnResponse": ".playbookservice_getplaybookextendedqnop",
-    "PlaybookServiceGetPlaybookExtendedQnResponseTypedDict": ".playbookservice_getplaybookextendedqnop",
     "PlaybookServiceGetPlaybookLineageRequest": ".playbookservice_getplaybooklineageop",
     "PlaybookServiceGetPlaybookLineageRequestTypedDict": ".playbookservice_getplaybooklineageop",
     "PlaybookServiceGetPlaybookLineageResponse": ".playbookservice_getplaybooklineageop",
@@ -13620,10 +13599,6 @@ _dynamic_imports: dict[str, str] = {
     "PlaybookServiceGetPlaybooksPreviewsRequestTypedDict": ".playbookservice_getplaybookspreviewsop",
     "PlaybookServiceGetPlaybooksPreviewsResponse": ".playbookservice_getplaybookspreviewsop",
     "PlaybookServiceGetPlaybooksPreviewsResponseTypedDict": ".playbookservice_getplaybookspreviewsop",
-    "PlaybookServiceGetQNPlaybookRequest": ".playbookservice_getqnplaybookop",
-    "PlaybookServiceGetQNPlaybookRequestTypedDict": ".playbookservice_getqnplaybookop",
-    "PlaybookServiceGetQNPlaybookResponse": ".playbookservice_getqnplaybookop",
-    "PlaybookServiceGetQNPlaybookResponseTypedDict": ".playbookservice_getqnplaybookop",
     "PlaybookServiceGetReportByIDRequest": ".playbookservice_getreportbyidop",
     "PlaybookServiceGetReportByIDRequestTypedDict": ".playbookservice_getreportbyidop",
     "PlaybookServiceGetReportByIDResponse": ".playbookservice_getreportbyidop",
@@ -13696,10 +13671,6 @@ _dynamic_imports: dict[str, str] = {
     "PlaybookServiceUnsubscribeFromPlaybookRequestTypedDict": ".playbookservice_unsubscribefromplaybookop",
     "PlaybookServiceUnsubscribeFromPlaybookResponse": ".playbookservice_unsubscribefromplaybookop",
     "PlaybookServiceUnsubscribeFromPlaybookResponseTypedDict": ".playbookservice_unsubscribefromplaybookop",
-    "PlaybookServiceUpdatePlaybookExtendedQnRequest": ".playbookservice_updateplaybookextendedqnop",
-    "PlaybookServiceUpdatePlaybookExtendedQnRequestTypedDict": ".playbookservice_updateplaybookextendedqnop",
-    "PlaybookServiceUpdatePlaybookExtendedQnResponse": ".playbookservice_updateplaybookextendedqnop",
-    "PlaybookServiceUpdatePlaybookExtendedQnResponseTypedDict": ".playbookservice_updateplaybookextendedqnop",
     "PlaybookServiceUpdatePlaybookRequest": ".playbookservice_updateplaybookop",
     "PlaybookServiceUpdatePlaybookRequestTypedDict": ".playbookservice_updateplaybookop",
     "PlaybookServiceUpdatePlaybookResponse": ".playbookservice_updateplaybookop",
@@ -14056,6 +14027,8 @@ _dynamic_imports: dict[str, str] = {
     "SecretServiceUpsertAPIAccessKeyRequestTypedDict": ".secretservice_upsertapiaccesskeyop",
     "SecretServiceUpsertAPIAccessKeyResponse": ".secretservice_upsertapiaccesskeyop",
     "SecretServiceUpsertAPIAccessKeyResponseTypedDict": ".secretservice_upsertapiaccesskeyop",
+    "Security": ".security",
+    "SecurityTypedDict": ".security",
     "SlackServiceCreateSlackUUIDRequest": ".slackservice_createslackuuidop",
     "SlackServiceCreateSlackUUIDRequestTypedDict": ".slackservice_createslackuuidop",
     "SlackServiceCreateSlackUUIDResponse": ".slackservice_createslackuuidop",
@@ -14195,6 +14168,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAgentAgentRunToolCallTypedDict": ".textql_rpc_public_agent_agentruntoolcall",
     "TextqlRPCPublicAgentAgentRunToolsSummary": ".textql_rpc_public_agent_agentruntoolssummary",
     "TextqlRPCPublicAgentAgentRunToolsSummaryTypedDict": ".textql_rpc_public_agent_agentruntoolssummary",
+    "TextqlRPCPublicAgentAgentRunTriggerGeo": ".textql_rpc_public_agent_agentruntriggergeo",
+    "TextqlRPCPublicAgentAgentRunTriggerGeoTypedDict": ".textql_rpc_public_agent_agentruntriggergeo",
     "TextqlRPCPublicAgentAgentRunTriggerMetadata": ".textql_rpc_public_agent_agentruntriggermetadata",
     "TextqlRPCPublicAgentAgentRunTriggerMetadataTypedDict": ".textql_rpc_public_agent_agentruntriggermetadata",
     "TextqlRPCPublicAgentCreateAgentRequest": ".textql_rpc_public_agent_createagentrequest",
@@ -14277,10 +14252,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAppGetAppViewStatsRequestTypedDict": ".textql_rpc_public_app_getappviewstatsrequest",
     "TextqlRPCPublicAppGetAppViewStatsResponse": ".textql_rpc_public_app_getappviewstatsresponse",
     "TextqlRPCPublicAppGetAppViewStatsResponseTypedDict": ".textql_rpc_public_app_getappviewstatsresponse",
-    "TextqlRPCPublicAppGetComponentGalleryURLRequest": ".textql_rpc_public_app_getcomponentgalleryurlrequest",
-    "TextqlRPCPublicAppGetComponentGalleryURLRequestTypedDict": ".textql_rpc_public_app_getcomponentgalleryurlrequest",
-    "TextqlRPCPublicAppGetComponentGalleryURLResponse": ".textql_rpc_public_app_getcomponentgalleryurlresponse",
-    "TextqlRPCPublicAppGetComponentGalleryURLResponseTypedDict": ".textql_rpc_public_app_getcomponentgalleryurlresponse",
     "TextqlRPCPublicAppGetMembersWithAppsRequest": ".textql_rpc_public_app_getmemberswithappsrequest",
     "TextqlRPCPublicAppGetMembersWithAppsRequestTypedDict": ".textql_rpc_public_app_getmemberswithappsrequest",
     "TextqlRPCPublicAppGetMembersWithAppsResponse": ".textql_rpc_public_app_getmemberswithappsresponse",
@@ -14374,6 +14345,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicCellsAnswerCellTypedDict": ".textql_rpc_public_cells_answercell",
     "TextqlRPCPublicCellsAppCell": ".textql_rpc_public_cells_appcell",
     "TextqlRPCPublicCellsAppCellTypedDict": ".textql_rpc_public_cells_appcell",
+    "TextqlRPCPublicCellsAppInfo": ".textql_rpc_public_cells_appinfo",
+    "TextqlRPCPublicCellsAppInfoTypedDict": ".textql_rpc_public_cells_appinfo",
     "TextqlRPCPublicCellsBashCell": ".textql_rpc_public_cells_bashcell",
     "TextqlRPCPublicCellsBashCellTypedDict": ".textql_rpc_public_cells_bashcell",
     "TextqlRPCPublicCellsChartReference": ".textql_rpc_public_cells_chartreference",
@@ -14457,6 +14430,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicCellsLinkedinSearchCellExecutionTimeMs": ".textql_rpc_public_cells_linkedinsearchcell",
     "TextqlRPCPublicCellsLinkedinSearchCellExecutionTimeMsTypedDict": ".textql_rpc_public_cells_linkedinsearchcell",
     "TextqlRPCPublicCellsLinkedinSearchCellTypedDict": ".textql_rpc_public_cells_linkedinsearchcell",
+    "TextqlRPCPublicCellsListAppsCell": ".textql_rpc_public_cells_listappscell",
+    "TextqlRPCPublicCellsListAppsCellTypedDict": ".textql_rpc_public_cells_listappscell",
     "TextqlRPCPublicCellsListDashboardsCell": ".textql_rpc_public_cells_listdashboardscell",
     "TextqlRPCPublicCellsListDashboardsCellTypedDict": ".textql_rpc_public_cells_listdashboardscell",
     "TextqlRPCPublicCellsListUsersCell": ".textql_rpc_public_cells_listuserscell",
@@ -14665,6 +14640,8 @@ _dynamic_imports: dict[str, str] = {
     "JavascriptCellTypedDict": ".textql_rpc_public_chat_cell",
     "LinkedinSearchCell": ".textql_rpc_public_chat_cell",
     "LinkedinSearchCellTypedDict": ".textql_rpc_public_chat_cell",
+    "ListAppsCell": ".textql_rpc_public_chat_cell",
+    "ListAppsCellTypedDict": ".textql_rpc_public_chat_cell",
     "ListDashboardsCell": ".textql_rpc_public_chat_cell",
     "ListDashboardsCellTypedDict": ".textql_rpc_public_chat_cell",
     "ListUsersCell": ".textql_rpc_public_chat_cell",
@@ -14829,6 +14806,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicChatCellDurationMs55TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs56": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs56TypedDict": ".textql_rpc_public_chat_cell",
+    "TextqlRPCPublicChatCellDurationMs57": ".textql_rpc_public_chat_cell",
+    "TextqlRPCPublicChatCellDurationMs57TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs5TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs6": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs6TypedDict": ".textql_rpc_public_chat_cell",
@@ -16183,6 +16162,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesGithubInstallationTypedDict": ".textql_rpc_public_patches_githubinstallation",
     "TextqlRPCPublicPatchesGithubInstallationRepo": ".textql_rpc_public_patches_githubinstallationrepo",
     "TextqlRPCPublicPatchesGithubInstallationRepoTypedDict": ".textql_rpc_public_patches_githubinstallationrepo",
+    "TextqlRPCPublicPatchesGoldenEntry": ".textql_rpc_public_patches_goldenentry",
+    "TextqlRPCPublicPatchesGoldenEntryTypedDict": ".textql_rpc_public_patches_goldenentry",
     "TextqlRPCPublicPatchesLibraryAnaConfig": ".textql_rpc_public_patches_libraryanaconfig",
     "TextqlRPCPublicPatchesLibraryAnaConfigTypedDict": ".textql_rpc_public_patches_libraryanaconfig",
     "TextqlRPCPublicPatchesLibraryEntry": ".textql_rpc_public_patches_libraryentry",
@@ -16232,6 +16213,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesListContextPatchAutoApproveRulesRequestTypedDict": ".textql_rpc_public_patches_listcontextpatchautoapproverulesrequest",
     "TextqlRPCPublicPatchesListContextPatchAutoApproveRulesResponse": ".textql_rpc_public_patches_listcontextpatchautoapproverulesresponse",
     "TextqlRPCPublicPatchesListContextPatchAutoApproveRulesResponseTypedDict": ".textql_rpc_public_patches_listcontextpatchautoapproverulesresponse",
+    "TextqlRPCPublicPatchesListGoldenFilesRequest": ".textql_rpc_public_patches_listgoldenfilesrequest",
+    "TextqlRPCPublicPatchesListGoldenFilesRequestTypedDict": ".textql_rpc_public_patches_listgoldenfilesrequest",
+    "TextqlRPCPublicPatchesListGoldenFilesResponse": ".textql_rpc_public_patches_listgoldenfilesresponse",
+    "TextqlRPCPublicPatchesListGoldenFilesResponseTypedDict": ".textql_rpc_public_patches_listgoldenfilesresponse",
     "TextqlRPCPublicPatchesListLibraryEntriesRequest": ".textql_rpc_public_patches_listlibraryentriesrequest",
     "TextqlRPCPublicPatchesListLibraryEntriesRequestTypedDict": ".textql_rpc_public_patches_listlibraryentriesrequest",
     "TextqlRPCPublicPatchesListLibraryEntriesResponse": ".textql_rpc_public_patches_listlibraryentriesresponse",
@@ -16361,6 +16346,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesSaveObjectAsConfigRequestTypedDict": ".textql_rpc_public_patches_saveobjectasconfigrequest",
     "TextqlRPCPublicPatchesSaveObjectAsConfigResponse": ".textql_rpc_public_patches_saveobjectasconfigresponse",
     "TextqlRPCPublicPatchesSaveObjectAsConfigResponseTypedDict": ".textql_rpc_public_patches_saveobjectasconfigresponse",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenRequest": ".textql_rpc_public_patches_setlibraryfilegoldenrequest",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenRequestTypedDict": ".textql_rpc_public_patches_setlibraryfilegoldenrequest",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenResponse": ".textql_rpc_public_patches_setlibraryfilegoldenresponse",
+    "TextqlRPCPublicPatchesSetLibraryFileGoldenResponseTypedDict": ".textql_rpc_public_patches_setlibraryfilegoldenresponse",
     "TextqlRPCPublicPatchesSkill": ".textql_rpc_public_patches_skill",
     "TextqlRPCPublicPatchesSkillTypedDict": ".textql_rpc_public_patches_skill",
     "TextqlRPCPublicPatchesSkippedConfigExport": ".textql_rpc_public_patches_skippedconfigexport",
@@ -16455,10 +16444,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPlaybookGetPlaybookBatchRunRequestTypedDict": ".textql_rpc_public_playbook_getplaybookbatchrunrequest",
     "TextqlRPCPublicPlaybookGetPlaybookBatchRunResponse": ".textql_rpc_public_playbook_getplaybookbatchrunresponse",
     "TextqlRPCPublicPlaybookGetPlaybookBatchRunResponseTypedDict": ".textql_rpc_public_playbook_getplaybookbatchrunresponse",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnRequest": ".textql_rpc_public_playbook_getplaybookextendedqnrequest",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnRequestTypedDict": ".textql_rpc_public_playbook_getplaybookextendedqnrequest",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponse": ".textql_rpc_public_playbook_getplaybookextendedqnresponse",
-    "TextqlRPCPublicPlaybookGetPlaybookExtendedQnResponseTypedDict": ".textql_rpc_public_playbook_getplaybookextendedqnresponse",
     "TextqlRPCPublicPlaybookGetPlaybookLineageRequest": ".textql_rpc_public_playbook_getplaybooklineagerequest",
     "TextqlRPCPublicPlaybookGetPlaybookLineageRequestTypedDict": ".textql_rpc_public_playbook_getplaybooklineagerequest",
     "TextqlRPCPublicPlaybookGetPlaybookLineageResponse": ".textql_rpc_public_playbook_getplaybooklineageresponse",
@@ -16483,10 +16468,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPlaybookGetPlaybooksRequestTypedDict": ".textql_rpc_public_playbook_getplaybooksrequest",
     "TextqlRPCPublicPlaybookGetPlaybooksResponse": ".textql_rpc_public_playbook_getplaybooksresponse",
     "TextqlRPCPublicPlaybookGetPlaybooksResponseTypedDict": ".textql_rpc_public_playbook_getplaybooksresponse",
-    "TextqlRPCPublicPlaybookGetQNPlaybookRequest": ".textql_rpc_public_playbook_getqnplaybookrequest",
-    "TextqlRPCPublicPlaybookGetQNPlaybookRequestTypedDict": ".textql_rpc_public_playbook_getqnplaybookrequest",
-    "TextqlRPCPublicPlaybookGetQNPlaybookResponse": ".textql_rpc_public_playbook_getqnplaybookresponse",
-    "TextqlRPCPublicPlaybookGetQNPlaybookResponseTypedDict": ".textql_rpc_public_playbook_getqnplaybookresponse",
     "TextqlRPCPublicPlaybookGetReportByIDRequest": ".textql_rpc_public_playbook_getreportbyidrequest",
     "TextqlRPCPublicPlaybookGetReportByIDRequestTypedDict": ".textql_rpc_public_playbook_getreportbyidrequest",
     "TextqlRPCPublicPlaybookGetReportByIDResponse": ".textql_rpc_public_playbook_getreportbyidresponse",
@@ -16533,8 +16514,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPlaybookPlaybookAttachDatasetResponseTypedDict": ".textql_rpc_public_playbook_playbookattachdatasetresponse",
     "TextqlRPCPublicPlaybookPlaybookBatchRun": ".textql_rpc_public_playbook_playbookbatchrun",
     "TextqlRPCPublicPlaybookPlaybookBatchRunTypedDict": ".textql_rpc_public_playbook_playbookbatchrun",
-    "TextqlRPCPublicPlaybookPlaybookExtendedQn": ".textql_rpc_public_playbook_playbookextendedqn",
-    "TextqlRPCPublicPlaybookPlaybookExtendedQnTypedDict": ".textql_rpc_public_playbook_playbookextendedqn",
     "TextqlRPCPublicPlaybookPlaybookLineageNode": ".textql_rpc_public_playbook_playbooklineagenode",
     "TextqlRPCPublicPlaybookPlaybookLineageNodeTypedDict": ".textql_rpc_public_playbook_playbooklineagenode",
     "TextqlRPCPublicPlaybookPlaybookPreview": ".textql_rpc_public_playbook_playbookpreview",
@@ -16557,8 +16536,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPlaybookPreviewSlackReportRequestTypedDict": ".textql_rpc_public_playbook_previewslackreportrequest",
     "TextqlRPCPublicPlaybookPreviewSlackReportResponse": ".textql_rpc_public_playbook_previewslackreportresponse",
     "TextqlRPCPublicPlaybookPreviewSlackReportResponseTypedDict": ".textql_rpc_public_playbook_previewslackreportresponse",
-    "TextqlRPCPublicPlaybookQNPlaybook": ".textql_rpc_public_playbook_qnplaybook",
-    "TextqlRPCPublicPlaybookQNPlaybookTypedDict": ".textql_rpc_public_playbook_qnplaybook",
     "TextqlRPCPublicPlaybookReportFilters": ".textql_rpc_public_playbook_reportfilters",
     "TextqlRPCPublicPlaybookReportFiltersTypedDict": ".textql_rpc_public_playbook_reportfilters",
     "TextqlRPCPublicPlaybookRunPlaybookRequest": ".textql_rpc_public_playbook_runplaybookrequest",
@@ -16597,10 +16574,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPlaybookUnsubscribeFromPlaybookRequestTypedDict": ".textql_rpc_public_playbook_unsubscribefromplaybookrequest",
     "TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponse": ".textql_rpc_public_playbook_unsubscribefromplaybookresponse",
     "TextqlRPCPublicPlaybookUnsubscribeFromPlaybookResponseTypedDict": ".textql_rpc_public_playbook_unsubscribefromplaybookresponse",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnRequest": ".textql_rpc_public_playbook_updateplaybookextendedqnrequest",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnRequestTypedDict": ".textql_rpc_public_playbook_updateplaybookextendedqnrequest",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponse": ".textql_rpc_public_playbook_updateplaybookextendedqnresponse",
-    "TextqlRPCPublicPlaybookUpdatePlaybookExtendedQnResponseTypedDict": ".textql_rpc_public_playbook_updateplaybookextendedqnresponse",
     "TextqlRPCPublicPlaybookUpdatePlaybookRequest": ".textql_rpc_public_playbook_updateplaybookrequest",
     "TextqlRPCPublicPlaybookUpdatePlaybookRequestTypedDict": ".textql_rpc_public_playbook_updateplaybookrequest",
     "TextqlRPCPublicPlaybookUpdatePlaybookResponse": ".textql_rpc_public_playbook_updateplaybookresponse",

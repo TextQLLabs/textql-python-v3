@@ -1,10 +1,13 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.create()
 
@@ -19,11 +22,14 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
+import os
 from textql_sdk import Textql
 
 async def main():
 
-    async with Textql() as textql:
+    async with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
 
         res = await textql.agents.create_async()
 

@@ -9,14 +9,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppGetAppViewStatsRequestTypedDict(TypedDict):
-    r"""View analytics"""
-
     app_id: NotRequired[str]
 
 
 class TextqlRPCPublicAppGetAppViewStatsRequest(BaseModel):
-    r"""View analytics"""
-
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
 
     @model_serializer(mode="wrap")

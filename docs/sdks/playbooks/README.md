@@ -19,13 +19,11 @@
 * [get_members_with](#get_members_with) - GetMembersWithPlaybooks
 * [fetch](#fetch) - GetPlaybook
 * [get_batch_run](#get_batch_run) - Get a specific batch run
-* [get_extended_qn](#get_extended_qn) - Playbook Extended quant.new operations
 * [get_playbook_lineage](#get_playbook_lineage) - GetPlaybookLineage
 * [get_reports](#get_reports) - GetPlaybookReports
 * [get_playbook_reports_batch](#get_playbook_reports_batch) - Get reports for multiple template data IDs in a single batch request
 * [get](#get) - GetPlaybooks
 * [get_playbooks_previews](#get_playbooks_previews) - GetPlaybooksPreviews
-* [get_qn_playbook](#get_qn_playbook) - GetQNPlaybook
 * [get_report_by_id](#get_report_by_id) - Get a single report by ID
 * [get_reports_with_filters](#get_reports_with_filters) - GetReportsWithFilters
 * [list_slack_channel_context_playbooks](#list_slack_channel_context_playbooks) - List all Slack channels context playbook mappings for the organization
@@ -45,7 +43,6 @@
 * [unset_teams_channel_context](#unset_teams_channel_context) - UnsetTeamsChannelContextPlaybook
 * [unsubscribe](#unsubscribe) - UnsubscribeFromPlaybook
 * [update](#update) - UpdatePlaybook
-* [update_extended_qn](#update_extended_qn) - UpdatePlaybookExtendedQn
 
 ## attach_dashboard
 
@@ -55,10 +52,13 @@ AttachDashboard
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_AttachDashboard" method="post" path="/textql.rpc.public.playbook.PlaybookService/AttachDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.attach_dashboard()
 
@@ -94,10 +94,13 @@ AttachDataset
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_AttachDataset" method="post" path="/textql.rpc.public.playbook.PlaybookService/AttachDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.attach_dataset()
 
@@ -133,10 +136,13 @@ Cancel template execution for a specific template header
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_CancelTemplateExecution" method="post" path="/textql.rpc.public.playbook.PlaybookService/CancelTemplateExecution" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.cancel_template_execution()
 
@@ -172,10 +178,13 @@ CreatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_CreatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/CreatePlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.create_playbook(body={})
 
@@ -210,10 +219,13 @@ DeactivatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DeactivatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DeactivatePlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.deactivate()
 
@@ -248,10 +260,13 @@ DeletePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DeletePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DeletePlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.delete()
 
@@ -286,10 +301,13 @@ DemoPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DemoPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DemoPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.demo_playbook()
 
@@ -327,10 +345,13 @@ DeployPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DeployPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DeployPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.deploy()
 
@@ -365,10 +386,13 @@ DuplicatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_DuplicatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/DuplicatePlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.duplicate()
 
@@ -403,10 +427,13 @@ Favorite report management
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_FavoriteReport" method="post" path="/textql.rpc.public.playbook.PlaybookService/FavoriteReport" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.favorite_report()
 
@@ -442,10 +469,13 @@ GetActiveSubscribedPlaybooksCount
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetActiveSubscribedPlaybooksCount" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetActiveSubscribedPlaybooksCount" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_active_subscribed_count(body={})
 
@@ -480,10 +510,13 @@ Lightweight endpoint for chat report drawer - returns summaries without full blo
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetChatReportsSummary" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetChatReportsSummary" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_chat_reports_summary()
 
@@ -518,10 +551,13 @@ GetMembersWithPlaybooks
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetMembersWithPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetMembersWithPlaybooks" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_members_with(body={})
 
@@ -556,10 +592,13 @@ GetPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.fetch()
 
@@ -596,10 +635,13 @@ Get a specific batch run
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookBatchRun" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookBatchRun" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_batch_run()
 
@@ -626,44 +668,6 @@ with Textql() as textql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## get_extended_qn
-
-Playbook Extended quant.new operations
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookExtendedQn" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookExtendedQn" -->
-```python
-from textql_sdk import Textql
-
-
-with Textql() as textql:
-
-    res = textql.playbooks.get_extended_qn()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PlaybookServiceGetPlaybookExtendedQnResponse](../../models/playbookservicegetplaybookextendedqnresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
 ## get_playbook_lineage
 
 GetPlaybookLineage
@@ -672,10 +676,13 @@ GetPlaybookLineage
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookLineage" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookLineage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_playbook_lineage()
 
@@ -710,10 +717,13 @@ GetPlaybookReports
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookReports" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookReports" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_reports()
 
@@ -753,10 +763,13 @@ Get reports for multiple template data IDs in a single batch request
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybookReportsBatch" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybookReportsBatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_playbook_reports_batch()
 
@@ -794,10 +807,13 @@ GetPlaybooks
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybooks" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get()
 
@@ -845,10 +861,13 @@ GetPlaybooksPreviews
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetPlaybooksPreviews" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetPlaybooksPreviews" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_playbooks_previews()
 
@@ -876,44 +895,6 @@ with Textql() as textql:
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## get_qn_playbook
-
-GetQNPlaybook
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="PlaybookService_GetQNPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetQNPlaybook" -->
-```python
-from textql_sdk import Textql
-
-
-with Textql() as textql:
-
-    res = textql.playbooks.get_qn_playbook()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PlaybookServiceGetQNPlaybookResponse](../../models/playbookservicegetqnplaybookresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
 ## get_report_by_id
 
 Get a single report by ID
@@ -922,10 +903,13 @@ Get a single report by ID
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetReportById" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetReportById" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_report_by_id()
 
@@ -960,11 +944,14 @@ GetReportsWithFilters
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_GetReportsWithFilters" method="post" path="/textql.rpc.public.playbook.PlaybookService/GetReportsWithFilters" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.get_reports_with_filters(filters={
         "start_time": parse_datetime("2023-01-15T01:30:15.01Z"),
@@ -1002,10 +989,13 @@ List all Slack channels context playbook mappings for the organization
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListAllSlackChannelContextPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListAllSlackChannelContextPlaybooks" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.list_slack_channel_context_playbooks(body={})
 
@@ -1040,10 +1030,13 @@ ListAllTeamsChannelContextPlaybooks
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListAllTeamsChannelContextPlaybooks" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListAllTeamsChannelContextPlaybooks" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.list_all_teams_channel_context_playbooks(body={})
 
@@ -1078,10 +1071,13 @@ List batch runs for a playbook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListPlaybookBatchRuns" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListPlaybookBatchRuns" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.list_batch_runs()
 
@@ -1118,10 +1114,13 @@ List Slack channel IDs where the given playbook is set as the context
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListSlackChannelsForContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListSlackChannelsForContextPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.list_slack_channels_for_context()
 
@@ -1156,10 +1155,13 @@ ListTeamsChannelsForContextPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_ListTeamsChannelsForContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/ListTeamsChannelsForContextPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.list_teams_channels_for_context_playbook()
 
@@ -1194,10 +1196,13 @@ Report read tracking
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_MarkReportAsRead" method="post" path="/textql.rpc.public.playbook.PlaybookService/MarkReportAsRead" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.mark_report_as_read()
 
@@ -1232,10 +1237,13 @@ PreviewSlackReport
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_PreviewSlackReport" method="post" path="/textql.rpc.public.playbook.PlaybookService/PreviewSlackReport" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.preview_slack_report()
 
@@ -1273,10 +1281,13 @@ RemoveDashboard
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_RemoveDashboard" method="post" path="/textql.rpc.public.playbook.PlaybookService/RemoveDashboard" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.remove_dashboard()
 
@@ -1312,10 +1323,13 @@ RemoveDataset
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_RemoveDataset" method="post" path="/textql.rpc.public.playbook.PlaybookService/RemoveDataset" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.remove_dataset()
 
@@ -1351,10 +1365,13 @@ RunPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_RunPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/RunPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.run()
 
@@ -1393,10 +1410,13 @@ Set the context playbook for a Slack channel. This associates the given
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_SetSlackChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/SetSlackChannelContextPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.set_slack_channel_context_playbook()
 
@@ -1432,10 +1452,13 @@ SetTeamsChannelContextPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_SetTeamsChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/SetTeamsChannelContextPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.set_teams_channel_context()
 
@@ -1471,10 +1494,13 @@ SubscribeToPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_SubscribeToPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/SubscribeToPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.subscribe()
 
@@ -1510,10 +1536,13 @@ Unset the context playbook for a Slack channel. This clears any association
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UnsetSlackChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UnsetSlackChannelContextPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.unset_slack_channel_context_playbook()
 
@@ -1548,10 +1577,13 @@ UnsetTeamsChannelContextPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UnsetTeamsChannelContextPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UnsetTeamsChannelContextPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.unset_teams_channel_context()
 
@@ -1586,10 +1618,13 @@ UnsubscribeFromPlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UnsubscribeFromPlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UnsubscribeFromPlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.unsubscribe()
 
@@ -1624,10 +1659,13 @@ UpdatePlaybook
 
 <!-- UsageSnippet language="python" operationID="PlaybookService_UpdatePlaybook" method="post" path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybook" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.playbooks.update()
 
@@ -1675,49 +1713,6 @@ with Textql() as textql:
 ### Response
 
 **[models.PlaybookServiceUpdatePlaybookResponse](../../models/playbookserviceupdateplaybookresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
-## update_extended_qn
-
-UpdatePlaybookExtendedQn
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="PlaybookService_UpdatePlaybookExtendedQn" method="post" path="/textql.rpc.public.playbook.PlaybookService/UpdatePlaybookExtendedQn" -->
-```python
-from textql_sdk import Textql
-
-
-with Textql() as textql:
-
-    res = textql.playbooks.update_extended_qn()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
-| `summary`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `template`                                                          | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `tags`                                                              | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `ratings`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | JSON string for flexible rating data                                |
-| `favorite_report_id`                                                | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | UUID                                                                |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PlaybookServiceUpdatePlaybookExtendedQnResponse](../../models/playbookserviceupdateplaybookextendedqnresponse.md)**
 
 ### Errors
 

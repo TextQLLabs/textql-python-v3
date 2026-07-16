@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
-from .textql_rpc_public_playbook_getqnplaybookrequest import (
-    TextqlRPCPublicPlaybookGetQNPlaybookRequest,
-    TextqlRPCPublicPlaybookGetQNPlaybookRequestTypedDict,
+from .textql_rpc_public_patches_setlibraryfilegoldenrequest import (
+    TextqlRPCPublicPatchesSetLibraryFileGoldenRequest,
+    TextqlRPCPublicPatchesSetLibraryFileGoldenRequestTypedDict,
 )
-from .textql_rpc_public_playbook_getqnplaybookresponse import (
-    TextqlRPCPublicPlaybookGetQNPlaybookResponse,
-    TextqlRPCPublicPlaybookGetQNPlaybookResponseTypedDict,
+from .textql_rpc_public_patches_setlibraryfilegoldenresponse import (
+    TextqlRPCPublicPatchesSetLibraryFileGoldenResponse,
+    TextqlRPCPublicPatchesSetLibraryFileGoldenResponseTypedDict,
 )
 import pydantic
 from pydantic import model_serializer
@@ -24,15 +24,15 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-class PlaybookServiceGetQNPlaybookRequestTypedDict(TypedDict):
-    body: TextqlRPCPublicPlaybookGetQNPlaybookRequestTypedDict
+class LibraryServiceSetLibraryFileGoldenRequestTypedDict(TypedDict):
+    body: TextqlRPCPublicPatchesSetLibraryFileGoldenRequestTypedDict
     connect_protocol_version: float
     connect_timeout_ms: NotRequired[float]
 
 
-class PlaybookServiceGetQNPlaybookRequest(BaseModel):
+class LibraryServiceSetLibraryFileGoldenRequest(BaseModel):
     body: Annotated[
-        TextqlRPCPublicPlaybookGetQNPlaybookRequest,
+        TextqlRPCPublicPatchesSetLibraryFileGoldenRequest,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
 
@@ -65,19 +65,22 @@ class PlaybookServiceGetQNPlaybookRequest(BaseModel):
         return m
 
 
-PlaybookServiceGetQNPlaybookResponseTypedDict = TypeAliasType(
-    "PlaybookServiceGetQNPlaybookResponseTypedDict",
-    Union[TextqlRPCPublicPlaybookGetQNPlaybookResponseTypedDict, ConnectErrorTypedDict],
+LibraryServiceSetLibraryFileGoldenResponseTypedDict = TypeAliasType(
+    "LibraryServiceSetLibraryFileGoldenResponseTypedDict",
+    Union[
+        TextqlRPCPublicPatchesSetLibraryFileGoldenResponseTypedDict,
+        ConnectErrorTypedDict,
+    ],
 )
 
 
-PlaybookServiceGetQNPlaybookResponse = TypeAliasType(
-    "PlaybookServiceGetQNPlaybookResponse",
-    Union[TextqlRPCPublicPlaybookGetQNPlaybookResponse, ConnectError],
+LibraryServiceSetLibraryFileGoldenResponse = TypeAliasType(
+    "LibraryServiceSetLibraryFileGoldenResponse",
+    Union[TextqlRPCPublicPatchesSetLibraryFileGoldenResponse, ConnectError],
 )
 
 
 try:
-    PlaybookServiceGetQNPlaybookRequest.model_rebuild()
+    LibraryServiceSetLibraryFileGoldenRequest.model_rebuild()
 except NameError:
     pass

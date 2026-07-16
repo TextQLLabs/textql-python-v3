@@ -97,6 +97,10 @@ from .textql_rpc_public_cells_linkedinsearchcell import (
     TextqlRPCPublicCellsLinkedinSearchCell,
     TextqlRPCPublicCellsLinkedinSearchCellTypedDict,
 )
+from .textql_rpc_public_cells_listappscell import (
+    TextqlRPCPublicCellsListAppsCell,
+    TextqlRPCPublicCellsListAppsCellTypedDict,
+)
 from .textql_rpc_public_cells_listdashboardscell import (
     TextqlRPCPublicCellsListDashboardsCell,
     TextqlRPCPublicCellsListDashboardsCellTypedDict,
@@ -240,14 +244,14 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-TextqlRPCPublicChatCellDurationMs56TypedDict = TypeAliasType(
-    "TextqlRPCPublicChatCellDurationMs56TypedDict", Union[int, str]
+TextqlRPCPublicChatCellDurationMs57TypedDict = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs57TypedDict", Union[int, str]
 )
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-TextqlRPCPublicChatCellDurationMs56 = TypeAliasType(
-    "TextqlRPCPublicChatCellDurationMs56", Union[int, str]
+TextqlRPCPublicChatCellDurationMs57 = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs57", Union[int, str]
 )
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
@@ -356,7 +360,7 @@ class WsCellTypedDict(TypedDict):
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
     r"""LLM-generated summary of what this tool call does"""
-    duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs56TypedDict]]
+    duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs57TypedDict]]
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
@@ -364,6 +368,307 @@ class WsCell(BaseModel):
     ws_cell: Annotated[
         TextqlRPCPublicCellsWebSearchCell, pydantic.Field(alias="wsCell")
     ]
+
+    id: Optional[str] = None
+    r"""UUID"""
+
+    timestamp: Optional[datetime] = None
+    r"""A Timestamp represents a point in time independent of any time zone or local
+    calendar, encoded as a count of seconds and fractions of seconds at
+    nanosecond resolution. The count is relative to an epoch at UTC midnight on
+    January 1, 1970, in the proleptic Gregorian calendar which extends the
+    Gregorian calendar backwards to year one.
+
+    All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+    second table is needed for interpretation, using a [24-hour linear
+    smear](https://developers.google.com/time/smear).
+
+    The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+    restricting to that range, we ensure that we can convert to and from [RFC
+    3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+    # Examples
+
+    Example 1: Compute Timestamp from POSIX `time()`.
+
+    Timestamp timestamp;
+    timestamp.set_seconds(time(NULL));
+    timestamp.set_nanos(0);
+
+    Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+
+    Timestamp timestamp;
+    timestamp.set_seconds(tv.tv_sec);
+    timestamp.set_nanos(tv.tv_usec * 1000);
+
+    Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+    FILETIME ft;
+    GetSystemTimeAsFileTime(&ft);
+    UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+    // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+    // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+    Timestamp timestamp;
+    timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+    timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+    Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+    long millis = System.currentTimeMillis();
+
+    Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+    .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+    Example 5: Compute Timestamp from Java `Instant.now()`.
+
+    Instant now = Instant.now();
+
+    Timestamp timestamp =
+    Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+    .setNanos(now.getNano()).build();
+
+    Example 6: Compute Timestamp from current time in Python.
+
+    timestamp = Timestamp()
+    timestamp.GetCurrentTime()
+
+    # JSON Mapping
+
+    In JSON format, the Timestamp type is encoded as a string in the
+    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+    format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" 
+    where {year} is always expressed using four digits while {month}, {day},
+    {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+    seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+    are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+    is required. A proto3 JSON serializer should always use UTC (as indicated by
+    \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+    able to accept both UTC and other timezones (as indicated by an offset).
+
+    For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+    01:30 UTC on January 15, 2017.
+
+    In JavaScript, one can convert a Date object to this format using the
+    standard
+    [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+    method. In Python, a standard `datetime.datetime` object can be converted
+    to this format using
+    [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+    the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+    the Joda Time's [`ISODateTimeFormat.dateTime()`](
+    http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+    ) to obtain a formatter capable of generating timestamps in this format.
+    """
+
+    complete: Optional[bool] = None
+
+    generated: Optional[bool] = None
+    r"""whether it was created by a human or robot"""
+
+    lifecycle: Optional[TextqlRPCPublicChatCellLifecycle] = None
+
+    tool_call_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="toolCallId")
+    ] = UNSET
+
+    exec_error: Annotated[OptionalNullable[str], pydantic.Field(alias="execError")] = (
+        UNSET
+    )
+
+    sender_member_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="senderMemberId")
+    ] = UNSET
+
+    tool_summary: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="toolSummary")
+    ] = UNSET
+    r"""LLM-generated summary of what this tool call does"""
+
+    duration_ms: Annotated[
+        OptionalNullable[TextqlRPCPublicChatCellDurationMs57],
+        pydantic.Field(alias="durationMs"),
+    ] = UNSET
+    r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "id",
+                "timestamp",
+                "complete",
+                "generated",
+                "lifecycle",
+                "toolCallId",
+                "execError",
+                "senderMemberId",
+                "toolSummary",
+                "durationMs",
+            ]
+        )
+        nullable_fields = set(
+            ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
+
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
+
+        return m
+
+
+TextqlRPCPublicChatCellDurationMs56TypedDict = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs56TypedDict", Union[int, str]
+)
+r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+
+TextqlRPCPublicChatCellDurationMs56 = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs56", Union[int, str]
+)
+r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+
+class UseSkillCellTypedDict(TypedDict):
+    use_skill_cell: TextqlRPCPublicCellsUseSkillCellTypedDict
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
+    id: NotRequired[str]
+    r"""UUID"""
+    timestamp: NotRequired[datetime]
+    r"""A Timestamp represents a point in time independent of any time zone or local
+    calendar, encoded as a count of seconds and fractions of seconds at
+    nanosecond resolution. The count is relative to an epoch at UTC midnight on
+    January 1, 1970, in the proleptic Gregorian calendar which extends the
+    Gregorian calendar backwards to year one.
+
+    All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+    second table is needed for interpretation, using a [24-hour linear
+    smear](https://developers.google.com/time/smear).
+
+    The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+    restricting to that range, we ensure that we can convert to and from [RFC
+    3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+    # Examples
+
+    Example 1: Compute Timestamp from POSIX `time()`.
+
+    Timestamp timestamp;
+    timestamp.set_seconds(time(NULL));
+    timestamp.set_nanos(0);
+
+    Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+
+    Timestamp timestamp;
+    timestamp.set_seconds(tv.tv_sec);
+    timestamp.set_nanos(tv.tv_usec * 1000);
+
+    Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+    FILETIME ft;
+    GetSystemTimeAsFileTime(&ft);
+    UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+    // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+    // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+    Timestamp timestamp;
+    timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+    timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+    Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+    long millis = System.currentTimeMillis();
+
+    Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+    .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+    Example 5: Compute Timestamp from Java `Instant.now()`.
+
+    Instant now = Instant.now();
+
+    Timestamp timestamp =
+    Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+    .setNanos(now.getNano()).build();
+
+    Example 6: Compute Timestamp from current time in Python.
+
+    timestamp = Timestamp()
+    timestamp.GetCurrentTime()
+
+    # JSON Mapping
+
+    In JSON format, the Timestamp type is encoded as a string in the
+    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+    format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" 
+    where {year} is always expressed using four digits while {month}, {day},
+    {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+    seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+    are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+    is required. A proto3 JSON serializer should always use UTC (as indicated by
+    \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+    able to accept both UTC and other timezones (as indicated by an offset).
+
+    For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+    01:30 UTC on January 15, 2017.
+
+    In JavaScript, one can convert a Date object to this format using the
+    standard
+    [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+    method. In Python, a standard `datetime.datetime` object can be converted
+    to this format using
+    [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+    the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+    the Joda Time's [`ISODateTimeFormat.dateTime()`](
+    http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+    ) to obtain a formatter capable of generating timestamps in this format.
+    """
+    complete: NotRequired[bool]
+    generated: NotRequired[bool]
+    r"""whether it was created by a human or robot"""
+    lifecycle: NotRequired[TextqlRPCPublicChatCellLifecycle]
+    tool_call_id: NotRequired[Nullable[str]]
+    exec_error: NotRequired[Nullable[str]]
+    sender_member_id: NotRequired[Nullable[str]]
+    tool_summary: NotRequired[Nullable[str]]
+    r"""LLM-generated summary of what this tool call does"""
+    duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs56TypedDict]]
+    r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+
+class UseSkillCell(BaseModel):
+    use_skill_cell: Annotated[
+        TextqlRPCPublicCellsUseSkillCell, pydantic.Field(alias="useSkillCell")
+    ]
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -543,13 +848,8 @@ TextqlRPCPublicChatCellDurationMs55 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class UseSkillCellTypedDict(TypedDict):
-    use_skill_cell: TextqlRPCPublicCellsUseSkillCellTypedDict
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
+class TextCellTypedDict(TypedDict):
+    text_cell: TextqlRPCPublicCellsTextCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -656,15 +956,8 @@ class UseSkillCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class UseSkillCell(BaseModel):
-    use_skill_cell: Annotated[
-        TextqlRPCPublicCellsUseSkillCell, pydantic.Field(alias="useSkillCell")
-    ]
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
+class TextCell(BaseModel):
+    text_cell: Annotated[TextqlRPCPublicCellsTextCell, pydantic.Field(alias="textCell")]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -844,8 +1137,8 @@ TextqlRPCPublicChatCellDurationMs54 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TextCellTypedDict(TypedDict):
-    text_cell: TextqlRPCPublicCellsTextCellTypedDict
+class TabularFileCellTypedDict(TypedDict):
+    tabular_file_cell: TextqlRPCPublicCellsTabularFileCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -952,8 +1245,10 @@ class TextCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TextCell(BaseModel):
-    text_cell: Annotated[TextqlRPCPublicCellsTextCell, pydantic.Field(alias="textCell")]
+class TabularFileCell(BaseModel):
+    tabular_file_cell: Annotated[
+        TextqlRPCPublicCellsTabularFileCell, pydantic.Field(alias="tabularFileCell")
+    ]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -1133,8 +1428,8 @@ TextqlRPCPublicChatCellDurationMs53 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TabularFileCellTypedDict(TypedDict):
-    tabular_file_cell: TextqlRPCPublicCellsTabularFileCellTypedDict
+class TableauSQLCellTypedDict(TypedDict):
+    tableau_sql_cell: TextqlRPCPublicCellsTableauSQLCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -1241,9 +1536,9 @@ class TabularFileCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TabularFileCell(BaseModel):
-    tabular_file_cell: Annotated[
-        TextqlRPCPublicCellsTabularFileCell, pydantic.Field(alias="tabularFileCell")
+class TableauSQLCell(BaseModel):
+    tableau_sql_cell: Annotated[
+        TextqlRPCPublicCellsTableauSQLCell, pydantic.Field(alias="tableauSqlCell")
     ]
 
     id: Optional[str] = None
@@ -1424,8 +1719,8 @@ TextqlRPCPublicChatCellDurationMs52 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TableauSQLCellTypedDict(TypedDict):
-    tableau_sql_cell: TextqlRPCPublicCellsTableauSQLCellTypedDict
+class TableauSearchFieldsCellTypedDict(TypedDict):
+    tableau_search_fields_cell: TextqlRPCPublicCellsTableauSearchFieldsCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -1532,9 +1827,10 @@ class TableauSQLCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TableauSQLCell(BaseModel):
-    tableau_sql_cell: Annotated[
-        TextqlRPCPublicCellsTableauSQLCell, pydantic.Field(alias="tableauSqlCell")
+class TableauSearchFieldsCell(BaseModel):
+    tableau_search_fields_cell: Annotated[
+        TextqlRPCPublicCellsTableauSearchFieldsCell,
+        pydantic.Field(alias="tableauSearchFieldsCell"),
     ]
 
     id: Optional[str] = None
@@ -1715,8 +2011,8 @@ TextqlRPCPublicChatCellDurationMs51 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TableauSearchFieldsCellTypedDict(TypedDict):
-    tableau_search_fields_cell: TextqlRPCPublicCellsTableauSearchFieldsCellTypedDict
+class TableauCellTypedDict(TypedDict):
+    tableau_cell: TextqlRPCPublicCellsTableauCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -1823,10 +2119,9 @@ class TableauSearchFieldsCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TableauSearchFieldsCell(BaseModel):
-    tableau_search_fields_cell: Annotated[
-        TextqlRPCPublicCellsTableauSearchFieldsCell,
-        pydantic.Field(alias="tableauSearchFieldsCell"),
+class TableauCell(BaseModel):
+    tableau_cell: Annotated[
+        TextqlRPCPublicCellsTableauCell, pydantic.Field(alias="tableauCell")
     ]
 
     id: Optional[str] = None
@@ -2007,8 +2302,8 @@ TextqlRPCPublicChatCellDurationMs50 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TableauCellTypedDict(TypedDict):
-    tableau_cell: TextqlRPCPublicCellsTableauCellTypedDict
+class SummaryCellTypedDict(TypedDict):
+    summary_cell: TextqlRPCPublicCellsSummaryCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -2115,9 +2410,9 @@ class TableauCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class TableauCell(BaseModel):
-    tableau_cell: Annotated[
-        TextqlRPCPublicCellsTableauCell, pydantic.Field(alias="tableauCell")
+class SummaryCell(BaseModel):
+    summary_cell: Annotated[
+        TextqlRPCPublicCellsSummaryCell, pydantic.Field(alias="summaryCell")
     ]
 
     id: Optional[str] = None
@@ -2298,8 +2593,8 @@ TextqlRPCPublicChatCellDurationMs49 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class SummaryCellTypedDict(TypedDict):
-    summary_cell: TextqlRPCPublicCellsSummaryCellTypedDict
+class StreamlitCellTypedDict(TypedDict):
+    streamlit_cell: TextqlRPCPublicCellsStreamlitCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -2406,9 +2701,9 @@ class SummaryCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class SummaryCell(BaseModel):
-    summary_cell: Annotated[
-        TextqlRPCPublicCellsSummaryCell, pydantic.Field(alias="summaryCell")
+class StreamlitCell(BaseModel):
+    streamlit_cell: Annotated[
+        TextqlRPCPublicCellsStreamlitCell, pydantic.Field(alias="streamlitCell")
     ]
 
     id: Optional[str] = None
@@ -2589,8 +2884,9 @@ TextqlRPCPublicChatCellDurationMs48 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class StreamlitCellTypedDict(TypedDict):
-    streamlit_cell: TextqlRPCPublicCellsStreamlitCellTypedDict
+class StatusCellTypedDict(TypedDict):
+    status_cell: TextqlRPCPublicCellsStatusCellTypedDict
+    r"""Deprecated: use tool_summary on Cell instead."""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -2697,10 +2993,11 @@ class StreamlitCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class StreamlitCell(BaseModel):
-    streamlit_cell: Annotated[
-        TextqlRPCPublicCellsStreamlitCell, pydantic.Field(alias="streamlitCell")
+class StatusCell(BaseModel):
+    status_cell: Annotated[
+        TextqlRPCPublicCellsStatusCell, pydantic.Field(alias="statusCell")
     ]
+    r"""Deprecated: use tool_summary on Cell instead."""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -2880,9 +3177,8 @@ TextqlRPCPublicChatCellDurationMs47 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class StatusCellTypedDict(TypedDict):
-    status_cell: TextqlRPCPublicCellsStatusCellTypedDict
-    r"""Deprecated: use tool_summary on Cell instead."""
+class SQLCellTypedDict(TypedDict):
+    sql_cell: TextqlRPCPublicCellsSQLCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -2989,11 +3285,8 @@ class StatusCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class StatusCell(BaseModel):
-    status_cell: Annotated[
-        TextqlRPCPublicCellsStatusCell, pydantic.Field(alias="statusCell")
-    ]
-    r"""Deprecated: use tool_summary on Cell instead."""
+class SQLCell(BaseModel):
+    sql_cell: Annotated[TextqlRPCPublicCellsSQLCell, pydantic.Field(alias="sqlCell")]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -3173,8 +3466,8 @@ TextqlRPCPublicChatCellDurationMs46 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class SQLCellTypedDict(TypedDict):
-    sql_cell: TextqlRPCPublicCellsSQLCellTypedDict
+class ReportHistoryCellTypedDict(TypedDict):
+    report_history_cell: TextqlRPCPublicCellsReportHistoryCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -3281,8 +3574,10 @@ class SQLCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class SQLCell(BaseModel):
-    sql_cell: Annotated[TextqlRPCPublicCellsSQLCell, pydantic.Field(alias="sqlCell")]
+class ReportHistoryCell(BaseModel):
+    report_history_cell: Annotated[
+        TextqlRPCPublicCellsReportHistoryCell, pydantic.Field(alias="reportHistoryCell")
+    ]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -3462,8 +3757,8 @@ TextqlRPCPublicChatCellDurationMs45 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ReportHistoryCellTypedDict(TypedDict):
-    report_history_cell: TextqlRPCPublicCellsReportHistoryCellTypedDict
+class ReportCellTypedDict(TypedDict):
+    report_cell: TextqlRPCPublicCellsReportCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -3570,9 +3865,9 @@ class ReportHistoryCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ReportHistoryCell(BaseModel):
-    report_history_cell: Annotated[
-        TextqlRPCPublicCellsReportHistoryCell, pydantic.Field(alias="reportHistoryCell")
+class ReportCell(BaseModel):
+    report_cell: Annotated[
+        TextqlRPCPublicCellsReportCell, pydantic.Field(alias="reportCell")
     ]
 
     id: Optional[str] = None
@@ -3753,8 +4048,13 @@ TextqlRPCPublicChatCellDurationMs44 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ReportCellTypedDict(TypedDict):
-    report_cell: TextqlRPCPublicCellsReportCellTypedDict
+class QuestionsCellTypedDict(TypedDict):
+    questions_cell: TextqlRPCPublicCellsQuestionsCellTypedDict
+    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
+    haltable cell: the agent pauses until the user submits or dismisses inline.
+    On submit the answers go to the agent; on dismiss only the answered count does
+    and the agent waits for the user's next message (the dismissal reason).
+    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -3861,10 +4161,15 @@ class ReportCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ReportCell(BaseModel):
-    report_cell: Annotated[
-        TextqlRPCPublicCellsReportCell, pydantic.Field(alias="reportCell")
+class QuestionsCell(BaseModel):
+    questions_cell: Annotated[
+        TextqlRPCPublicCellsQuestionsCell, pydantic.Field(alias="questionsCell")
     ]
+    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
+    haltable cell: the agent pauses until the user submits or dismisses inline.
+    On submit the answers go to the agent; on dismiss only the answered count does
+    and the agent waits for the user's next message (the dismissal reason).
+    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -4044,13 +4349,8 @@ TextqlRPCPublicChatCellDurationMs43 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class QuestionsCellTypedDict(TypedDict):
-    questions_cell: TextqlRPCPublicCellsQuestionsCellTypedDict
-    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
-    haltable cell: the agent pauses until the user submits or dismisses inline.
-    On submit the answers go to the agent; on dismiss only the answered count does
-    and the agent waits for the user's next message (the dismissal reason).
-    """
+class PyCellTypedDict(TypedDict):
+    py_cell: TextqlRPCPublicCellsPythonCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -4157,15 +4457,8 @@ class QuestionsCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class QuestionsCell(BaseModel):
-    questions_cell: Annotated[
-        TextqlRPCPublicCellsQuestionsCell, pydantic.Field(alias="questionsCell")
-    ]
-    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
-    haltable cell: the agent pauses until the user submits or dismisses inline.
-    On submit the answers go to the agent; on dismiss only the answered count does
-    and the agent waits for the user's next message (the dismissal reason).
-    """
+class PyCell(BaseModel):
+    py_cell: Annotated[TextqlRPCPublicCellsPythonCell, pydantic.Field(alias="pyCell")]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -4345,8 +4638,9 @@ TextqlRPCPublicChatCellDurationMs42 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PyCellTypedDict(TypedDict):
-    py_cell: TextqlRPCPublicCellsPythonCellTypedDict
+class PreviewCellTypedDict(TypedDict):
+    preview_cell: TextqlRPCPublicCellsPreviewCellTypedDict
+    r"""primary interface for ana to render sandbox assets client side"""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -4453,8 +4747,11 @@ class PyCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PyCell(BaseModel):
-    py_cell: Annotated[TextqlRPCPublicCellsPythonCell, pydantic.Field(alias="pyCell")]
+class PreviewCell(BaseModel):
+    preview_cell: Annotated[
+        TextqlRPCPublicCellsPreviewCell, pydantic.Field(alias="previewCell")
+    ]
+    r"""primary interface for ana to render sandbox assets client side"""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -4634,9 +4931,8 @@ TextqlRPCPublicChatCellDurationMs41 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PreviewCellTypedDict(TypedDict):
-    preview_cell: TextqlRPCPublicCellsPreviewCellTypedDict
-    r"""primary interface for ana to render sandbox assets client side"""
+class PowerbiDaxCellTypedDict(TypedDict):
+    powerbi_dax_cell: TextqlRPCPublicCellsPowerBIDAXCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -4743,11 +5039,10 @@ class PreviewCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PreviewCell(BaseModel):
-    preview_cell: Annotated[
-        TextqlRPCPublicCellsPreviewCell, pydantic.Field(alias="previewCell")
+class PowerbiDaxCell(BaseModel):
+    powerbi_dax_cell: Annotated[
+        TextqlRPCPublicCellsPowerBIDAXCell, pydantic.Field(alias="powerbiDaxCell")
     ]
-    r"""primary interface for ana to render sandbox assets client side"""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -4927,8 +5222,8 @@ TextqlRPCPublicChatCellDurationMs40 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PowerbiDaxCellTypedDict(TypedDict):
-    powerbi_dax_cell: TextqlRPCPublicCellsPowerBIDAXCellTypedDict
+class PowerbiCellTypedDict(TypedDict):
+    powerbi_cell: TextqlRPCPublicCellsPowerBICellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -5035,9 +5330,9 @@ class PowerbiDaxCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PowerbiDaxCell(BaseModel):
-    powerbi_dax_cell: Annotated[
-        TextqlRPCPublicCellsPowerBIDAXCell, pydantic.Field(alias="powerbiDaxCell")
+class PowerbiCell(BaseModel):
+    powerbi_cell: Annotated[
+        TextqlRPCPublicCellsPowerBICell, pydantic.Field(alias="powerbiCell")
     ]
 
     id: Optional[str] = None
@@ -5218,8 +5513,8 @@ TextqlRPCPublicChatCellDurationMs39 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PowerbiCellTypedDict(TypedDict):
-    powerbi_cell: TextqlRPCPublicCellsPowerBICellTypedDict
+class PlaybookEditorCellTypedDict(TypedDict):
+    playbook_editor_cell: TextqlRPCPublicCellsPlaybookEditorCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -5326,9 +5621,10 @@ class PowerbiCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PowerbiCell(BaseModel):
-    powerbi_cell: Annotated[
-        TextqlRPCPublicCellsPowerBICell, pydantic.Field(alias="powerbiCell")
+class PlaybookEditorCell(BaseModel):
+    playbook_editor_cell: Annotated[
+        TextqlRPCPublicCellsPlaybookEditorCell,
+        pydantic.Field(alias="playbookEditorCell"),
     ]
 
     id: Optional[str] = None
@@ -5509,8 +5805,8 @@ TextqlRPCPublicChatCellDurationMs38 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PlaybookEditorCellTypedDict(TypedDict):
-    playbook_editor_cell: TextqlRPCPublicCellsPlaybookEditorCellTypedDict
+class PatchCellTypedDict(TypedDict):
+    patch_cell: TextqlRPCPublicCellsPatchCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -5617,10 +5913,9 @@ class PlaybookEditorCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PlaybookEditorCell(BaseModel):
-    playbook_editor_cell: Annotated[
-        TextqlRPCPublicCellsPlaybookEditorCell,
-        pydantic.Field(alias="playbookEditorCell"),
+class PatchCell(BaseModel):
+    patch_cell: Annotated[
+        TextqlRPCPublicCellsPatchCell, pydantic.Field(alias="patchCell")
     ]
 
     id: Optional[str] = None
@@ -5801,8 +6096,8 @@ TextqlRPCPublicChatCellDurationMs37 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PatchCellTypedDict(TypedDict):
-    patch_cell: TextqlRPCPublicCellsPatchCellTypedDict
+class OntologySearchMetricsCellTypedDict(TypedDict):
+    ontology_search_metrics_cell: TextqlRPCPublicCellsOntologySearchMetricsCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -5909,9 +6204,10 @@ class PatchCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class PatchCell(BaseModel):
-    patch_cell: Annotated[
-        TextqlRPCPublicCellsPatchCell, pydantic.Field(alias="patchCell")
+class OntologySearchMetricsCell(BaseModel):
+    ontology_search_metrics_cell: Annotated[
+        TextqlRPCPublicCellsOntologySearchMetricsCell,
+        pydantic.Field(alias="ontologySearchMetricsCell"),
     ]
 
     id: Optional[str] = None
@@ -6092,8 +6388,8 @@ TextqlRPCPublicChatCellDurationMs36 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologySearchMetricsCellTypedDict(TypedDict):
-    ontology_search_metrics_cell: TextqlRPCPublicCellsOntologySearchMetricsCellTypedDict
+class OntologyQueryCellTypedDict(TypedDict):
+    ontology_query_cell: TextqlRPCPublicCellsOntologyQueryCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -6200,10 +6496,9 @@ class OntologySearchMetricsCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologySearchMetricsCell(BaseModel):
-    ontology_search_metrics_cell: Annotated[
-        TextqlRPCPublicCellsOntologySearchMetricsCell,
-        pydantic.Field(alias="ontologySearchMetricsCell"),
+class OntologyQueryCell(BaseModel):
+    ontology_query_cell: Annotated[
+        TextqlRPCPublicCellsOntologyQueryCell, pydantic.Field(alias="ontologyQueryCell")
     ]
 
     id: Optional[str] = None
@@ -6384,8 +6679,8 @@ TextqlRPCPublicChatCellDurationMs35 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologyQueryCellTypedDict(TypedDict):
-    ontology_query_cell: TextqlRPCPublicCellsOntologyQueryCellTypedDict
+class OntologyOpenObjectCellTypedDict(TypedDict):
+    ontology_open_object_cell: TextqlRPCPublicCellsOntologyOpenObjectCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -6492,9 +6787,10 @@ class OntologyQueryCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologyQueryCell(BaseModel):
-    ontology_query_cell: Annotated[
-        TextqlRPCPublicCellsOntologyQueryCell, pydantic.Field(alias="ontologyQueryCell")
+class OntologyOpenObjectCell(BaseModel):
+    ontology_open_object_cell: Annotated[
+        TextqlRPCPublicCellsOntologyOpenObjectCell,
+        pydantic.Field(alias="ontologyOpenObjectCell"),
     ]
 
     id: Optional[str] = None
@@ -6675,8 +6971,8 @@ TextqlRPCPublicChatCellDurationMs34 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologyOpenObjectCellTypedDict(TypedDict):
-    ontology_open_object_cell: TextqlRPCPublicCellsOntologyOpenObjectCellTypedDict
+class OntologyEditorCellTypedDict(TypedDict):
+    ontology_editor_cell: TextqlRPCPublicCellsOntologyEditorCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -6783,10 +7079,10 @@ class OntologyOpenObjectCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologyOpenObjectCell(BaseModel):
-    ontology_open_object_cell: Annotated[
-        TextqlRPCPublicCellsOntologyOpenObjectCell,
-        pydantic.Field(alias="ontologyOpenObjectCell"),
+class OntologyEditorCell(BaseModel):
+    ontology_editor_cell: Annotated[
+        TextqlRPCPublicCellsOntologyEditorCell,
+        pydantic.Field(alias="ontologyEditorCell"),
     ]
 
     id: Optional[str] = None
@@ -6967,8 +7263,10 @@ TextqlRPCPublicChatCellDurationMs33 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologyEditorCellTypedDict(TypedDict):
-    ontology_editor_cell: TextqlRPCPublicCellsOntologyEditorCellTypedDict
+class Microsoft365EmailSearchCellTypedDict(TypedDict):
+    microsoft365_email_search_cell: (
+        TextqlRPCPublicCellsMicrosoft365EmailSearchCellTypedDict
+    )
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -7075,10 +7373,10 @@ class OntologyEditorCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class OntologyEditorCell(BaseModel):
-    ontology_editor_cell: Annotated[
-        TextqlRPCPublicCellsOntologyEditorCell,
-        pydantic.Field(alias="ontologyEditorCell"),
+class Microsoft365EmailSearchCell(BaseModel):
+    microsoft365_email_search_cell: Annotated[
+        TextqlRPCPublicCellsMicrosoft365EmailSearchCell,
+        pydantic.Field(alias="microsoft365EmailSearchCell"),
     ]
 
     id: Optional[str] = None
@@ -7259,9 +7557,9 @@ TextqlRPCPublicChatCellDurationMs32 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class Microsoft365EmailSearchCellTypedDict(TypedDict):
-    microsoft365_email_search_cell: (
-        TextqlRPCPublicCellsMicrosoft365EmailSearchCellTypedDict
+class Microsoft365EmailContentCellTypedDict(TypedDict):
+    microsoft365_email_content_cell: (
+        TextqlRPCPublicCellsMicrosoft365EmailContentCellTypedDict
     )
     id: NotRequired[str]
     r"""UUID"""
@@ -7369,10 +7667,10 @@ class Microsoft365EmailSearchCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class Microsoft365EmailSearchCell(BaseModel):
-    microsoft365_email_search_cell: Annotated[
-        TextqlRPCPublicCellsMicrosoft365EmailSearchCell,
-        pydantic.Field(alias="microsoft365EmailSearchCell"),
+class Microsoft365EmailContentCell(BaseModel):
+    microsoft365_email_content_cell: Annotated[
+        TextqlRPCPublicCellsMicrosoft365EmailContentCell,
+        pydantic.Field(alias="microsoft365EmailContentCell"),
     ]
 
     id: Optional[str] = None
@@ -7553,10 +7851,8 @@ TextqlRPCPublicChatCellDurationMs31 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class Microsoft365EmailContentCellTypedDict(TypedDict):
-    microsoft365_email_content_cell: (
-        TextqlRPCPublicCellsMicrosoft365EmailContentCellTypedDict
-    )
+class Microsoft365CalendarCellTypedDict(TypedDict):
+    microsoft365_calendar_cell: TextqlRPCPublicCellsMicrosoft365CalendarCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -7663,10 +7959,10 @@ class Microsoft365EmailContentCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class Microsoft365EmailContentCell(BaseModel):
-    microsoft365_email_content_cell: Annotated[
-        TextqlRPCPublicCellsMicrosoft365EmailContentCell,
-        pydantic.Field(alias="microsoft365EmailContentCell"),
+class Microsoft365CalendarCell(BaseModel):
+    microsoft365_calendar_cell: Annotated[
+        TextqlRPCPublicCellsMicrosoft365CalendarCell,
+        pydantic.Field(alias="microsoft365CalendarCell"),
     ]
 
     id: Optional[str] = None
@@ -7847,8 +8143,8 @@ TextqlRPCPublicChatCellDurationMs30 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class Microsoft365CalendarCellTypedDict(TypedDict):
-    microsoft365_calendar_cell: TextqlRPCPublicCellsMicrosoft365CalendarCellTypedDict
+class MetricsCellTypedDict(TypedDict):
+    metrics_cell: TextqlRPCPublicCellsMetricsCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -7955,10 +8251,9 @@ class Microsoft365CalendarCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class Microsoft365CalendarCell(BaseModel):
-    microsoft365_calendar_cell: Annotated[
-        TextqlRPCPublicCellsMicrosoft365CalendarCell,
-        pydantic.Field(alias="microsoft365CalendarCell"),
+class MetricsCell(BaseModel):
+    metrics_cell: Annotated[
+        TextqlRPCPublicCellsMetricsCell, pydantic.Field(alias="metricsCell")
     ]
 
     id: Optional[str] = None
@@ -8139,8 +8434,8 @@ TextqlRPCPublicChatCellDurationMs29 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class MetricsCellTypedDict(TypedDict):
-    metrics_cell: TextqlRPCPublicCellsMetricsCellTypedDict
+class MdCellTypedDict(TypedDict):
+    md_cell: TextqlRPCPublicCellsMarkdownCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -8247,10 +8542,8 @@ class MetricsCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class MetricsCell(BaseModel):
-    metrics_cell: Annotated[
-        TextqlRPCPublicCellsMetricsCell, pydantic.Field(alias="metricsCell")
-    ]
+class MdCell(BaseModel):
+    md_cell: Annotated[TextqlRPCPublicCellsMarkdownCell, pydantic.Field(alias="mdCell")]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -8430,8 +8723,8 @@ TextqlRPCPublicChatCellDurationMs28 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class MdCellTypedDict(TypedDict):
-    md_cell: TextqlRPCPublicCellsMarkdownCellTypedDict
+class McpToolCellTypedDict(TypedDict):
+    mcp_tool_cell: TextqlRPCPublicCellsMCPToolCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -8538,8 +8831,10 @@ class MdCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class MdCell(BaseModel):
-    md_cell: Annotated[TextqlRPCPublicCellsMarkdownCell, pydantic.Field(alias="mdCell")]
+class McpToolCell(BaseModel):
+    mcp_tool_cell: Annotated[
+        TextqlRPCPublicCellsMCPToolCell, pydantic.Field(alias="mcpToolCell")
+    ]
 
     id: Optional[str] = None
     r"""UUID"""
@@ -8719,8 +9014,8 @@ TextqlRPCPublicChatCellDurationMs27 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class McpToolCellTypedDict(TypedDict):
-    mcp_tool_cell: TextqlRPCPublicCellsMCPToolCellTypedDict
+class ListUsersCellTypedDict(TypedDict):
+    list_users_cell: TextqlRPCPublicCellsListUsersCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -8827,9 +9122,9 @@ class McpToolCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class McpToolCell(BaseModel):
-    mcp_tool_cell: Annotated[
-        TextqlRPCPublicCellsMCPToolCell, pydantic.Field(alias="mcpToolCell")
+class ListUsersCell(BaseModel):
+    list_users_cell: Annotated[
+        TextqlRPCPublicCellsListUsersCell, pydantic.Field(alias="listUsersCell")
     ]
 
     id: Optional[str] = None
@@ -9010,8 +9305,8 @@ TextqlRPCPublicChatCellDurationMs26 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ListUsersCellTypedDict(TypedDict):
-    list_users_cell: TextqlRPCPublicCellsListUsersCellTypedDict
+class ListDashboardsCellTypedDict(TypedDict):
+    list_dashboards_cell: TextqlRPCPublicCellsListDashboardsCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -9118,9 +9413,10 @@ class ListUsersCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ListUsersCell(BaseModel):
-    list_users_cell: Annotated[
-        TextqlRPCPublicCellsListUsersCell, pydantic.Field(alias="listUsersCell")
+class ListDashboardsCell(BaseModel):
+    list_dashboards_cell: Annotated[
+        TextqlRPCPublicCellsListDashboardsCell,
+        pydantic.Field(alias="listDashboardsCell"),
     ]
 
     id: Optional[str] = None
@@ -9301,8 +9597,8 @@ TextqlRPCPublicChatCellDurationMs25 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ListDashboardsCellTypedDict(TypedDict):
-    list_dashboards_cell: TextqlRPCPublicCellsListDashboardsCellTypedDict
+class ListAppsCellTypedDict(TypedDict):
+    list_apps_cell: TextqlRPCPublicCellsListAppsCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -9409,10 +9705,9 @@ class ListDashboardsCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class ListDashboardsCell(BaseModel):
-    list_dashboards_cell: Annotated[
-        TextqlRPCPublicCellsListDashboardsCell,
-        pydantic.Field(alias="listDashboardsCell"),
+class ListAppsCell(BaseModel):
+    list_apps_cell: Annotated[
+        TextqlRPCPublicCellsListAppsCell, pydantic.Field(alias="listAppsCell")
     ]
 
     id: Optional[str] = None
@@ -16619,6 +16914,7 @@ TextqlRPCPublicChatCellTypedDict = TypeAliasType(
         ImageCellTypedDict,
         JavascriptCellTypedDict,
         LinkedinSearchCellTypedDict,
+        ListAppsCellTypedDict,
         ListDashboardsCellTypedDict,
         ListUsersCellTypedDict,
         McpToolCellTypedDict,
@@ -16682,6 +16978,7 @@ TextqlRPCPublicChatCell = TypeAliasType(
         ImageCell,
         JavascriptCell,
         LinkedinSearchCell,
+        ListAppsCell,
         ListDashboardsCell,
         ListUsersCell,
         McpToolCell,
@@ -16844,6 +17141,10 @@ except NameError:
     pass
 try:
     ListDashboardsCell.model_rebuild()
+except NameError:
+    pass
+try:
+    ListAppsCell.model_rebuild()
 except NameError:
     pass
 try:

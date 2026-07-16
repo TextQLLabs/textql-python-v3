@@ -8,10 +8,10 @@ from .utils.retries import RetryConfig
 import httpx
 import importlib
 import sys
-from textql_sdk import utils
+from textql_sdk import models, utils
 from textql_sdk._hooks import SDKHooks
 from textql_sdk.types import OptionalNullable, UNSET
-from typing import Dict, Optional, TYPE_CHECKING, cast
+from typing import Any, Callable, Dict, Optional, TYPE_CHECKING, Union, cast
 import weakref
 
 if TYPE_CHECKING:
@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from textql_sdk.dashboards import Dashboards
     from textql_sdk.datasets import Datasets
     from textql_sdk.libraries import Libraries
+    from textql_sdk.libraryservice import LibraryService
     from textql_sdk.mcp import Mcp
     from textql_sdk.metricsexports import MetricsExports
     from textql_sdk.observability import Observability
@@ -55,6 +56,7 @@ class Textql(BaseSDK):
     metrics_exports: "MetricsExports"
     observability: "Observability"
     libraries: "Libraries"
+    library_service: "LibraryService"
     playbooks: "Playbooks"
     powerbi: "PowerbiSDK"
     rbac: "Rbac"
@@ -77,6 +79,7 @@ class Textql(BaseSDK):
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
         "observability": ("textql_sdk.observability", "Observability"),
         "libraries": ("textql_sdk.libraries", "Libraries"),
+        "library_service": ("textql_sdk.libraryservice", "LibraryService"),
         "playbooks": ("textql_sdk.playbooks", "Playbooks"),
         "powerbi": ("textql_sdk.powerbi_sdk", "PowerbiSDK"),
         "rbac": ("textql_sdk.rbac", "Rbac"),
@@ -91,6 +94,7 @@ class Textql(BaseSDK):
 
     def __init__(
         self,
+        api_key: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
         server_idx: Optional[int] = None,
         url_params: Optional[Dict[str, str]] = None,
         server_url: Optional[str] = None,
@@ -102,6 +106,7 @@ class Textql(BaseSDK):
     ) -> None:
         r"""Instantiates the SDK configuring it with the provided parameters.
 
+        :param api_key: The api_key required for authentication
         :param server_idx: The index of the server to use for all methods
         :param server_url: The server URL to use for all methods
         :param url_params: Parameters to optionally template the server URL with
@@ -131,6 +136,15 @@ class Textql(BaseSDK):
             type(async_client), AsyncHttpClient
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
+        security: Any = None
+        if api_key is None:
+            security = None
+        elif callable(api_key):
+            # pylint: disable=unnecessary-lambda-assignment
+            security = lambda: models.Security(api_key=api_key())
+        else:
+            security = models.Security(api_key=api_key)
+
         if server_url is not None:
             if url_params is not None:
                 server_url = utils.template_url(server_url, url_params)
@@ -142,6 +156,7 @@ class Textql(BaseSDK):
                 client_supplied=client_supplied,
                 async_client=async_client,
                 async_client_supplied=async_client_supplied,
+                security=security,
                 server_url=server_url,
                 server_idx=server_idx,
                 retry_config=retry_config,

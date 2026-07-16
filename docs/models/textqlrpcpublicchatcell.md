@@ -147,6 +147,12 @@ value: models.JavascriptCell = /* values here */
 value: models.LinkedinSearchCell = /* values here */
 ```
 
+### `models.ListAppsCell`
+
+```python
+value: models.ListAppsCell = /* values here */
+```
+
 ### `models.ListDashboardsCell`
 
 ```python

@@ -61,10 +61,13 @@ AddGroupMember
 
 <!-- UsageSnippet language="python" operationID="RBACService_AddGroupMember" method="post" path="/textql.rpc.public.rbac.RBACService/AddGroupMember" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.add_group_member()
 
@@ -100,10 +103,13 @@ ApproveAccessRequest
 
 <!-- UsageSnippet language="python" operationID="RBACService_ApproveAccessRequest" method="post" path="/textql.rpc.public.rbac.RBACService/ApproveAccessRequest" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.approve_access_request()
 
@@ -138,10 +144,13 @@ AssignPermissionToRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_AssignPermissionToRole" method="post" path="/textql.rpc.public.rbac.RBACService/AssignPermissionToRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.assign_permission_to_role()
 
@@ -177,10 +186,13 @@ Member role assignment
 
 <!-- UsageSnippet language="python" operationID="RBACService_AssignRoleToMember" method="post" path="/textql.rpc.public.rbac.RBACService/AssignRoleToMember" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.assign_role_to_member()
 
@@ -216,10 +228,13 @@ ConvertRoleToGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_ConvertRoleToGroup" method="post" path="/textql.rpc.public.rbac.RBACService/ConvertRoleToGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.convert_role_to_group()
 
@@ -255,10 +270,13 @@ API Key management
 
 <!-- UsageSnippet language="python" operationID="RBACService_CreateApiKey" method="post" path="/textql.rpc.public.rbac.RBACService/CreateApiKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.create_api_key()
 
@@ -299,10 +317,13 @@ CreateGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_CreateGroup" method="post" path="/textql.rpc.public.rbac.RBACService/CreateGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.create_group()
 
@@ -339,10 +360,13 @@ Role management
 
 <!-- UsageSnippet language="python" operationID="RBACService_CreateRole" method="post" path="/textql.rpc.public.rbac.RBACService/CreateRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.create_role()
 
@@ -378,10 +402,13 @@ Service account management
 
 <!-- UsageSnippet language="python" operationID="RBACService_CreateServiceAccount" method="post" path="/textql.rpc.public.rbac.RBACService/CreateServiceAccount" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.create_service_account()
 
@@ -419,10 +446,13 @@ DeleteGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_DeleteGroup" method="post" path="/textql.rpc.public.rbac.RBACService/DeleteGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.delete_group()
 
@@ -457,10 +487,13 @@ DeleteRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_DeleteRole" method="post" path="/textql.rpc.public.rbac.RBACService/DeleteRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.delete_role()
 
@@ -495,10 +528,13 @@ DeleteServiceAccount
 
 <!-- UsageSnippet language="python" operationID="RBACService_DeleteServiceAccount" method="post" path="/textql.rpc.public.rbac.RBACService/DeleteServiceAccount" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.delete_service_account()
 
@@ -533,10 +569,13 @@ GenerateShareLink
 
 <!-- UsageSnippet language="python" operationID="RBACService_GenerateShareLink" method="post" path="/textql.rpc.public.rbac.RBACService/GenerateShareLink" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.generate_share_link()
 
@@ -572,10 +611,13 @@ Get current member roles and permissions
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetCurrentMemberRolesAndPermissions" method="post" path="/textql.rpc.public.rbac.RBACService/GetCurrentMemberRolesAndPermissions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_current_member_roles_and_permissions(body={})
 
@@ -610,10 +652,13 @@ GetEmbedUserApiKey
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetEmbedUserApiKey" method="post" path="/textql.rpc.public.rbac.RBACService/GetEmbedUserApiKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_embed_user_api_key()
 
@@ -648,10 +693,13 @@ GetGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetGroup" method="post" path="/textql.rpc.public.rbac.RBACService/GetGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_group()
 
@@ -686,10 +734,13 @@ GetMemberGroups
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetMemberGroups" method="post" path="/textql.rpc.public.rbac.RBACService/GetMemberGroups" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_member_groups()
 
@@ -724,10 +775,13 @@ GetMemberRoles
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetMemberRoles" method="post" path="/textql.rpc.public.rbac.RBACService/GetMemberRoles" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_member_roles()
 
@@ -762,10 +816,13 @@ GetObjectAccess
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetObjectAccess" method="post" path="/textql.rpc.public.rbac.RBACService/GetObjectAccess" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_object_access()
 
@@ -801,10 +858,13 @@ GetRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetRole" method="post" path="/textql.rpc.public.rbac.RBACService/GetRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_role()
 
@@ -839,10 +899,13 @@ GetRolePermissions
 
 <!-- UsageSnippet language="python" operationID="RBACService_GetRolePermissions" method="post" path="/textql.rpc.public.rbac.RBACService/GetRolePermissions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.get_role_permissions()
 
@@ -877,10 +940,13 @@ HasObjectAccess
 
 <!-- UsageSnippet language="python" operationID="RBACService_HasObjectAccess" method="post" path="/textql.rpc.public.rbac.RBACService/HasObjectAccess" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.has_object_access()
 
@@ -919,10 +985,13 @@ ListAccessRequests
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListAccessRequests" method="post" path="/textql.rpc.public.rbac.RBACService/ListAccessRequests" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_access_requests()
 
@@ -959,10 +1028,13 @@ ListApiKeys
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListApiKeys" method="post" path="/textql.rpc.public.rbac.RBACService/ListApiKeys" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_api_keys()
 
@@ -1004,10 +1076,13 @@ ListGroupConnectors
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListGroupConnectors" method="post" path="/textql.rpc.public.rbac.RBACService/ListGroupConnectors" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_group_connectors()
 
@@ -1042,10 +1117,13 @@ ListGroups
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListGroups" method="post" path="/textql.rpc.public.rbac.RBACService/ListGroups" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_groups(body={})
 
@@ -1080,10 +1158,13 @@ Permission management
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListPermissions" method="post" path="/textql.rpc.public.rbac.RBACService/ListPermissions" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_permissions(body={})
 
@@ -1118,10 +1199,13 @@ ListRoles
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListRoles" method="post" path="/textql.rpc.public.rbac.RBACService/ListRoles" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_roles(body={})
 
@@ -1156,10 +1240,13 @@ ListScimGroupMappings
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListScimGroupMappings" method="post" path="/textql.rpc.public.rbac.RBACService/ListScimGroupMappings" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_scim_group_mappings(body={})
 
@@ -1194,10 +1281,13 @@ ListServiceAccounts
 
 <!-- UsageSnippet language="python" operationID="RBACService_ListServiceAccounts" method="post" path="/textql.rpc.public.rbac.RBACService/ListServiceAccounts" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.list_service_accounts()
 
@@ -1234,10 +1324,13 @@ MigrateAllScimGroupMappings
 
 <!-- UsageSnippet language="python" operationID="RBACService_MigrateAllScimGroupMappings" method="post" path="/textql.rpc.public.rbac.RBACService/MigrateAllScimGroupMappings" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.migrate_all_scim_group_mappings(body={})
 
@@ -1272,10 +1365,13 @@ MigrateScimGroupMappingToGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_MigrateScimGroupMappingToGroup" method="post" path="/textql.rpc.public.rbac.RBACService/MigrateScimGroupMappingToGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.migrate_scim_group_mapping_to_group()
 
@@ -1310,10 +1406,13 @@ RejectAccessRequest
 
 <!-- UsageSnippet language="python" operationID="RBACService_RejectAccessRequest" method="post" path="/textql.rpc.public.rbac.RBACService/RejectAccessRequest" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.reject_access_request()
 
@@ -1349,10 +1448,13 @@ RemoveGroupMember
 
 <!-- UsageSnippet language="python" operationID="RBACService_RemoveGroupMember" method="post" path="/textql.rpc.public.rbac.RBACService/RemoveGroupMember" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.remove_group_member()
 
@@ -1388,10 +1490,13 @@ RemovePermissionFromRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_RemovePermissionFromRole" method="post" path="/textql.rpc.public.rbac.RBACService/RemovePermissionFromRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.remove_permission_from_role()
 
@@ -1427,10 +1532,13 @@ RemoveRoleFromMember
 
 <!-- UsageSnippet language="python" operationID="RBACService_RemoveRoleFromMember" method="post" path="/textql.rpc.public.rbac.RBACService/RemoveRoleFromMember" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.remove_role_from_member()
 
@@ -1466,10 +1574,13 @@ Access request management
 
 <!-- UsageSnippet language="python" operationID="RBACService_RequestAccess" method="post" path="/textql.rpc.public.rbac.RBACService/RequestAccess" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.request_access()
 
@@ -1508,10 +1619,13 @@ RevertScimGroupMappingToRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_RevertScimGroupMappingToRole" method="post" path="/textql.rpc.public.rbac.RBACService/RevertScimGroupMappingToRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.revert_scim_group_mapping_to_role()
 
@@ -1546,10 +1660,13 @@ RevokeApiKey
 
 <!-- UsageSnippet language="python" operationID="RBACService_RevokeApiKey" method="post" path="/textql.rpc.public.rbac.RBACService/RevokeApiKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.revoke_api_key()
 
@@ -1584,10 +1701,13 @@ RevokeObjectAccess
 
 <!-- UsageSnippet language="python" operationID="RBACService_RevokeObjectAccess" method="post" path="/textql.rpc.public.rbac.RBACService/RevokeObjectAccess" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.revoke_object_access()
 
@@ -1626,10 +1746,13 @@ RotateApiKey
 
 <!-- UsageSnippet language="python" operationID="RBACService_RotateApiKey" method="post" path="/textql.rpc.public.rbac.RBACService/RotateApiKey" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.rotate_api_key()
 
@@ -1664,11 +1787,14 @@ Object sharing and access control
 
 <!-- UsageSnippet language="python" operationID="RBACService_ShareObject" method="post" path="/textql.rpc.public.rbac.RBACService/ShareObject" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.share_object(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -1708,11 +1834,14 @@ ShareObjectWithGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_ShareObjectWithGroup" method="post" path="/textql.rpc.public.rbac.RBACService/ShareObjectWithGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.share_with_group(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -1752,11 +1881,14 @@ ShareObjectWithRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_ShareObjectWithRole" method="post" path="/textql.rpc.public.rbac.RBACService/ShareObjectWithRole" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.share_object_with_role(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -1796,10 +1928,13 @@ UpdateGroup
 
 <!-- UsageSnippet language="python" operationID="RBACService_UpdateGroup" method="post" path="/textql.rpc.public.rbac.RBACService/UpdateGroup" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.update_group()
 
@@ -1836,11 +1971,14 @@ UpdateObjectAccess
 
 <!-- UsageSnippet language="python" operationID="RBACService_UpdateObjectAccess" method="post" path="/textql.rpc.public.rbac.RBACService/UpdateObjectAccess" -->
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import parse_datetime
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.update_object_access(expires_at=parse_datetime("2023-01-15T01:30:15.01Z"))
 
@@ -1877,10 +2015,13 @@ UpdateObjectVisibility
 
 <!-- UsageSnippet language="python" operationID="RBACService_UpdateObjectVisibility" method="post" path="/textql.rpc.public.rbac.RBACService/UpdateObjectVisibility" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.update_object_visibility()
 
@@ -1917,10 +2058,13 @@ UpdateRole
 
 <!-- UsageSnippet language="python" operationID="RBACService_UpdateRole" method="post" path="/textql.rpc.public.rbac.RBACService/UpdateRole" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.rbac.update_role()
 

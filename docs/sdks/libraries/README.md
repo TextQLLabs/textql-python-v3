@@ -83,10 +83,13 @@ AddLibrarySubmodule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_AddLibrarySubmodule" method="post" path="/textql.rpc.public.patches.LibraryService/AddLibrarySubmodule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.add_submodule()
 
@@ -123,10 +126,13 @@ ApprovePatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ApprovePatch" method="post" path="/textql.rpc.public.patches.LibraryService/ApprovePatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.approve_patch()
 
@@ -162,10 +168,13 @@ ConfigureLibraryRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ConfigureLibraryRemote" method="post" path="/textql.rpc.public.patches.LibraryService/ConfigureLibraryRemote" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.configure_library_remote()
 
@@ -212,10 +221,13 @@ CreateApprovalRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateApprovalRule" method="post" path="/textql.rpc.public.patches.LibraryService/CreateApprovalRule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.create_approval_rule()
 
@@ -250,10 +262,13 @@ CreateContextPatchAutoApproveRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateContextPatchAutoApproveRule" method="post" path="/textql.rpc.public.patches.LibraryService/CreateContextPatchAutoApproveRule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.create_context_patch_auto_approve_rule()
 
@@ -288,10 +303,13 @@ CreateLibraryDirectory
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateLibraryDirectory" method="post" path="/textql.rpc.public.patches.LibraryService/CreateLibraryDirectory" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.create_library_directory()
 
@@ -327,10 +345,13 @@ CreateLibraryFileUploadUrl
 
 <!-- UsageSnippet language="python" operationID="LibraryService_CreateLibraryFileUploadUrl" method="post" path="/textql.rpc.public.patches.LibraryService/CreateLibraryFileUploadUrl" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.create_file_upload_url()
 
@@ -367,10 +388,13 @@ DeleteApprovalRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteApprovalRule" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteApprovalRule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.delete_approval_rule()
 
@@ -405,10 +429,13 @@ DeleteContextPatchAutoApproveRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteContextPatchAutoApproveRule" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteContextPatchAutoApproveRule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.delete_context_patch_auto_approve_rule()
 
@@ -443,10 +470,13 @@ DeleteLibraryDirectory
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteLibraryDirectory" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteLibraryDirectory" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.delete_library_directory()
 
@@ -483,10 +513,13 @@ DeleteLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteLibraryFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.delete_library_file()
 
@@ -522,10 +555,13 @@ DeleteLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DeleteLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/DeleteLibraryOwners" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.delete_owners()
 
@@ -562,10 +598,13 @@ DenyPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_DenyPatch" method="post" path="/textql.rpc.public.patches.LibraryService/DenyPatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.deny_patch()
 
@@ -601,10 +640,13 @@ ExchangeLibraryGithubCode
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ExchangeLibraryGithubCode" method="post" path="/textql.rpc.public.patches.LibraryService/ExchangeLibraryGithubCode" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.exchange_github_code()
 
@@ -641,10 +683,13 @@ FinalizeLibraryFileUpload
 
 <!-- UsageSnippet language="python" operationID="LibraryService_FinalizeLibraryFileUpload" method="post" path="/textql.rpc.public.patches.LibraryService/FinalizeLibraryFileUpload" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.finalize_file_upload()
 
@@ -681,10 +726,13 @@ GetCodeownerCoverage
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetCodeownerCoverage" method="post" path="/textql.rpc.public.patches.LibraryService/GetCodeownerCoverage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_codeowner_coverage(body={})
 
@@ -719,10 +767,13 @@ GetConfigExportCapabilities
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetConfigExportCapabilities" method="post" path="/textql.rpc.public.patches.LibraryService/GetConfigExportCapabilities" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_config_export_capabilities(body={})
 
@@ -757,10 +808,13 @@ GetEffectiveLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetEffectiveLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/GetEffectiveLibraryOwners" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_effective_owners()
 
@@ -795,10 +849,13 @@ GetFileUsage
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetFileUsage" method="post" path="/textql.rpc.public.patches.LibraryService/GetFileUsage" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_file_usage()
 
@@ -837,10 +894,13 @@ GetFileUsageTimeline
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetFileUsageTimeline" method="post" path="/textql.rpc.public.patches.LibraryService/GetFileUsageTimeline" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_file_usage_timeline()
 
@@ -876,10 +936,13 @@ GetLibraryAnaConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryAnaConfig" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryAnaConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_ana_config()
 
@@ -914,10 +977,13 @@ GetLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_file()
 
@@ -952,10 +1018,13 @@ GetLibraryGithubOAuthURL
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryGithubOAuthURL" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryGithubOAuthURL" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_library_github_o_auth_url()
 
@@ -991,10 +1060,13 @@ GetLibraryHistoryFileDiff
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryHistoryFileDiff" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryHistoryFileDiff" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_history_file_diff()
 
@@ -1030,10 +1102,13 @@ GetLibraryMigrationStatus
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryMigrationStatus" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryMigrationStatus" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_migration_status(body={})
 
@@ -1068,10 +1143,13 @@ GetLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryOwners" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_library_owners()
 
@@ -1106,10 +1184,13 @@ GetLibraryRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibraryRemote" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibraryRemote" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_remote(body={})
 
@@ -1144,10 +1225,13 @@ GetLibrarySizeTimeline
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibrarySizeTimeline" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibrarySizeTimeline" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_size_timeline()
 
@@ -1182,10 +1266,13 @@ GetLibrarySyncConflicts
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetLibrarySyncConflicts" method="post" path="/textql.rpc.public.patches.LibraryService/GetLibrarySyncConflicts" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_library_sync_conflicts(body={})
 
@@ -1220,10 +1307,13 @@ GetOntologyUsageSummary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetOntologyUsageSummary" method="post" path="/textql.rpc.public.patches.LibraryService/GetOntologyUsageSummary" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_ontology_usage_summary()
 
@@ -1258,10 +1348,13 @@ GetPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetPatch" method="post" path="/textql.rpc.public.patches.LibraryService/GetPatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_patch()
 
@@ -1297,10 +1390,13 @@ GetPatchByNumber
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetPatchByNumber" method="post" path="/textql.rpc.public.patches.LibraryService/GetPatchByNumber" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_patch_by_number()
 
@@ -1335,10 +1431,13 @@ GetPatchCapabilities
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetPatchCapabilities" method="post" path="/textql.rpc.public.patches.LibraryService/GetPatchCapabilities" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_patch_capabilities()
 
@@ -1373,10 +1472,13 @@ GetRawPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetRawPatch" method="post" path="/textql.rpc.public.patches.LibraryService/GetRawPatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_raw_patch()
 
@@ -1411,10 +1513,13 @@ GetUsageDetailsForFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_GetUsageDetailsForFile" method="post" path="/textql.rpc.public.patches.LibraryService/GetUsageDetailsForFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.get_usage_details_for_file()
 
@@ -1450,10 +1555,13 @@ ListApprovalRules
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListApprovalRules" method="post" path="/textql.rpc.public.patches.LibraryService/ListApprovalRules" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_approval_rules(body={})
 
@@ -1488,10 +1596,13 @@ ListChatsForFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListChatsForFile" method="post" path="/textql.rpc.public.patches.LibraryService/ListChatsForFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_chats_for_file()
 
@@ -1528,10 +1639,13 @@ ListContextPatchAutoApproveRules
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListContextPatchAutoApproveRules" method="post" path="/textql.rpc.public.patches.LibraryService/ListContextPatchAutoApproveRules" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_context_patch_auto_approve_rules(body={})
 
@@ -1566,10 +1680,13 @@ ListLibraryEntries
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibraryEntries" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibraryEntries" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_library_entries()
 
@@ -1606,10 +1723,13 @@ ListLibraryHistory
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibraryHistory" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibraryHistory" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_library_history()
 
@@ -1646,10 +1766,13 @@ ListLibraryImports
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibraryImports" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibraryImports" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_imports(body={})
 
@@ -1684,10 +1807,13 @@ ListLibrarySubmodules
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibrarySubmodules" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibrarySubmodules" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_library_submodules(body={})
 
@@ -1722,10 +1848,13 @@ ListLibrarySyncRuns
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListLibrarySyncRuns" method="post" path="/textql.rpc.public.patches.LibraryService/ListLibrarySyncRuns" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_library_sync_runs()
 
@@ -1761,10 +1890,13 @@ ListPatchReviewers
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListPatchReviewers" method="post" path="/textql.rpc.public.patches.LibraryService/ListPatchReviewers" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_patch_reviewers()
 
@@ -1799,10 +1931,13 @@ ListPatches
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListPatches" method="post" path="/textql.rpc.public.patches.LibraryService/ListPatches" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_patches()
 
@@ -1842,10 +1977,13 @@ Lists the skills under the library's flat skills/ root that the caller can
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ListSkills" method="post" path="/textql.rpc.public.patches.LibraryService/ListSkills" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.list_skills(body={})
 
@@ -1880,10 +2018,13 @@ MigrateLegacyContextToLibrary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_MigrateLegacyContextToLibrary" method="post" path="/textql.rpc.public.patches.LibraryService/MigrateLegacyContextToLibrary" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.migrate_legacy_context()
 
@@ -1919,10 +2060,13 @@ MigrateOntologyToLibrary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_MigrateOntologyToLibrary" method="post" path="/textql.rpc.public.patches.LibraryService/MigrateOntologyToLibrary" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.migrate_ontology()
 
@@ -1958,10 +2102,13 @@ PlanLibraryMerge
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PlanLibraryMerge" method="post" path="/textql.rpc.public.patches.LibraryService/PlanLibraryMerge" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.plan_merge(body={})
 
@@ -1996,10 +2143,13 @@ PreviewLibraryPullFromRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PreviewLibraryPullFromRemote" method="post" path="/textql.rpc.public.patches.LibraryService/PreviewLibraryPullFromRemote" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.preview_library_pull_from_remote(body={})
 
@@ -2034,10 +2184,13 @@ PullLibraryFromRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PullLibraryFromRemote" method="post" path="/textql.rpc.public.patches.LibraryService/PullLibraryFromRemote" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.pull_from_remote()
 
@@ -2074,10 +2227,13 @@ PushLibraryToRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_PushLibraryToRemote" method="post" path="/textql.rpc.public.patches.LibraryService/PushLibraryToRemote" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.push_library_to_remote(body={})
 
@@ -2112,10 +2268,13 @@ RecoverLibrary
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RecoverLibrary" method="post" path="/textql.rpc.public.patches.LibraryService/RecoverLibrary" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.recover()
 
@@ -2150,10 +2309,13 @@ RemoveLibraryRemote
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RemoveLibraryRemote" method="post" path="/textql.rpc.public.patches.LibraryService/RemoveLibraryRemote" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.remove_remote(body={})
 
@@ -2188,10 +2350,13 @@ RemoveLibrarySubmodule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RemoveLibrarySubmodule" method="post" path="/textql.rpc.public.patches.LibraryService/RemoveLibrarySubmodule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.remove_library_submodule()
 
@@ -2226,10 +2391,13 @@ RenameLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RenameLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/RenameLibraryFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.rename_file()
 
@@ -2266,10 +2434,13 @@ RequestPatchReview
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RequestPatchReview" method="post" path="/textql.rpc.public.patches.LibraryService/RequestPatchReview" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.request_patch_review()
 
@@ -2305,10 +2476,13 @@ ResolveLibrarySyncConflict
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ResolveLibrarySyncConflict" method="post" path="/textql.rpc.public.patches.LibraryService/ResolveLibrarySyncConflict" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.resolve_sync_conflict()
 
@@ -2344,10 +2518,13 @@ RestorePatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RestorePatch" method="post" path="/textql.rpc.public.patches.LibraryService/RestorePatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.restore_patch()
 
@@ -2383,10 +2560,13 @@ RevertPatch
 
 <!-- UsageSnippet language="python" operationID="LibraryService_RevertPatch" method="post" path="/textql.rpc.public.patches.LibraryService/RevertPatch" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.revert_patch()
 
@@ -2421,10 +2601,13 @@ SaveAllObjectsAsConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_SaveAllObjectsAsConfig" method="post" path="/textql.rpc.public.patches.LibraryService/SaveAllObjectsAsConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.save_all_objects_as_config()
 
@@ -2459,10 +2642,13 @@ SaveObjectAsConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_SaveObjectAsConfig" method="post" path="/textql.rpc.public.patches.LibraryService/SaveObjectAsConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.save_as_config()
 
@@ -2501,10 +2687,13 @@ TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
 
 <!-- UsageSnippet language="python" operationID="LibraryService_TriggerConfigDriftReconcile" method="post" path="/textql.rpc.public.patches.LibraryService/TriggerConfigDriftReconcile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.trigger_config_drift_reconcile(body={})
 
@@ -2539,10 +2728,13 @@ UpdateApprovalRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpdateApprovalRule" method="post" path="/textql.rpc.public.patches.LibraryService/UpdateApprovalRule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.update_approval_rule()
 
@@ -2578,10 +2770,13 @@ UpdateContextPatchAutoApproveRule
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpdateContextPatchAutoApproveRule" method="post" path="/textql.rpc.public.patches.LibraryService/UpdateContextPatchAutoApproveRule" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.update_context_patch_auto_approve_rule()
 
@@ -2617,10 +2812,13 @@ UpdateLibrarySyncConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpdateLibrarySyncConfig" method="post" path="/textql.rpc.public.patches.LibraryService/UpdateLibrarySyncConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.update_library_sync_config()
 
@@ -2656,10 +2854,13 @@ UpsertLibraryAnaConfig
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpsertLibraryAnaConfig" method="post" path="/textql.rpc.public.patches.LibraryService/UpsertLibraryAnaConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.upsert_ana_config()
 
@@ -2697,10 +2898,13 @@ UpsertLibraryFile
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpsertLibraryFile" method="post" path="/textql.rpc.public.patches.LibraryService/UpsertLibraryFile" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.upsert_library_file()
 
@@ -2737,10 +2941,13 @@ UpsertLibraryOwners
 
 <!-- UsageSnippet language="python" operationID="LibraryService_UpsertLibraryOwners" method="post" path="/textql.rpc.public.patches.LibraryService/UpsertLibraryOwners" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.upsert_owners()
 
@@ -2781,10 +2988,13 @@ Read-only functional validation of a proposed config: parse + dependency
 
 <!-- UsageSnippet language="python" operationID="LibraryService_ValidateConfig" method="post" path="/textql.rpc.public.patches.LibraryService/ValidateConfig" -->
 ```python
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.libraries.validate_config()
 

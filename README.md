@@ -24,6 +24,7 @@ endpoints are excluded via google.api.visibility / file_visibility.
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
@@ -124,10 +125,13 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
+import os
 from textql_sdk import Textql
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.create()
 
@@ -142,11 +146,14 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
+import os
 from textql_sdk import Textql
 
 async def main():
 
-    async with Textql() as textql:
+    async with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
 
         res = await textql.agents.create_async()
 
@@ -156,6 +163,35 @@ async def main():
 asyncio.run(main())
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name      | Type   | Scheme  | Environment Variable |
+| --------- | ------ | ------- | -------------------- |
+| `api_key` | apiKey | API key | `TEXTQL_API_KEY`     |
+
+To authenticate with the API the `api_key` parameter must be set when initializing the SDK client instance. For example:
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.agents.create()
+
+    # Handle response
+    print(res)
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -186,7 +222,6 @@ asyncio.run(main())
 * [get](docs/sdks/apps/README.md#get) - GetApp
 * [get_app_version](docs/sdks/apps/README.md#get_app_version) - GetAppVersion
 * [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
-* [get_component_gallery_url](docs/sdks/apps/README.md#get_component_gallery_url) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 * [get_members_with_apps](docs/sdks/apps/README.md#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [list_versions](docs/sdks/apps/README.md#list_versions) - Version history: a snapshot is recorded on each publish; authors can list and restore.
@@ -389,6 +424,11 @@ asyncio.run(main())
 * [upsert_owners](docs/sdks/libraries/README.md#upsert_owners) - UpsertLibraryOwners
 * [validate_config](docs/sdks/libraries/README.md#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
 
+### [LibraryService](docs/sdks/libraryservice/README.md)
+
+* [library_service_list_golden_files](docs/sdks/libraryservice/README.md#library_service_list_golden_files) - ListGoldenFiles
+* [library_service_set_library_file_golden](docs/sdks/libraryservice/README.md#library_service_set_library_file_golden) - SetLibraryFileGolden
+
 ### [Mcp](docs/sdks/mcp/README.md)
 
 * [clear_o_auth_token](docs/sdks/mcp/README.md#clear_o_auth_token) - ClearOAuthToken
@@ -456,13 +496,11 @@ asyncio.run(main())
 * [get_members_with](docs/sdks/playbooks/README.md#get_members_with) - GetMembersWithPlaybooks
 * [fetch](docs/sdks/playbooks/README.md#fetch) - GetPlaybook
 * [get_batch_run](docs/sdks/playbooks/README.md#get_batch_run) - Get a specific batch run
-* [get_extended_qn](docs/sdks/playbooks/README.md#get_extended_qn) - Playbook Extended quant.new operations
 * [get_playbook_lineage](docs/sdks/playbooks/README.md#get_playbook_lineage) - GetPlaybookLineage
 * [get_reports](docs/sdks/playbooks/README.md#get_reports) - GetPlaybookReports
 * [get_playbook_reports_batch](docs/sdks/playbooks/README.md#get_playbook_reports_batch) - Get reports for multiple template data IDs in a single batch request
 * [get](docs/sdks/playbooks/README.md#get) - GetPlaybooks
 * [get_playbooks_previews](docs/sdks/playbooks/README.md#get_playbooks_previews) - GetPlaybooksPreviews
-* [get_qn_playbook](docs/sdks/playbooks/README.md#get_qn_playbook) - GetQNPlaybook
 * [get_report_by_id](docs/sdks/playbooks/README.md#get_report_by_id) - Get a single report by ID
 * [get_reports_with_filters](docs/sdks/playbooks/README.md#get_reports_with_filters) - GetReportsWithFilters
 * [list_slack_channel_context_playbooks](docs/sdks/playbooks/README.md#list_slack_channel_context_playbooks) - List all Slack channels context playbook mappings for the organization
@@ -482,7 +520,6 @@ asyncio.run(main())
 * [unset_teams_channel_context](docs/sdks/playbooks/README.md#unset_teams_channel_context) - UnsetTeamsChannelContextPlaybook
 * [unsubscribe](docs/sdks/playbooks/README.md#unsubscribe) - UnsubscribeFromPlaybook
 * [update](docs/sdks/playbooks/README.md#update) - UpdatePlaybook
-* [update_extended_qn](docs/sdks/playbooks/README.md#update_extended_qn) - UpdatePlaybookExtendedQn
 
 ### [Powerbi](docs/sdks/powerbisdk/README.md)
 
@@ -638,11 +675,14 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
 
     res = textql.agents.create(,
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
@@ -654,12 +694,14 @@ with Textql() as textql:
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
+import os
 from textql_sdk import Textql
 from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Textql(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
     res = textql.agents.create()
@@ -685,10 +727,13 @@ with Textql(
 
 ### Example
 ```python
+import os
 from textql_sdk import Textql, errors
 
 
-with Textql() as textql:
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
     res = None
     try:
 
@@ -735,11 +780,13 @@ with Textql() as textql:
 
 The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
+import os
 from textql_sdk import Textql
 
 
 with Textql(
     server_url="https://app.textql.com",
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
     res = textql.agents.create()
@@ -839,17 +886,22 @@ The `Textql` class implements the context manager protocol and registers a final
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
+import os
 from textql_sdk import Textql
 def main():
 
-    with Textql() as textql:
+    with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with Textql() as textql:
+    async with Textql(
+        api_key=os.getenv("TEXTQL_API_KEY", ""),
+    ) as textql:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->
