@@ -164,22 +164,6 @@ asyncio.run(main())
 ```
 <!-- End SDK Example Usage [usage] -->
 
-### Configuring the client
-
-Pass your API key and, optionally, override the server URL in one call:
-
-```python
-import os
-from textql_sdk import Textql
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),  # sent as the tql_api_key header
-    server_url="https://app.textql.com",       # optional: override for on-prem / staging
-) as textql:
-    res = textql.agents.list()
-    print(res)
-```
-
 <!-- Start Authentication [security] -->
 ## Authentication
 
