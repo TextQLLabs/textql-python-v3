@@ -9,31 +9,43 @@ the chat, reads the history, and cleans up.
 
 import asyncio
 import os
+import httpx
 from dotenv import load_dotenv
 from textql_sdk import Textql
+from textql_sdk.helpers import cell_text
 from textql_sdk.models import (
     ConnectError,
-    SQL,
     TextqlRPCPublicParadigmParadigm,
-    TextqlRPCPublicParadigmSQLOptions,
+    TextqlRPCPublicParadigmUniversalOptions,
+    Universal,
 )
 
 load_dotenv()
 
-async def main():
-    async with Textql(api_key=os.environ["TEXTQL_API_KEY"], server_url="http://app.textql.com") as sdk:
 
-        sql_paradigm = TextqlRPCPublicParadigmParadigm(
-            type="TYPE_SQL",
-            options=SQL(sql=TextqlRPCPublicParadigmSQLOptions(
-                connector_ids=[1234, 5678],  # replace with your connector IDs
-            )),
+async def main():
+    async with Textql(
+        api_key=os.environ["TEXTQL_API_KEY"],
+        server_url="https://rodney.ngrok.io",
+        async_client=httpx.AsyncClient(follow_redirects=True, timeout=None),
+    ) as sdk:
+
+        paradigm = TextqlRPCPublicParadigmParadigm(
+            type="TYPE_UNIVERSAL",
+            version=1,
+            options=Universal(
+                universal=TextqlRPCPublicParadigmUniversalOptions(
+                    sql_enabled=True,
+                    python_enabled=True,
+                    connector_ids=[1],  # replace with your connector ID(s)
+                )
+            ),
         )
 
         chat = await sdk.chats.create_chat_async(
-            message="Which connector has the most data, and how does it compare to last month?",
+            message="Tell me about this month's usage?",
             model="MODEL_SONNET_5",
-            paradigm=sql_paradigm,
+            paradigm=paradigm,
         )
         if isinstance(chat, ConnectError):
             raise RuntimeError(f"create_chat failed: {chat}")
@@ -44,7 +56,6 @@ async def main():
         run = await sdk.chats.run_async(
             chat_id=chat_id,
             model="MODEL_SONNET_4_6",
-            research=True,
             fast_mode=False,
         )
         if isinstance(run, ConnectError):
@@ -57,9 +68,8 @@ async def main():
         assert history.cells is not None
         print(f"\nHistory: {len(history.cells)} cell(s)")
         for cell in history.cells or []:
-            role = "user" if cell else "assistant"
-            preview = str(cell or "")[:120].replace("\n", " ")
-            print(f"\n[{role}] {preview}")
+            kind, text = cell_text(cell)
+            print(f"\n[{kind}]\n{text}")
 
 
 asyncio.run(main())

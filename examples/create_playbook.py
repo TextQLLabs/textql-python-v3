@@ -10,11 +10,11 @@ delivery, access controls, and concurrency settings.
 import os
 from dotenv import load_dotenv
 from textql_sdk import Textql
-from textql_sdk.models import ConnectError
+from textql_sdk.models import ConnectError, TextqlRPCPublicPlaybookStringList
 
 load_dotenv()
 
-sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"], server_url="http://app.textql.com")
+sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"], server_url="http://rodney.ngrok.io")
 
 # Step 1: create an empty playbook shell
 resp = sdk.playbooks.create_playbook(body={})
@@ -34,8 +34,8 @@ update = sdk.playbooks.update(
     cron_string="0 9 * * *",            # 9 AM UTC every day
     llm_model="MODEL_SONNET_4_6",
     slack_channel_id="C04NV2UABCD",
-    tagged_slack_user_ids={"values": ["U03RABC1234"]},
-    email_addresses=["analytics@example.com"],
+    tagged_slack_user_ids=TextqlRPCPublicPlaybookStringList(items=["U03RABC1234"]), # replace with your slack user ID
+    email_addresses=TextqlRPCPublicPlaybookStringList(items=["test@textql.com"]), # replace with your email address
 )
 if isinstance(update, ConnectError):
     raise RuntimeError(f"update failed: {update}")
