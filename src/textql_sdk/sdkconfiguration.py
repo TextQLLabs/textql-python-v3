@@ -20,6 +20,8 @@ SERVERS = [
 ]
 """Contains the list of servers available to the SDK"""
 
+_RPC_BASE_PATH = "/rpc/public"
+
 
 @dataclass
 class SDKConfiguration:
@@ -41,8 +43,12 @@ class SDKConfiguration:
 
     def get_server_details(self) -> Tuple[str, Dict[str, str]]:
         if self.server_url is not None and self.server_url:
-            return remove_suffix(self.server_url, "/"), {}
-        if self.server_idx is None:
-            self.server_idx = 0
+            base = remove_suffix(self.server_url, "/")
+        else:
+            if self.server_idx is None:
+                self.server_idx = 0
+            base = SERVERS[self.server_idx]
 
-        return SERVERS[self.server_idx], {}
+        if not base.endswith(_RPC_BASE_PATH):
+            base = base + _RPC_BASE_PATH
+        return base, {}
