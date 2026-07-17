@@ -73,8 +73,8 @@ def cell_text(cell: TextqlRPCPublicChatCell) -> tuple[str, str]:
     if isinstance(cell, PyCell):
         return "py", cell.py_cell.code or ""
     if isinstance(cell, BashCell):
-        v = cell.bash_cell
-        return "bash", " | ".join(filter(None, [v.script, v.stdout, v.stderr]))
+        bash = cell.bash_cell
+        return "bash", " | ".join(filter(None, [bash.script, bash.stdout, bash.stderr]))
     if isinstance(cell, SQLCell):
         return "sql", cell.sql_cell.query or ""
     if isinstance(cell, JavascriptCell):
@@ -86,8 +86,8 @@ def cell_text(cell: TextqlRPCPublicChatCell) -> tuple[str, str]:
     if isinstance(cell, TableauSQLCell):
         return "tableau_sql", cell.tableau_sql_cell.query or ""
     if isinstance(cell, DashboardCell):
-        v = cell.dashboard_cell
-        return "dashboard", f"{v.name or ''} {v.code or ''}".strip()
+        dash = cell.dashboard_cell
+        return "dashboard", f"{dash.name or ''} {dash.code or ''}".strip()
     if isinstance(cell, MdCell):
         return "md", cell.md_cell.content or ""
     if isinstance(cell, AnsCell):
@@ -99,24 +99,24 @@ def cell_text(cell: TextqlRPCPublicChatCell) -> tuple[str, str]:
     if isinstance(cell, FeedCommentCell):
         return "feed_comment", cell.feed_comment_cell.content or ""
     if isinstance(cell, FeedPostCell):
-        v = cell.feed_post_cell
-        return "feed_post", f"{v.title or ''}: {v.content or ''}".strip(": ")
+        fp = cell.feed_post_cell
+        return "feed_post", f"{fp.title or ''}: {fp.content or ''}".strip(": ")
     if isinstance(cell, PreviewCell):
-        v = cell.preview_cell
-        return "preview", f"{v.name or ''}: {v.content or ''}".strip(": ")
+        prev = cell.preview_cell
+        return "preview", f"{prev.name or ''}: {prev.content or ''}".strip(": ")
     if isinstance(cell, GoogleDriveContentCell):
         return "gdrive_content", cell.google_drive_content_cell.content or ""
     if isinstance(cell, McpToolCell):
-        v = cell.mcp_tool_cell
-        return "mcp", f"{v.tool_name or ''} {v.arguments_json or ''}".strip()
+        mcp = cell.mcp_tool_cell
+        return "mcp", f"{mcp.tool_name or ''} {mcp.arguments_json or ''}".strip()
     if isinstance(cell, ReportCell):
-        v = cell.report_cell
-        return "report", f"{v.subject or ''} — {v.summary or ''}".strip(" —")
+        rpt = cell.report_cell
+        return "report", f"{rpt.subject or ''} — {rpt.summary or ''}".strip(" —")
     if isinstance(cell, SummaryCell):
         return "summary", cell.summary_cell.summary or ""
     if isinstance(cell, PatchCell):
-        v = cell.patch_cell
-        return "patch", f"{v.title or ''}: {v.description or ''}".strip(": ")
+        patch = cell.patch_cell
+        return "patch", f"{patch.title or ''}: {patch.description or ''}".strip(": ")
     if isinstance(cell, ReportHistoryCell):
         return "report_history", repr(cell.report_history_cell)
     if isinstance(cell, MetricsCell):
@@ -128,8 +128,8 @@ def cell_text(cell: TextqlRPCPublicChatCell) -> tuple[str, str]:
     if isinstance(cell, WsCell):
         return "web_search", cell.ws_cell.query or ""
     if isinstance(cell, EmailCell):
-        v = cell.email_cell
-        return "email", f"{v.subject or ''}: {v.body or ''}".strip(": ")
+        email = cell.email_cell
+        return "email", f"{email.subject or ''}: {email.body or ''}".strip(": ")
     if isinstance(cell, GmailEmailContentCell):
         return "gmail", cell.gmail_email_content_cell.subject or ""
     if isinstance(cell, Microsoft365EmailContentCell):
