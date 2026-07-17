@@ -174,7 +174,7 @@ def _get_sleep_interval(
     if (
         isinstance(exception, TemporaryError)
         and exception.retry_after is not None
-        and exception.retry_after > 0
+        and exception.retry_after >= 0
     ):
         return exception.retry_after / 1000
 
@@ -208,6 +208,8 @@ def retry(func, retries: Retries):
                         if res.status_code == parsed_code:
                             raise TemporaryError(res)
             except (httpx.NetworkError, httpx.TimeoutException) as exception:
+                # Re-raise raw so the generic backoff loop retries it;
+                # wrap in PermanentError to stop retrying immediately.
                 if retries.config.retry_connection_errors:
                     raise
 
@@ -253,6 +255,8 @@ async def retry_async(func, retries: Retries):
                         if res.status_code == parsed_code:
                             raise TemporaryError(res)
             except (httpx.NetworkError, httpx.TimeoutException) as exception:
+                # Re-raise raw so the generic backoff loop retries it;
+                # wrap in PermanentError to stop retrying immediately.
                 if retries.config.retry_connection_errors:
                     raise
 
