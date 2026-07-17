@@ -304,7 +304,6 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.agent.ResetAgentAvatarResponse'
       x-speakeasy-group: agents
       x-speakeasy-name-override: resetAgentAvatar
-  /textql.rpc.public.agent.AgentService/StreamAgentStatus: {}
   /textql.rpc.public.agent.AgentService/TriggerAgent:
     post:
       tags:
@@ -2698,7 +2697,6 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.chat.SendResponse'
       x-speakeasy-group: chats
       x-speakeasy-name-override: send
-  /textql.rpc.public.chat.ChatService/StreamChat: {}
   /textql.rpc.public.chat.ChatService/SubmitContextPromptChange:
     post:
       tags:
@@ -2851,7 +2849,6 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.chat.UpdateChatResponse'
       x-speakeasy-group: chats
       x-speakeasy-name-override: update
-  /textql.rpc.public.chat.ChatService/WatchChat: {}
   /textql.rpc.public.connector.ConnectorService/CreateConnector:
     post:
       tags:
@@ -4382,7 +4379,6 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.dashboard.UpdateDashboardScheduleResponse'
       x-speakeasy-group: dashboards
       x-speakeasy-name-override: updateDashboardSchedule
-  /textql.rpc.public.dashboard.DashboardService/WatchDashboardHealth: {}
   /textql.rpc.public.dataset.DatasetService/CreateFolder:
     post:
       tags:
@@ -10373,7 +10369,6 @@ paths:
                 $ref: '#/components/schemas/textql.rpc.public.playbook.SetTeamsChannelContextPlaybookResponse'
       x-speakeasy-group: playbooks
       x-speakeasy-name-override: setTeamsChannelContext
-  /textql.rpc.public.playbook.PlaybookService/StreamTemplateDataStatus: {}
   /textql.rpc.public.playbook.PlaybookService/SubscribeToPlaybook:
     post:
       tags:
@@ -38106,6 +38101,13 @@ components:
           nullable: true
       title: TeamsUser
       additionalProperties: false
+    textql.rpc.public.chat.StreamChatEvent:
+      type: object
+      title: StreamChatEvent
+      description: A single streamed cell event from StreamChat.
+      properties:
+        cell:
+          $ref: '#/components/schemas/textql.rpc.public.chat.Cell'
   securitySchemes:
     apiKey:
       type: apiKey

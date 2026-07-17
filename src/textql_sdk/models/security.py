@@ -27,7 +27,7 @@ class Security(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["api_key"])
+        optional_fields = set(["apiKey"])
         serialized = handler(self)
         m = {}
 
