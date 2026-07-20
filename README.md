@@ -3,12 +3,7 @@
 Developer-friendly & type-safe Python SDK specifically catered to leverage *textql* API.
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
 
-<!-- Start Summary [summary] -->
 ## Summary
-
-TextQL API: TextQL public API. Generated from protobuf service definitions; internal
-endpoints are excluded via google.api.visibility / file_visibility.
-<!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
