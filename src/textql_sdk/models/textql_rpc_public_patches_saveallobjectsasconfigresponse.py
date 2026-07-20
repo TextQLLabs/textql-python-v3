@@ -19,7 +19,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesSaveAllObjectsAsConfigResponseTypedDict(TypedDict):
     patch: NotRequired[TextqlRPCPublicPatchesPatchTypedDict]
     file_paths: NotRequired[List[str]]
-    r"""Library-relative paths of the config files in the patch."""
+    r"""Ontology-relative paths of the config files in the patch."""
     skipped: NotRequired[List[TextqlRPCPublicPatchesSkippedConfigExportTypedDict]]
     already_managed_count: NotRequired[int]
     r"""Objects excluded up front because a config file already manages them."""
@@ -29,7 +29,7 @@ class TextqlRPCPublicPatchesSaveAllObjectsAsConfigResponse(BaseModel):
     patch: Optional[TextqlRPCPublicPatchesPatch] = None
 
     file_paths: Annotated[Optional[List[str]], pydantic.Field(alias="filePaths")] = None
-    r"""Library-relative paths of the config files in the patch."""
+    r"""Ontology-relative paths of the config files in the patch."""
 
     skipped: Optional[List[TextqlRPCPublicPatchesSkippedConfigExport]] = None
 

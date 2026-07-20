@@ -3,6 +3,12 @@
 
 ## Supported Types
 
+### `models.AppDb`
+
+```python
+value: models.AppDb = /* values here */
+```
+
 ### `models.TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestLibraryTql`
 
 ```python

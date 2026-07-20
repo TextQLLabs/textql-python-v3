@@ -333,6 +333,12 @@ value: models.TabularFileCell = /* values here */
 value: models.TextCell = /* values here */
 ```
 
+### `models.ThinkingCell`
+
+```python
+value: models.ThinkingCell = /* values here */
+```
+
 ### `models.UseSkillCell`
 
 ```python

@@ -16,8 +16,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineRequestTypedDict(TypedDict):
+    r"""FileChatUsage is one chat that retrieved a ontology file inside the
+    observation window. Only pulls attributed to a chat are listed — background
+    or sandbox reads carry no chat id and are excluded.
+    """
+
     path_prefix: NotRequired[Nullable[str]]
-    r"""Restrict to files under this prefix; the whole library when unset."""
     observation_period: NotRequired[timedelta]
     r"""A Duration represents a signed, fixed-length span of time represented
     as a count of seconds and fractions of seconds at nanosecond
@@ -81,10 +85,14 @@ class TextqlRPCPublicPatchesGetFileUsageTimelineRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineRequest(BaseModel):
+    r"""FileChatUsage is one chat that retrieved a ontology file inside the
+    observation window. Only pulls attributed to a chat are listed — background
+    or sandbox reads carry no chat id and are excluded.
+    """
+
     path_prefix: Annotated[
         OptionalNullable[str], pydantic.Field(alias="pathPrefix")
     ] = UNSET
-    r"""Restrict to files under this prefix; the whole library when unset."""
 
     observation_period: Annotated[
         Optional[timedelta], pydantic.Field(alias="observationPeriod")

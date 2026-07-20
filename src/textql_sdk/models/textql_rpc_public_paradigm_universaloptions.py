@@ -50,6 +50,7 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
         List[TextqlRPCPowerbiSelectionPowerBISelectionTypedDict]
     ]
     sms_mode: NotRequired[bool]
+    api_access_key_ids: NotRequired[List[str]]
 
 
 class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
@@ -161,6 +162,10 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
 
     sms_mode: Annotated[Optional[bool], pydantic.Field(alias="smsMode")] = None
 
+    api_access_key_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="apiAccessKeyIds")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -193,6 +198,7 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
                 "emailOutputEnabled",
                 "powerbiSelections",
                 "smsMode",
+                "apiAccessKeyIds",
             ]
         )
         nullable_fields = set(["datasetId"])

@@ -8,7 +8,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesSkillTypedDict(TypedDict):
-    r"""Skill is the display metadata for one library skill. Intentionally carries no
+    r"""Skill is the display metadata for one ontology skill. Intentionally carries no
     instruction body: bodies are inlined server-side at chat time and never sent
     to the client.
     """
@@ -20,11 +20,11 @@ class TextqlRPCPublicPatchesSkillTypedDict(TypedDict):
     description: NotRequired[str]
     r"""frontmatter description (may be empty)"""
     path: NotRequired[str]
-    r"""library-relative path, e.g. \"skills/forecast\" """
+    r"""ontology-relative path, e.g. \"skills/forecast\" """
 
 
 class TextqlRPCPublicPatchesSkill(BaseModel):
-    r"""Skill is the display metadata for one library skill. Intentionally carries no
+    r"""Skill is the display metadata for one ontology skill. Intentionally carries no
     instruction body: bodies are inlined server-side at chat time and never sent
     to the client.
     """
@@ -39,7 +39,7 @@ class TextqlRPCPublicPatchesSkill(BaseModel):
     r"""frontmatter description (may be empty)"""
 
     path: Optional[str] = None
-    r"""library-relative path, e.g. \"skills/forecast\" """
+    r"""ontology-relative path, e.g. \"skills/forecast\" """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

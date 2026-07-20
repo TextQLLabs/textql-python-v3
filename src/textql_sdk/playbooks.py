@@ -8403,6 +8403,12 @@ class Playbooks(BaseSDK):
                 models.TextqlRPCPublicPlaybookStringListTypedDict,
             ]
         ] = None,
+        api_access_key_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8440,6 +8446,7 @@ class Playbooks(BaseSDK):
         :param recipient_email_column:
         :param teams_channel_id:
         :param tagged_teams_user_aad_ids:
+        :param api_access_key_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8511,6 +8518,10 @@ class Playbooks(BaseSDK):
                 teams_channel_id=teams_channel_id,
                 tagged_teams_user_aad_ids=utils.get_pydantic_model(
                     tagged_teams_user_aad_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+                api_access_key_ids=utils.get_pydantic_model(
+                    api_access_key_ids,
                     Optional[models.TextqlRPCPublicPlaybookStringList],
                 ),
             ),
@@ -8671,6 +8682,12 @@ class Playbooks(BaseSDK):
                 models.TextqlRPCPublicPlaybookStringListTypedDict,
             ]
         ] = None,
+        api_access_key_ids: Optional[
+            Union[
+                models.TextqlRPCPublicPlaybookStringList,
+                models.TextqlRPCPublicPlaybookStringListTypedDict,
+            ]
+        ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8708,6 +8725,7 @@ class Playbooks(BaseSDK):
         :param recipient_email_column:
         :param teams_channel_id:
         :param tagged_teams_user_aad_ids:
+        :param api_access_key_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8779,6 +8797,10 @@ class Playbooks(BaseSDK):
                 teams_channel_id=teams_channel_id,
                 tagged_teams_user_aad_ids=utils.get_pydantic_model(
                     tagged_teams_user_aad_ids,
+                    Optional[models.TextqlRPCPublicPlaybookStringList],
+                ),
+                api_access_key_ids=utils.get_pydantic_model(
+                    api_access_key_ids,
                     Optional[models.TextqlRPCPublicPlaybookStringList],
                 ),
             ),

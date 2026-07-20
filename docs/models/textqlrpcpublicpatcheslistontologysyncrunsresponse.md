@@ -1,0 +1,9 @@
+# TextqlRPCPublicPatchesListOntologySyncRunsResponse
+
+
+## Fields
+
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `runs`                                                                                                   | List[[models.TextqlRPCPublicPatchesOntologySyncRun](../models/textqlrpcpublicpatchesontologysyncrun.md)] | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |
+| `next_page_token`                                                                                        | *OptionalNullable[str]*                                                                                  | :heavy_minus_sign:                                                                                       | N/A                                                                                                      |

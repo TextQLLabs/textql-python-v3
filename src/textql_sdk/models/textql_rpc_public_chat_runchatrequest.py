@@ -21,6 +21,7 @@ class TextqlRPCPublicChatRunChatRequestTypedDict(TypedDict):
     research: NotRequired[Nullable[bool]]
     model: NotRequired[TextqlRPCPublicChatLlmModel]
     fast_mode: NotRequired[Nullable[bool]]
+    max_thinking: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicChatRunChatRequest(BaseModel):
@@ -38,12 +39,25 @@ class TextqlRPCPublicChatRunChatRequest(BaseModel):
         UNSET
     )
 
+    max_thinking: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="maxThinking")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
         optional_fields = set(
-            ["chatId", "latestCompleteCellId", "research", "model", "fastMode"]
+            [
+                "chatId",
+                "latestCompleteCellId",
+                "research",
+                "model",
+                "fastMode",
+                "maxThinking",
+            ]
         )
-        nullable_fields = set(["latestCompleteCellId", "research", "fastMode"])
+        nullable_fields = set(
+            ["latestCompleteCellId", "research", "fastMode", "maxThinking"]
+        )
         serialized = handler(self)
         m = {}
 

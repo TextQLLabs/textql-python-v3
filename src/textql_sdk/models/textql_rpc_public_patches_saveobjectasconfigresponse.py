@@ -15,14 +15,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesSaveObjectAsConfigResponseTypedDict(TypedDict):
     patch: NotRequired[TextqlRPCPublicPatchesPatchTypedDict]
     file_path: NotRequired[str]
-    r"""Library-relative path the config file was placed at."""
+    r"""Ontology-relative path the config file was placed at."""
 
 
 class TextqlRPCPublicPatchesSaveObjectAsConfigResponse(BaseModel):
     patch: Optional[TextqlRPCPublicPatchesPatch] = None
 
     file_path: Annotated[Optional[str], pydantic.Field(alias="filePath")] = None
-    r"""Library-relative path the config file was placed at."""
+    r"""Ontology-relative path the config file was placed at."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

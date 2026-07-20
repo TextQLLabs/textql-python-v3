@@ -13,12 +13,12 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineResponseTypedDict(TypedDict):
     days: NotRequired[List[TextqlRPCPublicPatchesDailyFileUsageTypedDict]]
-    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
+    r"""most recent pull first"""
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineResponse(BaseModel):
     days: Optional[List[TextqlRPCPublicPatchesDailyFileUsage]] = None
-    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
+    r"""most recent pull first"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

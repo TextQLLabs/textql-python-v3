@@ -9,14 +9,14 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesTriggerConfigDriftReconcileResponseTypedDict(TypedDict):
     drifted: NotRequired[bool]
-    r"""True ⇒ the org's live Library HEAD differed from the last reconciled commit,
+    r"""True ⇒ the org's live Ontology HEAD differed from the last reconciled commit,
     so a catch-up reconcile was enqueued. False ⇒ already converged (no-op).
     """
 
 
 class TextqlRPCPublicPatchesTriggerConfigDriftReconcileResponse(BaseModel):
     drifted: Optional[bool] = None
-    r"""True ⇒ the org's live Library HEAD differed from the last reconciled commit,
+    r"""True ⇒ the org's live Ontology HEAD differed from the last reconciled commit,
     so a catch-up reconcile was enqueued. False ⇒ already converged (no-op).
     """
 

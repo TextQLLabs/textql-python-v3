@@ -8,41 +8,17 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesDateTypedDict(TypedDict):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
-
     year: NotRequired[int]
-    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-    a year.
-    """
     month: NotRequired[int]
-    r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
-    month and day.
-    """
     day: NotRequired[int]
-    r"""Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
-    to specify a year by itself or a year and month where the day isn't
-    significant.
-    """
 
 
 class TextqlRPCPublicPatchesDate(BaseModel):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
-
     year: Optional[int] = None
-    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-    a year.
-    """
 
     month: Optional[int] = None
-    r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
-    month and day.
-    """
 
     day: Optional[int] = None
-    r"""Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
-    to specify a year by itself or a year and month where the day isn't
-    significant.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

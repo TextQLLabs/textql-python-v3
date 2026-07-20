@@ -11,6 +11,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicDashboardSQLQuerySourceTypedDict(TypedDict):
     query: NotRequired[str]
     connector_id: NotRequired[int]
+    predicate: NotRequired[str]
+    r"""Optional viewer row-filter appended server-side at live-query time; binds :viewer_member_id / :viewer_email. Presence forces the source out of the published snapshot."""
 
 
 class TextqlRPCPublicDashboardSQLQuerySource(BaseModel):
@@ -18,9 +20,12 @@ class TextqlRPCPublicDashboardSQLQuerySource(BaseModel):
 
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
 
+    predicate: Optional[str] = None
+    r"""Optional viewer row-filter appended server-side at live-query time; binds :viewer_member_id / :viewer_email. Presence forces the source out of the published snapshot."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["query", "connectorId"])
+        optional_fields = set(["query", "connectorId", "predicate"])
         serialized = handler(self)
         m = {}
 
