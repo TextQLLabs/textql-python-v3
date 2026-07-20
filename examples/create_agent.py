@@ -12,7 +12,7 @@ from textql_sdk import Textql
 from textql_sdk.models import ConnectError, SQL, TextqlRPCPublicParadigmSQLOptions
 
 load_dotenv()
-sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"], server_url="http://app.textql.com")
+sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"])
 
 # Create the agent
 resp = sdk.agents.create(
