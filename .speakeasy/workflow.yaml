@@ -21,4 +21,4 @@ targets:
                 location: registry.speakeasyapi.dev/textql/home/textql-api-python-code-samples
             labelOverride:
                 fixedValue: Python (SDK)
-            blocking: false
+            blocking: true
