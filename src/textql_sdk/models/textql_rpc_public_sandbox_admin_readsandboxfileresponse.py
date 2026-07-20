@@ -20,27 +20,29 @@ TextqlRPCPublicSandboxAdminReadSandboxFileResponseSizeBytes = TypeAliasType(
 
 
 class TextqlRPCPublicSandboxAdminReadSandboxFileResponseTypedDict(TypedDict):
+    r"""One CPU/memory measurement of a sandbox worker."""
+
     available: NotRequired[bool]
-    r"""False when the sandbox is not running (no live filesystem)."""
     name: NotRequired[str]
+    r"""CPU in cores (e.g. 0.12 used of a 1.5 limit). Limit 0 = none configured."""
     size_bytes: NotRequired[
         TextqlRPCPublicSandboxAdminReadSandboxFileResponseSizeBytesTypedDict
     ]
     mime_type: NotRequired[str]
+    r"""Percent of the limit in [0, 100]; 0 when no limit is configured."""
     content: NotRequired[str]
-    r"""UTF-8 text content; empty for binary files (see binary_content)."""
     binary_content: NotRequired[str]
-    r"""Raw bytes for binary files (e.g. images); empty for text files."""
     truncated: NotRequired[bool]
-    r"""True when the file exceeded the read cap and content/binary was clipped."""
     is_binary: NotRequired[bool]
 
 
 class TextqlRPCPublicSandboxAdminReadSandboxFileResponse(BaseModel):
+    r"""One CPU/memory measurement of a sandbox worker."""
+
     available: Optional[bool] = None
-    r"""False when the sandbox is not running (no live filesystem)."""
 
     name: Optional[str] = None
+    r"""CPU in cores (e.g. 0.12 used of a 1.5 limit). Limit 0 = none configured."""
 
     size_bytes: Annotated[
         Optional[TextqlRPCPublicSandboxAdminReadSandboxFileResponseSizeBytes],
@@ -48,17 +50,15 @@ class TextqlRPCPublicSandboxAdminReadSandboxFileResponse(BaseModel):
     ] = None
 
     mime_type: Annotated[Optional[str], pydantic.Field(alias="mimeType")] = None
+    r"""Percent of the limit in [0, 100]; 0 when no limit is configured."""
 
     content: Optional[str] = None
-    r"""UTF-8 text content; empty for binary files (see binary_content)."""
 
     binary_content: Annotated[Optional[str], pydantic.Field(alias="binaryContent")] = (
         None
     )
-    r"""Raw bytes for binary files (e.g. images); empty for text files."""
 
     truncated: Optional[bool] = None
-    r"""True when the file exceeded the read cap and content/binary was clipped."""
 
     is_binary: Annotated[Optional[bool], pydantic.Field(alias="isBinary")] = None
 

@@ -83,6 +83,7 @@ class TextqlRPCPublicPlaybookUpdatePlaybookRequestTypedDict(TypedDict):
     recipient_email_column: NotRequired[Nullable[str]]
     teams_channel_id: NotRequired[Nullable[str]]
     tagged_teams_user_aad_ids: NotRequired[TextqlRPCPublicPlaybookStringListTypedDict]
+    api_access_key_ids: NotRequired[TextqlRPCPublicPlaybookStringListTypedDict]
 
 
 class TextqlRPCPublicPlaybookUpdatePlaybookRequest(BaseModel):
@@ -211,6 +212,11 @@ class TextqlRPCPublicPlaybookUpdatePlaybookRequest(BaseModel):
         pydantic.Field(alias="taggedTeamsUserAadIds"),
     ] = None
 
+    api_access_key_ids: Annotated[
+        Optional[TextqlRPCPublicPlaybookStringList],
+        pydantic.Field(alias="apiAccessKeyIds"),
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -244,6 +250,7 @@ class TextqlRPCPublicPlaybookUpdatePlaybookRequest(BaseModel):
                 "recipientEmailColumn",
                 "teamsChannelId",
                 "taggedTeamsUserAadIds",
+                "apiAccessKeyIds",
             ]
         )
         nullable_fields = set(

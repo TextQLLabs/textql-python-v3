@@ -235,6 +235,8 @@ class TextqlRPCPublicChatGetChatsRequestTypedDict(TypedDict):
     r"""Only chats tagged with at least one of these custom topics
     (verdict='tagged'). Ignored when empty.
     """
+    connector_ids: NotRequired[List[int]]
+    r"""Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty."""
 
 
 class TextqlRPCPublicChatGetChatsRequest(BaseModel):
@@ -499,6 +501,11 @@ class TextqlRPCPublicChatGetChatsRequest(BaseModel):
     (verdict='tagged'). Ignored when empty.
     """
 
+    connector_ids: Annotated[
+        Optional[List[int]], pydantic.Field(alias="connectorIds")
+    ] = None
+    r"""Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -523,6 +530,7 @@ class TextqlRPCPublicChatGetChatsRequest(BaseModel):
                 "sources",
                 "threadWarningTypes",
                 "topicIds",
+                "connectorIds",
             ]
         )
         nullable_fields = set(

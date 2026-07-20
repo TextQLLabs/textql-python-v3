@@ -34,7 +34,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
     id: NotRequired[str]
     app_id: NotRequired[str]
+    r"""Routing observability: warm | warm_fallback | tql | sql."""
     version_number: NotRequired[int]
+    r"""Whether this invoke paid phase-1 module definition (cold imports)."""
     code: NotRequired[str]
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
@@ -42,7 +44,6 @@ class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     published_html_url: NotRequired[Nullable[str]]
-    staleness_seconds: NotRequired[Nullable[int]]
     published_by: NotRequired[str]
     label: NotRequired[Nullable[str]]
     published_at: NotRequired[datetime]
@@ -143,10 +144,12 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
     id: Optional[str] = None
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""Routing observability: warm | warm_fallback | tql | sql."""
 
     version_number: Annotated[Optional[int], pydantic.Field(alias="versionNumber")] = (
         None
     )
+    r"""Whether this invoke paid phase-1 module definition (cold imports)."""
 
     code: Optional[str] = None
 
@@ -168,10 +171,6 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
 
     published_html_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="publishedHtmlUrl")
-    ] = UNSET
-
-    staleness_seconds: Annotated[
-        OptionalNullable[int], pydantic.Field(alias="stalenessSeconds")
     ] = UNSET
 
     published_by: Annotated[Optional[str], pydantic.Field(alias="publishedBy")] = None
@@ -288,16 +287,13 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
                 "name",
                 "description",
                 "publishedHtmlUrl",
-                "stalenessSeconds",
                 "publishedBy",
                 "label",
                 "publishedAt",
                 "publisher",
             ]
         )
-        nullable_fields = set(
-            ["description", "publishedHtmlUrl", "stalenessSeconds", "label"]
-        )
+        nullable_fields = set(["description", "publishedHtmlUrl", "label"])
         serialized = handler(self)
         m = {}
 

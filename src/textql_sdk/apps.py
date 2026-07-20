@@ -20,11 +20,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceAppHeartbeatResponse:
-        r"""Viewer heartbeat: keeps a warm compute worker alive while the app is open so its  billed lifetime tracks the view session (mirrors a dashboard's viewer TTL). No-op  when the app has no warm worker; never spawns one.
+        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
-        Viewer heartbeat: keeps a warm compute worker alive while the app is open so its
-        billed lifetime tracks the view session (mirrors a dashboard's viewer TTL). No-op
-        when the app has no warm worker; never spawns one.
+        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
         :param app_id: 'app' | 'dashboard'
@@ -126,11 +124,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceAppHeartbeatResponse:
-        r"""Viewer heartbeat: keeps a warm compute worker alive while the app is open so its  billed lifetime tracks the view session (mirrors a dashboard's viewer TTL). No-op  when the app has no warm worker; never spawns one.
+        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
-        Viewer heartbeat: keeps a warm compute worker alive while the app is open so its
-        billed lifetime tracks the view session (mirrors a dashboard's viewer TTL). No-op
-        when the app has no warm worker; never spawns one.
+        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
         :param app_id: 'app' | 'dashboard'
@@ -247,6 +243,13 @@ class Apps(BaseSDK):
                 Iterable[models.TextqlRPCPublicAppAppFileTypedDict],
             ]
         ] = None,
+        capabilities: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicAppCapability],
+                Iterable[models.TextqlRPCPublicAppCapabilityTypedDict],
+            ]
+        ] = None,
+        app_db_setup: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -261,6 +264,8 @@ class Apps(BaseSDK):
         :param data_sources:
         :param compute_functions:
         :param files:
+        :param capabilities:
+        :param app_db_setup:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -293,6 +298,10 @@ class Apps(BaseSDK):
                 files=utils.get_pydantic_model(
                     files, Optional[List[models.TextqlRPCPublicAppAppFile]]
                 ),
+                capabilities=utils.get_pydantic_model(
+                    capabilities, Optional[List[models.TextqlRPCPublicAppCapability]]
+                ),
+                app_db_setup=utils.unmarshal(app_db_setup, Optional[List[str]]),
             ),
         )
 
@@ -389,6 +398,13 @@ class Apps(BaseSDK):
                 Iterable[models.TextqlRPCPublicAppAppFileTypedDict],
             ]
         ] = None,
+        capabilities: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicAppCapability],
+                Iterable[models.TextqlRPCPublicAppCapabilityTypedDict],
+            ]
+        ] = None,
+        app_db_setup: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -403,6 +419,8 @@ class Apps(BaseSDK):
         :param data_sources:
         :param compute_functions:
         :param files:
+        :param capabilities:
+        :param app_db_setup:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -435,6 +453,10 @@ class Apps(BaseSDK):
                 files=utils.get_pydantic_model(
                     files, Optional[List[models.TextqlRPCPublicAppAppFile]]
                 ),
+                capabilities=utils.get_pydantic_model(
+                    capabilities, Optional[List[models.TextqlRPCPublicAppCapability]]
+                ),
+                app_db_setup=utils.unmarshal(app_db_setup, Optional[List[str]]),
             ),
         )
 
@@ -1792,7 +1814,7 @@ class Apps(BaseSDK):
 
         :param connect_timeout_ms:
         :param app_id:
-        :param function_name: string | number | boolean | object | array
+        :param function_name:
         :param params_json:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1904,7 +1926,7 @@ class Apps(BaseSDK):
 
         :param connect_timeout_ms:
         :param app_id:
-        :param function_name: string | number | boolean | object | array
+        :param function_name:
         :param params_json:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3348,7 +3370,6 @@ class Apps(BaseSDK):
         ] = None,
         replace_data_sources: OptionalNullable[bool] = UNSET,
         publish: OptionalNullable[bool] = UNSET,
-        staleness_seconds: OptionalNullable[int] = UNSET,
         compute_functions: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicAppComputeFunction],
@@ -3365,6 +3386,15 @@ class Apps(BaseSDK):
         replace_files: OptionalNullable[bool] = UNSET,
         schedule_enabled: OptionalNullable[bool] = UNSET,
         cron_string: OptionalNullable[str] = UNSET,
+        capabilities: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicAppCapability],
+                Iterable[models.TextqlRPCPublicAppCapabilityTypedDict],
+            ]
+        ] = None,
+        replace_capabilities: OptionalNullable[bool] = UNSET,
+        app_db_setup: Optional[Iterable[str]] = None,
+        replace_app_db_setup: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3380,13 +3410,16 @@ class Apps(BaseSDK):
         :param data_sources:
         :param replace_data_sources:
         :param publish:
-        :param staleness_seconds:
         :param compute_functions:
         :param replace_compute_functions:
         :param files:
         :param replace_files:
         :param schedule_enabled:
         :param cron_string:
+        :param capabilities:
+        :param replace_capabilities:
+        :param app_db_setup:
+        :param replace_app_db_setup:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3415,7 +3448,6 @@ class Apps(BaseSDK):
                 ),
                 replace_data_sources=replace_data_sources,
                 publish=publish,
-                staleness_seconds=staleness_seconds,
                 compute_functions=utils.get_pydantic_model(
                     compute_functions,
                     Optional[List[models.TextqlRPCPublicAppComputeFunction]],
@@ -3427,6 +3459,12 @@ class Apps(BaseSDK):
                 replace_files=replace_files,
                 schedule_enabled=schedule_enabled,
                 cron_string=cron_string,
+                capabilities=utils.get_pydantic_model(
+                    capabilities, Optional[List[models.TextqlRPCPublicAppCapability]]
+                ),
+                replace_capabilities=replace_capabilities,
+                app_db_setup=utils.unmarshal(app_db_setup, Optional[List[str]]),
+                replace_app_db_setup=replace_app_db_setup,
             ),
         )
 
@@ -3514,7 +3552,6 @@ class Apps(BaseSDK):
         ] = None,
         replace_data_sources: OptionalNullable[bool] = UNSET,
         publish: OptionalNullable[bool] = UNSET,
-        staleness_seconds: OptionalNullable[int] = UNSET,
         compute_functions: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicAppComputeFunction],
@@ -3531,6 +3568,15 @@ class Apps(BaseSDK):
         replace_files: OptionalNullable[bool] = UNSET,
         schedule_enabled: OptionalNullable[bool] = UNSET,
         cron_string: OptionalNullable[str] = UNSET,
+        capabilities: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicAppCapability],
+                Iterable[models.TextqlRPCPublicAppCapabilityTypedDict],
+            ]
+        ] = None,
+        replace_capabilities: OptionalNullable[bool] = UNSET,
+        app_db_setup: Optional[Iterable[str]] = None,
+        replace_app_db_setup: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3546,13 +3592,16 @@ class Apps(BaseSDK):
         :param data_sources:
         :param replace_data_sources:
         :param publish:
-        :param staleness_seconds:
         :param compute_functions:
         :param replace_compute_functions:
         :param files:
         :param replace_files:
         :param schedule_enabled:
         :param cron_string:
+        :param capabilities:
+        :param replace_capabilities:
+        :param app_db_setup:
+        :param replace_app_db_setup:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3581,7 +3630,6 @@ class Apps(BaseSDK):
                 ),
                 replace_data_sources=replace_data_sources,
                 publish=publish,
-                staleness_seconds=staleness_seconds,
                 compute_functions=utils.get_pydantic_model(
                     compute_functions,
                     Optional[List[models.TextqlRPCPublicAppComputeFunction]],
@@ -3593,6 +3641,12 @@ class Apps(BaseSDK):
                 replace_files=replace_files,
                 schedule_enabled=schedule_enabled,
                 cron_string=cron_string,
+                capabilities=utils.get_pydantic_model(
+                    capabilities, Optional[List[models.TextqlRPCPublicAppCapability]]
+                ),
+                replace_capabilities=replace_capabilities,
+                app_db_setup=utils.unmarshal(app_db_setup, Optional[List[str]]),
+                replace_app_db_setup=replace_app_db_setup,
             ),
         )
 

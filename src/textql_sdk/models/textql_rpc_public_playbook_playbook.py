@@ -380,6 +380,7 @@ class TextqlRPCPublicPlaybookPlaybookTypedDict(TypedDict):
     r"""Config-management metadata (provenance + reconcile state) for any file-based
     object. Presence on an object ⇒ the object is config-managed.
     """
+    api_access_key_ids: NotRequired[List[str]]
 
 
 class TextqlRPCPublicPlaybookPlaybook(BaseModel):
@@ -834,6 +835,10 @@ class TextqlRPCPublicPlaybookPlaybook(BaseModel):
     object. Presence on an object ⇒ the object is config-managed.
     """
 
+    api_access_key_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="apiAccessKeyIds")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -881,6 +886,7 @@ class TextqlRPCPublicPlaybookPlaybook(BaseModel):
                 "teamsChannelId",
                 "taggedTeamsUserAadIds",
                 "configSource",
+                "apiAccessKeyIds",
             ]
         )
         nullable_fields = set(

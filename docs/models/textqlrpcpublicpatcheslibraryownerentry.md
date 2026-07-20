@@ -1,9 +1,0 @@
-# TextqlRPCPublicPatchesLibraryOwnerEntry
-
-
-## Fields
-
-| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `role_id`                                                                                                        | *Optional[str]*                                                                                                  | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
-| `permission`                                                                                                     | [Optional[models.TextqlRPCPublicPatchesLibraryPermission]](../models/textqlrpcpublicpatcheslibrarypermission.md) | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

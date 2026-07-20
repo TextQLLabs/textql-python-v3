@@ -23,6 +23,23 @@ class TextqlRPCPublicChatGetLlmUsageResponseTypedDict(TypedDict):
     context_window_used: NotRequired[float]
     r"""range: [0, 1]"""
     estimated_cost: NotRequired[Nullable[float]]
+    r"""Estimated LLM-token cost (USD, list model prices). LLM only."""
+    estimated_compute_cost: NotRequired[Nullable[float]]
+    r"""Estimated sandbox/compute cost for this chat (USD): chat sandbox-seconds →
+    ACUs → USD at the org's effective rate. Add to estimated_cost for the
+    thread's total cost. Requires the console rate (0/omitted if unavailable).
+    """
+    sandbox_id: NotRequired[Nullable[str]]
+    r"""The chat's sandbox id ({orgID}-{chatID}), set when the thread used any
+    sandbox compute. Lets the UI deep-link to the sandbox detail. Empty/omitted
+    when the thread had no sandbox usage.
+    """
+    estimated_compute_acus: NotRequired[Nullable[float]]
+    r"""Sandbox compute usage for this chat in ACUs (sandbox-seconds / 3600 × ACUs
+    per instance-hour). The metered unit behind estimated_compute_cost; shown
+    alongside the dollars. Independent of the console $ rate, so present whenever
+    the thread used a sandbox.
+    """
 
 
 class TextqlRPCPublicChatGetLlmUsageResponse(BaseModel):
@@ -36,11 +53,53 @@ class TextqlRPCPublicChatGetLlmUsageResponse(BaseModel):
     estimated_cost: Annotated[
         OptionalNullable[float], pydantic.Field(alias="estimatedCost")
     ] = UNSET
+    r"""Estimated LLM-token cost (USD, list model prices). LLM only."""
+
+    estimated_compute_cost: Annotated[
+        OptionalNullable[float], pydantic.Field(alias="estimatedComputeCost")
+    ] = UNSET
+    r"""Estimated sandbox/compute cost for this chat (USD): chat sandbox-seconds →
+    ACUs → USD at the org's effective rate. Add to estimated_cost for the
+    thread's total cost. Requires the console rate (0/omitted if unavailable).
+    """
+
+    sandbox_id: Annotated[OptionalNullable[str], pydantic.Field(alias="sandboxId")] = (
+        UNSET
+    )
+    r"""The chat's sandbox id ({orgID}-{chatID}), set when the thread used any
+    sandbox compute. Lets the UI deep-link to the sandbox detail. Empty/omitted
+    when the thread had no sandbox usage.
+    """
+
+    estimated_compute_acus: Annotated[
+        OptionalNullable[float], pydantic.Field(alias="estimatedComputeAcus")
+    ] = UNSET
+    r"""Sandbox compute usage for this chat in ACUs (sandbox-seconds / 3600 × ACUs
+    per instance-hour). The metered unit behind estimated_compute_cost; shown
+    alongside the dollars. Independent of the console $ rate, so present whenever
+    the thread used a sandbox.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["usage", "contextWindowUsed", "estimatedCost"])
-        nullable_fields = set(["estimatedCost"])
+        optional_fields = set(
+            [
+                "usage",
+                "contextWindowUsed",
+                "estimatedCost",
+                "estimatedComputeCost",
+                "sandboxId",
+                "estimatedComputeAcus",
+            ]
+        )
+        nullable_fields = set(
+            [
+                "estimatedCost",
+                "estimatedComputeCost",
+                "sandboxId",
+                "estimatedComputeAcus",
+            ]
+        )
         serialized = handler(self)
         m = {}
 

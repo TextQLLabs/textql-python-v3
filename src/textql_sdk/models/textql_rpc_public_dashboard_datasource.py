@@ -5,6 +5,10 @@ from .textql_rpc_public_dashboard_filesource import (
     TextqlRPCPublicDashboardFileSource,
     TextqlRPCPublicDashboardFileSourceTypedDict,
 )
+from .textql_rpc_public_dashboard_grant import (
+    TextqlRPCPublicDashboardGrant,
+    TextqlRPCPublicDashboardGrantTypedDict,
+)
 from .textql_rpc_public_dashboard_librarytqlsource import (
     TextqlRPCPublicDashboardLibraryTQLSource,
     TextqlRPCPublicDashboardLibraryTQLSourceTypedDict,
@@ -39,6 +43,11 @@ class TextqlRPCPublicDashboardDataSourceSQLQueryTypedDict(TypedDict):
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
+    grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
 
 
 class TextqlRPCPublicDashboardDataSourceSQLQuery(BaseModel):
@@ -54,9 +63,15 @@ class TextqlRPCPublicDashboardDataSourceSQLQuery(BaseModel):
     parameters: Optional[List[TextqlRPCPublicDashboardQueryParameter]] = None
     r"""Parameters for live parameterized queries (sql_query type only)"""
 
+    grant: Optional[TextqlRPCPublicDashboardGrant] = None
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "name", "parameters"])
+        optional_fields = set(["type", "name", "parameters", "grant"])
         serialized = handler(self)
         m = {}
 
@@ -78,6 +93,11 @@ class PythonCodeTypedDict(TypedDict):
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
+    grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
 
 
 class PythonCode(BaseModel):
@@ -93,9 +113,15 @@ class PythonCode(BaseModel):
     parameters: Optional[List[TextqlRPCPublicDashboardQueryParameter]] = None
     r"""Parameters for live parameterized queries (sql_query type only)"""
 
+    grant: Optional[TextqlRPCPublicDashboardGrant] = None
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "name", "parameters"])
+        optional_fields = set(["type", "name", "parameters", "grant"])
         serialized = handler(self)
         m = {}
 
@@ -117,6 +143,11 @@ class OntologySQLTypedDict(TypedDict):
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
+    grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
 
 
 class OntologySQL(BaseModel):
@@ -132,9 +163,15 @@ class OntologySQL(BaseModel):
     parameters: Optional[List[TextqlRPCPublicDashboardQueryParameter]] = None
     r"""Parameters for live parameterized queries (sql_query type only)"""
 
+    grant: Optional[TextqlRPCPublicDashboardGrant] = None
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "name", "parameters"])
+        optional_fields = set(["type", "name", "parameters", "grant"])
         serialized = handler(self)
         m = {}
 
@@ -160,6 +197,11 @@ class TextqlRPCPublicDashboardDataSourceLibraryTqlTypedDict(TypedDict):
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
+    grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
 
 
 class TextqlRPCPublicDashboardDataSourceLibraryTql(BaseModel):
@@ -179,9 +221,15 @@ class TextqlRPCPublicDashboardDataSourceLibraryTql(BaseModel):
     parameters: Optional[List[TextqlRPCPublicDashboardQueryParameter]] = None
     r"""Parameters for live parameterized queries (sql_query type only)"""
 
+    grant: Optional[TextqlRPCPublicDashboardGrant] = None
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "name", "parameters"])
+        optional_fields = set(["type", "name", "parameters", "grant"])
         serialized = handler(self)
         m = {}
 
@@ -203,6 +251,11 @@ class TextqlRPCPublicDashboardDataSourceFileTypedDict(TypedDict):
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
+    grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
 
 
 class TextqlRPCPublicDashboardDataSourceFile(BaseModel):
@@ -216,9 +269,15 @@ class TextqlRPCPublicDashboardDataSourceFile(BaseModel):
     parameters: Optional[List[TextqlRPCPublicDashboardQueryParameter]] = None
     r"""Parameters for live parameterized queries (sql_query type only)"""
 
+    grant: Optional[TextqlRPCPublicDashboardGrant] = None
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "name", "parameters"])
+        optional_fields = set(["type", "name", "parameters", "grant"])
         serialized = handler(self)
         m = {}
 

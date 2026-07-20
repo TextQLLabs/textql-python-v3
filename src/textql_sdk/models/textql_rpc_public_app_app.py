@@ -5,6 +5,10 @@ from .textql_rpc_public_app_appfile import (
     TextqlRPCPublicAppAppFile,
     TextqlRPCPublicAppAppFileTypedDict,
 )
+from .textql_rpc_public_app_capability import (
+    TextqlRPCPublicAppCapability,
+    TextqlRPCPublicAppCapabilityTypedDict,
+)
 from .textql_rpc_public_app_computefunction import (
     TextqlRPCPublicAppComputeFunction,
     TextqlRPCPublicAppComputeFunctionTypedDict,
@@ -41,13 +45,17 @@ class TextqlRPCPublicAppAppTypedDict(TypedDict):
     chat_id: NotRequired[Nullable[str]]
     published_html_url: NotRequired[Nullable[str]]
     has_unpublished_changes: NotRequired[bool]
-    staleness_seconds: NotRequired[Nullable[int]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
     schedule_enabled: NotRequired[bool]
     cron_string: NotRequired[Nullable[str]]
     folder_id: NotRequired[Nullable[str]]
     is_favorited: NotRequired[bool]
+    capabilities: NotRequired[List[TextqlRPCPublicAppCapabilityTypedDict]]
+    app_db_setup: NotRequired[List[str]]
+    member_features_enabled: NotRequired[bool]
+    uses_member_features: NotRequired[bool]
+    viewer_grants: NotRequired[List[str]]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -452,10 +460,6 @@ class TextqlRPCPublicAppApp(BaseModel):
         Optional[bool], pydantic.Field(alias="hasUnpublishedChanges")
     ] = None
 
-    staleness_seconds: Annotated[
-        OptionalNullable[int], pydantic.Field(alias="stalenessSeconds")
-    ] = UNSET
-
     compute_functions: Annotated[
         Optional[List[TextqlRPCPublicAppComputeFunction]],
         pydantic.Field(alias="computeFunctions"),
@@ -476,6 +480,24 @@ class TextqlRPCPublicAppApp(BaseModel):
     )
 
     is_favorited: Annotated[Optional[bool], pydantic.Field(alias="isFavorited")] = None
+
+    capabilities: Optional[List[TextqlRPCPublicAppCapability]] = None
+
+    app_db_setup: Annotated[Optional[List[str]], pydantic.Field(alias="appDbSetup")] = (
+        None
+    )
+
+    member_features_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="memberFeaturesEnabled")
+    ] = None
+
+    uses_member_features: Annotated[
+        Optional[bool], pydantic.Field(alias="usesMemberFeatures")
+    ] = None
+
+    viewer_grants: Annotated[
+        Optional[List[str]], pydantic.Field(alias="viewerGrants")
+    ] = None
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -866,13 +888,17 @@ class TextqlRPCPublicAppApp(BaseModel):
                 "chatId",
                 "publishedHtmlUrl",
                 "hasUnpublishedChanges",
-                "stalenessSeconds",
                 "computeFunctions",
                 "files",
                 "scheduleEnabled",
                 "cronString",
                 "folderId",
                 "isFavorited",
+                "capabilities",
+                "appDbSetup",
+                "memberFeaturesEnabled",
+                "usesMemberFeatures",
+                "viewerGrants",
                 "createdAt",
                 "updatedAt",
                 "refreshedAt",
@@ -886,7 +912,6 @@ class TextqlRPCPublicAppApp(BaseModel):
                 "screenshotUrl",
                 "chatId",
                 "publishedHtmlUrl",
-                "stalenessSeconds",
                 "cronString",
                 "folderId",
             ]

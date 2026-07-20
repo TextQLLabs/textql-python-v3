@@ -9,13 +9,23 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionResponseTypedDict(TypedDict):
-    r"""ComputeFunction is a declared server-side python function invocable from the app via the bridge."""
+    r"""ComputeFunction is a declared server-side function invocable from the app via the bridge.
+    Exactly one of code (python, runs on the app's worker), sql (plain SQL on the app's
+    private DB), tql (inline TQL source), or tql_path (a Context Library .tql) must be set.
+    TQL variants are real TQL (compiled at save time) executed against a connector; sql is
+    the app-state path (:name params bound server-side, reserved :_now / :_uuid).
+    """
 
     result_json: NotRequired[str]
 
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionResponse(BaseModel):
-    r"""ComputeFunction is a declared server-side python function invocable from the app via the bridge."""
+    r"""ComputeFunction is a declared server-side function invocable from the app via the bridge.
+    Exactly one of code (python, runs on the app's worker), sql (plain SQL on the app's
+    private DB), tql (inline TQL source), or tql_path (a Context Library .tql) must be set.
+    TQL variants are real TQL (compiled at save time) executed against a connector; sql is
+    the app-state path (:name params bound server-side, reserved :_now / :_uuid).
+    """
 
     result_json: Annotated[Optional[str], pydantic.Field(alias="resultJson")] = None
 

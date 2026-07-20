@@ -14,7 +14,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict(TypedDict):
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
+    api_key_secret: NotRequired[str]
     api_key_hash: NotRequired[str]
+    r"""Deprecated compatibility alias for api_key_secret. This field contains
+    the same one-time bearer credential; it is not the hash stored at rest.
+    """
 
 
 class TextqlRPCPublicRbacCreateAPIKeyResponse(BaseModel):
@@ -22,11 +26,24 @@ class TextqlRPCPublicRbacCreateAPIKeyResponse(BaseModel):
         Optional[TextqlRPCPublicRbacAPIKey], pydantic.Field(alias="apiKey")
     ] = None
 
-    api_key_hash: Annotated[Optional[str], pydantic.Field(alias="apiKeyHash")] = None
+    api_key_secret: Annotated[Optional[str], pydantic.Field(alias="apiKeySecret")] = (
+        None
+    )
+
+    api_key_hash: Annotated[
+        Optional[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="apiKeyHash",
+        ),
+    ] = None
+    r"""Deprecated compatibility alias for api_key_secret. This field contains
+    the same one-time bearer credential; it is not the hash stored at rest.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["apiKey", "apiKeyHash"])
+        optional_fields = set(["apiKey", "apiKeySecret", "apiKeyHash"])
         serialized = handler(self)
         m = {}
 

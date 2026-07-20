@@ -13,12 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesListChatsForFileResponseTypedDict(TypedDict):
     chats: NotRequired[List[TextqlRPCPublicPatchesFileChatUsageTypedDict]]
-    r"""most recent pull first"""
 
 
 class TextqlRPCPublicPatchesListChatsForFileResponse(BaseModel):
     chats: Optional[List[TextqlRPCPublicPatchesFileChatUsage]] = None
-    r"""most recent pull first"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -1,9 +1,0 @@
-# TextqlRPCPublicPatchesGetEffectiveLibraryOwnersResponse
-
-
-## Fields
-
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `path`                                                                                                       | *Optional[str]*                                                                                              | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
-| `entries`                                                                                                    | List[[models.TextqlRPCPublicPatchesLibraryOwnerEntry](../models/textqlrpcpublicpatcheslibraryownerentry.md)] | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

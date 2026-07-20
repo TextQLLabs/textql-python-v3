@@ -1,0 +1,9 @@
+# TextqlRPCPublicPatchesExchangeOntologyGithubCodeResponse
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `success`                                                                                                      | *Optional[bool]*                                                                                               | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `installations`                                                                                                | List[[models.TextqlRPCPublicPatchesGithubInstallation](../models/textqlrpcpublicpatchesgithubinstallation.md)] | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

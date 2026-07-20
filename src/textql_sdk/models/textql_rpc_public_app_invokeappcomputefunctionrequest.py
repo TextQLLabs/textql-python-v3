@@ -11,7 +11,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppInvokeAppComputeFunctionRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
     function_name: NotRequired[str]
-    r"""string | number | boolean | object | array"""
     params_json: NotRequired[str]
 
 
@@ -19,7 +18,6 @@ class TextqlRPCPublicAppInvokeAppComputeFunctionRequest(BaseModel):
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
 
     function_name: Annotated[Optional[str], pydantic.Field(alias="functionName")] = None
-    r"""string | number | boolean | object | array"""
 
     params_json: Annotated[Optional[str], pydantic.Field(alias="paramsJson")] = None
 

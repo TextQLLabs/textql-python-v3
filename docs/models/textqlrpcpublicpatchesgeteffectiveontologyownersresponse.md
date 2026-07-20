@@ -1,0 +1,9 @@
+# TextqlRPCPublicPatchesGetEffectiveOntologyOwnersResponse
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `path`                                                                                                         | *Optional[str]*                                                                                                | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `entries`                                                                                                      | List[[models.TextqlRPCPublicPatchesOntologyOwnerEntry](../models/textqlrpcpublicpatchesontologyownerentry.md)] | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

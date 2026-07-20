@@ -5,6 +5,10 @@ from .textql_rpc_public_app_appfile import (
     TextqlRPCPublicAppAppFile,
     TextqlRPCPublicAppAppFileTypedDict,
 )
+from .textql_rpc_public_app_capability import (
+    TextqlRPCPublicAppCapability,
+    TextqlRPCPublicAppCapabilityTypedDict,
+)
 from .textql_rpc_public_app_computefunction import (
     TextqlRPCPublicAppComputeFunction,
     TextqlRPCPublicAppComputeFunctionTypedDict,
@@ -34,13 +38,16 @@ class TextqlRPCPublicAppUpdateAppRequestTypedDict(TypedDict):
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     replace_data_sources: NotRequired[Nullable[bool]]
     publish: NotRequired[Nullable[bool]]
-    staleness_seconds: NotRequired[Nullable[int]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     replace_compute_functions: NotRequired[Nullable[bool]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
     replace_files: NotRequired[Nullable[bool]]
     schedule_enabled: NotRequired[Nullable[bool]]
     cron_string: NotRequired[Nullable[str]]
+    capabilities: NotRequired[List[TextqlRPCPublicAppCapabilityTypedDict]]
+    replace_capabilities: NotRequired[Nullable[bool]]
+    app_db_setup: NotRequired[List[str]]
+    replace_app_db_setup: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
@@ -62,10 +69,6 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
     ] = UNSET
 
     publish: OptionalNullable[bool] = UNSET
-
-    staleness_seconds: Annotated[
-        OptionalNullable[int], pydantic.Field(alias="stalenessSeconds")
-    ] = UNSET
 
     compute_functions: Annotated[
         Optional[List[TextqlRPCPublicAppComputeFunction]],
@@ -90,6 +93,20 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
         OptionalNullable[str], pydantic.Field(alias="cronString")
     ] = UNSET
 
+    capabilities: Optional[List[TextqlRPCPublicAppCapability]] = None
+
+    replace_capabilities: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="replaceCapabilities")
+    ] = UNSET
+
+    app_db_setup: Annotated[Optional[List[str]], pydantic.Field(alias="appDbSetup")] = (
+        None
+    )
+
+    replace_app_db_setup: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="replaceAppDbSetup")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -101,13 +118,16 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
                 "dataSources",
                 "replaceDataSources",
                 "publish",
-                "stalenessSeconds",
                 "computeFunctions",
                 "replaceComputeFunctions",
                 "files",
                 "replaceFiles",
                 "scheduleEnabled",
                 "cronString",
+                "capabilities",
+                "replaceCapabilities",
+                "appDbSetup",
+                "replaceAppDbSetup",
             ]
         )
         nullable_fields = set(
@@ -117,11 +137,12 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
                 "code",
                 "replaceDataSources",
                 "publish",
-                "stalenessSeconds",
                 "replaceComputeFunctions",
                 "replaceFiles",
                 "scheduleEnabled",
                 "cronString",
+                "replaceCapabilities",
+                "replaceAppDbSetup",
             ]
         )
         serialized = handler(self)

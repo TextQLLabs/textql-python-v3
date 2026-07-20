@@ -14,7 +14,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicRbacRotateAPIKeyResponseTypedDict(TypedDict):
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
-    api_key_hash: NotRequired[str]
+    api_key_secret: NotRequired[str]
     revoked_api_key_id: NotRequired[str]
 
 
@@ -23,7 +23,9 @@ class TextqlRPCPublicRbacRotateAPIKeyResponse(BaseModel):
         Optional[TextqlRPCPublicRbacAPIKey], pydantic.Field(alias="apiKey")
     ] = None
 
-    api_key_hash: Annotated[Optional[str], pydantic.Field(alias="apiKeyHash")] = None
+    api_key_secret: Annotated[Optional[str], pydantic.Field(alias="apiKeySecret")] = (
+        None
+    )
 
     revoked_api_key_id: Annotated[
         Optional[str], pydantic.Field(alias="revokedApiKeyId")
@@ -31,7 +33,7 @@ class TextqlRPCPublicRbacRotateAPIKeyResponse(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["apiKey", "apiKeyHash", "revokedApiKeyId"])
+        optional_fields = set(["apiKey", "apiKeySecret", "revokedApiKeyId"])
         serialized = handler(self)
         m = {}
 

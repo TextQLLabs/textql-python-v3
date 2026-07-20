@@ -5,6 +5,10 @@ from .textql_rpc_public_app_appfile import (
     TextqlRPCPublicAppAppFile,
     TextqlRPCPublicAppAppFileTypedDict,
 )
+from .textql_rpc_public_app_capability import (
+    TextqlRPCPublicAppCapability,
+    TextqlRPCPublicAppCapabilityTypedDict,
+)
 from .textql_rpc_public_app_computefunction import (
     TextqlRPCPublicAppComputeFunction,
     TextqlRPCPublicAppComputeFunctionTypedDict,
@@ -33,6 +37,8 @@ class TextqlRPCPublicAppCreateAppRequestTypedDict(TypedDict):
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
+    capabilities: NotRequired[List[TextqlRPCPublicAppCapabilityTypedDict]]
+    app_db_setup: NotRequired[List[str]]
 
 
 class TextqlRPCPublicAppCreateAppRequest(BaseModel):
@@ -54,10 +60,25 @@ class TextqlRPCPublicAppCreateAppRequest(BaseModel):
 
     files: Optional[List[TextqlRPCPublicAppAppFile]] = None
 
+    capabilities: Optional[List[TextqlRPCPublicAppCapability]] = None
+
+    app_db_setup: Annotated[Optional[List[str]], pydantic.Field(alias="appDbSetup")] = (
+        None
+    )
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["name", "description", "code", "dataSources", "computeFunctions", "files"]
+            [
+                "name",
+                "description",
+                "code",
+                "dataSources",
+                "computeFunctions",
+                "files",
+                "capabilities",
+                "appDbSetup",
+            ]
         )
         nullable_fields = set(["description"])
         serialized = handler(self)

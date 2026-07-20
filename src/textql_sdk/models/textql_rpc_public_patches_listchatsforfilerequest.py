@@ -78,7 +78,6 @@ class TextqlRPCPublicPatchesListChatsForFileRequestTypedDict(TypedDict):
     microsecond should be expressed in JSON format as \"3.000001s\".
     """
     limit: NotRequired[Nullable[int]]
-    r"""default and cap applied server-side"""
 
 
 class TextqlRPCPublicPatchesListChatsForFileRequest(BaseModel):
@@ -148,7 +147,6 @@ class TextqlRPCPublicPatchesListChatsForFileRequest(BaseModel):
     """
 
     limit: OptionalNullable[int] = UNSET
-    r"""default and cap applied server-side"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

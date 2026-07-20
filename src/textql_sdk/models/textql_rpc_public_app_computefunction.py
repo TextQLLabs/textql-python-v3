@@ -5,6 +5,11 @@ from .textql_rpc_public_app_computefunctionparam import (
     TextqlRPCPublicAppComputeFunctionParam,
     TextqlRPCPublicAppComputeFunctionParamTypedDict,
 )
+from .textql_rpc_public_dashboard_grant import (
+    TextqlRPCPublicDashboardGrant,
+    TextqlRPCPublicDashboardGrantTypedDict,
+)
+import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import (
     BaseModel,
@@ -14,7 +19,7 @@ from textql_sdk.types import (
     UNSET_SENTINEL,
 )
 from typing import List, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
@@ -23,6 +28,13 @@ class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
     params: NotRequired[List[TextqlRPCPublicAppComputeFunctionParamTypedDict]]
     returns: NotRequired[Nullable[str]]
     code: NotRequired[str]
+    tql_path: NotRequired[Nullable[str]]
+    tql: NotRequired[Nullable[str]]
+    grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
 
 
 class TextqlRPCPublicAppComputeFunction(BaseModel):
@@ -36,10 +48,31 @@ class TextqlRPCPublicAppComputeFunction(BaseModel):
 
     code: Optional[str] = None
 
+    tql_path: Annotated[OptionalNullable[str], pydantic.Field(alias="tqlPath")] = UNSET
+
+    tql: OptionalNullable[str] = UNSET
+
+    grant: Optional[TextqlRPCPublicDashboardGrant] = None
+    r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
+    effective role names intersect roles, or whose member id is listed in members, may call it.
+    Absent grant = org-visible (today's behavior); an empty grant object is invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["name", "description", "params", "returns", "code"])
-        nullable_fields = set(["returns"])
+        optional_fields = set(
+            [
+                "name",
+                "description",
+                "params",
+                "returns",
+                "code",
+                "tqlPath",
+                "tql",
+                "grant",
+            ]
+        )
+        nullable_fields = set(["returns", "tqlPath", "tql"])
         serialized = handler(self)
         m = {}
 
@@ -60,3 +93,9 @@ class TextqlRPCPublicAppComputeFunction(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TextqlRPCPublicAppComputeFunction.model_rebuild()
+except NameError:
+    pass

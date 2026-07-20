@@ -1,0 +1,10 @@
+# TextqlRPCPublicPatchesOntologySizeDay
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `date_`                                                                                | [Optional[models.TextqlRPCPublicPatchesDate]](../models/textqlrpcpublicpatchesdate.md) | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `total_bytes`                                                                          | [Optional[models.TotalBytes]](../models/totalbytes.md)                                 | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `file_count`                                                                           | *Optional[int]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |

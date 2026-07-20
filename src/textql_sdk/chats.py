@@ -2369,6 +2369,7 @@ class Chats(BaseSDK):
         methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         vllm_model_id: OptionalNullable[str] = UNSET,
         fast_mode: OptionalNullable[bool] = UNSET,
+        max_thinking: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2388,6 +2389,8 @@ class Chats(BaseSDK):
             Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
             Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
+        :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
+            Supported on Sonnet 5, Fable 5, and Opus 4.8.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2417,6 +2420,7 @@ class Chats(BaseSDK):
                 methodology=methodology,
                 vllm_model_id=vllm_model_id,
                 fast_mode=fast_mode,
+                max_thinking=max_thinking,
             ),
         )
 
@@ -2506,6 +2510,7 @@ class Chats(BaseSDK):
         methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         vllm_model_id: OptionalNullable[str] = UNSET,
         fast_mode: OptionalNullable[bool] = UNSET,
+        max_thinking: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2525,6 +2530,8 @@ class Chats(BaseSDK):
             Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
             Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
+        :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
+            Supported on Sonnet 5, Fable 5, and Opus 4.8.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2554,6 +2561,7 @@ class Chats(BaseSDK):
                 methodology=methodology,
                 vllm_model_id=vllm_model_id,
                 fast_mode=fast_mode,
+                max_thinking=max_thinking,
             ),
         )
 
@@ -4563,6 +4571,7 @@ class Chats(BaseSDK):
             Iterable[models.TextqlRPCPublicChatThreadWarningType]
         ] = None,
         topic_ids: Optional[Iterable[str]] = None,
+        connector_ids: Optional[Iterable[int]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -4768,6 +4777,7 @@ class Chats(BaseSDK):
         :param thread_warning_types: Filter to chats with at least one thread_warning of any of these types (union).
         :param topic_ids: Only chats tagged with at least one of these custom topics
             (verdict='tagged'). Ignored when empty.
+        :param connector_ids: Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4813,6 +4823,7 @@ class Chats(BaseSDK):
                     Optional[List[models.TextqlRPCPublicChatThreadWarningType]],
                 ),
                 topic_ids=utils.unmarshal(topic_ids, Optional[List[str]]),
+                connector_ids=utils.unmarshal(connector_ids, Optional[List[int]]),
             ),
         )
 
@@ -4910,6 +4921,7 @@ class Chats(BaseSDK):
             Iterable[models.TextqlRPCPublicChatThreadWarningType]
         ] = None,
         topic_ids: Optional[Iterable[str]] = None,
+        connector_ids: Optional[Iterable[int]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -5115,6 +5127,7 @@ class Chats(BaseSDK):
         :param thread_warning_types: Filter to chats with at least one thread_warning of any of these types (union).
         :param topic_ids: Only chats tagged with at least one of these custom topics
             (verdict='tagged'). Ignored when empty.
+        :param connector_ids: Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5160,6 +5173,7 @@ class Chats(BaseSDK):
                     Optional[List[models.TextqlRPCPublicChatThreadWarningType]],
                 ),
                 topic_ids=utils.unmarshal(topic_ids, Optional[List[str]]),
+                connector_ids=utils.unmarshal(connector_ids, Optional[List[int]]),
             ),
         )
 
@@ -7426,6 +7440,7 @@ class Chats(BaseSDK):
         research: OptionalNullable[bool] = UNSET,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         fast_mode: OptionalNullable[bool] = UNSET,
+        max_thinking: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7439,6 +7454,7 @@ class Chats(BaseSDK):
         :param research:
         :param model:
         :param fast_mode:
+        :param max_thinking:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7462,6 +7478,7 @@ class Chats(BaseSDK):
                 research=research,
                 model=model,
                 fast_mode=fast_mode,
+                max_thinking=max_thinking,
             ),
         )
 
@@ -7542,6 +7559,7 @@ class Chats(BaseSDK):
         research: OptionalNullable[bool] = UNSET,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         fast_mode: OptionalNullable[bool] = UNSET,
+        max_thinking: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7555,6 +7573,7 @@ class Chats(BaseSDK):
         :param research:
         :param model:
         :param fast_mode:
+        :param max_thinking:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7578,6 +7597,7 @@ class Chats(BaseSDK):
                 research=research,
                 model=model,
                 fast_mode=fast_mode,
+                max_thinking=max_thinking,
             ),
         )
 
@@ -8545,6 +8565,7 @@ class Chats(BaseSDK):
         dashboard_mode: OptionalNullable[bool] = UNSET,
         methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         fast_mode: OptionalNullable[bool] = UNSET,
+        max_thinking: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8559,6 +8580,7 @@ class Chats(BaseSDK):
         :param dashboard_mode: update dashboard mode
         :param methodology:
         :param fast_mode: update fast inference mode
+        :param max_thinking: update max thinking mode
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8583,6 +8605,7 @@ class Chats(BaseSDK):
                 dashboard_mode=dashboard_mode,
                 methodology=methodology,
                 fast_mode=fast_mode,
+                max_thinking=max_thinking,
             ),
         )
 
@@ -8664,6 +8687,7 @@ class Chats(BaseSDK):
         dashboard_mode: OptionalNullable[bool] = UNSET,
         methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         fast_mode: OptionalNullable[bool] = UNSET,
+        max_thinking: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8678,6 +8702,7 @@ class Chats(BaseSDK):
         :param dashboard_mode: update dashboard mode
         :param methodology:
         :param fast_mode: update fast inference mode
+        :param max_thinking: update max thinking mode
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8702,6 +8727,7 @@ class Chats(BaseSDK):
                 dashboard_mode=dashboard_mode,
                 methodology=methodology,
                 fast_mode=fast_mode,
+                max_thinking=max_thinking,
             ),
         )
 

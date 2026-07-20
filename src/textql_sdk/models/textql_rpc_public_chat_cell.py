@@ -221,6 +221,10 @@ from .textql_rpc_public_cells_textcell import (
     TextqlRPCPublicCellsTextCell,
     TextqlRPCPublicCellsTextCellTypedDict,
 )
+from .textql_rpc_public_cells_thinkingcell import (
+    TextqlRPCPublicCellsThinkingCell,
+    TextqlRPCPublicCellsThinkingCellTypedDict,
+)
 from .textql_rpc_public_cells_useskillcell import (
     TextqlRPCPublicCellsUseSkillCell,
     TextqlRPCPublicCellsUseSkillCellTypedDict,
@@ -244,14 +248,14 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-TextqlRPCPublicChatCellDurationMs57TypedDict = TypeAliasType(
-    "TextqlRPCPublicChatCellDurationMs57TypedDict", Union[int, str]
+TextqlRPCPublicChatCellDurationMs58TypedDict = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs58TypedDict", Union[int, str]
 )
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-TextqlRPCPublicChatCellDurationMs57 = TypeAliasType(
-    "TextqlRPCPublicChatCellDurationMs57", Union[int, str]
+TextqlRPCPublicChatCellDurationMs58 = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs58", Union[int, str]
 )
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
@@ -360,7 +364,7 @@ class WsCellTypedDict(TypedDict):
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
     r"""LLM-generated summary of what this tool call does"""
-    duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs57TypedDict]]
+    duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs58TypedDict]]
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
@@ -368,6 +372,307 @@ class WsCell(BaseModel):
     ws_cell: Annotated[
         TextqlRPCPublicCellsWebSearchCell, pydantic.Field(alias="wsCell")
     ]
+
+    id: Optional[str] = None
+    r"""UUID"""
+
+    timestamp: Optional[datetime] = None
+    r"""A Timestamp represents a point in time independent of any time zone or local
+    calendar, encoded as a count of seconds and fractions of seconds at
+    nanosecond resolution. The count is relative to an epoch at UTC midnight on
+    January 1, 1970, in the proleptic Gregorian calendar which extends the
+    Gregorian calendar backwards to year one.
+
+    All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+    second table is needed for interpretation, using a [24-hour linear
+    smear](https://developers.google.com/time/smear).
+
+    The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+    restricting to that range, we ensure that we can convert to and from [RFC
+    3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+    # Examples
+
+    Example 1: Compute Timestamp from POSIX `time()`.
+
+    Timestamp timestamp;
+    timestamp.set_seconds(time(NULL));
+    timestamp.set_nanos(0);
+
+    Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+
+    Timestamp timestamp;
+    timestamp.set_seconds(tv.tv_sec);
+    timestamp.set_nanos(tv.tv_usec * 1000);
+
+    Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+    FILETIME ft;
+    GetSystemTimeAsFileTime(&ft);
+    UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+    // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+    // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+    Timestamp timestamp;
+    timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+    timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+    Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+    long millis = System.currentTimeMillis();
+
+    Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+    .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+    Example 5: Compute Timestamp from Java `Instant.now()`.
+
+    Instant now = Instant.now();
+
+    Timestamp timestamp =
+    Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+    .setNanos(now.getNano()).build();
+
+    Example 6: Compute Timestamp from current time in Python.
+
+    timestamp = Timestamp()
+    timestamp.GetCurrentTime()
+
+    # JSON Mapping
+
+    In JSON format, the Timestamp type is encoded as a string in the
+    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+    format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" 
+    where {year} is always expressed using four digits while {month}, {day},
+    {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+    seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+    are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+    is required. A proto3 JSON serializer should always use UTC (as indicated by
+    \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+    able to accept both UTC and other timezones (as indicated by an offset).
+
+    For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+    01:30 UTC on January 15, 2017.
+
+    In JavaScript, one can convert a Date object to this format using the
+    standard
+    [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+    method. In Python, a standard `datetime.datetime` object can be converted
+    to this format using
+    [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+    the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+    the Joda Time's [`ISODateTimeFormat.dateTime()`](
+    http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+    ) to obtain a formatter capable of generating timestamps in this format.
+    """
+
+    complete: Optional[bool] = None
+
+    generated: Optional[bool] = None
+    r"""whether it was created by a human or robot"""
+
+    lifecycle: Optional[TextqlRPCPublicChatCellLifecycle] = None
+
+    tool_call_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="toolCallId")
+    ] = UNSET
+
+    exec_error: Annotated[OptionalNullable[str], pydantic.Field(alias="execError")] = (
+        UNSET
+    )
+
+    sender_member_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="senderMemberId")
+    ] = UNSET
+
+    tool_summary: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="toolSummary")
+    ] = UNSET
+    r"""LLM-generated summary of what this tool call does"""
+
+    duration_ms: Annotated[
+        OptionalNullable[TextqlRPCPublicChatCellDurationMs58],
+        pydantic.Field(alias="durationMs"),
+    ] = UNSET
+    r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "id",
+                "timestamp",
+                "complete",
+                "generated",
+                "lifecycle",
+                "toolCallId",
+                "execError",
+                "senderMemberId",
+                "toolSummary",
+                "durationMs",
+            ]
+        )
+        nullable_fields = set(
+            ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
+
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
+
+        return m
+
+
+TextqlRPCPublicChatCellDurationMs57TypedDict = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs57TypedDict", Union[int, str]
+)
+r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+
+TextqlRPCPublicChatCellDurationMs57 = TypeAliasType(
+    "TextqlRPCPublicChatCellDurationMs57", Union[int, str]
+)
+r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+
+class UseSkillCellTypedDict(TypedDict):
+    use_skill_cell: TextqlRPCPublicCellsUseSkillCellTypedDict
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
+    id: NotRequired[str]
+    r"""UUID"""
+    timestamp: NotRequired[datetime]
+    r"""A Timestamp represents a point in time independent of any time zone or local
+    calendar, encoded as a count of seconds and fractions of seconds at
+    nanosecond resolution. The count is relative to an epoch at UTC midnight on
+    January 1, 1970, in the proleptic Gregorian calendar which extends the
+    Gregorian calendar backwards to year one.
+
+    All minutes are 60 seconds long. Leap seconds are \"smeared\" so that no leap
+    second table is needed for interpretation, using a [24-hour linear
+    smear](https://developers.google.com/time/smear).
+
+    The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
+    restricting to that range, we ensure that we can convert to and from [RFC
+    3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
+
+    # Examples
+
+    Example 1: Compute Timestamp from POSIX `time()`.
+
+    Timestamp timestamp;
+    timestamp.set_seconds(time(NULL));
+    timestamp.set_nanos(0);
+
+    Example 2: Compute Timestamp from POSIX `gettimeofday()`.
+
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+
+    Timestamp timestamp;
+    timestamp.set_seconds(tv.tv_sec);
+    timestamp.set_nanos(tv.tv_usec * 1000);
+
+    Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.
+
+    FILETIME ft;
+    GetSystemTimeAsFileTime(&ft);
+    UINT64 ticks = (((UINT64)ft.dwHighDateTime) << 32) | ft.dwLowDateTime;
+
+    // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z
+    // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.
+    Timestamp timestamp;
+    timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));
+    timestamp.set_nanos((INT32) ((ticks % 10000000) * 100));
+
+    Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.
+
+    long millis = System.currentTimeMillis();
+
+    Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
+    .setNanos((int) ((millis % 1000) * 1000000)).build();
+
+    Example 5: Compute Timestamp from Java `Instant.now()`.
+
+    Instant now = Instant.now();
+
+    Timestamp timestamp =
+    Timestamp.newBuilder().setSeconds(now.getEpochSecond())
+    .setNanos(now.getNano()).build();
+
+    Example 6: Compute Timestamp from current time in Python.
+
+    timestamp = Timestamp()
+    timestamp.GetCurrentTime()
+
+    # JSON Mapping
+
+    In JSON format, the Timestamp type is encoded as a string in the
+    [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the
+    format is \"{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z\" 
+    where {year} is always expressed using four digits while {month}, {day},
+    {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional
+    seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution),
+    are optional. The \"Z\" suffix indicates the timezone (\"UTC\"); the timezone
+    is required. A proto3 JSON serializer should always use UTC (as indicated by
+    \"Z\") when printing the Timestamp type and a proto3 JSON parser should be
+    able to accept both UTC and other timezones (as indicated by an offset).
+
+    For example, \"2017-01-15T01:30:15.01Z\" encodes 15.01 seconds past
+    01:30 UTC on January 15, 2017.
+
+    In JavaScript, one can convert a Date object to this format using the
+    standard
+    [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
+    method. In Python, a standard `datetime.datetime` object can be converted
+    to this format using
+    [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with
+    the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one can use
+    the Joda Time's [`ISODateTimeFormat.dateTime()`](
+    http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
+    ) to obtain a formatter capable of generating timestamps in this format.
+    """
+    complete: NotRequired[bool]
+    generated: NotRequired[bool]
+    r"""whether it was created by a human or robot"""
+    lifecycle: NotRequired[TextqlRPCPublicChatCellLifecycle]
+    tool_call_id: NotRequired[Nullable[str]]
+    exec_error: NotRequired[Nullable[str]]
+    sender_member_id: NotRequired[Nullable[str]]
+    tool_summary: NotRequired[Nullable[str]]
+    r"""LLM-generated summary of what this tool call does"""
+    duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs57TypedDict]]
+    r"""cells_v5.duration_ms — wall-clock this cell took"""
+
+
+class UseSkillCell(BaseModel):
+    use_skill_cell: Annotated[
+        TextqlRPCPublicCellsUseSkillCell, pydantic.Field(alias="useSkillCell")
+    ]
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -547,13 +852,8 @@ TextqlRPCPublicChatCellDurationMs56 = TypeAliasType(
 r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class UseSkillCellTypedDict(TypedDict):
-    use_skill_cell: TextqlRPCPublicCellsUseSkillCellTypedDict
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
+class ThinkingCellTypedDict(TypedDict):
+    thinking_cell: TextqlRPCPublicCellsThinkingCellTypedDict
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -660,15 +960,10 @@ class UseSkillCellTypedDict(TypedDict):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
 
-class UseSkillCell(BaseModel):
-    use_skill_cell: Annotated[
-        TextqlRPCPublicCellsUseSkillCell, pydantic.Field(alias="useSkillCell")
+class ThinkingCell(BaseModel):
+    thinking_cell: Annotated[
+        TextqlRPCPublicCellsThinkingCell, pydantic.Field(alias="thinkingCell")
     ]
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -16945,6 +17240,7 @@ TextqlRPCPublicChatCellTypedDict = TypeAliasType(
         TableauSQLCellTypedDict,
         TabularFileCellTypedDict,
         TextCellTypedDict,
+        ThinkingCellTypedDict,
         UseSkillCellTypedDict,
         WsCellTypedDict,
     ],
@@ -17009,6 +17305,7 @@ TextqlRPCPublicChatCell = TypeAliasType(
         TableauSQLCell,
         TabularFileCell,
         TextCell,
+        ThinkingCell,
         UseSkillCell,
         WsCell,
     ],
@@ -17021,6 +17318,10 @@ except NameError:
     pass
 try:
     UseSkillCell.model_rebuild()
+except NameError:
+    pass
+try:
+    ThinkingCell.model_rebuild()
 except NameError:
     pass
 try:

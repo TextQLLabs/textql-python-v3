@@ -67,13 +67,13 @@ class ChatServiceGetLlmUsageRequest(BaseModel):
 
 ChatServiceGetLlmUsageResponseTypedDict = TypeAliasType(
     "ChatServiceGetLlmUsageResponseTypedDict",
-    Union[TextqlRPCPublicChatGetLlmUsageResponseTypedDict, ConnectErrorTypedDict],
+    Union[ConnectErrorTypedDict, TextqlRPCPublicChatGetLlmUsageResponseTypedDict],
 )
 
 
 ChatServiceGetLlmUsageResponse = TypeAliasType(
     "ChatServiceGetLlmUsageResponse",
-    Union[TextqlRPCPublicChatGetLlmUsageResponse, ConnectError],
+    Union[ConnectError, TextqlRPCPublicChatGetLlmUsageResponse],
 )
 
 

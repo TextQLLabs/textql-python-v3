@@ -1,9 +1,0 @@
-# TextqlRPCPublicSecretCreateAPIRevisionResponse
-
-
-## Fields
-
-| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ref`                                                                                                | [Optional[models.TextqlRPCPublicSecretAPIAccessRef]](../models/textqlrpcpublicsecretapiaccessref.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
-| `api_access_key`                                                                                     | [Optional[models.TextqlRPCPublicSecretAPIAccessKey]](../models/textqlrpcpublicsecretapiaccesskey.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
