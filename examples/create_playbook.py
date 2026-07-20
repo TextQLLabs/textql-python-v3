@@ -14,7 +14,7 @@ from textql_sdk.models import ConnectError, TextqlRPCPublicPlaybookStringList
 
 load_dotenv()
 
-sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"], server_url="http://rodney.ngrok.io")
+sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"])
 
 # Step 1: create an empty playbook shell
 resp = sdk.playbooks.create_playbook(body={})
