@@ -26,7 +26,6 @@ load_dotenv()
 async def main():
     async with Textql(
         api_key=os.environ["TEXTQL_API_KEY"],
-        server_url="https://rodney.ngrok.io",
         async_client=httpx.AsyncClient(follow_redirects=True, timeout=None),
     ) as sdk:
 
