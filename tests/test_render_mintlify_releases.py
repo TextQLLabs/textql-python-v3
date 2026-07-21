@@ -42,6 +42,18 @@ class RenderMintlifyReleasesTest(unittest.TestCase):
         self.assertIn("pip install textql-sdk==1.0.0", output)
         self.assertIn("[Speakeasy CLI 1.790.2 (generator 2.918.3)]", output)
 
+    def test_renders_newest_release_first(self) -> None:
+        newer_release = RELEASE.replace(
+            "2026-07-17 21:45:13", "2026-07-21 12:00:00"
+        ).replace("1.0.0", "1.0.3")
+
+        output = render(RELEASE + newer_release)
+
+        self.assertLess(
+            output.index('<Update label="v1.0.3"'),
+            output.index('<Update label="v1.0.0"'),
+        )
+
     def test_rejects_release_without_pypi_link(self) -> None:
         with self.assertRaisesRegex(ValueError, "no PyPI link"):
             parse_releases(RELEASE.replace("PyPI", "Package"))
