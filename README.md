@@ -19,6 +19,7 @@ endpoints are excluded via google.api.visibility / file_visibility.
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Server-sent event streaming](#server-sent-event-streaming)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -284,6 +285,7 @@ with Textql(
 * [submit_questions](docs/sdks/chats/README.md#submit_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
 * [unbookmark](docs/sdks/chats/README.md#unbookmark) - UnbookmarkChat
 * [update](docs/sdks/chats/README.md#update) - UpdateChat
+* [stream_chat](docs/sdks/chats/README.md#stream_chat)
 
 ### [Connectors](docs/sdks/connectors/README.md)
 
@@ -665,6 +667,41 @@ with Textql(
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Server-sent event streaming [eventstream] -->
+## Server-sent event streaming
+
+[Server-sent events][mdn-sse] are used to stream content from certain
+operations. These operations will expose the stream as [Generator][generator] that
+can be consumed using a simple `for` loop. The loop will
+terminate when the server no longer has any events to send and closes the
+underlying connection.  
+
+The stream is also a [Context Manager][context-manager] and can be used with the `with` statement and will close the
+underlying connection when the context is exited.
+
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.chats.stream_chat(chat_id="<id>")
+
+    with res as event_stream:
+        for event in event_stream:
+            # handle event
+            print(event, flush=True)
+
+```
+
+[mdn-sse]: https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events
+[generator]: https://book.pythontips.com/en/latest/generators.html
+[context-manager]: https://book.pythontips.com/en/latest/context_managers.html
+<!-- End Server-sent event streaming [eventstream] -->
 
 <!-- Start Retries [retries] -->
 ## Retries

@@ -14791,21 +14791,31 @@ paths:
         "200":
           description: A successful response.(streaming responses)
           content:
-            application/x-ndjson:
+            text/event-stream:
               schema:
+                title: StreamChatEvent
                 type: object
+                required:
+                  - data
                 properties:
-                  result:
-                    $ref: '#/components/schemas/textql.rpc.public.chat.Cell'
-                  error:
-                    $ref: '#/components/schemas/google.rpc.Status'
-                title: Stream result of textql.rpc.public.chat.Cell
+                  data:
+                    title: StreamChatEventData
+                    description: >-
+                      One stream envelope: `result` carries the next cell, `error` reports a failure that ended the stream.
+                    type: object
+                    properties:
+                      result:
+                        $ref: "#/components/schemas/textql.rpc.public.chat.Cell"
+                      error:
+                        $ref: "#/components/schemas/google.rpc.Status"
         default:
           description: An unexpected error response.
           content:
-            application/x-ndjson:
+            application/json:
               schema:
-                $ref: '#/components/schemas/google.rpc.Status'
+                $ref: "#/components/schemas/google.rpc.Status"
+      x-speakeasy-group: chats
+      x-speakeasy-name-override: streamChat
 components:
   schemas:
     connect-protocol-version:
@@ -14815,6 +14825,7 @@ components:
         - 1
       description: Define the version of the Connect protocol
       const: 1
+      default: 1
     connect-timeout-header:
       type: number
       title: Connect-Timeout-Ms

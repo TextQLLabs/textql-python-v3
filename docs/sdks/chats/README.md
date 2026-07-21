@@ -42,6 +42,7 @@
 * [submit_questions](#submit_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
 * [unbookmark](#unbookmark) - UnbookmarkChat
 * [update](#update) - UpdateChat
+* [stream_chat](#stream_chat)
 
 ## approve_context_prompt_change
 
@@ -1671,6 +1672,51 @@ with Textql(
 ### Response
 
 **[models.ChatServiceUpdateChatResponse](../../models/chatserviceupdatechatresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## stream_chat
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_StreamChat" method="post" path="/v2/chats/{chat_id}/cells/stream" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.chats.stream_chat(chat_id="<id>")
+
+    with res as event_stream:
+        for event in event_stream:
+            # handle event
+            print(event, flush=True)
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `chat_id`                                                                                   | *str*                                                                                       | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `latest_complete_cell_id`                                                                   | *Optional[str]*                                                                             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `research`                                                                                  | *Optional[bool]*                                                                            | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `model`                                                                                     | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `fast_mode`                                                                                 | *Optional[bool]*                                                                            | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `max_thinking`                                                                              | *Optional[bool]*                                                                            | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
+
+### Response
+
+**[models.ChatServiceStreamChatResponse](../../models/chatservicestreamchatresponse.md)**
 
 ### Errors
 

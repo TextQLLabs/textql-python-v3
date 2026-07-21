@@ -1,21 +1,22 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: 7af31010839ddf9f6108f7b04695952b
+  docChecksum: 330893ae97b9fade74fe34c6db0c6f4c
   docVersion: 1.0.0
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 1.0.4
-  configChecksum: 5d76ed4c4784296080be6c5bf8a8ac60
+  releaseVersion: 1.1.0
+  configChecksum: 52d0aa28e2d264fdb134a290cffb3645
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 8ca8c294-e771-475e-8278-7fd514acdf04
-  pristine_commit_hash: 790c65752561275be4d2589da0459cf9ce75ee32
-  pristine_tree_hash: e52aed69a55e1940a5ddc0fd44509137df3cff30
+  generation_id: be1199a6-c60f-4515-a24c-060a07dbf2af
+  pristine_commit_hash: a6dc51433bb327989ca2088373e583ba8eb68a8d
+  pristine_tree_hash: c6a69173f43a157af43ebb2a97221051e55d9860
 features:
   python:
+    acceptHeaders: 3.0.0
     additionalDependencies: 1.1.0
     additionalProperties: 1.0.2
     constsAndDefaults: 1.0.7
@@ -39,6 +40,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.0.7
     sdkHooks: 1.3.0
+    serverEvents: 1.1.1
     unions: 3.1.7
 trackedFiles:
   .devcontainer/README.md:
@@ -793,6 +795,14 @@ trackedFiles:
     id: dd417097cb26
     last_write_checksum: sha1:e13d9118b73e3fcfc16ad72cac5ecd0f13d152a7
     pristine_git_object: 224109bd7ce9c31a0e0ec9b321709da5757ff69a
+  docs/models/chatservicestreamchatrequest.md:
+    id: 8f819f8d66b6
+    last_write_checksum: sha1:f31442bc43fd5948add0c11739b4afe43f6b33f8
+    pristine_git_object: 3cfd9141aaa07b2ce065912b308b6c8b7937ebe0
+  docs/models/chatservicestreamchatresponse.md:
+    id: d9142392077f
+    last_write_checksum: sha1:a87a221219f18a33c21339dea5c5b63422dc232c
+    pristine_git_object: 7e30c5d78b62ff5496174bd07b3faf328e253561
   docs/models/chatservicesubmitcontextpromptchangerequest.md:
     id: 2a3a5b7f33fe
     last_write_checksum: sha1:c7343feea34a6942bff780a12e10777dc04cf6da
@@ -1497,6 +1507,10 @@ trackedFiles:
     id: b476baec5e3a
     last_write_checksum: sha1:3c135b4345679dc3fd3ea3b80b5484d92bcaad3a
     pristine_git_object: a574c89a1f3f8568983a586c7f254aa5c76d4f3b
+  docs/models/googleprotobufany.md:
+    id: b93fd2cc6d2a
+    last_write_checksum: sha1:a2a79b154425b1c1a530d02f364cc266be61f0b4
+    pristine_git_object: 956321fe1698918877567950cea048407164cdbc
   docs/models/googleprotobufempty.md:
     id: b10d2e6805a8
     last_write_checksum: sha1:d685744083ecb837652b826e497a9f8fa0135a2c
@@ -1505,6 +1519,10 @@ trackedFiles:
     id: 03599b62e4b7
     last_write_checksum: sha1:d8134311fe7849ac42109ba5d61a45cc60211a18
     pristine_git_object: cf1fe583c8823272b17efcdf20a8758a0c81bc35
+  docs/models/googlerpcstatus.md:
+    id: 253aa396284a
+    last_write_checksum: sha1:ca729b600569932801046bcf502b8cdc576f61e4
+    pristine_git_object: 6170e73d330a3a285aa6add4edfb42c5f0f5b456
   docs/models/handoffpending.md:
     id: cf913e481d9d
     last_write_checksum: sha1:9c361575fbaa3aefcc773e290ec47abdfbed9d8d
@@ -3809,6 +3827,14 @@ trackedFiles:
     id: 29c094b730e9
     last_write_checksum: sha1:e989aa14e9475540b444b3aed48707d26d0b3d48
     pristine_git_object: 46d79099bbe4be154976241aa7617356f4f65ede
+  docs/models/streamchatevent.md:
+    id: 8a1e6f6fdcef
+    last_write_checksum: sha1:29f35ba687ad794bf3b395019e49894124525217
+    pristine_git_object: afe71e9bb0a1b675a3e754fa4ed505fa1b5f570c
+  docs/models/streamchateventdata.md:
+    id: 6686028c9e8c
+    last_write_checksum: sha1:3e3dc588f6a540d8ec1845e9a0d337730ef0c743
+    pristine_git_object: e2c977d9608d96b0e19c84c309133038fca21db5
   docs/models/streamlit.md:
     id: 54ac96e9d7f9
     last_write_checksum: sha1:e78a84f7bc27f338eeb0b9a199d258eb8a8d610f
@@ -5321,6 +5347,10 @@ trackedFiles:
     id: 0561d15fd709
     last_write_checksum: sha1:ceef89d2e51b2349099dcc19aad791b289c5fcc1
     pristine_git_object: 7959c3d2e920d20602d49285b61f7f4e5c6c3cb0
+  docs/models/textqlrpcpublicchatchatservicestreamchatbody.md:
+    id: 66a3675e11be
+    last_write_checksum: sha1:b7d77f2dd6fea32c6d6234a4cc29042c1fe5f90f
+    pristine_git_object: bad20a9438bc7753e2453082be288652ed7eb3c4
   docs/models/textqlrpcpublicchatchatsortdirection.md:
     id: b7219904288f
     last_write_checksum: sha1:f28a05f52dedc5c9b24fe9d6617ef46d3ac8e435
@@ -9507,8 +9537,8 @@ trackedFiles:
     pristine_git_object: e299e2f663e14f92bd1c24b4f4804de37a806968
   docs/sdks/chats/README.md:
     id: ea139ac0a476
-    last_write_checksum: sha1:803a13b302b45ea8f204165f547113a5d1db5eed
-    pristine_git_object: 5c923e72a812188f1b6704365a9ab46ac60c4f93
+    last_write_checksum: sha1:50ad75d04d9ea530d851ffd012c1ce754f299837
+    pristine_git_object: 1fd7f387741594b680408b787afcf0953e92e6f7
   docs/sdks/connectors/README.md:
     id: 7633a87d946d
     last_write_checksum: sha1:4c83d0e8527b35fd8b48973a5db2e0ee25c0eb81
@@ -9599,8 +9629,8 @@ trackedFiles:
     pristine_git_object: 14a5ab5a0178bf5f37c25306ec11372c1dfc1f4e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:8be6d844046a001e831785f9c222d0fcc90a002b
-    pristine_git_object: d14db9dfba1cc886b31e3eb325484acb799de3b7
+    last_write_checksum: sha1:6ee4675cf4541d382c0f6e0158b294f4ec05f5ea
+    pristine_git_object: 889b7bb92274bb0ceb5c0e4457241a0c02f61f20
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9627,8 +9657,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:953f7dbefde624a88e7fbce1c3a22e09a0147f04
-    pristine_git_object: 4f3a413671111209dcba43a2a812a1d5eba0e517
+    last_write_checksum: sha1:6786cdd02af62c239e8c8091ae36ae70bcac62da
+    pristine_git_object: a53939b1aa7dcbfe900bc2ebbded042e18a2b5ad
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:61b0b5714598af35b733276cfd32fa30225d2229
@@ -9651,8 +9681,8 @@ trackedFiles:
     pristine_git_object: 92ed65818f40afafbfb5a9dc6f2e0fef9e0228b4
   src/textql_sdk/chats.py:
     id: 592608eb13b1
-    last_write_checksum: sha1:a1e0b2369ef30e60c651c77df83c738d9f5c5778
-    pristine_git_object: 3457bc27aaf200decc48628e76f244b99cac730c
+    last_write_checksum: sha1:4354469381b04fdcc38db4224f6cbe442e7a8fa5
+    pristine_git_object: 946030aa92cf983d45759dbec01f59c84c8e672a
   src/textql_sdk/connectors.py:
     id: 44f63753a16d
     last_write_checksum: sha1:93920758e4fbfa92b0ec51fb0a5f3a80792fdc2b
@@ -9699,8 +9729,8 @@ trackedFiles:
     pristine_git_object: f5227a747725a68f1c9b6ebffe42ac0d2436f77f
   src/textql_sdk/models/__init__.py:
     id: c8cef98ef3e7
-    last_write_checksum: sha1:3f9052f05e4054de4d0ba4cdd42bd0b4f0ebd76e
-    pristine_git_object: 30e628404956b04a768ef847a77d25aca4f013fe
+    last_write_checksum: sha1:3a99553381e158ad6aa1d88a5c254d343a614251
+    pristine_git_object: 7f4a27f9137b5b64d351d45da2737b7d9d1b0f3e
   src/textql_sdk/models/agentservice_createagentop.py:
     id: c31d4c4b52ae
     last_write_checksum: sha1:eb9ab95a772110d0f587963a73ff3ab4a6f11859
@@ -10013,6 +10043,10 @@ trackedFiles:
     id: e4a2de997033
     last_write_checksum: sha1:1ed30d13acb33c72f9afe15625d60f1ca76fac0e
     pristine_git_object: 68b3c51a7a8a906af17ee7a7864e3acb527823ba
+  src/textql_sdk/models/chatservice_streamchatop.py:
+    id: 65593d3627ff
+    last_write_checksum: sha1:e2c811ce3e1d75c245a0b4a220c6f6616cbdd169
+    pristine_git_object: 148177c2ee2fef6779af8195634cfaf145d0e8a2
   src/textql_sdk/models/chatservice_submitcontextpromptchangeop.py:
     id: 99d899c5a108
     last_write_checksum: sha1:9c17b344c58a79c96366b5b65735911132ecbf02
@@ -10257,6 +10291,10 @@ trackedFiles:
     id: 775d31d0d703
     last_write_checksum: sha1:08ec43f9e99c865832bd3829d7c6fd8de8331095
     pristine_git_object: 46b9ffc2dc5adbd768313e0c6f2f5150277faf09
+  src/textql_sdk/models/google_protobuf_any.py:
+    id: 350d2deee9ed
+    last_write_checksum: sha1:b68abc158d904789a23476eaea50bf7cf78155f9
+    pristine_git_object: 93eee506597f90c0275cbdea9d0b70cdfbd5ea83
   src/textql_sdk/models/google_protobuf_empty.py:
     id: a0e1ed8a0e04
     last_write_checksum: sha1:a86402c54753d1e68cf956f4e4ec0376f0a73fdc
@@ -10265,6 +10303,10 @@ trackedFiles:
     id: ff6b0abb72e9
     last_write_checksum: sha1:271f0309e11d36e7b6c7930dd27e38fcac75c781
     pristine_git_object: 0fa0dfbb8ebeede25529568b8d9367bbc983c236
+  src/textql_sdk/models/google_rpc_status.py:
+    id: 47f71d0bbe34
+    last_write_checksum: sha1:3687002a728fb52b39de10447d5f68f141dc11ba
+    pristine_git_object: 43708b10ad231f118e68f51ddc7957a58dee4bd0
   src/textql_sdk/models/mcpservice_clearoauthtokenop.py:
     id: f07243fa2a6a
     last_write_checksum: sha1:924fb1807f8533cfc4a9279fb13137f11f0b0187
@@ -12301,6 +12343,10 @@ trackedFiles:
     id: 09b334ca10c6
     last_write_checksum: sha1:47410826f563a307f405ad82a6df9f9836ff22c1
     pristine_git_object: 3ce75ccf5609bb136f4c388f40915115ff887f70
+  src/textql_sdk/models/textql_rpc_public_chat_chatservice_streamchatbody.py:
+    id: a471eae92c27
+    last_write_checksum: sha1:b1f986b773a7060623132e81ebf5678af90ac5dc
+    pristine_git_object: 87b6cbb88db7fa50eaa64646b72576601af834af
   src/textql_sdk/models/textql_rpc_public_chat_chatsortdirection.py:
     id: 1c4af1bdb02b
     last_write_checksum: sha1:294ca4a6df3de552868695149410952341eed0d1
@@ -26970,5 +27016,14 @@ examples:
           application/json: {}
         default:
           application/json: {"code": "not_found"}
+  ChatService_StreamChat:
+    speakeasy-default-chat-service-stream-chat:
+      parameters:
+        path:
+          chat_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        default:
+          application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.observability_service.observability_service_get_member_signal_trend()`: **Added**\n* `textql.chats.get_all()`: \n  *  `request.thread_warning_types[]` **Changed**\n* `textql.observability.get_billing_stats()`:  `response.member_stats[]` **Changed**\n* `textql.observability.get_observability_stats()`:  `response` **Changed**\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].warning_type` **Changed**\n"

@@ -497,6 +497,16 @@ if TYPE_CHECKING:
         ChatServiceSendMessageResponse,
         ChatServiceSendMessageResponseTypedDict,
     )
+    from .chatservice_streamchatop import (
+        ChatServiceStreamChatRequest,
+        ChatServiceStreamChatRequestTypedDict,
+        ChatServiceStreamChatResponse,
+        ChatServiceStreamChatResponseTypedDict,
+        StreamChatEvent,
+        StreamChatEventData,
+        StreamChatEventDataTypedDict,
+        StreamChatEventTypedDict,
+    )
     from .chatservice_submitcontextpromptchangeop import (
         ChatServiceSubmitContextPromptChangeRequest,
         ChatServiceSubmitContextPromptChangeRequestTypedDict,
@@ -858,8 +868,10 @@ if TYPE_CHECKING:
         DatasetServiceUpdateDatasetResponse,
         DatasetServiceUpdateDatasetResponseTypedDict,
     )
+    from .google_protobuf_any import GoogleProtobufAny, GoogleProtobufAnyTypedDict
     from .google_protobuf_empty import GoogleProtobufEmpty, GoogleProtobufEmptyTypedDict
     from .google_protobuf_value import GoogleProtobufValue, GoogleProtobufValueTypedDict
+    from .google_rpc_status import GoogleRPCStatus, GoogleRPCStatusTypedDict
     from .mcpservice_clearoauthtokenop import (
         MCPServiceClearOAuthTokenRequest,
         MCPServiceClearOAuthTokenRequestTypedDict,
@@ -3661,6 +3673,10 @@ if TYPE_CHECKING:
     from .textql_rpc_public_chat_chatmessage import (
         TextqlRPCPublicChatChatMessage,
         TextqlRPCPublicChatChatMessageTypedDict,
+    )
+    from .textql_rpc_public_chat_chatservice_streamchatbody import (
+        TextqlRPCPublicChatChatServiceStreamChatBody,
+        TextqlRPCPublicChatChatServiceStreamChatBodyTypedDict,
     )
     from .textql_rpc_public_chat_chatsortdirection import (
         TextqlRPCPublicChatChatSortDirection,
@@ -8200,6 +8216,10 @@ __all__ = [
     "ChatServiceSendMessageRequestTypedDict",
     "ChatServiceSendMessageResponse",
     "ChatServiceSendMessageResponseTypedDict",
+    "ChatServiceStreamChatRequest",
+    "ChatServiceStreamChatRequestTypedDict",
+    "ChatServiceStreamChatResponse",
+    "ChatServiceStreamChatResponseTypedDict",
     "ChatServiceSubmitContextPromptChangeRequest",
     "ChatServiceSubmitContextPromptChangeRequestTypedDict",
     "ChatServiceSubmitContextPromptChangeResponse",
@@ -8550,10 +8570,14 @@ __all__ = [
     "GoogleDriveTypedDict",
     "GoogleMetadata",
     "GoogleMetadataTypedDict",
+    "GoogleProtobufAny",
+    "GoogleProtobufAnyTypedDict",
     "GoogleProtobufEmpty",
     "GoogleProtobufEmptyTypedDict",
     "GoogleProtobufValue",
     "GoogleProtobufValueTypedDict",
+    "GoogleRPCStatus",
+    "GoogleRPCStatusTypedDict",
     "GoogleTypedDict",
     "HTTPConfig",
     "HTTPConfigTypedDict",
@@ -9707,6 +9731,10 @@ __all__ = [
     "StartedAtMsTypedDict",
     "StatusCell",
     "StatusCellTypedDict",
+    "StreamChatEvent",
+    "StreamChatEventData",
+    "StreamChatEventDataTypedDict",
+    "StreamChatEventTypedDict",
     "Streamlit",
     "StreamlitCell",
     "StreamlitCellTypedDict",
@@ -10439,6 +10467,8 @@ __all__ = [
     "TextqlRPCPublicChatChatExecutionTimingWarehouseMsTypedDict",
     "TextqlRPCPublicChatChatMessage",
     "TextqlRPCPublicChatChatMessageTypedDict",
+    "TextqlRPCPublicChatChatServiceStreamChatBody",
+    "TextqlRPCPublicChatChatServiceStreamChatBodyTypedDict",
     "TextqlRPCPublicChatChatSortDirection",
     "TextqlRPCPublicChatChatSortField",
     "TextqlRPCPublicChatChatSource",
@@ -12790,6 +12820,14 @@ _dynamic_imports: dict[str, str] = {
     "ChatServiceSendMessageRequestTypedDict": ".chatservice_sendmessageop",
     "ChatServiceSendMessageResponse": ".chatservice_sendmessageop",
     "ChatServiceSendMessageResponseTypedDict": ".chatservice_sendmessageop",
+    "ChatServiceStreamChatRequest": ".chatservice_streamchatop",
+    "ChatServiceStreamChatRequestTypedDict": ".chatservice_streamchatop",
+    "ChatServiceStreamChatResponse": ".chatservice_streamchatop",
+    "ChatServiceStreamChatResponseTypedDict": ".chatservice_streamchatop",
+    "StreamChatEvent": ".chatservice_streamchatop",
+    "StreamChatEventData": ".chatservice_streamchatop",
+    "StreamChatEventDataTypedDict": ".chatservice_streamchatop",
+    "StreamChatEventTypedDict": ".chatservice_streamchatop",
     "ChatServiceSubmitContextPromptChangeRequest": ".chatservice_submitcontextpromptchangeop",
     "ChatServiceSubmitContextPromptChangeRequestTypedDict": ".chatservice_submitcontextpromptchangeop",
     "ChatServiceSubmitContextPromptChangeResponse": ".chatservice_submitcontextpromptchangeop",
@@ -13033,10 +13071,14 @@ _dynamic_imports: dict[str, str] = {
     "DatasetServiceUpdateDatasetRequestTypedDict": ".datasetservice_updatedatasetop",
     "DatasetServiceUpdateDatasetResponse": ".datasetservice_updatedatasetop",
     "DatasetServiceUpdateDatasetResponseTypedDict": ".datasetservice_updatedatasetop",
+    "GoogleProtobufAny": ".google_protobuf_any",
+    "GoogleProtobufAnyTypedDict": ".google_protobuf_any",
     "GoogleProtobufEmpty": ".google_protobuf_empty",
     "GoogleProtobufEmptyTypedDict": ".google_protobuf_empty",
     "GoogleProtobufValue": ".google_protobuf_value",
     "GoogleProtobufValueTypedDict": ".google_protobuf_value",
+    "GoogleRPCStatus": ".google_rpc_status",
+    "GoogleRPCStatusTypedDict": ".google_rpc_status",
     "MCPServiceClearOAuthTokenRequest": ".mcpservice_clearoauthtokenop",
     "MCPServiceClearOAuthTokenRequestTypedDict": ".mcpservice_clearoauthtokenop",
     "MCPServiceClearOAuthTokenResponse": ".mcpservice_clearoauthtokenop",
@@ -14836,6 +14878,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicChatChatExecutionTimingWarehouseMsTypedDict": ".textql_rpc_public_chat_chatexecutiontiming",
     "TextqlRPCPublicChatChatMessage": ".textql_rpc_public_chat_chatmessage",
     "TextqlRPCPublicChatChatMessageTypedDict": ".textql_rpc_public_chat_chatmessage",
+    "TextqlRPCPublicChatChatServiceStreamChatBody": ".textql_rpc_public_chat_chatservice_streamchatbody",
+    "TextqlRPCPublicChatChatServiceStreamChatBodyTypedDict": ".textql_rpc_public_chat_chatservice_streamchatbody",
     "TextqlRPCPublicChatChatSortDirection": ".textql_rpc_public_chat_chatsortdirection",
     "TextqlRPCPublicChatChatSortField": ".textql_rpc_public_chat_chatsortfield",
     "TextqlRPCPublicChatChatSource": ".textql_rpc_public_chat_chatsource",

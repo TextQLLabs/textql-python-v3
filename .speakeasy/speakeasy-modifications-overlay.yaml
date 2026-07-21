@@ -8,8 +8,6 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
-  - target: $["paths"]["/textql.rpc.public.chat.ChatService/StreamChat"]
-    remove: true
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/WatchChat"]
     remove: true
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/StreamAgentStatus"]
@@ -712,6 +710,16 @@ actions:
     x-speakeasy-metadata:
       after: sdk.chat.cancelStream()
       before: sdk.ChatService.ChatService_CancelStream()
+      created_at: 1784134047110
+      reviewed_at: 1784134060142
+      type: method-name
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]
+    update:
+      x-speakeasy-group: chats
+      x-speakeasy-name-override: streamChat
+    x-speakeasy-metadata:
+      after: sdk.chats.streamChat()
+      before: sdk.ChatService.ChatService_StreamChat()
       created_at: 1784134047110
       reviewed_at: 1784134060142
       type: method-name
@@ -4025,3 +4033,44 @@ actions:
       created_at: 1784134047111
       reviewed_at: 1784134060143
       type: method-name
+  # StreamChat: the endpoint is served by a platform v2 handler
+  # (demo2 compute/pkg/platform/v2/chat.go StreamChatCells) that emits
+  # Server-Sent Events of {result: Cell} / {error: Status} envelopes. Older
+  # registry snapshots label the response application/x-ndjson (a shape
+  # Speakeasy skips during codegen); normalize whatever is there to the SSE
+  # contract. Redundant (but harmless) once demo2 publishes the SSE spec.
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["200"]["content"]["application/x-ndjson"]
+    remove: true
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["200"]["content"]["application/jsonl"]
+    remove: true
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["200"]["content"]["text/event-stream"]
+    remove: true
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["200"]["content"]
+    update:
+      text/event-stream:
+        schema:
+          title: StreamChatEvent
+          type: object
+          required:
+            - data
+          properties:
+            data:
+              title: StreamChatEventData
+              description: >-
+                One stream envelope: `result` carries the next cell,
+                `error` reports a failure that ended the stream.
+              type: object
+              properties:
+                result:
+                  $ref: "#/components/schemas/textql.rpc.public.chat.Cell"
+                error:
+                  $ref: "#/components/schemas/google.rpc.Status"
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["default"]["content"]["application/x-ndjson"]
+    remove: true
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["default"]["content"]["text/event-stream"]
+    remove: true
+  - target: $["paths"]["/v2/chats/{chat_id}/cells/stream"]["post"]["responses"]["default"]["content"]
+    update:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/google.rpc.Status"
