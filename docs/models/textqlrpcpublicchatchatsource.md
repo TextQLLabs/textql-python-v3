@@ -17,9 +17,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"CHAT_SOURCE_UNKNOWN"`
 - `"CHAT_SOURCE_THREAD"`
 - `"CHAT_SOURCE_PLAYBOOK"`
-- `"CHAT_SOURCE_TEMPLATE"`
 - `"CHAT_SOURCE_SLACK"`
-- `"CHAT_SOURCE_AGENT"`
 - `"CHAT_SOURCE_FEED"`
 - `"CHAT_SOURCE_TEAMS"`
 - `"CHAT_SOURCE_SMS"`

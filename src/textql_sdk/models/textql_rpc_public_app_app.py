@@ -492,7 +492,11 @@ class TextqlRPCPublicAppApp(BaseModel):
     ] = None
 
     uses_member_features: Annotated[
-        Optional[bool], pydantic.Field(alias="usesMemberFeatures")
+        Optional[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="usesMemberFeatures",
+        ),
     ] = None
 
     viewer_grants: Annotated[
