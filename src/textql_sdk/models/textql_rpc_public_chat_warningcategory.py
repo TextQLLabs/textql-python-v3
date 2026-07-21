@@ -11,6 +11,7 @@ TextqlRPCPublicChatWarningCategory = Union[
         "WARNING_CATEGORY_CAUSE",
         "WARNING_CATEGORY_SYMPTOM",
         "WARNING_CATEGORY_OUTCOME",
+        "WARNING_CATEGORY_STRENGTH",
     ],
     UnrecognizedStr,
 ]

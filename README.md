@@ -399,6 +399,10 @@ with Textql(
 * [set_topic_tag_feedback](docs/sdks/observability/README.md#set_topic_tag_feedback) - SetTopicTagFeedback
 * [update_custom_topic](docs/sdks/observability/README.md#update_custom_topic) - UpdateCustomTopic
 
+### [ObservabilityService](docs/sdks/observabilityservice/README.md)
+
+* [observability_service_get_member_signal_trend](docs/sdks/observabilityservice/README.md#observability_service_get_member_signal_trend) - GetMemberSignalTrend
+
 ### [OntologyManagementService](docs/sdks/ontologymanagementservice/README.md)
 
 * [ontology_management_service_add_ontology_submodule](docs/sdks/ontologymanagementservice/README.md#ontology_management_service_add_ontology_submodule) - AddOntologySubmodule

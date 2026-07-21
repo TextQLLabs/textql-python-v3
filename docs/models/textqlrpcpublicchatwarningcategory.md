@@ -18,3 +18,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"WARNING_CATEGORY_CAUSE"`
 - `"WARNING_CATEGORY_SYMPTOM"`
 - `"WARNING_CATEGORY_OUTCOME"`
+- `"WARNING_CATEGORY_STRENGTH"`

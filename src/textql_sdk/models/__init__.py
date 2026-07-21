@@ -1070,6 +1070,12 @@ if TYPE_CHECKING:
         ObservabilityServiceGetMemberActivityResponse,
         ObservabilityServiceGetMemberActivityResponseTypedDict,
     )
+    from .observabilityservice_getmembersignaltrendop import (
+        ObservabilityServiceGetMemberSignalTrendRequest,
+        ObservabilityServiceGetMemberSignalTrendRequestTypedDict,
+        ObservabilityServiceGetMemberSignalTrendResponse,
+        ObservabilityServiceGetMemberSignalTrendResponseTypedDict,
+    )
     from .observabilityservice_getobservabilitystatsop import (
         ObservabilityServiceGetObservabilityStatsRequest,
         ObservabilityServiceGetObservabilityStatsRequestTypedDict,
@@ -5450,6 +5456,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicObserveGetMemberActivityResponse,
         TextqlRPCPublicObserveGetMemberActivityResponseTypedDict,
     )
+    from .textql_rpc_public_observe_getmembersignaltrendrequest import (
+        TextqlRPCPublicObserveGetMemberSignalTrendRequest,
+        TextqlRPCPublicObserveGetMemberSignalTrendRequestTypedDict,
+    )
+    from .textql_rpc_public_observe_getmembersignaltrendresponse import (
+        TextqlRPCPublicObserveGetMemberSignalTrendResponse,
+        TextqlRPCPublicObserveGetMemberSignalTrendResponseTypedDict,
+    )
     from .textql_rpc_public_observe_getobservabilitystatsrequest import (
         TextqlRPCPublicObserveGetObservabilityStatsRequest,
         TextqlRPCPublicObserveGetObservabilityStatsRequestTypedDict,
@@ -5485,6 +5499,10 @@ if TYPE_CHECKING:
     from .textql_rpc_public_observe_memberchatsourcestat import (
         TextqlRPCPublicObserveMemberChatSourceStat,
         TextqlRPCPublicObserveMemberChatSourceStatTypedDict,
+    )
+    from .textql_rpc_public_observe_membersignaltrendpoint import (
+        TextqlRPCPublicObserveMemberSignalTrendPoint,
+        TextqlRPCPublicObserveMemberSignalTrendPointTypedDict,
     )
     from .textql_rpc_public_observe_observabilitysummary import (
         TextqlRPCPublicObserveObservabilitySummary,
@@ -8763,6 +8781,10 @@ __all__ = [
     "ObservabilityServiceGetMemberActivityRequestTypedDict",
     "ObservabilityServiceGetMemberActivityResponse",
     "ObservabilityServiceGetMemberActivityResponseTypedDict",
+    "ObservabilityServiceGetMemberSignalTrendRequest",
+    "ObservabilityServiceGetMemberSignalTrendRequestTypedDict",
+    "ObservabilityServiceGetMemberSignalTrendResponse",
+    "ObservabilityServiceGetMemberSignalTrendResponseTypedDict",
     "ObservabilityServiceGetObservabilityStatsRequest",
     "ObservabilityServiceGetObservabilityStatsRequestTypedDict",
     "ObservabilityServiceGetObservabilityStatsResponse",
@@ -11222,6 +11244,10 @@ __all__ = [
     "TextqlRPCPublicObserveGetMemberActivityRequestTypedDict",
     "TextqlRPCPublicObserveGetMemberActivityResponse",
     "TextqlRPCPublicObserveGetMemberActivityResponseTypedDict",
+    "TextqlRPCPublicObserveGetMemberSignalTrendRequest",
+    "TextqlRPCPublicObserveGetMemberSignalTrendRequestTypedDict",
+    "TextqlRPCPublicObserveGetMemberSignalTrendResponse",
+    "TextqlRPCPublicObserveGetMemberSignalTrendResponseTypedDict",
     "TextqlRPCPublicObserveGetObservabilityStatsRequest",
     "TextqlRPCPublicObserveGetObservabilityStatsRequestTypedDict",
     "TextqlRPCPublicObserveGetObservabilityStatsResponse",
@@ -11240,6 +11266,8 @@ __all__ = [
     "TextqlRPCPublicObserveMemberBillingStatTypedDict",
     "TextqlRPCPublicObserveMemberChatSourceStat",
     "TextqlRPCPublicObserveMemberChatSourceStatTypedDict",
+    "TextqlRPCPublicObserveMemberSignalTrendPoint",
+    "TextqlRPCPublicObserveMemberSignalTrendPointTypedDict",
     "TextqlRPCPublicObserveObservabilitySummary",
     "TextqlRPCPublicObserveObservabilitySummaryTypedDict",
     "TextqlRPCPublicObservePlaybookBillingStat",
@@ -13149,6 +13177,10 @@ _dynamic_imports: dict[str, str] = {
     "ObservabilityServiceGetMemberActivityRequestTypedDict": ".observabilityservice_getmemberactivityop",
     "ObservabilityServiceGetMemberActivityResponse": ".observabilityservice_getmemberactivityop",
     "ObservabilityServiceGetMemberActivityResponseTypedDict": ".observabilityservice_getmemberactivityop",
+    "ObservabilityServiceGetMemberSignalTrendRequest": ".observabilityservice_getmembersignaltrendop",
+    "ObservabilityServiceGetMemberSignalTrendRequestTypedDict": ".observabilityservice_getmembersignaltrendop",
+    "ObservabilityServiceGetMemberSignalTrendResponse": ".observabilityservice_getmembersignaltrendop",
+    "ObservabilityServiceGetMemberSignalTrendResponseTypedDict": ".observabilityservice_getmembersignaltrendop",
     "ObservabilityServiceGetObservabilityStatsRequest": ".observabilityservice_getobservabilitystatsop",
     "ObservabilityServiceGetObservabilityStatsRequestTypedDict": ".observabilityservice_getobservabilitystatsop",
     "ObservabilityServiceGetObservabilityStatsResponse": ".observabilityservice_getobservabilitystatsop",
@@ -15842,6 +15874,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicObserveGetMemberActivityRequestTypedDict": ".textql_rpc_public_observe_getmemberactivityrequest",
     "TextqlRPCPublicObserveGetMemberActivityResponse": ".textql_rpc_public_observe_getmemberactivityresponse",
     "TextqlRPCPublicObserveGetMemberActivityResponseTypedDict": ".textql_rpc_public_observe_getmemberactivityresponse",
+    "TextqlRPCPublicObserveGetMemberSignalTrendRequest": ".textql_rpc_public_observe_getmembersignaltrendrequest",
+    "TextqlRPCPublicObserveGetMemberSignalTrendRequestTypedDict": ".textql_rpc_public_observe_getmembersignaltrendrequest",
+    "TextqlRPCPublicObserveGetMemberSignalTrendResponse": ".textql_rpc_public_observe_getmembersignaltrendresponse",
+    "TextqlRPCPublicObserveGetMemberSignalTrendResponseTypedDict": ".textql_rpc_public_observe_getmembersignaltrendresponse",
     "TextqlRPCPublicObserveGetObservabilityStatsRequest": ".textql_rpc_public_observe_getobservabilitystatsrequest",
     "TextqlRPCPublicObserveGetObservabilityStatsRequestTypedDict": ".textql_rpc_public_observe_getobservabilitystatsrequest",
     "TextqlRPCPublicObserveGetObservabilityStatsResponse": ".textql_rpc_public_observe_getobservabilitystatsresponse",
@@ -15860,6 +15896,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicObserveMemberBillingStatTypedDict": ".textql_rpc_public_observe_memberbillingstat",
     "TextqlRPCPublicObserveMemberChatSourceStat": ".textql_rpc_public_observe_memberchatsourcestat",
     "TextqlRPCPublicObserveMemberChatSourceStatTypedDict": ".textql_rpc_public_observe_memberchatsourcestat",
+    "TextqlRPCPublicObserveMemberSignalTrendPoint": ".textql_rpc_public_observe_membersignaltrendpoint",
+    "TextqlRPCPublicObserveMemberSignalTrendPointTypedDict": ".textql_rpc_public_observe_membersignaltrendpoint",
     "TextqlRPCPublicObserveObservabilitySummary": ".textql_rpc_public_observe_observabilitysummary",
     "TextqlRPCPublicObserveObservabilitySummaryTypedDict": ".textql_rpc_public_observe_observabilitysummary",
     "TextqlRPCPublicObservePlaybookBillingStat": ".textql_rpc_public_observe_playbookbillingstat",

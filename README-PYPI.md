@@ -399,6 +399,10 @@ with Textql(
 * [set_topic_tag_feedback](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#set_topic_tag_feedback) - SetTopicTagFeedback
 * [update_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#update_custom_topic) - UpdateCustomTopic
 
+### [ObservabilityService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observabilityservice/README.md)
+
+* [observability_service_get_member_signal_trend](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observabilityservice/README.md#observability_service_get_member_signal_trend) - GetMemberSignalTrend
+
 ### [OntologyManagementService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md)
 
 * [ontology_management_service_add_ontology_submodule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_add_ontology_submodule) - AddOntologySubmodule

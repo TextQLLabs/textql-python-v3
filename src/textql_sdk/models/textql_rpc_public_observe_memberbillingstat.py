@@ -23,6 +23,14 @@ class TextqlRPCPublicObserveMemberBillingStatTypedDict(TypedDict):
     dashboard_count: NotRequired[int]
     agent_count: NotRequired[int]
     is_former_member: NotRequired[bool]
+    positive_signal_count: NotRequired[int]
+    r"""Per-member signal quality over the same window. Signal counts are rows
+    (one thread can contribute several); flagged/analyzed count distinct
+    threads, so flagged/analyzed is the per-member flagged rate.
+    """
+    negative_signal_count: NotRequired[int]
+    flagged_thread_count: NotRequired[int]
+    analyzed_thread_count: NotRequired[int]
 
 
 class TextqlRPCPublicObserveMemberBillingStat(BaseModel):
@@ -64,6 +72,26 @@ class TextqlRPCPublicObserveMemberBillingStat(BaseModel):
         Optional[bool], pydantic.Field(alias="isFormerMember")
     ] = None
 
+    positive_signal_count: Annotated[
+        Optional[int], pydantic.Field(alias="positiveSignalCount")
+    ] = None
+    r"""Per-member signal quality over the same window. Signal counts are rows
+    (one thread can contribute several); flagged/analyzed count distinct
+    threads, so flagged/analyzed is the per-member flagged rate.
+    """
+
+    negative_signal_count: Annotated[
+        Optional[int], pydantic.Field(alias="negativeSignalCount")
+    ] = None
+
+    flagged_thread_count: Annotated[
+        Optional[int], pydantic.Field(alias="flaggedThreadCount")
+    ] = None
+
+    analyzed_thread_count: Annotated[
+        Optional[int], pydantic.Field(alias="analyzedThreadCount")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -80,6 +108,10 @@ class TextqlRPCPublicObserveMemberBillingStat(BaseModel):
                 "dashboardCount",
                 "agentCount",
                 "isFormerMember",
+                "positiveSignalCount",
+                "negativeSignalCount",
+                "flaggedThreadCount",
+                "analyzedThreadCount",
             ]
         )
         serialized = handler(self)

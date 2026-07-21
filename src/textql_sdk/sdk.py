@@ -26,6 +26,7 @@ if TYPE_CHECKING:
     from textql_sdk.mcp import Mcp
     from textql_sdk.metricsexports import MetricsExports
     from textql_sdk.observability import Observability
+    from textql_sdk.observabilityservice import ObservabilityService
     from textql_sdk.ontologymanagementservice import OntologyManagementService
     from textql_sdk.playbooks import Playbooks
     from textql_sdk.powerbi_sdk import PowerbiSDK
@@ -62,6 +63,7 @@ class Textql(BaseSDK):
     mcp: "Mcp"
     metrics_exports: "MetricsExports"
     observability: "Observability"
+    observability_service: "ObservabilityService"
     ontology_management_service: "OntologyManagementService"
     playbooks: "Playbooks"
     powerbi: "PowerbiSDK"
@@ -88,6 +90,10 @@ class Textql(BaseSDK):
         "mcp": ("textql_sdk.mcp", "Mcp"),
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
         "observability": ("textql_sdk.observability", "Observability"),
+        "observability_service": (
+            "textql_sdk.observabilityservice",
+            "ObservabilityService",
+        ),
         "ontology_management_service": (
             "textql_sdk.ontologymanagementservice",
             "OntologyManagementService",

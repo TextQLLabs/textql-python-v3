@@ -37,6 +37,13 @@ class TextqlRPCPublicObserveObservabilitySummaryTypedDict(TypedDict):
     r"""Teams chats"""
     teams_delta_pct: NotRequired[int]
     teams_sparkline: NotRequired[List[int]]
+    total_positive: NotRequired[int]
+    r"""Positive signals (strength-category types). total_warnings/warn_rate_pct
+    above count NEGATIVE signals only — strengths are tracked separately here
+    and must never inflate the flagged metrics.
+    """
+    positive_delta_pct: NotRequired[int]
+    positive_sparkline: NotRequired[List[int]]
 
 
 class TextqlRPCPublicObserveObservabilitySummary(BaseModel):
@@ -124,6 +131,22 @@ class TextqlRPCPublicObserveObservabilitySummary(BaseModel):
         Optional[List[int]], pydantic.Field(alias="teamsSparkline")
     ] = None
 
+    total_positive: Annotated[Optional[int], pydantic.Field(alias="totalPositive")] = (
+        None
+    )
+    r"""Positive signals (strength-category types). total_warnings/warn_rate_pct
+    above count NEGATIVE signals only — strengths are tracked separately here
+    and must never inflate the flagged metrics.
+    """
+
+    positive_delta_pct: Annotated[
+        Optional[int], pydantic.Field(alias="positiveDeltaPct")
+    ] = None
+
+    positive_sparkline: Annotated[
+        Optional[List[int]], pydantic.Field(alias="positiveSparkline")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -150,6 +173,9 @@ class TextqlRPCPublicObserveObservabilitySummary(BaseModel):
                 "totalTeams",
                 "teamsDeltaPct",
                 "teamsSparkline",
+                "totalPositive",
+                "positiveDeltaPct",
+                "positiveSparkline",
             ]
         )
         serialized = handler(self)
