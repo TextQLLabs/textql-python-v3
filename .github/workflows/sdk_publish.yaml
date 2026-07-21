@@ -26,6 +26,17 @@ jobs:
     needs: [publish]
     runs-on: ubuntu-latest
     steps:
+      - name: Generate docs dispatch bot token
+        id: docs-app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.SDK_DISPATCH_APP_ID }}
+          private-key: ${{ secrets.SDK_DISPATCH_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: demo2
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: Checkout Python SDK
         uses: actions/checkout@v4
         with:
@@ -35,25 +46,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: TextQLLabs/demo2
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ steps.docs-app-token.outputs.token }}
           path: demo2
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-
-      - name: Snapshot combined OpenAPI with SDK samples
-        run: |
-          curl --fail --silent --show-error --location \
-            --header 'Cache-Control: no-cache' \
-            --retry 10 --retry-all-errors --retry-delay 10 \
-            https://spec.speakeasy.com/textql/home/textql-api-with-code-samples \
-            --output demo2/docs/public/api-reference/speakeasy/textql-api-with-code-samples.yaml
-
-      - name: Render Mintlify API reference
-        run: |
-          python3 -m pip install --disable-pip-version-check PyYAML==6.0.3
-          python3 demo2/scripts/render_sdk_api_reference.py
 
       - name: Render Mintlify release log
         run: |
@@ -65,8 +63,10 @@ jobs:
         id: docs-pr
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ steps.docs-app-token.outputs.token }}
           path: demo2
+          add-paths: |
+            docs/public/api-reference/sdk/changelog.mdx
           branch: automation/python-sdk-docs
           delete-branch: true
           commit-message: "docs: sync Python SDK reference"
@@ -74,14 +74,13 @@ jobs:
           body: |
             Automated after a successful Python SDK publish.
 
-            - Snapshots the combined Speakeasy OpenAPI document and SDK code samples.
-            - Regenerates stable Mintlify API-reference wrappers.
             - Updates the Python SDK release log from `TextQLLabs/textql-python-v3/RELEASES.md`.
+            - Shared OpenAPI, code-sample, wrapper, and navigation files are owned by the TypeScript docs sync to avoid competing generated PRs.
 
       - name: Auto-merge docs pull request after checks pass
         if: steps.docs-pr.outputs.pull-request-number != ''
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ steps.docs-app-token.outputs.token }}
           DOCS_PR_NUMBER: ${{ steps.docs-pr.outputs.pull-request-number }}
         run: |
           gh pr merge "$DOCS_PR_NUMBER" \
