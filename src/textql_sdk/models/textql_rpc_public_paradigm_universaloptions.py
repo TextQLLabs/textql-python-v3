@@ -41,7 +41,6 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
     feed_engage_enabled: NotRequired[bool]
     streamlit_enabled: NotRequired[bool]
     compaction_disabled: NotRequired[bool]
-    r"""compaction enabled by default"""
     gmail_enabled: NotRequired[bool]
     chat_history_search_enabled: NotRequired[bool]
     google_calendar_enabled: NotRequired[bool]
@@ -137,7 +136,6 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
     compaction_disabled: Annotated[
         Optional[bool], pydantic.Field(alias="compactionDisabled")
     ] = None
-    r"""compaction enabled by default"""
 
     gmail_enabled: Annotated[Optional[bool], pydantic.Field(alias="gmailEnabled")] = (
         None
