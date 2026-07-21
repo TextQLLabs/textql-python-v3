@@ -103,7 +103,11 @@ def render_release(release: Release) -> str:
 
 
 def render(markdown: str) -> str:
-    releases = parse_releases(markdown)
+    releases = sorted(
+        parse_releases(markdown),
+        key=lambda release: release.published_at,
+        reverse=True,
+    )
     return FRONTMATTER.rstrip() + "\n\n" + "\n\n".join(
         render_release(release) for release in releases
     ) + "\n"
