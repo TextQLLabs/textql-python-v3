@@ -94,7 +94,11 @@ async def main() -> None:
 
     opened = asyncio.Event()
 
+    printed: dict[str, int] = {}
+    streaming_id = ""
+
     async def watch() -> None:
+        nonlocal streaming_id
         try:
             async for event in streaming.chats.watch_chat(
                 WatchChatRequest(chat_id=chat_id)
@@ -105,15 +109,26 @@ async def main() -> None:
                     opened.set()
                 elif kind == "cell":
                     cell = event.cell
-                    if not cell.complete:
-                        continue
-                    print(f"[{cell.WhichOneof('value')} {cell.id}] {cell_text(cell)}")
+                    text = cell_text(cell)
+                    if cell.id != streaming_id:
+                        if streaming_id:
+                            print()
+                        print(f"[{cell.WhichOneof('value')} {cell.id}] ", end="", flush=True)
+                        streaming_id = cell.id
+                    already = printed.get(cell.id, 0)
+                    if len(text) > already:
+                        print(text[already:], end="", flush=True)
+                        printed[cell.id] = len(text)
                 elif kind == "run_started":
                     print("run started")
                 elif kind == "run_complete":
+                    if streaming_id:
+                        print()  # close the last cell line
                     print("run complete")
                     return
                 elif kind == "run_error":
+                    if streaming_id:
+                        print()
                     raise RuntimeError(f"run error: {event.run_error}")
                 elif kind == "heartbeat":
                     pass  # keepalive
