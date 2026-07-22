@@ -1,0 +1,8 @@
+from google.protobuf import descriptor_pb2 as _descriptor_pb2
+from google.protobuf import descriptor as _descriptor
+from typing import ClassVar as _ClassVar
+DESCRIPTOR: _descriptor.FileDescriptor
+CONFIDENTIAL_FIELD_NUMBER: _ClassVar[int]
+confidential: _descriptor.FieldDescriptor
+FILE_VISIBILITY_FIELD_NUMBER: _ClassVar[int]
+file_visibility: _descriptor.FieldDescriptor

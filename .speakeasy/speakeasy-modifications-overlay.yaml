@@ -8,8 +8,6 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
-  - target: $["paths"]["/textql.rpc.public.chat.ChatService/StreamChat"]
-    remove: true
   - target: $["paths"]["/textql.rpc.public.chat.ChatService/WatchChat"]
     remove: true
   - target: $["paths"]["/textql.rpc.public.agent.AgentService/StreamAgentStatus"]
