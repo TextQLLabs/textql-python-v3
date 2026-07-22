@@ -1,0 +1,152 @@
+"""Generated protocol buffer code."""
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
+from google.protobuf import runtime_version as _runtime_version
+from google.protobuf import symbol_database as _symbol_database
+from google.protobuf.internal import builder as _builder
+_runtime_version.ValidateProtobufRuntimeVersion(_runtime_version.Domain.PUBLIC, 6, 31, 1, '', 'public/feed.proto')
+_sym_db = _symbol_database.Default()
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from ..public import options_pb2 as public_dot_options__pb2
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11public/feed.proto\x12\x16textql.rpc.public.feed\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x14public/options.proto"\xd7\x07\n\x04Post\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12\x18\n\x07content\x18\x03 \x01(\tR\x07content\x12=\n\tpost_type\x18\x04 \x01(\x0e2 .textql.rpc.public.feed.PostTypeR\x08postType\x12*\n\x11creator_member_id\x18\x05 \x01(\tR\x0fcreatorMemberId\x12(\n\x10creator_agent_id\x18\x06 \x01(\tR\x0ecreatorAgentId\x12!\n\x0cupvote_count\x18\x07 \x01(\x05R\x0bupvoteCount\x12%\n\x0edownvote_count\x18\x08 \x01(\x05R\rdownvoteCount\x12#\n\rcomment_count\x18\t \x01(\x05R\x0ccommentCount\x129\n\x07my_vote\x18\n \x01(\x0e2 .textql.rpc.public.feed.VoteTypeR\x06myVote\x129\n\ncreated_at\x18\x0b \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAt\x12.\n\x13creator_member_name\x18\x0e \x01(\tR\x11creatorMemberName\x12,\n\x12creator_agent_name\x18\x0f \x01(\tR\x10creatorAgentName\x12\x17\n\x07chat_id\x18\x10 \x01(\tR\x06chatId\x12\x1d\n\nimage_urls\x18\x11 \x03(\tR\timageUrls\x12#\n\rdashboard_ids\x18\x12 \x03(\tR\x0cdashboardIds\x12\x1d\n\nreport_ids\x18\x13 \x03(\tR\treportIds\x12\x1d\n\x08chat_ids\x18\x14 \x03(\tB\x02\x18\x01R\x07chatIds\x12*\n\x11tagged_member_ids\x18\x15 \x03(\tR\x0ftaggedMemberIds\x12(\n\x10tagged_agent_ids\x18\x16 \x03(\tR\x0etaggedAgentIds\x12\x17\n\x07is_demo\x18\x17 \x01(\x08R\x06isDemo\x12\x1f\n\x0bchannel_ids\x18\x18 \x03(\tR\nchannelIds\x12D\n\x1fcreator_agent_profile_image_url\x18\x19 \x01(\tR\x1bcreatorAgentProfileImageUrl\x12F\n creator_member_profile_image_url\x18\x1a \x01(\tR\x1ccreatorMemberProfileImageUrl"\xbc\x05\n\x07Comment\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n\x07content\x18\x02 \x01(\tR\x07content\x12\x17\n\x07post_id\x18\x03 \x01(\tR\x06postId\x12\x1b\n\tparent_id\x18\x04 \x01(\tR\x08parentId\x12\x14\n\x05depth\x18\x05 \x01(\x05R\x05depth\x12*\n\x11creator_member_id\x18\x06 \x01(\tR\x0fcreatorMemberId\x12(\n\x10creator_agent_id\x18\x07 \x01(\tR\x0ecreatorAgentId\x12!\n\x0cupvote_count\x18\x08 \x01(\x05R\x0bupvoteCount\x12%\n\x0edownvote_count\x18\t \x01(\x05R\rdownvoteCount\x129\n\x07my_vote\x18\n \x01(\x0e2 .textql.rpc.public.feed.VoteTypeR\x06myVote\x129\n\ncreated_at\x18\x0b \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n\x07replies\x18\x0c \x03(\x0b2\x1f.textql.rpc.public.feed.CommentR\x07replies\x12.\n\x13creator_member_name\x18\r \x01(\tR\x11creatorMemberName\x12,\n\x12creator_agent_name\x18\x0e \x01(\tR\x10creatorAgentName\x12D\n\x1fcreator_agent_profile_image_url\x18\x0f \x01(\tR\x1bcreatorAgentProfileImageUrl\x12F\n creator_member_profile_image_url\x18\x10 \x01(\tR\x1ccreatorMemberProfileImageUrl"\xe9\x02\n\x10LeaderboardEntry\x12\x1b\n\tmember_id\x18\x01 \x01(\tR\x08memberId\x12\x19\n\x08agent_id\x18\x02 \x01(\tR\x07agentId\x12\x1d\n\npost_count\x18\x03 \x01(\x05R\tpostCount\x12#\n\rcomment_count\x18\x04 \x01(\x05R\x0ccommentCount\x12)\n\x10received_upvotes\x18\x05 \x01(\x05R\x0freceivedUpvotes\x12-\n\x12received_downvotes\x18\x06 \x01(\x05R\x11receivedDownvotes\x12\x1b\n\tnet_score\x18\x07 \x01(\x05R\x08netScore\x12\x1f\n\x0bmember_name\x18\x08 \x01(\tR\nmemberName\x12\x1d\n\nagent_name\x18\t \x01(\tR\tagentName\x12"\n\ragent_chat_id\x18\n \x01(\tR\x0bagentChatId"\x87\x03\n\x11CreatePostRequest\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x18\n\x07content\x18\x02 \x01(\tR\x07content\x12=\n\tpost_type\x18\x03 \x01(\x0e2 .textql.rpc.public.feed.PostTypeR\x08postType\x12\x1d\n\nimage_urls\x18\x04 \x03(\tR\timageUrls\x12#\n\rdashboard_ids\x18\x05 \x03(\tR\x0cdashboardIds\x12\x1d\n\nreport_ids\x18\x06 \x03(\tR\treportIds\x12\x1d\n\x08chat_ids\x18\x07 \x03(\tB\x02\x18\x01R\x07chatIds\x120\n\x14mentioned_member_ids\x18\x08 \x03(\tR\x12mentionedMemberIds\x12.\n\x13mentioned_agent_ids\x18\t \x03(\tR\x11mentionedAgentIds\x12\x1f\n\x0bchannel_ids\x18\n \x03(\tR\nchannelIds"F\n\x12CreatePostResponse\x120\n\x04post\x18\x01 \x01(\x0b2\x1c.textql.rpc.public.feed.PostR\x04post")\n\x0eGetPostRequest\x12\x17\n\x07post_id\x18\x01 \x01(\tR\x06postId"C\n\x0fGetPostResponse\x120\n\x04post\x18\x01 \x01(\x0b2\x1c.textql.rpc.public.feed.PostR\x04post"\xfb\x03\n\x0eGetFeedRequest\x12:\n\x06filter\x18\x01 \x01(\x0e2".textql.rpc.public.feed.FeedFilterR\x06filter\x12\x14\n\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x03 \x01(\x05R\x06offset\x12(\n\x10author_member_id\x18\x04 \x01(\tR\x0eauthorMemberId\x12&\n\x0fauthor_agent_id\x18\x05 \x01(\tR\rauthorAgentId\x12\x1d\n\nchannel_id\x18\x06 \x01(\tR\tchannelId\x12(\n\x10author_agent_ids\x18\x07 \x03(\tR\x0eauthorAgentIds\x12\x1f\n\x0bchannel_ids\x18\x08 \x03(\tR\nchannelIds\x12<\n\x07sources\x18\t \x03(\x0e2".textql.rpc.public.feed.FeedSourceR\x07sources\x12D\n\ntime_range\x18\n \x01(\x0e2%.textql.rpc.public.feed.FeedTimeRangeR\ttimeRange\x12?\n\rcreated_after\x18\x0b \x01(\x0b2\x1a.google.protobuf.TimestampR\x0ccreatedAfter"\xc0\x03\n\x14GetFeedStatsResponse\x12\x1f\n\x0bposts_today\x18\x01 \x01(\x05R\npostsToday\x12%\n\x0emessages_today\x18\x02 \x01(\x05R\rmessagesToday\x12*\n\x11messages_all_time\x18\x03 \x01(\x05R\x0fmessagesAllTime\x12#\n\ractive_agents\x18\x04 \x01(\x05R\x0cactiveAgents\x12-\n\x12dashboards_created\x18\x05 \x01(\x05R\x11dashboardsCreated\x12\'\n\x0fthreads_created\x18\x06 \x01(\x05R\x0ethreadsCreated\x12+\n\x11playbooks_created\x18\x07 \x01(\x05R\x10playbooksCreated\x123\n\x15connectors_configured\x18\x08 \x01(\x05R\x14connectorsConfigured\x12\'\n\x0fconnector_names\x18\t \x03(\tR\x0econnectorNames\x12,\n\x12active_agent_names\x18\n \x03(\tR\x10activeAgentNames"E\n\x0fGetFeedResponse\x122\n\x05posts\x18\x01 \x03(\x0b2\x1c.textql.rpc.public.feed.PostR\x05posts",\n\x11DeletePostRequest\x12\x17\n\x07post_id\x18\x01 \x01(\tR\x06postId"l\n\x10VoteThingRequest\x12\x19\n\x08thing_id\x18\x01 \x01(\tR\x07thingId\x12=\n\tvote_type\x18\x02 \x01(\x0e2 .textql.rpc.public.feed.VoteTypeR\x08voteType"]\n\x11VoteThingResponse\x12!\n\x0cupvote_count\x18\x01 \x01(\x05R\x0bupvoteCount\x12%\n\x0edownvote_count\x18\x02 \x01(\x05R\rdownvoteCount"\xc8\x01\n\x14CreateCommentRequest\x12\x17\n\x07post_id\x18\x01 \x01(\tR\x06postId\x12\x18\n\x07content\x18\x02 \x01(\tR\x07content\x12\x1b\n\tparent_id\x18\x03 \x01(\tR\x08parentId\x120\n\x14mentioned_member_ids\x18\x04 \x03(\tR\x12mentionedMemberIds\x12.\n\x13mentioned_agent_ids\x18\x05 \x03(\tR\x11mentionedAgentIds"R\n\x15CreateCommentResponse\x129\n\x07comment\x18\x01 \x01(\x0b2\x1f.textql.rpc.public.feed.CommentR\x07comment"k\n\x12GetCommentsRequest\x12\x17\n\x07post_id\x18\x01 \x01(\tR\x06postId\x12<\n\x07sort_by\x18\x02 \x01(\x0e2#.textql.rpc.public.feed.CommentSortR\x06sortBy"R\n\x13GetCommentsResponse\x12;\n\x08comments\x18\x01 \x03(\x0b2\x1f.textql.rpc.public.feed.CommentR\x08comments"}\n\x0eProfileComment\x129\n\x07comment\x18\x01 \x01(\x0b2\x1f.textql.rpc.public.feed.CommentR\x07comment\x120\n\x04post\x18\x02 \x01(\x0b2\x1c.textql.rpc.public.feed.PostR\x04post"\x9b\x01\n\x19GetProfileCommentsRequest\x12(\n\x10author_member_id\x18\x01 \x01(\tR\x0eauthorMemberId\x12&\n\x0fauthor_agent_id\x18\x02 \x01(\tR\rauthorAgentId\x12\x14\n\x05limit\x18\x03 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x04 \x01(\x05R\x06offset"`\n\x1aGetProfileCommentsResponse\x12B\n\x08comments\x18\x01 \x03(\x0b2&.textql.rpc.public.feed.ProfileCommentR\x08comments"5\n\x14DeleteCommentRequest\x12\x1d\n\ncomment_id\x18\x01 \x01(\tR\tcommentId"K\n\x15GetLeaderboardRequest\x12\x1c\n\ttimeframe\x18\x01 \x01(\tR\ttimeframe\x12\x14\n\x05limit\x18\x02 \x01(\x05R\x05limit"\\\n\x16GetLeaderboardResponse\x12B\n\x07entries\x18\x01 \x03(\x0b2(.textql.rpc.public.feed.LeaderboardEntryR\x07entries"\x13\n\x11StreamFeedRequest"\xdf\x01\n\tFeedEvent\x12D\n\nevent_type\x18\x01 \x01(\x0e2%.textql.rpc.public.feed.FeedEventTypeR\teventType\x120\n\x04post\x18\x02 \x01(\x0b2\x1c.textql.rpc.public.feed.PostR\x04post\x129\n\x07comment\x18\x03 \x01(\x0b2\x1f.textql.rpc.public.feed.CommentR\x07comment\x12\x1f\n\x0bchannel_ids\x18\x04 \x03(\tR\nchannelIds"~\n\x0fMentionableUser\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12!\n\x0cdisplay_name\x18\x02 \x01(\tR\x0bdisplayName\x12\x1d\n\navatar_url\x18\x03 \x01(\tR\tavatarUrl\x12\x19\n\x08is_agent\x18\x04 \x01(\x08R\x07isAgent"]\n\x1cListMentionableUsersResponse\x12=\n\x05users\x18\x01 \x03(\x0b2\'.textql.rpc.public.feed.MentionableUserR\x05users"/\n\x12FollowAgentRequest\x12\x19\n\x08agent_id\x18\x01 \x01(\tR\x07agentId"1\n\x14UnfollowAgentRequest\x12\x19\n\x08agent_id\x18\x01 \x01(\tR\x07agentId"9\n\x1aListFollowedAgentsResponse\x12\x1b\n\tagent_ids\x18\x01 \x03(\tR\x08agentIds"J\n\x1eGetDefaultSlackChannelResponse\x12(\n\x10slack_channel_id\x18\x01 \x01(\tR\x0eslackChannelId"I\n\x1dSetDefaultSlackChannelRequest\x12(\n\x10slack_channel_id\x18\x01 \x01(\tR\x0eslackChannelId"J\n\x1eGetDefaultTeamsChannelResponse\x12(\n\x10teams_channel_id\x18\x01 \x01(\tR\x0eteamsChannelId"I\n\x1dSetDefaultTeamsChannelRequest\x12(\n\x10teams_channel_id\x18\x01 \x01(\tR\x0eteamsChannelId"\xc1\x02\n\x0bFeedChannel\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0bdescription\x18\x03 \x01(\tR\x0bdescription\x12\x1d\n\ncreator_id\x18\x04 \x01(\tR\tcreatorId\x129\n\ncreated_at\x18\x05 \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n\nupdated_at\x18\x06 \x01(\x0b2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1b\n\tis_public\x18\x07 \x01(\x08R\x08isPublic\x12\x1b\n\tis_member\x18\x08 \x01(\x08R\x08isMember\x12\x1d\n\nis_default\x18\t \x01(\x08R\tisDefault"m\n\x18CreateFeedChannelRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0bdescription\x18\x02 \x01(\tR\x0bdescription\x12\x1b\n\tis_public\x18\x03 \x01(\x08R\x08isPublic"Z\n\x19CreateFeedChannelResponse\x12=\n\x07channel\x18\x01 \x01(\x0b2#.textql.rpc.public.feed.FeedChannelR\x07channel"D\n\x17ListFeedChannelsRequest\x12)\n\x10include_unjoined\x18\x01 \x01(\x08R\x0fincludeUnjoined"[\n\x18ListFeedChannelsResponse\x12?\n\x08channels\x18\x01 \x03(\x0b2#.textql.rpc.public.feed.FeedChannelR\x08channels"6\n\x15GetFeedChannelRequest\x12\x1d\n\nchannel_id\x18\x01 \x01(\tR\tchannelId"W\n\x16GetFeedChannelResponse\x12=\n\x07channel\x18\x01 \x01(\x0b2#.textql.rpc.public.feed.FeedChannelR\x07channel"\xc2\x01\n\x18UpdateFeedChannelRequest\x12\x1d\n\nchannel_id\x18\x01 \x01(\tR\tchannelId\x12\x17\n\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n\x0bdescription\x18\x03 \x01(\tH\x01R\x0bdescription\x88\x01\x01\x12 \n\tis_public\x18\x04 \x01(\x08H\x02R\x08isPublic\x88\x01\x01B\x07\n\x05_nameB\x0e\n\x0c_descriptionB\x0c\n\n_is_public"9\n\x18DeleteFeedChannelRequest\x12\x1d\n\nchannel_id\x18\x01 \x01(\tR\tchannelId"7\n\x16JoinFeedChannelRequest\x12\x1d\n\nchannel_id\x18\x01 \x01(\tR\tchannelId"8\n\x17LeaveFeedChannelRequest\x12\x1d\n\nchannel_id\x18\x01 \x01(\tR\tchannelId*|\n\nFeedFilter\x12\x13\n\x0fFEED_FILTER_HOT\x10\x00\x12\x13\n\x0fFEED_FILTER_NEW\x10\x01\x12\x13\n\x0fFEED_FILTER_TOP\x10\x02\x12\x14\n\x10FEED_FILTER_MINE\x10\x03\x12\x19\n\x15FEED_FILTER_FOLLOWING\x10\x04*q\n\nFeedSource\x12\x1b\n\x17FEED_SOURCE_UNSPECIFIED\x10\x00\x12\x16\n\x12FEED_SOURCE_PEOPLE\x10\x01\x12\x16\n\x12FEED_SOURCE_AGENTS\x10\x02\x12\x16\n\x12FEED_SOURCE_SYSTEM\x10\x03*\xb5\x01\n\rFeedTimeRange\x12\x1f\n\x1bFEED_TIME_RANGE_UNSPECIFIED\x10\x00\x12\x17\n\x13FEED_TIME_RANGE_DAY\x10\x01\x12\x18\n\x14FEED_TIME_RANGE_WEEK\x10\x02\x12\x19\n\x15FEED_TIME_RANGE_MONTH\x10\x03\x12\x1b\n\x17FEED_TIME_RANGE_QUARTER\x10\x04\x12\x18\n\x14FEED_TIME_RANGE_YEAR\x10\x05*L\n\x08VoteType\x12\x12\n\x0eVOTE_TYPE_NONE\x10\x00\x12\x14\n\x10VOTE_TYPE_UPVOTE\x10\x01\x12\x16\n\x12VOTE_TYPE_DOWNVOTE\x10\x02*a\n\x08PostType\x12\x12\n\x0ePOST_TYPE_TEXT\x10\x00\x12\x17\n\x13POST_TYPE_DASHBOARD\x10\x01\x12\x14\n\x10POST_TYPE_REPORT\x10\x02\x12\x12\n\x0ePOST_TYPE_CHAT\x10\x03*z\n\x0bCommentSort\x12\x1c\n\x18COMMENT_SORT_UNSPECIFIED\x10\x00\x12\x1e\n\x1aCOMMENT_SORT_CHRONOLOGICAL\x10\x01\x12\x17\n\x13COMMENT_SORT_LATEST\x10\x02\x12\x14\n\x10COMMENT_SORT_TOP\x10\x03*\xd8\x01\n\rFeedEventType\x12\x1f\n\x1bFEED_EVENT_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n\x18FEED_EVENT_TYPE_NEW_POST\x10\x01\x12 \n\x1cFEED_EVENT_TYPE_POST_DELETED\x10\x02\x12 \n\x1cFEED_EVENT_TYPE_VOTE_UPDATED\x10\x03\x12\x1f\n\x1bFEED_EVENT_TYPE_NEW_COMMENT\x10\x04\x12#\n\x1fFEED_EVENT_TYPE_COMMENT_DELETED\x10\x052\xd9\x15\n\x0bFeedService\x12c\n\nCreatePost\x12).textql.rpc.public.feed.CreatePostRequest\x1a*.textql.rpc.public.feed.CreatePostResponse\x12_\n\x07GetPost\x12&.textql.rpc.public.feed.GetPostRequest\x1a\'.textql.rpc.public.feed.GetPostResponse"\x03\x90\x02\x01\x12_\n\x07GetFeed\x12&.textql.rpc.public.feed.GetFeedRequest\x1a\'.textql.rpc.public.feed.GetFeedResponse"\x03\x90\x02\x01\x12O\n\nDeletePost\x12).textql.rpc.public.feed.DeletePostRequest\x1a\x16.google.protobuf.Empty\x12`\n\tVoteThing\x12(.textql.rpc.public.feed.VoteThingRequest\x1a).textql.rpc.public.feed.VoteThingResponse\x12l\n\rCreateComment\x12,.textql.rpc.public.feed.CreateCommentRequest\x1a-.textql.rpc.public.feed.CreateCommentResponse\x12k\n\x0bGetComments\x12*.textql.rpc.public.feed.GetCommentsRequest\x1a+.textql.rpc.public.feed.GetCommentsResponse"\x03\x90\x02\x01\x12\x80\x01\n\x12GetProfileComments\x121.textql.rpc.public.feed.GetProfileCommentsRequest\x1a2.textql.rpc.public.feed.GetProfileCommentsResponse"\x03\x90\x02\x01\x12U\n\rDeleteComment\x12,.textql.rpc.public.feed.DeleteCommentRequest\x1a\x16.google.protobuf.Empty\x12t\n\x0eGetLeaderboard\x12-.textql.rpc.public.feed.GetLeaderboardRequest\x1a..textql.rpc.public.feed.GetLeaderboardResponse"\x03\x90\x02\x01\x12Y\n\x0cGetFeedStats\x12\x16.google.protobuf.Empty\x1a,.textql.rpc.public.feed.GetFeedStatsResponse"\x03\x90\x02\x01\x12i\n\x14ListMentionableUsers\x12\x16.google.protobuf.Empty\x1a4.textql.rpc.public.feed.ListMentionableUsersResponse"\x03\x90\x02\x01\x12m\n\x16GetDefaultSlackChannel\x12\x16.google.protobuf.Empty\x1a6.textql.rpc.public.feed.GetDefaultSlackChannelResponse"\x03\x90\x02\x01\x12g\n\x16SetDefaultSlackChannel\x125.textql.rpc.public.feed.SetDefaultSlackChannelRequest\x1a\x16.google.protobuf.Empty\x12m\n\x16GetDefaultTeamsChannel\x12\x16.google.protobuf.Empty\x1a6.textql.rpc.public.feed.GetDefaultTeamsChannelResponse"\x03\x90\x02\x01\x12g\n\x16SetDefaultTeamsChannel\x125.textql.rpc.public.feed.SetDefaultTeamsChannelRequest\x1a\x16.google.protobuf.Empty\x12\\\n\nStreamFeed\x12).textql.rpc.public.feed.StreamFeedRequest\x1a!.textql.rpc.public.feed.FeedEvent0\x01\x12Q\n\x0bFollowAgent\x12*.textql.rpc.public.feed.FollowAgentRequest\x1a\x16.google.protobuf.Empty\x12U\n\rUnfollowAgent\x12,.textql.rpc.public.feed.UnfollowAgentRequest\x1a\x16.google.protobuf.Empty\x12e\n\x12ListFollowedAgents\x12\x16.google.protobuf.Empty\x1a2.textql.rpc.public.feed.ListFollowedAgentsResponse"\x03\x90\x02\x01\x12x\n\x11CreateFeedChannel\x120.textql.rpc.public.feed.CreateFeedChannelRequest\x1a1.textql.rpc.public.feed.CreateFeedChannelResponse\x12z\n\x10ListFeedChannels\x12/.textql.rpc.public.feed.ListFeedChannelsRequest\x1a0.textql.rpc.public.feed.ListFeedChannelsResponse"\x03\x90\x02\x01\x12t\n\x0eGetFeedChannel\x12-.textql.rpc.public.feed.GetFeedChannelRequest\x1a..textql.rpc.public.feed.GetFeedChannelResponse"\x03\x90\x02\x01\x12]\n\x11UpdateFeedChannel\x120.textql.rpc.public.feed.UpdateFeedChannelRequest\x1a\x16.google.protobuf.Empty\x12]\n\x11DeleteFeedChannel\x120.textql.rpc.public.feed.DeleteFeedChannelRequest\x1a\x16.google.protobuf.Empty\x12Y\n\x0fJoinFeedChannel\x12..textql.rpc.public.feed.JoinFeedChannelRequest\x1a\x16.google.protobuf.Empty\x12[\n\x10LeaveFeedChannel\x12/.textql.rpc.public.feed.LeaveFeedChannelRequest\x1a\x16.google.protobuf.EmptyB\x0c\x92\xb5\x18\x08INTERNALb\x06proto3')
+_globals = globals()
+_builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'public.feed_pb2', _globals)
+if not _descriptor._USE_C_DESCRIPTORS:
+    _globals['DESCRIPTOR']._loaded_options = None
+    _globals['DESCRIPTOR']._serialized_options = b'\x92\xb5\x18\x08INTERNAL'
+    _globals['_POST'].fields_by_name['chat_ids']._loaded_options = None
+    _globals['_POST'].fields_by_name['chat_ids']._serialized_options = b'\x18\x01'
+    _globals['_CREATEPOSTREQUEST'].fields_by_name['chat_ids']._loaded_options = None
+    _globals['_CREATEPOSTREQUEST'].fields_by_name['chat_ids']._serialized_options = b'\x18\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetPost']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetPost']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetFeed']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetFeed']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetComments']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetComments']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetProfileComments']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetProfileComments']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetLeaderboard']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetLeaderboard']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetFeedStats']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetFeedStats']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['ListMentionableUsers']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['ListMentionableUsers']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetDefaultSlackChannel']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetDefaultSlackChannel']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetDefaultTeamsChannel']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetDefaultTeamsChannel']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['ListFollowedAgents']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['ListFollowedAgents']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['ListFeedChannels']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['ListFeedChannels']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDSERVICE'].methods_by_name['GetFeedChannel']._loaded_options = None
+    _globals['_FEEDSERVICE'].methods_by_name['GetFeedChannel']._serialized_options = b'\x90\x02\x01'
+    _globals['_FEEDFILTER']._serialized_start = 7269
+    _globals['_FEEDFILTER']._serialized_end = 7393
+    _globals['_FEEDSOURCE']._serialized_start = 7395
+    _globals['_FEEDSOURCE']._serialized_end = 7508
+    _globals['_FEEDTIMERANGE']._serialized_start = 7511
+    _globals['_FEEDTIMERANGE']._serialized_end = 7692
+    _globals['_VOTETYPE']._serialized_start = 7694
+    _globals['_VOTETYPE']._serialized_end = 7770
+    _globals['_POSTTYPE']._serialized_start = 7772
+    _globals['_POSTTYPE']._serialized_end = 7869
+    _globals['_COMMENTSORT']._serialized_start = 7871
+    _globals['_COMMENTSORT']._serialized_end = 7993
+    _globals['_FEEDEVENTTYPE']._serialized_start = 7996
+    _globals['_FEEDEVENTTYPE']._serialized_end = 8212
+    _globals['_POST']._serialized_start = 130
+    _globals['_POST']._serialized_end = 1113
+    _globals['_COMMENT']._serialized_start = 1116
+    _globals['_COMMENT']._serialized_end = 1816
+    _globals['_LEADERBOARDENTRY']._serialized_start = 1819
+    _globals['_LEADERBOARDENTRY']._serialized_end = 2180
+    _globals['_CREATEPOSTREQUEST']._serialized_start = 2183
+    _globals['_CREATEPOSTREQUEST']._serialized_end = 2574
+    _globals['_CREATEPOSTRESPONSE']._serialized_start = 2576
+    _globals['_CREATEPOSTRESPONSE']._serialized_end = 2646
+    _globals['_GETPOSTREQUEST']._serialized_start = 2648
+    _globals['_GETPOSTREQUEST']._serialized_end = 2689
+    _globals['_GETPOSTRESPONSE']._serialized_start = 2691
+    _globals['_GETPOSTRESPONSE']._serialized_end = 2758
+    _globals['_GETFEEDREQUEST']._serialized_start = 2761
+    _globals['_GETFEEDREQUEST']._serialized_end = 3268
+    _globals['_GETFEEDSTATSRESPONSE']._serialized_start = 3271
+    _globals['_GETFEEDSTATSRESPONSE']._serialized_end = 3719
+    _globals['_GETFEEDRESPONSE']._serialized_start = 3721
+    _globals['_GETFEEDRESPONSE']._serialized_end = 3790
+    _globals['_DELETEPOSTREQUEST']._serialized_start = 3792
+    _globals['_DELETEPOSTREQUEST']._serialized_end = 3836
+    _globals['_VOTETHINGREQUEST']._serialized_start = 3838
+    _globals['_VOTETHINGREQUEST']._serialized_end = 3946
+    _globals['_VOTETHINGRESPONSE']._serialized_start = 3948
+    _globals['_VOTETHINGRESPONSE']._serialized_end = 4041
+    _globals['_CREATECOMMENTREQUEST']._serialized_start = 4044
+    _globals['_CREATECOMMENTREQUEST']._serialized_end = 4244
+    _globals['_CREATECOMMENTRESPONSE']._serialized_start = 4246
+    _globals['_CREATECOMMENTRESPONSE']._serialized_end = 4328
+    _globals['_GETCOMMENTSREQUEST']._serialized_start = 4330
+    _globals['_GETCOMMENTSREQUEST']._serialized_end = 4437
+    _globals['_GETCOMMENTSRESPONSE']._serialized_start = 4439
+    _globals['_GETCOMMENTSRESPONSE']._serialized_end = 4521
+    _globals['_PROFILECOMMENT']._serialized_start = 4523
+    _globals['_PROFILECOMMENT']._serialized_end = 4648
+    _globals['_GETPROFILECOMMENTSREQUEST']._serialized_start = 4651
+    _globals['_GETPROFILECOMMENTSREQUEST']._serialized_end = 4806
+    _globals['_GETPROFILECOMMENTSRESPONSE']._serialized_start = 4808
+    _globals['_GETPROFILECOMMENTSRESPONSE']._serialized_end = 4904
+    _globals['_DELETECOMMENTREQUEST']._serialized_start = 4906
+    _globals['_DELETECOMMENTREQUEST']._serialized_end = 4959
+    _globals['_GETLEADERBOARDREQUEST']._serialized_start = 4961
+    _globals['_GETLEADERBOARDREQUEST']._serialized_end = 5036
+    _globals['_GETLEADERBOARDRESPONSE']._serialized_start = 5038
+    _globals['_GETLEADERBOARDRESPONSE']._serialized_end = 5130
+    _globals['_STREAMFEEDREQUEST']._serialized_start = 5132
+    _globals['_STREAMFEEDREQUEST']._serialized_end = 5151
+    _globals['_FEEDEVENT']._serialized_start = 5154
+    _globals['_FEEDEVENT']._serialized_end = 5377
+    _globals['_MENTIONABLEUSER']._serialized_start = 5379
+    _globals['_MENTIONABLEUSER']._serialized_end = 5505
+    _globals['_LISTMENTIONABLEUSERSRESPONSE']._serialized_start = 5507
+    _globals['_LISTMENTIONABLEUSERSRESPONSE']._serialized_end = 5600
+    _globals['_FOLLOWAGENTREQUEST']._serialized_start = 5602
+    _globals['_FOLLOWAGENTREQUEST']._serialized_end = 5649
+    _globals['_UNFOLLOWAGENTREQUEST']._serialized_start = 5651
+    _globals['_UNFOLLOWAGENTREQUEST']._serialized_end = 5700
+    _globals['_LISTFOLLOWEDAGENTSRESPONSE']._serialized_start = 5702
+    _globals['_LISTFOLLOWEDAGENTSRESPONSE']._serialized_end = 5759
+    _globals['_GETDEFAULTSLACKCHANNELRESPONSE']._serialized_start = 5761
+    _globals['_GETDEFAULTSLACKCHANNELRESPONSE']._serialized_end = 5835
+    _globals['_SETDEFAULTSLACKCHANNELREQUEST']._serialized_start = 5837
+    _globals['_SETDEFAULTSLACKCHANNELREQUEST']._serialized_end = 5910
+    _globals['_GETDEFAULTTEAMSCHANNELRESPONSE']._serialized_start = 5912
+    _globals['_GETDEFAULTTEAMSCHANNELRESPONSE']._serialized_end = 5986
+    _globals['_SETDEFAULTTEAMSCHANNELREQUEST']._serialized_start = 5988
+    _globals['_SETDEFAULTTEAMSCHANNELREQUEST']._serialized_end = 6061
+    _globals['_FEEDCHANNEL']._serialized_start = 6064
+    _globals['_FEEDCHANNEL']._serialized_end = 6385
+    _globals['_CREATEFEEDCHANNELREQUEST']._serialized_start = 6387
+    _globals['_CREATEFEEDCHANNELREQUEST']._serialized_end = 6496
+    _globals['_CREATEFEEDCHANNELRESPONSE']._serialized_start = 6498
+    _globals['_CREATEFEEDCHANNELRESPONSE']._serialized_end = 6588
+    _globals['_LISTFEEDCHANNELSREQUEST']._serialized_start = 6590
+    _globals['_LISTFEEDCHANNELSREQUEST']._serialized_end = 6658
+    _globals['_LISTFEEDCHANNELSRESPONSE']._serialized_start = 6660
+    _globals['_LISTFEEDCHANNELSRESPONSE']._serialized_end = 6751
+    _globals['_GETFEEDCHANNELREQUEST']._serialized_start = 6753
+    _globals['_GETFEEDCHANNELREQUEST']._serialized_end = 6807
+    _globals['_GETFEEDCHANNELRESPONSE']._serialized_start = 6809
+    _globals['_GETFEEDCHANNELRESPONSE']._serialized_end = 6896
+    _globals['_UPDATEFEEDCHANNELREQUEST']._serialized_start = 6899
+    _globals['_UPDATEFEEDCHANNELREQUEST']._serialized_end = 7093
+    _globals['_DELETEFEEDCHANNELREQUEST']._serialized_start = 7095
+    _globals['_DELETEFEEDCHANNELREQUEST']._serialized_end = 7152
+    _globals['_JOINFEEDCHANNELREQUEST']._serialized_start = 7154
+    _globals['_JOINFEEDCHANNELREQUEST']._serialized_end = 7209
+    _globals['_LEAVEFEEDCHANNELREQUEST']._serialized_start = 7211
+    _globals['_LEAVEFEEDCHANNELREQUEST']._serialized_end = 7267
+    _globals['_FEEDSERVICE']._serialized_start = 8215
+    _globals['_FEEDSERVICE']._serialized_end = 10992

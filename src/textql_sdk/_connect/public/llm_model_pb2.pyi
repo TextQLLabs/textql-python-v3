@@ -1,0 +1,137 @@
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+from google.protobuf import descriptor as _descriptor
+from typing import ClassVar as _ClassVar
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class LlmModel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MODEL_UNKNOWN: _ClassVar[LlmModel]
+    MODEL_DEFAULT_SMALL: _ClassVar[LlmModel]
+    MODEL_DEFAULT: _ClassVar[LlmModel]
+    MODEL_DEFAULT_LARGE: _ClassVar[LlmModel]
+    MODEL_DEFAULT_REASONING: _ClassVar[LlmModel]
+    MODEL_HAIKU_3: _ClassVar[LlmModel]
+    MODEL_HAIKU_3_5: _ClassVar[LlmModel]
+    MODEL_SONNET_3_5: _ClassVar[LlmModel]
+    MODEL_SONNET_3_6: _ClassVar[LlmModel]
+    MODEL_SONNET_3_7: _ClassVar[LlmModel]
+    MODEL_SONNET_4: _ClassVar[LlmModel]
+    MODEL_OPUS_4: _ClassVar[LlmModel]
+    MODEL_SONNET_4_5: _ClassVar[LlmModel]
+    MODEL_HAIKU_4_5: _ClassVar[LlmModel]
+    MODEL_OPUS_4_5: _ClassVar[LlmModel]
+    MODEL_OPUS_4_6: _ClassVar[LlmModel]
+    MODEL_SONNET_4_6: _ClassVar[LlmModel]
+    MODEL_OPUS_4_7: _ClassVar[LlmModel]
+    MODEL_OPUS_4_8: _ClassVar[LlmModel]
+    MODEL_FABLE_5: _ClassVar[LlmModel]
+    MODEL_SONNET_5: _ClassVar[LlmModel]
+    MODEL_GPT_4: _ClassVar[LlmModel]
+    MODEL_GPT_4_TURBO: _ClassVar[LlmModel]
+    MODEL_GPT_4O: _ClassVar[LlmModel]
+    MODEL_GPT_4_1: _ClassVar[LlmModel]
+    MODEL_GPT_4_1_MINI: _ClassVar[LlmModel]
+    MODEL_GPT_4_1_NANO: _ClassVar[LlmModel]
+    MODEL_O_1: _ClassVar[LlmModel]
+    MODEL_O_1_MINI: _ClassVar[LlmModel]
+    MODEL_O_3: _ClassVar[LlmModel]
+    MODEL_O_3_MINI: _ClassVar[LlmModel]
+    MODEL_O_4_MINI: _ClassVar[LlmModel]
+    MODEL_GPT_5: _ClassVar[LlmModel]
+    MODEL_GPT_5_MINI: _ClassVar[LlmModel]
+    MODEL_GPT_5_NANO: _ClassVar[LlmModel]
+    MODEL_GPT_5_2: _ClassVar[LlmModel]
+    MODEL_GPT_5_2_PRO: _ClassVar[LlmModel]
+    MODEL_GPT_5_5: _ClassVar[LlmModel]
+    MODEL_GPT_5_4: _ClassVar[LlmModel]
+    MODEL_GPT_5_4_MINI: _ClassVar[LlmModel]
+    MODEL_GPT_5_6_SOL: _ClassVar[LlmModel]
+    MODEL_GEMINI_3_FLASH: _ClassVar[LlmModel]
+    MODEL_GEMINI_3_PRO: _ClassVar[LlmModel]
+    MODEL_GEMINI_3_1_PRO: _ClassVar[LlmModel]
+    MODEL_GEMINI_3_5_FLASH: _ClassVar[LlmModel]
+    MODEL_GPT_5_6_TERRA: _ClassVar[LlmModel]
+    MODEL_GPT_5_6_LUNA: _ClassVar[LlmModel]
+    MODEL_KIMI_K2_INSTRUCT: _ClassVar[LlmModel]
+    MODEL_QWEN3_CODER: _ClassVar[LlmModel]
+    MODEL_QWEN3_CODER_SMALL: _ClassVar[LlmModel]
+    MODEL_GPT_OSS: _ClassVar[LlmModel]
+    MODEL_GPT_OSS_SMALL: _ClassVar[LlmModel]
+    MODEL_GLM_4_5: _ClassVar[LlmModel]
+    MODEL_GLM_4_6: _ClassVar[LlmModel]
+    MODEL_KIMI_K2_THINKING: _ClassVar[LlmModel]
+    MODEL_KIMI_K2_5: _ClassVar[LlmModel]
+    MODEL_DEEPSEEK_3_2: _ClassVar[LlmModel]
+    MODEL_GLM_5: _ClassVar[LlmModel]
+    MODEL_VLLM: _ClassVar[LlmModel]
+    MODEL_KIMI_K2_6: _ClassVar[LlmModel]
+    MODEL_GLM_5_2: _ClassVar[LlmModel]
+    MODEL_KIMI_K2_7_CODE: _ClassVar[LlmModel]
+    MODEL_QWEN3_7_PLUS: _ClassVar[LlmModel]
+    MODEL_CEREBRAS_GLM_4_7: _ClassVar[LlmModel]
+    MODEL_MUSE_SPARK_1_1: _ClassVar[LlmModel]
+MODEL_UNKNOWN: LlmModel
+MODEL_DEFAULT_SMALL: LlmModel
+MODEL_DEFAULT: LlmModel
+MODEL_DEFAULT_LARGE: LlmModel
+MODEL_DEFAULT_REASONING: LlmModel
+MODEL_HAIKU_3: LlmModel
+MODEL_HAIKU_3_5: LlmModel
+MODEL_SONNET_3_5: LlmModel
+MODEL_SONNET_3_6: LlmModel
+MODEL_SONNET_3_7: LlmModel
+MODEL_SONNET_4: LlmModel
+MODEL_OPUS_4: LlmModel
+MODEL_SONNET_4_5: LlmModel
+MODEL_HAIKU_4_5: LlmModel
+MODEL_OPUS_4_5: LlmModel
+MODEL_OPUS_4_6: LlmModel
+MODEL_SONNET_4_6: LlmModel
+MODEL_OPUS_4_7: LlmModel
+MODEL_OPUS_4_8: LlmModel
+MODEL_FABLE_5: LlmModel
+MODEL_SONNET_5: LlmModel
+MODEL_GPT_4: LlmModel
+MODEL_GPT_4_TURBO: LlmModel
+MODEL_GPT_4O: LlmModel
+MODEL_GPT_4_1: LlmModel
+MODEL_GPT_4_1_MINI: LlmModel
+MODEL_GPT_4_1_NANO: LlmModel
+MODEL_O_1: LlmModel
+MODEL_O_1_MINI: LlmModel
+MODEL_O_3: LlmModel
+MODEL_O_3_MINI: LlmModel
+MODEL_O_4_MINI: LlmModel
+MODEL_GPT_5: LlmModel
+MODEL_GPT_5_MINI: LlmModel
+MODEL_GPT_5_NANO: LlmModel
+MODEL_GPT_5_2: LlmModel
+MODEL_GPT_5_2_PRO: LlmModel
+MODEL_GPT_5_5: LlmModel
+MODEL_GPT_5_4: LlmModel
+MODEL_GPT_5_4_MINI: LlmModel
+MODEL_GPT_5_6_SOL: LlmModel
+MODEL_GEMINI_3_FLASH: LlmModel
+MODEL_GEMINI_3_PRO: LlmModel
+MODEL_GEMINI_3_1_PRO: LlmModel
+MODEL_GEMINI_3_5_FLASH: LlmModel
+MODEL_GPT_5_6_TERRA: LlmModel
+MODEL_GPT_5_6_LUNA: LlmModel
+MODEL_KIMI_K2_INSTRUCT: LlmModel
+MODEL_QWEN3_CODER: LlmModel
+MODEL_QWEN3_CODER_SMALL: LlmModel
+MODEL_GPT_OSS: LlmModel
+MODEL_GPT_OSS_SMALL: LlmModel
+MODEL_GLM_4_5: LlmModel
+MODEL_GLM_4_6: LlmModel
+MODEL_KIMI_K2_THINKING: LlmModel
+MODEL_KIMI_K2_5: LlmModel
+MODEL_DEEPSEEK_3_2: LlmModel
+MODEL_GLM_5: LlmModel
+MODEL_VLLM: LlmModel
+MODEL_KIMI_K2_6: LlmModel
+MODEL_GLM_5_2: LlmModel
+MODEL_KIMI_K2_7_CODE: LlmModel
+MODEL_QWEN3_7_PLUS: LlmModel
+MODEL_CEREBRAS_GLM_4_7: LlmModel
+MODEL_MUSE_SPARK_1_1: LlmModel

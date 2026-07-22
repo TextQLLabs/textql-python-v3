@@ -1,0 +1,177 @@
+"""Generated protocol buffer code."""
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
+from google.protobuf import runtime_version as _runtime_version
+from google.protobuf import symbol_database as _symbol_database
+from google.protobuf.internal import builder as _builder
+_runtime_version.ValidateProtobufRuntimeVersion(_runtime_version.Domain.PUBLIC, 6, 31, 1, '', 'public/apps.proto')
+_sym_db = _symbol_database.Default()
+from ..google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from ..public import dashboard_pb2 as public_dot_dashboard__pb2
+from ..public import identity_pb2 as public_dot_identity__pb2
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11public/apps.proto\x12\x15textql.rpc.public.app\x1a\x1bgoogle/api/visibility.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16public/dashboard.proto\x1a\x15public/identity.proto"\x92\x02\n\x11AppActivityRecord\x12\x10\n\x03seq\x18\x01 \x01(\x03R\x03seq\x12\x1b\n\tmember_id\x18\x02 \x01(\tR\x08memberId\x12!\n\x0cdisplay_name\x18\x03 \x01(\tR\x0bdisplayName\x12\x12\n\x04type\x18\x04 \x01(\tR\x04type\x12\x19\n\x05scope\x18\x05 \x01(\tH\x00R\x05scope\x88\x01\x01\x12&\n\x0cpayload_json\x18\x06 \x01(\tH\x01R\x0bpayloadJson\x88\x01\x01\x129\n\ncreated_at\x18\x07 \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAtB\x08\n\x06_scopeB\x0f\n\r_payload_json"\x8c\x01\n\x1bListAppActivitySinceRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x19\n\x05scope\x18\x02 \x01(\tH\x00R\x05scope\x88\x01\x01\x12\x1b\n\tafter_seq\x18\x03 \x01(\x03R\x08afterSeq\x12\x14\n\x05limit\x18\x04 \x01(\x05R\x05limitB\x08\n\x06_scope"b\n\x1cListAppActivitySinceResponse\x12B\n\x07records\x18\x01 \x03(\x0b2(.textql.rpc.public.app.AppActivityRecordR\x07records"g\n\x11AppPresenceMember\x12\x1b\n\tmember_id\x18\x01 \x01(\tR\x08memberId\x12!\n\x0cdisplay_name\x18\x02 \x01(\tR\x0bdisplayName\x12\x12\n\x04zone\x18\x03 \x01(\tR\x04zone"Y\n\x13AppPresenceSnapshot\x12B\n\x07members\x18\x01 \x03(\x0b2(.textql.rpc.public.app.AppPresenceMemberR\x07members"V\n\x10AppActivityBatch\x12B\n\x07records\x18\x01 \x03(\x0b2(.textql.rpc.public.app.AppActivityRecordR\x07records"\x16\n\x14AppActivityHeartbeat"\x81\x02\n\x16AppActivityStreamEvent\x12E\n\x08activity\x18\x01 \x01(\x0b2\'.textql.rpc.public.app.AppActivityBatchH\x00R\x08activity\x12H\n\x08presence\x18\x02 \x01(\x0b2*.textql.rpc.public.app.AppPresenceSnapshotH\x00R\x08presence\x12K\n\theartbeat\x18\x03 \x01(\x0b2+.textql.rpc.public.app.AppActivityHeartbeatH\x00R\theartbeatB\t\n\x07payload"s\n\x18StreamAppActivityRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x19\n\x05scope\x18\x02 \x01(\tH\x00R\x05scope\x88\x01\x01\x12\x1b\n\tafter_seq\x18\x03 \x01(\x03R\x08afterSeqB\x08\n\x06_scope"E\n\x18PresenceHeartbeatRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x12\n\x04zone\x18\x02 \x01(\tR\x04zone"1\n\x18GetAppMemberStateRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId":\n\x19GetAppMemberStateResponse\x12\x1d\n\nvalue_json\x18\x01 \x01(\tR\tvalueJson"P\n\x18SetAppMemberStateRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x1d\n\nvalue_json\x18\x02 \x01(\tR\tvalueJson"\x1b\n\x19SetAppMemberStateResponse"\xd6\x01\n\x1eRecordAppMemberActivityRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x19\n\x05scope\x18\x03 \x01(\tH\x00R\x05scope\x88\x01\x01\x12&\n\x0cpayload_json\x18\x04 \x01(\tH\x01R\x0bpayloadJson\x88\x01\x01\x12\x1e\n\x08idem_key\x18\x05 \x01(\tH\x02R\x07idemKey\x88\x01\x01B\x08\n\x06_scopeB\x0f\n\r_payload_jsonB\x0b\n\t_idem_key"n\n\x1fRecordAppMemberActivityResponse\x12\x10\n\x03seq\x18\x01 \x01(\x03R\x03seq\x129\n\ncreated_at\x18\x02 \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAt"o\n\x1eListMyAppMemberActivityRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x17\n\x04type\x18\x02 \x01(\tH\x00R\x04type\x88\x01\x01\x12\x14\n\x05limit\x18\x03 \x01(\x05R\x05limitB\x07\n\x05_type"\xd5\x01\n\x14AppMemberActivityRow\x12\x10\n\x03seq\x18\x01 \x01(\x03R\x03seq\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x19\n\x05scope\x18\x03 \x01(\tH\x00R\x05scope\x88\x01\x01\x12&\n\x0cpayload_json\x18\x04 \x01(\tH\x01R\x0bpayloadJson\x88\x01\x01\x129\n\ncreated_at\x18\x05 \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAtB\x08\n\x06_scopeB\x0f\n\r_payload_json"b\n\x1fListMyAppMemberActivityResponse\x12?\n\x04rows\x18\x01 \x03(\x0b2+.textql.rpc.public.app.AppMemberActivityRowR\x04rows"y\n\x1dGetComponentGalleryUrlRequest\x12\'\n\x0fruntime_version\x18\x01 \x01(\tR\x0eruntimeVersion\x12\x1d\n\naccent_hex\x18\x02 \x01(\tR\taccentHex:\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL"D\n\x1eGetComponentGalleryUrlResponse\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url:\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL"|\n\x12SetFavoriteRequest\x12%\n\x0eprimitive_type\x18\x01 \x01(\tR\rprimitiveType\x12!\n\x0cprimitive_id\x18\x02 \x01(\tR\x0bprimitiveId\x12\x1c\n\tfavorited\x18\x03 \x01(\x08R\tfavorited"3\n\x13SetFavoriteResponse\x12\x1c\n\tfavorited\x18\x01 \x01(\x08R\tfavorited",\n\x13AppHeartbeatRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId"\xa9\x0b\n\x03App\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x1d\n\ncreator_id\x18\x03 \x01(\tR\tcreatorId\x12\x12\n\x04name\x18\x04 \x01(\tR\x04name\x12%\n\x0bdescription\x18\x05 \x01(\tH\x00R\x0bdescription\x88\x01\x01\x12\x12\n\x04code\x18\x06 \x01(\tR\x04code\x12J\n\x0cdata_sources\x18\x07 \x03(\x0b2\'.textql.rpc.public.dashboard.DataSourceR\x0bdataSources\x12\x1e\n\x08html_url\x18\x08 \x01(\tH\x01R\x07htmlUrl\x88\x01\x01\x12*\n\x0escreenshot_url\x18\t \x01(\tH\x02R\rscreenshotUrl\x88\x01\x01\x12%\n\x0econsole_errors\x18\x17 \x03(\tR\rconsoleErrors\x12\x1c\n\x07chat_id\x18\x0e \x01(\tH\x03R\x06chatId\x88\x01\x01\x121\n\x12published_html_url\x18\x0f \x01(\tH\x04R\x10publishedHtmlUrl\x88\x01\x01\x126\n\x17has_unpublished_changes\x18\x10 \x01(\x08R\x15hasUnpublishedChanges\x12S\n\x11compute_functions\x18\x12 \x03(\x0b2&.textql.rpc.public.app.ComputeFunctionR\x10computeFunctions\x124\n\x05files\x18\x13 \x03(\x0b2\x1e.textql.rpc.public.app.AppFileR\x05files\x12)\n\x10schedule_enabled\x18\x14 \x01(\x08R\x0fscheduleEnabled\x12$\n\x0bcron_string\x18\x15 \x01(\tH\x05R\ncronString\x88\x01\x01\x12 \n\tfolder_id\x18\x16 \x01(\tH\x06R\x08folderId\x88\x01\x01\x12!\n\x0cis_favorited\x18\x18 \x01(\x08R\x0bisFavorited\x12E\n\x0ccapabilities\x18\x19 \x03(\x0b2!.textql.rpc.public.app.CapabilityR\x0ccapabilities\x12 \n\x0capp_db_setup\x18\x1a \x03(\tR\nappDbSetup\x126\n\x17member_features_enabled\x18\x1b \x01(\x08R\x15memberFeaturesEnabled\x124\n\x14uses_member_features\x18\x1c \x01(\x08B\x02\x18\x01R\x12usesMemberFeatures\x12#\n\rviewer_grants\x18\x1d \x03(\tR\x0cviewerGrants\x129\n\ncreated_at\x18\n \x01(\x0b2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n\nupdated_at\x18\x0b \x01(\x0b2\x1a.google.protobuf.TimestampR\tupdatedAt\x12B\n\x0crefreshed_at\x18\x0c \x01(\x0b2\x1a.google.protobuf.TimestampH\x07R\x0brefreshedAt\x88\x01\x01\x12B\n\x0cpublished_at\x18\r \x01(\x0b2\x1a.google.protobuf.TimestampH\x08R\x0bpublishedAt\x88\x01\x01B\x0e\n\x0c_descriptionB\x0b\n\t_html_urlB\x11\n\x0f_screenshot_urlB\n\n\x08_chat_idB\x15\n\x13_published_html_urlB\x0e\n\x0c_cron_stringB\x0c\n\n_folder_idB\x0f\n\r_refreshed_atB\x0f\n\r_published_atJ\x04\x08\x11\x10\x12R\x11staleness_seconds"\xb1\x03\n\x10CreateAppRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12%\n\x0bdescription\x18\x02 \x01(\tH\x00R\x0bdescription\x88\x01\x01\x12\x12\n\x04code\x18\x03 \x01(\tR\x04code\x12J\n\x0cdata_sources\x18\x04 \x03(\x0b2\'.textql.rpc.public.dashboard.DataSourceR\x0bdataSources\x12S\n\x11compute_functions\x18\x05 \x03(\x0b2&.textql.rpc.public.app.ComputeFunctionR\x10computeFunctions\x124\n\x05files\x18\x06 \x03(\x0b2\x1e.textql.rpc.public.app.AppFileR\x05files\x12E\n\x0ccapabilities\x18\x07 \x03(\x0b2!.textql.rpc.public.app.CapabilityR\x0ccapabilities\x12 \n\x0capp_db_setup\x18\x08 \x03(\tR\nappDbSetupB\x0e\n\x0c_description"A\n\x11CreateAppResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app",\n\x13DuplicateAppRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId"D\n\x14DuplicateAppResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app"&\n\rGetAppRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId"p\n\x0eGetAppResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app\x120\n\x14has_write_permission\x18\x02 \x01(\x08R\x12hasWritePermission"\xae\x02\n\x0fListAppsRequest\x12$\n\x0bsearch_term\x18\x01 \x01(\tH\x00R\nsearchTerm\x88\x01\x01\x12\x14\n\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x03 \x01(\x05R\x06offset\x12 \n\tfolder_id\x18\x04 \x01(\tH\x01R\x08folderId\x88\x01\x01\x122\n\x12uncategorized_only\x18\x05 \x01(\x08H\x02R\x11uncategorizedOnly\x88\x01\x01\x12)\n\x0eshared_with_me\x18\x06 \x01(\x08H\x03R\x0csharedWithMe\x88\x01\x01B\x0e\n\x0c_search_termB\x0c\n\n_folder_idB\x15\n\x13_uncategorized_onlyB\x11\n\x0f_shared_with_me"c\n\x10ListAppsResponse\x12.\n\x04apps\x18\x01 \x03(\x0b2\x1a.textql.rpc.public.app.AppR\x04apps\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount"\x1b\n\x19GetMembersWithAppsRequest"Z\n\x1aGetMembersWithAppsResponse\x12<\n\x07members\x18\x01 \x03(\x0b2".textql.rpc.identity.MemberPreviewR\x07members"\xae\x08\n\x10UpdateAppRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x17\n\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12%\n\x0bdescription\x18\x03 \x01(\tH\x01R\x0bdescription\x88\x01\x01\x12\x17\n\x04code\x18\x04 \x01(\tH\x02R\x04code\x88\x01\x01\x12J\n\x0cdata_sources\x18\x05 \x03(\x0b2\'.textql.rpc.public.dashboard.DataSourceR\x0bdataSources\x125\n\x14replace_data_sources\x18\x06 \x01(\x08H\x03R\x12replaceDataSources\x88\x01\x01\x12\x1d\n\x07publish\x18\x07 \x01(\x08H\x04R\x07publish\x88\x01\x01\x12S\n\x11compute_functions\x18\t \x03(\x0b2&.textql.rpc.public.app.ComputeFunctionR\x10computeFunctions\x12?\n\x19replace_compute_functions\x18\n \x01(\x08H\x05R\x17replaceComputeFunctions\x88\x01\x01\x124\n\x05files\x18\x0b \x03(\x0b2\x1e.textql.rpc.public.app.AppFileR\x05files\x12(\n\rreplace_files\x18\x0c \x01(\x08H\x06R\x0creplaceFiles\x88\x01\x01\x12.\n\x10schedule_enabled\x18\r \x01(\x08H\x07R\x0fscheduleEnabled\x88\x01\x01\x12$\n\x0bcron_string\x18\x0e \x01(\tH\x08R\ncronString\x88\x01\x01\x12E\n\x0ccapabilities\x18\x0f \x03(\x0b2!.textql.rpc.public.app.CapabilityR\x0ccapabilities\x126\n\x14replace_capabilities\x18\x10 \x01(\x08H\tR\x13replaceCapabilities\x88\x01\x01\x12 \n\x0capp_db_setup\x18\x11 \x03(\tR\nappDbSetup\x124\n\x14replace_app_db_setup\x18\x12 \x01(\x08H\nR\x11replaceAppDbSetup\x88\x01\x01B\x07\n\x05_nameB\x0e\n\x0c_descriptionB\x07\n\x05_codeB\x17\n\x15_replace_data_sourcesB\n\n\x08_publishB\x1c\n\x1a_replace_compute_functionsB\x10\n\x0e_replace_filesB\x13\n\x11_schedule_enabledB\x0e\n\x0c_cron_stringB\x17\n\x15_replace_capabilitiesB\x17\n\x15_replace_app_db_setupJ\x04\x08\x08\x10\tR\x11staleness_seconds"A\n\x11UpdateAppResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app")\n\x10DeleteAppRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId"_\n\x16MoveAppToFolderRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12 \n\tfolder_id\x18\x02 \x01(\tH\x00R\x08folderId\x88\x01\x01B\x0c\n\n_folder_id"G\n\x17MoveAppToFolderResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app"*\n\x11RefreshAppRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId"B\n\x12RefreshAppResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app"u\n\x14ComputeFunctionParam\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12%\n\x0bdescription\x18\x03 \x01(\tH\x00R\x0bdescription\x88\x01\x01B\x0e\n\x0c_description"~\n\x0fCapabilityParam\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x17\n\x04type\x18\x02 \x01(\tH\x00R\x04type\x88\x01\x01\x12%\n\x0bdescription\x18\x03 \x01(\tH\x01R\x0bdescription\x88\x01\x01B\x07\n\x05_typeB\x0e\n\x0c_description"\xe6\x02\n\nCapability\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x17\n\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12&\n\x0cconnector_id\x18\x03 \x01(\x05H\x01R\x0bconnectorId\x88\x01\x01\x12!\n\tstatement\x18\x04 \x01(\tH\x02R\tstatement\x88\x01\x01\x12\x19\n\x05scope\x18\x05 \x01(\tH\x03R\x05scope\x88\x01\x01\x12\x1d\n\x07subject\x18\x06 \x01(\tH\x04R\x07subject\x88\x01\x01\x12\x17\n\x04body\x18\x07 \x01(\tH\x05R\x04body\x88\x01\x01\x12F\n\nparameters\x18\x08 \x03(\x0b2&.textql.rpc.public.app.CapabilityParamR\nparametersB\x07\n\x05_nameB\x0f\n\r_connector_idB\x0c\n\n_statementB\x08\n\x06_scopeB\n\n\x08_subjectB\x07\n\x05_body"\xcd\x03\n\x0fComputeFunction\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0bdescription\x18\x02 \x01(\tR\x0bdescription\x12C\n\x06params\x18\x03 \x03(\x0b2+.textql.rpc.public.app.ComputeFunctionParamR\x06params\x12\x1d\n\x07returns\x18\x04 \x01(\tH\x00R\x07returns\x88\x01\x01\x12\x12\n\x04code\x18\x05 \x01(\tR\x04code\x12\x1e\n\x08tql_path\x18\x06 \x01(\tH\x01R\x07tqlPath\x88\x01\x01\x12\x15\n\x03tql\x18\x07 \x01(\tH\x02R\x03tql\x88\x01\x01\x128\n\x05grant\x18\x08 \x01(\x0b2".textql.rpc.public.dashboard.GrantR\x05grant\x128\n\x0cconnector_id\x18\t \x01(\x05B\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALH\x03R\x0bconnectorId\x88\x01\x01\x12\'\n\x03sql\x18\n \x01(\tB\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALH\x04R\x03sql\x88\x01\x01B\n\n\x08_returnsB\x0b\n\t_tql_pathB\x06\n\x04_tqlB\x0f\n\r_connector_idB\x06\n\x04_sql"~\n\x1fInvokeAppComputeFunctionRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12#\n\rfunction_name\x18\x02 \x01(\tR\x0cfunctionName\x12\x1f\n\x0bparams_json\x18\x03 \x01(\tR\nparamsJson"\xa4\x01\n InvokeAppComputeFunctionResponse\x12\x1f\n\x0bresult_json\x18\x01 \x01(\tR\nresultJson\x121\n\x0binvoke_mode\x18\x02 \x01(\tB\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALR\ninvokeMode\x12,\n\x08rewarmed\x18\x03 \x01(\x08B\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALR\x08rewarmed"7\n\x07AppFile\x12\x12\n\x04path\x18\x01 \x01(\tR\x04path\x12\x18\n\x07content\x18\x02 \x01(\tR\x07content"\xcf\x05\n\nAppVersion\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x15\n\x06app_id\x18\x02 \x01(\tR\x05appId\x12%\n\x0eversion_number\x18\x03 \x01(\x05R\rversionNumber\x12\x12\n\x04code\x18\x04 \x01(\tR\x04code\x12J\n\x0cdata_sources\x18\x05 \x03(\x0b2\'.textql.rpc.public.dashboard.DataSourceR\x0bdataSources\x12S\n\x11compute_functions\x18\x06 \x03(\x0b2&.textql.rpc.public.app.ComputeFunctionR\x10computeFunctions\x124\n\x05files\x18\x07 \x03(\x0b2\x1e.textql.rpc.public.app.AppFileR\x05files\x12\x12\n\x04name\x18\x08 \x01(\tR\x04name\x12%\n\x0bdescription\x18\t \x01(\tH\x00R\x0bdescription\x88\x01\x01\x121\n\x12published_html_url\x18\n \x01(\tH\x01R\x10publishedHtmlUrl\x88\x01\x01\x12!\n\x0cpublished_by\x18\x0c \x01(\tR\x0bpublishedBy\x12\x19\n\x05label\x18\r \x01(\tH\x02R\x05label\x88\x01\x01\x12=\n\x0cpublished_at\x18\x0e \x01(\x0b2\x1a.google.protobuf.TimestampR\x0bpublishedAt\x12E\n\tpublisher\x18\x0f \x01(\x0b2".textql.rpc.identity.MemberPreviewH\x03R\tpublisher\x88\x01\x01B\x0e\n\x0c_descriptionB\x15\n\x13_published_html_urlB\x08\n\x06_labelB\x0c\n\n_publisherJ\x04\x08\x0b\x10\x0cR\x11staleness_seconds"]\n\x16ListAppVersionsRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12\x14\n\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x03 \x01(\x05R\x06offset"y\n\x17ListAppVersionsResponse\x12=\n\x08versions\x18\x01 \x03(\x0b2!.textql.rpc.public.app.AppVersionR\x08versions\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount"T\n\x14GetAppVersionRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12%\n\x0eversion_number\x18\x02 \x01(\x05R\rversionNumber"T\n\x15GetAppVersionResponse\x12;\n\x07version\x18\x01 \x01(\x0b2!.textql.rpc.public.app.AppVersionR\x07version"X\n\x18RestoreAppVersionRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId\x12%\n\x0eversion_number\x18\x02 \x01(\x05R\rversionNumber"I\n\x19RestoreAppVersionResponse\x12,\n\x03app\x18\x01 \x01(\x0b2\x1a.textql.rpc.public.app.AppR\x03app"/\n\x16GetAppViewStatsRequest\x12\x15\n\x06app_id\x18\x01 \x01(\tR\x05appId"\x89\x02\n\rAppViewerInfo\x12\x1b\n\tmember_id\x18\x01 \x01(\tR\x08memberId\x12;\n\x0blast_viewed\x18\x02 \x01(\x0b2\x1a.google.protobuf.TimestampR\nlastViewed\x12\x1d\n\nview_count\x18\x03 \x01(\x05R\tviewCount\x12&\n\x0cdisplay_name\x18\x04 \x01(\tH\x00R\x0bdisplayName\x88\x01\x01\x12F\n\x11recent_view_times\x18\x05 \x03(\x0b2\x1a.google.protobuf.TimestampR\x0frecentViewTimesB\x0f\n\r_display_name"\xae\x01\n\x17GetAppViewStatsResponse\x12\x1f\n\x0btotal_views\x18\x01 \x01(\x05R\ntotalViews\x12%\n\x0eunique_viewers\x18\x02 \x01(\x05R\runiqueViewers\x12K\n\x0erecent_viewers\x18\x03 \x03(\x0b2$.textql.rpc.public.app.AppViewerInfoR\rrecentViewers2\xc5\x15\n\nAppService\x12^\n\tCreateApp\x12\'.textql.rpc.public.app.CreateAppRequest\x1a(.textql.rpc.public.app.CreateAppResponse\x12g\n\x0cDuplicateApp\x12*.textql.rpc.public.app.DuplicateAppRequest\x1a+.textql.rpc.public.app.DuplicateAppResponse\x12Z\n\x06GetApp\x12$.textql.rpc.public.app.GetAppRequest\x1a%.textql.rpc.public.app.GetAppResponse"\x03\x90\x02\x01\x12`\n\x08ListApps\x12&.textql.rpc.public.app.ListAppsRequest\x1a\'.textql.rpc.public.app.ListAppsResponse"\x03\x90\x02\x01\x12~\n\x12GetMembersWithApps\x120.textql.rpc.public.app.GetMembersWithAppsRequest\x1a1.textql.rpc.public.app.GetMembersWithAppsResponse"\x03\x90\x02\x01\x12^\n\tUpdateApp\x12\'.textql.rpc.public.app.UpdateAppRequest\x1a(.textql.rpc.public.app.UpdateAppResponse\x12L\n\tDeleteApp\x12\'.textql.rpc.public.app.DeleteAppRequest\x1a\x16.google.protobuf.Empty\x12p\n\x0fMoveAppToFolder\x12-.textql.rpc.public.app.MoveAppToFolderRequest\x1a..textql.rpc.public.app.MoveAppToFolderResponse\x12a\n\nRefreshApp\x12(.textql.rpc.public.app.RefreshAppRequest\x1a).textql.rpc.public.app.RefreshAppResponse\x12u\n\x0fListAppVersions\x12-.textql.rpc.public.app.ListAppVersionsRequest\x1a..textql.rpc.public.app.ListAppVersionsResponse"\x03\x90\x02\x01\x12o\n\rGetAppVersion\x12+.textql.rpc.public.app.GetAppVersionRequest\x1a,.textql.rpc.public.app.GetAppVersionResponse"\x03\x90\x02\x01\x12v\n\x11RestoreAppVersion\x12/.textql.rpc.public.app.RestoreAppVersionRequest\x1a0.textql.rpc.public.app.RestoreAppVersionResponse\x12\x8b\x01\n\x18InvokeAppComputeFunction\x126.textql.rpc.public.app.InvokeAppComputeFunctionRequest\x1a7.textql.rpc.public.app.InvokeAppComputeFunctionResponse\x12W\n\x0cAppHeartbeat\x12*.textql.rpc.public.app.AppHeartbeatRequest\x1a\x16.google.protobuf.Empty"\x03\x90\x02\x01\x12d\n\x0bSetFavorite\x12).textql.rpc.public.app.SetFavoriteRequest\x1a*.textql.rpc.public.app.SetFavoriteResponse\x12u\n\x0fGetAppViewStats\x12-.textql.rpc.public.app.GetAppViewStatsRequest\x1a..textql.rpc.public.app.GetAppViewStatsResponse"\x03\x90\x02\x01\x12\x97\x01\n\x16GetComponentGalleryUrl\x124.textql.rpc.public.app.GetComponentGalleryUrlRequest\x1a5.textql.rpc.public.app.GetComponentGalleryUrlResponse"\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL\x12{\n\x11GetAppMemberState\x12/.textql.rpc.public.app.GetAppMemberStateRequest\x1a0.textql.rpc.public.app.GetAppMemberStateResponse"\x03\x90\x02\x01\x12v\n\x11SetAppMemberState\x12/.textql.rpc.public.app.SetAppMemberStateRequest\x1a0.textql.rpc.public.app.SetAppMemberStateResponse\x12\x88\x01\n\x17RecordAppMemberActivity\x125.textql.rpc.public.app.RecordAppMemberActivityRequest\x1a6.textql.rpc.public.app.RecordAppMemberActivityResponse\x12\x8d\x01\n\x17ListMyAppMemberActivity\x125.textql.rpc.public.app.ListMyAppMemberActivityRequest\x1a6.textql.rpc.public.app.ListMyAppMemberActivityResponse"\x03\x90\x02\x01\x12\x84\x01\n\x14ListAppActivitySince\x122.textql.rpc.public.app.ListAppActivitySinceRequest\x1a3.textql.rpc.public.app.ListAppActivitySinceResponse"\x03\x90\x02\x01\x12u\n\x11StreamAppActivity\x12/.textql.rpc.public.app.StreamAppActivityRequest\x1a-.textql.rpc.public.app.AppActivityStreamEvent0\x01\x12a\n\x11PresenceHeartbeat\x12/.textql.rpc.public.app.PresenceHeartbeatRequest\x1a\x16.google.protobuf.Empty"\x03\x90\x02\x01b\x06proto3')
+_globals = globals()
+_builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'public.apps_pb2', _globals)
+if not _descriptor._USE_C_DESCRIPTORS:
+    DESCRIPTOR._loaded_options = None
+    _globals['_GETCOMPONENTGALLERYURLREQUEST']._loaded_options = None
+    _globals['_GETCOMPONENTGALLERYURLREQUEST']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_GETCOMPONENTGALLERYURLRESPONSE']._loaded_options = None
+    _globals['_GETCOMPONENTGALLERYURLRESPONSE']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_APP'].fields_by_name['uses_member_features']._loaded_options = None
+    _globals['_APP'].fields_by_name['uses_member_features']._serialized_options = b'\x18\x01'
+    _globals['_COMPUTEFUNCTION'].fields_by_name['connector_id']._loaded_options = None
+    _globals['_COMPUTEFUNCTION'].fields_by_name['connector_id']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_COMPUTEFUNCTION'].fields_by_name['sql']._loaded_options = None
+    _globals['_COMPUTEFUNCTION'].fields_by_name['sql']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONRESPONSE'].fields_by_name['invoke_mode']._loaded_options = None
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONRESPONSE'].fields_by_name['invoke_mode']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONRESPONSE'].fields_by_name['rewarmed']._loaded_options = None
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONRESPONSE'].fields_by_name['rewarmed']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_APPSERVICE'].methods_by_name['GetApp']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['GetApp']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['ListApps']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['ListApps']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['GetMembersWithApps']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['GetMembersWithApps']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['ListAppVersions']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['ListAppVersions']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['GetAppVersion']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['GetAppVersion']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['AppHeartbeat']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['AppHeartbeat']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['GetAppViewStats']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['GetAppViewStats']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['GetComponentGalleryUrl']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['GetComponentGalleryUrl']._serialized_options = b'\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNAL'
+    _globals['_APPSERVICE'].methods_by_name['GetAppMemberState']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['GetAppMemberState']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['ListMyAppMemberActivity']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['ListMyAppMemberActivity']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['ListAppActivitySince']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['ListAppActivitySince']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPSERVICE'].methods_by_name['PresenceHeartbeat']._loaded_options = None
+    _globals['_APPSERVICE'].methods_by_name['PresenceHeartbeat']._serialized_options = b'\x90\x02\x01'
+    _globals['_APPACTIVITYRECORD']._serialized_start = 183
+    _globals['_APPACTIVITYRECORD']._serialized_end = 457
+    _globals['_LISTAPPACTIVITYSINCEREQUEST']._serialized_start = 460
+    _globals['_LISTAPPACTIVITYSINCEREQUEST']._serialized_end = 600
+    _globals['_LISTAPPACTIVITYSINCERESPONSE']._serialized_start = 602
+    _globals['_LISTAPPACTIVITYSINCERESPONSE']._serialized_end = 700
+    _globals['_APPPRESENCEMEMBER']._serialized_start = 702
+    _globals['_APPPRESENCEMEMBER']._serialized_end = 805
+    _globals['_APPPRESENCESNAPSHOT']._serialized_start = 807
+    _globals['_APPPRESENCESNAPSHOT']._serialized_end = 896
+    _globals['_APPACTIVITYBATCH']._serialized_start = 898
+    _globals['_APPACTIVITYBATCH']._serialized_end = 984
+    _globals['_APPACTIVITYHEARTBEAT']._serialized_start = 986
+    _globals['_APPACTIVITYHEARTBEAT']._serialized_end = 1008
+    _globals['_APPACTIVITYSTREAMEVENT']._serialized_start = 1011
+    _globals['_APPACTIVITYSTREAMEVENT']._serialized_end = 1268
+    _globals['_STREAMAPPACTIVITYREQUEST']._serialized_start = 1270
+    _globals['_STREAMAPPACTIVITYREQUEST']._serialized_end = 1385
+    _globals['_PRESENCEHEARTBEATREQUEST']._serialized_start = 1387
+    _globals['_PRESENCEHEARTBEATREQUEST']._serialized_end = 1456
+    _globals['_GETAPPMEMBERSTATEREQUEST']._serialized_start = 1458
+    _globals['_GETAPPMEMBERSTATEREQUEST']._serialized_end = 1507
+    _globals['_GETAPPMEMBERSTATERESPONSE']._serialized_start = 1509
+    _globals['_GETAPPMEMBERSTATERESPONSE']._serialized_end = 1567
+    _globals['_SETAPPMEMBERSTATEREQUEST']._serialized_start = 1569
+    _globals['_SETAPPMEMBERSTATEREQUEST']._serialized_end = 1649
+    _globals['_SETAPPMEMBERSTATERESPONSE']._serialized_start = 1651
+    _globals['_SETAPPMEMBERSTATERESPONSE']._serialized_end = 1678
+    _globals['_RECORDAPPMEMBERACTIVITYREQUEST']._serialized_start = 1681
+    _globals['_RECORDAPPMEMBERACTIVITYREQUEST']._serialized_end = 1895
+    _globals['_RECORDAPPMEMBERACTIVITYRESPONSE']._serialized_start = 1897
+    _globals['_RECORDAPPMEMBERACTIVITYRESPONSE']._serialized_end = 2007
+    _globals['_LISTMYAPPMEMBERACTIVITYREQUEST']._serialized_start = 2009
+    _globals['_LISTMYAPPMEMBERACTIVITYREQUEST']._serialized_end = 2120
+    _globals['_APPMEMBERACTIVITYROW']._serialized_start = 2123
+    _globals['_APPMEMBERACTIVITYROW']._serialized_end = 2336
+    _globals['_LISTMYAPPMEMBERACTIVITYRESPONSE']._serialized_start = 2338
+    _globals['_LISTMYAPPMEMBERACTIVITYRESPONSE']._serialized_end = 2436
+    _globals['_GETCOMPONENTGALLERYURLREQUEST']._serialized_start = 2438
+    _globals['_GETCOMPONENTGALLERYURLREQUEST']._serialized_end = 2559
+    _globals['_GETCOMPONENTGALLERYURLRESPONSE']._serialized_start = 2561
+    _globals['_GETCOMPONENTGALLERYURLRESPONSE']._serialized_end = 2629
+    _globals['_SETFAVORITEREQUEST']._serialized_start = 2631
+    _globals['_SETFAVORITEREQUEST']._serialized_end = 2755
+    _globals['_SETFAVORITERESPONSE']._serialized_start = 2757
+    _globals['_SETFAVORITERESPONSE']._serialized_end = 2808
+    _globals['_APPHEARTBEATREQUEST']._serialized_start = 2810
+    _globals['_APPHEARTBEATREQUEST']._serialized_end = 2854
+    _globals['_APP']._serialized_start = 2857
+    _globals['_APP']._serialized_end = 4306
+    _globals['_CREATEAPPREQUEST']._serialized_start = 4309
+    _globals['_CREATEAPPREQUEST']._serialized_end = 4742
+    _globals['_CREATEAPPRESPONSE']._serialized_start = 4744
+    _globals['_CREATEAPPRESPONSE']._serialized_end = 4809
+    _globals['_DUPLICATEAPPREQUEST']._serialized_start = 4811
+    _globals['_DUPLICATEAPPREQUEST']._serialized_end = 4855
+    _globals['_DUPLICATEAPPRESPONSE']._serialized_start = 4857
+    _globals['_DUPLICATEAPPRESPONSE']._serialized_end = 4925
+    _globals['_GETAPPREQUEST']._serialized_start = 4927
+    _globals['_GETAPPREQUEST']._serialized_end = 4965
+    _globals['_GETAPPRESPONSE']._serialized_start = 4967
+    _globals['_GETAPPRESPONSE']._serialized_end = 5079
+    _globals['_LISTAPPSREQUEST']._serialized_start = 5082
+    _globals['_LISTAPPSREQUEST']._serialized_end = 5384
+    _globals['_LISTAPPSRESPONSE']._serialized_start = 5386
+    _globals['_LISTAPPSRESPONSE']._serialized_end = 5485
+    _globals['_GETMEMBERSWITHAPPSREQUEST']._serialized_start = 5487
+    _globals['_GETMEMBERSWITHAPPSREQUEST']._serialized_end = 5514
+    _globals['_GETMEMBERSWITHAPPSRESPONSE']._serialized_start = 5516
+    _globals['_GETMEMBERSWITHAPPSRESPONSE']._serialized_end = 5606
+    _globals['_UPDATEAPPREQUEST']._serialized_start = 5609
+    _globals['_UPDATEAPPREQUEST']._serialized_end = 6679
+    _globals['_UPDATEAPPRESPONSE']._serialized_start = 6681
+    _globals['_UPDATEAPPRESPONSE']._serialized_end = 6746
+    _globals['_DELETEAPPREQUEST']._serialized_start = 6748
+    _globals['_DELETEAPPREQUEST']._serialized_end = 6789
+    _globals['_MOVEAPPTOFOLDERREQUEST']._serialized_start = 6791
+    _globals['_MOVEAPPTOFOLDERREQUEST']._serialized_end = 6886
+    _globals['_MOVEAPPTOFOLDERRESPONSE']._serialized_start = 6888
+    _globals['_MOVEAPPTOFOLDERRESPONSE']._serialized_end = 6959
+    _globals['_REFRESHAPPREQUEST']._serialized_start = 6961
+    _globals['_REFRESHAPPREQUEST']._serialized_end = 7003
+    _globals['_REFRESHAPPRESPONSE']._serialized_start = 7005
+    _globals['_REFRESHAPPRESPONSE']._serialized_end = 7071
+    _globals['_COMPUTEFUNCTIONPARAM']._serialized_start = 7073
+    _globals['_COMPUTEFUNCTIONPARAM']._serialized_end = 7190
+    _globals['_CAPABILITYPARAM']._serialized_start = 7192
+    _globals['_CAPABILITYPARAM']._serialized_end = 7318
+    _globals['_CAPABILITY']._serialized_start = 7321
+    _globals['_CAPABILITY']._serialized_end = 7679
+    _globals['_COMPUTEFUNCTION']._serialized_start = 7682
+    _globals['_COMPUTEFUNCTION']._serialized_end = 8143
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONREQUEST']._serialized_start = 8145
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONREQUEST']._serialized_end = 8271
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONRESPONSE']._serialized_start = 8274
+    _globals['_INVOKEAPPCOMPUTEFUNCTIONRESPONSE']._serialized_end = 8438
+    _globals['_APPFILE']._serialized_start = 8440
+    _globals['_APPFILE']._serialized_end = 8495
+    _globals['_APPVERSION']._serialized_start = 8498
+    _globals['_APPVERSION']._serialized_end = 9217
+    _globals['_LISTAPPVERSIONSREQUEST']._serialized_start = 9219
+    _globals['_LISTAPPVERSIONSREQUEST']._serialized_end = 9312
+    _globals['_LISTAPPVERSIONSRESPONSE']._serialized_start = 9314
+    _globals['_LISTAPPVERSIONSRESPONSE']._serialized_end = 9435
+    _globals['_GETAPPVERSIONREQUEST']._serialized_start = 9437
+    _globals['_GETAPPVERSIONREQUEST']._serialized_end = 9521
+    _globals['_GETAPPVERSIONRESPONSE']._serialized_start = 9523
+    _globals['_GETAPPVERSIONRESPONSE']._serialized_end = 9607
+    _globals['_RESTOREAPPVERSIONREQUEST']._serialized_start = 9609
+    _globals['_RESTOREAPPVERSIONREQUEST']._serialized_end = 9697
+    _globals['_RESTOREAPPVERSIONRESPONSE']._serialized_start = 9699
+    _globals['_RESTOREAPPVERSIONRESPONSE']._serialized_end = 9772
+    _globals['_GETAPPVIEWSTATSREQUEST']._serialized_start = 9774
+    _globals['_GETAPPVIEWSTATSREQUEST']._serialized_end = 9821
+    _globals['_APPVIEWERINFO']._serialized_start = 9824
+    _globals['_APPVIEWERINFO']._serialized_end = 10089
+    _globals['_GETAPPVIEWSTATSRESPONSE']._serialized_start = 10092
+    _globals['_GETAPPVIEWSTATSRESPONSE']._serialized_end = 10266
+    _globals['_APPSERVICE']._serialized_start = 10269
+    _globals['_APPSERVICE']._serialized_end = 13026
