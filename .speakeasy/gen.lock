@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: 7af31010839ddf9f6108f7b04695952b
+  docChecksum: f136d260a44574af5d94487802159aa8
   docVersion: 1.0.0
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 1.0.4
-  configChecksum: 5d76ed4c4784296080be6c5bf8a8ac60
+  releaseVersion: 1.0.5
+  configChecksum: 6293c72ea1441f33bf3f4c279a05d6f6
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 8ca8c294-e771-475e-8278-7fd514acdf04
-  pristine_commit_hash: 790c65752561275be4d2589da0459cf9ce75ee32
-  pristine_tree_hash: e52aed69a55e1940a5ddc0fd44509137df3cff30
+  generation_id: 5b8ef8cf-ff76-4bea-a75f-c272cb41d575
+  pristine_commit_hash: 5edf81f5c15c138fcc17ca1795874cfce13e9d09
+  pristine_tree_hash: 4902f185ef698206834d5c7c20651b9807f310a6
 features:
   python:
     additionalDependencies: 1.1.0
@@ -495,8 +495,8 @@ trackedFiles:
     pristine_git_object: 132dc3f6eff12c4a7c7fa9e24f1053eaec1cb269
   docs/models/bytes.md:
     id: 8aabdbe2af51
-    last_write_checksum: sha1:35f6352c2f046c8da10ada39e4f5cc68a7c0acbc
-    pristine_git_object: de950f7935582b5ca1723fed05e1efba3ff26273
+    last_write_checksum: sha1:0ab3a3ca96cd47705690a947114b123a902346f0
+    pristine_git_object: 7b0b746ac9fdc027960a4c1715833d64a252bcad
   docs/models/cachecreationinputtokens.md:
     id: 60a170a9afd3
     last_write_checksum: sha1:b2b75fe6427859753330061b044c69f0d68ae878
@@ -4585,10 +4585,14 @@ trackedFiles:
     id: d942528c5b1a
     last_write_checksum: sha1:d0706921b77c69759fe8280db476a2f9b8d4f82d
     pristine_git_object: ba7a4855b6f947c300e9a94e9eb2f5da2f79bd85
+  docs/models/textqlrpcpubliccellsemailattachment.md:
+    id: d2b11ca79084
+    last_write_checksum: sha1:3b8e7fee6dadc342cf28b059558c7f418b56bbed
+    pristine_git_object: a767351f9ef54ea3623a7ae61ddabeb503d602d7
   docs/models/textqlrpcpubliccellsemailcell.md:
     id: f8e3a55e345b
-    last_write_checksum: sha1:952d3184226e23c8dc47e5f91b736156297372ec
-    pristine_git_object: 39da98f5b901710e1ed7dbf8c2c3f60ce2ba90d1
+    last_write_checksum: sha1:70ab3bcaab0360b4ff8c93ead843670ba8e78954
+    pristine_git_object: 98436c75493cf813fe6de8d0482b774ee1c83fd2
   docs/models/textqlrpcpubliccellsemailrecipient.md:
     id: ffb7402157d3
     last_write_checksum: sha1:8f8463a6f549bd23782802c3012d6688c6ac628c
@@ -6407,8 +6411,12 @@ trackedFiles:
     pristine_git_object: 2acf8260e7f8223f55eb2f9d4a7abc0fbf29b474
   docs/models/textqlrpcpublicdataframedataframecolumn.md:
     id: e8c23af6400e
-    last_write_checksum: sha1:806189b8847ecff4ced509d4d3225ea959539cce
-    pristine_git_object: 302ff569cbac5ef31cbb2ad24d048b6b1c636628
+    last_write_checksum: sha1:94e7c0c1494d2f9c9ef9f46a278114e1d13a3158
+    pristine_git_object: 2dcef08562e9ebd52516e915b7fcc83f6112e748
+  docs/models/textqlrpcpublicdataframedataframecolumnbytes.md:
+    id: 88d7b358fd48
+    last_write_checksum: sha1:735639ab5ceae8c8274786409df8b40707db519d
+    pristine_git_object: 38d95d364550a23c951f213970c6a9402045a76d
   docs/models/textqlrpcpublicdataframedataframefield.md:
     id: a7e2a00e698e
     last_write_checksum: sha1:2f232c2082e27c5370439fb2148f457cb4b1c582
@@ -9599,8 +9607,8 @@ trackedFiles:
     pristine_git_object: 14a5ab5a0178bf5f37c25306ec11372c1dfc1f4e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:8be6d844046a001e831785f9c222d0fcc90a002b
-    pristine_git_object: d14db9dfba1cc886b31e3eb325484acb799de3b7
+    last_write_checksum: sha1:bc67b22c80cb1ca3277f3b59d6c1f11fdfb2d5cd
+    pristine_git_object: f6fe98de36ea5e1d5977f3125c568710b4ea8bd9
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9627,8 +9635,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:953f7dbefde624a88e7fbce1c3a22e09a0147f04
-    pristine_git_object: 4f3a413671111209dcba43a2a812a1d5eba0e517
+    last_write_checksum: sha1:5c23994629b091f86c18bb0e744ac5e9035b98fd
+    pristine_git_object: b3bd4dfb904166a2620f700a29263116e9d77e59
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:61b0b5714598af35b733276cfd32fa30225d2229
@@ -9699,8 +9707,8 @@ trackedFiles:
     pristine_git_object: f5227a747725a68f1c9b6ebffe42ac0d2436f77f
   src/textql_sdk/models/__init__.py:
     id: c8cef98ef3e7
-    last_write_checksum: sha1:3f9052f05e4054de4d0ba4cdd42bd0b4f0ebd76e
-    pristine_git_object: 30e628404956b04a768ef847a77d25aca4f013fe
+    last_write_checksum: sha1:1616ef2fa18aa94da1328d0341688e47f06caafc
+    pristine_git_object: 1a3a5a65d4e35858409224f67746726e4c78f3a2
   src/textql_sdk/models/agentservice_createagentop.py:
     id: c31d4c4b52ae
     last_write_checksum: sha1:eb9ab95a772110d0f587963a73ff3ab4a6f11859
@@ -11845,10 +11853,14 @@ trackedFiles:
     id: 58703af407c2
     last_write_checksum: sha1:1f497aff7ab657e1f8b0a5b5899021b7fda70ac9
     pristine_git_object: bfac7f7115830506ca5b397a50741f3c08c22a51
+  src/textql_sdk/models/textql_rpc_public_cells_emailattachment.py:
+    id: 91e5be991a81
+    last_write_checksum: sha1:f88111ecb2f27b5b2acdabbe95925c86841b4d23
+    pristine_git_object: 72cf65ad61c07adc142bced8317ff552e394cadf
   src/textql_sdk/models/textql_rpc_public_cells_emailcell.py:
     id: 8f760f803e13
-    last_write_checksum: sha1:c6b7f63c02fcba235176c7ade03c8dbd2d4f9aeb
-    pristine_git_object: e7c221134aadece1bcc1d841365fa4f11a5b899b
+    last_write_checksum: sha1:c7b66ec42880a6e8d4403fd3e4690e737f5b4fad
+    pristine_git_object: 6102e9487dbb68f3c274c39e25db1d84e58f1521
   src/textql_sdk/models/textql_rpc_public_cells_emailrecipient.py:
     id: bb7bc2deb209
     last_write_checksum: sha1:5f8c38df8c6f6f0f38c5a87b980535d0cb5f8f27
@@ -13295,8 +13307,8 @@ trackedFiles:
     pristine_git_object: 9b61ec480098fbdb55bccb45e4cc03a2bd44d60b
   src/textql_sdk/models/textql_rpc_public_dataframe_dataframecolumn.py:
     id: eb18f8bafbce
-    last_write_checksum: sha1:4cca58b16e734ede87afb8bfaf5be32a5145ae26
-    pristine_git_object: 0994ae49c64c84be4240a1dc581ee1593adc8e36
+    last_write_checksum: sha1:3f9f2088e71d80a4099d054af5b3fa5d7f05fd9d
+    pristine_git_object: 64b18c0765cc764118a45ce224aa21eb2f37f443
   src/textql_sdk/models/textql_rpc_public_dataframe_dataframefield.py:
     id: c53c7370af5c
     last_write_checksum: sha1:fcd72d7a2d7aca890c1bb987b40a5661924eb7aa
@@ -26971,4 +26983,15 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.observability_service.observability_service_get_member_signal_trend()`: **Added**\n* `textql.chats.get_all()`: \n  *  `request.thread_warning_types[]` **Changed**\n* `textql.observability.get_billing_stats()`:  `response.member_stats[]` **Changed**\n* `textql.observability.get_observability_stats()`:  `response` **Changed**\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].warning_type` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `textql.chats.attach_app()`:  `response.cell.union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.attach_dashboard()`:  `response.cell.union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.attach_dataset()`:  `response.cell.union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.check_streamlit_health()`:  `response.cell.union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.get_history()`:  `response.cells[].union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.query_one_shot()`:  `response.cells[].union(email_cell).email_cell.attachments` **Added**
+  * `textql.chats.run()`:  `response.cells[].union(email_cell).email_cell.attachments` **Added**
+  * `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(email_cell).email_cell.attachments` **Added**
+  * `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(email_cell).email_cell.attachments` **Added**
