@@ -9,10 +9,10 @@
 value: models.Bools = /* values here */
 ```
 
-### `models.Bytes`
+### `models.TextqlRPCPublicDataframeDataFrameColumnBytes`
 
 ```python
-value: models.Bytes = /* values here */
+value: models.TextqlRPCPublicDataframeDataFrameColumnBytes = /* values here */
 ```
 
 ### `models.Doubles`

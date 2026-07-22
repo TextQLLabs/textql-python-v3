@@ -264,12 +264,12 @@ class Doubles(BaseModel):
         return m
 
 
-class BytesTypedDict(TypedDict):
+class TextqlRPCPublicDataframeDataFrameColumnBytesTypedDict(TypedDict):
     bytes_: TextqlRPCPublicDataframeByteValuesTypedDict
     column_index: NotRequired[int]
 
 
-class Bytes(BaseModel):
+class TextqlRPCPublicDataframeDataFrameColumnBytes(BaseModel):
     bytes_: Annotated[TextqlRPCPublicDataframeByteValues, pydantic.Field(alias="bytes")]
 
     column_index: Annotated[Optional[int], pydantic.Field(alias="columnIndex")] = None
@@ -322,7 +322,7 @@ TextqlRPCPublicDataframeDataFrameColumnTypedDict = TypeAliasType(
     "TextqlRPCPublicDataframeDataFrameColumnTypedDict",
     Union[
         BoolsTypedDict,
-        BytesTypedDict,
+        TextqlRPCPublicDataframeDataFrameColumnBytesTypedDict,
         DoublesTypedDict,
         FloatsTypedDict,
         Int32TypedDict,
@@ -338,7 +338,16 @@ TextqlRPCPublicDataframeDataFrameColumnTypedDict = TypeAliasType(
 TextqlRPCPublicDataframeDataFrameColumn = TypeAliasType(
     "TextqlRPCPublicDataframeDataFrameColumn",
     Union[
-        Bools, Bytes, Doubles, Floats, Int32, Int64, Strings, Timestamps, Uint32, Uint64
+        Bools,
+        TextqlRPCPublicDataframeDataFrameColumnBytes,
+        Doubles,
+        Floats,
+        Int32,
+        Int64,
+        Strings,
+        Timestamps,
+        Uint32,
+        Uint64,
     ],
 )
 
@@ -376,7 +385,7 @@ try:
 except NameError:
     pass
 try:
-    Bytes.model_rebuild()
+    TextqlRPCPublicDataframeDataFrameColumnBytes.model_rebuild()
 except NameError:
     pass
 try:
