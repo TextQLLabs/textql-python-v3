@@ -32,8 +32,8 @@ update = sdk.playbooks.update(
     prompt="Summarize yesterday's revenue by product line. Highlight anomalies and week-over-week changes.",
     trigger_type="TRIGGER_TYPE_CRON",
     cron_string="0 9 * * *",            # 9 AM UTC every day
-    llm_model="MODEL_SONNET_4_6",
-    slack_channel_id="C04NV2UABCD",
+    llm_model="MODEL_SONNET_5",
+    slack_channel_id="C04NV2UABCD", # replace with your slack channel ID
     tagged_slack_user_ids=TextqlRPCPublicPlaybookStringList(items=["U03RABC1234"]), # replace with your slack user ID
     email_addresses=TextqlRPCPublicPlaybookStringList(items=["test@textql.com"]), # replace with your email address
 )

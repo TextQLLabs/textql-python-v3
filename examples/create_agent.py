@@ -9,7 +9,11 @@ Triggering an agent generates a fresh report based on its prompt.
 import os
 from dotenv import load_dotenv
 from textql_sdk import Textql
-from textql_sdk.models import ConnectError, SQL, TextqlRPCPublicParadigmSQLOptions
+from textql_sdk.models import (
+    ConnectError,
+    TextqlRPCPublicParadigmUniversalOptions,
+    Universal,
+)
 
 load_dotenv()
 sdk = Textql(api_key=os.environ["TEXTQL_API_KEY"])
@@ -19,9 +23,13 @@ resp = sdk.agents.create(
     name="Weekly Revenue Summary",
     prompt="Summarize total revenue by region for the past 7 days.",
     posting_frequency_crons=["0 9 * * *"], # Run every day at 9 AM UTC
-    paradigm_options=SQL(sql=TextqlRPCPublicParadigmSQLOptions(
-        connector_ids=[1234, 5678],  # replace with your connector IDs
-    ))
+    paradigm_options=Universal(
+        universal=TextqlRPCPublicParadigmUniversalOptions(
+            sql_enabled=True,
+            python_enabled=True,
+            connector_ids=[1234, 5678],  # replace with your connector IDs
+        )
+    ),
 )
 if isinstance(resp, ConnectError):
     raise RuntimeError(f"create agent failed: {resp}")
