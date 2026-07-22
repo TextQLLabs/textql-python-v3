@@ -59,13 +59,12 @@ _SyncClientT = TypeVar("_SyncClientT", bound=ConnectClientSync)
 
 
 def _rpc_base_url(server_url: str) -> str:
-    """Connect RPCs are mounted under ``/rpc/public``. The generated SDK's
-    server is just a host; the prefix is appended unless an explicit path is
-    already present."""
+    """Connect RPCs are always mounted at ``/rpc/public`` on the host. Append it
+    to whatever base the SDK provides -- idempotently, so a base that already
+    carries the prefix isn't doubled."""
     url = urlparse(server_url)
-    path = url.path.rstrip("/")
-    if not path:
-        path = "/rpc/public"
+    base = url.path.rstrip("/")
+    path = base if base.endswith("/rpc/public") else f"{base}/rpc/public"
     return f"{url.scheme}://{url.netloc}{path}"
 
 
