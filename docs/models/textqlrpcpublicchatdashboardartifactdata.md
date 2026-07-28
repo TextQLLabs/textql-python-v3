@@ -1,5 +1,7 @@
 # TextqlRPCPublicChatDashboardArtifactData
 
+File-based artifacts (images, PDFs, CSVs, HTML, text files)
+
 
 ## Fields
 

@@ -20,8 +20,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatQueryOneShotRequestTypedDict(TypedDict):
-    r"""Simplified query request for external API users"""
-
     question: NotRequired[str]
     paradigm: NotRequired[TextqlRPCPublicParadigmParadigmTypedDict]
     r"""ChatParadigm includes paradigm options"""
@@ -30,8 +28,6 @@ class TextqlRPCPublicChatQueryOneShotRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicChatQueryOneShotRequest(BaseModel):
-    r"""Simplified query request for external API users"""
-
     question: Optional[str] = None
 
     paradigm: Optional[TextqlRPCPublicParadigmParadigm] = None

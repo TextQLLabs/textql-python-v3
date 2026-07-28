@@ -34,13 +34,13 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 1.0.5
+  version: 1.0.6
   additionalDependencies:
     dev:
-      types-protobuf: ">=6.31"
+      types-protobuf: '>=6.31'
     main:
-      connect-python: ">=0.9.0"
-      protobuf: ">=6.31,<8"
+      connect-python: '>=0.9.0'
+      protobuf: '>=6.31,<8'
   allowedRedefinedBuiltins:
     - id
     - object

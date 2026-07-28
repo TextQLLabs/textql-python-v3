@@ -12,6 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicObserveDashboardBillingStatTypedDict(TypedDict):
     dashboard_id: NotRequired[str]
     dashboard_name: NotRequired[str]
+    r"""proportionally distributed from member's feed ACU by post count"""
     owner_id: NotRequired[str]
     owner_name: NotRequired[str]
     compute_acu: NotRequired[float]
@@ -118,6 +119,7 @@ class TextqlRPCPublicObserveDashboardBillingStat(BaseModel):
     dashboard_name: Annotated[Optional[str], pydantic.Field(alias="dashboardName")] = (
         None
     )
+    r"""proportionally distributed from member's feed ACU by post count"""
 
     owner_id: Annotated[Optional[str], pydantic.Field(alias="ownerId")] = None
 

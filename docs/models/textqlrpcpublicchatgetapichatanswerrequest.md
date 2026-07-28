@@ -1,5 +1,7 @@
 # TextqlRPCPublicChatGetAPIChatAnswerRequest
 
+order is "most recent first"
+
 
 ## Fields
 

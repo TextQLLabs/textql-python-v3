@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacCreateRoleRequest
 
-Role management requests/responses
-
 
 ## Fields
 

@@ -12,10 +12,18 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicObserveChatTopicListTypedDict(TypedDict):
+    r"""Chat → topics decoration (which live topics tag each chat), mirroring the
+    GetThreadWarnings batch shape.
+    """
+
     topics: NotRequired[List[TextqlRPCPublicObserveChatTopicRefTypedDict]]
 
 
 class TextqlRPCPublicObserveChatTopicList(BaseModel):
+    r"""Chat → topics decoration (which live topics tag each chat), mirroring the
+    GetThreadWarnings batch shape.
+    """
+
     topics: Optional[List[TextqlRPCPublicObserveChatTopicRef]] = None
 
     @model_serializer(mode="wrap")

@@ -9,17 +9,19 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatFileArtifactDataTypedDict(TypedDict):
-    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
+    r"""Request full artifact data when item is selected"""
 
     url: NotRequired[str]
+    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
     type: NotRequired[TextqlRPCPublicChatArtifactType]
     r"""Artifact types for drawer items"""
 
 
 class TextqlRPCPublicChatFileArtifactData(BaseModel):
-    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
+    r"""Request full artifact data when item is selected"""
 
     url: Optional[str] = None
+    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
 
     type: Optional[TextqlRPCPublicChatArtifactType] = None
     r"""Artifact types for drawer items"""

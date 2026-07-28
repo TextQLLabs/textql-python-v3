@@ -16,14 +16,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicChatGetPlaybookChatsRequestTypedDict(TypedDict):
     playbook_id: NotRequired[str]
-    r"""UUID"""
     limit: NotRequired[Nullable[int]]
     skip: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicChatGetPlaybookChatsRequest(BaseModel):
     playbook_id: Annotated[Optional[str], pydantic.Field(alias="playbookId")] = None
-    r"""UUID"""
 
     limit: OptionalNullable[int] = UNSET
 

@@ -150,6 +150,11 @@ class TextqlRPCPublicAgentAgentTypedDict(TypedDict):
     cadence (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) the schedule came from,
     or \"\" when the schedule is an exact custom cron.
     """
+    feed_enabled: NotRequired[bool]
+    r"""Whether this agent participates in the feed (posts/comments/engages, feed
+    tools, feed persona prompt). Delivery config (channels, recipients, slack,
+    teams) is only meaningful when true.
+    """
 
 
 class TextqlRPCPublicAgentAgent(BaseModel):
@@ -347,6 +352,12 @@ class TextqlRPCPublicAgentAgent(BaseModel):
     or \"\" when the schedule is an exact custom cron.
     """
 
+    feed_enabled: Annotated[Optional[bool], pydantic.Field(alias="feedEnabled")] = None
+    r"""Whether this agent participates in the feed (posts/comments/engages, feed
+    tools, feed persona prompt). Delivery config (channels, recipients, slack,
+    teams) is only meaningful when true.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -380,6 +391,7 @@ class TextqlRPCPublicAgentAgent(BaseModel):
                 "slackTrigger",
                 "profileImageUrl",
                 "postingFrequencyCadences",
+                "feedEnabled",
             ]
         )
         nullable_fields = set(

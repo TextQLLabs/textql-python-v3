@@ -10,10 +10,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicObserveMemberActivityTypedDict(TypedDict):
-    r"""MemberActivity is one member's activity over the window: a daily event-count
-    series (oldest→newest, zero-filled) plus rollups for the users table.
-    """
-
     member_id: NotRequired[str]
     daily_activity: NotRequired[List[int]]
     event_count: NotRequired[int]
@@ -112,10 +108,6 @@ class TextqlRPCPublicObserveMemberActivityTypedDict(TypedDict):
 
 
 class TextqlRPCPublicObserveMemberActivity(BaseModel):
-    r"""MemberActivity is one member's activity over the window: a daily event-count
-    series (oldest→newest, zero-filled) plus rollups for the users table.
-    """
-
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     daily_activity: Annotated[

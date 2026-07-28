@@ -30,10 +30,6 @@ class TextqlRPCPublicRbacUpdateRoleRequestTypedDict(TypedDict):
     has no plan to be removed.
     """
     clear_allowed_model_ids: NotRequired[bool]
-    r"""Set to true to clear allowed_model_ids back to \"all models allowed\".
-    Proto3 cannot distinguish an empty repeated field from an absent one,
-    so this explicit flag is required.
-    """
 
 
 class TextqlRPCPublicRbacUpdateRoleRequest(BaseModel):
@@ -72,10 +68,6 @@ class TextqlRPCPublicRbacUpdateRoleRequest(BaseModel):
     clear_allowed_model_ids: Annotated[
         Optional[bool], pydantic.Field(alias="clearAllowedModelIds")
     ] = None
-    r"""Set to true to clear allowed_model_ids back to \"all models allowed\".
-    Proto3 cannot distinguish an empty repeated field from an absent one,
-    so this explicit flag is required.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

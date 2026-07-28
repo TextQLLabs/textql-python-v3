@@ -14,7 +14,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicObserveGetChatTopicsResponseTypedDict(TypedDict):
     topics_by_chat: NotRequired[Dict[str, TextqlRPCPublicObserveChatTopicListTypedDict]]
-    r"""Keyed by chat id; chats with no tagged topics are absent."""
 
 
 class TextqlRPCPublicObserveGetChatTopicsResponse(BaseModel):
@@ -22,7 +21,6 @@ class TextqlRPCPublicObserveGetChatTopicsResponse(BaseModel):
         Optional[Dict[str, TextqlRPCPublicObserveChatTopicList]],
         pydantic.Field(alias="topicsByChat"),
     ] = None
-    r"""Keyed by chat id; chats with no tagged topics are absent."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

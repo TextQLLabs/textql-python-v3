@@ -251,13 +251,13 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicChatCellDurationMs58TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs58TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs58 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs58", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class WsCellTypedDict(TypedDict):
@@ -363,9 +363,8 @@ class WsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs58TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class WsCell(BaseModel):
@@ -490,13 +489,12 @@ class WsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs58],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -542,13 +540,13 @@ class WsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs57TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs57TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs57 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs57", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class UseSkillCellTypedDict(TypedDict):
@@ -659,9 +657,8 @@ class UseSkillCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs57TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class UseSkillCell(BaseModel):
@@ -791,13 +788,12 @@ class UseSkillCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs57],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -843,13 +839,13 @@ class UseSkillCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs56TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs56TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs56 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs56", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ThinkingCellTypedDict(TypedDict):
@@ -955,9 +951,8 @@ class ThinkingCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs56TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ThinkingCell(BaseModel):
@@ -1082,13 +1077,12 @@ class ThinkingCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs56],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1134,13 +1128,13 @@ class ThinkingCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs55TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs55TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs55 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs55", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class TextCellTypedDict(TypedDict):
@@ -1246,9 +1240,8 @@ class TextCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs55TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class TextCell(BaseModel):
@@ -1371,13 +1364,12 @@ class TextCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs55],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1423,13 +1415,13 @@ class TextCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs54TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs54TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs54 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs54", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class TabularFileCellTypedDict(TypedDict):
@@ -1535,9 +1527,8 @@ class TabularFileCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs54TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class TabularFileCell(BaseModel):
@@ -1662,13 +1653,12 @@ class TabularFileCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs54],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1714,13 +1704,13 @@ class TabularFileCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs53TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs53TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs53 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs53", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class TableauSQLCellTypedDict(TypedDict):
@@ -1826,9 +1816,8 @@ class TableauSQLCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs53TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class TableauSQLCell(BaseModel):
@@ -1953,13 +1942,12 @@ class TableauSQLCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs53],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2005,13 +1993,13 @@ class TableauSQLCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs52TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs52TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs52 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs52", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class TableauSearchFieldsCellTypedDict(TypedDict):
@@ -2117,9 +2105,8 @@ class TableauSearchFieldsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs52TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class TableauSearchFieldsCell(BaseModel):
@@ -2245,13 +2232,12 @@ class TableauSearchFieldsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs52],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2297,13 +2283,13 @@ class TableauSearchFieldsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs51TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs51TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs51 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs51", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class TableauCellTypedDict(TypedDict):
@@ -2409,9 +2395,8 @@ class TableauCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs51TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class TableauCell(BaseModel):
@@ -2536,13 +2521,12 @@ class TableauCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs51],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2588,13 +2572,13 @@ class TableauCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs50TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs50TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs50 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs50", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class SummaryCellTypedDict(TypedDict):
@@ -2700,9 +2684,8 @@ class SummaryCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs50TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class SummaryCell(BaseModel):
@@ -2827,13 +2810,12 @@ class SummaryCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs50],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2879,13 +2861,13 @@ class SummaryCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs49TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs49TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs49 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs49", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class StreamlitCellTypedDict(TypedDict):
@@ -2991,9 +2973,8 @@ class StreamlitCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs49TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class StreamlitCell(BaseModel):
@@ -3118,13 +3099,12 @@ class StreamlitCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs49],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3170,13 +3150,13 @@ class StreamlitCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs48TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs48TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs48 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs48", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class StatusCellTypedDict(TypedDict):
@@ -3283,9 +3263,8 @@ class StatusCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs48TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class StatusCell(BaseModel):
@@ -3411,13 +3390,12 @@ class StatusCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs48],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3463,13 +3441,13 @@ class StatusCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs47TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs47TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs47 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs47", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class SQLCellTypedDict(TypedDict):
@@ -3575,9 +3553,8 @@ class SQLCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs47TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class SQLCell(BaseModel):
@@ -3700,13 +3677,12 @@ class SQLCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs47],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3752,13 +3728,13 @@ class SQLCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs46TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs46TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs46 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs46", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ReportHistoryCellTypedDict(TypedDict):
@@ -3864,9 +3840,8 @@ class ReportHistoryCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs46TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ReportHistoryCell(BaseModel):
@@ -3991,13 +3966,12 @@ class ReportHistoryCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs46],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4043,13 +4017,13 @@ class ReportHistoryCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs45TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs45TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs45 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs45", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ReportCellTypedDict(TypedDict):
@@ -4155,9 +4129,8 @@ class ReportCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs45TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ReportCell(BaseModel):
@@ -4282,13 +4255,12 @@ class ReportCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs45],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4334,13 +4306,13 @@ class ReportCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs44TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs44TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs44 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs44", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class QuestionsCellTypedDict(TypedDict):
@@ -4451,9 +4423,8 @@ class QuestionsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs44TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class QuestionsCell(BaseModel):
@@ -4583,13 +4554,12 @@ class QuestionsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs44],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4635,13 +4605,13 @@ class QuestionsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs43TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs43TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs43 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs43", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class PyCellTypedDict(TypedDict):
@@ -4747,9 +4717,8 @@ class PyCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs43TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class PyCell(BaseModel):
@@ -4872,13 +4841,12 @@ class PyCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs43],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4924,13 +4892,13 @@ class PyCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs42TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs42TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs42 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs42", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class PreviewCellTypedDict(TypedDict):
@@ -5037,9 +5005,8 @@ class PreviewCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs42TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class PreviewCell(BaseModel):
@@ -5165,13 +5132,12 @@ class PreviewCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs42],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5217,13 +5183,13 @@ class PreviewCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs41TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs41TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs41 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs41", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class PowerbiDaxCellTypedDict(TypedDict):
@@ -5329,9 +5295,8 @@ class PowerbiDaxCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs41TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class PowerbiDaxCell(BaseModel):
@@ -5456,13 +5421,12 @@ class PowerbiDaxCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs41],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5508,13 +5472,13 @@ class PowerbiDaxCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs40TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs40TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs40 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs40", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class PowerbiCellTypedDict(TypedDict):
@@ -5620,9 +5584,8 @@ class PowerbiCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs40TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class PowerbiCell(BaseModel):
@@ -5747,13 +5710,12 @@ class PowerbiCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs40],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5799,13 +5761,13 @@ class PowerbiCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs39TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs39TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs39 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs39", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class PlaybookEditorCellTypedDict(TypedDict):
@@ -5911,9 +5873,8 @@ class PlaybookEditorCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs39TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class PlaybookEditorCell(BaseModel):
@@ -6039,13 +6000,12 @@ class PlaybookEditorCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs39],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6091,13 +6051,13 @@ class PlaybookEditorCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs38TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs38TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs38 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs38", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class PatchCellTypedDict(TypedDict):
@@ -6203,9 +6163,8 @@ class PatchCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs38TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class PatchCell(BaseModel):
@@ -6330,13 +6289,12 @@ class PatchCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs38],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6382,13 +6340,13 @@ class PatchCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs37TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs37TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs37 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs37", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologySearchMetricsCellTypedDict(TypedDict):
@@ -6494,9 +6452,8 @@ class OntologySearchMetricsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs37TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologySearchMetricsCell(BaseModel):
@@ -6622,13 +6579,12 @@ class OntologySearchMetricsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs37],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6674,13 +6630,13 @@ class OntologySearchMetricsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs36TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs36TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs36 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs36", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologyQueryCellTypedDict(TypedDict):
@@ -6786,9 +6742,8 @@ class OntologyQueryCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs36TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologyQueryCell(BaseModel):
@@ -6913,13 +6868,12 @@ class OntologyQueryCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs36],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6965,13 +6919,13 @@ class OntologyQueryCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs35TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs35TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs35 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs35", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologyOpenObjectCellTypedDict(TypedDict):
@@ -7077,9 +7031,8 @@ class OntologyOpenObjectCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs35TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologyOpenObjectCell(BaseModel):
@@ -7205,13 +7158,12 @@ class OntologyOpenObjectCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs35],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7257,13 +7209,13 @@ class OntologyOpenObjectCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs34TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs34TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs34 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs34", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologyEditorCellTypedDict(TypedDict):
@@ -7369,9 +7321,8 @@ class OntologyEditorCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs34TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class OntologyEditorCell(BaseModel):
@@ -7497,13 +7448,12 @@ class OntologyEditorCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs34],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7549,13 +7499,13 @@ class OntologyEditorCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs33TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs33TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs33 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs33", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class Microsoft365EmailSearchCellTypedDict(TypedDict):
@@ -7663,9 +7613,8 @@ class Microsoft365EmailSearchCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs33TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class Microsoft365EmailSearchCell(BaseModel):
@@ -7791,13 +7740,12 @@ class Microsoft365EmailSearchCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs33],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7843,13 +7791,13 @@ class Microsoft365EmailSearchCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs32TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs32TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs32 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs32", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class Microsoft365EmailContentCellTypedDict(TypedDict):
@@ -7957,9 +7905,8 @@ class Microsoft365EmailContentCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs32TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class Microsoft365EmailContentCell(BaseModel):
@@ -8085,13 +8032,12 @@ class Microsoft365EmailContentCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs32],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -8137,13 +8083,13 @@ class Microsoft365EmailContentCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs31TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs31TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs31 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs31", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class Microsoft365CalendarCellTypedDict(TypedDict):
@@ -8249,9 +8195,8 @@ class Microsoft365CalendarCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs31TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class Microsoft365CalendarCell(BaseModel):
@@ -8377,13 +8322,12 @@ class Microsoft365CalendarCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs31],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -8429,13 +8373,13 @@ class Microsoft365CalendarCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs30TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs30TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs30 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs30", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class MetricsCellTypedDict(TypedDict):
@@ -8541,9 +8485,8 @@ class MetricsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs30TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class MetricsCell(BaseModel):
@@ -8668,13 +8611,12 @@ class MetricsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs30],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -8720,13 +8662,13 @@ class MetricsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs29TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs29TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs29 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs29", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class MdCellTypedDict(TypedDict):
@@ -8832,9 +8774,8 @@ class MdCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs29TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class MdCell(BaseModel):
@@ -8957,13 +8898,12 @@ class MdCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs29],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -9009,13 +8949,13 @@ class MdCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs28TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs28TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs28 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs28", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class McpToolCellTypedDict(TypedDict):
@@ -9121,9 +9061,8 @@ class McpToolCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs28TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class McpToolCell(BaseModel):
@@ -9248,13 +9187,12 @@ class McpToolCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs28],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -9300,13 +9238,13 @@ class McpToolCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs27TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs27TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs27 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs27", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ListUsersCellTypedDict(TypedDict):
@@ -9412,9 +9350,8 @@ class ListUsersCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs27TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ListUsersCell(BaseModel):
@@ -9539,13 +9476,12 @@ class ListUsersCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs27],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -9591,13 +9527,13 @@ class ListUsersCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs26TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs26TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs26 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs26", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ListDashboardsCellTypedDict(TypedDict):
@@ -9703,9 +9639,8 @@ class ListDashboardsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs26TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ListDashboardsCell(BaseModel):
@@ -9831,13 +9766,12 @@ class ListDashboardsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs26],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -9883,13 +9817,13 @@ class ListDashboardsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs25TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs25TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs25 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs25", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ListAppsCellTypedDict(TypedDict):
@@ -9995,9 +9929,8 @@ class ListAppsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs25TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ListAppsCell(BaseModel):
@@ -10122,13 +10055,12 @@ class ListAppsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs25],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -10174,13 +10106,13 @@ class ListAppsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs24TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs24TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs24 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs24", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class LinkedinSearchCellTypedDict(TypedDict):
@@ -10286,9 +10218,8 @@ class LinkedinSearchCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs24TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class LinkedinSearchCell(BaseModel):
@@ -10414,13 +10345,12 @@ class LinkedinSearchCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs24],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -10466,13 +10396,13 @@ class LinkedinSearchCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs23TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs23TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs23 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs23", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class JavascriptCellTypedDict(TypedDict):
@@ -10578,9 +10508,8 @@ class JavascriptCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs23TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class JavascriptCell(BaseModel):
@@ -10705,13 +10634,12 @@ class JavascriptCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs23],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -10757,13 +10685,13 @@ class JavascriptCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs22TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs22TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs22 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs22", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ImageCellTypedDict(TypedDict):
@@ -10869,9 +10797,8 @@ class ImageCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs22TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ImageCell(BaseModel):
@@ -10996,13 +10923,12 @@ class ImageCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs22],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -11048,13 +10974,13 @@ class ImageCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs21TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs21TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs21 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs21", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class GoogleDriveSearchCellTypedDict(TypedDict):
@@ -11160,9 +11086,8 @@ class GoogleDriveSearchCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs21TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class GoogleDriveSearchCell(BaseModel):
@@ -11288,13 +11213,12 @@ class GoogleDriveSearchCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs21],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -11340,13 +11264,13 @@ class GoogleDriveSearchCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs20TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs20TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs20 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs20", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class GoogleDriveContentCellTypedDict(TypedDict):
@@ -11452,9 +11376,8 @@ class GoogleDriveContentCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs20TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class GoogleDriveContentCell(BaseModel):
@@ -11580,13 +11503,12 @@ class GoogleDriveContentCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs20],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -11632,13 +11554,13 @@ class GoogleDriveContentCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs19TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs19TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs19 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs19", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class GoogleCalendarSearchCellTypedDict(TypedDict):
@@ -11744,9 +11666,8 @@ class GoogleCalendarSearchCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs19TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class GoogleCalendarSearchCell(BaseModel):
@@ -11872,13 +11793,12 @@ class GoogleCalendarSearchCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs19],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -11924,13 +11844,13 @@ class GoogleCalendarSearchCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs18TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs18TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs18 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs18", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class GmailEmailSearchCellTypedDict(TypedDict):
@@ -12036,9 +11956,8 @@ class GmailEmailSearchCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs18TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class GmailEmailSearchCell(BaseModel):
@@ -12164,13 +12083,12 @@ class GmailEmailSearchCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs18],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -12216,13 +12134,13 @@ class GmailEmailSearchCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs17TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs17TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs17 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs17", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class GmailEmailContentCellTypedDict(TypedDict):
@@ -12328,9 +12246,8 @@ class GmailEmailContentCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs17TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class GmailEmailContentCell(BaseModel):
@@ -12456,13 +12373,12 @@ class GmailEmailContentCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs17],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -12508,13 +12424,13 @@ class GmailEmailContentCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs16TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs16TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs16 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs16", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FormEditorCellTypedDict(TypedDict):
@@ -12620,9 +12536,8 @@ class FormEditorCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs16TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FormEditorCell(BaseModel):
@@ -12747,13 +12662,12 @@ class FormEditorCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs16],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -12799,13 +12713,13 @@ class FormEditorCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs15TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs15TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs15 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs15", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FormCellTypedDict(TypedDict):
@@ -12915,9 +12829,8 @@ class FormCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs15TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FormCell(BaseModel):
@@ -13044,13 +12957,12 @@ class FormCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs15],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -13096,13 +13008,13 @@ class FormCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs14TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs14TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs14 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs14", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedPostCellTypedDict(TypedDict):
@@ -13208,9 +13120,8 @@ class FeedPostCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs14TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedPostCell(BaseModel):
@@ -13335,13 +13246,12 @@ class FeedPostCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs14],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -13387,13 +13297,13 @@ class FeedPostCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs13TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs13TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs13 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs13", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedExplorerCellTypedDict(TypedDict):
@@ -13499,9 +13409,8 @@ class FeedExplorerCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs13TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedExplorerCell(BaseModel):
@@ -13626,13 +13535,12 @@ class FeedExplorerCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs13],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -13678,13 +13586,13 @@ class FeedExplorerCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs12TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs12TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs12 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs12", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedEngageCellTypedDict(TypedDict):
@@ -13790,9 +13698,8 @@ class FeedEngageCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs12TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedEngageCell(BaseModel):
@@ -13917,13 +13824,12 @@ class FeedEngageCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs12],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -13969,13 +13875,13 @@ class FeedEngageCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs11TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs11TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs11 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs11", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedCreateCellTypedDict(TypedDict):
@@ -14081,9 +13987,8 @@ class FeedCreateCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs11TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedCreateCell(BaseModel):
@@ -14208,13 +14113,12 @@ class FeedCreateCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs11],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -14260,13 +14164,13 @@ class FeedCreateCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs10TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs10TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs10 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs10", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedCommentCellTypedDict(TypedDict):
@@ -14372,9 +14276,8 @@ class FeedCommentCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs10TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class FeedCommentCell(BaseModel):
@@ -14499,13 +14402,12 @@ class FeedCommentCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs10],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -14551,13 +14453,13 @@ class FeedCommentCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs9TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs9TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs9 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs9", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class EmailCellTypedDict(TypedDict):
@@ -14668,9 +14570,8 @@ class EmailCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs9TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class EmailCell(BaseModel):
@@ -14800,13 +14701,12 @@ class EmailCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs9],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -14852,13 +14752,13 @@ class EmailCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs8TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs8TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs8 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs8", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class DocumentCellTypedDict(TypedDict):
@@ -14964,9 +14864,8 @@ class DocumentCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs8TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class DocumentCell(BaseModel):
@@ -15091,13 +14990,12 @@ class DocumentCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs8],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -15143,13 +15041,13 @@ class DocumentCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs7TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs7TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs7 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs7", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class DashboardCellTypedDict(TypedDict):
@@ -15255,9 +15153,8 @@ class DashboardCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs7TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class DashboardCell(BaseModel):
@@ -15382,13 +15279,12 @@ class DashboardCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs7],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -15434,13 +15330,13 @@ class DashboardCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs6TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs6TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs6 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs6", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ContextPromptEditorCellTypedDict(TypedDict):
@@ -15546,9 +15442,8 @@ class ContextPromptEditorCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs6TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ContextPromptEditorCell(BaseModel):
@@ -15674,13 +15569,12 @@ class ContextPromptEditorCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs6],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -15726,13 +15620,13 @@ class ContextPromptEditorCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs5TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs5TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs5 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs5", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class ConnectorsCellTypedDict(TypedDict):
@@ -15842,9 +15736,8 @@ class ConnectorsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs5TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class ConnectorsCell(BaseModel):
@@ -15973,13 +15866,12 @@ class ConnectorsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs5],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -16025,13 +15917,13 @@ class ConnectorsCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs4TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs4TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs4 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs4", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class CompactionCellTypedDict(TypedDict):
@@ -16137,9 +16029,8 @@ class CompactionCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs4TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class CompactionCell(BaseModel):
@@ -16264,13 +16155,12 @@ class CompactionCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs4],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -16316,13 +16206,13 @@ class CompactionCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs3TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs3TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs3 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs3", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class BashCellTypedDict(TypedDict):
@@ -16428,9 +16318,8 @@ class BashCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs3TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class BashCell(BaseModel):
@@ -16553,13 +16442,12 @@ class BashCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs3],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -16605,18 +16493,17 @@ class BashCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs2TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs2TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs2 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs2", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class AppCellTypedDict(TypedDict):
     app_cell: TextqlRPCPublicCellsAppCellTypedDict
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -16718,14 +16605,12 @@ class AppCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs2TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class AppCell(BaseModel):
     app_cell: Annotated[TextqlRPCPublicCellsAppCell, pydantic.Field(alias="appCell")]
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -16844,13 +16729,12 @@ class AppCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs2],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -16896,13 +16780,13 @@ class AppCell(BaseModel):
 TextqlRPCPublicChatCellDurationMs1TypedDict = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs1TypedDict", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 TextqlRPCPublicChatCellDurationMs1 = TypeAliasType(
     "TextqlRPCPublicChatCellDurationMs1", Union[int, str]
 )
-r"""cells_v5.duration_ms — wall-clock this cell took"""
+r"""LLM-generated summary of what this tool call does"""
 
 
 class AnsCellTypedDict(TypedDict):
@@ -17008,9 +16892,8 @@ class AnsCellTypedDict(TypedDict):
     exec_error: NotRequired[Nullable[str]]
     sender_member_id: NotRequired[Nullable[str]]
     tool_summary: NotRequired[Nullable[str]]
-    r"""LLM-generated summary of what this tool call does"""
     duration_ms: NotRequired[Nullable[TextqlRPCPublicChatCellDurationMs1TypedDict]]
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
 
 class AnsCell(BaseModel):
@@ -17133,13 +17016,12 @@ class AnsCell(BaseModel):
     tool_summary: Annotated[
         OptionalNullable[str], pydantic.Field(alias="toolSummary")
     ] = UNSET
-    r"""LLM-generated summary of what this tool call does"""
 
     duration_ms: Annotated[
         OptionalNullable[TextqlRPCPublicChatCellDurationMs1],
         pydantic.Field(alias="durationMs"),
     ] = UNSET
-    r"""cells_v5.duration_ms — wall-clock this cell took"""
+    r"""LLM-generated summary of what this tool call does"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

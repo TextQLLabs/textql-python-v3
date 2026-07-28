@@ -10,10 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicChatGetChatRequestTypedDict(TypedDict):
     chat_id: NotRequired[str]
+    r"""whether to return only the user's chats or all of the org's chats"""
 
 
 class TextqlRPCPublicChatGetChatRequest(BaseModel):
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    r"""whether to return only the user's chats or all of the org's chats"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

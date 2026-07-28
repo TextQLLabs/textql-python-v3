@@ -1,5 +1,7 @@
 # TextqlRPCPublicChatUnbookmarkChatRequest
 
+Simplified query response for external API users
+
 
 ## Fields
 

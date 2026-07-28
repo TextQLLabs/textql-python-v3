@@ -47,6 +47,18 @@ if TYPE_CHECKING:
         AgentServiceDuplicateAgentResponse,
         AgentServiceDuplicateAgentResponseTypedDict,
     )
+    from .agentservice_getagentdbschemaop import (
+        AgentServiceGetAgentDBSchemaRequest,
+        AgentServiceGetAgentDBSchemaRequestTypedDict,
+        AgentServiceGetAgentDBSchemaResponse,
+        AgentServiceGetAgentDBSchemaResponseTypedDict,
+    )
+    from .agentservice_getagentdbtablepreviewop import (
+        AgentServiceGetAgentDBTablePreviewRequest,
+        AgentServiceGetAgentDBTablePreviewRequestTypedDict,
+        AgentServiceGetAgentDBTablePreviewResponse,
+        AgentServiceGetAgentDBTablePreviewResponseTypedDict,
+    )
     from .agentservice_getagentop import (
         AgentServiceGetAgentRequest,
         AgentServiceGetAgentRequestTypedDict,
@@ -118,6 +130,18 @@ if TYPE_CHECKING:
         AppServiceDuplicateAppRequestTypedDict,
         AppServiceDuplicateAppResponse,
         AppServiceDuplicateAppResponseTypedDict,
+    )
+    from .appservice_getappdbschemaop import (
+        AppServiceGetAppDBSchemaRequest,
+        AppServiceGetAppDBSchemaRequestTypedDict,
+        AppServiceGetAppDBSchemaResponse,
+        AppServiceGetAppDBSchemaResponseTypedDict,
+    )
+    from .appservice_getappdbtablepreviewop import (
+        AppServiceGetAppDBTablePreviewRequest,
+        AppServiceGetAppDBTablePreviewRequestTypedDict,
+        AppServiceGetAppDBTablePreviewResponse,
+        AppServiceGetAppDBTablePreviewResponseTypedDict,
     )
     from .appservice_getappmemberstateop import (
         AppServiceGetAppMemberStateRequest,
@@ -1376,6 +1400,12 @@ if TYPE_CHECKING:
         OntologyManagementServiceListPatchesResponse,
         OntologyManagementServiceListPatchesResponseTypedDict,
     )
+    from .ontologymanagementservice_listpatchobjectsop import (
+        OntologyManagementServiceListPatchObjectsRequest,
+        OntologyManagementServiceListPatchObjectsRequestTypedDict,
+        OntologyManagementServiceListPatchObjectsResponse,
+        OntologyManagementServiceListPatchObjectsResponseTypedDict,
+    )
     from .ontologymanagementservice_listpatchreviewersop import (
         OntologyManagementServiceListPatchReviewersRequest,
         OntologyManagementServiceListPatchReviewersRequestTypedDict,
@@ -1820,18 +1850,6 @@ if TYPE_CHECKING:
         PowerBIServiceUnsyncPowerBIItemsResponse,
         PowerBIServiceUnsyncPowerBIItemsResponseTypedDict,
     )
-    from .rbacservice_addgroupmemberop import (
-        RBACServiceAddGroupMemberRequest,
-        RBACServiceAddGroupMemberRequestTypedDict,
-        RBACServiceAddGroupMemberResponse,
-        RBACServiceAddGroupMemberResponseTypedDict,
-    )
-    from .rbacservice_approveaccessrequestop import (
-        RBACServiceApproveAccessRequestRequest,
-        RBACServiceApproveAccessRequestRequestTypedDict,
-        RBACServiceApproveAccessRequestResponse,
-        RBACServiceApproveAccessRequestResponseTypedDict,
-    )
     from .rbacservice_assignpermissiontoroleop import (
         RBACServiceAssignPermissionToRoleRequest,
         RBACServiceAssignPermissionToRoleRequestTypedDict,
@@ -1844,23 +1862,11 @@ if TYPE_CHECKING:
         RBACServiceAssignRoleToMemberResponse,
         RBACServiceAssignRoleToMemberResponseTypedDict,
     )
-    from .rbacservice_convertroletogroupop import (
-        RBACServiceConvertRoleToGroupRequest,
-        RBACServiceConvertRoleToGroupRequestTypedDict,
-        RBACServiceConvertRoleToGroupResponse,
-        RBACServiceConvertRoleToGroupResponseTypedDict,
-    )
     from .rbacservice_createapikeyop import (
         RBACServiceCreateAPIKeyRequest,
         RBACServiceCreateAPIKeyRequestTypedDict,
         RBACServiceCreateAPIKeyResponse,
         RBACServiceCreateAPIKeyResponseTypedDict,
-    )
-    from .rbacservice_creategroupop import (
-        RBACServiceCreateGroupRequest,
-        RBACServiceCreateGroupRequestTypedDict,
-        RBACServiceCreateGroupResponse,
-        RBACServiceCreateGroupResponseTypedDict,
     )
     from .rbacservice_createroleop import (
         RBACServiceCreateRoleRequest,
@@ -1874,12 +1880,6 @@ if TYPE_CHECKING:
         RBACServiceCreateServiceAccountResponse,
         RBACServiceCreateServiceAccountResponseTypedDict,
     )
-    from .rbacservice_deletegroupop import (
-        RBACServiceDeleteGroupRequest,
-        RBACServiceDeleteGroupRequestTypedDict,
-        RBACServiceDeleteGroupResponse,
-        RBACServiceDeleteGroupResponseTypedDict,
-    )
     from .rbacservice_deleteroleop import (
         RBACServiceDeleteRoleRequest,
         RBACServiceDeleteRoleRequestTypedDict,
@@ -1891,12 +1891,6 @@ if TYPE_CHECKING:
         RBACServiceDeleteServiceAccountRequestTypedDict,
         RBACServiceDeleteServiceAccountResponse,
         RBACServiceDeleteServiceAccountResponseTypedDict,
-    )
-    from .rbacservice_generatesharelinkop import (
-        RBACServiceGenerateShareLinkRequest,
-        RBACServiceGenerateShareLinkRequestTypedDict,
-        RBACServiceGenerateShareLinkResponse,
-        RBACServiceGenerateShareLinkResponseTypedDict,
     )
     from .rbacservice_getcurrentmemberrolesandpermissionsop import (
         RBACServiceGetCurrentMemberRolesAndPermissionsRequest,
@@ -1910,29 +1904,11 @@ if TYPE_CHECKING:
         RBACServiceGetEmbedUserAPIKeyResponse,
         RBACServiceGetEmbedUserAPIKeyResponseTypedDict,
     )
-    from .rbacservice_getgroupop import (
-        RBACServiceGetGroupRequest,
-        RBACServiceGetGroupRequestTypedDict,
-        RBACServiceGetGroupResponse,
-        RBACServiceGetGroupResponseTypedDict,
-    )
-    from .rbacservice_getmembergroupsop import (
-        RBACServiceGetMemberGroupsRequest,
-        RBACServiceGetMemberGroupsRequestTypedDict,
-        RBACServiceGetMemberGroupsResponse,
-        RBACServiceGetMemberGroupsResponseTypedDict,
-    )
     from .rbacservice_getmemberrolesop import (
         RBACServiceGetMemberRolesRequest,
         RBACServiceGetMemberRolesRequestTypedDict,
         RBACServiceGetMemberRolesResponse,
         RBACServiceGetMemberRolesResponseTypedDict,
-    )
-    from .rbacservice_getobjectaccessop import (
-        RBACServiceGetObjectAccessRequest,
-        RBACServiceGetObjectAccessRequestTypedDict,
-        RBACServiceGetObjectAccessResponse,
-        RBACServiceGetObjectAccessResponseTypedDict,
     )
     from .rbacservice_getroleop import (
         RBACServiceGetRoleRequest,
@@ -1946,35 +1922,11 @@ if TYPE_CHECKING:
         RBACServiceGetRolePermissionsResponse,
         RBACServiceGetRolePermissionsResponseTypedDict,
     )
-    from .rbacservice_hasobjectaccessop import (
-        RBACServiceHasObjectAccessRequest,
-        RBACServiceHasObjectAccessRequestTypedDict,
-        RBACServiceHasObjectAccessResponse,
-        RBACServiceHasObjectAccessResponseTypedDict,
-    )
-    from .rbacservice_listaccessrequestsop import (
-        RBACServiceListAccessRequestsRequest,
-        RBACServiceListAccessRequestsRequestTypedDict,
-        RBACServiceListAccessRequestsResponse,
-        RBACServiceListAccessRequestsResponseTypedDict,
-    )
     from .rbacservice_listapikeysop import (
         RBACServiceListAPIKeysRequest,
         RBACServiceListAPIKeysRequestTypedDict,
         RBACServiceListAPIKeysResponse,
         RBACServiceListAPIKeysResponseTypedDict,
-    )
-    from .rbacservice_listgroupconnectorsop import (
-        RBACServiceListGroupConnectorsRequest,
-        RBACServiceListGroupConnectorsRequestTypedDict,
-        RBACServiceListGroupConnectorsResponse,
-        RBACServiceListGroupConnectorsResponseTypedDict,
-    )
-    from .rbacservice_listgroupsop import (
-        RBACServiceListGroupsRequest,
-        RBACServiceListGroupsRequestTypedDict,
-        RBACServiceListGroupsResponse,
-        RBACServiceListGroupsResponseTypedDict,
     )
     from .rbacservice_listpermissionsop import (
         RBACServiceListPermissionsRequest,
@@ -1988,41 +1940,11 @@ if TYPE_CHECKING:
         RBACServiceListRolesResponse,
         RBACServiceListRolesResponseTypedDict,
     )
-    from .rbacservice_listscimgroupmappingsop import (
-        RBACServiceListScimGroupMappingsRequest,
-        RBACServiceListScimGroupMappingsRequestTypedDict,
-        RBACServiceListScimGroupMappingsResponse,
-        RBACServiceListScimGroupMappingsResponseTypedDict,
-    )
     from .rbacservice_listserviceaccountsop import (
         RBACServiceListServiceAccountsRequest,
         RBACServiceListServiceAccountsRequestTypedDict,
         RBACServiceListServiceAccountsResponse,
         RBACServiceListServiceAccountsResponseTypedDict,
-    )
-    from .rbacservice_migrateallscimgroupmappingsop import (
-        RBACServiceMigrateAllScimGroupMappingsRequest,
-        RBACServiceMigrateAllScimGroupMappingsRequestTypedDict,
-        RBACServiceMigrateAllScimGroupMappingsResponse,
-        RBACServiceMigrateAllScimGroupMappingsResponseTypedDict,
-    )
-    from .rbacservice_migratescimgroupmappingtogroupop import (
-        RBACServiceMigrateScimGroupMappingToGroupRequest,
-        RBACServiceMigrateScimGroupMappingToGroupRequestTypedDict,
-        RBACServiceMigrateScimGroupMappingToGroupResponse,
-        RBACServiceMigrateScimGroupMappingToGroupResponseTypedDict,
-    )
-    from .rbacservice_rejectaccessrequestop import (
-        RBACServiceRejectAccessRequestRequest,
-        RBACServiceRejectAccessRequestRequestTypedDict,
-        RBACServiceRejectAccessRequestResponse,
-        RBACServiceRejectAccessRequestResponseTypedDict,
-    )
-    from .rbacservice_removegroupmemberop import (
-        RBACServiceRemoveGroupMemberRequest,
-        RBACServiceRemoveGroupMemberRequestTypedDict,
-        RBACServiceRemoveGroupMemberResponse,
-        RBACServiceRemoveGroupMemberResponseTypedDict,
     )
     from .rbacservice_removepermissionfromroleop import (
         RBACServiceRemovePermissionFromRoleRequest,
@@ -2036,29 +1958,11 @@ if TYPE_CHECKING:
         RBACServiceRemoveRoleFromMemberResponse,
         RBACServiceRemoveRoleFromMemberResponseTypedDict,
     )
-    from .rbacservice_requestaccessop import (
-        RBACServiceRequestAccessRequest,
-        RBACServiceRequestAccessRequestTypedDict,
-        RBACServiceRequestAccessResponse,
-        RBACServiceRequestAccessResponseTypedDict,
-    )
-    from .rbacservice_revertscimgroupmappingtoroleop import (
-        RBACServiceRevertScimGroupMappingToRoleRequest,
-        RBACServiceRevertScimGroupMappingToRoleRequestTypedDict,
-        RBACServiceRevertScimGroupMappingToRoleResponse,
-        RBACServiceRevertScimGroupMappingToRoleResponseTypedDict,
-    )
     from .rbacservice_revokeapikeyop import (
         RBACServiceRevokeAPIKeyRequest,
         RBACServiceRevokeAPIKeyRequestTypedDict,
         RBACServiceRevokeAPIKeyResponse,
         RBACServiceRevokeAPIKeyResponseTypedDict,
-    )
-    from .rbacservice_revokeobjectaccessop import (
-        RBACServiceRevokeObjectAccessRequest,
-        RBACServiceRevokeObjectAccessRequestTypedDict,
-        RBACServiceRevokeObjectAccessResponse,
-        RBACServiceRevokeObjectAccessResponseTypedDict,
     )
     from .rbacservice_rotateapikeyop import (
         RBACServiceRotateAPIKeyRequest,
@@ -2071,42 +1975,6 @@ if TYPE_CHECKING:
         RBACServiceSetRolePermissionsRequestTypedDict,
         RBACServiceSetRolePermissionsResponse,
         RBACServiceSetRolePermissionsResponseTypedDict,
-    )
-    from .rbacservice_shareobjectop import (
-        RBACServiceShareObjectRequest,
-        RBACServiceShareObjectRequestTypedDict,
-        RBACServiceShareObjectResponse,
-        RBACServiceShareObjectResponseTypedDict,
-    )
-    from .rbacservice_shareobjectwithgroupop import (
-        RBACServiceShareObjectWithGroupRequest,
-        RBACServiceShareObjectWithGroupRequestTypedDict,
-        RBACServiceShareObjectWithGroupResponse,
-        RBACServiceShareObjectWithGroupResponseTypedDict,
-    )
-    from .rbacservice_shareobjectwithroleop import (
-        RBACServiceShareObjectWithRoleRequest,
-        RBACServiceShareObjectWithRoleRequestTypedDict,
-        RBACServiceShareObjectWithRoleResponse,
-        RBACServiceShareObjectWithRoleResponseTypedDict,
-    )
-    from .rbacservice_updategroupop import (
-        RBACServiceUpdateGroupRequest,
-        RBACServiceUpdateGroupRequestTypedDict,
-        RBACServiceUpdateGroupResponse,
-        RBACServiceUpdateGroupResponseTypedDict,
-    )
-    from .rbacservice_updateobjectaccessop import (
-        RBACServiceUpdateObjectAccessRequest,
-        RBACServiceUpdateObjectAccessRequestTypedDict,
-        RBACServiceUpdateObjectAccessResponse,
-        RBACServiceUpdateObjectAccessResponseTypedDict,
-    )
-    from .rbacservice_updateobjectvisibilityop import (
-        RBACServiceUpdateObjectVisibilityRequest,
-        RBACServiceUpdateObjectVisibilityRequestTypedDict,
-        RBACServiceUpdateObjectVisibilityResponse,
-        RBACServiceUpdateObjectVisibilityResponseTypedDict,
     )
     from .rbacservice_updateroleop import (
         RBACServiceUpdateRoleRequest,
@@ -2265,6 +2133,36 @@ if TYPE_CHECKING:
         SecretServiceUpdateSecretResponseTypedDict,
     )
     from .security import Security, SecurityTypedDict
+    from .settingsservice_checkmemberstatusop import (
+        SettingsServiceCheckMemberStatusRequest,
+        SettingsServiceCheckMemberStatusRequestTypedDict,
+        SettingsServiceCheckMemberStatusResponse,
+        SettingsServiceCheckMemberStatusResponseTypedDict,
+    )
+    from .settingsservice_deleteorganizationmemberop import (
+        SettingsServiceDeleteOrganizationMemberRequest,
+        SettingsServiceDeleteOrganizationMemberRequestTypedDict,
+        SettingsServiceDeleteOrganizationMemberResponse,
+        SettingsServiceDeleteOrganizationMemberResponseTypedDict,
+    )
+    from .settingsservice_inviteorganizationmemberop import (
+        SettingsServiceInviteOrganizationMemberRequest,
+        SettingsServiceInviteOrganizationMemberRequestTypedDict,
+        SettingsServiceInviteOrganizationMemberResponse,
+        SettingsServiceInviteOrganizationMemberResponseTypedDict,
+    )
+    from .settingsservice_listorganizationmembersop import (
+        SettingsServiceListOrganizationMembersRequest,
+        SettingsServiceListOrganizationMembersRequestTypedDict,
+        SettingsServiceListOrganizationMembersResponse,
+        SettingsServiceListOrganizationMembersResponseTypedDict,
+    )
+    from .settingsservice_updateorganizationsettingsop import (
+        SettingsServiceUpdateOrganizationSettingsRequest,
+        SettingsServiceUpdateOrganizationSettingsRequestTypedDict,
+        SettingsServiceUpdateOrganizationSettingsResponse,
+        SettingsServiceUpdateOrganizationSettingsResponseTypedDict,
+    )
     from .slackservice_createslackuuidop import (
         SlackServiceCreateSlackUUIDRequest,
         SlackServiceCreateSlackUUIDRequestTypedDict,
@@ -2439,9 +2337,17 @@ if TYPE_CHECKING:
         TeamsServiceSyncWorkspaceResponse,
         TeamsServiceSyncWorkspaceResponseTypedDict,
     )
+    from .textql_rpc_auth_member import (
+        TextqlRPCAuthMember,
+        TextqlRPCAuthMemberTypedDict,
+    )
     from .textql_rpc_identity_memberpreview import (
         TextqlRPCIdentityMemberPreview,
         TextqlRPCIdentityMemberPreviewTypedDict,
+    )
+    from .textql_rpc_paradigm_params_paradigmparams import (
+        TextqlRPCParadigmParamsParadigmParams,
+        TextqlRPCParadigmParamsParadigmParamsTypedDict,
     )
     from .textql_rpc_paradigm_params_paradigmtype import (
         TextqlRPCParadigmParamsParadigmType,
@@ -2453,6 +2359,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_agent_agent import (
         TextqlRPCPublicAgentAgent,
         TextqlRPCPublicAgentAgentTypedDict,
+    )
+    from .textql_rpc_public_agent_agentdbcolumn import (
+        TextqlRPCPublicAgentAgentDBColumn,
+        TextqlRPCPublicAgentAgentDBColumnTypedDict,
+    )
+    from .textql_rpc_public_agent_agentdbtable import (
+        TextqlRPCPublicAgentAgentDBTable,
+        TextqlRPCPublicAgentAgentDBTableTypedDict,
     )
     from .textql_rpc_public_agent_agentrun import (
         TextqlRPCPublicAgentAgentRun,
@@ -2507,6 +2421,24 @@ if TYPE_CHECKING:
     from .textql_rpc_public_agent_duplicateagentresponse import (
         TextqlRPCPublicAgentDuplicateAgentResponse,
         TextqlRPCPublicAgentDuplicateAgentResponseTypedDict,
+    )
+    from .textql_rpc_public_agent_getagentdbschemarequest import (
+        TextqlRPCPublicAgentGetAgentDBSchemaRequest,
+        TextqlRPCPublicAgentGetAgentDBSchemaRequestTypedDict,
+    )
+    from .textql_rpc_public_agent_getagentdbschemaresponse import (
+        TextqlRPCPublicAgentGetAgentDBSchemaResponse,
+        TextqlRPCPublicAgentGetAgentDBSchemaResponseChangeLogBytes,
+        TextqlRPCPublicAgentGetAgentDBSchemaResponseChangeLogBytesTypedDict,
+        TextqlRPCPublicAgentGetAgentDBSchemaResponseTypedDict,
+    )
+    from .textql_rpc_public_agent_getagentdbtablepreviewrequest import (
+        TextqlRPCPublicAgentGetAgentDBTablePreviewRequest,
+        TextqlRPCPublicAgentGetAgentDBTablePreviewRequestTypedDict,
+    )
+    from .textql_rpc_public_agent_getagentdbtablepreviewresponse import (
+        TextqlRPCPublicAgentGetAgentDBTablePreviewResponse,
+        TextqlRPCPublicAgentGetAgentDBTablePreviewResponseTypedDict,
     )
     from .textql_rpc_public_agent_getagentrequest import (
         TextqlRPCPublicAgentGetAgentRequest,
@@ -2586,6 +2518,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicAppAppActivityRecordSeqTypedDict,
         TextqlRPCPublicAppAppActivityRecordTypedDict,
     )
+    from .textql_rpc_public_app_appdbcolumn import (
+        TextqlRPCPublicAppAppDBColumn,
+        TextqlRPCPublicAppAppDBColumnTypedDict,
+    )
+    from .textql_rpc_public_app_appdbtable import (
+        TextqlRPCPublicAppAppDBTable,
+        TextqlRPCPublicAppAppDBTableTypedDict,
+    )
     from .textql_rpc_public_app_appfile import (
         TextqlRPCPublicAppAppFile,
         TextqlRPCPublicAppAppFileTypedDict,
@@ -2643,6 +2583,24 @@ if TYPE_CHECKING:
     from .textql_rpc_public_app_duplicateappresponse import (
         TextqlRPCPublicAppDuplicateAppResponse,
         TextqlRPCPublicAppDuplicateAppResponseTypedDict,
+    )
+    from .textql_rpc_public_app_getappdbschemarequest import (
+        TextqlRPCPublicAppGetAppDBSchemaRequest,
+        TextqlRPCPublicAppGetAppDBSchemaRequestTypedDict,
+    )
+    from .textql_rpc_public_app_getappdbschemaresponse import (
+        TextqlRPCPublicAppGetAppDBSchemaResponse,
+        TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes,
+        TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict,
+        TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict,
+    )
+    from .textql_rpc_public_app_getappdbtablepreviewrequest import (
+        TextqlRPCPublicAppGetAppDBTablePreviewRequest,
+        TextqlRPCPublicAppGetAppDBTablePreviewRequestTypedDict,
+    )
+    from .textql_rpc_public_app_getappdbtablepreviewresponse import (
+        TextqlRPCPublicAppGetAppDBTablePreviewResponse,
+        TextqlRPCPublicAppGetAppDBTablePreviewResponseTypedDict,
     )
     from .textql_rpc_public_app_getappmemberstaterequest import (
         TextqlRPCPublicAppGetAppMemberStateRequest,
@@ -5558,6 +5516,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicObserveUpdateCustomTopicRequest,
         TextqlRPCPublicObserveUpdateCustomTopicRequestTypedDict,
     )
+    from .textql_rpc_public_observe_usageheatmappoint import (
+        TextqlRPCPublicObserveUsageHeatmapPoint,
+        TextqlRPCPublicObserveUsageHeatmapPointTypedDict,
+    )
     from .textql_rpc_public_observe_warningtypecount import (
         TextqlRPCPublicObserveWarningTypeCount,
         TextqlRPCPublicObserveWarningTypeCountTypedDict,
@@ -6036,6 +5998,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesListPatchesResponse,
         TextqlRPCPublicPatchesListPatchesResponseTypedDict,
     )
+    from .textql_rpc_public_patches_listpatchobjectsrequest import (
+        TextqlRPCPublicPatchesListPatchObjectsRequest,
+        TextqlRPCPublicPatchesListPatchObjectsRequestTypedDict,
+    )
+    from .textql_rpc_public_patches_listpatchobjectsresponse import (
+        TextqlRPCPublicPatchesListPatchObjectsResponse,
+        TextqlRPCPublicPatchesListPatchObjectsResponseTypedDict,
+    )
     from .textql_rpc_public_patches_listpatchreviewersrequest import (
         TextqlRPCPublicPatchesListPatchReviewersRequest,
         TextqlRPCPublicPatchesListPatchReviewersRequestTypedDict,
@@ -6170,6 +6140,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesPatchLineTypedDict,
     )
     from .textql_rpc_public_patches_patchlineop import TextqlRPCPublicPatchesPatchLineOp
+    from .textql_rpc_public_patches_patchobject import (
+        TextqlRPCPublicPatchesPatchObject,
+        TextqlRPCPublicPatchesPatchObjectTypedDict,
+    )
     from .textql_rpc_public_patches_patchreviewer import (
         TextqlRPCPublicPatchesPatchReviewer,
         TextqlRPCPublicPatchesPatchReviewerTypedDict,
@@ -6846,18 +6820,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse,
         TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_accessrequest import (
-        TextqlRPCPublicRbacAccessRequest,
-        TextqlRPCPublicRbacAccessRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_addgroupmemberrequest import (
-        TextqlRPCPublicRbacAddGroupMemberRequest,
-        TextqlRPCPublicRbacAddGroupMemberRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_addgroupmemberresponse import (
-        TextqlRPCPublicRbacAddGroupMemberResponse,
-        TextqlRPCPublicRbacAddGroupMemberResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_apikey import (
         TextqlRPCPublicRbacAPIKey,
         TextqlRPCPublicRbacAPIKeyTypedDict,
@@ -6867,14 +6829,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacAPIKeySortField,
     )
     from .textql_rpc_public_rbac_apikeystatus import TextqlRPCPublicRbacAPIKeyStatus
-    from .textql_rpc_public_rbac_approveaccessrequestrequest import (
-        TextqlRPCPublicRbacApproveAccessRequestRequest,
-        TextqlRPCPublicRbacApproveAccessRequestRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_approveaccessrequestresponse import (
-        TextqlRPCPublicRbacApproveAccessRequestResponse,
-        TextqlRPCPublicRbacApproveAccessRequestResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_assignpermissiontorolerequest import (
         TextqlRPCPublicRbacAssignPermissionToRoleRequest,
         TextqlRPCPublicRbacAssignPermissionToRoleRequestTypedDict,
@@ -6891,14 +6845,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacAssignRoleToMemberResponse,
         TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_convertroletogrouprequest import (
-        TextqlRPCPublicRbacConvertRoleToGroupRequest,
-        TextqlRPCPublicRbacConvertRoleToGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_convertroletogroupresponse import (
-        TextqlRPCPublicRbacConvertRoleToGroupResponse,
-        TextqlRPCPublicRbacConvertRoleToGroupResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_createapikeyrequest import (
         TextqlRPCPublicRbacCreateAPIKeyRequest,
         TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict,
@@ -6906,14 +6852,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_createapikeyresponse import (
         TextqlRPCPublicRbacCreateAPIKeyResponse,
         TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_creategrouprequest import (
-        TextqlRPCPublicRbacCreateGroupRequest,
-        TextqlRPCPublicRbacCreateGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_creategroupresponse import (
-        TextqlRPCPublicRbacCreateGroupResponse,
-        TextqlRPCPublicRbacCreateGroupResponseTypedDict,
     )
     from .textql_rpc_public_rbac_createrolerequest import (
         TextqlRPCPublicRbacCreateRoleRequest,
@@ -6931,14 +6869,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacCreateServiceAccountResponse,
         TextqlRPCPublicRbacCreateServiceAccountResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_deletegrouprequest import (
-        TextqlRPCPublicRbacDeleteGroupRequest,
-        TextqlRPCPublicRbacDeleteGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_deletegroupresponse import (
-        TextqlRPCPublicRbacDeleteGroupResponse,
-        TextqlRPCPublicRbacDeleteGroupResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_deleterolerequest import (
         TextqlRPCPublicRbacDeleteRoleRequest,
         TextqlRPCPublicRbacDeleteRoleRequestTypedDict,
@@ -6954,14 +6884,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_deleteserviceaccountresponse import (
         TextqlRPCPublicRbacDeleteServiceAccountResponse,
         TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_generatesharelinkrequest import (
-        TextqlRPCPublicRbacGenerateShareLinkRequest,
-        TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_generatesharelinkresponse import (
-        TextqlRPCPublicRbacGenerateShareLinkResponse,
-        TextqlRPCPublicRbacGenerateShareLinkResponseTypedDict,
     )
     from .textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsrequest import (
         TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequest,
@@ -6979,22 +6901,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacGetEmbedUserAPIKeyResponse,
         TextqlRPCPublicRbacGetEmbedUserAPIKeyResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_getgrouprequest import (
-        TextqlRPCPublicRbacGetGroupRequest,
-        TextqlRPCPublicRbacGetGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_getgroupresponse import (
-        TextqlRPCPublicRbacGetGroupResponse,
-        TextqlRPCPublicRbacGetGroupResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_getmembergroupsrequest import (
-        TextqlRPCPublicRbacGetMemberGroupsRequest,
-        TextqlRPCPublicRbacGetMemberGroupsRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_getmembergroupsresponse import (
-        TextqlRPCPublicRbacGetMemberGroupsResponse,
-        TextqlRPCPublicRbacGetMemberGroupsResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_getmemberrolesrequest import (
         TextqlRPCPublicRbacGetMemberRolesRequest,
         TextqlRPCPublicRbacGetMemberRolesRequestTypedDict,
@@ -7002,14 +6908,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_getmemberrolesresponse import (
         TextqlRPCPublicRbacGetMemberRolesResponse,
         TextqlRPCPublicRbacGetMemberRolesResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_getobjectaccessrequest import (
-        TextqlRPCPublicRbacGetObjectAccessRequest,
-        TextqlRPCPublicRbacGetObjectAccessRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_getobjectaccessresponse import (
-        TextqlRPCPublicRbacGetObjectAccessResponse,
-        TextqlRPCPublicRbacGetObjectAccessResponseTypedDict,
     )
     from .textql_rpc_public_rbac_getrolepermissionsrequest import (
         TextqlRPCPublicRbacGetRolePermissionsRequest,
@@ -7027,30 +6925,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacGetRoleResponse,
         TextqlRPCPublicRbacGetRoleResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_group import (
-        TextqlRPCPublicRbacGroup,
-        TextqlRPCPublicRbacGroupTypedDict,
-    )
-    from .textql_rpc_public_rbac_groupconnectoraccess import (
-        TextqlRPCPublicRbacGroupConnectorAccess,
-        TextqlRPCPublicRbacGroupConnectorAccessTypedDict,
-    )
-    from .textql_rpc_public_rbac_hasobjectaccessrequest import (
-        TextqlRPCPublicRbacHasObjectAccessRequest,
-        TextqlRPCPublicRbacHasObjectAccessRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_hasobjectaccessresponse import (
-        TextqlRPCPublicRbacHasObjectAccessResponse,
-        TextqlRPCPublicRbacHasObjectAccessResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_listaccessrequestsrequest import (
-        TextqlRPCPublicRbacListAccessRequestsRequest,
-        TextqlRPCPublicRbacListAccessRequestsRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_listaccessrequestsresponse import (
-        TextqlRPCPublicRbacListAccessRequestsResponse,
-        TextqlRPCPublicRbacListAccessRequestsResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_listapikeysrequest import (
         TextqlRPCPublicRbacListAPIKeysRequest,
         TextqlRPCPublicRbacListAPIKeysRequestTypedDict,
@@ -7058,22 +6932,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_listapikeysresponse import (
         TextqlRPCPublicRbacListAPIKeysResponse,
         TextqlRPCPublicRbacListAPIKeysResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_listgroupconnectorsrequest import (
-        TextqlRPCPublicRbacListGroupConnectorsRequest,
-        TextqlRPCPublicRbacListGroupConnectorsRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_listgroupconnectorsresponse import (
-        TextqlRPCPublicRbacListGroupConnectorsResponse,
-        TextqlRPCPublicRbacListGroupConnectorsResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_listgroupsrequest import (
-        TextqlRPCPublicRbacListGroupsRequest,
-        TextqlRPCPublicRbacListGroupsRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_listgroupsresponse import (
-        TextqlRPCPublicRbacListGroupsResponse,
-        TextqlRPCPublicRbacListGroupsResponseTypedDict,
     )
     from .textql_rpc_public_rbac_listpermissionsrequest import (
         TextqlRPCPublicRbacListPermissionsRequest,
@@ -7091,14 +6949,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacListRolesResponse,
         TextqlRPCPublicRbacListRolesResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_listscimgroupmappingsrequest import (
-        TextqlRPCPublicRbacListScimGroupMappingsRequest,
-        TextqlRPCPublicRbacListScimGroupMappingsRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_listscimgroupmappingsresponse import (
-        TextqlRPCPublicRbacListScimGroupMappingsResponse,
-        TextqlRPCPublicRbacListScimGroupMappingsResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_listserviceaccountsrequest import (
         TextqlRPCPublicRbacListServiceAccountsRequest,
         TextqlRPCPublicRbacListServiceAccountsRequestTypedDict,
@@ -7107,53 +6957,13 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacListServiceAccountsResponse,
         TextqlRPCPublicRbacListServiceAccountsResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_membergroups import (
-        TextqlRPCPublicRbacMemberGroups,
-        TextqlRPCPublicRbacMemberGroupsTypedDict,
-    )
     from .textql_rpc_public_rbac_memberroles import (
         TextqlRPCPublicRbacMemberRoles,
         TextqlRPCPublicRbacMemberRolesTypedDict,
     )
-    from .textql_rpc_public_rbac_migrateallscimgroupmappingsrequest import (
-        TextqlRPCPublicRbacMigrateAllScimGroupMappingsRequest,
-        TextqlRPCPublicRbacMigrateAllScimGroupMappingsRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_migrateallscimgroupmappingsresponse import (
-        TextqlRPCPublicRbacMigrateAllScimGroupMappingsResponse,
-        TextqlRPCPublicRbacMigrateAllScimGroupMappingsResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_migratescimgroupmappingtogrouprequest import (
-        TextqlRPCPublicRbacMigrateScimGroupMappingToGroupRequest,
-        TextqlRPCPublicRbacMigrateScimGroupMappingToGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_migratescimgroupmappingtogroupresponse import (
-        TextqlRPCPublicRbacMigrateScimGroupMappingToGroupResponse,
-        TextqlRPCPublicRbacMigrateScimGroupMappingToGroupResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_objectaccess import (
-        TextqlRPCPublicRbacObjectAccess,
-        TextqlRPCPublicRbacObjectAccessTypedDict,
-    )
     from .textql_rpc_public_rbac_permission import (
         TextqlRPCPublicRbacPermission,
         TextqlRPCPublicRbacPermissionTypedDict,
-    )
-    from .textql_rpc_public_rbac_rejectaccessrequestrequest import (
-        TextqlRPCPublicRbacRejectAccessRequestRequest,
-        TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_rejectaccessrequestresponse import (
-        TextqlRPCPublicRbacRejectAccessRequestResponse,
-        TextqlRPCPublicRbacRejectAccessRequestResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_removegroupmemberrequest import (
-        TextqlRPCPublicRbacRemoveGroupMemberRequest,
-        TextqlRPCPublicRbacRemoveGroupMemberRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_removegroupmemberresponse import (
-        TextqlRPCPublicRbacRemoveGroupMemberResponse,
-        TextqlRPCPublicRbacRemoveGroupMemberResponseTypedDict,
     )
     from .textql_rpc_public_rbac_removepermissionfromrolerequest import (
         TextqlRPCPublicRbacRemovePermissionFromRoleRequest,
@@ -7171,22 +6981,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacRemoveRoleFromMemberResponse,
         TextqlRPCPublicRbacRemoveRoleFromMemberResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_requestaccessrequest import (
-        TextqlRPCPublicRbacRequestAccessRequest,
-        TextqlRPCPublicRbacRequestAccessRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_requestaccessresponse import (
-        TextqlRPCPublicRbacRequestAccessResponse,
-        TextqlRPCPublicRbacRequestAccessResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_revertscimgroupmappingtorolerequest import (
-        TextqlRPCPublicRbacRevertScimGroupMappingToRoleRequest,
-        TextqlRPCPublicRbacRevertScimGroupMappingToRoleRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_revertscimgroupmappingtoroleresponse import (
-        TextqlRPCPublicRbacRevertScimGroupMappingToRoleResponse,
-        TextqlRPCPublicRbacRevertScimGroupMappingToRoleResponseTypedDict,
-    )
     from .textql_rpc_public_rbac_revokeapikeyrequest import (
         TextqlRPCPublicRbacRevokeAPIKeyRequest,
         TextqlRPCPublicRbacRevokeAPIKeyRequestTypedDict,
@@ -7194,14 +6988,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_revokeapikeyresponse import (
         TextqlRPCPublicRbacRevokeAPIKeyResponse,
         TextqlRPCPublicRbacRevokeAPIKeyResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_revokeobjectaccessrequest import (
-        TextqlRPCPublicRbacRevokeObjectAccessRequest,
-        TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_revokeobjectaccessresponse import (
-        TextqlRPCPublicRbacRevokeObjectAccessResponse,
-        TextqlRPCPublicRbacRevokeObjectAccessResponseTypedDict,
     )
     from .textql_rpc_public_rbac_role import (
         TextqlRPCPublicRbacRole,
@@ -7215,10 +7001,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacRotateAPIKeyResponse,
         TextqlRPCPublicRbacRotateAPIKeyResponseTypedDict,
     )
-    from .textql_rpc_public_rbac_scimgroupmappingsummary import (
-        TextqlRPCPublicRbacScimGroupMappingSummary,
-        TextqlRPCPublicRbacScimGroupMappingSummaryTypedDict,
-    )
     from .textql_rpc_public_rbac_serviceaccount import (
         TextqlRPCPublicRbacServiceAccount,
         TextqlRPCPublicRbacServiceAccountTypedDict,
@@ -7230,54 +7012,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_setrolepermissionsresponse import (
         TextqlRPCPublicRbacSetRolePermissionsResponse,
         TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_shareobjectrequest import (
-        TextqlRPCPublicRbacShareObjectRequest,
-        TextqlRPCPublicRbacShareObjectRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_shareobjectresponse import (
-        TextqlRPCPublicRbacShareObjectResponse,
-        TextqlRPCPublicRbacShareObjectResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_shareobjectwithgrouprequest import (
-        TextqlRPCPublicRbacShareObjectWithGroupRequest,
-        TextqlRPCPublicRbacShareObjectWithGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_shareobjectwithgroupresponse import (
-        TextqlRPCPublicRbacShareObjectWithGroupResponse,
-        TextqlRPCPublicRbacShareObjectWithGroupResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_shareobjectwithrolerequest import (
-        TextqlRPCPublicRbacShareObjectWithRoleRequest,
-        TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_shareobjectwithroleresponse import (
-        TextqlRPCPublicRbacShareObjectWithRoleResponse,
-        TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_updategrouprequest import (
-        TextqlRPCPublicRbacUpdateGroupRequest,
-        TextqlRPCPublicRbacUpdateGroupRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_updategroupresponse import (
-        TextqlRPCPublicRbacUpdateGroupResponse,
-        TextqlRPCPublicRbacUpdateGroupResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_updateobjectaccessrequest import (
-        TextqlRPCPublicRbacUpdateObjectAccessRequest,
-        TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_updateobjectaccessresponse import (
-        TextqlRPCPublicRbacUpdateObjectAccessResponse,
-        TextqlRPCPublicRbacUpdateObjectAccessResponseTypedDict,
-    )
-    from .textql_rpc_public_rbac_updateobjectvisibilityrequest import (
-        TextqlRPCPublicRbacUpdateObjectVisibilityRequest,
-        TextqlRPCPublicRbacUpdateObjectVisibilityRequestTypedDict,
-    )
-    from .textql_rpc_public_rbac_updateobjectvisibilityresponse import (
-        TextqlRPCPublicRbacUpdateObjectVisibilityResponse,
-        TextqlRPCPublicRbacUpdateObjectVisibilityResponseTypedDict,
     )
     from .textql_rpc_public_rbac_updaterolerequest import (
         TextqlRPCPublicRbacUpdateRoleRequest,
@@ -7610,6 +7344,46 @@ if TYPE_CHECKING:
         TextqlRPCPublicSecretUpdateSecretResponse,
         TextqlRPCPublicSecretUpdateSecretResponseTypedDict,
     )
+    from .textql_rpc_public_settings_checkmemberstatusrequest import (
+        TextqlRPCPublicSettingsCheckMemberStatusRequest,
+        TextqlRPCPublicSettingsCheckMemberStatusRequestTypedDict,
+    )
+    from .textql_rpc_public_settings_checkmemberstatusresponse import (
+        TextqlRPCPublicSettingsCheckMemberStatusResponse,
+        TextqlRPCPublicSettingsCheckMemberStatusResponseTypedDict,
+    )
+    from .textql_rpc_public_settings_deleteorganizationmemberrequest import (
+        TextqlRPCPublicSettingsDeleteOrganizationMemberRequest,
+        TextqlRPCPublicSettingsDeleteOrganizationMemberRequestTypedDict,
+    )
+    from .textql_rpc_public_settings_deleteorganizationmemberresponse import (
+        TextqlRPCPublicSettingsDeleteOrganizationMemberResponse,
+        TextqlRPCPublicSettingsDeleteOrganizationMemberResponseTypedDict,
+    )
+    from .textql_rpc_public_settings_inviteorganizationmemberrequest import (
+        TextqlRPCPublicSettingsInviteOrganizationMemberRequest,
+        TextqlRPCPublicSettingsInviteOrganizationMemberRequestTypedDict,
+    )
+    from .textql_rpc_public_settings_inviteorganizationmemberresponse import (
+        TextqlRPCPublicSettingsInviteOrganizationMemberResponse,
+        TextqlRPCPublicSettingsInviteOrganizationMemberResponseTypedDict,
+    )
+    from .textql_rpc_public_settings_listorganizationmembersrequest import (
+        TextqlRPCPublicSettingsListOrganizationMembersRequest,
+        TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict,
+    )
+    from .textql_rpc_public_settings_listorganizationmembersresponse import (
+        TextqlRPCPublicSettingsListOrganizationMembersResponse,
+        TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict,
+    )
+    from .textql_rpc_public_settings_updateorganizationsettingsrequest import (
+        TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest,
+        TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict,
+    )
+    from .textql_rpc_public_settings_updateorganizationsettingsresponse import (
+        TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse,
+        TextqlRPCPublicSettingsUpdateOrganizationSettingsResponseTypedDict,
+    )
     from .textql_rpc_public_slack_createslackuuidresponse import (
         TextqlRPCPublicSlackCreateSlackUUIDResponse,
         TextqlRPCPublicSlackCreateSlackUUIDResponseTypedDict,
@@ -7860,6 +7634,14 @@ __all__ = [
     "AgentServiceDuplicateAgentRequestTypedDict",
     "AgentServiceDuplicateAgentResponse",
     "AgentServiceDuplicateAgentResponseTypedDict",
+    "AgentServiceGetAgentDBSchemaRequest",
+    "AgentServiceGetAgentDBSchemaRequestTypedDict",
+    "AgentServiceGetAgentDBSchemaResponse",
+    "AgentServiceGetAgentDBSchemaResponseTypedDict",
+    "AgentServiceGetAgentDBTablePreviewRequest",
+    "AgentServiceGetAgentDBTablePreviewRequestTypedDict",
+    "AgentServiceGetAgentDBTablePreviewResponse",
+    "AgentServiceGetAgentDBTablePreviewResponseTypedDict",
     "AgentServiceGetAgentRequest",
     "AgentServiceGetAgentRequestTypedDict",
     "AgentServiceGetAgentResponse",
@@ -7914,6 +7696,14 @@ __all__ = [
     "AppServiceDuplicateAppRequestTypedDict",
     "AppServiceDuplicateAppResponse",
     "AppServiceDuplicateAppResponseTypedDict",
+    "AppServiceGetAppDBSchemaRequest",
+    "AppServiceGetAppDBSchemaRequestTypedDict",
+    "AppServiceGetAppDBSchemaResponse",
+    "AppServiceGetAppDBSchemaResponseTypedDict",
+    "AppServiceGetAppDBTablePreviewRequest",
+    "AppServiceGetAppDBTablePreviewRequestTypedDict",
+    "AppServiceGetAppDBTablePreviewResponse",
+    "AppServiceGetAppDBTablePreviewResponseTypedDict",
     "AppServiceGetAppMemberStateRequest",
     "AppServiceGetAppMemberStateRequestTypedDict",
     "AppServiceGetAppMemberStateResponse",
@@ -8993,6 +8783,10 @@ __all__ = [
     "OntologyManagementServiceListOntologySyncRunsRequestTypedDict",
     "OntologyManagementServiceListOntologySyncRunsResponse",
     "OntologyManagementServiceListOntologySyncRunsResponseTypedDict",
+    "OntologyManagementServiceListPatchObjectsRequest",
+    "OntologyManagementServiceListPatchObjectsRequestTypedDict",
+    "OntologyManagementServiceListPatchObjectsResponse",
+    "OntologyManagementServiceListPatchObjectsResponseTypedDict",
     "OntologyManagementServiceListPatchReviewersRequest",
     "OntologyManagementServiceListPatchReviewersRequestTypedDict",
     "OntologyManagementServiceListPatchReviewersResponse",
@@ -9341,14 +9135,6 @@ __all__ = [
     "PythonCodeTypedDict",
     "QuestionsCell",
     "QuestionsCellTypedDict",
-    "RBACServiceAddGroupMemberRequest",
-    "RBACServiceAddGroupMemberRequestTypedDict",
-    "RBACServiceAddGroupMemberResponse",
-    "RBACServiceAddGroupMemberResponseTypedDict",
-    "RBACServiceApproveAccessRequestRequest",
-    "RBACServiceApproveAccessRequestRequestTypedDict",
-    "RBACServiceApproveAccessRequestResponse",
-    "RBACServiceApproveAccessRequestResponseTypedDict",
     "RBACServiceAssignPermissionToRoleRequest",
     "RBACServiceAssignPermissionToRoleRequestTypedDict",
     "RBACServiceAssignPermissionToRoleResponse",
@@ -9357,18 +9143,10 @@ __all__ = [
     "RBACServiceAssignRoleToMemberRequestTypedDict",
     "RBACServiceAssignRoleToMemberResponse",
     "RBACServiceAssignRoleToMemberResponseTypedDict",
-    "RBACServiceConvertRoleToGroupRequest",
-    "RBACServiceConvertRoleToGroupRequestTypedDict",
-    "RBACServiceConvertRoleToGroupResponse",
-    "RBACServiceConvertRoleToGroupResponseTypedDict",
     "RBACServiceCreateAPIKeyRequest",
     "RBACServiceCreateAPIKeyRequestTypedDict",
     "RBACServiceCreateAPIKeyResponse",
     "RBACServiceCreateAPIKeyResponseTypedDict",
-    "RBACServiceCreateGroupRequest",
-    "RBACServiceCreateGroupRequestTypedDict",
-    "RBACServiceCreateGroupResponse",
-    "RBACServiceCreateGroupResponseTypedDict",
     "RBACServiceCreateRoleRequest",
     "RBACServiceCreateRoleRequestTypedDict",
     "RBACServiceCreateRoleResponse",
@@ -9377,10 +9155,6 @@ __all__ = [
     "RBACServiceCreateServiceAccountRequestTypedDict",
     "RBACServiceCreateServiceAccountResponse",
     "RBACServiceCreateServiceAccountResponseTypedDict",
-    "RBACServiceDeleteGroupRequest",
-    "RBACServiceDeleteGroupRequestTypedDict",
-    "RBACServiceDeleteGroupResponse",
-    "RBACServiceDeleteGroupResponseTypedDict",
     "RBACServiceDeleteRoleRequest",
     "RBACServiceDeleteRoleRequestTypedDict",
     "RBACServiceDeleteRoleResponse",
@@ -9389,10 +9163,6 @@ __all__ = [
     "RBACServiceDeleteServiceAccountRequestTypedDict",
     "RBACServiceDeleteServiceAccountResponse",
     "RBACServiceDeleteServiceAccountResponseTypedDict",
-    "RBACServiceGenerateShareLinkRequest",
-    "RBACServiceGenerateShareLinkRequestTypedDict",
-    "RBACServiceGenerateShareLinkResponse",
-    "RBACServiceGenerateShareLinkResponseTypedDict",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequest",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequestTypedDict",
     "RBACServiceGetCurrentMemberRolesAndPermissionsResponse",
@@ -9401,22 +9171,10 @@ __all__ = [
     "RBACServiceGetEmbedUserAPIKeyRequestTypedDict",
     "RBACServiceGetEmbedUserAPIKeyResponse",
     "RBACServiceGetEmbedUserAPIKeyResponseTypedDict",
-    "RBACServiceGetGroupRequest",
-    "RBACServiceGetGroupRequestTypedDict",
-    "RBACServiceGetGroupResponse",
-    "RBACServiceGetGroupResponseTypedDict",
-    "RBACServiceGetMemberGroupsRequest",
-    "RBACServiceGetMemberGroupsRequestTypedDict",
-    "RBACServiceGetMemberGroupsResponse",
-    "RBACServiceGetMemberGroupsResponseTypedDict",
     "RBACServiceGetMemberRolesRequest",
     "RBACServiceGetMemberRolesRequestTypedDict",
     "RBACServiceGetMemberRolesResponse",
     "RBACServiceGetMemberRolesResponseTypedDict",
-    "RBACServiceGetObjectAccessRequest",
-    "RBACServiceGetObjectAccessRequestTypedDict",
-    "RBACServiceGetObjectAccessResponse",
-    "RBACServiceGetObjectAccessResponseTypedDict",
     "RBACServiceGetRolePermissionsRequest",
     "RBACServiceGetRolePermissionsRequestTypedDict",
     "RBACServiceGetRolePermissionsResponse",
@@ -9425,26 +9183,10 @@ __all__ = [
     "RBACServiceGetRoleRequestTypedDict",
     "RBACServiceGetRoleResponse",
     "RBACServiceGetRoleResponseTypedDict",
-    "RBACServiceHasObjectAccessRequest",
-    "RBACServiceHasObjectAccessRequestTypedDict",
-    "RBACServiceHasObjectAccessResponse",
-    "RBACServiceHasObjectAccessResponseTypedDict",
     "RBACServiceListAPIKeysRequest",
     "RBACServiceListAPIKeysRequestTypedDict",
     "RBACServiceListAPIKeysResponse",
     "RBACServiceListAPIKeysResponseTypedDict",
-    "RBACServiceListAccessRequestsRequest",
-    "RBACServiceListAccessRequestsRequestTypedDict",
-    "RBACServiceListAccessRequestsResponse",
-    "RBACServiceListAccessRequestsResponseTypedDict",
-    "RBACServiceListGroupConnectorsRequest",
-    "RBACServiceListGroupConnectorsRequestTypedDict",
-    "RBACServiceListGroupConnectorsResponse",
-    "RBACServiceListGroupConnectorsResponseTypedDict",
-    "RBACServiceListGroupsRequest",
-    "RBACServiceListGroupsRequestTypedDict",
-    "RBACServiceListGroupsResponse",
-    "RBACServiceListGroupsResponseTypedDict",
     "RBACServiceListPermissionsRequest",
     "RBACServiceListPermissionsRequestTypedDict",
     "RBACServiceListPermissionsResponse",
@@ -9453,30 +9195,10 @@ __all__ = [
     "RBACServiceListRolesRequestTypedDict",
     "RBACServiceListRolesResponse",
     "RBACServiceListRolesResponseTypedDict",
-    "RBACServiceListScimGroupMappingsRequest",
-    "RBACServiceListScimGroupMappingsRequestTypedDict",
-    "RBACServiceListScimGroupMappingsResponse",
-    "RBACServiceListScimGroupMappingsResponseTypedDict",
     "RBACServiceListServiceAccountsRequest",
     "RBACServiceListServiceAccountsRequestTypedDict",
     "RBACServiceListServiceAccountsResponse",
     "RBACServiceListServiceAccountsResponseTypedDict",
-    "RBACServiceMigrateAllScimGroupMappingsRequest",
-    "RBACServiceMigrateAllScimGroupMappingsRequestTypedDict",
-    "RBACServiceMigrateAllScimGroupMappingsResponse",
-    "RBACServiceMigrateAllScimGroupMappingsResponseTypedDict",
-    "RBACServiceMigrateScimGroupMappingToGroupRequest",
-    "RBACServiceMigrateScimGroupMappingToGroupRequestTypedDict",
-    "RBACServiceMigrateScimGroupMappingToGroupResponse",
-    "RBACServiceMigrateScimGroupMappingToGroupResponseTypedDict",
-    "RBACServiceRejectAccessRequestRequest",
-    "RBACServiceRejectAccessRequestRequestTypedDict",
-    "RBACServiceRejectAccessRequestResponse",
-    "RBACServiceRejectAccessRequestResponseTypedDict",
-    "RBACServiceRemoveGroupMemberRequest",
-    "RBACServiceRemoveGroupMemberRequestTypedDict",
-    "RBACServiceRemoveGroupMemberResponse",
-    "RBACServiceRemoveGroupMemberResponseTypedDict",
     "RBACServiceRemovePermissionFromRoleRequest",
     "RBACServiceRemovePermissionFromRoleRequestTypedDict",
     "RBACServiceRemovePermissionFromRoleResponse",
@@ -9485,22 +9207,10 @@ __all__ = [
     "RBACServiceRemoveRoleFromMemberRequestTypedDict",
     "RBACServiceRemoveRoleFromMemberResponse",
     "RBACServiceRemoveRoleFromMemberResponseTypedDict",
-    "RBACServiceRequestAccessRequest",
-    "RBACServiceRequestAccessRequestTypedDict",
-    "RBACServiceRequestAccessResponse",
-    "RBACServiceRequestAccessResponseTypedDict",
-    "RBACServiceRevertScimGroupMappingToRoleRequest",
-    "RBACServiceRevertScimGroupMappingToRoleRequestTypedDict",
-    "RBACServiceRevertScimGroupMappingToRoleResponse",
-    "RBACServiceRevertScimGroupMappingToRoleResponseTypedDict",
     "RBACServiceRevokeAPIKeyRequest",
     "RBACServiceRevokeAPIKeyRequestTypedDict",
     "RBACServiceRevokeAPIKeyResponse",
     "RBACServiceRevokeAPIKeyResponseTypedDict",
-    "RBACServiceRevokeObjectAccessRequest",
-    "RBACServiceRevokeObjectAccessRequestTypedDict",
-    "RBACServiceRevokeObjectAccessResponse",
-    "RBACServiceRevokeObjectAccessResponseTypedDict",
     "RBACServiceRotateAPIKeyRequest",
     "RBACServiceRotateAPIKeyRequestTypedDict",
     "RBACServiceRotateAPIKeyResponse",
@@ -9509,30 +9219,6 @@ __all__ = [
     "RBACServiceSetRolePermissionsRequestTypedDict",
     "RBACServiceSetRolePermissionsResponse",
     "RBACServiceSetRolePermissionsResponseTypedDict",
-    "RBACServiceShareObjectRequest",
-    "RBACServiceShareObjectRequestTypedDict",
-    "RBACServiceShareObjectResponse",
-    "RBACServiceShareObjectResponseTypedDict",
-    "RBACServiceShareObjectWithGroupRequest",
-    "RBACServiceShareObjectWithGroupRequestTypedDict",
-    "RBACServiceShareObjectWithGroupResponse",
-    "RBACServiceShareObjectWithGroupResponseTypedDict",
-    "RBACServiceShareObjectWithRoleRequest",
-    "RBACServiceShareObjectWithRoleRequestTypedDict",
-    "RBACServiceShareObjectWithRoleResponse",
-    "RBACServiceShareObjectWithRoleResponseTypedDict",
-    "RBACServiceUpdateGroupRequest",
-    "RBACServiceUpdateGroupRequestTypedDict",
-    "RBACServiceUpdateGroupResponse",
-    "RBACServiceUpdateGroupResponseTypedDict",
-    "RBACServiceUpdateObjectAccessRequest",
-    "RBACServiceUpdateObjectAccessRequestTypedDict",
-    "RBACServiceUpdateObjectAccessResponse",
-    "RBACServiceUpdateObjectAccessResponseTypedDict",
-    "RBACServiceUpdateObjectVisibilityRequest",
-    "RBACServiceUpdateObjectVisibilityRequestTypedDict",
-    "RBACServiceUpdateObjectVisibilityResponse",
-    "RBACServiceUpdateObjectVisibilityResponseTypedDict",
     "RBACServiceUpdateRoleRequest",
     "RBACServiceUpdateRoleRequestTypedDict",
     "RBACServiceUpdateRoleResponse",
@@ -9667,6 +9353,26 @@ __all__ = [
     "SecretServiceUpdateSecretResponseTypedDict",
     "Security",
     "SecurityTypedDict",
+    "SettingsServiceCheckMemberStatusRequest",
+    "SettingsServiceCheckMemberStatusRequestTypedDict",
+    "SettingsServiceCheckMemberStatusResponse",
+    "SettingsServiceCheckMemberStatusResponseTypedDict",
+    "SettingsServiceDeleteOrganizationMemberRequest",
+    "SettingsServiceDeleteOrganizationMemberRequestTypedDict",
+    "SettingsServiceDeleteOrganizationMemberResponse",
+    "SettingsServiceDeleteOrganizationMemberResponseTypedDict",
+    "SettingsServiceInviteOrganizationMemberRequest",
+    "SettingsServiceInviteOrganizationMemberRequestTypedDict",
+    "SettingsServiceInviteOrganizationMemberResponse",
+    "SettingsServiceInviteOrganizationMemberResponseTypedDict",
+    "SettingsServiceListOrganizationMembersRequest",
+    "SettingsServiceListOrganizationMembersRequestTypedDict",
+    "SettingsServiceListOrganizationMembersResponse",
+    "SettingsServiceListOrganizationMembersResponseTypedDict",
+    "SettingsServiceUpdateOrganizationSettingsRequest",
+    "SettingsServiceUpdateOrganizationSettingsRequestTypedDict",
+    "SettingsServiceUpdateOrganizationSettingsResponse",
+    "SettingsServiceUpdateOrganizationSettingsResponseTypedDict",
     "Size",
     "SizeTypedDict",
     "SlackServiceCreateSlackUUIDRequest",
@@ -9829,12 +9535,20 @@ __all__ = [
     "TextCell",
     "TextCellTypedDict",
     "TextTypedDict",
+    "TextqlRPCAuthMember",
+    "TextqlRPCAuthMemberTypedDict",
     "TextqlRPCIdentityMemberPreview",
     "TextqlRPCIdentityMemberPreviewTypedDict",
+    "TextqlRPCParadigmParamsParadigmParams",
+    "TextqlRPCParadigmParamsParadigmParamsTypedDict",
     "TextqlRPCParadigmParamsParadigmType",
     "TextqlRPCPowerbiSelectionPowerBISelection",
     "TextqlRPCPowerbiSelectionPowerBISelectionTypedDict",
     "TextqlRPCPublicAgentAgent",
+    "TextqlRPCPublicAgentAgentDBColumn",
+    "TextqlRPCPublicAgentAgentDBColumnTypedDict",
+    "TextqlRPCPublicAgentAgentDBTable",
+    "TextqlRPCPublicAgentAgentDBTableTypedDict",
     "TextqlRPCPublicAgentAgentRun",
     "TextqlRPCPublicAgentAgentRunDelivery",
     "TextqlRPCPublicAgentAgentRunDeliveryChannel",
@@ -9864,6 +9578,16 @@ __all__ = [
     "TextqlRPCPublicAgentDuplicateAgentRequestTypedDict",
     "TextqlRPCPublicAgentDuplicateAgentResponse",
     "TextqlRPCPublicAgentDuplicateAgentResponseTypedDict",
+    "TextqlRPCPublicAgentGetAgentDBSchemaRequest",
+    "TextqlRPCPublicAgentGetAgentDBSchemaRequestTypedDict",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponse",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponseChangeLogBytes",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponseChangeLogBytesTypedDict",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponseTypedDict",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewRequest",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewRequestTypedDict",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewResponse",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewResponseTypedDict",
     "TextqlRPCPublicAgentGetAgentRequest",
     "TextqlRPCPublicAgentGetAgentRequestTypedDict",
     "TextqlRPCPublicAgentGetAgentResponse",
@@ -9903,6 +9627,10 @@ __all__ = [
     "TextqlRPCPublicAppAppActivityRecordSeq",
     "TextqlRPCPublicAppAppActivityRecordSeqTypedDict",
     "TextqlRPCPublicAppAppActivityRecordTypedDict",
+    "TextqlRPCPublicAppAppDBColumn",
+    "TextqlRPCPublicAppAppDBColumnTypedDict",
+    "TextqlRPCPublicAppAppDBTable",
+    "TextqlRPCPublicAppAppDBTableTypedDict",
     "TextqlRPCPublicAppAppFile",
     "TextqlRPCPublicAppAppFileTypedDict",
     "TextqlRPCPublicAppAppHeartbeatRequest",
@@ -9934,6 +9662,16 @@ __all__ = [
     "TextqlRPCPublicAppDuplicateAppRequestTypedDict",
     "TextqlRPCPublicAppDuplicateAppResponse",
     "TextqlRPCPublicAppDuplicateAppResponseTypedDict",
+    "TextqlRPCPublicAppGetAppDBSchemaRequest",
+    "TextqlRPCPublicAppGetAppDBSchemaRequestTypedDict",
+    "TextqlRPCPublicAppGetAppDBSchemaResponse",
+    "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes",
+    "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict",
+    "TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict",
+    "TextqlRPCPublicAppGetAppDBTablePreviewRequest",
+    "TextqlRPCPublicAppGetAppDBTablePreviewRequestTypedDict",
+    "TextqlRPCPublicAppGetAppDBTablePreviewResponse",
+    "TextqlRPCPublicAppGetAppDBTablePreviewResponseTypedDict",
     "TextqlRPCPublicAppGetAppMemberStateRequest",
     "TextqlRPCPublicAppGetAppMemberStateRequestTypedDict",
     "TextqlRPCPublicAppGetAppMemberStateResponse",
@@ -11302,6 +11040,8 @@ __all__ = [
     "TextqlRPCPublicObserveTopicLifecycleResponseTypedDict",
     "TextqlRPCPublicObserveUpdateCustomTopicRequest",
     "TextqlRPCPublicObserveUpdateCustomTopicRequestTypedDict",
+    "TextqlRPCPublicObserveUsageHeatmapPoint",
+    "TextqlRPCPublicObserveUsageHeatmapPointTypedDict",
     "TextqlRPCPublicObserveWarningTypeCount",
     "TextqlRPCPublicObserveWarningTypeCountTypedDict",
     "TextqlRPCPublicObserveWarningTypeDailyCount",
@@ -11530,6 +11270,10 @@ __all__ = [
     "TextqlRPCPublicPatchesListOntologySyncRunsRequestTypedDict",
     "TextqlRPCPublicPatchesListOntologySyncRunsResponse",
     "TextqlRPCPublicPatchesListOntologySyncRunsResponseTypedDict",
+    "TextqlRPCPublicPatchesListPatchObjectsRequest",
+    "TextqlRPCPublicPatchesListPatchObjectsRequestTypedDict",
+    "TextqlRPCPublicPatchesListPatchObjectsResponse",
+    "TextqlRPCPublicPatchesListPatchObjectsResponseTypedDict",
     "TextqlRPCPublicPatchesListPatchReviewersRequest",
     "TextqlRPCPublicPatchesListPatchReviewersRequestTypedDict",
     "TextqlRPCPublicPatchesListPatchReviewersResponse",
@@ -11589,6 +11333,8 @@ __all__ = [
     "TextqlRPCPublicPatchesPatchLine",
     "TextqlRPCPublicPatchesPatchLineOp",
     "TextqlRPCPublicPatchesPatchLineTypedDict",
+    "TextqlRPCPublicPatchesPatchObject",
+    "TextqlRPCPublicPatchesPatchObjectTypedDict",
     "TextqlRPCPublicPatchesPatchReviewer",
     "TextqlRPCPublicPatchesPatchReviewerTypedDict",
     "TextqlRPCPublicPatchesPatchStatus",
@@ -11931,16 +11677,6 @@ __all__ = [
     "TextqlRPCPublicRbacAPIKeySortField",
     "TextqlRPCPublicRbacAPIKeyStatus",
     "TextqlRPCPublicRbacAPIKeyTypedDict",
-    "TextqlRPCPublicRbacAccessRequest",
-    "TextqlRPCPublicRbacAccessRequestTypedDict",
-    "TextqlRPCPublicRbacAddGroupMemberRequest",
-    "TextqlRPCPublicRbacAddGroupMemberRequestTypedDict",
-    "TextqlRPCPublicRbacAddGroupMemberResponse",
-    "TextqlRPCPublicRbacAddGroupMemberResponseTypedDict",
-    "TextqlRPCPublicRbacApproveAccessRequestRequest",
-    "TextqlRPCPublicRbacApproveAccessRequestRequestTypedDict",
-    "TextqlRPCPublicRbacApproveAccessRequestResponse",
-    "TextqlRPCPublicRbacApproveAccessRequestResponseTypedDict",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequest",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequestTypedDict",
     "TextqlRPCPublicRbacAssignPermissionToRoleResponse",
@@ -11949,18 +11685,10 @@ __all__ = [
     "TextqlRPCPublicRbacAssignRoleToMemberRequestTypedDict",
     "TextqlRPCPublicRbacAssignRoleToMemberResponse",
     "TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict",
-    "TextqlRPCPublicRbacConvertRoleToGroupRequest",
-    "TextqlRPCPublicRbacConvertRoleToGroupRequestTypedDict",
-    "TextqlRPCPublicRbacConvertRoleToGroupResponse",
-    "TextqlRPCPublicRbacConvertRoleToGroupResponseTypedDict",
     "TextqlRPCPublicRbacCreateAPIKeyRequest",
     "TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacCreateAPIKeyResponse",
     "TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict",
-    "TextqlRPCPublicRbacCreateGroupRequest",
-    "TextqlRPCPublicRbacCreateGroupRequestTypedDict",
-    "TextqlRPCPublicRbacCreateGroupResponse",
-    "TextqlRPCPublicRbacCreateGroupResponseTypedDict",
     "TextqlRPCPublicRbacCreateRoleRequest",
     "TextqlRPCPublicRbacCreateRoleRequestTypedDict",
     "TextqlRPCPublicRbacCreateRoleResponse",
@@ -11969,10 +11697,6 @@ __all__ = [
     "TextqlRPCPublicRbacCreateServiceAccountRequestTypedDict",
     "TextqlRPCPublicRbacCreateServiceAccountResponse",
     "TextqlRPCPublicRbacCreateServiceAccountResponseTypedDict",
-    "TextqlRPCPublicRbacDeleteGroupRequest",
-    "TextqlRPCPublicRbacDeleteGroupRequestTypedDict",
-    "TextqlRPCPublicRbacDeleteGroupResponse",
-    "TextqlRPCPublicRbacDeleteGroupResponseTypedDict",
     "TextqlRPCPublicRbacDeleteRoleRequest",
     "TextqlRPCPublicRbacDeleteRoleRequestTypedDict",
     "TextqlRPCPublicRbacDeleteRoleResponse",
@@ -11981,10 +11705,6 @@ __all__ = [
     "TextqlRPCPublicRbacDeleteServiceAccountRequestTypedDict",
     "TextqlRPCPublicRbacDeleteServiceAccountResponse",
     "TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict",
-    "TextqlRPCPublicRbacGenerateShareLinkRequest",
-    "TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict",
-    "TextqlRPCPublicRbacGenerateShareLinkResponse",
-    "TextqlRPCPublicRbacGenerateShareLinkResponseTypedDict",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequest",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequestTypedDict",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponse",
@@ -11993,22 +11713,10 @@ __all__ = [
     "TextqlRPCPublicRbacGetEmbedUserAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacGetEmbedUserAPIKeyResponse",
     "TextqlRPCPublicRbacGetEmbedUserAPIKeyResponseTypedDict",
-    "TextqlRPCPublicRbacGetGroupRequest",
-    "TextqlRPCPublicRbacGetGroupRequestTypedDict",
-    "TextqlRPCPublicRbacGetGroupResponse",
-    "TextqlRPCPublicRbacGetGroupResponseTypedDict",
-    "TextqlRPCPublicRbacGetMemberGroupsRequest",
-    "TextqlRPCPublicRbacGetMemberGroupsRequestTypedDict",
-    "TextqlRPCPublicRbacGetMemberGroupsResponse",
-    "TextqlRPCPublicRbacGetMemberGroupsResponseTypedDict",
     "TextqlRPCPublicRbacGetMemberRolesRequest",
     "TextqlRPCPublicRbacGetMemberRolesRequestTypedDict",
     "TextqlRPCPublicRbacGetMemberRolesResponse",
     "TextqlRPCPublicRbacGetMemberRolesResponseTypedDict",
-    "TextqlRPCPublicRbacGetObjectAccessRequest",
-    "TextqlRPCPublicRbacGetObjectAccessRequestTypedDict",
-    "TextqlRPCPublicRbacGetObjectAccessResponse",
-    "TextqlRPCPublicRbacGetObjectAccessResponseTypedDict",
     "TextqlRPCPublicRbacGetRolePermissionsRequest",
     "TextqlRPCPublicRbacGetRolePermissionsRequestTypedDict",
     "TextqlRPCPublicRbacGetRolePermissionsResponse",
@@ -12017,30 +11725,10 @@ __all__ = [
     "TextqlRPCPublicRbacGetRoleRequestTypedDict",
     "TextqlRPCPublicRbacGetRoleResponse",
     "TextqlRPCPublicRbacGetRoleResponseTypedDict",
-    "TextqlRPCPublicRbacGroup",
-    "TextqlRPCPublicRbacGroupConnectorAccess",
-    "TextqlRPCPublicRbacGroupConnectorAccessTypedDict",
-    "TextqlRPCPublicRbacGroupTypedDict",
-    "TextqlRPCPublicRbacHasObjectAccessRequest",
-    "TextqlRPCPublicRbacHasObjectAccessRequestTypedDict",
-    "TextqlRPCPublicRbacHasObjectAccessResponse",
-    "TextqlRPCPublicRbacHasObjectAccessResponseTypedDict",
     "TextqlRPCPublicRbacListAPIKeysRequest",
     "TextqlRPCPublicRbacListAPIKeysRequestTypedDict",
     "TextqlRPCPublicRbacListAPIKeysResponse",
     "TextqlRPCPublicRbacListAPIKeysResponseTypedDict",
-    "TextqlRPCPublicRbacListAccessRequestsRequest",
-    "TextqlRPCPublicRbacListAccessRequestsRequestTypedDict",
-    "TextqlRPCPublicRbacListAccessRequestsResponse",
-    "TextqlRPCPublicRbacListAccessRequestsResponseTypedDict",
-    "TextqlRPCPublicRbacListGroupConnectorsRequest",
-    "TextqlRPCPublicRbacListGroupConnectorsRequestTypedDict",
-    "TextqlRPCPublicRbacListGroupConnectorsResponse",
-    "TextqlRPCPublicRbacListGroupConnectorsResponseTypedDict",
-    "TextqlRPCPublicRbacListGroupsRequest",
-    "TextqlRPCPublicRbacListGroupsRequestTypedDict",
-    "TextqlRPCPublicRbacListGroupsResponse",
-    "TextqlRPCPublicRbacListGroupsResponseTypedDict",
     "TextqlRPCPublicRbacListPermissionsRequest",
     "TextqlRPCPublicRbacListPermissionsRequestTypedDict",
     "TextqlRPCPublicRbacListPermissionsResponse",
@@ -12049,38 +11737,14 @@ __all__ = [
     "TextqlRPCPublicRbacListRolesRequestTypedDict",
     "TextqlRPCPublicRbacListRolesResponse",
     "TextqlRPCPublicRbacListRolesResponseTypedDict",
-    "TextqlRPCPublicRbacListScimGroupMappingsRequest",
-    "TextqlRPCPublicRbacListScimGroupMappingsRequestTypedDict",
-    "TextqlRPCPublicRbacListScimGroupMappingsResponse",
-    "TextqlRPCPublicRbacListScimGroupMappingsResponseTypedDict",
     "TextqlRPCPublicRbacListServiceAccountsRequest",
     "TextqlRPCPublicRbacListServiceAccountsRequestTypedDict",
     "TextqlRPCPublicRbacListServiceAccountsResponse",
     "TextqlRPCPublicRbacListServiceAccountsResponseTypedDict",
-    "TextqlRPCPublicRbacMemberGroups",
-    "TextqlRPCPublicRbacMemberGroupsTypedDict",
     "TextqlRPCPublicRbacMemberRoles",
     "TextqlRPCPublicRbacMemberRolesTypedDict",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsRequest",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsRequestTypedDict",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsResponse",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsResponseTypedDict",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupRequest",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupRequestTypedDict",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupResponse",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupResponseTypedDict",
-    "TextqlRPCPublicRbacObjectAccess",
-    "TextqlRPCPublicRbacObjectAccessTypedDict",
     "TextqlRPCPublicRbacPermission",
     "TextqlRPCPublicRbacPermissionTypedDict",
-    "TextqlRPCPublicRbacRejectAccessRequestRequest",
-    "TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict",
-    "TextqlRPCPublicRbacRejectAccessRequestResponse",
-    "TextqlRPCPublicRbacRejectAccessRequestResponseTypedDict",
-    "TextqlRPCPublicRbacRemoveGroupMemberRequest",
-    "TextqlRPCPublicRbacRemoveGroupMemberRequestTypedDict",
-    "TextqlRPCPublicRbacRemoveGroupMemberResponse",
-    "TextqlRPCPublicRbacRemoveGroupMemberResponseTypedDict",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequest",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequestTypedDict",
     "TextqlRPCPublicRbacRemovePermissionFromRoleResponse",
@@ -12089,60 +11753,22 @@ __all__ = [
     "TextqlRPCPublicRbacRemoveRoleFromMemberRequestTypedDict",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponse",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponseTypedDict",
-    "TextqlRPCPublicRbacRequestAccessRequest",
-    "TextqlRPCPublicRbacRequestAccessRequestTypedDict",
-    "TextqlRPCPublicRbacRequestAccessResponse",
-    "TextqlRPCPublicRbacRequestAccessResponseTypedDict",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleRequest",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleRequestTypedDict",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleResponse",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleResponseTypedDict",
     "TextqlRPCPublicRbacRevokeAPIKeyRequest",
     "TextqlRPCPublicRbacRevokeAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacRevokeAPIKeyResponse",
     "TextqlRPCPublicRbacRevokeAPIKeyResponseTypedDict",
-    "TextqlRPCPublicRbacRevokeObjectAccessRequest",
-    "TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict",
-    "TextqlRPCPublicRbacRevokeObjectAccessResponse",
-    "TextqlRPCPublicRbacRevokeObjectAccessResponseTypedDict",
     "TextqlRPCPublicRbacRole",
     "TextqlRPCPublicRbacRoleTypedDict",
     "TextqlRPCPublicRbacRotateAPIKeyRequest",
     "TextqlRPCPublicRbacRotateAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacRotateAPIKeyResponse",
     "TextqlRPCPublicRbacRotateAPIKeyResponseTypedDict",
-    "TextqlRPCPublicRbacScimGroupMappingSummary",
-    "TextqlRPCPublicRbacScimGroupMappingSummaryTypedDict",
     "TextqlRPCPublicRbacServiceAccount",
     "TextqlRPCPublicRbacServiceAccountTypedDict",
     "TextqlRPCPublicRbacSetRolePermissionsRequest",
     "TextqlRPCPublicRbacSetRolePermissionsRequestTypedDict",
     "TextqlRPCPublicRbacSetRolePermissionsResponse",
     "TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict",
-    "TextqlRPCPublicRbacShareObjectRequest",
-    "TextqlRPCPublicRbacShareObjectRequestTypedDict",
-    "TextqlRPCPublicRbacShareObjectResponse",
-    "TextqlRPCPublicRbacShareObjectResponseTypedDict",
-    "TextqlRPCPublicRbacShareObjectWithGroupRequest",
-    "TextqlRPCPublicRbacShareObjectWithGroupRequestTypedDict",
-    "TextqlRPCPublicRbacShareObjectWithGroupResponse",
-    "TextqlRPCPublicRbacShareObjectWithGroupResponseTypedDict",
-    "TextqlRPCPublicRbacShareObjectWithRoleRequest",
-    "TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict",
-    "TextqlRPCPublicRbacShareObjectWithRoleResponse",
-    "TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict",
-    "TextqlRPCPublicRbacUpdateGroupRequest",
-    "TextqlRPCPublicRbacUpdateGroupRequestTypedDict",
-    "TextqlRPCPublicRbacUpdateGroupResponse",
-    "TextqlRPCPublicRbacUpdateGroupResponseTypedDict",
-    "TextqlRPCPublicRbacUpdateObjectAccessRequest",
-    "TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict",
-    "TextqlRPCPublicRbacUpdateObjectAccessResponse",
-    "TextqlRPCPublicRbacUpdateObjectAccessResponseTypedDict",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityRequest",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityRequestTypedDict",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityResponse",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityResponseTypedDict",
     "TextqlRPCPublicRbacUpdateRoleRequest",
     "TextqlRPCPublicRbacUpdateRoleRequestTypedDict",
     "TextqlRPCPublicRbacUpdateRoleResponse",
@@ -12330,6 +11956,26 @@ __all__ = [
     "TextqlRPCPublicSecretUpdateSecretRequestTypedDict",
     "TextqlRPCPublicSecretUpdateSecretResponse",
     "TextqlRPCPublicSecretUpdateSecretResponseTypedDict",
+    "TextqlRPCPublicSettingsCheckMemberStatusRequest",
+    "TextqlRPCPublicSettingsCheckMemberStatusRequestTypedDict",
+    "TextqlRPCPublicSettingsCheckMemberStatusResponse",
+    "TextqlRPCPublicSettingsCheckMemberStatusResponseTypedDict",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberRequest",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberRequestTypedDict",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberResponse",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberResponseTypedDict",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberRequest",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberRequestTypedDict",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberResponse",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberResponseTypedDict",
+    "TextqlRPCPublicSettingsListOrganizationMembersRequest",
+    "TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict",
+    "TextqlRPCPublicSettingsListOrganizationMembersResponse",
+    "TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsResponseTypedDict",
     "TextqlRPCPublicSlackCreateSlackUUIDResponse",
     "TextqlRPCPublicSlackCreateSlackUUIDResponseTypedDict",
     "TextqlRPCPublicSlackDeleteInstallationRequest",
@@ -12500,6 +12146,14 @@ _dynamic_imports: dict[str, str] = {
     "AgentServiceDuplicateAgentRequestTypedDict": ".agentservice_duplicateagentop",
     "AgentServiceDuplicateAgentResponse": ".agentservice_duplicateagentop",
     "AgentServiceDuplicateAgentResponseTypedDict": ".agentservice_duplicateagentop",
+    "AgentServiceGetAgentDBSchemaRequest": ".agentservice_getagentdbschemaop",
+    "AgentServiceGetAgentDBSchemaRequestTypedDict": ".agentservice_getagentdbschemaop",
+    "AgentServiceGetAgentDBSchemaResponse": ".agentservice_getagentdbschemaop",
+    "AgentServiceGetAgentDBSchemaResponseTypedDict": ".agentservice_getagentdbschemaop",
+    "AgentServiceGetAgentDBTablePreviewRequest": ".agentservice_getagentdbtablepreviewop",
+    "AgentServiceGetAgentDBTablePreviewRequestTypedDict": ".agentservice_getagentdbtablepreviewop",
+    "AgentServiceGetAgentDBTablePreviewResponse": ".agentservice_getagentdbtablepreviewop",
+    "AgentServiceGetAgentDBTablePreviewResponseTypedDict": ".agentservice_getagentdbtablepreviewop",
     "AgentServiceGetAgentRequest": ".agentservice_getagentop",
     "AgentServiceGetAgentRequestTypedDict": ".agentservice_getagentop",
     "AgentServiceGetAgentResponse": ".agentservice_getagentop",
@@ -12548,6 +12202,14 @@ _dynamic_imports: dict[str, str] = {
     "AppServiceDuplicateAppRequestTypedDict": ".appservice_duplicateappop",
     "AppServiceDuplicateAppResponse": ".appservice_duplicateappop",
     "AppServiceDuplicateAppResponseTypedDict": ".appservice_duplicateappop",
+    "AppServiceGetAppDBSchemaRequest": ".appservice_getappdbschemaop",
+    "AppServiceGetAppDBSchemaRequestTypedDict": ".appservice_getappdbschemaop",
+    "AppServiceGetAppDBSchemaResponse": ".appservice_getappdbschemaop",
+    "AppServiceGetAppDBSchemaResponseTypedDict": ".appservice_getappdbschemaop",
+    "AppServiceGetAppDBTablePreviewRequest": ".appservice_getappdbtablepreviewop",
+    "AppServiceGetAppDBTablePreviewRequestTypedDict": ".appservice_getappdbtablepreviewop",
+    "AppServiceGetAppDBTablePreviewResponse": ".appservice_getappdbtablepreviewop",
+    "AppServiceGetAppDBTablePreviewResponseTypedDict": ".appservice_getappdbtablepreviewop",
     "AppServiceGetAppMemberStateRequest": ".appservice_getappmemberstateop",
     "AppServiceGetAppMemberStateRequestTypedDict": ".appservice_getappmemberstateop",
     "AppServiceGetAppMemberStateResponse": ".appservice_getappmemberstateop",
@@ -13391,6 +13053,10 @@ _dynamic_imports: dict[str, str] = {
     "OntologyManagementServiceListPatchesRequestTypedDict": ".ontologymanagementservice_listpatchesop",
     "OntologyManagementServiceListPatchesResponse": ".ontologymanagementservice_listpatchesop",
     "OntologyManagementServiceListPatchesResponseTypedDict": ".ontologymanagementservice_listpatchesop",
+    "OntologyManagementServiceListPatchObjectsRequest": ".ontologymanagementservice_listpatchobjectsop",
+    "OntologyManagementServiceListPatchObjectsRequestTypedDict": ".ontologymanagementservice_listpatchobjectsop",
+    "OntologyManagementServiceListPatchObjectsResponse": ".ontologymanagementservice_listpatchobjectsop",
+    "OntologyManagementServiceListPatchObjectsResponseTypedDict": ".ontologymanagementservice_listpatchobjectsop",
     "OntologyManagementServiceListPatchReviewersRequest": ".ontologymanagementservice_listpatchreviewersop",
     "OntologyManagementServiceListPatchReviewersRequestTypedDict": ".ontologymanagementservice_listpatchreviewersop",
     "OntologyManagementServiceListPatchReviewersResponse": ".ontologymanagementservice_listpatchreviewersop",
@@ -13687,14 +13353,6 @@ _dynamic_imports: dict[str, str] = {
     "PowerBIServiceUnsyncPowerBIItemsRequestTypedDict": ".powerbiservice_unsyncpowerbiitemsop",
     "PowerBIServiceUnsyncPowerBIItemsResponse": ".powerbiservice_unsyncpowerbiitemsop",
     "PowerBIServiceUnsyncPowerBIItemsResponseTypedDict": ".powerbiservice_unsyncpowerbiitemsop",
-    "RBACServiceAddGroupMemberRequest": ".rbacservice_addgroupmemberop",
-    "RBACServiceAddGroupMemberRequestTypedDict": ".rbacservice_addgroupmemberop",
-    "RBACServiceAddGroupMemberResponse": ".rbacservice_addgroupmemberop",
-    "RBACServiceAddGroupMemberResponseTypedDict": ".rbacservice_addgroupmemberop",
-    "RBACServiceApproveAccessRequestRequest": ".rbacservice_approveaccessrequestop",
-    "RBACServiceApproveAccessRequestRequestTypedDict": ".rbacservice_approveaccessrequestop",
-    "RBACServiceApproveAccessRequestResponse": ".rbacservice_approveaccessrequestop",
-    "RBACServiceApproveAccessRequestResponseTypedDict": ".rbacservice_approveaccessrequestop",
     "RBACServiceAssignPermissionToRoleRequest": ".rbacservice_assignpermissiontoroleop",
     "RBACServiceAssignPermissionToRoleRequestTypedDict": ".rbacservice_assignpermissiontoroleop",
     "RBACServiceAssignPermissionToRoleResponse": ".rbacservice_assignpermissiontoroleop",
@@ -13703,18 +13361,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceAssignRoleToMemberRequestTypedDict": ".rbacservice_assignroletomemberop",
     "RBACServiceAssignRoleToMemberResponse": ".rbacservice_assignroletomemberop",
     "RBACServiceAssignRoleToMemberResponseTypedDict": ".rbacservice_assignroletomemberop",
-    "RBACServiceConvertRoleToGroupRequest": ".rbacservice_convertroletogroupop",
-    "RBACServiceConvertRoleToGroupRequestTypedDict": ".rbacservice_convertroletogroupop",
-    "RBACServiceConvertRoleToGroupResponse": ".rbacservice_convertroletogroupop",
-    "RBACServiceConvertRoleToGroupResponseTypedDict": ".rbacservice_convertroletogroupop",
     "RBACServiceCreateAPIKeyRequest": ".rbacservice_createapikeyop",
     "RBACServiceCreateAPIKeyRequestTypedDict": ".rbacservice_createapikeyop",
     "RBACServiceCreateAPIKeyResponse": ".rbacservice_createapikeyop",
     "RBACServiceCreateAPIKeyResponseTypedDict": ".rbacservice_createapikeyop",
-    "RBACServiceCreateGroupRequest": ".rbacservice_creategroupop",
-    "RBACServiceCreateGroupRequestTypedDict": ".rbacservice_creategroupop",
-    "RBACServiceCreateGroupResponse": ".rbacservice_creategroupop",
-    "RBACServiceCreateGroupResponseTypedDict": ".rbacservice_creategroupop",
     "RBACServiceCreateRoleRequest": ".rbacservice_createroleop",
     "RBACServiceCreateRoleRequestTypedDict": ".rbacservice_createroleop",
     "RBACServiceCreateRoleResponse": ".rbacservice_createroleop",
@@ -13723,10 +13373,6 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceCreateServiceAccountRequestTypedDict": ".rbacservice_createserviceaccountop",
     "RBACServiceCreateServiceAccountResponse": ".rbacservice_createserviceaccountop",
     "RBACServiceCreateServiceAccountResponseTypedDict": ".rbacservice_createserviceaccountop",
-    "RBACServiceDeleteGroupRequest": ".rbacservice_deletegroupop",
-    "RBACServiceDeleteGroupRequestTypedDict": ".rbacservice_deletegroupop",
-    "RBACServiceDeleteGroupResponse": ".rbacservice_deletegroupop",
-    "RBACServiceDeleteGroupResponseTypedDict": ".rbacservice_deletegroupop",
     "RBACServiceDeleteRoleRequest": ".rbacservice_deleteroleop",
     "RBACServiceDeleteRoleRequestTypedDict": ".rbacservice_deleteroleop",
     "RBACServiceDeleteRoleResponse": ".rbacservice_deleteroleop",
@@ -13735,10 +13381,6 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceDeleteServiceAccountRequestTypedDict": ".rbacservice_deleteserviceaccountop",
     "RBACServiceDeleteServiceAccountResponse": ".rbacservice_deleteserviceaccountop",
     "RBACServiceDeleteServiceAccountResponseTypedDict": ".rbacservice_deleteserviceaccountop",
-    "RBACServiceGenerateShareLinkRequest": ".rbacservice_generatesharelinkop",
-    "RBACServiceGenerateShareLinkRequestTypedDict": ".rbacservice_generatesharelinkop",
-    "RBACServiceGenerateShareLinkResponse": ".rbacservice_generatesharelinkop",
-    "RBACServiceGenerateShareLinkResponseTypedDict": ".rbacservice_generatesharelinkop",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequest": ".rbacservice_getcurrentmemberrolesandpermissionsop",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequestTypedDict": ".rbacservice_getcurrentmemberrolesandpermissionsop",
     "RBACServiceGetCurrentMemberRolesAndPermissionsResponse": ".rbacservice_getcurrentmemberrolesandpermissionsop",
@@ -13747,22 +13389,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceGetEmbedUserAPIKeyRequestTypedDict": ".rbacservice_getembeduserapikeyop",
     "RBACServiceGetEmbedUserAPIKeyResponse": ".rbacservice_getembeduserapikeyop",
     "RBACServiceGetEmbedUserAPIKeyResponseTypedDict": ".rbacservice_getembeduserapikeyop",
-    "RBACServiceGetGroupRequest": ".rbacservice_getgroupop",
-    "RBACServiceGetGroupRequestTypedDict": ".rbacservice_getgroupop",
-    "RBACServiceGetGroupResponse": ".rbacservice_getgroupop",
-    "RBACServiceGetGroupResponseTypedDict": ".rbacservice_getgroupop",
-    "RBACServiceGetMemberGroupsRequest": ".rbacservice_getmembergroupsop",
-    "RBACServiceGetMemberGroupsRequestTypedDict": ".rbacservice_getmembergroupsop",
-    "RBACServiceGetMemberGroupsResponse": ".rbacservice_getmembergroupsop",
-    "RBACServiceGetMemberGroupsResponseTypedDict": ".rbacservice_getmembergroupsop",
     "RBACServiceGetMemberRolesRequest": ".rbacservice_getmemberrolesop",
     "RBACServiceGetMemberRolesRequestTypedDict": ".rbacservice_getmemberrolesop",
     "RBACServiceGetMemberRolesResponse": ".rbacservice_getmemberrolesop",
     "RBACServiceGetMemberRolesResponseTypedDict": ".rbacservice_getmemberrolesop",
-    "RBACServiceGetObjectAccessRequest": ".rbacservice_getobjectaccessop",
-    "RBACServiceGetObjectAccessRequestTypedDict": ".rbacservice_getobjectaccessop",
-    "RBACServiceGetObjectAccessResponse": ".rbacservice_getobjectaccessop",
-    "RBACServiceGetObjectAccessResponseTypedDict": ".rbacservice_getobjectaccessop",
     "RBACServiceGetRoleRequest": ".rbacservice_getroleop",
     "RBACServiceGetRoleRequestTypedDict": ".rbacservice_getroleop",
     "RBACServiceGetRoleResponse": ".rbacservice_getroleop",
@@ -13771,26 +13401,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceGetRolePermissionsRequestTypedDict": ".rbacservice_getrolepermissionsop",
     "RBACServiceGetRolePermissionsResponse": ".rbacservice_getrolepermissionsop",
     "RBACServiceGetRolePermissionsResponseTypedDict": ".rbacservice_getrolepermissionsop",
-    "RBACServiceHasObjectAccessRequest": ".rbacservice_hasobjectaccessop",
-    "RBACServiceHasObjectAccessRequestTypedDict": ".rbacservice_hasobjectaccessop",
-    "RBACServiceHasObjectAccessResponse": ".rbacservice_hasobjectaccessop",
-    "RBACServiceHasObjectAccessResponseTypedDict": ".rbacservice_hasobjectaccessop",
-    "RBACServiceListAccessRequestsRequest": ".rbacservice_listaccessrequestsop",
-    "RBACServiceListAccessRequestsRequestTypedDict": ".rbacservice_listaccessrequestsop",
-    "RBACServiceListAccessRequestsResponse": ".rbacservice_listaccessrequestsop",
-    "RBACServiceListAccessRequestsResponseTypedDict": ".rbacservice_listaccessrequestsop",
     "RBACServiceListAPIKeysRequest": ".rbacservice_listapikeysop",
     "RBACServiceListAPIKeysRequestTypedDict": ".rbacservice_listapikeysop",
     "RBACServiceListAPIKeysResponse": ".rbacservice_listapikeysop",
     "RBACServiceListAPIKeysResponseTypedDict": ".rbacservice_listapikeysop",
-    "RBACServiceListGroupConnectorsRequest": ".rbacservice_listgroupconnectorsop",
-    "RBACServiceListGroupConnectorsRequestTypedDict": ".rbacservice_listgroupconnectorsop",
-    "RBACServiceListGroupConnectorsResponse": ".rbacservice_listgroupconnectorsop",
-    "RBACServiceListGroupConnectorsResponseTypedDict": ".rbacservice_listgroupconnectorsop",
-    "RBACServiceListGroupsRequest": ".rbacservice_listgroupsop",
-    "RBACServiceListGroupsRequestTypedDict": ".rbacservice_listgroupsop",
-    "RBACServiceListGroupsResponse": ".rbacservice_listgroupsop",
-    "RBACServiceListGroupsResponseTypedDict": ".rbacservice_listgroupsop",
     "RBACServiceListPermissionsRequest": ".rbacservice_listpermissionsop",
     "RBACServiceListPermissionsRequestTypedDict": ".rbacservice_listpermissionsop",
     "RBACServiceListPermissionsResponse": ".rbacservice_listpermissionsop",
@@ -13799,30 +13413,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceListRolesRequestTypedDict": ".rbacservice_listrolesop",
     "RBACServiceListRolesResponse": ".rbacservice_listrolesop",
     "RBACServiceListRolesResponseTypedDict": ".rbacservice_listrolesop",
-    "RBACServiceListScimGroupMappingsRequest": ".rbacservice_listscimgroupmappingsop",
-    "RBACServiceListScimGroupMappingsRequestTypedDict": ".rbacservice_listscimgroupmappingsop",
-    "RBACServiceListScimGroupMappingsResponse": ".rbacservice_listscimgroupmappingsop",
-    "RBACServiceListScimGroupMappingsResponseTypedDict": ".rbacservice_listscimgroupmappingsop",
     "RBACServiceListServiceAccountsRequest": ".rbacservice_listserviceaccountsop",
     "RBACServiceListServiceAccountsRequestTypedDict": ".rbacservice_listserviceaccountsop",
     "RBACServiceListServiceAccountsResponse": ".rbacservice_listserviceaccountsop",
     "RBACServiceListServiceAccountsResponseTypedDict": ".rbacservice_listserviceaccountsop",
-    "RBACServiceMigrateAllScimGroupMappingsRequest": ".rbacservice_migrateallscimgroupmappingsop",
-    "RBACServiceMigrateAllScimGroupMappingsRequestTypedDict": ".rbacservice_migrateallscimgroupmappingsop",
-    "RBACServiceMigrateAllScimGroupMappingsResponse": ".rbacservice_migrateallscimgroupmappingsop",
-    "RBACServiceMigrateAllScimGroupMappingsResponseTypedDict": ".rbacservice_migrateallscimgroupmappingsop",
-    "RBACServiceMigrateScimGroupMappingToGroupRequest": ".rbacservice_migratescimgroupmappingtogroupop",
-    "RBACServiceMigrateScimGroupMappingToGroupRequestTypedDict": ".rbacservice_migratescimgroupmappingtogroupop",
-    "RBACServiceMigrateScimGroupMappingToGroupResponse": ".rbacservice_migratescimgroupmappingtogroupop",
-    "RBACServiceMigrateScimGroupMappingToGroupResponseTypedDict": ".rbacservice_migratescimgroupmappingtogroupop",
-    "RBACServiceRejectAccessRequestRequest": ".rbacservice_rejectaccessrequestop",
-    "RBACServiceRejectAccessRequestRequestTypedDict": ".rbacservice_rejectaccessrequestop",
-    "RBACServiceRejectAccessRequestResponse": ".rbacservice_rejectaccessrequestop",
-    "RBACServiceRejectAccessRequestResponseTypedDict": ".rbacservice_rejectaccessrequestop",
-    "RBACServiceRemoveGroupMemberRequest": ".rbacservice_removegroupmemberop",
-    "RBACServiceRemoveGroupMemberRequestTypedDict": ".rbacservice_removegroupmemberop",
-    "RBACServiceRemoveGroupMemberResponse": ".rbacservice_removegroupmemberop",
-    "RBACServiceRemoveGroupMemberResponseTypedDict": ".rbacservice_removegroupmemberop",
     "RBACServiceRemovePermissionFromRoleRequest": ".rbacservice_removepermissionfromroleop",
     "RBACServiceRemovePermissionFromRoleRequestTypedDict": ".rbacservice_removepermissionfromroleop",
     "RBACServiceRemovePermissionFromRoleResponse": ".rbacservice_removepermissionfromroleop",
@@ -13831,22 +13425,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceRemoveRoleFromMemberRequestTypedDict": ".rbacservice_removerolefrommemberop",
     "RBACServiceRemoveRoleFromMemberResponse": ".rbacservice_removerolefrommemberop",
     "RBACServiceRemoveRoleFromMemberResponseTypedDict": ".rbacservice_removerolefrommemberop",
-    "RBACServiceRequestAccessRequest": ".rbacservice_requestaccessop",
-    "RBACServiceRequestAccessRequestTypedDict": ".rbacservice_requestaccessop",
-    "RBACServiceRequestAccessResponse": ".rbacservice_requestaccessop",
-    "RBACServiceRequestAccessResponseTypedDict": ".rbacservice_requestaccessop",
-    "RBACServiceRevertScimGroupMappingToRoleRequest": ".rbacservice_revertscimgroupmappingtoroleop",
-    "RBACServiceRevertScimGroupMappingToRoleRequestTypedDict": ".rbacservice_revertscimgroupmappingtoroleop",
-    "RBACServiceRevertScimGroupMappingToRoleResponse": ".rbacservice_revertscimgroupmappingtoroleop",
-    "RBACServiceRevertScimGroupMappingToRoleResponseTypedDict": ".rbacservice_revertscimgroupmappingtoroleop",
     "RBACServiceRevokeAPIKeyRequest": ".rbacservice_revokeapikeyop",
     "RBACServiceRevokeAPIKeyRequestTypedDict": ".rbacservice_revokeapikeyop",
     "RBACServiceRevokeAPIKeyResponse": ".rbacservice_revokeapikeyop",
     "RBACServiceRevokeAPIKeyResponseTypedDict": ".rbacservice_revokeapikeyop",
-    "RBACServiceRevokeObjectAccessRequest": ".rbacservice_revokeobjectaccessop",
-    "RBACServiceRevokeObjectAccessRequestTypedDict": ".rbacservice_revokeobjectaccessop",
-    "RBACServiceRevokeObjectAccessResponse": ".rbacservice_revokeobjectaccessop",
-    "RBACServiceRevokeObjectAccessResponseTypedDict": ".rbacservice_revokeobjectaccessop",
     "RBACServiceRotateAPIKeyRequest": ".rbacservice_rotateapikeyop",
     "RBACServiceRotateAPIKeyRequestTypedDict": ".rbacservice_rotateapikeyop",
     "RBACServiceRotateAPIKeyResponse": ".rbacservice_rotateapikeyop",
@@ -13855,30 +13437,6 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceSetRolePermissionsRequestTypedDict": ".rbacservice_setrolepermissionsop",
     "RBACServiceSetRolePermissionsResponse": ".rbacservice_setrolepermissionsop",
     "RBACServiceSetRolePermissionsResponseTypedDict": ".rbacservice_setrolepermissionsop",
-    "RBACServiceShareObjectRequest": ".rbacservice_shareobjectop",
-    "RBACServiceShareObjectRequestTypedDict": ".rbacservice_shareobjectop",
-    "RBACServiceShareObjectResponse": ".rbacservice_shareobjectop",
-    "RBACServiceShareObjectResponseTypedDict": ".rbacservice_shareobjectop",
-    "RBACServiceShareObjectWithGroupRequest": ".rbacservice_shareobjectwithgroupop",
-    "RBACServiceShareObjectWithGroupRequestTypedDict": ".rbacservice_shareobjectwithgroupop",
-    "RBACServiceShareObjectWithGroupResponse": ".rbacservice_shareobjectwithgroupop",
-    "RBACServiceShareObjectWithGroupResponseTypedDict": ".rbacservice_shareobjectwithgroupop",
-    "RBACServiceShareObjectWithRoleRequest": ".rbacservice_shareobjectwithroleop",
-    "RBACServiceShareObjectWithRoleRequestTypedDict": ".rbacservice_shareobjectwithroleop",
-    "RBACServiceShareObjectWithRoleResponse": ".rbacservice_shareobjectwithroleop",
-    "RBACServiceShareObjectWithRoleResponseTypedDict": ".rbacservice_shareobjectwithroleop",
-    "RBACServiceUpdateGroupRequest": ".rbacservice_updategroupop",
-    "RBACServiceUpdateGroupRequestTypedDict": ".rbacservice_updategroupop",
-    "RBACServiceUpdateGroupResponse": ".rbacservice_updategroupop",
-    "RBACServiceUpdateGroupResponseTypedDict": ".rbacservice_updategroupop",
-    "RBACServiceUpdateObjectAccessRequest": ".rbacservice_updateobjectaccessop",
-    "RBACServiceUpdateObjectAccessRequestTypedDict": ".rbacservice_updateobjectaccessop",
-    "RBACServiceUpdateObjectAccessResponse": ".rbacservice_updateobjectaccessop",
-    "RBACServiceUpdateObjectAccessResponseTypedDict": ".rbacservice_updateobjectaccessop",
-    "RBACServiceUpdateObjectVisibilityRequest": ".rbacservice_updateobjectvisibilityop",
-    "RBACServiceUpdateObjectVisibilityRequestTypedDict": ".rbacservice_updateobjectvisibilityop",
-    "RBACServiceUpdateObjectVisibilityResponse": ".rbacservice_updateobjectvisibilityop",
-    "RBACServiceUpdateObjectVisibilityResponseTypedDict": ".rbacservice_updateobjectvisibilityop",
     "RBACServiceUpdateRoleRequest": ".rbacservice_updateroleop",
     "RBACServiceUpdateRoleRequestTypedDict": ".rbacservice_updateroleop",
     "RBACServiceUpdateRoleResponse": ".rbacservice_updateroleop",
@@ -13985,6 +13543,26 @@ _dynamic_imports: dict[str, str] = {
     "SecretServiceUpdateSecretResponseTypedDict": ".secretservice_updatesecretop",
     "Security": ".security",
     "SecurityTypedDict": ".security",
+    "SettingsServiceCheckMemberStatusRequest": ".settingsservice_checkmemberstatusop",
+    "SettingsServiceCheckMemberStatusRequestTypedDict": ".settingsservice_checkmemberstatusop",
+    "SettingsServiceCheckMemberStatusResponse": ".settingsservice_checkmemberstatusop",
+    "SettingsServiceCheckMemberStatusResponseTypedDict": ".settingsservice_checkmemberstatusop",
+    "SettingsServiceDeleteOrganizationMemberRequest": ".settingsservice_deleteorganizationmemberop",
+    "SettingsServiceDeleteOrganizationMemberRequestTypedDict": ".settingsservice_deleteorganizationmemberop",
+    "SettingsServiceDeleteOrganizationMemberResponse": ".settingsservice_deleteorganizationmemberop",
+    "SettingsServiceDeleteOrganizationMemberResponseTypedDict": ".settingsservice_deleteorganizationmemberop",
+    "SettingsServiceInviteOrganizationMemberRequest": ".settingsservice_inviteorganizationmemberop",
+    "SettingsServiceInviteOrganizationMemberRequestTypedDict": ".settingsservice_inviteorganizationmemberop",
+    "SettingsServiceInviteOrganizationMemberResponse": ".settingsservice_inviteorganizationmemberop",
+    "SettingsServiceInviteOrganizationMemberResponseTypedDict": ".settingsservice_inviteorganizationmemberop",
+    "SettingsServiceListOrganizationMembersRequest": ".settingsservice_listorganizationmembersop",
+    "SettingsServiceListOrganizationMembersRequestTypedDict": ".settingsservice_listorganizationmembersop",
+    "SettingsServiceListOrganizationMembersResponse": ".settingsservice_listorganizationmembersop",
+    "SettingsServiceListOrganizationMembersResponseTypedDict": ".settingsservice_listorganizationmembersop",
+    "SettingsServiceUpdateOrganizationSettingsRequest": ".settingsservice_updateorganizationsettingsop",
+    "SettingsServiceUpdateOrganizationSettingsRequestTypedDict": ".settingsservice_updateorganizationsettingsop",
+    "SettingsServiceUpdateOrganizationSettingsResponse": ".settingsservice_updateorganizationsettingsop",
+    "SettingsServiceUpdateOrganizationSettingsResponseTypedDict": ".settingsservice_updateorganizationsettingsop",
     "SlackServiceCreateSlackUUIDRequest": ".slackservice_createslackuuidop",
     "SlackServiceCreateSlackUUIDRequestTypedDict": ".slackservice_createslackuuidop",
     "SlackServiceCreateSlackUUIDResponse": ".slackservice_createslackuuidop",
@@ -14101,13 +13679,21 @@ _dynamic_imports: dict[str, str] = {
     "TeamsServiceSyncWorkspaceRequestTypedDict": ".teamsservice_syncworkspaceop",
     "TeamsServiceSyncWorkspaceResponse": ".teamsservice_syncworkspaceop",
     "TeamsServiceSyncWorkspaceResponseTypedDict": ".teamsservice_syncworkspaceop",
+    "TextqlRPCAuthMember": ".textql_rpc_auth_member",
+    "TextqlRPCAuthMemberTypedDict": ".textql_rpc_auth_member",
     "TextqlRPCIdentityMemberPreview": ".textql_rpc_identity_memberpreview",
     "TextqlRPCIdentityMemberPreviewTypedDict": ".textql_rpc_identity_memberpreview",
+    "TextqlRPCParadigmParamsParadigmParams": ".textql_rpc_paradigm_params_paradigmparams",
+    "TextqlRPCParadigmParamsParadigmParamsTypedDict": ".textql_rpc_paradigm_params_paradigmparams",
     "TextqlRPCParadigmParamsParadigmType": ".textql_rpc_paradigm_params_paradigmtype",
     "TextqlRPCPowerbiSelectionPowerBISelection": ".textql_rpc_powerbi_selection_powerbiselection",
     "TextqlRPCPowerbiSelectionPowerBISelectionTypedDict": ".textql_rpc_powerbi_selection_powerbiselection",
     "TextqlRPCPublicAgentAgent": ".textql_rpc_public_agent_agent",
     "TextqlRPCPublicAgentAgentTypedDict": ".textql_rpc_public_agent_agent",
+    "TextqlRPCPublicAgentAgentDBColumn": ".textql_rpc_public_agent_agentdbcolumn",
+    "TextqlRPCPublicAgentAgentDBColumnTypedDict": ".textql_rpc_public_agent_agentdbcolumn",
+    "TextqlRPCPublicAgentAgentDBTable": ".textql_rpc_public_agent_agentdbtable",
+    "TextqlRPCPublicAgentAgentDBTableTypedDict": ".textql_rpc_public_agent_agentdbtable",
     "TextqlRPCPublicAgentAgentRun": ".textql_rpc_public_agent_agentrun",
     "TextqlRPCPublicAgentAgentRunSandboxMountMs": ".textql_rpc_public_agent_agentrun",
     "TextqlRPCPublicAgentAgentRunSandboxMountMsTypedDict": ".textql_rpc_public_agent_agentrun",
@@ -14138,6 +13724,16 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAgentDuplicateAgentRequestTypedDict": ".textql_rpc_public_agent_duplicateagentrequest",
     "TextqlRPCPublicAgentDuplicateAgentResponse": ".textql_rpc_public_agent_duplicateagentresponse",
     "TextqlRPCPublicAgentDuplicateAgentResponseTypedDict": ".textql_rpc_public_agent_duplicateagentresponse",
+    "TextqlRPCPublicAgentGetAgentDBSchemaRequest": ".textql_rpc_public_agent_getagentdbschemarequest",
+    "TextqlRPCPublicAgentGetAgentDBSchemaRequestTypedDict": ".textql_rpc_public_agent_getagentdbschemarequest",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponse": ".textql_rpc_public_agent_getagentdbschemaresponse",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponseChangeLogBytes": ".textql_rpc_public_agent_getagentdbschemaresponse",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponseChangeLogBytesTypedDict": ".textql_rpc_public_agent_getagentdbschemaresponse",
+    "TextqlRPCPublicAgentGetAgentDBSchemaResponseTypedDict": ".textql_rpc_public_agent_getagentdbschemaresponse",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewRequest": ".textql_rpc_public_agent_getagentdbtablepreviewrequest",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewRequestTypedDict": ".textql_rpc_public_agent_getagentdbtablepreviewrequest",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewResponse": ".textql_rpc_public_agent_getagentdbtablepreviewresponse",
+    "TextqlRPCPublicAgentGetAgentDBTablePreviewResponseTypedDict": ".textql_rpc_public_agent_getagentdbtablepreviewresponse",
     "TextqlRPCPublicAgentGetAgentRequest": ".textql_rpc_public_agent_getagentrequest",
     "TextqlRPCPublicAgentGetAgentRequestTypedDict": ".textql_rpc_public_agent_getagentrequest",
     "TextqlRPCPublicAgentGetAgentResponse": ".textql_rpc_public_agent_getagentresponse",
@@ -14178,6 +13774,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAppAppActivityRecordSeq": ".textql_rpc_public_app_appactivityrecord",
     "TextqlRPCPublicAppAppActivityRecordSeqTypedDict": ".textql_rpc_public_app_appactivityrecord",
     "TextqlRPCPublicAppAppActivityRecordTypedDict": ".textql_rpc_public_app_appactivityrecord",
+    "TextqlRPCPublicAppAppDBColumn": ".textql_rpc_public_app_appdbcolumn",
+    "TextqlRPCPublicAppAppDBColumnTypedDict": ".textql_rpc_public_app_appdbcolumn",
+    "TextqlRPCPublicAppAppDBTable": ".textql_rpc_public_app_appdbtable",
+    "TextqlRPCPublicAppAppDBTableTypedDict": ".textql_rpc_public_app_appdbtable",
     "TextqlRPCPublicAppAppFile": ".textql_rpc_public_app_appfile",
     "TextqlRPCPublicAppAppFileTypedDict": ".textql_rpc_public_app_appfile",
     "TextqlRPCPublicAppAppHeartbeatRequest": ".textql_rpc_public_app_appheartbeatrequest",
@@ -14208,6 +13808,16 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAppDuplicateAppRequestTypedDict": ".textql_rpc_public_app_duplicateapprequest",
     "TextqlRPCPublicAppDuplicateAppResponse": ".textql_rpc_public_app_duplicateappresponse",
     "TextqlRPCPublicAppDuplicateAppResponseTypedDict": ".textql_rpc_public_app_duplicateappresponse",
+    "TextqlRPCPublicAppGetAppDBSchemaRequest": ".textql_rpc_public_app_getappdbschemarequest",
+    "TextqlRPCPublicAppGetAppDBSchemaRequestTypedDict": ".textql_rpc_public_app_getappdbschemarequest",
+    "TextqlRPCPublicAppGetAppDBSchemaResponse": ".textql_rpc_public_app_getappdbschemaresponse",
+    "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes": ".textql_rpc_public_app_getappdbschemaresponse",
+    "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict": ".textql_rpc_public_app_getappdbschemaresponse",
+    "TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict": ".textql_rpc_public_app_getappdbschemaresponse",
+    "TextqlRPCPublicAppGetAppDBTablePreviewRequest": ".textql_rpc_public_app_getappdbtablepreviewrequest",
+    "TextqlRPCPublicAppGetAppDBTablePreviewRequestTypedDict": ".textql_rpc_public_app_getappdbtablepreviewrequest",
+    "TextqlRPCPublicAppGetAppDBTablePreviewResponse": ".textql_rpc_public_app_getappdbtablepreviewresponse",
+    "TextqlRPCPublicAppGetAppDBTablePreviewResponseTypedDict": ".textql_rpc_public_app_getappdbtablepreviewresponse",
     "TextqlRPCPublicAppGetAppMemberStateRequest": ".textql_rpc_public_app_getappmemberstaterequest",
     "TextqlRPCPublicAppGetAppMemberStateRequestTypedDict": ".textql_rpc_public_app_getappmemberstaterequest",
     "TextqlRPCPublicAppGetAppMemberStateResponse": ".textql_rpc_public_app_getappmemberstateresponse",
@@ -15936,6 +15546,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicObserveTopicLifecycleResponseTypedDict": ".textql_rpc_public_observe_topiclifecycleresponse",
     "TextqlRPCPublicObserveUpdateCustomTopicRequest": ".textql_rpc_public_observe_updatecustomtopicrequest",
     "TextqlRPCPublicObserveUpdateCustomTopicRequestTypedDict": ".textql_rpc_public_observe_updatecustomtopicrequest",
+    "TextqlRPCPublicObserveUsageHeatmapPoint": ".textql_rpc_public_observe_usageheatmappoint",
+    "TextqlRPCPublicObserveUsageHeatmapPointTypedDict": ".textql_rpc_public_observe_usageheatmappoint",
     "TextqlRPCPublicObserveWarningTypeCount": ".textql_rpc_public_observe_warningtypecount",
     "TextqlRPCPublicObserveWarningTypeCountTypedDict": ".textql_rpc_public_observe_warningtypecount",
     "TextqlRPCPublicObserveWarningTypeDailyCount": ".textql_rpc_public_observe_warningtypedailycount",
@@ -16180,6 +15792,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesListPatchesRequestTypedDict": ".textql_rpc_public_patches_listpatchesrequest",
     "TextqlRPCPublicPatchesListPatchesResponse": ".textql_rpc_public_patches_listpatchesresponse",
     "TextqlRPCPublicPatchesListPatchesResponseTypedDict": ".textql_rpc_public_patches_listpatchesresponse",
+    "TextqlRPCPublicPatchesListPatchObjectsRequest": ".textql_rpc_public_patches_listpatchobjectsrequest",
+    "TextqlRPCPublicPatchesListPatchObjectsRequestTypedDict": ".textql_rpc_public_patches_listpatchobjectsrequest",
+    "TextqlRPCPublicPatchesListPatchObjectsResponse": ".textql_rpc_public_patches_listpatchobjectsresponse",
+    "TextqlRPCPublicPatchesListPatchObjectsResponseTypedDict": ".textql_rpc_public_patches_listpatchobjectsresponse",
     "TextqlRPCPublicPatchesListPatchReviewersRequest": ".textql_rpc_public_patches_listpatchreviewersrequest",
     "TextqlRPCPublicPatchesListPatchReviewersRequestTypedDict": ".textql_rpc_public_patches_listpatchreviewersrequest",
     "TextqlRPCPublicPatchesListPatchReviewersResponse": ".textql_rpc_public_patches_listpatchreviewersresponse",
@@ -16258,6 +15874,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesPatchLine": ".textql_rpc_public_patches_patchline",
     "TextqlRPCPublicPatchesPatchLineTypedDict": ".textql_rpc_public_patches_patchline",
     "TextqlRPCPublicPatchesPatchLineOp": ".textql_rpc_public_patches_patchlineop",
+    "TextqlRPCPublicPatchesPatchObject": ".textql_rpc_public_patches_patchobject",
+    "TextqlRPCPublicPatchesPatchObjectTypedDict": ".textql_rpc_public_patches_patchobject",
     "TextqlRPCPublicPatchesPatchReviewer": ".textql_rpc_public_patches_patchreviewer",
     "TextqlRPCPublicPatchesPatchReviewerTypedDict": ".textql_rpc_public_patches_patchreviewer",
     "TextqlRPCPublicPatchesPatchStatus": ".textql_rpc_public_patches_patchstatus",
@@ -16594,21 +16212,11 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequestTypedDict": ".textql_rpc_public_powerbi_unsyncpowerbiitemsrequest",
     "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse": ".textql_rpc_public_powerbi_unsyncpowerbiitemsresponse",
     "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict": ".textql_rpc_public_powerbi_unsyncpowerbiitemsresponse",
-    "TextqlRPCPublicRbacAccessRequest": ".textql_rpc_public_rbac_accessrequest",
-    "TextqlRPCPublicRbacAccessRequestTypedDict": ".textql_rpc_public_rbac_accessrequest",
-    "TextqlRPCPublicRbacAddGroupMemberRequest": ".textql_rpc_public_rbac_addgroupmemberrequest",
-    "TextqlRPCPublicRbacAddGroupMemberRequestTypedDict": ".textql_rpc_public_rbac_addgroupmemberrequest",
-    "TextqlRPCPublicRbacAddGroupMemberResponse": ".textql_rpc_public_rbac_addgroupmemberresponse",
-    "TextqlRPCPublicRbacAddGroupMemberResponseTypedDict": ".textql_rpc_public_rbac_addgroupmemberresponse",
     "TextqlRPCPublicRbacAPIKey": ".textql_rpc_public_rbac_apikey",
     "TextqlRPCPublicRbacAPIKeyTypedDict": ".textql_rpc_public_rbac_apikey",
     "TextqlRPCPublicRbacAPIKeyScope": ".textql_rpc_public_rbac_apikeyscope",
     "TextqlRPCPublicRbacAPIKeySortField": ".textql_rpc_public_rbac_apikeysortfield",
     "TextqlRPCPublicRbacAPIKeyStatus": ".textql_rpc_public_rbac_apikeystatus",
-    "TextqlRPCPublicRbacApproveAccessRequestRequest": ".textql_rpc_public_rbac_approveaccessrequestrequest",
-    "TextqlRPCPublicRbacApproveAccessRequestRequestTypedDict": ".textql_rpc_public_rbac_approveaccessrequestrequest",
-    "TextqlRPCPublicRbacApproveAccessRequestResponse": ".textql_rpc_public_rbac_approveaccessrequestresponse",
-    "TextqlRPCPublicRbacApproveAccessRequestResponseTypedDict": ".textql_rpc_public_rbac_approveaccessrequestresponse",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequest": ".textql_rpc_public_rbac_assignpermissiontorolerequest",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequestTypedDict": ".textql_rpc_public_rbac_assignpermissiontorolerequest",
     "TextqlRPCPublicRbacAssignPermissionToRoleResponse": ".textql_rpc_public_rbac_assignpermissiontoroleresponse",
@@ -16617,18 +16225,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacAssignRoleToMemberRequestTypedDict": ".textql_rpc_public_rbac_assignroletomemberrequest",
     "TextqlRPCPublicRbacAssignRoleToMemberResponse": ".textql_rpc_public_rbac_assignroletomemberresponse",
     "TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict": ".textql_rpc_public_rbac_assignroletomemberresponse",
-    "TextqlRPCPublicRbacConvertRoleToGroupRequest": ".textql_rpc_public_rbac_convertroletogrouprequest",
-    "TextqlRPCPublicRbacConvertRoleToGroupRequestTypedDict": ".textql_rpc_public_rbac_convertroletogrouprequest",
-    "TextqlRPCPublicRbacConvertRoleToGroupResponse": ".textql_rpc_public_rbac_convertroletogroupresponse",
-    "TextqlRPCPublicRbacConvertRoleToGroupResponseTypedDict": ".textql_rpc_public_rbac_convertroletogroupresponse",
     "TextqlRPCPublicRbacCreateAPIKeyRequest": ".textql_rpc_public_rbac_createapikeyrequest",
     "TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_createapikeyrequest",
     "TextqlRPCPublicRbacCreateAPIKeyResponse": ".textql_rpc_public_rbac_createapikeyresponse",
     "TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict": ".textql_rpc_public_rbac_createapikeyresponse",
-    "TextqlRPCPublicRbacCreateGroupRequest": ".textql_rpc_public_rbac_creategrouprequest",
-    "TextqlRPCPublicRbacCreateGroupRequestTypedDict": ".textql_rpc_public_rbac_creategrouprequest",
-    "TextqlRPCPublicRbacCreateGroupResponse": ".textql_rpc_public_rbac_creategroupresponse",
-    "TextqlRPCPublicRbacCreateGroupResponseTypedDict": ".textql_rpc_public_rbac_creategroupresponse",
     "TextqlRPCPublicRbacCreateRoleRequest": ".textql_rpc_public_rbac_createrolerequest",
     "TextqlRPCPublicRbacCreateRoleRequestTypedDict": ".textql_rpc_public_rbac_createrolerequest",
     "TextqlRPCPublicRbacCreateRoleResponse": ".textql_rpc_public_rbac_createroleresponse",
@@ -16637,10 +16237,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacCreateServiceAccountRequestTypedDict": ".textql_rpc_public_rbac_createserviceaccountrequest",
     "TextqlRPCPublicRbacCreateServiceAccountResponse": ".textql_rpc_public_rbac_createserviceaccountresponse",
     "TextqlRPCPublicRbacCreateServiceAccountResponseTypedDict": ".textql_rpc_public_rbac_createserviceaccountresponse",
-    "TextqlRPCPublicRbacDeleteGroupRequest": ".textql_rpc_public_rbac_deletegrouprequest",
-    "TextqlRPCPublicRbacDeleteGroupRequestTypedDict": ".textql_rpc_public_rbac_deletegrouprequest",
-    "TextqlRPCPublicRbacDeleteGroupResponse": ".textql_rpc_public_rbac_deletegroupresponse",
-    "TextqlRPCPublicRbacDeleteGroupResponseTypedDict": ".textql_rpc_public_rbac_deletegroupresponse",
     "TextqlRPCPublicRbacDeleteRoleRequest": ".textql_rpc_public_rbac_deleterolerequest",
     "TextqlRPCPublicRbacDeleteRoleRequestTypedDict": ".textql_rpc_public_rbac_deleterolerequest",
     "TextqlRPCPublicRbacDeleteRoleResponse": ".textql_rpc_public_rbac_deleteroleresponse",
@@ -16649,10 +16245,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacDeleteServiceAccountRequestTypedDict": ".textql_rpc_public_rbac_deleteserviceaccountrequest",
     "TextqlRPCPublicRbacDeleteServiceAccountResponse": ".textql_rpc_public_rbac_deleteserviceaccountresponse",
     "TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict": ".textql_rpc_public_rbac_deleteserviceaccountresponse",
-    "TextqlRPCPublicRbacGenerateShareLinkRequest": ".textql_rpc_public_rbac_generatesharelinkrequest",
-    "TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict": ".textql_rpc_public_rbac_generatesharelinkrequest",
-    "TextqlRPCPublicRbacGenerateShareLinkResponse": ".textql_rpc_public_rbac_generatesharelinkresponse",
-    "TextqlRPCPublicRbacGenerateShareLinkResponseTypedDict": ".textql_rpc_public_rbac_generatesharelinkresponse",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequest": ".textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsrequest",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequestTypedDict": ".textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsrequest",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponse": ".textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsresponse",
@@ -16661,22 +16253,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacGetEmbedUserAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_getembeduserapikeyrequest",
     "TextqlRPCPublicRbacGetEmbedUserAPIKeyResponse": ".textql_rpc_public_rbac_getembeduserapikeyresponse",
     "TextqlRPCPublicRbacGetEmbedUserAPIKeyResponseTypedDict": ".textql_rpc_public_rbac_getembeduserapikeyresponse",
-    "TextqlRPCPublicRbacGetGroupRequest": ".textql_rpc_public_rbac_getgrouprequest",
-    "TextqlRPCPublicRbacGetGroupRequestTypedDict": ".textql_rpc_public_rbac_getgrouprequest",
-    "TextqlRPCPublicRbacGetGroupResponse": ".textql_rpc_public_rbac_getgroupresponse",
-    "TextqlRPCPublicRbacGetGroupResponseTypedDict": ".textql_rpc_public_rbac_getgroupresponse",
-    "TextqlRPCPublicRbacGetMemberGroupsRequest": ".textql_rpc_public_rbac_getmembergroupsrequest",
-    "TextqlRPCPublicRbacGetMemberGroupsRequestTypedDict": ".textql_rpc_public_rbac_getmembergroupsrequest",
-    "TextqlRPCPublicRbacGetMemberGroupsResponse": ".textql_rpc_public_rbac_getmembergroupsresponse",
-    "TextqlRPCPublicRbacGetMemberGroupsResponseTypedDict": ".textql_rpc_public_rbac_getmembergroupsresponse",
     "TextqlRPCPublicRbacGetMemberRolesRequest": ".textql_rpc_public_rbac_getmemberrolesrequest",
     "TextqlRPCPublicRbacGetMemberRolesRequestTypedDict": ".textql_rpc_public_rbac_getmemberrolesrequest",
     "TextqlRPCPublicRbacGetMemberRolesResponse": ".textql_rpc_public_rbac_getmemberrolesresponse",
     "TextqlRPCPublicRbacGetMemberRolesResponseTypedDict": ".textql_rpc_public_rbac_getmemberrolesresponse",
-    "TextqlRPCPublicRbacGetObjectAccessRequest": ".textql_rpc_public_rbac_getobjectaccessrequest",
-    "TextqlRPCPublicRbacGetObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_getobjectaccessrequest",
-    "TextqlRPCPublicRbacGetObjectAccessResponse": ".textql_rpc_public_rbac_getobjectaccessresponse",
-    "TextqlRPCPublicRbacGetObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_getobjectaccessresponse",
     "TextqlRPCPublicRbacGetRolePermissionsRequest": ".textql_rpc_public_rbac_getrolepermissionsrequest",
     "TextqlRPCPublicRbacGetRolePermissionsRequestTypedDict": ".textql_rpc_public_rbac_getrolepermissionsrequest",
     "TextqlRPCPublicRbacGetRolePermissionsResponse": ".textql_rpc_public_rbac_getrolepermissionsresponse",
@@ -16685,30 +16265,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacGetRoleRequestTypedDict": ".textql_rpc_public_rbac_getrolerequest",
     "TextqlRPCPublicRbacGetRoleResponse": ".textql_rpc_public_rbac_getroleresponse",
     "TextqlRPCPublicRbacGetRoleResponseTypedDict": ".textql_rpc_public_rbac_getroleresponse",
-    "TextqlRPCPublicRbacGroup": ".textql_rpc_public_rbac_group",
-    "TextqlRPCPublicRbacGroupTypedDict": ".textql_rpc_public_rbac_group",
-    "TextqlRPCPublicRbacGroupConnectorAccess": ".textql_rpc_public_rbac_groupconnectoraccess",
-    "TextqlRPCPublicRbacGroupConnectorAccessTypedDict": ".textql_rpc_public_rbac_groupconnectoraccess",
-    "TextqlRPCPublicRbacHasObjectAccessRequest": ".textql_rpc_public_rbac_hasobjectaccessrequest",
-    "TextqlRPCPublicRbacHasObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_hasobjectaccessrequest",
-    "TextqlRPCPublicRbacHasObjectAccessResponse": ".textql_rpc_public_rbac_hasobjectaccessresponse",
-    "TextqlRPCPublicRbacHasObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_hasobjectaccessresponse",
-    "TextqlRPCPublicRbacListAccessRequestsRequest": ".textql_rpc_public_rbac_listaccessrequestsrequest",
-    "TextqlRPCPublicRbacListAccessRequestsRequestTypedDict": ".textql_rpc_public_rbac_listaccessrequestsrequest",
-    "TextqlRPCPublicRbacListAccessRequestsResponse": ".textql_rpc_public_rbac_listaccessrequestsresponse",
-    "TextqlRPCPublicRbacListAccessRequestsResponseTypedDict": ".textql_rpc_public_rbac_listaccessrequestsresponse",
     "TextqlRPCPublicRbacListAPIKeysRequest": ".textql_rpc_public_rbac_listapikeysrequest",
     "TextqlRPCPublicRbacListAPIKeysRequestTypedDict": ".textql_rpc_public_rbac_listapikeysrequest",
     "TextqlRPCPublicRbacListAPIKeysResponse": ".textql_rpc_public_rbac_listapikeysresponse",
     "TextqlRPCPublicRbacListAPIKeysResponseTypedDict": ".textql_rpc_public_rbac_listapikeysresponse",
-    "TextqlRPCPublicRbacListGroupConnectorsRequest": ".textql_rpc_public_rbac_listgroupconnectorsrequest",
-    "TextqlRPCPublicRbacListGroupConnectorsRequestTypedDict": ".textql_rpc_public_rbac_listgroupconnectorsrequest",
-    "TextqlRPCPublicRbacListGroupConnectorsResponse": ".textql_rpc_public_rbac_listgroupconnectorsresponse",
-    "TextqlRPCPublicRbacListGroupConnectorsResponseTypedDict": ".textql_rpc_public_rbac_listgroupconnectorsresponse",
-    "TextqlRPCPublicRbacListGroupsRequest": ".textql_rpc_public_rbac_listgroupsrequest",
-    "TextqlRPCPublicRbacListGroupsRequestTypedDict": ".textql_rpc_public_rbac_listgroupsrequest",
-    "TextqlRPCPublicRbacListGroupsResponse": ".textql_rpc_public_rbac_listgroupsresponse",
-    "TextqlRPCPublicRbacListGroupsResponseTypedDict": ".textql_rpc_public_rbac_listgroupsresponse",
     "TextqlRPCPublicRbacListPermissionsRequest": ".textql_rpc_public_rbac_listpermissionsrequest",
     "TextqlRPCPublicRbacListPermissionsRequestTypedDict": ".textql_rpc_public_rbac_listpermissionsrequest",
     "TextqlRPCPublicRbacListPermissionsResponse": ".textql_rpc_public_rbac_listpermissionsresponse",
@@ -16717,38 +16277,14 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacListRolesRequestTypedDict": ".textql_rpc_public_rbac_listrolesrequest",
     "TextqlRPCPublicRbacListRolesResponse": ".textql_rpc_public_rbac_listrolesresponse",
     "TextqlRPCPublicRbacListRolesResponseTypedDict": ".textql_rpc_public_rbac_listrolesresponse",
-    "TextqlRPCPublicRbacListScimGroupMappingsRequest": ".textql_rpc_public_rbac_listscimgroupmappingsrequest",
-    "TextqlRPCPublicRbacListScimGroupMappingsRequestTypedDict": ".textql_rpc_public_rbac_listscimgroupmappingsrequest",
-    "TextqlRPCPublicRbacListScimGroupMappingsResponse": ".textql_rpc_public_rbac_listscimgroupmappingsresponse",
-    "TextqlRPCPublicRbacListScimGroupMappingsResponseTypedDict": ".textql_rpc_public_rbac_listscimgroupmappingsresponse",
     "TextqlRPCPublicRbacListServiceAccountsRequest": ".textql_rpc_public_rbac_listserviceaccountsrequest",
     "TextqlRPCPublicRbacListServiceAccountsRequestTypedDict": ".textql_rpc_public_rbac_listserviceaccountsrequest",
     "TextqlRPCPublicRbacListServiceAccountsResponse": ".textql_rpc_public_rbac_listserviceaccountsresponse",
     "TextqlRPCPublicRbacListServiceAccountsResponseTypedDict": ".textql_rpc_public_rbac_listserviceaccountsresponse",
-    "TextqlRPCPublicRbacMemberGroups": ".textql_rpc_public_rbac_membergroups",
-    "TextqlRPCPublicRbacMemberGroupsTypedDict": ".textql_rpc_public_rbac_membergroups",
     "TextqlRPCPublicRbacMemberRoles": ".textql_rpc_public_rbac_memberroles",
     "TextqlRPCPublicRbacMemberRolesTypedDict": ".textql_rpc_public_rbac_memberroles",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsRequest": ".textql_rpc_public_rbac_migrateallscimgroupmappingsrequest",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsRequestTypedDict": ".textql_rpc_public_rbac_migrateallscimgroupmappingsrequest",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsResponse": ".textql_rpc_public_rbac_migrateallscimgroupmappingsresponse",
-    "TextqlRPCPublicRbacMigrateAllScimGroupMappingsResponseTypedDict": ".textql_rpc_public_rbac_migrateallscimgroupmappingsresponse",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupRequest": ".textql_rpc_public_rbac_migratescimgroupmappingtogrouprequest",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupRequestTypedDict": ".textql_rpc_public_rbac_migratescimgroupmappingtogrouprequest",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupResponse": ".textql_rpc_public_rbac_migratescimgroupmappingtogroupresponse",
-    "TextqlRPCPublicRbacMigrateScimGroupMappingToGroupResponseTypedDict": ".textql_rpc_public_rbac_migratescimgroupmappingtogroupresponse",
-    "TextqlRPCPublicRbacObjectAccess": ".textql_rpc_public_rbac_objectaccess",
-    "TextqlRPCPublicRbacObjectAccessTypedDict": ".textql_rpc_public_rbac_objectaccess",
     "TextqlRPCPublicRbacPermission": ".textql_rpc_public_rbac_permission",
     "TextqlRPCPublicRbacPermissionTypedDict": ".textql_rpc_public_rbac_permission",
-    "TextqlRPCPublicRbacRejectAccessRequestRequest": ".textql_rpc_public_rbac_rejectaccessrequestrequest",
-    "TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict": ".textql_rpc_public_rbac_rejectaccessrequestrequest",
-    "TextqlRPCPublicRbacRejectAccessRequestResponse": ".textql_rpc_public_rbac_rejectaccessrequestresponse",
-    "TextqlRPCPublicRbacRejectAccessRequestResponseTypedDict": ".textql_rpc_public_rbac_rejectaccessrequestresponse",
-    "TextqlRPCPublicRbacRemoveGroupMemberRequest": ".textql_rpc_public_rbac_removegroupmemberrequest",
-    "TextqlRPCPublicRbacRemoveGroupMemberRequestTypedDict": ".textql_rpc_public_rbac_removegroupmemberrequest",
-    "TextqlRPCPublicRbacRemoveGroupMemberResponse": ".textql_rpc_public_rbac_removegroupmemberresponse",
-    "TextqlRPCPublicRbacRemoveGroupMemberResponseTypedDict": ".textql_rpc_public_rbac_removegroupmemberresponse",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequest": ".textql_rpc_public_rbac_removepermissionfromrolerequest",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequestTypedDict": ".textql_rpc_public_rbac_removepermissionfromrolerequest",
     "TextqlRPCPublicRbacRemovePermissionFromRoleResponse": ".textql_rpc_public_rbac_removepermissionfromroleresponse",
@@ -16757,60 +16293,22 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacRemoveRoleFromMemberRequestTypedDict": ".textql_rpc_public_rbac_removerolefrommemberrequest",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponse": ".textql_rpc_public_rbac_removerolefrommemberresponse",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponseTypedDict": ".textql_rpc_public_rbac_removerolefrommemberresponse",
-    "TextqlRPCPublicRbacRequestAccessRequest": ".textql_rpc_public_rbac_requestaccessrequest",
-    "TextqlRPCPublicRbacRequestAccessRequestTypedDict": ".textql_rpc_public_rbac_requestaccessrequest",
-    "TextqlRPCPublicRbacRequestAccessResponse": ".textql_rpc_public_rbac_requestaccessresponse",
-    "TextqlRPCPublicRbacRequestAccessResponseTypedDict": ".textql_rpc_public_rbac_requestaccessresponse",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleRequest": ".textql_rpc_public_rbac_revertscimgroupmappingtorolerequest",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleRequestTypedDict": ".textql_rpc_public_rbac_revertscimgroupmappingtorolerequest",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleResponse": ".textql_rpc_public_rbac_revertscimgroupmappingtoroleresponse",
-    "TextqlRPCPublicRbacRevertScimGroupMappingToRoleResponseTypedDict": ".textql_rpc_public_rbac_revertscimgroupmappingtoroleresponse",
     "TextqlRPCPublicRbacRevokeAPIKeyRequest": ".textql_rpc_public_rbac_revokeapikeyrequest",
     "TextqlRPCPublicRbacRevokeAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_revokeapikeyrequest",
     "TextqlRPCPublicRbacRevokeAPIKeyResponse": ".textql_rpc_public_rbac_revokeapikeyresponse",
     "TextqlRPCPublicRbacRevokeAPIKeyResponseTypedDict": ".textql_rpc_public_rbac_revokeapikeyresponse",
-    "TextqlRPCPublicRbacRevokeObjectAccessRequest": ".textql_rpc_public_rbac_revokeobjectaccessrequest",
-    "TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_revokeobjectaccessrequest",
-    "TextqlRPCPublicRbacRevokeObjectAccessResponse": ".textql_rpc_public_rbac_revokeobjectaccessresponse",
-    "TextqlRPCPublicRbacRevokeObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_revokeobjectaccessresponse",
     "TextqlRPCPublicRbacRole": ".textql_rpc_public_rbac_role",
     "TextqlRPCPublicRbacRoleTypedDict": ".textql_rpc_public_rbac_role",
     "TextqlRPCPublicRbacRotateAPIKeyRequest": ".textql_rpc_public_rbac_rotateapikeyrequest",
     "TextqlRPCPublicRbacRotateAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_rotateapikeyrequest",
     "TextqlRPCPublicRbacRotateAPIKeyResponse": ".textql_rpc_public_rbac_rotateapikeyresponse",
     "TextqlRPCPublicRbacRotateAPIKeyResponseTypedDict": ".textql_rpc_public_rbac_rotateapikeyresponse",
-    "TextqlRPCPublicRbacScimGroupMappingSummary": ".textql_rpc_public_rbac_scimgroupmappingsummary",
-    "TextqlRPCPublicRbacScimGroupMappingSummaryTypedDict": ".textql_rpc_public_rbac_scimgroupmappingsummary",
     "TextqlRPCPublicRbacServiceAccount": ".textql_rpc_public_rbac_serviceaccount",
     "TextqlRPCPublicRbacServiceAccountTypedDict": ".textql_rpc_public_rbac_serviceaccount",
     "TextqlRPCPublicRbacSetRolePermissionsRequest": ".textql_rpc_public_rbac_setrolepermissionsrequest",
     "TextqlRPCPublicRbacSetRolePermissionsRequestTypedDict": ".textql_rpc_public_rbac_setrolepermissionsrequest",
     "TextqlRPCPublicRbacSetRolePermissionsResponse": ".textql_rpc_public_rbac_setrolepermissionsresponse",
     "TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict": ".textql_rpc_public_rbac_setrolepermissionsresponse",
-    "TextqlRPCPublicRbacShareObjectRequest": ".textql_rpc_public_rbac_shareobjectrequest",
-    "TextqlRPCPublicRbacShareObjectRequestTypedDict": ".textql_rpc_public_rbac_shareobjectrequest",
-    "TextqlRPCPublicRbacShareObjectResponse": ".textql_rpc_public_rbac_shareobjectresponse",
-    "TextqlRPCPublicRbacShareObjectResponseTypedDict": ".textql_rpc_public_rbac_shareobjectresponse",
-    "TextqlRPCPublicRbacShareObjectWithGroupRequest": ".textql_rpc_public_rbac_shareobjectwithgrouprequest",
-    "TextqlRPCPublicRbacShareObjectWithGroupRequestTypedDict": ".textql_rpc_public_rbac_shareobjectwithgrouprequest",
-    "TextqlRPCPublicRbacShareObjectWithGroupResponse": ".textql_rpc_public_rbac_shareobjectwithgroupresponse",
-    "TextqlRPCPublicRbacShareObjectWithGroupResponseTypedDict": ".textql_rpc_public_rbac_shareobjectwithgroupresponse",
-    "TextqlRPCPublicRbacShareObjectWithRoleRequest": ".textql_rpc_public_rbac_shareobjectwithrolerequest",
-    "TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict": ".textql_rpc_public_rbac_shareobjectwithrolerequest",
-    "TextqlRPCPublicRbacShareObjectWithRoleResponse": ".textql_rpc_public_rbac_shareobjectwithroleresponse",
-    "TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict": ".textql_rpc_public_rbac_shareobjectwithroleresponse",
-    "TextqlRPCPublicRbacUpdateGroupRequest": ".textql_rpc_public_rbac_updategrouprequest",
-    "TextqlRPCPublicRbacUpdateGroupRequestTypedDict": ".textql_rpc_public_rbac_updategrouprequest",
-    "TextqlRPCPublicRbacUpdateGroupResponse": ".textql_rpc_public_rbac_updategroupresponse",
-    "TextqlRPCPublicRbacUpdateGroupResponseTypedDict": ".textql_rpc_public_rbac_updategroupresponse",
-    "TextqlRPCPublicRbacUpdateObjectAccessRequest": ".textql_rpc_public_rbac_updateobjectaccessrequest",
-    "TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_updateobjectaccessrequest",
-    "TextqlRPCPublicRbacUpdateObjectAccessResponse": ".textql_rpc_public_rbac_updateobjectaccessresponse",
-    "TextqlRPCPublicRbacUpdateObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_updateobjectaccessresponse",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityRequest": ".textql_rpc_public_rbac_updateobjectvisibilityrequest",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityRequestTypedDict": ".textql_rpc_public_rbac_updateobjectvisibilityrequest",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityResponse": ".textql_rpc_public_rbac_updateobjectvisibilityresponse",
-    "TextqlRPCPublicRbacUpdateObjectVisibilityResponseTypedDict": ".textql_rpc_public_rbac_updateobjectvisibilityresponse",
     "TextqlRPCPublicRbacUpdateRoleRequest": ".textql_rpc_public_rbac_updaterolerequest",
     "TextqlRPCPublicRbacUpdateRoleRequestTypedDict": ".textql_rpc_public_rbac_updaterolerequest",
     "TextqlRPCPublicRbacUpdateRoleResponse": ".textql_rpc_public_rbac_updateroleresponse",
@@ -16996,6 +16494,26 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSecretUpdateSecretRequestTypedDict": ".textql_rpc_public_secret_updatesecretrequest",
     "TextqlRPCPublicSecretUpdateSecretResponse": ".textql_rpc_public_secret_updatesecretresponse",
     "TextqlRPCPublicSecretUpdateSecretResponseTypedDict": ".textql_rpc_public_secret_updatesecretresponse",
+    "TextqlRPCPublicSettingsCheckMemberStatusRequest": ".textql_rpc_public_settings_checkmemberstatusrequest",
+    "TextqlRPCPublicSettingsCheckMemberStatusRequestTypedDict": ".textql_rpc_public_settings_checkmemberstatusrequest",
+    "TextqlRPCPublicSettingsCheckMemberStatusResponse": ".textql_rpc_public_settings_checkmemberstatusresponse",
+    "TextqlRPCPublicSettingsCheckMemberStatusResponseTypedDict": ".textql_rpc_public_settings_checkmemberstatusresponse",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberRequest": ".textql_rpc_public_settings_deleteorganizationmemberrequest",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberRequestTypedDict": ".textql_rpc_public_settings_deleteorganizationmemberrequest",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberResponse": ".textql_rpc_public_settings_deleteorganizationmemberresponse",
+    "TextqlRPCPublicSettingsDeleteOrganizationMemberResponseTypedDict": ".textql_rpc_public_settings_deleteorganizationmemberresponse",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberRequest": ".textql_rpc_public_settings_inviteorganizationmemberrequest",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberRequestTypedDict": ".textql_rpc_public_settings_inviteorganizationmemberrequest",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberResponse": ".textql_rpc_public_settings_inviteorganizationmemberresponse",
+    "TextqlRPCPublicSettingsInviteOrganizationMemberResponseTypedDict": ".textql_rpc_public_settings_inviteorganizationmemberresponse",
+    "TextqlRPCPublicSettingsListOrganizationMembersRequest": ".textql_rpc_public_settings_listorganizationmembersrequest",
+    "TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict": ".textql_rpc_public_settings_listorganizationmembersrequest",
+    "TextqlRPCPublicSettingsListOrganizationMembersResponse": ".textql_rpc_public_settings_listorganizationmembersresponse",
+    "TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict": ".textql_rpc_public_settings_listorganizationmembersresponse",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest": ".textql_rpc_public_settings_updateorganizationsettingsrequest",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict": ".textql_rpc_public_settings_updateorganizationsettingsrequest",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse": ".textql_rpc_public_settings_updateorganizationsettingsresponse",
+    "TextqlRPCPublicSettingsUpdateOrganizationSettingsResponseTypedDict": ".textql_rpc_public_settings_updateorganizationsettingsresponse",
     "TextqlRPCPublicSlackCreateSlackUUIDResponse": ".textql_rpc_public_slack_createslackuuidresponse",
     "TextqlRPCPublicSlackCreateSlackUUIDResponseTypedDict": ".textql_rpc_public_slack_createslackuuidresponse",
     "TextqlRPCPublicSlackDeleteInstallationRequest": ".textql_rpc_public_slack_deleteinstallationrequest",

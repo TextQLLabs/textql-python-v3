@@ -202,18 +202,23 @@ with Textql(
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agents/README.md#update) - UpdateAgent
 * [upload_agent_avatar](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agents/README.md#upload_agent_avatar) - UploadAgentAvatar
 
+### [AgentService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agentservice/README.md)
+
+* [agent_service_get_agent_db_schema](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agentservice/README.md#agent_service_get_agent_db_schema) - GetAgentDBSchema
+* [agent_service_get_agent_db_table_preview](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agentservice/README.md#agent_service_get_agent_db_table_preview) - GetAgentDBTablePreview
+
 ### [Apps](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md)
 
 * [heartbeat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [create_app](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#create_app) - CreateApp
 * [delete_app](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#delete_app) - DeleteApp
-* [duplicate](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#duplicate) - Duplicates an app the caller can view into a new draft app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's published state or data snapshot.
+* [duplicate](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#get) - GetApp
 * [get_app_version](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#get_app_version) - GetAppVersion
-* [get_app_view_stats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
+* [get_app_view_stats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#get_app_view_stats) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 * [get_members_with_apps](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
-* [list_versions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#list_versions) - Version history: a snapshot is recorded on each publish; authors can list and restore.
+* [list_versions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#list_versions) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 * [list](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#list) - ListApps
 * [move_app_to_folder](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
 * [refresh](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
@@ -223,12 +228,14 @@ with Textql(
 
 ### [AppService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md)
 
-* [app_service_get_app_member_state](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_get_app_member_state) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
-* [app_service_list_app_activity_since](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_list_app_activity_since) - ListAppActivitySince
-* [app_service_list_my_app_member_activity](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_list_my_app_member_activity) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
-* [app_service_presence_heartbeat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_presence_heartbeat) - Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
-* [app_service_record_app_member_activity](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_record_app_member_activity) - RecordAppMemberActivity
-* [app_service_set_app_member_state](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_set_app_member_state) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [app_service_get_app_db_schema](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_get_app_db_schema) - Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+* [app_service_get_app_db_table_preview](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_get_app_db_table_preview) - Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+* [app_service_get_app_member_state](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_get_app_member_state) - View analytics: reads the engagement views recorded on app page load.
+* [app_service_list_app_activity_since](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_list_app_activity_since) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [app_service_list_my_app_member_activity](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_list_my_app_member_activity) - ListMyAppMemberActivity
+* [app_service_presence_heartbeat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_presence_heartbeat) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+* [app_service_record_app_member_activity](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_record_app_member_activity) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [app_service_set_app_member_state](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/appservice/README.md#app_service_set_app_member_state) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 
 ### [AuditLogs](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/auditlogs/README.md)
 
@@ -247,11 +254,11 @@ with Textql(
 ### [Chats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md)
 
 * [approve_context_prompt_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#approve_context_prompt_change) - ApproveContextPromptChange
-* [approve_ontology_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#approve_ontology_change) - Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
-* [attach_agent](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#attach_agent) - External API users
+* [approve_ontology_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#approve_ontology_change) - ApproveOntologyChange
+* [attach_agent](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#attach_agent) - AttachAgentToChat
 * [attach_app](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#attach_app) - AttachApp
 * [attach_dashboard](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#attach_dashboard) - AttachDashboard
-* [attach_dataset](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#attach_dataset) - AttachDataset
+* [attach_dataset](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#attach_dataset) - RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
 * [bookmark](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#bookmark) - BookmarkChat
 * [cancel_stream](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#cancel_stream) - CancelStream
 * [check_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#check_permissions) - CheckChatPermissions
@@ -259,7 +266,7 @@ with Textql(
 * [check_streamlit_health](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#check_streamlit_health) - CheckStreamlitHealth
 * [create_chat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#create_chat) - CreateChat
 * [delete](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#delete) - DeleteChat
-* [dismiss_questions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#dismiss_questions) - DismissQuestions
+* [dismiss_questions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#dismiss_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
 * [duplicate_chat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#duplicate_chat) - DuplicateChat
 * [get_api_answer](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_api_answer) - GetAPIChatAnswer
 * [get_artifact](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_artifact) - GetArtifact
@@ -268,20 +275,20 @@ with Textql(
 * [get_chat_execution_timing](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_chat_execution_timing) - GetChatExecutionTiming
 * [get_history](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_history) - GetChatHistory
 * [get_all](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_all) - GetChats
-* [get_completion_parameters](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_completion_parameters) - GetCompletionParameters
+* [get_completion_parameters](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_completion_parameters) - List distinct chat creators the user can access
 * [get_completion_parameters_batch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_completion_parameters_batch) - GetCompletionParametersBatch
 * [get_llm_usage](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_llm_usage) - GetLlmUsage
-* [get_members_with_chats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_members_with_chats) - List distinct chat creators the user can access
+* [get_members_with_chats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_members_with_chats) - GetMembersWithChats
 * [get_playbook_chats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#get_playbook_chats) - GetPlaybookChats
 * [poll_events](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#poll_events) - PollChatEvents
 * [query_one_shot](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#query_one_shot) - QueryOneShot
-* [rate_cell](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#rate_cell) - RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+* [rate_cell](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#rate_cell) - RateChatCell
 * [reject_context_prompt_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#reject_context_prompt_change) - RejectContextPromptChange
-* [reject_ontology_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#reject_ontology_change) - RejectOntologyChange
+* [reject_ontology_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#reject_ontology_change) - Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
 * [run](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#run) - RunChat
 * [send](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#send) - SendMessage
 * [submit_context_prompt_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#submit_context_prompt_change) - SubmitContextPromptChange
-* [submit_questions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#submit_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
+* [submit_questions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#submit_questions) - SubmitQuestions
 * [unbookmark](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#unbookmark) - UnbookmarkChat
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/chats/README.md#update) - UpdateChat
 
@@ -372,7 +379,7 @@ with Textql(
 * [activate_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#activate_custom_topic) - ActivateCustomTopic
 * [backfill_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#backfill_custom_topic) - BackfillCustomTopic
 * [backfill_thread_warnings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#backfill_thread_warnings) - BackfillThreadWarnings
-* [create_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#create_custom_topic) - CreateCustomTopic
+* [create_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#create_custom_topic) - Custom topics
 * [deactivate_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#deactivate_custom_topic) - DeactivateCustomTopic
 * [delete_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#delete_custom_topic) - DeleteCustomTopic
 * [export_csv](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#export_csv) - ExportObservabilityCsv
@@ -395,7 +402,7 @@ with Textql(
 * [get_observability_stats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_observability_stats) - GetObservabilityStats
 * [get_thread_warnings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_thread_warnings) - GetThreadWarnings
 * [list_custom_topics](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#list_custom_topics) - ListCustomTopics
-* [refine_draft](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#refine_draft) - Custom topics
+* [refine_draft](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#refine_draft) - RefineTopicDraft
 * [set_topic_tag_feedback](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#set_topic_tag_feedback) - SetTopicTagFeedback
 * [update_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#update_custom_topic) - UpdateCustomTopic
 
@@ -448,6 +455,7 @@ with Textql(
 * [ontology_management_service_list_ontology_imports](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_ontology_imports) - ListOntologyImports
 * [ontology_management_service_list_ontology_submodules](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_ontology_submodules) - ListOntologySubmodules
 * [ontology_management_service_list_ontology_sync_runs](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_ontology_sync_runs) - ListOntologySyncRuns
+* [ontology_management_service_list_patch_objects](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
 * [ontology_management_service_list_patch_reviewers](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_patch_reviewers) - ListPatchReviewers
 * [ontology_management_service_list_patches](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_patches) - ListPatches
 * [ontology_management_service_list_skills](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologymanagementservice/README.md#ontology_management_service_list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
@@ -532,53 +540,26 @@ with Textql(
 
 ### [Rbac](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md)
 
-* [add_group_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#add_group_member) - AddGroupMember
-* [approve_access_request](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#approve_access_request) - ApproveAccessRequest
 * [assign_permission_to_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#assign_permission_to_role) - AssignPermissionToRole
 * [assign_role_to_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#assign_role_to_member) - Member role assignment
-* [convert_role_to_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#convert_role_to_group) - ConvertRoleToGroup
-* [create_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_api_key) - API Key management
-* [create_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_group) - CreateGroup
+* [create_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_api_key) - Group management. Internal only.
 * [create_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_role) - Role management
-* [create_service_account](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_service_account) - Service account management
-* [delete_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_group) - DeleteGroup
+* [create_service_account](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_service_account) - CreateServiceAccount
 * [delete_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_role) - DeleteRole
 * [delete_service_account](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_service_account) - DeleteServiceAccount
-* [generate_share_link](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#generate_share_link) - GenerateShareLink
 * [get_current_member_roles_and_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_current_member_roles_and_permissions) - Get current member roles and permissions
 * [get_embed_user_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_embed_user_api_key) - GetEmbedUserApiKey
-* [get_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_group) - GetGroup
-* [get_member_groups](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_member_groups) - GetMemberGroups
 * [get_member_roles](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_member_roles) - GetMemberRoles
-* [get_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_object_access) - GetObjectAccess
 * [get_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_role) - GetRole
 * [get_role_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_role_permissions) - GetRolePermissions
-* [has_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#has_object_access) - HasObjectAccess
-* [list_access_requests](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_access_requests) - ListAccessRequests
 * [list_api_keys](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_api_keys) - ListApiKeys
-* [list_group_connectors](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_group_connectors) - ListGroupConnectors
-* [list_groups](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_groups) - ListGroups
 * [list_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_permissions) - Permission management
 * [list_roles](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_roles) - ListRoles
-* [list_scim_group_mappings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_scim_group_mappings) - ListScimGroupMappings
 * [list_service_accounts](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_service_accounts) - ListServiceAccounts
-* [migrate_all_scim_group_mappings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#migrate_all_scim_group_mappings) - MigrateAllScimGroupMappings
-* [migrate_scim_group_mapping_to_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#migrate_scim_group_mapping_to_group) - MigrateScimGroupMappingToGroup
-* [reject_access_request](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#reject_access_request) - RejectAccessRequest
-* [remove_group_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#remove_group_member) - RemoveGroupMember
 * [remove_permission_from_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#remove_permission_from_role) - RemovePermissionFromRole
 * [remove_role_from_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#remove_role_from_member) - RemoveRoleFromMember
-* [request_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#request_access) - Access request management
-* [revert_scim_group_mapping_to_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#revert_scim_group_mapping_to_role) - RevertScimGroupMappingToRole
 * [revoke_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#revoke_api_key) - RevokeApiKey
-* [revoke_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#revoke_object_access) - RevokeObjectAccess
 * [rotate_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#rotate_api_key) - RotateApiKey
-* [share_object](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#share_object) - Object sharing and access control
-* [share_with_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#share_with_group) - ShareObjectWithGroup
-* [share_object_with_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#share_object_with_role) - ShareObjectWithRole
-* [update_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_group) - UpdateGroup
-* [update_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_object_access) - UpdateObjectAccess
-* [update_object_visibility](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_object_visibility) - UpdateObjectVisibility
 * [update_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_role) - UpdateRole
 
 ### [RBACService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbacservice/README.md)
@@ -624,6 +605,14 @@ with Textql(
 * [list_secrets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_secrets) - ListSecrets
 * [put_secret](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#put_secret) - PutSecret
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#update) - UpdateSecret
+
+### [SettingsService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settingsservice/README.md)
+
+* [settings_service_check_member_status](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settingsservice/README.md#settings_service_check_member_status) - CheckMemberStatus
+* [settings_service_delete_organization_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settingsservice/README.md#settings_service_delete_organization_member) - DeleteOrganizationMember
+* [settings_service_invite_organization_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settingsservice/README.md#settings_service_invite_organization_member) - InviteOrganizationMember
+* [settings_service_list_organization_members](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settingsservice/README.md#settings_service_list_organization_members) - ListOrganizationMembers
+* [settings_service_update_organization_settings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settingsservice/README.md#settings_service_update_organization_settings) - UpdateOrganizationSettings
 
 ### [Slack](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/slack/README.md)
 

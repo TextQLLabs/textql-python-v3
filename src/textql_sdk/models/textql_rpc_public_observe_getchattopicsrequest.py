@@ -9,17 +9,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicObserveGetChatTopicsRequestTypedDict(TypedDict):
-    r"""Chat → topics decoration (which live topics tag each chat), mirroring the
-    GetThreadWarnings batch shape.
-    """
+    r"""One owner of a topic's tagged chats, ranked by how many they own."""
 
     chat_ids: NotRequired[List[str]]
 
 
 class TextqlRPCPublicObserveGetChatTopicsRequest(BaseModel):
-    r"""Chat → topics decoration (which live topics tag each chat), mirroring the
-    GetThreadWarnings batch shape.
-    """
+    r"""One owner of a topic's tagged chats, ranked by how many they own."""
 
     chat_ids: Annotated[Optional[List[str]], pydantic.Field(alias="chatIds")] = None
 

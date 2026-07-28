@@ -1,0 +1,9 @@
+# TextqlRPCPublicAgentAgentDBTable
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `name`                                                                                           | *Optional[str]*                                                                                  | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `columns`                                                                                        | List[[models.TextqlRPCPublicAgentAgentDBColumn](../models/textqlrpcpublicagentagentdbcolumn.md)] | :heavy_minus_sign:                                                                               | N/A                                                                                              |

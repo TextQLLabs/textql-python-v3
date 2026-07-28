@@ -47,6 +47,7 @@
 * [ontology_management_service_list_ontology_imports](#ontology_management_service_list_ontology_imports) - ListOntologyImports
 * [ontology_management_service_list_ontology_submodules](#ontology_management_service_list_ontology_submodules) - ListOntologySubmodules
 * [ontology_management_service_list_ontology_sync_runs](#ontology_management_service_list_ontology_sync_runs) - ListOntologySyncRuns
+* [ontology_management_service_list_patch_objects](#ontology_management_service_list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
 * [ontology_management_service_list_patch_reviewers](#ontology_management_service_list_patch_reviewers) - ListPatchReviewers
 * [ontology_management_service_list_patches](#ontology_management_service_list_patches) - ListPatches
 * [ontology_management_service_list_skills](#ontology_management_service_list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
@@ -1874,6 +1875,52 @@ with Textql(
 ### Response
 
 **[models.OntologyManagementServiceListOntologySyncRunsResponse](../../models/ontologymanagementservicelistontologysyncrunsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## ontology_management_service_list_patch_objects
+
+ListPatchObjects parses the config objects present at a patch's git ref and
+ returns each object's Library path, resolved display name, and granular type
+ (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it
+ reuses the snapshot-at-ref + parse steps the preview path performs before
+ spawning — no sandbox spawn, no run_as authorization, no persistence. The
+ frontend uses the dashboard subtype to decide previewability (streamlit/dash).
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="OntologyManagementService_ListPatchObjects" method="post" path="/textql.rpc.public.patches.OntologyManagementService/ListPatchObjects" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.ontology_management_service.ontology_management_service_list_patch_objects()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | git ref of the patch to inspect                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.OntologyManagementServiceListPatchObjectsResponse](../../models/ontologymanagementservicelistpatchobjectsresponse.md)**
 
 ### Errors
 

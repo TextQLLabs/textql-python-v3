@@ -50,6 +50,7 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
     ]
     sms_mode: NotRequired[bool]
     api_access_key_ids: NotRequired[List[str]]
+    feed_enabled: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
@@ -164,6 +165,10 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
         Optional[List[str]], pydantic.Field(alias="apiAccessKeyIds")
     ] = None
 
+    feed_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -197,9 +202,10 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
                 "powerbiSelections",
                 "smsMode",
                 "apiAccessKeyIds",
+                "feedEnabled",
             ]
         )
-        nullable_fields = set(["datasetId"])
+        nullable_fields = set(["datasetId", "feedEnabled"])
         serialized = handler(self)
         m = {}
 

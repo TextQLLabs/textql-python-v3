@@ -9,17 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatApproveOntologyChangeRequestTypedDict(TypedDict):
-    r"""Ontology change management"""
+    r"""Per-member auth resume"""
 
     cell_id: NotRequired[str]
-    r"""UUID"""
 
 
 class TextqlRPCPublicChatApproveOntologyChangeRequest(BaseModel):
-    r"""Ontology change management"""
+    r"""Per-member auth resume"""
 
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
-    r"""UUID"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

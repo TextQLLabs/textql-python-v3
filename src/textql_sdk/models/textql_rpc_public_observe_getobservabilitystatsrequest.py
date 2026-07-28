@@ -2,7 +2,13 @@
 
 from __future__ import annotations
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
@@ -10,24 +16,42 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicObserveGetObservabilityStatsRequestTypedDict(TypedDict):
     days: NotRequired[int]
     r"""time window: 7, 14, 30, 90"""
+    timezone: NotRequired[Nullable[str]]
+    r"""IANA timezone (e.g. \"America/New_York\") used to bucket the usage heatmap
+    by the viewer's local weekday/hour. Falls back to UTC when unset/invalid.
+    """
 
 
 class TextqlRPCPublicObserveGetObservabilityStatsRequest(BaseModel):
     days: Optional[int] = None
     r"""time window: 7, 14, 30, 90"""
 
+    timezone: OptionalNullable[str] = UNSET
+    r"""IANA timezone (e.g. \"America/New_York\") used to bucket the usage heatmap
+    by the viewer's local weekday/hour. Falls back to UTC when unset/invalid.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["days"])
+        optional_fields = set(["days", "timezone"])
+        nullable_fields = set(["timezone"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m

@@ -9,11 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacRemoveRoleFromMemberRequestTypedDict(TypedDict):
+    r"""Member role management messages"""
+
     member_id: NotRequired[str]
     role_id: NotRequired[str]
 
 
 class TextqlRPCPublicRbacRemoveRoleFromMemberRequest(BaseModel):
+    r"""Member role management messages"""
+
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None

@@ -15,50 +15,48 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsAppCellTypedDict(TypedDict):
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
-
     action: NotRequired[str]
-    r"""create | update | publish"""
     app_id: NotRequired[str]
+    r"""\"sql\" | \"python\" """
     name: NotRequired[str]
+    r"""Produced dataframe name, if applicable"""
     error_message: NotRequired[Nullable[str]]
+    r"""SQL only: connector ID; display name resolves client-side"""
     screenshot_url: NotRequired[Nullable[str]]
+    r"""SQL only: referenced tables"""
     last_run_at: NotRequired[Nullable[str]]
+    r"""upstream cell(s), for graph lineage"""
     build_line_count: NotRequired[Nullable[int]]
-    r"""Size of the app being written, updated live as the tool args stream so the
-    builder loader can show real \"N lines / M files\" progress during generation.
-    """
     build_file_count: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicCellsAppCell(BaseModel):
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
-
     action: Optional[str] = None
-    r"""create | update | publish"""
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""\"sql\" | \"python\" """
 
     name: Optional[str] = None
+    r"""Produced dataframe name, if applicable"""
 
     error_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorMessage")
     ] = UNSET
+    r"""SQL only: connector ID; display name resolves client-side"""
 
     screenshot_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="screenshotUrl")
     ] = UNSET
+    r"""SQL only: referenced tables"""
 
     last_run_at: Annotated[OptionalNullable[str], pydantic.Field(alias="lastRunAt")] = (
         UNSET
     )
+    r"""upstream cell(s), for graph lineage"""
 
     build_line_count: Annotated[
         OptionalNullable[int], pydantic.Field(alias="buildLineCount")
     ] = UNSET
-    r"""Size of the app being written, updated live as the tool args stream so the
-    builder loader can show real \"N lines / M files\" progress during generation.
-    """
 
     build_file_count: Annotated[
         OptionalNullable[int], pydantic.Field(alias="buildFileCount")

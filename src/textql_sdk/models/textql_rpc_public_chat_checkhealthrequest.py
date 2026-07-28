@@ -17,14 +17,12 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicChatCheckHealthRequestTypedDict(TypedDict):
     model: NotRequired[TextqlRPCPublicChatLlmModel]
     functional: NotRequired[Nullable[bool]]
-    r"""if true, runs actual execution tests (expensive)"""
 
 
 class TextqlRPCPublicChatCheckHealthRequest(BaseModel):
     model: Optional[TextqlRPCPublicChatLlmModel] = None
 
     functional: OptionalNullable[bool] = UNSET
-    r"""if true, runs actual execution tests (expensive)"""
 
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):

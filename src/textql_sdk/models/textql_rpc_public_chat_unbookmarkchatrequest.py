@@ -9,10 +9,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatUnbookmarkChatRequestTypedDict(TypedDict):
+    r"""Simplified query response for external API users"""
+
     chat_id: NotRequired[str]
 
 
 class TextqlRPCPublicChatUnbookmarkChatRequest(BaseModel):
+    r"""Simplified query response for external API users"""
+
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 
     @model_serializer(mode="wrap")

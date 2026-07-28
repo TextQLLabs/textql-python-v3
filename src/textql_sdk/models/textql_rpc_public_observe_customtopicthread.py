@@ -14,7 +14,6 @@ class TextqlRPCPublicObserveCustomTopicThreadTypedDict(TypedDict):
     title: NotRequired[str]
     member_id: NotRequired[str]
     tagged_by: NotRequired[str]
-    r"""'live' | 'backfill' | 'manual'"""
     tagged_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -116,7 +115,6 @@ class TextqlRPCPublicObserveCustomTopicThread(BaseModel):
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     tagged_by: Annotated[Optional[str], pydantic.Field(alias="taggedBy")] = None
-    r"""'live' | 'backfill' | 'manual'"""
 
     tagged_at: Annotated[Optional[datetime], pydantic.Field(alias="taggedAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

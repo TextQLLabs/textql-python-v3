@@ -16,7 +16,6 @@ class TextqlRPCPublicChatDismissQuestionsRequestTypedDict(TypedDict):
     cell_id: NotRequired[str]
     r"""UUID"""
     answers: NotRequired[List[TextqlRPCPublicCellsQuestionAnswerTypedDict]]
-    r"""partial answers"""
 
 
 class TextqlRPCPublicChatDismissQuestionsRequest(BaseModel):
@@ -24,7 +23,6 @@ class TextqlRPCPublicChatDismissQuestionsRequest(BaseModel):
     r"""UUID"""
 
     answers: Optional[List[TextqlRPCPublicCellsQuestionAnswer]] = None
-    r"""partial answers"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

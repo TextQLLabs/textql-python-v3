@@ -17,6 +17,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
+    r"""Get current member roles and permissions messages"""
+
     id: NotRequired[str]
     member_id: NotRequired[str]
     client_id: NotRequired[str]
@@ -113,10 +115,6 @@ class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
     """
     api_key_short: NotRequired[Nullable[str]]
     assumed_roles: NotRequired[List[str]]
-    r"""Role IDs (UUIDs) that this API key is scoped to. When set, authorization
-    is evaluated strictly against these roles. Returned as role IDs; use the
-    Role service (GetRole/ListRoles) to resolve to human-readable names.
-    """
     name: NotRequired[Nullable[str]]
     expires_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -304,13 +302,11 @@ class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
     owner_display_name: NotRequired[Nullable[str]]
     owner_email: NotRequired[Nullable[str]]
     suppress_superadmin: NotRequired[bool]
-    r"""When true, requests authenticated with this key skip the
-    @textql.com-email superadmin elevation branch. Lets a textql admin
-    preview a role's experience without superadmin permission leakage.
-    """
 
 
 class TextqlRPCPublicRbacAPIKey(BaseModel):
+    r"""Get current member roles and permissions messages"""
+
     id: Optional[str] = None
 
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
@@ -416,10 +412,6 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
     assumed_roles: Annotated[
         Optional[List[str]], pydantic.Field(alias="assumedRoles")
     ] = None
-    r"""Role IDs (UUIDs) that this API key is scoped to. When set, authorization
-    is evaluated strictly against these roles. Returned as role IDs; use the
-    Role service (GetRole/ListRoles) to resolve to human-readable names.
-    """
 
     name: OptionalNullable[str] = UNSET
 
@@ -620,10 +612,6 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
     suppress_superadmin: Annotated[
         Optional[bool], pydantic.Field(alias="suppressSuperadmin")
     ] = None
-    r"""When true, requests authenticated with this key skip the
-    @textql.com-email superadmin elevation branch. Lets a textql admin
-    preview a role's experience without superadmin permission leakage.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

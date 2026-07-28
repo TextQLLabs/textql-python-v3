@@ -1,5 +1,7 @@
 # TextqlRPCPublicChatRejectOntologyChangeRequest
 
+Ontology change management
+
 
 ## Fields
 

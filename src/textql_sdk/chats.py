@@ -25,7 +25,7 @@ class Chats(BaseSDK):
         r"""ApproveContextPromptChange
 
         :param connect_timeout_ms:
-        :param cell_id: UUID
+        :param cell_id:
         :param edited_context:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -132,7 +132,7 @@ class Chats(BaseSDK):
         r"""ApproveContextPromptChange
 
         :param connect_timeout_ms:
-        :param cell_id: UUID
+        :param cell_id:
         :param edited_context:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -235,15 +235,10 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceApproveOntologyChangeResponse:
-        r"""Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
-
-        Resolve a halted ask_approval form cell. Submit runs the form's submission
-        and continues the agent with the outcome; Reject discards it (passive, no
-        run); Dismiss treats it as a change request (no run, next message says what
-        to change). All three set the cell's outcome, like the other approve/deny cells.
+        r"""ApproveOntologyChange
 
         :param connect_timeout_ms:
-        :param cell_id: UUID
+        :param cell_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -344,15 +339,10 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceApproveOntologyChangeResponse:
-        r"""Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
-
-        Resolve a halted ask_approval form cell. Submit runs the form's submission
-        and continues the agent with the outcome; Reject discards it (passive, no
-        run); Dismiss treats it as a change request (no run, next message says what
-        to change). All three set the cell's outcome, like the other approve/deny cells.
+        r"""ApproveOntologyChange
 
         :param connect_timeout_ms:
-        :param cell_id: UUID
+        :param cell_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -454,9 +444,7 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceAttachAgentToChatResponse:
-        r"""External API users
-
-        External API users
+        r"""AttachAgentToChat
 
         :param connect_timeout_ms:
         :param chat_id:
@@ -563,9 +551,7 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceAttachAgentToChatResponse:
-        r"""External API users
-
-        External API users
+        r"""AttachAgentToChat
 
         :param connect_timeout_ms:
         :param chat_id:
@@ -890,7 +876,7 @@ class Chats(BaseSDK):
 
         :param connect_timeout_ms:
         :param chat_id:
-        :param dashboard_id:
+        :param dashboard_id: uses latest version
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -997,7 +983,7 @@ class Chats(BaseSDK):
 
         :param connect_timeout_ms:
         :param chat_id:
-        :param dashboard_id:
+        :param dashboard_id: uses latest version
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1100,11 +1086,13 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceAttachDatasetResponse:
-        r"""AttachDataset
+        r"""RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+
+        RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
 
         :param connect_timeout_ms:
         :param chat_id:
-        :param dataset_id: uses latest version
+        :param dataset_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1207,11 +1195,13 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceAttachDatasetResponse:
-        r"""AttachDataset
+        r"""RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+
+        RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
 
         :param connect_timeout_ms:
         :param chat_id:
-        :param dataset_id: uses latest version
+        :param dataset_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1938,7 +1928,7 @@ class Chats(BaseSDK):
 
         :param connect_timeout_ms:
         :param model:
-        :param functional: if true, runs actual execution tests (expensive)
+        :param functional:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2045,7 +2035,7 @@ class Chats(BaseSDK):
 
         :param connect_timeout_ms:
         :param model:
-        :param functional: if true, runs actual execution tests (expensive)
+        :param functional:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2853,11 +2843,15 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceDismissQuestionsResponse:
-        r"""DismissQuestions
+        r"""Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
+
+        Resolve a halted questions cell. Submit hands the answers to the agent and
+        resumes it; Dismiss hands over only the answered count and does NOT resume
+        (the user's next message becomes the dismissal reason).
 
         :param connect_timeout_ms:
         :param cell_id: UUID
-        :param answers: partial answers
+        :param answers:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2967,11 +2961,15 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceDismissQuestionsResponse:
-        r"""DismissQuestions
+        r"""Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
+
+        Resolve a halted questions cell. Submit hands the answers to the agent and
+        resumes it; Dismiss hands over only the answered count and does NOT resume
+        (the user's next message becomes the dismissal reason).
 
         :param connect_timeout_ms:
         :param cell_id: UUID
-        :param answers: partial answers
+        :param answers:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3079,7 +3077,7 @@ class Chats(BaseSDK):
         r"""DuplicateChat
 
         :param connect_timeout_ms:
-        :param chat_id:
+        :param chat_id: \"user\" or \"assistant\"
         :param only_if_different_owner:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3186,7 +3184,7 @@ class Chats(BaseSDK):
         r"""DuplicateChat
 
         :param connect_timeout_ms:
-        :param chat_id:
+        :param chat_id: \"user\" or \"assistant\"
         :param only_if_different_owner:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3501,7 +3499,7 @@ class Chats(BaseSDK):
         r"""GetArtifact
 
         :param connect_timeout_ms:
-        :param artifact_id: Cell ID or composite \"cellId:type:url\" for multi-artifact cells
+        :param artifact_id:
         :param chat_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3608,7 +3606,7 @@ class Chats(BaseSDK):
         r"""GetArtifact
 
         :param connect_timeout_ms:
-        :param artifact_id: Cell ID or composite \"cellId:type:url\" for multi-artifact cells
+        :param artifact_id:
         :param chat_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3714,7 +3712,7 @@ class Chats(BaseSDK):
         r"""GetChat
 
         :param connect_timeout_ms:
-        :param chat_id:
+        :param chat_id: whether to return only the user's chats or all of the org's chats
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3818,7 +3816,7 @@ class Chats(BaseSDK):
         r"""GetChat
 
         :param connect_timeout_ms:
-        :param chat_id:
+        :param chat_id: whether to return only the user's chats or all of the org's chats
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4580,14 +4578,14 @@ class Chats(BaseSDK):
         r"""GetChats
 
         :param connect_timeout_ms:
-        :param member_only: whether to return only the user's chats or all of the org's chats
+        :param member_only:
         :param search_term:
         :param limit:
         :param offset:
         :param creator_member_id:
         :param sort_by:
         :param sort_direction:
-        :param bookmarked_only: filter to only bookmarked chats
+        :param bookmarked_only:
         :param created_after: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -4766,18 +4764,17 @@ class Chats(BaseSDK):
             the Joda Time's [`ISODateTimeFormat.dateTime()`](
             http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
             ) to obtain a formatter capable of generating timestamps in this format.
-        :param exclude_batch_runs: exclude chats created from template batch runs
-        :param exclude_unused_playbooks: exclude chats created from playbooks that have no user messages beyond the initial prompt
+        :param exclude_batch_runs:
+        :param exclude_unused_playbooks:
         :param source:
-        :param has_thread_warning: When true (and thread_warning_types empty), only chats that have at least one thread_warning row of any type.
-        :param creator_member_ids: Filter org chats to these creator member IDs (union). Ignored when empty. Supersedes creator_member_id when non-empty.
+        :param has_thread_warning:
+        :param creator_member_ids:
         :param shared_with_me:
         :param exclude_feed:
-        :param sources: Filter chats by source (union). Ignored when empty. Supersedes the single `source` when non-empty.
-        :param thread_warning_types: Filter to chats with at least one thread_warning of any of these types (union).
-        :param topic_ids: Only chats tagged with at least one of these custom topics
-            (verdict='tagged'). Ignored when empty.
-        :param connector_ids: Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty.
+        :param sources:
+        :param thread_warning_types:
+        :param topic_ids:
+        :param connector_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4930,14 +4927,14 @@ class Chats(BaseSDK):
         r"""GetChats
 
         :param connect_timeout_ms:
-        :param member_only: whether to return only the user's chats or all of the org's chats
+        :param member_only:
         :param search_term:
         :param limit:
         :param offset:
         :param creator_member_id:
         :param sort_by:
         :param sort_direction:
-        :param bookmarked_only: filter to only bookmarked chats
+        :param bookmarked_only:
         :param created_after: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -5116,18 +5113,17 @@ class Chats(BaseSDK):
             the Joda Time's [`ISODateTimeFormat.dateTime()`](
             http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
             ) to obtain a formatter capable of generating timestamps in this format.
-        :param exclude_batch_runs: exclude chats created from template batch runs
-        :param exclude_unused_playbooks: exclude chats created from playbooks that have no user messages beyond the initial prompt
+        :param exclude_batch_runs:
+        :param exclude_unused_playbooks:
         :param source:
-        :param has_thread_warning: When true (and thread_warning_types empty), only chats that have at least one thread_warning row of any type.
-        :param creator_member_ids: Filter org chats to these creator member IDs (union). Ignored when empty. Supersedes creator_member_id when non-empty.
+        :param has_thread_warning:
+        :param creator_member_ids:
         :param shared_with_me:
         :param exclude_feed:
-        :param sources: Filter chats by source (union). Ignored when empty. Supersedes the single `source` when non-empty.
-        :param thread_warning_types: Filter to chats with at least one thread_warning of any of these types (union).
-        :param topic_ids: Only chats tagged with at least one of these custom topics
-            (verdict='tagged'). Ignored when empty.
-        :param connector_ids: Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty.
+        :param sources:
+        :param thread_warning_types:
+        :param topic_ids:
+        :param connector_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5256,10 +5252,12 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceGetCompletionParametersResponse:
-        r"""GetCompletionParameters
+        r"""List distinct chat creators the user can access
+
+        List distinct chat creators the user can access
 
         :param connect_timeout_ms:
-        :param chat_id:
+        :param chat_id: UUID
         :param cell_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -5363,10 +5361,12 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceGetCompletionParametersResponse:
-        r"""GetCompletionParameters
+        r"""List distinct chat creators the user can access
+
+        List distinct chat creators the user can access
 
         :param connect_timeout_ms:
-        :param chat_id:
+        :param chat_id: UUID
         :param cell_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -5900,9 +5900,7 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceGetMembersWithChatsResponse:
-        r"""List distinct chat creators the user can access
-
-        List distinct chat creators the user can access
+        r"""GetMembersWithChats
 
         :param body:
         :param connect_timeout_ms:
@@ -6009,9 +6007,7 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceGetMembersWithChatsResponse:
-        r"""List distinct chat creators the user can access
-
-        List distinct chat creators the user can access
+        r"""GetMembersWithChats
 
         :param body:
         :param connect_timeout_ms:
@@ -6120,7 +6116,7 @@ class Chats(BaseSDK):
         r"""GetPlaybookChats
 
         :param connect_timeout_ms:
-        :param playbook_id: UUID
+        :param playbook_id:
         :param limit:
         :param skip:
         :param retries: Override the default retry configuration for this method
@@ -6230,7 +6226,7 @@ class Chats(BaseSDK):
         r"""GetPlaybookChats
 
         :param connect_timeout_ms:
-        :param playbook_id: UUID
+        :param playbook_id:
         :param limit:
         :param skip:
         :param retries: Override the default retry configuration for this method
@@ -6802,15 +6798,13 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceRateChatCellResponse:
-        r"""RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
-
-        RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+        r"""RateChatCell
 
         :param connect_timeout_ms:
         :param chat_id:
         :param cell_id:
         :param rating:
-        :param reason: free-text \"why\" captured from the rating modal
+        :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6915,15 +6909,13 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceRateChatCellResponse:
-        r"""RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
-
-        RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
+        r"""RateChatCell
 
         :param connect_timeout_ms:
         :param chat_id:
         :param cell_id:
         :param rating:
-        :param reason: free-text \"why\" captured from the rating modal
+        :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7233,7 +7225,12 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceRejectOntologyChangeResponse:
-        r"""RejectOntologyChange
+        r"""Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
+
+        Resolve a halted ask_approval form cell. Submit runs the form's submission
+        and continues the agent with the outcome; Reject discards it (passive, no
+        run); Dismiss treats it as a change request (no run, next message says what
+        to change). All three set the cell's outcome, like the other approve/deny cells.
 
         :param connect_timeout_ms:
         :param cell_id: UUID
@@ -7337,7 +7334,12 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceRejectOntologyChangeResponse:
-        r"""RejectOntologyChange
+        r"""Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
+
+        Resolve a halted ask_approval form cell. Submit runs the form's submission
+        and continues the agent with the outcome; Reject discards it (passive, no
+        run); Dismiss treats it as a change request (no run, next message says what
+        to change). All three set the cell's outcome, like the other approve/deny cells.
 
         :param connect_timeout_ms:
         :param cell_id: UUID
@@ -8131,11 +8133,7 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceSubmitQuestionsResponse:
-        r"""Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
-
-        Resolve a halted questions cell. Submit hands the answers to the agent and
-        resumes it; Dismiss hands over only the answered count and does NOT resume
-        (the user's next message becomes the dismissal reason).
+        r"""SubmitQuestions
 
         :param connect_timeout_ms:
         :param cell_id: UUID
@@ -8249,11 +8247,7 @@ class Chats(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ChatServiceSubmitQuestionsResponse:
-        r"""Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
-
-        Resolve a halted questions cell. Submit hands the answers to the agent and
-        resumes it; Dismiss hands over only the answered count and does NOT resume
-        (the user's next message becomes the dismissal reason).
+        r"""SubmitQuestions
 
         :param connect_timeout_ms:
         :param cell_id: UUID

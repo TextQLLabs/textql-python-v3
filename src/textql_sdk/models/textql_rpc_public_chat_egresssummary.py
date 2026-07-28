@@ -15,9 +15,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicChatEgressSummaryTypedDict(TypedDict):
     total_calls: NotRequired[int]
     outcome_counts: NotRequired[Dict[str, int]]
-    r"""outcome -> count (ok/denied/error)"""
     calls: NotRequired[List[TextqlRPCPublicChatEgressCallTypedDict]]
-    r"""bounded; newest first"""
 
 
 class TextqlRPCPublicChatEgressSummary(BaseModel):
@@ -26,10 +24,8 @@ class TextqlRPCPublicChatEgressSummary(BaseModel):
     outcome_counts: Annotated[
         Optional[Dict[str, int]], pydantic.Field(alias="outcomeCounts")
     ] = None
-    r"""outcome -> count (ok/denied/error)"""
 
     calls: Optional[List[TextqlRPCPublicChatEgressCall]] = None
-    r"""bounded; newest first"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

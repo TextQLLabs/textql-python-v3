@@ -48,6 +48,8 @@ class TextqlRPCPublicAgentUpdateAgentRequestTypedDict(TypedDict):
     (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
     cron the backend generates; \"\" (or an empty list) means exact.
     """
+    feed_enabled: NotRequired[Nullable[bool]]
+    r"""Feed participation; nil = don't touch (mirrors fast_mode/is_stateful)."""
 
 
 class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
@@ -129,6 +131,11 @@ class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
     cron the backend generates; \"\" (or an empty list) means exact.
     """
 
+    feed_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
+    ] = UNSET
+    r"""Feed participation; nil = don't touch (mirrors fast_mode/is_stateful)."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -153,6 +160,7 @@ class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
                 "teamsDmUserAadIds",
                 "slackTrigger",
                 "postingFrequencyCadences",
+                "feedEnabled",
             ]
         )
         nullable_fields = set(
@@ -163,6 +171,7 @@ class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
                 "updateEmailRecipients",
                 "updateChannelIds",
                 "teamsChannelId",
+                "feedEnabled",
             ]
         )
         serialized = handler(self)

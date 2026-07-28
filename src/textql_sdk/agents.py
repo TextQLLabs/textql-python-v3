@@ -41,6 +41,7 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        feed_enabled: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -68,6 +69,8 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
+        :param feed_enabled: Unset defaults to true: new agents are delegatable unless the caller opts
+            out. Mirrors allow_ad_hoc_subagents below.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -119,6 +122,7 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                feed_enabled=feed_enabled,
             ),
         )
 
@@ -221,6 +225,7 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        feed_enabled: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -248,6 +253,8 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
+        :param feed_enabled: Unset defaults to true: new agents are delegatable unless the caller opts
+            out. Mirrors allow_ad_hoc_subagents below.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -299,6 +306,7 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                feed_enabled=feed_enabled,
             ),
         )
 
@@ -2100,6 +2108,7 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        feed_enabled: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2130,6 +2139,7 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
+        :param feed_enabled: Feed participation; nil = don't touch (mirrors fast_mode/is_stateful).
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2184,6 +2194,7 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                feed_enabled=feed_enabled,
             ),
         )
 
@@ -2289,6 +2300,7 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        feed_enabled: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2319,6 +2331,7 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
+        :param feed_enabled: Feed participation; nil = don't touch (mirrors fast_mode/is_stateful).
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2373,6 +2386,7 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                feed_enabled=feed_enabled,
             ),
         )
 

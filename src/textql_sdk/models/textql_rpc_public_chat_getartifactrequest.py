@@ -9,18 +9,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetArtifactRequestTypedDict(TypedDict):
-    r"""Request full artifact data when item is selected"""
+    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
 
     artifact_id: NotRequired[str]
-    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
     chat_id: NotRequired[str]
 
 
 class TextqlRPCPublicChatGetArtifactRequest(BaseModel):
-    r"""Request full artifact data when item is selected"""
+    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
 
     artifact_id: Annotated[Optional[str], pydantic.Field(alias="artifactId")] = None
-    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
 
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 

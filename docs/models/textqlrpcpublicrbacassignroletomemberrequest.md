@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacAssignRoleToMemberRequest
 
-Member role management messages
-
 
 ## Fields
 

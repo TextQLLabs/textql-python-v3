@@ -11,12 +11,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicChatAttachDashboardRequestTypedDict(TypedDict):
     chat_id: NotRequired[str]
     dashboard_id: NotRequired[str]
+    r"""uses latest version"""
 
 
 class TextqlRPCPublicChatAttachDashboardRequest(BaseModel):
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 
     dashboard_id: Annotated[Optional[str], pydantic.Field(alias="dashboardId")] = None
+    r"""uses latest version"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

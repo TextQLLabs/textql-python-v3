@@ -18,11 +18,8 @@ class TextqlRPCPublicObserveUpdateCustomTopicRequestTypedDict(TypedDict):
     topic_id: NotRequired[str]
     name: NotRequired[str]
     covers: NotRequired[Nullable[str]]
-    r"""When present, the definition is replaced. A changed definition wipes the
-    topic's verdict='tagged' rows (manual exclusions survive) — the caller is
-    expected to follow with BackfillCustomTopic to rebuild them.
-    """
     excludes: NotRequired[Nullable[str]]
+    r"""'live' | 'backfill' | 'manual'"""
 
 
 class TextqlRPCPublicObserveUpdateCustomTopicRequest(BaseModel):
@@ -31,12 +28,9 @@ class TextqlRPCPublicObserveUpdateCustomTopicRequest(BaseModel):
     name: Optional[str] = None
 
     covers: OptionalNullable[str] = UNSET
-    r"""When present, the definition is replaced. A changed definition wipes the
-    topic's verdict='tagged' rows (manual exclusions survive) — the caller is
-    expected to follow with BackfillCustomTopic to rebuild them.
-    """
 
     excludes: OptionalNullable[str] = UNSET
+    r"""'live' | 'backfill' | 'manual'"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

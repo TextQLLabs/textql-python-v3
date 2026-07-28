@@ -16,6 +16,7 @@ import weakref
 
 if TYPE_CHECKING:
     from textql_sdk.agents import Agents
+    from textql_sdk.agentservice import AgentService
     from textql_sdk.apps import Apps
     from textql_sdk.appservice import AppService
     from textql_sdk.auditlogs import AuditLogs
@@ -37,6 +38,7 @@ if TYPE_CHECKING:
     from textql_sdk.sandboxcapabilityservice import SandboxCapabilityService
     from textql_sdk.scim import Scim
     from textql_sdk.secrets import Secrets
+    from textql_sdk.settingsservice import SettingsService
     from textql_sdk.slack import Slack
     from textql_sdk.tableau_sdk import TableauSDK
     from textql_sdk.teams import Teams
@@ -49,6 +51,7 @@ class Textql(BaseSDK):
     """
 
     agents: "Agents"
+    agent_service: "AgentService"
     apps: "Apps"
     app_service: "AppService"
     r"""AppService manages data apps: the generative app execution primitive.
@@ -75,11 +78,13 @@ class Textql(BaseSDK):
     sandbox: "Sandbox"
     scim: "Scim"
     secrets: "Secrets"
+    settings_service: "SettingsService"
     slack: "Slack"
     tableau: "TableauSDK"
     teams: "Teams"
     _sub_sdk_map = {
         "agents": ("textql_sdk.agents", "Agents"),
+        "agent_service": ("textql_sdk.agentservice", "AgentService"),
         "apps": ("textql_sdk.apps", "Apps"),
         "app_service": ("textql_sdk.appservice", "AppService"),
         "audit_logs": ("textql_sdk.auditlogs", "AuditLogs"),
@@ -110,6 +115,7 @@ class Textql(BaseSDK):
         "sandbox": ("textql_sdk.sandbox", "Sandbox"),
         "scim": ("textql_sdk.scim", "Scim"),
         "secrets": ("textql_sdk.secrets", "Secrets"),
+        "settings_service": ("textql_sdk.settingsservice", "SettingsService"),
         "slack": ("textql_sdk.slack", "Slack"),
         "tableau": ("textql_sdk.tableau_sdk", "TableauSDK"),
         "teams": ("textql_sdk.teams", "Teams"),

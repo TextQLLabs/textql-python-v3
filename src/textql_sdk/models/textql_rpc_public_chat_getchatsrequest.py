@@ -25,7 +25,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicChatGetChatsRequestTypedDict(TypedDict):
     member_only: NotRequired[bool]
-    r"""whether to return only the user's chats or all of the org's chats"""
     search_term: NotRequired[Nullable[str]]
     limit: NotRequired[Nullable[int]]
     offset: NotRequired[Nullable[int]]
@@ -33,7 +32,6 @@ class TextqlRPCPublicChatGetChatsRequestTypedDict(TypedDict):
     sort_by: NotRequired[TextqlRPCPublicChatChatSortField]
     sort_direction: NotRequired[TextqlRPCPublicChatChatSortDirection]
     bookmarked_only: NotRequired[Nullable[bool]]
-    r"""filter to only bookmarked chats"""
     created_after: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -217,31 +215,20 @@ class TextqlRPCPublicChatGetChatsRequestTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     exclude_batch_runs: NotRequired[Nullable[bool]]
-    r"""exclude chats created from template batch runs"""
     exclude_unused_playbooks: NotRequired[Nullable[bool]]
-    r"""exclude chats created from playbooks that have no user messages beyond the initial prompt"""
     source: NotRequired[TextqlRPCPublicChatChatSource]
     has_thread_warning: NotRequired[Nullable[bool]]
-    r"""When true (and thread_warning_types empty), only chats that have at least one thread_warning row of any type."""
     creator_member_ids: NotRequired[List[str]]
-    r"""Filter org chats to these creator member IDs (union). Ignored when empty. Supersedes creator_member_id when non-empty."""
     shared_with_me: NotRequired[Nullable[bool]]
     exclude_feed: NotRequired[Nullable[bool]]
     sources: NotRequired[List[TextqlRPCPublicChatChatSource]]
-    r"""Filter chats by source (union). Ignored when empty. Supersedes the single `source` when non-empty."""
     thread_warning_types: NotRequired[List[TextqlRPCPublicChatThreadWarningType]]
-    r"""Filter to chats with at least one thread_warning of any of these types (union)."""
     topic_ids: NotRequired[List[str]]
-    r"""Only chats tagged with at least one of these custom topics
-    (verdict='tagged'). Ignored when empty.
-    """
     connector_ids: NotRequired[List[int]]
-    r"""Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty."""
 
 
 class TextqlRPCPublicChatGetChatsRequest(BaseModel):
     member_only: Annotated[Optional[bool], pydantic.Field(alias="memberOnly")] = None
-    r"""whether to return only the user's chats or all of the org's chats"""
 
     search_term: Annotated[
         OptionalNullable[str], pydantic.Field(alias="searchTerm")
@@ -267,7 +254,6 @@ class TextqlRPCPublicChatGetChatsRequest(BaseModel):
     bookmarked_only: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="bookmarkedOnly")
     ] = UNSET
-    r"""filter to only bookmarked chats"""
 
     created_after: Annotated[
         Optional[datetime], pydantic.Field(alias="createdAfter")
@@ -460,24 +446,20 @@ class TextqlRPCPublicChatGetChatsRequest(BaseModel):
     exclude_batch_runs: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="excludeBatchRuns")
     ] = UNSET
-    r"""exclude chats created from template batch runs"""
 
     exclude_unused_playbooks: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="excludeUnusedPlaybooks")
     ] = UNSET
-    r"""exclude chats created from playbooks that have no user messages beyond the initial prompt"""
 
     source: Optional[TextqlRPCPublicChatChatSource] = None
 
     has_thread_warning: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="hasThreadWarning")
     ] = UNSET
-    r"""When true (and thread_warning_types empty), only chats that have at least one thread_warning row of any type."""
 
     creator_member_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="creatorMemberIds")
     ] = None
-    r"""Filter org chats to these creator member IDs (union). Ignored when empty. Supersedes creator_member_id when non-empty."""
 
     shared_with_me: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="sharedWithMe")
@@ -488,23 +470,17 @@ class TextqlRPCPublicChatGetChatsRequest(BaseModel):
     ] = UNSET
 
     sources: Optional[List[TextqlRPCPublicChatChatSource]] = None
-    r"""Filter chats by source (union). Ignored when empty. Supersedes the single `source` when non-empty."""
 
     thread_warning_types: Annotated[
         Optional[List[TextqlRPCPublicChatThreadWarningType]],
         pydantic.Field(alias="threadWarningTypes"),
     ] = None
-    r"""Filter to chats with at least one thread_warning of any of these types (union)."""
 
     topic_ids: Annotated[Optional[List[str]], pydantic.Field(alias="topicIds")] = None
-    r"""Only chats tagged with at least one of these custom topics
-    (verdict='tagged'). Ignored when empty.
-    """
 
     connector_ids: Annotated[
         Optional[List[int]], pydantic.Field(alias="connectorIds")
     ] = None
-    r"""Filter chats that have any of these connector IDs in their paradigm options (union). Ignored when empty."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

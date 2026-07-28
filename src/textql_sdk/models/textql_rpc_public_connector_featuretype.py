@@ -11,6 +11,8 @@ TextqlRPCPublicConnectorFeatureType = Union[
         "FEATURE_TYPE_REPORT",
         "FEATURE_TYPE_PLAYBOOK",
         "FEATURE_TYPE_DASHBOARD",
+        "FEATURE_TYPE_DATA_APP",
+        "FEATURE_TYPE_AGENT",
     ],
     UnrecognizedStr,
 ]
