@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
@@ -106,6 +106,7 @@ class ArtifactType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ARTIFACT_TYPE_AGENT: _ClassVar[ArtifactType]
     ARTIFACT_TYPE_HTML_CHART: _ClassVar[ArtifactType]
     ARTIFACT_TYPE_APP: _ClassVar[ArtifactType]
+    ARTIFACT_TYPE_DASHBOARD_PREVIEW: _ClassVar[ArtifactType]
 LIFECYCLE_UNKNOWN: CellLifecycle
 LIFECYCLE_CREATING: CellLifecycle
 LIFECYCLE_CREATED: CellLifecycle
@@ -164,6 +165,7 @@ ARTIFACT_TYPE_REPORT: ArtifactType
 ARTIFACT_TYPE_AGENT: ArtifactType
 ARTIFACT_TYPE_HTML_CHART: ArtifactType
 ARTIFACT_TYPE_APP: ArtifactType
+ARTIFACT_TYPE_DASHBOARD_PREVIEW: ArtifactType
 
 class AttachAgentToChatRequest(_message.Message):
     __slots__ = ('chat_id', 'agent_id')
@@ -184,7 +186,7 @@ class AttachAgentToChatResponse(_message.Message):
         ...
 
 class Chat(_message.Message):
-    __slots__ = ('id', 'paradigm', 'model', 'timestamp', 'org_id', 'member_id', 'summary', 'playbook_id', 'research', 'creator_email', 'api_key_client_id', 'updated_at', 'is_bookmarked', 'preferred_provider', 'template_data_id', 'batch_run_id', 'preview', 'dashboard_mode', 'source', 'methodology', 'is_running', 'is_unread', 'vllm_model_id', 'fast_mode', 'agent_id', 'agent_name', 'agent_profile_image_url', 'max_thinking')
+    __slots__ = ('id', 'paradigm', 'model', 'timestamp', 'org_id', 'member_id', 'summary', 'playbook_id', 'research', 'creator_email', 'api_key_client_id', 'updated_at', 'is_bookmarked', 'preferred_provider', 'template_data_id', 'batch_run_id', 'preview', 'dashboard_mode', 'source', 'methodology', 'is_running', 'is_unread', 'vllm_model_id', 'fast_mode', 'agent_id', 'agent_name', 'agent_profile_image_url', 'max_thinking', 'parent_chat_id')
     ID_FIELD_NUMBER: _ClassVar[int]
     PARADIGM_FIELD_NUMBER: _ClassVar[int]
     MODEL_FIELD_NUMBER: _ClassVar[int]
@@ -213,6 +215,7 @@ class Chat(_message.Message):
     AGENT_NAME_FIELD_NUMBER: _ClassVar[int]
     AGENT_PROFILE_IMAGE_URL_FIELD_NUMBER: _ClassVar[int]
     MAX_THINKING_FIELD_NUMBER: _ClassVar[int]
+    PARENT_CHAT_ID_FIELD_NUMBER: _ClassVar[int]
     id: str
     paradigm: _paradigm_pb2.Paradigm
     model: _llm_model_pb2.LlmModel
@@ -241,12 +244,13 @@ class Chat(_message.Message):
     agent_name: str
     agent_profile_image_url: str
     max_thinking: bool
+    parent_chat_id: str
 
-    def __init__(self, id: _Optional[str]=..., paradigm: _Optional[_Union[_paradigm_pb2.Paradigm, _Mapping]]=..., model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., org_id: _Optional[str]=..., member_id: _Optional[str]=..., summary: _Optional[str]=..., playbook_id: _Optional[str]=..., research: bool=..., creator_email: _Optional[str]=..., api_key_client_id: _Optional[str]=..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., is_bookmarked: bool=..., preferred_provider: _Optional[str]=..., template_data_id: _Optional[str]=..., batch_run_id: _Optional[str]=..., preview: _Optional[str]=..., dashboard_mode: bool=..., source: _Optional[_Union[ChatSource, str]]=..., methodology: _Optional[_Union[Methodology, str]]=..., is_running: bool=..., is_unread: bool=..., vllm_model_id: _Optional[str]=..., fast_mode: bool=..., agent_id: _Optional[str]=..., agent_name: _Optional[str]=..., agent_profile_image_url: _Optional[str]=..., max_thinking: bool=...) -> None:
+    def __init__(self, id: _Optional[str]=..., paradigm: _Optional[_Union[_paradigm_pb2.Paradigm, _Mapping]]=..., model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., org_id: _Optional[str]=..., member_id: _Optional[str]=..., summary: _Optional[str]=..., playbook_id: _Optional[str]=..., research: bool=..., creator_email: _Optional[str]=..., api_key_client_id: _Optional[str]=..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., is_bookmarked: bool=..., preferred_provider: _Optional[str]=..., template_data_id: _Optional[str]=..., batch_run_id: _Optional[str]=..., preview: _Optional[str]=..., dashboard_mode: bool=..., source: _Optional[_Union[ChatSource, str]]=..., methodology: _Optional[_Union[Methodology, str]]=..., is_running: bool=..., is_unread: bool=..., vllm_model_id: _Optional[str]=..., fast_mode: bool=..., agent_id: _Optional[str]=..., agent_name: _Optional[str]=..., agent_profile_image_url: _Optional[str]=..., max_thinking: bool=..., parent_chat_id: _Optional[str]=...) -> None:
         ...
 
 class Cell(_message.Message):
-    __slots__ = ('id', 'timestamp', 'complete', 'generated', 'lifecycle', 'tool_call_id', 'exec_error', 'sender_member_id', 'md_cell', 'py_cell', 'sql_cell', 'ans_cell', 'document_cell', 'ws_cell', 'report_cell', 'tabular_file_cell', 'status_cell', 'metrics_cell', 'summary_cell', 'tableau_cell', 'tableau_sql_cell', 'context_prompt_editor_cell', 'ontology_editor_cell', 'image_cell', 'text_cell', 'mcp_tool_cell', 'preview_cell', 'playbook_editor_cell', 'streamlit_cell', 'dashboard_cell', 'google_drive_content_cell', 'google_drive_search_cell', 'powerbi_cell', 'powerbi_dax_cell', 'form_editor_cell', 'tableau_search_fields_cell', 'report_history_cell', 'microsoft365_email_search_cell', 'microsoft365_email_content_cell', 'microsoft365_calendar_cell', 'feed_explorer_cell', 'bash_cell', 'javascript_cell', 'feed_post_cell', 'feed_comment_cell', 'feed_engage_cell', 'ontology_search_metrics_cell', 'ontology_open_object_cell', 'compaction_cell', 'gmail_email_search_cell', 'gmail_email_content_cell', 'list_dashboards_cell', 'list_users_cell', 'google_calendar_search_cell', 'feed_create_cell', 'ontology_query_cell', 'email_cell', 'patch_cell', 'linkedin_search_cell', 'use_skill_cell', 'form_cell', 'connectors_cell', 'questions_cell', 'app_cell', 'list_apps_cell', 'thinking_cell', 'tool_summary', 'duration_ms')
+    __slots__ = ('id', 'timestamp', 'complete', 'generated', 'lifecycle', 'tool_call_id', 'exec_error', 'sender_member_id', 'md_cell', 'py_cell', 'sql_cell', 'ans_cell', 'document_cell', 'ws_cell', 'report_cell', 'tabular_file_cell', 'status_cell', 'metrics_cell', 'summary_cell', 'tableau_cell', 'tableau_sql_cell', 'context_prompt_editor_cell', 'ontology_editor_cell', 'image_cell', 'text_cell', 'mcp_tool_cell', 'preview_cell', 'playbook_editor_cell', 'streamlit_cell', 'dashboard_cell', 'google_drive_content_cell', 'google_drive_search_cell', 'powerbi_cell', 'powerbi_dax_cell', 'form_editor_cell', 'tableau_search_fields_cell', 'report_history_cell', 'microsoft365_email_search_cell', 'microsoft365_email_content_cell', 'microsoft365_calendar_cell', 'feed_explorer_cell', 'bash_cell', 'javascript_cell', 'feed_post_cell', 'feed_comment_cell', 'feed_engage_cell', 'ontology_search_metrics_cell', 'ontology_open_object_cell', 'compaction_cell', 'gmail_email_search_cell', 'gmail_email_content_cell', 'list_dashboards_cell', 'list_users_cell', 'google_calendar_search_cell', 'feed_create_cell', 'ontology_query_cell', 'email_cell', 'patch_cell', 'linkedin_search_cell', 'use_skill_cell', 'form_cell', 'connectors_cell', 'questions_cell', 'app_cell', 'list_apps_cell', 'thinking_cell', 'subagent_cell', 'tool_summary', 'duration_ms')
     ID_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     COMPLETE_FIELD_NUMBER: _ClassVar[int]
@@ -313,6 +317,7 @@ class Cell(_message.Message):
     APP_CELL_FIELD_NUMBER: _ClassVar[int]
     LIST_APPS_CELL_FIELD_NUMBER: _ClassVar[int]
     THINKING_CELL_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_CELL_FIELD_NUMBER: _ClassVar[int]
     TOOL_SUMMARY_FIELD_NUMBER: _ClassVar[int]
     DURATION_MS_FIELD_NUMBER: _ClassVar[int]
     id: str
@@ -381,10 +386,11 @@ class Cell(_message.Message):
     app_cell: _cells_pb2.AppCell
     list_apps_cell: _cells_pb2.ListAppsCell
     thinking_cell: _cells_pb2.ThinkingCell
+    subagent_cell: _cells_pb2.SubagentCell
     tool_summary: str
     duration_ms: int
 
-    def __init__(self, id: _Optional[str]=..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., complete: bool=..., generated: bool=..., lifecycle: _Optional[_Union[CellLifecycle, str]]=..., tool_call_id: _Optional[str]=..., exec_error: _Optional[str]=..., sender_member_id: _Optional[str]=..., md_cell: _Optional[_Union[_cells_pb2.MarkdownCell, _Mapping]]=..., py_cell: _Optional[_Union[_cells_pb2.PythonCell, _Mapping]]=..., sql_cell: _Optional[_Union[_cells_pb2.SQLCell, _Mapping]]=..., ans_cell: _Optional[_Union[_cells_pb2.AnswerCell, _Mapping]]=..., document_cell: _Optional[_Union[_cells_pb2.DocumentCell, _Mapping]]=..., ws_cell: _Optional[_Union[_cells_pb2.WebSearchCell, _Mapping]]=..., report_cell: _Optional[_Union[_cells_pb2.ReportCell, _Mapping]]=..., tabular_file_cell: _Optional[_Union[_cells_pb2.TabularFileCell, _Mapping]]=..., status_cell: _Optional[_Union[_cells_pb2.StatusCell, _Mapping]]=..., metrics_cell: _Optional[_Union[_cells_pb2.MetricsCell, _Mapping]]=..., summary_cell: _Optional[_Union[_cells_pb2.SummaryCell, _Mapping]]=..., tableau_cell: _Optional[_Union[_cells_pb2.TableauCell, _Mapping]]=..., tableau_sql_cell: _Optional[_Union[_cells_pb2.TableauSQLCell, _Mapping]]=..., context_prompt_editor_cell: _Optional[_Union[_cells_pb2.ContextPromptEditorCell, _Mapping]]=..., ontology_editor_cell: _Optional[_Union[_cells_pb2.OntologyEditorCell, _Mapping]]=..., image_cell: _Optional[_Union[_cells_pb2.ImageCell, _Mapping]]=..., text_cell: _Optional[_Union[_cells_pb2.TextCell, _Mapping]]=..., mcp_tool_cell: _Optional[_Union[_cells_pb2.MCPToolCell, _Mapping]]=..., preview_cell: _Optional[_Union[_cells_pb2.PreviewCell, _Mapping]]=..., playbook_editor_cell: _Optional[_Union[_cells_pb2.PlaybookEditorCell, _Mapping]]=..., streamlit_cell: _Optional[_Union[_cells_pb2.StreamlitCell, _Mapping]]=..., dashboard_cell: _Optional[_Union[_cells_pb2.DashboardCell, _Mapping]]=..., google_drive_content_cell: _Optional[_Union[_cells_pb2.GoogleDriveContentCell, _Mapping]]=..., google_drive_search_cell: _Optional[_Union[_cells_pb2.GoogleDriveSearchCell, _Mapping]]=..., powerbi_cell: _Optional[_Union[_cells_pb2.PowerBICell, _Mapping]]=..., powerbi_dax_cell: _Optional[_Union[_cells_pb2.PowerBIDAXCell, _Mapping]]=..., form_editor_cell: _Optional[_Union[_cells_pb2.FormEditorCell, _Mapping]]=..., tableau_search_fields_cell: _Optional[_Union[_cells_pb2.TableauSearchFieldsCell, _Mapping]]=..., report_history_cell: _Optional[_Union[_cells_pb2.ReportHistoryCell, _Mapping]]=..., microsoft365_email_search_cell: _Optional[_Union[_cells_pb2.Microsoft365EmailSearchCell, _Mapping]]=..., microsoft365_email_content_cell: _Optional[_Union[_cells_pb2.Microsoft365EmailContentCell, _Mapping]]=..., microsoft365_calendar_cell: _Optional[_Union[_cells_pb2.Microsoft365CalendarCell, _Mapping]]=..., feed_explorer_cell: _Optional[_Union[_cells_pb2.FeedExplorerCell, _Mapping]]=..., bash_cell: _Optional[_Union[_cells_pb2.BashCell, _Mapping]]=..., javascript_cell: _Optional[_Union[_cells_pb2.JavaScriptCell, _Mapping]]=..., feed_post_cell: _Optional[_Union[_cells_pb2.FeedPostCell, _Mapping]]=..., feed_comment_cell: _Optional[_Union[_cells_pb2.FeedCommentCell, _Mapping]]=..., feed_engage_cell: _Optional[_Union[_cells_pb2.FeedEngageCell, _Mapping]]=..., ontology_search_metrics_cell: _Optional[_Union[_cells_pb2.OntologySearchMetricsCell, _Mapping]]=..., ontology_open_object_cell: _Optional[_Union[_cells_pb2.OntologyOpenObjectCell, _Mapping]]=..., compaction_cell: _Optional[_Union[_cells_pb2.CompactionCell, _Mapping]]=..., gmail_email_search_cell: _Optional[_Union[_cells_pb2.GmailEmailSearchCell, _Mapping]]=..., gmail_email_content_cell: _Optional[_Union[_cells_pb2.GmailEmailContentCell, _Mapping]]=..., list_dashboards_cell: _Optional[_Union[_cells_pb2.ListDashboardsCell, _Mapping]]=..., list_users_cell: _Optional[_Union[_cells_pb2.ListUsersCell, _Mapping]]=..., google_calendar_search_cell: _Optional[_Union[_cells_pb2.GoogleCalendarSearchCell, _Mapping]]=..., feed_create_cell: _Optional[_Union[_cells_pb2.FeedCreateCell, _Mapping]]=..., ontology_query_cell: _Optional[_Union[_cells_pb2.OntologyQueryCell, _Mapping]]=..., email_cell: _Optional[_Union[_cells_pb2.EmailCell, _Mapping]]=..., patch_cell: _Optional[_Union[_cells_pb2.PatchCell, _Mapping]]=..., linkedin_search_cell: _Optional[_Union[_cells_pb2.LinkedinSearchCell, _Mapping]]=..., use_skill_cell: _Optional[_Union[_cells_pb2.UseSkillCell, _Mapping]]=..., form_cell: _Optional[_Union[_cells_pb2.FormCell, _Mapping]]=..., connectors_cell: _Optional[_Union[_cells_pb2.ConnectorsCell, _Mapping]]=..., questions_cell: _Optional[_Union[_cells_pb2.QuestionsCell, _Mapping]]=..., app_cell: _Optional[_Union[_cells_pb2.AppCell, _Mapping]]=..., list_apps_cell: _Optional[_Union[_cells_pb2.ListAppsCell, _Mapping]]=..., thinking_cell: _Optional[_Union[_cells_pb2.ThinkingCell, _Mapping]]=..., tool_summary: _Optional[str]=..., duration_ms: _Optional[int]=...) -> None:
+    def __init__(self, id: _Optional[str]=..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., complete: bool=..., generated: bool=..., lifecycle: _Optional[_Union[CellLifecycle, str]]=..., tool_call_id: _Optional[str]=..., exec_error: _Optional[str]=..., sender_member_id: _Optional[str]=..., md_cell: _Optional[_Union[_cells_pb2.MarkdownCell, _Mapping]]=..., py_cell: _Optional[_Union[_cells_pb2.PythonCell, _Mapping]]=..., sql_cell: _Optional[_Union[_cells_pb2.SQLCell, _Mapping]]=..., ans_cell: _Optional[_Union[_cells_pb2.AnswerCell, _Mapping]]=..., document_cell: _Optional[_Union[_cells_pb2.DocumentCell, _Mapping]]=..., ws_cell: _Optional[_Union[_cells_pb2.WebSearchCell, _Mapping]]=..., report_cell: _Optional[_Union[_cells_pb2.ReportCell, _Mapping]]=..., tabular_file_cell: _Optional[_Union[_cells_pb2.TabularFileCell, _Mapping]]=..., status_cell: _Optional[_Union[_cells_pb2.StatusCell, _Mapping]]=..., metrics_cell: _Optional[_Union[_cells_pb2.MetricsCell, _Mapping]]=..., summary_cell: _Optional[_Union[_cells_pb2.SummaryCell, _Mapping]]=..., tableau_cell: _Optional[_Union[_cells_pb2.TableauCell, _Mapping]]=..., tableau_sql_cell: _Optional[_Union[_cells_pb2.TableauSQLCell, _Mapping]]=..., context_prompt_editor_cell: _Optional[_Union[_cells_pb2.ContextPromptEditorCell, _Mapping]]=..., ontology_editor_cell: _Optional[_Union[_cells_pb2.OntologyEditorCell, _Mapping]]=..., image_cell: _Optional[_Union[_cells_pb2.ImageCell, _Mapping]]=..., text_cell: _Optional[_Union[_cells_pb2.TextCell, _Mapping]]=..., mcp_tool_cell: _Optional[_Union[_cells_pb2.MCPToolCell, _Mapping]]=..., preview_cell: _Optional[_Union[_cells_pb2.PreviewCell, _Mapping]]=..., playbook_editor_cell: _Optional[_Union[_cells_pb2.PlaybookEditorCell, _Mapping]]=..., streamlit_cell: _Optional[_Union[_cells_pb2.StreamlitCell, _Mapping]]=..., dashboard_cell: _Optional[_Union[_cells_pb2.DashboardCell, _Mapping]]=..., google_drive_content_cell: _Optional[_Union[_cells_pb2.GoogleDriveContentCell, _Mapping]]=..., google_drive_search_cell: _Optional[_Union[_cells_pb2.GoogleDriveSearchCell, _Mapping]]=..., powerbi_cell: _Optional[_Union[_cells_pb2.PowerBICell, _Mapping]]=..., powerbi_dax_cell: _Optional[_Union[_cells_pb2.PowerBIDAXCell, _Mapping]]=..., form_editor_cell: _Optional[_Union[_cells_pb2.FormEditorCell, _Mapping]]=..., tableau_search_fields_cell: _Optional[_Union[_cells_pb2.TableauSearchFieldsCell, _Mapping]]=..., report_history_cell: _Optional[_Union[_cells_pb2.ReportHistoryCell, _Mapping]]=..., microsoft365_email_search_cell: _Optional[_Union[_cells_pb2.Microsoft365EmailSearchCell, _Mapping]]=..., microsoft365_email_content_cell: _Optional[_Union[_cells_pb2.Microsoft365EmailContentCell, _Mapping]]=..., microsoft365_calendar_cell: _Optional[_Union[_cells_pb2.Microsoft365CalendarCell, _Mapping]]=..., feed_explorer_cell: _Optional[_Union[_cells_pb2.FeedExplorerCell, _Mapping]]=..., bash_cell: _Optional[_Union[_cells_pb2.BashCell, _Mapping]]=..., javascript_cell: _Optional[_Union[_cells_pb2.JavaScriptCell, _Mapping]]=..., feed_post_cell: _Optional[_Union[_cells_pb2.FeedPostCell, _Mapping]]=..., feed_comment_cell: _Optional[_Union[_cells_pb2.FeedCommentCell, _Mapping]]=..., feed_engage_cell: _Optional[_Union[_cells_pb2.FeedEngageCell, _Mapping]]=..., ontology_search_metrics_cell: _Optional[_Union[_cells_pb2.OntologySearchMetricsCell, _Mapping]]=..., ontology_open_object_cell: _Optional[_Union[_cells_pb2.OntologyOpenObjectCell, _Mapping]]=..., compaction_cell: _Optional[_Union[_cells_pb2.CompactionCell, _Mapping]]=..., gmail_email_search_cell: _Optional[_Union[_cells_pb2.GmailEmailSearchCell, _Mapping]]=..., gmail_email_content_cell: _Optional[_Union[_cells_pb2.GmailEmailContentCell, _Mapping]]=..., list_dashboards_cell: _Optional[_Union[_cells_pb2.ListDashboardsCell, _Mapping]]=..., list_users_cell: _Optional[_Union[_cells_pb2.ListUsersCell, _Mapping]]=..., google_calendar_search_cell: _Optional[_Union[_cells_pb2.GoogleCalendarSearchCell, _Mapping]]=..., feed_create_cell: _Optional[_Union[_cells_pb2.FeedCreateCell, _Mapping]]=..., ontology_query_cell: _Optional[_Union[_cells_pb2.OntologyQueryCell, _Mapping]]=..., email_cell: _Optional[_Union[_cells_pb2.EmailCell, _Mapping]]=..., patch_cell: _Optional[_Union[_cells_pb2.PatchCell, _Mapping]]=..., linkedin_search_cell: _Optional[_Union[_cells_pb2.LinkedinSearchCell, _Mapping]]=..., use_skill_cell: _Optional[_Union[_cells_pb2.UseSkillCell, _Mapping]]=..., form_cell: _Optional[_Union[_cells_pb2.FormCell, _Mapping]]=..., connectors_cell: _Optional[_Union[_cells_pb2.ConnectorsCell, _Mapping]]=..., questions_cell: _Optional[_Union[_cells_pb2.QuestionsCell, _Mapping]]=..., app_cell: _Optional[_Union[_cells_pb2.AppCell, _Mapping]]=..., list_apps_cell: _Optional[_Union[_cells_pb2.ListAppsCell, _Mapping]]=..., thinking_cell: _Optional[_Union[_cells_pb2.ThinkingCell, _Mapping]]=..., subagent_cell: _Optional[_Union[_cells_pb2.SubagentCell, _Mapping]]=..., tool_summary: _Optional[str]=..., duration_ms: _Optional[int]=...) -> None:
         ...
 
 class LlmCompletionParameters(_message.Message):
@@ -533,6 +539,20 @@ class CancelStreamResponse(_message.Message):
     exists: bool
 
     def __init__(self, exists: bool=...) -> None:
+        ...
+
+class CompactChatRequest(_message.Message):
+    __slots__ = ('chat_id',)
+    CHAT_ID_FIELD_NUMBER: _ClassVar[int]
+    chat_id: str
+
+    def __init__(self, chat_id: _Optional[str]=...) -> None:
+        ...
+
+class CompactChatResponse(_message.Message):
+    __slots__ = ()
+
+    def __init__(self) -> None:
         ...
 
 class RateChatCellRequest(_message.Message):

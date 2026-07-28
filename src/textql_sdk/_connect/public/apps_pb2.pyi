@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
@@ -256,6 +256,34 @@ class SetFavoriteResponse(_message.Message):
     def __init__(self, favorited: bool=...) -> None:
         ...
 
+class ListFavoritesRequest(_message.Message):
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        ...
+
+class FavoriteItem(_message.Message):
+    __slots__ = ('primitive_type', 'primitive_id', 'name', 'preview_url')
+    PRIMITIVE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PRIMITIVE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    PREVIEW_URL_FIELD_NUMBER: _ClassVar[int]
+    primitive_type: str
+    primitive_id: str
+    name: str
+    preview_url: str
+
+    def __init__(self, primitive_type: _Optional[str]=..., primitive_id: _Optional[str]=..., name: _Optional[str]=..., preview_url: _Optional[str]=...) -> None:
+        ...
+
+class ListFavoritesResponse(_message.Message):
+    __slots__ = ('items',)
+    ITEMS_FIELD_NUMBER: _ClassVar[int]
+    items: _containers.RepeatedCompositeFieldContainer[FavoriteItem]
+
+    def __init__(self, items: _Optional[_Iterable[_Union[FavoriteItem, _Mapping]]]=...) -> None:
+        ...
+
 class AppHeartbeatRequest(_message.Message):
     __slots__ = ('app_id',)
     APP_ID_FIELD_NUMBER: _ClassVar[int]
@@ -265,7 +293,7 @@ class AppHeartbeatRequest(_message.Message):
         ...
 
 class App(_message.Message):
-    __slots__ = ('id', 'org_id', 'creator_id', 'name', 'description', 'code', 'data_sources', 'html_url', 'screenshot_url', 'console_errors', 'chat_id', 'published_html_url', 'has_unpublished_changes', 'compute_functions', 'files', 'schedule_enabled', 'cron_string', 'folder_id', 'is_favorited', 'capabilities', 'app_db_setup', 'member_features_enabled', 'uses_member_features', 'viewer_grants', 'created_at', 'updated_at', 'refreshed_at', 'published_at')
+    __slots__ = ('id', 'org_id', 'creator_id', 'name', 'description', 'code', 'data_sources', 'html_url', 'screenshot_url', 'console_errors', 'chat_id', 'published_html_url', 'has_unpublished_changes', 'staleness_window_seconds', 'compute_functions', 'files', 'schedule_enabled', 'cron_string', 'folder_id', 'is_favorited', 'capabilities', 'app_db_setup', 'member_features_enabled', 'uses_member_features', 'viewer_grants', 'server', 'realtime_path', 'created_at', 'updated_at', 'refreshed_at', 'published_at')
     ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CREATOR_ID_FIELD_NUMBER: _ClassVar[int]
@@ -279,6 +307,7 @@ class App(_message.Message):
     CHAT_ID_FIELD_NUMBER: _ClassVar[int]
     PUBLISHED_HTML_URL_FIELD_NUMBER: _ClassVar[int]
     HAS_UNPUBLISHED_CHANGES_FIELD_NUMBER: _ClassVar[int]
+    STALENESS_WINDOW_SECONDS_FIELD_NUMBER: _ClassVar[int]
     COMPUTE_FUNCTIONS_FIELD_NUMBER: _ClassVar[int]
     FILES_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_ENABLED_FIELD_NUMBER: _ClassVar[int]
@@ -290,6 +319,8 @@ class App(_message.Message):
     MEMBER_FEATURES_ENABLED_FIELD_NUMBER: _ClassVar[int]
     USES_MEMBER_FEATURES_FIELD_NUMBER: _ClassVar[int]
     VIEWER_GRANTS_FIELD_NUMBER: _ClassVar[int]
+    SERVER_FIELD_NUMBER: _ClassVar[int]
+    REALTIME_PATH_FIELD_NUMBER: _ClassVar[int]
     CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
     REFRESHED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -307,6 +338,7 @@ class App(_message.Message):
     chat_id: str
     published_html_url: str
     has_unpublished_changes: bool
+    staleness_window_seconds: int
     compute_functions: _containers.RepeatedCompositeFieldContainer[ComputeFunction]
     files: _containers.RepeatedCompositeFieldContainer[AppFile]
     schedule_enabled: bool
@@ -318,16 +350,18 @@ class App(_message.Message):
     member_features_enabled: bool
     uses_member_features: bool
     viewer_grants: _containers.RepeatedScalarFieldContainer[str]
+    server: AppServer
+    realtime_path: str
     created_at: _timestamp_pb2.Timestamp
     updated_at: _timestamp_pb2.Timestamp
     refreshed_at: _timestamp_pb2.Timestamp
     published_at: _timestamp_pb2.Timestamp
 
-    def __init__(self, id: _Optional[str]=..., org_id: _Optional[str]=..., creator_id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., html_url: _Optional[str]=..., screenshot_url: _Optional[str]=..., console_errors: _Optional[_Iterable[str]]=..., chat_id: _Optional[str]=..., published_html_url: _Optional[str]=..., has_unpublished_changes: bool=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., schedule_enabled: bool=..., cron_string: _Optional[str]=..., folder_id: _Optional[str]=..., is_favorited: bool=..., capabilities: _Optional[_Iterable[_Union[Capability, _Mapping]]]=..., app_db_setup: _Optional[_Iterable[str]]=..., member_features_enabled: bool=..., uses_member_features: bool=..., viewer_grants: _Optional[_Iterable[str]]=..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., refreshed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., published_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=...) -> None:
+    def __init__(self, id: _Optional[str]=..., org_id: _Optional[str]=..., creator_id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., html_url: _Optional[str]=..., screenshot_url: _Optional[str]=..., console_errors: _Optional[_Iterable[str]]=..., chat_id: _Optional[str]=..., published_html_url: _Optional[str]=..., has_unpublished_changes: bool=..., staleness_window_seconds: _Optional[int]=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., schedule_enabled: bool=..., cron_string: _Optional[str]=..., folder_id: _Optional[str]=..., is_favorited: bool=..., capabilities: _Optional[_Iterable[_Union[Capability, _Mapping]]]=..., app_db_setup: _Optional[_Iterable[str]]=..., member_features_enabled: bool=..., uses_member_features: bool=..., viewer_grants: _Optional[_Iterable[str]]=..., server: _Optional[_Union[AppServer, _Mapping]]=..., realtime_path: _Optional[str]=..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., refreshed_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., published_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=...) -> None:
         ...
 
 class CreateAppRequest(_message.Message):
-    __slots__ = ('name', 'description', 'code', 'data_sources', 'compute_functions', 'files', 'capabilities', 'app_db_setup')
+    __slots__ = ('name', 'description', 'code', 'data_sources', 'compute_functions', 'files', 'capabilities', 'app_db_setup', 'server')
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     CODE_FIELD_NUMBER: _ClassVar[int]
@@ -336,6 +370,7 @@ class CreateAppRequest(_message.Message):
     FILES_FIELD_NUMBER: _ClassVar[int]
     CAPABILITIES_FIELD_NUMBER: _ClassVar[int]
     APP_DB_SETUP_FIELD_NUMBER: _ClassVar[int]
+    SERVER_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
     code: str
@@ -344,8 +379,9 @@ class CreateAppRequest(_message.Message):
     files: _containers.RepeatedCompositeFieldContainer[AppFile]
     capabilities: _containers.RepeatedCompositeFieldContainer[Capability]
     app_db_setup: _containers.RepeatedScalarFieldContainer[str]
+    server: AppServer
 
-    def __init__(self, name: _Optional[str]=..., description: _Optional[str]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., capabilities: _Optional[_Iterable[_Union[Capability, _Mapping]]]=..., app_db_setup: _Optional[_Iterable[str]]=...) -> None:
+    def __init__(self, name: _Optional[str]=..., description: _Optional[str]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., capabilities: _Optional[_Iterable[_Union[Capability, _Mapping]]]=..., app_db_setup: _Optional[_Iterable[str]]=..., server: _Optional[_Union[AppServer, _Mapping]]=...) -> None:
         ...
 
 class CreateAppResponse(_message.Message):
@@ -433,7 +469,7 @@ class GetMembersWithAppsResponse(_message.Message):
         ...
 
 class UpdateAppRequest(_message.Message):
-    __slots__ = ('app_id', 'name', 'description', 'code', 'data_sources', 'replace_data_sources', 'publish', 'compute_functions', 'replace_compute_functions', 'files', 'replace_files', 'schedule_enabled', 'cron_string', 'capabilities', 'replace_capabilities', 'app_db_setup', 'replace_app_db_setup')
+    __slots__ = ('app_id', 'name', 'description', 'code', 'data_sources', 'replace_data_sources', 'publish', 'staleness_window_seconds', 'compute_functions', 'replace_compute_functions', 'files', 'replace_files', 'schedule_enabled', 'cron_string', 'capabilities', 'replace_capabilities', 'app_db_setup', 'replace_app_db_setup', 'server')
     APP_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -441,6 +477,7 @@ class UpdateAppRequest(_message.Message):
     DATA_SOURCES_FIELD_NUMBER: _ClassVar[int]
     REPLACE_DATA_SOURCES_FIELD_NUMBER: _ClassVar[int]
     PUBLISH_FIELD_NUMBER: _ClassVar[int]
+    STALENESS_WINDOW_SECONDS_FIELD_NUMBER: _ClassVar[int]
     COMPUTE_FUNCTIONS_FIELD_NUMBER: _ClassVar[int]
     REPLACE_COMPUTE_FUNCTIONS_FIELD_NUMBER: _ClassVar[int]
     FILES_FIELD_NUMBER: _ClassVar[int]
@@ -451,6 +488,7 @@ class UpdateAppRequest(_message.Message):
     REPLACE_CAPABILITIES_FIELD_NUMBER: _ClassVar[int]
     APP_DB_SETUP_FIELD_NUMBER: _ClassVar[int]
     REPLACE_APP_DB_SETUP_FIELD_NUMBER: _ClassVar[int]
+    SERVER_FIELD_NUMBER: _ClassVar[int]
     app_id: str
     name: str
     description: str
@@ -458,6 +496,7 @@ class UpdateAppRequest(_message.Message):
     data_sources: _containers.RepeatedCompositeFieldContainer[_dashboard_pb2.DataSource]
     replace_data_sources: bool
     publish: bool
+    staleness_window_seconds: int
     compute_functions: _containers.RepeatedCompositeFieldContainer[ComputeFunction]
     replace_compute_functions: bool
     files: _containers.RepeatedCompositeFieldContainer[AppFile]
@@ -468,8 +507,9 @@ class UpdateAppRequest(_message.Message):
     replace_capabilities: bool
     app_db_setup: _containers.RepeatedScalarFieldContainer[str]
     replace_app_db_setup: bool
+    server: AppServer
 
-    def __init__(self, app_id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., replace_data_sources: bool=..., publish: bool=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., replace_compute_functions: bool=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., replace_files: bool=..., schedule_enabled: bool=..., cron_string: _Optional[str]=..., capabilities: _Optional[_Iterable[_Union[Capability, _Mapping]]]=..., replace_capabilities: bool=..., app_db_setup: _Optional[_Iterable[str]]=..., replace_app_db_setup: bool=...) -> None:
+    def __init__(self, app_id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., replace_data_sources: bool=..., publish: bool=..., staleness_window_seconds: _Optional[int]=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., replace_compute_functions: bool=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., replace_files: bool=..., schedule_enabled: bool=..., cron_string: _Optional[str]=..., capabilities: _Optional[_Iterable[_Union[Capability, _Mapping]]]=..., replace_capabilities: bool=..., app_db_setup: _Optional[_Iterable[str]]=..., replace_app_db_setup: bool=..., server: _Optional[_Union[AppServer, _Mapping]]=...) -> None:
         ...
 
 class UpdateAppResponse(_message.Message):
@@ -569,7 +609,7 @@ class Capability(_message.Message):
         ...
 
 class ComputeFunction(_message.Message):
-    __slots__ = ('name', 'description', 'params', 'returns', 'code', 'tql_path', 'tql', 'grant', 'connector_id', 'sql')
+    __slots__ = ('name', 'description', 'params', 'returns', 'code', 'tql_path', 'tql', 'grant', 'connector_id', 'sql', 'server_handled')
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PARAMS_FIELD_NUMBER: _ClassVar[int]
@@ -580,6 +620,7 @@ class ComputeFunction(_message.Message):
     GRANT_FIELD_NUMBER: _ClassVar[int]
     CONNECTOR_ID_FIELD_NUMBER: _ClassVar[int]
     SQL_FIELD_NUMBER: _ClassVar[int]
+    SERVER_HANDLED_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
     params: _containers.RepeatedCompositeFieldContainer[ComputeFunctionParam]
@@ -590,8 +631,47 @@ class ComputeFunction(_message.Message):
     grant: _dashboard_pb2.Grant
     connector_id: int
     sql: str
+    server_handled: bool
 
-    def __init__(self, name: _Optional[str]=..., description: _Optional[str]=..., params: _Optional[_Iterable[_Union[ComputeFunctionParam, _Mapping]]]=..., returns: _Optional[str]=..., code: _Optional[str]=..., tql_path: _Optional[str]=..., tql: _Optional[str]=..., grant: _Optional[_Union[_dashboard_pb2.Grant, _Mapping]]=..., connector_id: _Optional[int]=..., sql: _Optional[str]=...) -> None:
+    def __init__(self, name: _Optional[str]=..., description: _Optional[str]=..., params: _Optional[_Iterable[_Union[ComputeFunctionParam, _Mapping]]]=..., returns: _Optional[str]=..., code: _Optional[str]=..., tql_path: _Optional[str]=..., tql: _Optional[str]=..., grant: _Optional[_Union[_dashboard_pb2.Grant, _Mapping]]=..., connector_id: _Optional[int]=..., sql: _Optional[str]=..., server_handled: bool=...) -> None:
+        ...
+
+class AppServer(_message.Message):
+    __slots__ = ('enabled',)
+    ENABLED_FIELD_NUMBER: _ClassVar[int]
+    enabled: bool
+
+    def __init__(self, enabled: bool=...) -> None:
+        ...
+
+class GetAppServerStatusRequest(_message.Message):
+    __slots__ = ('app_id',)
+    APP_ID_FIELD_NUMBER: _ClassVar[int]
+    app_id: str
+
+    def __init__(self, app_id: _Optional[str]=...) -> None:
+        ...
+
+class GetAppServerStatusResponse(_message.Message):
+    __slots__ = ('status', 'module_error', 'uptime_seconds', 'recent_logs')
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    MODULE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    UPTIME_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    RECENT_LOGS_FIELD_NUMBER: _ClassVar[int]
+    status: str
+    module_error: str
+    uptime_seconds: int
+    recent_logs: _containers.RepeatedScalarFieldContainer[str]
+
+    def __init__(self, status: _Optional[str]=..., module_error: _Optional[str]=..., uptime_seconds: _Optional[int]=..., recent_logs: _Optional[_Iterable[str]]=...) -> None:
+        ...
+
+class RestartAppServerRequest(_message.Message):
+    __slots__ = ('app_id',)
+    APP_ID_FIELD_NUMBER: _ClassVar[int]
+    app_id: str
+
+    def __init__(self, app_id: _Optional[str]=...) -> None:
         ...
 
 class InvokeAppComputeFunctionRequest(_message.Message):
@@ -607,15 +687,17 @@ class InvokeAppComputeFunctionRequest(_message.Message):
         ...
 
 class InvokeAppComputeFunctionResponse(_message.Message):
-    __slots__ = ('result_json', 'invoke_mode', 'rewarmed')
+    __slots__ = ('result_json', 'invoke_mode', 'rewarmed', 'logs')
     RESULT_JSON_FIELD_NUMBER: _ClassVar[int]
     INVOKE_MODE_FIELD_NUMBER: _ClassVar[int]
     REWARMED_FIELD_NUMBER: _ClassVar[int]
+    LOGS_FIELD_NUMBER: _ClassVar[int]
     result_json: str
     invoke_mode: str
     rewarmed: bool
+    logs: _containers.RepeatedScalarFieldContainer[str]
 
-    def __init__(self, result_json: _Optional[str]=..., invoke_mode: _Optional[str]=..., rewarmed: bool=...) -> None:
+    def __init__(self, result_json: _Optional[str]=..., invoke_mode: _Optional[str]=..., rewarmed: bool=..., logs: _Optional[_Iterable[str]]=...) -> None:
         ...
 
 class AppFile(_message.Message):
@@ -629,7 +711,7 @@ class AppFile(_message.Message):
         ...
 
 class AppVersion(_message.Message):
-    __slots__ = ('id', 'app_id', 'version_number', 'code', 'data_sources', 'compute_functions', 'files', 'name', 'description', 'published_html_url', 'published_by', 'label', 'published_at', 'publisher')
+    __slots__ = ('id', 'app_id', 'version_number', 'code', 'data_sources', 'compute_functions', 'files', 'name', 'description', 'published_html_url', 'staleness_window_seconds', 'published_by', 'label', 'published_at', 'publisher', 'commit_id')
     ID_FIELD_NUMBER: _ClassVar[int]
     APP_ID_FIELD_NUMBER: _ClassVar[int]
     VERSION_NUMBER_FIELD_NUMBER: _ClassVar[int]
@@ -640,10 +722,12 @@ class AppVersion(_message.Message):
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PUBLISHED_HTML_URL_FIELD_NUMBER: _ClassVar[int]
+    STALENESS_WINDOW_SECONDS_FIELD_NUMBER: _ClassVar[int]
     PUBLISHED_BY_FIELD_NUMBER: _ClassVar[int]
     LABEL_FIELD_NUMBER: _ClassVar[int]
     PUBLISHED_AT_FIELD_NUMBER: _ClassVar[int]
     PUBLISHER_FIELD_NUMBER: _ClassVar[int]
+    COMMIT_ID_FIELD_NUMBER: _ClassVar[int]
     id: str
     app_id: str
     version_number: int
@@ -654,12 +738,14 @@ class AppVersion(_message.Message):
     name: str
     description: str
     published_html_url: str
+    staleness_window_seconds: int
     published_by: str
     label: str
     published_at: _timestamp_pb2.Timestamp
     publisher: _identity_pb2.MemberPreview
+    commit_id: str
 
-    def __init__(self, id: _Optional[str]=..., app_id: _Optional[str]=..., version_number: _Optional[int]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., name: _Optional[str]=..., description: _Optional[str]=..., published_html_url: _Optional[str]=..., published_by: _Optional[str]=..., label: _Optional[str]=..., published_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., publisher: _Optional[_Union[_identity_pb2.MemberPreview, _Mapping]]=...) -> None:
+    def __init__(self, id: _Optional[str]=..., app_id: _Optional[str]=..., version_number: _Optional[int]=..., code: _Optional[str]=..., data_sources: _Optional[_Iterable[_Union[_dashboard_pb2.DataSource, _Mapping]]]=..., compute_functions: _Optional[_Iterable[_Union[ComputeFunction, _Mapping]]]=..., files: _Optional[_Iterable[_Union[AppFile, _Mapping]]]=..., name: _Optional[str]=..., description: _Optional[str]=..., published_html_url: _Optional[str]=..., staleness_window_seconds: _Optional[int]=..., published_by: _Optional[str]=..., label: _Optional[str]=..., published_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., publisher: _Optional[_Union[_identity_pb2.MemberPreview, _Mapping]]=..., commit_id: _Optional[str]=...) -> None:
         ...
 
 class ListAppVersionsRequest(_message.Message):
@@ -685,13 +771,15 @@ class ListAppVersionsResponse(_message.Message):
         ...
 
 class GetAppVersionRequest(_message.Message):
-    __slots__ = ('app_id', 'version_number')
+    __slots__ = ('app_id', 'version_number', 'commit_id')
     APP_ID_FIELD_NUMBER: _ClassVar[int]
     VERSION_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    COMMIT_ID_FIELD_NUMBER: _ClassVar[int]
     app_id: str
     version_number: int
+    commit_id: str
 
-    def __init__(self, app_id: _Optional[str]=..., version_number: _Optional[int]=...) -> None:
+    def __init__(self, app_id: _Optional[str]=..., version_number: _Optional[int]=..., commit_id: _Optional[str]=...) -> None:
         ...
 
 class GetAppVersionResponse(_message.Message):
@@ -703,13 +791,15 @@ class GetAppVersionResponse(_message.Message):
         ...
 
 class RestoreAppVersionRequest(_message.Message):
-    __slots__ = ('app_id', 'version_number')
+    __slots__ = ('app_id', 'version_number', 'commit_id')
     APP_ID_FIELD_NUMBER: _ClassVar[int]
     VERSION_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    COMMIT_ID_FIELD_NUMBER: _ClassVar[int]
     app_id: str
     version_number: int
+    commit_id: str
 
-    def __init__(self, app_id: _Optional[str]=..., version_number: _Optional[int]=...) -> None:
+    def __init__(self, app_id: _Optional[str]=..., version_number: _Optional[int]=..., commit_id: _Optional[str]=...) -> None:
         ...
 
 class RestoreAppVersionResponse(_message.Message):
@@ -754,4 +844,66 @@ class GetAppViewStatsResponse(_message.Message):
     recent_viewers: _containers.RepeatedCompositeFieldContainer[AppViewerInfo]
 
     def __init__(self, total_views: _Optional[int]=..., unique_viewers: _Optional[int]=..., recent_viewers: _Optional[_Iterable[_Union[AppViewerInfo, _Mapping]]]=...) -> None:
+        ...
+
+class AppDBColumn(_message.Message):
+    __slots__ = ('name', 'type', 'nullable', 'primary_key')
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    NULLABLE_FIELD_NUMBER: _ClassVar[int]
+    PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    type: str
+    nullable: bool
+    primary_key: bool
+
+    def __init__(self, name: _Optional[str]=..., type: _Optional[str]=..., nullable: bool=..., primary_key: bool=...) -> None:
+        ...
+
+class AppDBTable(_message.Message):
+    __slots__ = ('name', 'columns')
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    COLUMNS_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    columns: _containers.RepeatedCompositeFieldContainer[AppDBColumn]
+
+    def __init__(self, name: _Optional[str]=..., columns: _Optional[_Iterable[_Union[AppDBColumn, _Mapping]]]=...) -> None:
+        ...
+
+class GetAppDBSchemaRequest(_message.Message):
+    __slots__ = ('app_id',)
+    APP_ID_FIELD_NUMBER: _ClassVar[int]
+    app_id: str
+
+    def __init__(self, app_id: _Optional[str]=...) -> None:
+        ...
+
+class GetAppDBSchemaResponse(_message.Message):
+    __slots__ = ('tables', 'change_log_bytes')
+    TABLES_FIELD_NUMBER: _ClassVar[int]
+    CHANGE_LOG_BYTES_FIELD_NUMBER: _ClassVar[int]
+    tables: _containers.RepeatedCompositeFieldContainer[AppDBTable]
+    change_log_bytes: int
+
+    def __init__(self, tables: _Optional[_Iterable[_Union[AppDBTable, _Mapping]]]=..., change_log_bytes: _Optional[int]=...) -> None:
+        ...
+
+class GetAppDBTablePreviewRequest(_message.Message):
+    __slots__ = ('app_id', 'table_name', 'limit')
+    APP_ID_FIELD_NUMBER: _ClassVar[int]
+    TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
+    LIMIT_FIELD_NUMBER: _ClassVar[int]
+    app_id: str
+    table_name: str
+    limit: int
+
+    def __init__(self, app_id: _Optional[str]=..., table_name: _Optional[str]=..., limit: _Optional[int]=...) -> None:
+        ...
+
+class GetAppDBTablePreviewResponse(_message.Message):
+    __slots__ = ('arrow_data',)
+    ARROW_DATA_FIELD_NUMBER: _ClassVar[int]
+    arrow_data: bytes
+
+    def __init__(self, arrow_data: _Optional[bytes]=...) -> None:
         ...

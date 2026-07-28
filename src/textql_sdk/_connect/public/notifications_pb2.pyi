@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf import struct_pb2 as _struct_pb2
@@ -33,7 +33,9 @@ class NotificationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NOTIFICATION_TYPE_REQUEST_ACCESS_APPROVED: _ClassVar[NotificationType]
     NOTIFICATION_TYPE_REQUEST_ACCESS_DENIED: _ClassVar[NotificationType]
     NOTIFICATION_TYPE_SYSTEM_ALERT: _ClassVar[NotificationType]
+    NOTIFICATION_TYPE_MODEL_DEPRECATION: _ClassVar[NotificationType]
     NOTIFICATION_TYPE_PLAYBOOK_RECAP: _ClassVar[NotificationType]
+    NOTIFICATION_TYPE_SUBAGENT_COMPLETE: _ClassVar[NotificationType]
 
 class NotificationChannel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -66,7 +68,9 @@ NOTIFICATION_TYPE_REQUEST_ACCESS: NotificationType
 NOTIFICATION_TYPE_REQUEST_ACCESS_APPROVED: NotificationType
 NOTIFICATION_TYPE_REQUEST_ACCESS_DENIED: NotificationType
 NOTIFICATION_TYPE_SYSTEM_ALERT: NotificationType
+NOTIFICATION_TYPE_MODEL_DEPRECATION: NotificationType
 NOTIFICATION_TYPE_PLAYBOOK_RECAP: NotificationType
+NOTIFICATION_TYPE_SUBAGENT_COMPLETE: NotificationType
 NOTIFICATION_CHANNEL_UNSPECIFIED: NotificationChannel
 NOTIFICATION_CHANNEL_APP: NotificationChannel
 NOTIFICATION_CHANNEL_SLACK: NotificationChannel

@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from .. import auth_pb2 as _auth_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -33,6 +33,20 @@ class UpdateDefaultConnectorRequest(_message.Message):
         ...
 
 class UpdateDefaultConnectorResponse(_message.Message):
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        ...
+
+class UpdateMemberThemeRequest(_message.Message):
+    __slots__ = ('theme_mode',)
+    THEME_MODE_FIELD_NUMBER: _ClassVar[int]
+    theme_mode: str
+
+    def __init__(self, theme_mode: _Optional[str]=...) -> None:
+        ...
+
+class UpdateMemberThemeResponse(_message.Message):
     __slots__ = ()
 
     def __init__(self) -> None:

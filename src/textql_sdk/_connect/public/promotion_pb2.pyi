@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from ..public import options_pb2 as _options_pb2
@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Promotion(_message.Message):
-    __slots__ = ('id', 'name', 'description', 'event_category', 'amount_cents', 'max_grants_per_org', 'max_grants_per_member', 'target_org_ids', 'target_user_groups', 'is_active', 'starts_at', 'ends_at', 'grant_memo', 'grants_count', 'email_events', 'max_grants_total', 'target_plan_types', 'credit_expires_at')
+    __slots__ = ('id', 'name', 'description', 'event_category', 'amount_cents', 'max_grants_per_org', 'max_grants_per_member', 'target_org_ids', 'target_user_groups', 'is_active', 'starts_at', 'ends_at', 'grant_memo', 'grants_count', 'email_events')
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -28,9 +28,6 @@ class Promotion(_message.Message):
     GRANT_MEMO_FIELD_NUMBER: _ClassVar[int]
     GRANTS_COUNT_FIELD_NUMBER: _ClassVar[int]
     EMAIL_EVENTS_FIELD_NUMBER: _ClassVar[int]
-    MAX_GRANTS_TOTAL_FIELD_NUMBER: _ClassVar[int]
-    TARGET_PLAN_TYPES_FIELD_NUMBER: _ClassVar[int]
-    CREDIT_EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -46,11 +43,8 @@ class Promotion(_message.Message):
     grant_memo: str
     grants_count: int
     email_events: _containers.RepeatedScalarFieldContainer[str]
-    max_grants_total: int
-    target_plan_types: _containers.RepeatedScalarFieldContainer[str]
-    credit_expires_at: _timestamp_pb2.Timestamp
 
-    def __init__(self, id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., event_category: _Optional[str]=..., amount_cents: _Optional[int]=..., max_grants_per_org: _Optional[int]=..., max_grants_per_member: _Optional[int]=..., target_org_ids: _Optional[_Iterable[str]]=..., target_user_groups: _Optional[_Iterable[str]]=..., is_active: bool=..., starts_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., ends_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., grant_memo: _Optional[str]=..., grants_count: _Optional[int]=..., email_events: _Optional[_Iterable[str]]=..., max_grants_total: _Optional[int]=..., target_plan_types: _Optional[_Iterable[str]]=..., credit_expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=...) -> None:
+    def __init__(self, id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., event_category: _Optional[str]=..., amount_cents: _Optional[int]=..., max_grants_per_org: _Optional[int]=..., max_grants_per_member: _Optional[int]=..., target_org_ids: _Optional[_Iterable[str]]=..., target_user_groups: _Optional[_Iterable[str]]=..., is_active: bool=..., starts_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., ends_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., grant_memo: _Optional[str]=..., grants_count: _Optional[int]=..., email_events: _Optional[_Iterable[str]]=...) -> None:
         ...
 
 class PromotionGrant(_message.Message):
@@ -94,7 +88,7 @@ class ListPromotionsResponse(_message.Message):
         ...
 
 class CreatePromotionRequest(_message.Message):
-    __slots__ = ('name', 'description', 'event_category', 'amount_cents', 'max_grants_per_org', 'max_grants_per_member', 'target_org_ids', 'target_user_groups', 'is_active', 'starts_at', 'ends_at', 'grant_memo', 'email_events', 'max_grants_total', 'target_plan_types', 'credit_expires_at')
+    __slots__ = ('name', 'description', 'event_category', 'amount_cents', 'max_grants_per_org', 'max_grants_per_member', 'target_org_ids', 'target_user_groups', 'is_active', 'starts_at', 'ends_at', 'grant_memo', 'email_events')
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     EVENT_CATEGORY_FIELD_NUMBER: _ClassVar[int]
@@ -108,9 +102,6 @@ class CreatePromotionRequest(_message.Message):
     ENDS_AT_FIELD_NUMBER: _ClassVar[int]
     GRANT_MEMO_FIELD_NUMBER: _ClassVar[int]
     EMAIL_EVENTS_FIELD_NUMBER: _ClassVar[int]
-    MAX_GRANTS_TOTAL_FIELD_NUMBER: _ClassVar[int]
-    TARGET_PLAN_TYPES_FIELD_NUMBER: _ClassVar[int]
-    CREDIT_EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
     event_category: str
@@ -124,11 +115,8 @@ class CreatePromotionRequest(_message.Message):
     ends_at: _timestamp_pb2.Timestamp
     grant_memo: str
     email_events: _containers.RepeatedScalarFieldContainer[str]
-    max_grants_total: int
-    target_plan_types: _containers.RepeatedScalarFieldContainer[str]
-    credit_expires_at: _timestamp_pb2.Timestamp
 
-    def __init__(self, name: _Optional[str]=..., description: _Optional[str]=..., event_category: _Optional[str]=..., amount_cents: _Optional[int]=..., max_grants_per_org: _Optional[int]=..., max_grants_per_member: _Optional[int]=..., target_org_ids: _Optional[_Iterable[str]]=..., target_user_groups: _Optional[_Iterable[str]]=..., is_active: bool=..., starts_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., ends_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., grant_memo: _Optional[str]=..., email_events: _Optional[_Iterable[str]]=..., max_grants_total: _Optional[int]=..., target_plan_types: _Optional[_Iterable[str]]=..., credit_expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=...) -> None:
+    def __init__(self, name: _Optional[str]=..., description: _Optional[str]=..., event_category: _Optional[str]=..., amount_cents: _Optional[int]=..., max_grants_per_org: _Optional[int]=..., max_grants_per_member: _Optional[int]=..., target_org_ids: _Optional[_Iterable[str]]=..., target_user_groups: _Optional[_Iterable[str]]=..., is_active: bool=..., starts_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., ends_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., grant_memo: _Optional[str]=..., email_events: _Optional[_Iterable[str]]=...) -> None:
         ...
 
 class CreatePromotionResponse(_message.Message):
@@ -140,7 +128,7 @@ class CreatePromotionResponse(_message.Message):
         ...
 
 class UpdatePromotionRequest(_message.Message):
-    __slots__ = ('id', 'name', 'description', 'event_category', 'amount_cents', 'max_grants_per_org', 'max_grants_per_member', 'target_org_ids', 'target_user_groups', 'is_active', 'starts_at', 'ends_at', 'grant_memo', 'email_events', 'max_grants_total', 'target_plan_types', 'credit_expires_at')
+    __slots__ = ('id', 'name', 'description', 'event_category', 'amount_cents', 'max_grants_per_org', 'max_grants_per_member', 'target_org_ids', 'target_user_groups', 'is_active', 'starts_at', 'ends_at', 'grant_memo', 'email_events')
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -155,9 +143,6 @@ class UpdatePromotionRequest(_message.Message):
     ENDS_AT_FIELD_NUMBER: _ClassVar[int]
     GRANT_MEMO_FIELD_NUMBER: _ClassVar[int]
     EMAIL_EVENTS_FIELD_NUMBER: _ClassVar[int]
-    MAX_GRANTS_TOTAL_FIELD_NUMBER: _ClassVar[int]
-    TARGET_PLAN_TYPES_FIELD_NUMBER: _ClassVar[int]
-    CREDIT_EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -172,11 +157,8 @@ class UpdatePromotionRequest(_message.Message):
     ends_at: _timestamp_pb2.Timestamp
     grant_memo: str
     email_events: _containers.RepeatedScalarFieldContainer[str]
-    max_grants_total: int
-    target_plan_types: _containers.RepeatedScalarFieldContainer[str]
-    credit_expires_at: _timestamp_pb2.Timestamp
 
-    def __init__(self, id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., event_category: _Optional[str]=..., amount_cents: _Optional[int]=..., max_grants_per_org: _Optional[int]=..., max_grants_per_member: _Optional[int]=..., target_org_ids: _Optional[_Iterable[str]]=..., target_user_groups: _Optional[_Iterable[str]]=..., is_active: bool=..., starts_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., ends_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., grant_memo: _Optional[str]=..., email_events: _Optional[_Iterable[str]]=..., max_grants_total: _Optional[int]=..., target_plan_types: _Optional[_Iterable[str]]=..., credit_expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=...) -> None:
+    def __init__(self, id: _Optional[str]=..., name: _Optional[str]=..., description: _Optional[str]=..., event_category: _Optional[str]=..., amount_cents: _Optional[int]=..., max_grants_per_org: _Optional[int]=..., max_grants_per_member: _Optional[int]=..., target_org_ids: _Optional[_Iterable[str]]=..., target_user_groups: _Optional[_Iterable[str]]=..., is_active: bool=..., starts_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., ends_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., grant_memo: _Optional[str]=..., email_events: _Optional[_Iterable[str]]=...) -> None:
         ...
 
 class UpdatePromotionResponse(_message.Message):

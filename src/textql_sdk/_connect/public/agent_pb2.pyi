@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
@@ -16,6 +16,13 @@ from collections.abc import Iterable as _Iterable, Mapping as _Mapping
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class AgentViewerDeliveryRoute(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    AGENT_VIEWER_DELIVERY_ROUTE_UNSPECIFIED: _ClassVar[AgentViewerDeliveryRoute]
+    AGENT_VIEWER_DELIVERY_ROUTE_EMAIL: _ClassVar[AgentViewerDeliveryRoute]
+    AGENT_VIEWER_DELIVERY_ROUTE_SLACK_DM: _ClassVar[AgentViewerDeliveryRoute]
+    AGENT_VIEWER_DELIVERY_ROUTE_TEAMS_DM: _ClassVar[AgentViewerDeliveryRoute]
+
 class AgentRunStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     AGENT_RUN_STATUS_UNSPECIFIED: _ClassVar[AgentRunStatus]
@@ -23,6 +30,10 @@ class AgentRunStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGENT_RUN_STATUS_DONE: _ClassVar[AgentRunStatus]
     AGENT_RUN_STATUS_FAILED: _ClassVar[AgentRunStatus]
     AGENT_RUN_STATUS_CANCELLED: _ClassVar[AgentRunStatus]
+AGENT_VIEWER_DELIVERY_ROUTE_UNSPECIFIED: AgentViewerDeliveryRoute
+AGENT_VIEWER_DELIVERY_ROUTE_EMAIL: AgentViewerDeliveryRoute
+AGENT_VIEWER_DELIVERY_ROUTE_SLACK_DM: AgentViewerDeliveryRoute
+AGENT_VIEWER_DELIVERY_ROUTE_TEAMS_DM: AgentViewerDeliveryRoute
 AGENT_RUN_STATUS_UNSPECIFIED: AgentRunStatus
 AGENT_RUN_STATUS_RUNNING: AgentRunStatus
 AGENT_RUN_STATUS_DONE: AgentRunStatus
@@ -44,7 +55,7 @@ class SlackAgentTrigger(_message.Message):
         ...
 
 class Agent(_message.Message):
-    __slots__ = ('id', 'name', 'prompt', 'is_active', 'last_post_at', 'paradigm_options', 'post_count', 'comment_count', 'vote_count', 'member_id', 'member_name', 'last_chat_id', 'has_write_permission', 'slack_channel_id', 'slack_dm_user_ids', 'skip_org_default_channel', 'llm_model', 'fast_mode', 'is_stateful', 'posting_frequency_crons', 'email_output_enabled', 'email_recipient_member_ids', 'webhook_trigger_id', 'channel_ids', 'teams_channel_id', 'teams_dm_user_aad_ids', 'slack_trigger', 'profile_image_url', 'posting_frequency_cadences')
+    __slots__ = ('id', 'name', 'prompt', 'is_active', 'last_post_at', 'paradigm_options', 'post_count', 'comment_count', 'vote_count', 'member_id', 'member_name', 'last_chat_id', 'has_write_permission', 'slack_channel_id', 'slack_dm_user_ids', 'skip_org_default_channel', 'llm_model', 'fast_mode', 'is_stateful', 'posting_frequency_crons', 'email_output_enabled', 'email_recipient_member_ids', 'webhook_trigger_id', 'channel_ids', 'teams_channel_id', 'teams_dm_user_aad_ids', 'slack_trigger', 'profile_image_url', 'posting_frequency_cadences', 'callable_as_subagent', 'subagent_invoker_member_ids', 'subagent_invoker_role_ids', 'feed_enabled', 'viewer_delivery_routes', 'subagent_agent_ids', 'allow_ad_hoc_subagents')
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROMPT_FIELD_NUMBER: _ClassVar[int]
@@ -74,6 +85,13 @@ class Agent(_message.Message):
     SLACK_TRIGGER_FIELD_NUMBER: _ClassVar[int]
     PROFILE_IMAGE_URL_FIELD_NUMBER: _ClassVar[int]
     POSTING_FREQUENCY_CADENCES_FIELD_NUMBER: _ClassVar[int]
+    CALLABLE_AS_SUBAGENT_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_INVOKER_MEMBER_IDS_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_INVOKER_ROLE_IDS_FIELD_NUMBER: _ClassVar[int]
+    FEED_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    VIEWER_DELIVERY_ROUTES_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_AGENT_IDS_FIELD_NUMBER: _ClassVar[int]
+    ALLOW_AD_HOC_SUBAGENTS_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     prompt: str
@@ -103,8 +121,15 @@ class Agent(_message.Message):
     slack_trigger: SlackAgentTrigger
     profile_image_url: str
     posting_frequency_cadences: _containers.RepeatedScalarFieldContainer[str]
+    callable_as_subagent: bool
+    subagent_invoker_member_ids: _containers.RepeatedScalarFieldContainer[str]
+    subagent_invoker_role_ids: _containers.RepeatedScalarFieldContainer[str]
+    feed_enabled: bool
+    viewer_delivery_routes: _containers.RepeatedScalarFieldContainer[AgentViewerDeliveryRoute]
+    subagent_agent_ids: _containers.RepeatedScalarFieldContainer[str]
+    allow_ad_hoc_subagents: bool
 
-    def __init__(self, id: _Optional[str]=..., name: _Optional[str]=..., prompt: _Optional[str]=..., is_active: bool=..., last_post_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., paradigm_options: _Optional[_Union[_paradigm_pb2.ParadigmOptions, _Mapping]]=..., post_count: _Optional[int]=..., comment_count: _Optional[int]=..., vote_count: _Optional[int]=..., member_id: _Optional[str]=..., member_name: _Optional[str]=..., last_chat_id: _Optional[str]=..., has_write_permission: bool=..., slack_channel_id: _Optional[str]=..., slack_dm_user_ids: _Optional[_Iterable[str]]=..., skip_org_default_channel: bool=..., llm_model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., fast_mode: bool=..., is_stateful: bool=..., posting_frequency_crons: _Optional[_Iterable[str]]=..., email_output_enabled: bool=..., email_recipient_member_ids: _Optional[_Iterable[str]]=..., webhook_trigger_id: _Optional[str]=..., channel_ids: _Optional[_Iterable[str]]=..., teams_channel_id: _Optional[str]=..., teams_dm_user_aad_ids: _Optional[_Iterable[str]]=..., slack_trigger: _Optional[_Union[SlackAgentTrigger, _Mapping]]=..., profile_image_url: _Optional[str]=..., posting_frequency_cadences: _Optional[_Iterable[str]]=...) -> None:
+    def __init__(self, id: _Optional[str]=..., name: _Optional[str]=..., prompt: _Optional[str]=..., is_active: bool=..., last_post_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., paradigm_options: _Optional[_Union[_paradigm_pb2.ParadigmOptions, _Mapping]]=..., post_count: _Optional[int]=..., comment_count: _Optional[int]=..., vote_count: _Optional[int]=..., member_id: _Optional[str]=..., member_name: _Optional[str]=..., last_chat_id: _Optional[str]=..., has_write_permission: bool=..., slack_channel_id: _Optional[str]=..., slack_dm_user_ids: _Optional[_Iterable[str]]=..., skip_org_default_channel: bool=..., llm_model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., fast_mode: bool=..., is_stateful: bool=..., posting_frequency_crons: _Optional[_Iterable[str]]=..., email_output_enabled: bool=..., email_recipient_member_ids: _Optional[_Iterable[str]]=..., webhook_trigger_id: _Optional[str]=..., channel_ids: _Optional[_Iterable[str]]=..., teams_channel_id: _Optional[str]=..., teams_dm_user_aad_ids: _Optional[_Iterable[str]]=..., slack_trigger: _Optional[_Union[SlackAgentTrigger, _Mapping]]=..., profile_image_url: _Optional[str]=..., posting_frequency_cadences: _Optional[_Iterable[str]]=..., callable_as_subagent: bool=..., subagent_invoker_member_ids: _Optional[_Iterable[str]]=..., subagent_invoker_role_ids: _Optional[_Iterable[str]]=..., feed_enabled: bool=..., viewer_delivery_routes: _Optional[_Iterable[_Union[AgentViewerDeliveryRoute, str]]]=..., subagent_agent_ids: _Optional[_Iterable[str]]=..., allow_ad_hoc_subagents: bool=...) -> None:
         ...
 
 class UploadAgentAvatarRequest(_message.Message):
@@ -144,7 +169,7 @@ class ResetAgentAvatarResponse(_message.Message):
         ...
 
 class CreateAgentRequest(_message.Message):
-    __slots__ = ('name', 'prompt', 'paradigm_options', 'source_suggestion_id', 'slack_channel_id', 'slack_dm_user_ids', 'skip_org_default_channel', 'llm_model', 'fast_mode', 'is_stateful', 'posting_frequency_crons', 'email_recipient_member_ids', 'channel_ids', 'teams_channel_id', 'teams_dm_user_aad_ids', 'slack_trigger', 'posting_frequency_cadences')
+    __slots__ = ('name', 'prompt', 'paradigm_options', 'source_suggestion_id', 'slack_channel_id', 'slack_dm_user_ids', 'skip_org_default_channel', 'llm_model', 'fast_mode', 'is_stateful', 'posting_frequency_crons', 'email_recipient_member_ids', 'channel_ids', 'teams_channel_id', 'teams_dm_user_aad_ids', 'slack_trigger', 'posting_frequency_cadences', 'callable_as_subagent', 'subagent_invoker_member_ids', 'subagent_invoker_role_ids', 'feed_enabled', 'subagent_agent_ids', 'allow_ad_hoc_subagents')
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROMPT_FIELD_NUMBER: _ClassVar[int]
     PARADIGM_OPTIONS_FIELD_NUMBER: _ClassVar[int]
@@ -162,6 +187,12 @@ class CreateAgentRequest(_message.Message):
     TEAMS_DM_USER_AAD_IDS_FIELD_NUMBER: _ClassVar[int]
     SLACK_TRIGGER_FIELD_NUMBER: _ClassVar[int]
     POSTING_FREQUENCY_CADENCES_FIELD_NUMBER: _ClassVar[int]
+    CALLABLE_AS_SUBAGENT_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_INVOKER_MEMBER_IDS_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_INVOKER_ROLE_IDS_FIELD_NUMBER: _ClassVar[int]
+    FEED_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_AGENT_IDS_FIELD_NUMBER: _ClassVar[int]
+    ALLOW_AD_HOC_SUBAGENTS_FIELD_NUMBER: _ClassVar[int]
     name: str
     prompt: str
     paradigm_options: _paradigm_pb2.ParadigmOptions
@@ -179,8 +210,14 @@ class CreateAgentRequest(_message.Message):
     teams_dm_user_aad_ids: _containers.RepeatedScalarFieldContainer[str]
     slack_trigger: SlackAgentTrigger
     posting_frequency_cadences: _containers.RepeatedScalarFieldContainer[str]
+    callable_as_subagent: bool
+    subagent_invoker_member_ids: _containers.RepeatedScalarFieldContainer[str]
+    subagent_invoker_role_ids: _containers.RepeatedScalarFieldContainer[str]
+    feed_enabled: bool
+    subagent_agent_ids: _containers.RepeatedScalarFieldContainer[str]
+    allow_ad_hoc_subagents: bool
 
-    def __init__(self, name: _Optional[str]=..., prompt: _Optional[str]=..., paradigm_options: _Optional[_Union[_paradigm_pb2.ParadigmOptions, _Mapping]]=..., source_suggestion_id: _Optional[str]=..., slack_channel_id: _Optional[str]=..., slack_dm_user_ids: _Optional[_Iterable[str]]=..., skip_org_default_channel: bool=..., llm_model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., fast_mode: bool=..., is_stateful: bool=..., posting_frequency_crons: _Optional[_Iterable[str]]=..., email_recipient_member_ids: _Optional[_Iterable[str]]=..., channel_ids: _Optional[_Iterable[str]]=..., teams_channel_id: _Optional[str]=..., teams_dm_user_aad_ids: _Optional[_Iterable[str]]=..., slack_trigger: _Optional[_Union[SlackAgentTrigger, _Mapping]]=..., posting_frequency_cadences: _Optional[_Iterable[str]]=...) -> None:
+    def __init__(self, name: _Optional[str]=..., prompt: _Optional[str]=..., paradigm_options: _Optional[_Union[_paradigm_pb2.ParadigmOptions, _Mapping]]=..., source_suggestion_id: _Optional[str]=..., slack_channel_id: _Optional[str]=..., slack_dm_user_ids: _Optional[_Iterable[str]]=..., skip_org_default_channel: bool=..., llm_model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., fast_mode: bool=..., is_stateful: bool=..., posting_frequency_crons: _Optional[_Iterable[str]]=..., email_recipient_member_ids: _Optional[_Iterable[str]]=..., channel_ids: _Optional[_Iterable[str]]=..., teams_channel_id: _Optional[str]=..., teams_dm_user_aad_ids: _Optional[_Iterable[str]]=..., slack_trigger: _Optional[_Union[SlackAgentTrigger, _Mapping]]=..., posting_frequency_cadences: _Optional[_Iterable[str]]=..., callable_as_subagent: bool=..., subagent_invoker_member_ids: _Optional[_Iterable[str]]=..., subagent_invoker_role_ids: _Optional[_Iterable[str]]=..., feed_enabled: bool=..., subagent_agent_ids: _Optional[_Iterable[str]]=..., allow_ad_hoc_subagents: bool=...) -> None:
         ...
 
 class CreateAgentResponse(_message.Message):
@@ -194,7 +231,7 @@ class CreateAgentResponse(_message.Message):
         ...
 
 class UpdateAgentRequest(_message.Message):
-    __slots__ = ('agent_id', 'name', 'prompt', 'is_active', 'paradigm_options', 'slack_channel_id', 'slack_dm_user_ids', 'skip_org_default_channel', 'llm_model', 'fast_mode', 'is_stateful', 'posting_frequency_crons', 'email_recipient_member_ids', 'update_email_recipients', 'channel_ids', 'update_channel_ids', 'teams_channel_id', 'teams_dm_user_aad_ids', 'slack_trigger', 'posting_frequency_cadences')
+    __slots__ = ('agent_id', 'name', 'prompt', 'is_active', 'paradigm_options', 'slack_channel_id', 'slack_dm_user_ids', 'skip_org_default_channel', 'llm_model', 'fast_mode', 'is_stateful', 'posting_frequency_crons', 'email_recipient_member_ids', 'update_email_recipients', 'channel_ids', 'update_channel_ids', 'teams_channel_id', 'teams_dm_user_aad_ids', 'slack_trigger', 'posting_frequency_cadences', 'callable_as_subagent', 'subagent_invoker_member_ids', 'subagent_invoker_role_ids', 'update_subagent_invokers', 'feed_enabled', 'subagent_agent_ids', 'update_subagents', 'allow_ad_hoc_subagents')
     AGENT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     PROMPT_FIELD_NUMBER: _ClassVar[int]
@@ -215,6 +252,14 @@ class UpdateAgentRequest(_message.Message):
     TEAMS_DM_USER_AAD_IDS_FIELD_NUMBER: _ClassVar[int]
     SLACK_TRIGGER_FIELD_NUMBER: _ClassVar[int]
     POSTING_FREQUENCY_CADENCES_FIELD_NUMBER: _ClassVar[int]
+    CALLABLE_AS_SUBAGENT_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_INVOKER_MEMBER_IDS_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_INVOKER_ROLE_IDS_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_SUBAGENT_INVOKERS_FIELD_NUMBER: _ClassVar[int]
+    FEED_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_AGENT_IDS_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_SUBAGENTS_FIELD_NUMBER: _ClassVar[int]
+    ALLOW_AD_HOC_SUBAGENTS_FIELD_NUMBER: _ClassVar[int]
     agent_id: str
     name: str
     prompt: str
@@ -235,8 +280,16 @@ class UpdateAgentRequest(_message.Message):
     teams_dm_user_aad_ids: _containers.RepeatedScalarFieldContainer[str]
     slack_trigger: SlackAgentTrigger
     posting_frequency_cadences: _containers.RepeatedScalarFieldContainer[str]
+    callable_as_subagent: bool
+    subagent_invoker_member_ids: _containers.RepeatedScalarFieldContainer[str]
+    subagent_invoker_role_ids: _containers.RepeatedScalarFieldContainer[str]
+    update_subagent_invokers: bool
+    feed_enabled: bool
+    subagent_agent_ids: _containers.RepeatedScalarFieldContainer[str]
+    update_subagents: bool
+    allow_ad_hoc_subagents: bool
 
-    def __init__(self, agent_id: _Optional[str]=..., name: _Optional[str]=..., prompt: _Optional[str]=..., is_active: bool=..., paradigm_options: _Optional[_Union[_paradigm_pb2.ParadigmOptions, _Mapping]]=..., slack_channel_id: _Optional[str]=..., slack_dm_user_ids: _Optional[_Iterable[str]]=..., skip_org_default_channel: bool=..., llm_model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., fast_mode: bool=..., is_stateful: bool=..., posting_frequency_crons: _Optional[_Iterable[str]]=..., email_recipient_member_ids: _Optional[_Iterable[str]]=..., update_email_recipients: bool=..., channel_ids: _Optional[_Iterable[str]]=..., update_channel_ids: bool=..., teams_channel_id: _Optional[str]=..., teams_dm_user_aad_ids: _Optional[_Iterable[str]]=..., slack_trigger: _Optional[_Union[SlackAgentTrigger, _Mapping]]=..., posting_frequency_cadences: _Optional[_Iterable[str]]=...) -> None:
+    def __init__(self, agent_id: _Optional[str]=..., name: _Optional[str]=..., prompt: _Optional[str]=..., is_active: bool=..., paradigm_options: _Optional[_Union[_paradigm_pb2.ParadigmOptions, _Mapping]]=..., slack_channel_id: _Optional[str]=..., slack_dm_user_ids: _Optional[_Iterable[str]]=..., skip_org_default_channel: bool=..., llm_model: _Optional[_Union[_llm_model_pb2.LlmModel, str]]=..., fast_mode: bool=..., is_stateful: bool=..., posting_frequency_crons: _Optional[_Iterable[str]]=..., email_recipient_member_ids: _Optional[_Iterable[str]]=..., update_email_recipients: bool=..., channel_ids: _Optional[_Iterable[str]]=..., update_channel_ids: bool=..., teams_channel_id: _Optional[str]=..., teams_dm_user_aad_ids: _Optional[_Iterable[str]]=..., slack_trigger: _Optional[_Union[SlackAgentTrigger, _Mapping]]=..., posting_frequency_cadences: _Optional[_Iterable[str]]=..., callable_as_subagent: bool=..., subagent_invoker_member_ids: _Optional[_Iterable[str]]=..., subagent_invoker_role_ids: _Optional[_Iterable[str]]=..., update_subagent_invokers: bool=..., feed_enabled: bool=..., subagent_agent_ids: _Optional[_Iterable[str]]=..., update_subagents: bool=..., allow_ad_hoc_subagents: bool=...) -> None:
         ...
 
 class UpdateAgentResponse(_message.Message):
@@ -595,4 +648,66 @@ class ListAgentRunsForThingResponse(_message.Message):
     runs: _containers.RepeatedCompositeFieldContainer[AgentRun]
 
     def __init__(self, runs: _Optional[_Iterable[_Union[AgentRun, _Mapping]]]=...) -> None:
+        ...
+
+class AgentDBColumn(_message.Message):
+    __slots__ = ('name', 'type', 'nullable', 'primary_key')
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    NULLABLE_FIELD_NUMBER: _ClassVar[int]
+    PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    type: str
+    nullable: bool
+    primary_key: bool
+
+    def __init__(self, name: _Optional[str]=..., type: _Optional[str]=..., nullable: bool=..., primary_key: bool=...) -> None:
+        ...
+
+class AgentDBTable(_message.Message):
+    __slots__ = ('name', 'columns')
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    COLUMNS_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    columns: _containers.RepeatedCompositeFieldContainer[AgentDBColumn]
+
+    def __init__(self, name: _Optional[str]=..., columns: _Optional[_Iterable[_Union[AgentDBColumn, _Mapping]]]=...) -> None:
+        ...
+
+class GetAgentDBSchemaRequest(_message.Message):
+    __slots__ = ('agent_id',)
+    AGENT_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_id: str
+
+    def __init__(self, agent_id: _Optional[str]=...) -> None:
+        ...
+
+class GetAgentDBSchemaResponse(_message.Message):
+    __slots__ = ('tables', 'change_log_bytes')
+    TABLES_FIELD_NUMBER: _ClassVar[int]
+    CHANGE_LOG_BYTES_FIELD_NUMBER: _ClassVar[int]
+    tables: _containers.RepeatedCompositeFieldContainer[AgentDBTable]
+    change_log_bytes: int
+
+    def __init__(self, tables: _Optional[_Iterable[_Union[AgentDBTable, _Mapping]]]=..., change_log_bytes: _Optional[int]=...) -> None:
+        ...
+
+class GetAgentDBTablePreviewRequest(_message.Message):
+    __slots__ = ('agent_id', 'table_name', 'limit')
+    AGENT_ID_FIELD_NUMBER: _ClassVar[int]
+    TABLE_NAME_FIELD_NUMBER: _ClassVar[int]
+    LIMIT_FIELD_NUMBER: _ClassVar[int]
+    agent_id: str
+    table_name: str
+    limit: int
+
+    def __init__(self, agent_id: _Optional[str]=..., table_name: _Optional[str]=..., limit: _Optional[int]=...) -> None:
+        ...
+
+class GetAgentDBTablePreviewResponse(_message.Message):
+    __slots__ = ('arrow_data',)
+    ARROW_DATA_FIELD_NUMBER: _ClassVar[int]
+    arrow_data: bytes
+
+    def __init__(self, arrow_data: _Optional[bytes]=...) -> None:
         ...

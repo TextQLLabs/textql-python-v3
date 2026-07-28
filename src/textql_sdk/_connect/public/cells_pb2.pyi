@@ -1,7 +1,8 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
+from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from .. import paradigm_params_pb2 as _paradigm_params_pb2
@@ -157,6 +158,13 @@ class QuestionInputKind(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUESTION_INPUT_KIND_TEXT: _ClassVar[QuestionInputKind]
     QUESTION_INPUT_KIND_FORMFIELD: _ClassVar[QuestionInputKind]
     QUESTION_INPUT_KIND_MULTILINE: _ClassVar[QuestionInputKind]
+
+class SubagentRunStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    SUBAGENT_RUN_STATUS_UNKNOWN: _ClassVar[SubagentRunStatus]
+    SUBAGENT_RUN_STATUS_RUNNING: _ClassVar[SubagentRunStatus]
+    SUBAGENT_RUN_STATUS_COMPLETED: _ClassVar[SubagentRunStatus]
+    SUBAGENT_RUN_STATUS_ERROR: _ClassVar[SubagentRunStatus]
 DASHBOARD_ACTION_UNKNOWN: DashboardAction
 DASHBOARD_ACTION_CREATE: DashboardAction
 DASHBOARD_ACTION_UPDATE: DashboardAction
@@ -239,6 +247,10 @@ QUESTION_INPUT_KIND_UNKNOWN: QuestionInputKind
 QUESTION_INPUT_KIND_TEXT: QuestionInputKind
 QUESTION_INPUT_KIND_FORMFIELD: QuestionInputKind
 QUESTION_INPUT_KIND_MULTILINE: QuestionInputKind
+SUBAGENT_RUN_STATUS_UNKNOWN: SubagentRunStatus
+SUBAGENT_RUN_STATUS_RUNNING: SubagentRunStatus
+SUBAGENT_RUN_STATUS_COMPLETED: SubagentRunStatus
+SUBAGENT_RUN_STATUS_ERROR: SubagentRunStatus
 
 class MarkdownCell(_message.Message):
     __slots__ = ('content', 'rendered_html', 'citations')
@@ -1692,7 +1704,7 @@ class EmailRecipient(_message.Message):
         ...
 
 class EmailCell(_message.Message):
-    __slots__ = ('to', 'subject', 'body', 'recipients', 'status', 'sent_at', 'message_id', 'error_message', 'error_class', 'sent_count', 'rendered_body_html')
+    __slots__ = ('to', 'subject', 'body', 'recipients', 'status', 'sent_at', 'message_id', 'error_message', 'error_class', 'sent_count', 'rendered_body_html', 'attachments')
     TO_FIELD_NUMBER: _ClassVar[int]
     SUBJECT_FIELD_NUMBER: _ClassVar[int]
     BODY_FIELD_NUMBER: _ClassVar[int]
@@ -1704,6 +1716,7 @@ class EmailCell(_message.Message):
     ERROR_CLASS_FIELD_NUMBER: _ClassVar[int]
     SENT_COUNT_FIELD_NUMBER: _ClassVar[int]
     RENDERED_BODY_HTML_FIELD_NUMBER: _ClassVar[int]
+    ATTACHMENTS_FIELD_NUMBER: _ClassVar[int]
     to: _containers.RepeatedScalarFieldContainer[str]
     subject: str
     body: str
@@ -1715,8 +1728,19 @@ class EmailCell(_message.Message):
     error_class: str
     sent_count: int
     rendered_body_html: str
+    attachments: _containers.RepeatedCompositeFieldContainer[EmailAttachment]
 
-    def __init__(self, to: _Optional[_Iterable[str]]=..., subject: _Optional[str]=..., body: _Optional[str]=..., recipients: _Optional[_Iterable[_Union[EmailRecipient, _Mapping]]]=..., status: _Optional[str]=..., sent_at: _Optional[str]=..., message_id: _Optional[str]=..., error_message: _Optional[str]=..., error_class: _Optional[str]=..., sent_count: _Optional[int]=..., rendered_body_html: _Optional[str]=...) -> None:
+    def __init__(self, to: _Optional[_Iterable[str]]=..., subject: _Optional[str]=..., body: _Optional[str]=..., recipients: _Optional[_Iterable[_Union[EmailRecipient, _Mapping]]]=..., status: _Optional[str]=..., sent_at: _Optional[str]=..., message_id: _Optional[str]=..., error_message: _Optional[str]=..., error_class: _Optional[str]=..., sent_count: _Optional[int]=..., rendered_body_html: _Optional[str]=..., attachments: _Optional[_Iterable[_Union[EmailAttachment, _Mapping]]]=...) -> None:
+        ...
+
+class EmailAttachment(_message.Message):
+    __slots__ = ('filename', 'bytes')
+    FILENAME_FIELD_NUMBER: _ClassVar[int]
+    BYTES_FIELD_NUMBER: _ClassVar[int]
+    filename: str
+    bytes: int
+
+    def __init__(self, filename: _Optional[str]=..., bytes: _Optional[int]=...) -> None:
         ...
 
 class PatchCell(_message.Message):
@@ -1819,6 +1843,36 @@ class QuestionsCell(_message.Message):
     answered_count: int
 
     def __init__(self, status: _Optional[_Union[QuestionsStatus, str]]=..., questions: _Optional[_Iterable[_Union[QuestionSpec, _Mapping]]]=..., answers: _Optional[_Iterable[_Union[QuestionAnswer, _Mapping]]]=..., answered_count: _Optional[int]=...) -> None:
+        ...
+
+class SubagentCell(_message.Message):
+    __slots__ = ('objective', 'subagent_name', 'agent_id', 'detached', 'child_chat_id', 'status', 'final_message', 'artifacts', 'depth', 'error_message', 'execution_time_ms', 'tokens_used')
+    OBJECTIVE_FIELD_NUMBER: _ClassVar[int]
+    SUBAGENT_NAME_FIELD_NUMBER: _ClassVar[int]
+    AGENT_ID_FIELD_NUMBER: _ClassVar[int]
+    DETACHED_FIELD_NUMBER: _ClassVar[int]
+    CHILD_CHAT_ID_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    FINAL_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    ARTIFACTS_FIELD_NUMBER: _ClassVar[int]
+    DEPTH_FIELD_NUMBER: _ClassVar[int]
+    ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    EXECUTION_TIME_MS_FIELD_NUMBER: _ClassVar[int]
+    TOKENS_USED_FIELD_NUMBER: _ClassVar[int]
+    objective: str
+    subagent_name: str
+    agent_id: str
+    detached: bool
+    child_chat_id: str
+    status: SubagentRunStatus
+    final_message: str
+    artifacts: _containers.RepeatedCompositeFieldContainer[FileReference]
+    depth: int
+    error_message: str
+    execution_time_ms: int
+    tokens_used: int
+
+    def __init__(self, objective: _Optional[str]=..., subagent_name: _Optional[str]=..., agent_id: _Optional[str]=..., detached: bool=..., child_chat_id: _Optional[str]=..., status: _Optional[_Union[SubagentRunStatus, str]]=..., final_message: _Optional[str]=..., artifacts: _Optional[_Iterable[_Union[FileReference, _Mapping]]]=..., depth: _Optional[int]=..., error_message: _Optional[str]=..., execution_time_ms: _Optional[int]=..., tokens_used: _Optional[int]=...) -> None:
         ...
 
 class Citation(_message.Message):

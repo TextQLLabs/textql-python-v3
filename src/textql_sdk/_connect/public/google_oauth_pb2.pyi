@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from google.protobuf import struct_pb2 as _struct_pb2
 from ..public import options_pb2 as _options_pb2
 from google.protobuf import descriptor as _descriptor

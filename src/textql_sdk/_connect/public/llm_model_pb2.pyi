@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from typing import ClassVar as _ClassVar
@@ -29,6 +29,7 @@ class LlmModel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MODEL_OPUS_4_8: _ClassVar[LlmModel]
     MODEL_FABLE_5: _ClassVar[LlmModel]
     MODEL_SONNET_5: _ClassVar[LlmModel]
+    MODEL_OPUS_5: _ClassVar[LlmModel]
     MODEL_GPT_4: _ClassVar[LlmModel]
     MODEL_GPT_4_TURBO: _ClassVar[LlmModel]
     MODEL_GPT_4O: _ClassVar[LlmModel]
@@ -71,6 +72,7 @@ class LlmModel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MODEL_GLM_5_2: _ClassVar[LlmModel]
     MODEL_KIMI_K2_7_CODE: _ClassVar[LlmModel]
     MODEL_QWEN3_7_PLUS: _ClassVar[LlmModel]
+    MODEL_KIMI_K3: _ClassVar[LlmModel]
     MODEL_CEREBRAS_GLM_4_7: _ClassVar[LlmModel]
     MODEL_MUSE_SPARK_1_1: _ClassVar[LlmModel]
 MODEL_UNKNOWN: LlmModel
@@ -94,6 +96,7 @@ MODEL_OPUS_4_7: LlmModel
 MODEL_OPUS_4_8: LlmModel
 MODEL_FABLE_5: LlmModel
 MODEL_SONNET_5: LlmModel
+MODEL_OPUS_5: LlmModel
 MODEL_GPT_4: LlmModel
 MODEL_GPT_4_TURBO: LlmModel
 MODEL_GPT_4O: LlmModel
@@ -136,5 +139,6 @@ MODEL_KIMI_K2_6: LlmModel
 MODEL_GLM_5_2: LlmModel
 MODEL_KIMI_K2_7_CODE: LlmModel
 MODEL_QWEN3_7_PLUS: LlmModel
+MODEL_KIMI_K3: LlmModel
 MODEL_CEREBRAS_GLM_4_7: LlmModel
 MODEL_MUSE_SPARK_1_1: LlmModel

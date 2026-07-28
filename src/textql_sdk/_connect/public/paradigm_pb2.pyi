@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from ..google.api import visibility_pb2 as _visibility_pb2
 from .. import paradigm_params_pb2 as _paradigm_params_pb2
 from .. import powerbi_selection_pb2 as _powerbi_selection_pb2
@@ -102,7 +102,7 @@ class TableauOptions(_message.Message):
         ...
 
 class UniversalOptions(_message.Message):
-    __slots__ = ('connector_ids', 'dataset_id', 'web_search_enabled', 'sql_enabled', 'ontology_enabled', 'ontology_editing_enabled', 'python_enabled', 'auto_approve_enabled', 'google_drive_enabled', 'powerbi_enabled', 'context_editing_enabled', 'form_editor_enabled', 'playbook_tools_enabled', 'microsoft365_enabled', 'feed_explorer_enabled', 'bash_enabled', 'javascript_enabled', 'feed_post_enabled', 'feed_comment_enabled', 'feed_engage_enabled', 'streamlit_enabled', 'compaction_disabled', 'gmail_enabled', 'chat_history_search_enabled', 'google_calendar_enabled', 'email_output_enabled', 'powerbi_selections', 'sms_mode', 'api_access_key_ids')
+    __slots__ = ('connector_ids', 'dataset_id', 'web_search_enabled', 'sql_enabled', 'ontology_enabled', 'ontology_editing_enabled', 'python_enabled', 'auto_approve_enabled', 'google_drive_enabled', 'powerbi_enabled', 'context_editing_enabled', 'form_editor_enabled', 'playbook_tools_enabled', 'microsoft365_enabled', 'feed_explorer_enabled', 'bash_enabled', 'javascript_enabled', 'feed_post_enabled', 'feed_comment_enabled', 'feed_engage_enabled', 'streamlit_enabled', 'compaction_disabled', 'gmail_enabled', 'chat_history_search_enabled', 'google_calendar_enabled', 'email_output_enabled', 'powerbi_selections', 'sms_mode', 'api_access_key_ids', 'feed_enabled')
     CONNECTOR_IDS_FIELD_NUMBER: _ClassVar[int]
     DATASET_ID_FIELD_NUMBER: _ClassVar[int]
     WEB_SEARCH_ENABLED_FIELD_NUMBER: _ClassVar[int]
@@ -132,6 +132,7 @@ class UniversalOptions(_message.Message):
     POWERBI_SELECTIONS_FIELD_NUMBER: _ClassVar[int]
     SMS_MODE_FIELD_NUMBER: _ClassVar[int]
     API_ACCESS_KEY_IDS_FIELD_NUMBER: _ClassVar[int]
+    FEED_ENABLED_FIELD_NUMBER: _ClassVar[int]
     connector_ids: _containers.RepeatedScalarFieldContainer[int]
     dataset_id: str
     web_search_enabled: bool
@@ -161,8 +162,9 @@ class UniversalOptions(_message.Message):
     powerbi_selections: _containers.RepeatedCompositeFieldContainer[_powerbi_selection_pb2.PowerBISelection]
     sms_mode: bool
     api_access_key_ids: _containers.RepeatedScalarFieldContainer[str]
+    feed_enabled: bool
 
-    def __init__(self, connector_ids: _Optional[_Iterable[int]]=..., dataset_id: _Optional[str]=..., web_search_enabled: bool=..., sql_enabled: bool=..., ontology_enabled: bool=..., ontology_editing_enabled: bool=..., python_enabled: bool=..., auto_approve_enabled: bool=..., google_drive_enabled: bool=..., powerbi_enabled: bool=..., context_editing_enabled: bool=..., form_editor_enabled: bool=..., playbook_tools_enabled: bool=..., microsoft365_enabled: bool=..., feed_explorer_enabled: bool=..., bash_enabled: bool=..., javascript_enabled: bool=..., feed_post_enabled: bool=..., feed_comment_enabled: bool=..., feed_engage_enabled: bool=..., streamlit_enabled: bool=..., compaction_disabled: bool=..., gmail_enabled: bool=..., chat_history_search_enabled: bool=..., google_calendar_enabled: bool=..., email_output_enabled: bool=..., powerbi_selections: _Optional[_Iterable[_Union[_powerbi_selection_pb2.PowerBISelection, _Mapping]]]=..., sms_mode: bool=..., api_access_key_ids: _Optional[_Iterable[str]]=...) -> None:
+    def __init__(self, connector_ids: _Optional[_Iterable[int]]=..., dataset_id: _Optional[str]=..., web_search_enabled: bool=..., sql_enabled: bool=..., ontology_enabled: bool=..., ontology_editing_enabled: bool=..., python_enabled: bool=..., auto_approve_enabled: bool=..., google_drive_enabled: bool=..., powerbi_enabled: bool=..., context_editing_enabled: bool=..., form_editor_enabled: bool=..., playbook_tools_enabled: bool=..., microsoft365_enabled: bool=..., feed_explorer_enabled: bool=..., bash_enabled: bool=..., javascript_enabled: bool=..., feed_post_enabled: bool=..., feed_comment_enabled: bool=..., feed_engage_enabled: bool=..., streamlit_enabled: bool=..., compaction_disabled: bool=..., gmail_enabled: bool=..., chat_history_search_enabled: bool=..., google_calendar_enabled: bool=..., email_output_enabled: bool=..., powerbi_selections: _Optional[_Iterable[_Union[_powerbi_selection_pb2.PowerBISelection, _Mapping]]]=..., sms_mode: bool=..., api_access_key_ids: _Optional[_Iterable[str]]=..., feed_enabled: bool=...) -> None:
         ...
 
 class GoogleDriveOptions(_message.Message):
