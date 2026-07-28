@@ -13,12 +13,18 @@ Speakeasy-managed and get overwritten on every `speakeasy run`:
    absolute imports that only resolve with the output dir on sys.path.
 2. Drop dangling ``from . import <pkg>`` lines from the package stubs, for the
    subtrees generate-connect.sh deletes (platform/, demo/, google/protobuf/).
-3. Prepend lint/typecheck opt-outs. Generated protobuf code is never clean
-   under either tool (~64k pylint messages: no-member, abstract-method,
-   protected-access; plus stub/types-protobuf mismatches under mypy).
+3. Prepend lint/typecheck opt-outs for all three checkers this repo runs:
+   pylint, mypy, and pyright. Generated protobuf code is never clean under any
+   of them (~64k pylint messages: no-member, abstract-method, protected-access;
+   stub/types-protobuf mismatches under mypy; ClassVar-in-extension-stub and
+   ``_ExtensionDict`` under pyright).
 
 ``# mypy: ignore-errors`` only suppresses *reporting* inside these files — the
 declared types are still used, so callers keep real protobuf types.
+
+pyright is the one that gates CI: it is what Speakeasy's "Compile SDK" step
+runs. mypy and pylint being clean locally says nothing about whether generation
+will pass. Reproduce with ``uv run pyright src/`` before pushing.
 """
 
 from __future__ import annotations
@@ -27,7 +33,16 @@ import re
 import sys
 from pathlib import Path
 
-HEADERS = ("# pylint: skip-file", "# mypy: ignore-errors")
+HEADERS = (
+    "# pylint: skip-file",
+    "# mypy: ignore-errors",
+    # Speakeasy's "Compile SDK" step runs pyright, which the two headers above do
+    # nothing for. Only the rules the protobuf pyi plugin actually trips are
+    # disabled -- notably NOT reportMissingImports, which is what fires when
+    # `speakeasy run` regenerates pyproject.toml without connect-python and
+    # evicts the dependency. That one must keep failing loudly.
+    "# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false",
+)
 
 # `import a.b.c_pb2 as _alias` / `from a.b import c_pb2 as _alias`. Bare
 # `import x`/`from x import y` without an alias never appears in the generated

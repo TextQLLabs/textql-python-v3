@@ -1,3 +1,4 @@
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
 from ..public import options_pb2 as _options_pb2

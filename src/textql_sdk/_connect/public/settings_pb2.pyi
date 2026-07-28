@@ -1,3 +1,4 @@
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
 from .. import auth_pb2 as _auth_pb2
