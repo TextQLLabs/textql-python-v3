@@ -1,5 +1,8 @@
 name: Publish
 permissions:
+  # actions: read lets the notify job pull the deploy-thread artifact that the
+  # generation run left behind.
+  actions: read
   checks: write
   contents: write
   pull-requests: write
@@ -21,6 +24,120 @@ jobs:
       github_access_token: ${{ secrets.GH_PAT }}
       pypi_token: ${{ secrets.PYPI_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+
+  notify-deploy-thread:
+    name: Report publish result to the deploy Slack thread
+    needs: [publish]
+    if: >-
+      always()
+      && (needs.publish.result != 'success'
+          || needs.publish.outputs.publish_python == 'true')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The regen PR's squash commit is the only link back to the generation run
+      # that knows which deploy started all this: commit subject -> PR -> head
+      # branch -> the deploy-thread artifact keyed by that branch.
+      - name: Resolve the originating deploy thread
+        id: thread
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+
+          thread_ts=""
+          deployment_tag=""
+
+          pr_number=$(printf '%s' "$COMMIT_MESSAGE" | head -1 \
+            | grep -oE '\(#[0-9]+\)$' | grep -oE '[0-9]+' || true)
+
+          if [ -z "$pr_number" ]; then
+            echo "No PR number in the head commit; publishing without a deploy thread."
+          else
+            branch=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${pr_number}" \
+              --jq '.head.ref' 2>/dev/null || true)
+          fi
+
+          if [ -n "${branch:-}" ]; then
+            # Generation stashes this in a follow-on job, so it can land after
+            # auto-merge has already kicked off publish — retry rather than lose
+            # the thread.
+            for attempt in 1 2 3 4 5 6; do
+              artifact_id=$(gh api \
+                "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=deploy-thread-${branch}&per_page=1" \
+                --jq '.artifacts[0].id // empty' 2>/dev/null || true)
+              [ -n "$artifact_id" ] && break
+              echo "deploy-thread-${branch} not available yet (attempt ${attempt})"
+              sleep 10
+            done
+
+            if [ -n "${artifact_id:-}" ]; then
+              gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" \
+                > "$RUNNER_TEMP/deploy-thread.zip"
+              unzip -p "$RUNNER_TEMP/deploy-thread.zip" deploy-thread.json \
+                > "$RUNNER_TEMP/deploy-thread.json"
+              thread_ts=$(jq -r '.thread_ts // ""' "$RUNNER_TEMP/deploy-thread.json")
+              deployment_tag=$(jq -r '.deployment_tag // ""' "$RUNNER_TEMP/deploy-thread.json")
+            else
+              echo "::warning::No deploy-thread artifact for ${branch}; posting unthreaded."
+            fi
+          fi
+
+          # First `version = "..."` inside [project]; avoids depending on the
+          # runner's python being new enough for tomllib.
+          version=$(awk -F'"' \
+            '/^\[project\]/{p=1;next} /^\[/{p=0} p && /^version *=/{print $2; exit}' \
+            pyproject.toml)
+
+          echo "thread_ts=${thread_ts}" >> "$GITHUB_OUTPUT"
+          echo "deployment_tag=${deployment_tag}" >> "$GITHUB_OUTPUT"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Generate notification dispatch token
+        id: notify-app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.SDK_DISPATCH_APP_ID }}
+          private-key: ${{ secrets.SDK_DISPATCH_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: demo2
+          permission-contents: write
+
+      # Slack credentials live in demo2, so report the result there and let its
+      # notify-sdk-publish workflow do the posting.
+      - name: Dispatch the publish result to demo2
+        env:
+          GH_TOKEN: ${{ steps.notify-app-token.outputs.token }}
+          RESULT: ${{ needs.publish.result }}
+          VERSION: ${{ steps.thread.outputs.version }}
+          THREAD_TS: ${{ steps.thread.outputs.thread_ts }}
+          DEPLOYMENT_TAG: ${{ steps.thread.outputs.deployment_tag }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          jq -n \
+            --arg result "$RESULT" \
+            --arg version "$VERSION" \
+            --arg thread_ts "$THREAD_TS" \
+            --arg deployment_tag "$DEPLOYMENT_TAG" \
+            --arg run_url "$RUN_URL" \
+            '{
+              event_type: "sdk-published",
+              client_payload: {
+                sdk: "Python",
+                package: "textql-sdk",
+                version: $version,
+                result: $result,
+                slack_thread_ts: $thread_ts,
+                deployment_tag: $deployment_tag,
+                run_url: $run_url
+              }
+            }' | gh api \
+              --method POST \
+              "repos/TextQLLabs/demo2/dispatches" \
+              --input -
 
   sync-python-sdk-docs:
     needs: [publish]

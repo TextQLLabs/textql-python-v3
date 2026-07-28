@@ -37,3 +37,35 @@ jobs:
       github_access_token: ${{ secrets.GH_PAT }}
       pypi_token: ${{ secrets.PYPI_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+
+  # The publish workflow runs off a later push to main and never sees this
+  # dispatch payload, so hand the deploy's Slack thread id forward as an
+  # artifact keyed by the regen branch that generation just pushed.
+  stash-deploy-thread:
+    name: Stash the deploy Slack thread for the publish workflow
+    needs: [generate]
+    if: >-
+      github.event_name == 'repository_dispatch'
+      && github.event.client_payload.slack_thread_ts != ''
+      && needs.generate.outputs.branch_name != ''
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Write the deploy thread
+        env:
+          THREAD_TS: ${{ github.event.client_payload.slack_thread_ts }}
+          DEPLOYMENT_TAG: ${{ github.event.client_payload.deployment_tag }}
+        run: |
+          set -euo pipefail
+          jq -n \
+            --arg thread_ts "$THREAD_TS" \
+            --arg deployment_tag "$DEPLOYMENT_TAG" \
+            '{thread_ts: $thread_ts, deployment_tag: $deployment_tag}' \
+            > "$RUNNER_TEMP/deploy-thread.json"
+
+      - name: Upload the deploy Slack thread
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-thread-${{ needs.generate.outputs.branch_name }}
+          path: ${{ runner.temp }}/deploy-thread.json
+          retention-days: 7
