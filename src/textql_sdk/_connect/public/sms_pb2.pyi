@@ -1,5 +1,7 @@
-import auth_pb2 as _auth_pb2
-from public import options_pb2 as _options_pb2
+# pylint: skip-file
+# mypy: ignore-errors
+from .. import auth_pb2 as _auth_pb2
+from ..public import options_pb2 as _options_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from collections.abc import Mapping as _Mapping

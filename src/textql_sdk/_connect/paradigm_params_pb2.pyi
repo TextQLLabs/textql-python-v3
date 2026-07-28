@@ -1,5 +1,7 @@
-from google.api import visibility_pb2 as _visibility_pb2
-import powerbi_selection_pb2 as _powerbi_selection_pb2
+# pylint: skip-file
+# mypy: ignore-errors
+from .google.api import visibility_pb2 as _visibility_pb2
+from . import powerbi_selection_pb2 as _powerbi_selection_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor

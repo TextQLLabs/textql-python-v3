@@ -1,3 +1,5 @@
+# pylint: skip-file
+# mypy: ignore-errors
 from collections.abc import AsyncGenerator, AsyncIterator, Iterable, Iterator, Mapping
 from typing import Protocol
 from connectrpc.client import ConnectClient, ConnectClientSync

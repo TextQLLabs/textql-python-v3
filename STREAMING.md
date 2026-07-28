@@ -111,4 +111,46 @@ DEMO2_DIR=/path/to/demo2 ./scripts/generate-connect.sh
 ```
 
 The buf plugin versions in that script are pinned to match the `connect-python`
-runtime in `pyproject.toml`; bump them together.
+runtime; bump them together.
+
+The last step runs `scripts/postprocess-connect.py`, which fixes up what the
+codegen leaves behind. It is idempotent, so you can also run it standalone
+against an already-generated tree:
+
+- **Relative-ises absolute imports in the `.pyi` stubs.** protoletariat only
+  rewrites the `.py` files: its patterns key on protoc's alias convention
+  (`import auth_pb2 as auth__pb2`), while the pyi plugin emits
+  `as _auth_pb2`, so nothing matches. It decides what stays absolute by what is
+  on disk, which is why it runs *after* the tree is trimmed — `google/api` is
+  kept and becomes relative, `google/protobuf` is deleted and stays absolute so
+  it resolves from the installed runtime.
+- **Prunes package-stub entries** for the subtrees the script deletes.
+- **Prepends `# pylint: skip-file` and `# mypy: ignore-errors`.** Generated
+  protobuf code is never clean under either tool (~64k pylint messages), and CI
+  runs both. `ignore-errors` only suppresses *reporting* inside those files, so
+  callers still get real protobuf types.
+
+## Dependencies: edit gen.yaml, never pyproject.toml
+
+`pyproject.toml` and `pylintrc` are Speakeasy-managed (they are listed in
+`.speakeasy/gen.lock`) and are regenerated from scratch on every
+`speakeasy run`. Anything hand-added to them is silently dropped on the next
+generation — which then fails CI, because `uv sync --dev` uninstalls the
+runtime deps and the whole `_connect` tree stops resolving.
+
+The runtime and typing deps this bridge needs therefore live in
+`.speakeasy/gen.yaml`, which Speakeasy renders into `pyproject.toml`:
+
+```yaml
+python:
+  additionalDependencies:
+    main:
+      connect-python: ">=0.9.0"
+      protobuf: ">=6.31,<8"
+    dev:
+      types-protobuf: ">=6.31"
+```
+
+For the same reason, lint/typecheck opt-outs for the generated tree cannot go
+in `pyproject.toml` or `pylintrc` — they are injected per-file by
+`scripts/postprocess-connect.py`.

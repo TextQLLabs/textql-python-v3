@@ -1,3 +1,5 @@
+# pylint: skip-file
+# mypy: ignore-errors
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

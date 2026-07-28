@@ -36,8 +36,11 @@ generation:
 python:
   version: 1.0.5
   additionalDependencies:
-    dev: {}
-    main: {}
+    dev:
+      types-protobuf: ">=6.31"
+    main:
+      connect-python: ">=0.9.0"
+      protobuf: ">=6.31,<8"
   allowedRedefinedBuiltins:
     - id
     - object

@@ -6,11 +6,11 @@ authors = [{ name = "Speakeasy" },]
 readme = "README-PYPI.md"
 requires-python = ">=3.10"
 dependencies = [
+    "connect-python >=0.9.0",
     "httpcore >=1.0.9",
     "httpx >=0.28.1",
-    "pydantic >=2.11.2,<2.13",
-    "connect-python >=0.9.0",
     "protobuf >=6.31,<8",
+    "pydantic >=2.11.2,<2.13",
 ]
 urls.repository = "https://github.com/TextQLLabs/textql-python-v3.git"
 license = { text = "Apache-2.0" }
@@ -20,13 +20,14 @@ dev = [
     "mypy ==1.15.0",
     "pylint ==3.2.3",
     "pyright ==1.1.398",
+    "types-protobuf >=6.31",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-"*" = ["py.typed", "*.pyi"]
+"*" = ["py.typed"]
 
 [build-system]
 requires = ["setuptools>=80", "wheel"]

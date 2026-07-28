@@ -1,3 +1,5 @@
+# pylint: skip-file
+# mypy: ignore-errors
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
