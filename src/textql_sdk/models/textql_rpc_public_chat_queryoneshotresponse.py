@@ -13,16 +13,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatQueryOneShotResponseTypedDict(TypedDict):
-    r"""Simplified query response for external API users"""
-
     chat_id: NotRequired[str]
     answer: NotRequired[str]
     cells: NotRequired[List[TextqlRPCPublicChatCellTypedDict]]
 
 
 class TextqlRPCPublicChatQueryOneShotResponse(BaseModel):
-    r"""Simplified query response for external API users"""
-
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 
     answer: Optional[str] = None

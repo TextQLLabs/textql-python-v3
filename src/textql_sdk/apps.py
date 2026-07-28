@@ -25,7 +25,7 @@ class Apps(BaseSDK):
         Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
-        :param app_id: 'app' | 'dashboard'
+        :param app_id: 'app' | 'dashboard' | 'agent'
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -129,7 +129,7 @@ class Apps(BaseSDK):
         Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
-        :param app_id: 'app' | 'dashboard'
+        :param app_id: 'app' | 'dashboard' | 'agent'
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -742,11 +742,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceDuplicateAppResponse:
-        r"""Duplicates an app the caller can view into a new draft app they own,  named \"Copy of <name>\". Copies code/files/data sources/compute functions/  schedule; never carries over the source's published state or data snapshot.
+        r"""Duplicates an app the caller can view into a new app they own,  named \"Copy of <name>\". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 
-        Duplicates an app the caller can view into a new draft app they own,
+        Duplicates an app the caller can view into a new app they own,
         named \"Copy of <name>\". Copies code/files/data sources/compute functions/
-        schedule; never carries over the source's published state or data snapshot.
+        schedule; never carries over the source's data snapshot.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -850,11 +850,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceDuplicateAppResponse:
-        r"""Duplicates an app the caller can view into a new draft app they own,  named \"Copy of <name>\". Copies code/files/data sources/compute functions/  schedule; never carries over the source's published state or data snapshot.
+        r"""Duplicates an app the caller can view into a new app they own,  named \"Copy of <name>\". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 
-        Duplicates an app the caller can view into a new draft app they own,
+        Duplicates an app the caller can view into a new app they own,
         named \"Copy of <name>\". Copies code/files/data sources/compute functions/
-        schedule; never carries over the source's published state or data snapshot.
+        schedule; never carries over the source's data snapshot.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1162,6 +1162,7 @@ class Apps(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         app_id: Optional[str] = None,
         version_number: Optional[int] = None,
+        commit_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1172,6 +1173,7 @@ class Apps(BaseSDK):
         :param connect_timeout_ms:
         :param app_id:
         :param version_number:
+        :param commit_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1192,6 +1194,7 @@ class Apps(BaseSDK):
             body=models.TextqlRPCPublicAppGetAppVersionRequest(
                 app_id=app_id,
                 version_number=version_number,
+                commit_id=commit_id,
             ),
         )
 
@@ -1269,6 +1272,7 @@ class Apps(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         app_id: Optional[str] = None,
         version_number: Optional[int] = None,
+        commit_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1279,6 +1283,7 @@ class Apps(BaseSDK):
         :param connect_timeout_ms:
         :param app_id:
         :param version_number:
+        :param commit_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1299,6 +1304,7 @@ class Apps(BaseSDK):
             body=models.TextqlRPCPublicAppGetAppVersionRequest(
                 app_id=app_id,
                 version_number=version_number,
+                commit_id=commit_id,
             ),
         )
 
@@ -1380,9 +1386,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Lists the calling member's favorited library items (apps, dashboards,
+        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1486,9 +1493,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Lists the calling member's favorited library items (apps, dashboards,
+        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2032,14 +2040,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppVersionsResponse:
-        r"""Version history: a snapshot is recorded on each publish; authors can list and restore.
+        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
-        Version history: a snapshot is recorded on each publish; authors can list and restore.
+        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
         :param connect_timeout_ms:
-        :param app_id: normalized relative path, forward slashes, no .. or leading /
-        :param limit:
-        :param offset:
+        :param app_id:
+        :param limit: Routing observability: warm | warm_fallback | tql | sql.
+        :param offset: Whether this invoke paid phase-1 module definition (cold imports).
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2144,14 +2152,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppVersionsResponse:
-        r"""Version history: a snapshot is recorded on each publish; authors can list and restore.
+        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
-        Version history: a snapshot is recorded on each publish; authors can list and restore.
+        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
         :param connect_timeout_ms:
-        :param app_id: normalized relative path, forward slashes, no .. or leading /
-        :param limit:
-        :param offset:
+        :param app_id:
+        :param limit: Routing observability: warm | warm_fallback | tql | sql.
+        :param offset: Whether this invoke paid phase-1 module definition (cold imports).
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2918,6 +2926,7 @@ class Apps(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         app_id: Optional[str] = None,
         version_number: Optional[int] = None,
+        commit_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2928,6 +2937,7 @@ class Apps(BaseSDK):
         :param connect_timeout_ms:
         :param app_id:
         :param version_number:
+        :param commit_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2948,6 +2958,7 @@ class Apps(BaseSDK):
             body=models.TextqlRPCPublicAppRestoreAppVersionRequest(
                 app_id=app_id,
                 version_number=version_number,
+                commit_id=commit_id,
             ),
         )
 
@@ -3025,6 +3036,7 @@ class Apps(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         app_id: Optional[str] = None,
         version_number: Optional[int] = None,
+        commit_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3035,6 +3047,7 @@ class Apps(BaseSDK):
         :param connect_timeout_ms:
         :param app_id:
         :param version_number:
+        :param commit_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3055,6 +3068,7 @@ class Apps(BaseSDK):
             body=models.TextqlRPCPublicAppRestoreAppVersionRequest(
                 app_id=app_id,
                 version_number=version_number,
+                commit_id=commit_id,
             ),
         )
 
@@ -3370,6 +3384,7 @@ class Apps(BaseSDK):
         ] = None,
         replace_data_sources: OptionalNullable[bool] = UNSET,
         publish: OptionalNullable[bool] = UNSET,
+        staleness_window_seconds: OptionalNullable[int] = UNSET,
         compute_functions: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicAppComputeFunction],
@@ -3410,6 +3425,7 @@ class Apps(BaseSDK):
         :param data_sources:
         :param replace_data_sources:
         :param publish:
+        :param staleness_window_seconds:
         :param compute_functions:
         :param replace_compute_functions:
         :param files:
@@ -3448,6 +3464,7 @@ class Apps(BaseSDK):
                 ),
                 replace_data_sources=replace_data_sources,
                 publish=publish,
+                staleness_window_seconds=staleness_window_seconds,
                 compute_functions=utils.get_pydantic_model(
                     compute_functions,
                     Optional[List[models.TextqlRPCPublicAppComputeFunction]],
@@ -3552,6 +3569,7 @@ class Apps(BaseSDK):
         ] = None,
         replace_data_sources: OptionalNullable[bool] = UNSET,
         publish: OptionalNullable[bool] = UNSET,
+        staleness_window_seconds: OptionalNullable[int] = UNSET,
         compute_functions: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicAppComputeFunction],
@@ -3592,6 +3610,7 @@ class Apps(BaseSDK):
         :param data_sources:
         :param replace_data_sources:
         :param publish:
+        :param staleness_window_seconds:
         :param compute_functions:
         :param replace_compute_functions:
         :param files:
@@ -3630,6 +3649,7 @@ class Apps(BaseSDK):
                 ),
                 replace_data_sources=replace_data_sources,
                 publish=publish,
+                staleness_window_seconds=staleness_window_seconds,
                 compute_functions=utils.get_pydantic_model(
                     compute_functions,
                     Optional[List[models.TextqlRPCPublicAppComputeFunction]],

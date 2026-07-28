@@ -10,26 +10,28 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicObserveGetCustomTopicThreadsRequestTypedDict(TypedDict):
     topic_id: NotRequired[str]
+    r"""Optional trend window; when both are set each topic carries
+    daily_tag_counts over [trend_start, trend_end).
+    """
     verdict: NotRequired[str]
-    r"""'tagged' (default) | 'excluded_manual'"""
     page_token: NotRequired[str]
     page_size: NotRequired[int]
     member_id: NotRequired[str]
-    r"""only threads owned by this member when set"""
 
 
 class TextqlRPCPublicObserveGetCustomTopicThreadsRequest(BaseModel):
     topic_id: Annotated[Optional[str], pydantic.Field(alias="topicId")] = None
+    r"""Optional trend window; when both are set each topic carries
+    daily_tag_counts over [trend_start, trend_end).
+    """
 
     verdict: Optional[str] = None
-    r"""'tagged' (default) | 'excluded_manual'"""
 
     page_token: Annotated[Optional[str], pydantic.Field(alias="pageToken")] = None
 
     page_size: Annotated[Optional[int], pydantic.Field(alias="pageSize")] = None
 
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
-    r"""only threads owned by this member when set"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

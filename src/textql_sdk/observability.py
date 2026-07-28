@@ -1030,7 +1030,9 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceCreateCustomTopicResponse:
-        r"""CreateCustomTopic
+        r"""Custom topics
+
+        Custom topics
 
         :param connect_timeout_ms:
         :param name:
@@ -1143,7 +1145,9 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceCreateCustomTopicResponse:
-        r"""CreateCustomTopic
+        r"""Custom topics
+
+        Custom topics
 
         :param connect_timeout_ms:
         :param name:
@@ -6068,11 +6072,12 @@ class Observability(BaseSDK):
         r"""GetCustomTopicThreads
 
         :param connect_timeout_ms:
-        :param topic_id:
-        :param verdict: 'tagged' (default) | 'excluded_manual'
+        :param topic_id: Optional trend window; when both are set each topic carries
+            daily_tag_counts over [trend_start, trend_end).
+        :param verdict:
         :param page_token:
         :param page_size:
-        :param member_id: only threads owned by this member when set
+        :param member_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6184,11 +6189,12 @@ class Observability(BaseSDK):
         r"""GetCustomTopicThreads
 
         :param connect_timeout_ms:
-        :param topic_id:
-        :param verdict: 'tagged' (default) | 'excluded_manual'
+        :param topic_id: Optional trend window; when both are set each topic carries
+            daily_tag_counts over [trend_start, trend_end).
+        :param verdict:
         :param page_token:
         :param page_size:
-        :param member_id: only threads owned by this member when set
+        :param member_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6704,6 +6710,7 @@ class Observability(BaseSDK):
         *,
         connect_timeout_ms: Optional[float] = None,
         days: Optional[int] = None,
+        timezone: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -6713,6 +6720,8 @@ class Observability(BaseSDK):
 
         :param connect_timeout_ms:
         :param days: time window: 7, 14, 30, 90
+        :param timezone: IANA timezone (e.g. \"America/New_York\") used to bucket the usage heatmap
+            by the viewer's local weekday/hour. Falls back to UTC when unset/invalid.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6732,6 +6741,7 @@ class Observability(BaseSDK):
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicObserveGetObservabilityStatsRequest(
                 days=days,
+                timezone=timezone,
             ),
         )
 
@@ -6808,6 +6818,7 @@ class Observability(BaseSDK):
         *,
         connect_timeout_ms: Optional[float] = None,
         days: Optional[int] = None,
+        timezone: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -6817,6 +6828,8 @@ class Observability(BaseSDK):
 
         :param connect_timeout_ms:
         :param days: time window: 7, 14, 30, 90
+        :param timezone: IANA timezone (e.g. \"America/New_York\") used to bucket the usage heatmap
+            by the viewer's local weekday/hour. Falls back to UTC when unset/invalid.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6836,6 +6849,7 @@ class Observability(BaseSDK):
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicObserveGetObservabilityStatsRequest(
                 days=days,
+                timezone=timezone,
             ),
         )
 
@@ -7693,14 +7707,12 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceRefineTopicDraftResponse:
-        r"""Custom topics
-
-        Custom topics
+        r"""RefineTopicDraft
 
         :param connect_timeout_ms:
         :param prompt:
-        :param examples: example questions users ask
-        :param exclusions: \"should NOT be tagged\" phrases
+        :param examples:
+        :param exclusions:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7805,14 +7817,12 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceRefineTopicDraftResponse:
-        r"""Custom topics
-
-        Custom topics
+        r"""RefineTopicDraft
 
         :param connect_timeout_ms:
         :param prompt:
-        :param examples: example questions users ask
-        :param exclusions: \"should NOT be tagged\" phrases
+        :param examples:
+        :param exclusions:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7923,8 +7933,8 @@ class Observability(BaseSDK):
         :param connect_timeout_ms:
         :param topic_id:
         :param chat_id:
-        :param excluded: false restores verdict='tagged'
-        :param reason: optional; fed to the judge as a negative example
+        :param excluded:
+        :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8036,8 +8046,8 @@ class Observability(BaseSDK):
         :param connect_timeout_ms:
         :param topic_id:
         :param chat_id:
-        :param excluded: false restores verdict='tagged'
-        :param reason: optional; fed to the judge as a negative example
+        :param excluded:
+        :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8149,10 +8159,8 @@ class Observability(BaseSDK):
         :param connect_timeout_ms:
         :param topic_id:
         :param name:
-        :param covers: When present, the definition is replaced. A changed definition wipes the
-            topic's verdict='tagged' rows (manual exclusions survive) — the caller is
-            expected to follow with BackfillCustomTopic to rebuild them.
-        :param excludes:
+        :param covers:
+        :param excludes: 'live' | 'backfill' | 'manual'
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8264,10 +8272,8 @@ class Observability(BaseSDK):
         :param connect_timeout_ms:
         :param topic_id:
         :param name:
-        :param covers: When present, the definition is replaced. A changed definition wipes the
-            topic's verdict='tagged' rows (manual exclusions survive) — the caller is
-            expected to follow with BackfillCustomTopic to rebuild them.
-        :param excludes:
+        :param covers:
+        :param excludes: 'live' | 'backfill' | 'manual'
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

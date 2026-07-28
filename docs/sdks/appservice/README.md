@@ -8,17 +8,104 @@ AppService manages data apps: the generative app execution primitive.
 
 ### Available Operations
 
-* [app_service_get_app_member_state](#app_service_get_app_member_state) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
-* [app_service_list_app_activity_since](#app_service_list_app_activity_since) - ListAppActivitySince
-* [app_service_list_my_app_member_activity](#app_service_list_my_app_member_activity) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
-* [app_service_presence_heartbeat](#app_service_presence_heartbeat) - Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
-* [app_service_record_app_member_activity](#app_service_record_app_member_activity) - RecordAppMemberActivity
-* [app_service_set_app_member_state](#app_service_set_app_member_state) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [app_service_get_app_db_schema](#app_service_get_app_db_schema) - Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+* [app_service_get_app_db_table_preview](#app_service_get_app_db_table_preview) - Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+* [app_service_get_app_member_state](#app_service_get_app_member_state) - View analytics: reads the engagement views recorded on app page load.
+* [app_service_list_app_activity_since](#app_service_list_app_activity_since) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [app_service_list_my_app_member_activity](#app_service_list_my_app_member_activity) - ListMyAppMemberActivity
+* [app_service_presence_heartbeat](#app_service_presence_heartbeat) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+* [app_service_record_app_member_activity](#app_service_record_app_member_activity) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [app_service_set_app_member_state](#app_service_set_app_member_state) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+
+## app_service_get_app_db_schema
+
+Server stream of live activity batches + presence snapshots, driven by
+ Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AppService_GetAppDBSchema" method="post" path="/textql.rpc.public.app.AppService/GetAppDBSchema" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.app_service.app_service_get_app_db_schema()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AppServiceGetAppDBSchemaResponse](../../models/appservicegetappdbschemaresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## app_service_get_app_db_table_preview
+
+Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
+ the app's stream. Presence never touches Postgres and never exposes emails.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AppService_GetAppDBTablePreview" method="post" path="/textql.rpc.public.app.AppService/GetAppDBTablePreview" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.app_service.app_service_get_app_db_table_preview()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `table_name`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AppServiceGetAppDBTablePreviewResponse](../../models/appservicegetappdbtablepreviewresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
 ## app_service_get_app_member_state
 
-Staff-only (superadmin gated in-handler): publishes the embedded component
- gallery as an app tree and returns its signed viewer URL.
+View analytics: reads the engagement views recorded on app page load.
 
 ### Example Usage
 
@@ -59,7 +146,8 @@ with Textql(
 
 ## app_service_list_app_activity_since
 
-ListAppActivitySince
+Append-only per-member activity log. Listing is own rows only; no
+ cross-member reads in this release.
 
 ### Example Usage
 
@@ -103,8 +191,7 @@ with Textql(
 
 ## app_service_list_my_app_member_activity
 
-Append-only per-member activity log. Listing is own rows only; no
- cross-member reads in this release.
+ListMyAppMemberActivity
 
 ### Example Usage
 
@@ -147,8 +234,8 @@ with Textql(
 
 ## app_service_presence_heartbeat
 
-Server stream of live activity batches + presence snapshots, driven by
- Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+Cross-member live activity: rows from every member of the app after a seq,
+ each carrying member_id + display_name (resolved server-side; never email).
 
 ### Example Usage
 
@@ -190,7 +277,9 @@ with Textql(
 
 ## app_service_record_app_member_activity
 
-RecordAppMemberActivity
+Per-member app state: one JSON blob per (app, member) so apps remember
+ settings/progress. Member always resolved server-side from auth context;
+ per-member persistence, so viewers with read access can save their own state.
 
 ### Example Usage
 
@@ -235,9 +324,8 @@ with Textql(
 
 ## app_service_set_app_member_state
 
-Per-member app state: one JSON blob per (app, member) so apps remember
- settings/progress. Member always resolved server-side from auth context;
- per-member persistence, so viewers with read access can save their own state.
+Staff-only (superadmin gated in-handler): publishes the embedded component
+ gallery as an app tree and returns its signed viewer URL.
 
 ### Example Usage
 

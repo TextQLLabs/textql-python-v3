@@ -14,7 +14,9 @@ class TextqlRPCPublicObservePlaybookBillingStatTypedDict(TypedDict):
     owner_id: NotRequired[str]
     owner_name: NotRequired[str]
     total_acu: NotRequired[float]
+    r"""llm_tokens, compute_hours, cell_execution"""
     llm_acu: NotRequired[float]
+    r"""chat, feed, observability"""
     compute_acu: NotRequired[float]
     run_count: NotRequired[int]
     daily_run_counts: NotRequired[List[int]]
@@ -31,8 +33,10 @@ class TextqlRPCPublicObservePlaybookBillingStat(BaseModel):
     owner_name: Annotated[Optional[str], pydantic.Field(alias="ownerName")] = None
 
     total_acu: Annotated[Optional[float], pydantic.Field(alias="totalAcu")] = None
+    r"""llm_tokens, compute_hours, cell_execution"""
 
     llm_acu: Annotated[Optional[float], pydantic.Field(alias="llmAcu")] = None
+    r"""chat, feed, observability"""
 
     compute_acu: Annotated[Optional[float], pydantic.Field(alias="computeAcu")] = None
 

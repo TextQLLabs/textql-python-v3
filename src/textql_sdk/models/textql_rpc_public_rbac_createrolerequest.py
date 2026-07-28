@@ -8,15 +8,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateRoleRequestTypedDict(TypedDict):
-    r"""Role management requests/responses"""
-
     name: NotRequired[str]
     description: NotRequired[str]
 
 
 class TextqlRPCPublicRbacCreateRoleRequest(BaseModel):
-    r"""Role management requests/responses"""
-
     name: Optional[str] = None
 
     description: Optional[str] = None

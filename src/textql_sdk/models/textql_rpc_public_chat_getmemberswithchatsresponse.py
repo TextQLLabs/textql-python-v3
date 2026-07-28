@@ -13,12 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicChatGetMembersWithChatsResponseTypedDict(TypedDict):
     members: NotRequired[List[TextqlRPCIdentityMemberPreviewTypedDict]]
-    r"""All creators of chats user can see"""
 
 
 class TextqlRPCPublicChatGetMembersWithChatsResponse(BaseModel):
     members: Optional[List[TextqlRPCIdentityMemberPreview]] = None
-    r"""All creators of chats user can see"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

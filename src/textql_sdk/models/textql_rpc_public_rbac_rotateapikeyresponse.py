@@ -14,6 +14,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicRbacRotateAPIKeyResponseTypedDict(TypedDict):
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
+    r"""Get current member roles and permissions messages"""
     api_key_secret: NotRequired[str]
     revoked_api_key_id: NotRequired[str]
 
@@ -22,6 +23,7 @@ class TextqlRPCPublicRbacRotateAPIKeyResponse(BaseModel):
     api_key: Annotated[
         Optional[TextqlRPCPublicRbacAPIKey], pydantic.Field(alias="apiKey")
     ] = None
+    r"""Get current member roles and permissions messages"""
 
     api_key_secret: Annotated[Optional[str], pydantic.Field(alias="apiKeySecret")] = (
         None

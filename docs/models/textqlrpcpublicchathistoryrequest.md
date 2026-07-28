@@ -1,7 +1,5 @@
 # TextqlRPCPublicChatHistoryRequest
 
-order is "most recent first"
-
 
 ## Fields
 

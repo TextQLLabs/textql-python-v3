@@ -16,11 +16,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicChatDuplicateChatRequestTypedDict(TypedDict):
     chat_id: NotRequired[str]
+    r"""\"user\" or \"assistant\" """
     only_if_different_owner: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    r"""\"user\" or \"assistant\" """
 
     only_if_different_owner: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="onlyIfDifferentOwner")

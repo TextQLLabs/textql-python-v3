@@ -9,11 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatRejectOntologyChangeRequestTypedDict(TypedDict):
+    r"""Ontology change management"""
+
     cell_id: NotRequired[str]
     r"""UUID"""
 
 
 class TextqlRPCPublicChatRejectOntologyChangeRequest(BaseModel):
+    r"""Ontology change management"""
+
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
     r"""UUID"""
 

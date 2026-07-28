@@ -26,6 +26,7 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 class StreamlitTypedDict(TypedDict):
     streamlit: TextqlRPCPublicChatStreamlitArtifactDataTypedDict
     id: NotRequired[str]
+    r"""Flat list, sorted by created_at DESC"""
     name: NotRequired[str]
 
 
@@ -33,6 +34,7 @@ class Streamlit(BaseModel):
     streamlit: TextqlRPCPublicChatStreamlitArtifactData
 
     id: Optional[str] = None
+    r"""Flat list, sorted by created_at DESC"""
 
     name: Optional[str] = None
 
@@ -56,6 +58,7 @@ class Streamlit(BaseModel):
 class FormTypedDict(TypedDict):
     form: TextqlRPCPublicChatFormArtifactDataTypedDict
     id: NotRequired[str]
+    r"""Flat list, sorted by created_at DESC"""
     name: NotRequired[str]
 
 
@@ -63,6 +66,7 @@ class Form(BaseModel):
     form: TextqlRPCPublicChatFormArtifactData
 
     id: Optional[str] = None
+    r"""Flat list, sorted by created_at DESC"""
 
     name: Optional[str] = None
 
@@ -85,16 +89,18 @@ class Form(BaseModel):
 
 class TextqlRPCPublicChatGetArtifactResponseFileTypedDict(TypedDict):
     file: TextqlRPCPublicChatFileArtifactDataTypedDict
-    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
+    r"""Request full artifact data when item is selected"""
     id: NotRequired[str]
+    r"""Flat list, sorted by created_at DESC"""
     name: NotRequired[str]
 
 
 class TextqlRPCPublicChatGetArtifactResponseFile(BaseModel):
     file: TextqlRPCPublicChatFileArtifactData
-    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
+    r"""Request full artifact data when item is selected"""
 
     id: Optional[str] = None
+    r"""Flat list, sorted by created_at DESC"""
 
     name: Optional[str] = None
 
@@ -117,14 +123,18 @@ class TextqlRPCPublicChatGetArtifactResponseFile(BaseModel):
 
 class DashboardTypedDict(TypedDict):
     dashboard: TextqlRPCPublicChatDashboardArtifactDataTypedDict
+    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
     id: NotRequired[str]
+    r"""Flat list, sorted by created_at DESC"""
     name: NotRequired[str]
 
 
 class Dashboard(BaseModel):
     dashboard: TextqlRPCPublicChatDashboardArtifactData
+    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
 
     id: Optional[str] = None
+    r"""Flat list, sorted by created_at DESC"""
 
     name: Optional[str] = None
 

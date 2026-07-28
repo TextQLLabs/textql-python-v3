@@ -14,11 +14,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicObserveGetCustomTopicThreadsResponseTypedDict(TypedDict):
     threads: NotRequired[List[TextqlRPCPublicObserveCustomTopicThreadTypedDict]]
+    r"""Keyed by chat id; chats with no tagged topics are absent."""
     next_page_token: NotRequired[str]
 
 
 class TextqlRPCPublicObserveGetCustomTopicThreadsResponse(BaseModel):
     threads: Optional[List[TextqlRPCPublicObserveCustomTopicThread]] = None
+    r"""Keyed by chat id; chats with no tagged topics are absent."""
 
     next_page_token: Annotated[Optional[str], pydantic.Field(alias="nextPageToken")] = (
         None

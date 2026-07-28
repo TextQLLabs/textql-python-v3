@@ -22,11 +22,9 @@ TagCount = TypeAliasType("TagCount", Union[int, str])
 
 
 PeopleCountTypedDict = TypeAliasType("PeopleCountTypedDict", Union[int, str])
-r"""Distinct owners of the tagged chats (same population as tag_count)."""
 
 
 PeopleCount = TypeAliasType("PeopleCount", Union[int, str])
-r"""Distinct owners of the tagged chats (same population as tag_count)."""
 
 
 class TextqlRPCPublicObserveCustomTopicTypedDict(TypedDict):
@@ -34,16 +32,11 @@ class TextqlRPCPublicObserveCustomTopicTypedDict(TypedDict):
     name: NotRequired[str]
     user_prompt: NotRequired[str]
     covers: NotRequired[str]
-    r"""completes \"Topic covers threads where: ...\" """
     excludes: NotRequired[str]
-    r"""completes \"Topic excludes threads where: ...\" """
     status: NotRequired[str]
-    r"""'active' | 'inactive'"""
     created_by_member_id: NotRequired[str]
     backfill_chat_id: NotRequired[Nullable[str]]
-    r"""the Ana scan thread"""
     backfill_status: NotRequired[Nullable[str]]
-    r"""'running' | 'completed' | 'failed'"""
     backfill_error: NotRequired[Nullable[str]]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -229,14 +222,8 @@ class TextqlRPCPublicObserveCustomTopicTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     created_by_email: NotRequired[str]
-    r"""resolved from created_by_member_id; empty if the member is gone"""
     daily_tag_counts: NotRequired[List[int]]
-    r"""Tagged chats per 24h bucket from the request's trend window start
-    (oldest first), bucketed by chat created_at — the same rule as the
-    overview daily-volume chart. Empty when the request had no window.
-    """
     people_count: NotRequired[PeopleCountTypedDict]
-    r"""Distinct owners of the tagged chats (same population as tag_count)."""
 
 
 class TextqlRPCPublicObserveCustomTopic(BaseModel):
@@ -247,13 +234,10 @@ class TextqlRPCPublicObserveCustomTopic(BaseModel):
     user_prompt: Annotated[Optional[str], pydantic.Field(alias="userPrompt")] = None
 
     covers: Optional[str] = None
-    r"""completes \"Topic covers threads where: ...\" """
 
     excludes: Optional[str] = None
-    r"""completes \"Topic excludes threads where: ...\" """
 
     status: Optional[str] = None
-    r"""'active' | 'inactive'"""
 
     created_by_member_id: Annotated[
         Optional[str], pydantic.Field(alias="createdByMemberId")
@@ -262,12 +246,10 @@ class TextqlRPCPublicObserveCustomTopic(BaseModel):
     backfill_chat_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="backfillChatId")
     ] = UNSET
-    r"""the Ana scan thread"""
 
     backfill_status: Annotated[
         OptionalNullable[str], pydantic.Field(alias="backfillStatus")
     ] = UNSET
-    r"""'running' | 'completed' | 'failed'"""
 
     backfill_error: Annotated[
         OptionalNullable[str], pydantic.Field(alias="backfillError")
@@ -462,20 +444,14 @@ class TextqlRPCPublicObserveCustomTopic(BaseModel):
     created_by_email: Annotated[
         Optional[str], pydantic.Field(alias="createdByEmail")
     ] = None
-    r"""resolved from created_by_member_id; empty if the member is gone"""
 
     daily_tag_counts: Annotated[
         Optional[List[int]], pydantic.Field(alias="dailyTagCounts")
     ] = None
-    r"""Tagged chats per 24h bucket from the request's trend window start
-    (oldest first), bucketed by chat created_at — the same rule as the
-    overview daily-volume chart. Empty when the request had no window.
-    """
 
     people_count: Annotated[
         Optional[PeopleCount], pydantic.Field(alias="peopleCount")
     ] = None
-    r"""Distinct owners of the tagged chats (same population as tag_count)."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

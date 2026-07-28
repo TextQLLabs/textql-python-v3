@@ -9,10 +9,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacGetRolePermissionsRequestTypedDict(TypedDict):
+    r"""Permission management requests/responses"""
+
     role_id: NotRequired[str]
 
 
 class TextqlRPCPublicRbacGetRolePermissionsRequest(BaseModel):
+    r"""Permission management requests/responses"""
+
     role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None
 
     @model_serializer(mode="wrap")

@@ -109,6 +109,7 @@ class TextqlRPCPublicAppAppViewerInfoTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     view_count: NotRequired[int]
+    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
     display_name: NotRequired[Nullable[str]]
     recent_view_times: NotRequired[List[datetime]]
 
@@ -211,6 +212,7 @@ class TextqlRPCPublicAppAppViewerInfo(BaseModel):
     """
 
     view_count: Annotated[Optional[int], pydantic.Field(alias="viewCount")] = None
+    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
 
     display_name: Annotated[
         OptionalNullable[str], pydantic.Field(alias="displayName")

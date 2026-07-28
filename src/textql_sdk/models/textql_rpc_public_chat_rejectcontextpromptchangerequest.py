@@ -9,11 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatRejectContextPromptChangeRequestTypedDict(TypedDict):
+    r"""context prompt change management"""
+
     cell_id: NotRequired[str]
     r"""UUID"""
 
 
 class TextqlRPCPublicChatRejectContextPromptChangeRequest(BaseModel):
+    r"""context prompt change management"""
+
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
     r"""UUID"""
 

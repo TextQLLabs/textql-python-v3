@@ -9,6 +9,10 @@ from .textql_rpc_public_observe_observabilitysummary import (
     TextqlRPCPublicObserveObservabilitySummary,
     TextqlRPCPublicObserveObservabilitySummaryTypedDict,
 )
+from .textql_rpc_public_observe_usageheatmappoint import (
+    TextqlRPCPublicObserveUsageHeatmapPoint,
+    TextqlRPCPublicObserveUsageHeatmapPointTypedDict,
+)
 from .textql_rpc_public_observe_warningtypecount import (
     TextqlRPCPublicObserveWarningTypeCount,
     TextqlRPCPublicObserveWarningTypeCountTypedDict,
@@ -41,6 +45,11 @@ class TextqlRPCPublicObserveGetObservabilityStatsResponseTypedDict(TypedDict):
     r"""Per-day, per-type warning counts for the warning-breakdown-over-time chart.
     Days/types with no warnings are absent (the client zero-fills the axis).
     """
+    usage_heatmap: NotRequired[List[TextqlRPCPublicObserveUsageHeatmapPointTypedDict]]
+    r"""Chat counts bucketed by weekday x hour-of-day (in the request timezone,
+    UTC default) for the usage heatmap. Empty buckets are absent (the client
+    zero-fills the 7x24 grid).
+    """
 
 
 class TextqlRPCPublicObserveGetObservabilityStatsResponse(BaseModel):
@@ -69,6 +78,15 @@ class TextqlRPCPublicObserveGetObservabilityStatsResponse(BaseModel):
     Days/types with no warnings are absent (the client zero-fills the axis).
     """
 
+    usage_heatmap: Annotated[
+        Optional[List[TextqlRPCPublicObserveUsageHeatmapPoint]],
+        pydantic.Field(alias="usageHeatmap"),
+    ] = None
+    r"""Chat counts bucketed by weekday x hour-of-day (in the request timezone,
+    UTC default) for the usage heatmap. Empty buckets are absent (the client
+    zero-fills the 7x24 grid).
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -78,6 +96,7 @@ class TextqlRPCPublicObserveGetObservabilityStatsResponse(BaseModel):
                 "warningDistribution",
                 "warningCatalog",
                 "warningDailyDistribution",
+                "usageHeatmap",
             ]
         )
         serialized = handler(self)

@@ -10,11 +10,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicChatGetCompletionParametersRequestTypedDict(TypedDict):
     chat_id: NotRequired[str]
+    r"""UUID"""
     cell_id: NotRequired[str]
 
 
 class TextqlRPCPublicChatGetCompletionParametersRequest(BaseModel):
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    r"""UUID"""
 
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
 

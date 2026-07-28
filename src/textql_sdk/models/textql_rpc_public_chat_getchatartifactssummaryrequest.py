@@ -9,14 +9,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetChatArtifactsSummaryRequestTypedDict(TypedDict):
-    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
-
     chat_id: NotRequired[str]
 
 
 class TextqlRPCPublicChatGetChatArtifactsSummaryRequest(BaseModel):
-    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
-
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 
     @model_serializer(mode="wrap")

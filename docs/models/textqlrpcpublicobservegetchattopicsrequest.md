@@ -1,7 +1,6 @@
 # TextqlRPCPublicObserveGetChatTopicsRequest
 
-Chat → topics decoration (which live topics tag each chat), mirroring the
- GetThreadWarnings batch shape.
+One owner of a topic's tagged chats, ranked by how many they own.
 
 
 ## Fields

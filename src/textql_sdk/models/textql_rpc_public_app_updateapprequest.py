@@ -38,6 +38,7 @@ class TextqlRPCPublicAppUpdateAppRequestTypedDict(TypedDict):
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     replace_data_sources: NotRequired[Nullable[bool]]
     publish: NotRequired[Nullable[bool]]
+    staleness_window_seconds: NotRequired[Nullable[int]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     replace_compute_functions: NotRequired[Nullable[bool]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
@@ -68,7 +69,16 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="replaceDataSources")
     ] = UNSET
 
-    publish: OptionalNullable[bool] = UNSET
+    publish: Annotated[
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = UNSET
+
+    staleness_window_seconds: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="stalenessWindowSeconds")
+    ] = UNSET
 
     compute_functions: Annotated[
         Optional[List[TextqlRPCPublicAppComputeFunction]],
@@ -118,6 +128,7 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
                 "dataSources",
                 "replaceDataSources",
                 "publish",
+                "stalenessWindowSeconds",
                 "computeFunctions",
                 "replaceComputeFunctions",
                 "files",
@@ -137,6 +148,7 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
                 "code",
                 "replaceDataSources",
                 "publish",
+                "stalenessWindowSeconds",
                 "replaceComputeFunctions",
                 "replaceFiles",
                 "scheduleEnabled",

@@ -18,9 +18,7 @@ class TextqlRPCPublicChatCheckChatPermissionsResponseTypedDict(TypedDict):
     has_write_permission: NotRequired[bool]
     has_read_permission: NotRequired[bool]
     connector_id: NotRequired[Nullable[int]]
-    r"""Deprecated: use connector_ids instead"""
     ontology_id: NotRequired[Nullable[int]]
-    r"""Deprecated: use ontology_ids instead"""
     connector_ids: NotRequired[List[int]]
     ontology_ids: NotRequired[List[int]]
 
@@ -41,7 +39,6 @@ class TextqlRPCPublicChatCheckChatPermissionsResponse(BaseModel):
             alias="connectorId",
         ),
     ] = UNSET
-    r"""Deprecated: use connector_ids instead"""
 
     ontology_id: Annotated[
         OptionalNullable[int],
@@ -50,7 +47,6 @@ class TextqlRPCPublicChatCheckChatPermissionsResponse(BaseModel):
             alias="ontologyId",
         ),
     ] = UNSET
-    r"""Deprecated: use ontology_ids instead"""
 
     connector_ids: Annotated[
         Optional[List[int]], pydantic.Field(alias="connectorIds")

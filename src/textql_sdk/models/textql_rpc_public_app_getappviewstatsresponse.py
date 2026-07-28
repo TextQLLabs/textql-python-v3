@@ -13,16 +13,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppGetAppViewStatsResponseTypedDict(TypedDict):
-    r"""View analytics"""
-
     total_views: NotRequired[int]
     unique_viewers: NotRequired[int]
     recent_viewers: NotRequired[List[TextqlRPCPublicAppAppViewerInfoTypedDict]]
 
 
 class TextqlRPCPublicAppGetAppViewStatsResponse(BaseModel):
-    r"""View analytics"""
-
     total_views: Annotated[Optional[int], pydantic.Field(alias="totalViews")] = None
 
     unique_viewers: Annotated[Optional[int], pydantic.Field(alias="uniqueViewers")] = (

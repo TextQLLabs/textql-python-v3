@@ -8,11 +8,19 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicObserveExportObservabilityCsvRequestTypedDict(TypedDict):
+    r"""MemberActivity is one member's activity over the window: a daily event-count
+    series (oldest→newest, zero-filled) plus rollups for the users table.
+    """
+
     tab: NotRequired[str]
     days: NotRequired[int]
 
 
 class TextqlRPCPublicObserveExportObservabilityCsvRequest(BaseModel):
+    r"""MemberActivity is one member's activity over the window: a daily event-count
+    series (oldest→newest, zero-filled) plus rollups for the users table.
+    """
+
     tab: Optional[str] = None
 
     days: Optional[int] = None

@@ -1,11 +1,11 @@
 # TextqlRPCPublicChatFileArtifactData
 
-File-based artifacts (images, PDFs, CSVs, HTML, text files)
+Request full artifact data when item is selected
 
 
 ## Fields
 
 | Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
 | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `url`                                                                                            | *Optional[str]*                                                                                  | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `url`                                                                                            | *Optional[str]*                                                                                  | :heavy_minus_sign:                                                                               | Cell ID or composite "cellId:type:url" for multi-artifact cells                                  |
 | `type`                                                                                           | [Optional[models.TextqlRPCPublicChatArtifactType]](../models/textqlrpcpublicchatartifacttype.md) | :heavy_minus_sign:                                                                               | Artifact types for drawer items                                                                  |

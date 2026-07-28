@@ -15,6 +15,446 @@ class AppService(BaseSDK):
     fed a snapshot of its declared data sources. First-class resource, not a dashboard.
     """
 
+    def app_service_get_app_db_schema(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceGetAppDBSchemaResponse:
+        r"""Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+
+        Server stream of live activity batches + presence snapshots, driven by
+        Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceGetAppDBSchemaRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppGetAppDBSchemaRequest(
+                app_id=app_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/GetAppDBSchema",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppGetAppDBSchemaRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_GetAppDBSchema",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicAppGetAppDBSchemaResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def app_service_get_app_db_schema_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceGetAppDBSchemaResponse:
+        r"""Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+
+        Server stream of live activity batches + presence snapshots, driven by
+        Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceGetAppDBSchemaRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppGetAppDBSchemaRequest(
+                app_id=app_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/GetAppDBSchema",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppGetAppDBSchemaRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_GetAppDBSchema",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicAppGetAppDBSchemaResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def app_service_get_app_db_table_preview(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        table_name: Optional[str] = None,
+        limit: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceGetAppDBTablePreviewResponse:
+        r"""Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+
+        Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
+        the app's stream. Presence never touches Postgres and never exposes emails.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param table_name:
+        :param limit:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceGetAppDBTablePreviewRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppGetAppDBTablePreviewRequest(
+                app_id=app_id,
+                table_name=table_name,
+                limit=limit,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/GetAppDBTablePreview",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppGetAppDBTablePreviewRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_GetAppDBTablePreview",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicAppGetAppDBTablePreviewResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def app_service_get_app_db_table_preview_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        table_name: Optional[str] = None,
+        limit: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceGetAppDBTablePreviewResponse:
+        r"""Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+
+        Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
+        the app's stream. Presence never touches Postgres and never exposes emails.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param table_name:
+        :param limit:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceGetAppDBTablePreviewRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppGetAppDBTablePreviewRequest(
+                app_id=app_id,
+                table_name=table_name,
+                limit=limit,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/GetAppDBTablePreview",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppGetAppDBTablePreviewRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_GetAppDBTablePreview",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicAppGetAppDBTablePreviewResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def app_service_get_app_member_state(
         self,
         *,
@@ -25,10 +465,9 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -132,10 +571,9 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -242,7 +680,10 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""ListAppActivitySince
+        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+
+        Append-only per-member activity log. Listing is own rows only; no
+        cross-member reads in this release.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -355,7 +796,10 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""ListAppActivitySince
+        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+
+        Append-only per-member activity log. Listing is own rows only; no
+        cross-member reads in this release.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -467,10 +911,7 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
-
-        Append-only per-member activity log. Listing is own rows only; no
-        cross-member reads in this release.
+        r"""ListMyAppMemberActivity
 
         :param connect_timeout_ms:
         :param app_id:
@@ -580,10 +1021,7 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
-
-        Append-only per-member activity log. Listing is own rows only; no
-        cross-member reads in this release.
+        r"""ListMyAppMemberActivity
 
         :param connect_timeout_ms:
         :param app_id:
@@ -692,10 +1130,10 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
 
-        Server stream of live activity batches + presence snapshots, driven by
-        Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+        Cross-member live activity: rows from every member of the app after a seq,
+        each carrying member_id + display_name (resolved server-side; never email).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -800,10 +1238,10 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
 
-        Server stream of live activity batches + presence snapshots, driven by
-        Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+        Cross-member live activity: rows from every member of the app after a seq,
+        each carrying member_id + display_name (resolved server-side; never email).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -911,7 +1349,11 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""RecordAppMemberActivity
+        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+
+        Per-member app state: one JSON blob per (app, member) so apps remember
+        settings/progress. Member always resolved server-side from auth context;
+        per-member persistence, so viewers with read access can save their own state.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1027,7 +1469,11 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""RecordAppMemberActivity
+        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+
+        Per-member app state: one JSON blob per (app, member) so apps remember
+        settings/progress. Member always resolved server-side from auth context;
+        per-member persistence, so viewers with read access can save their own state.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1140,11 +1586,10 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetAppMemberStateResponse:
-        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 
-        Per-member app state: one JSON blob per (app, member) so apps remember
-        settings/progress. Member always resolved server-side from auth context;
-        per-member persistence, so viewers with read access can save their own state.
+        Staff-only (superadmin gated in-handler): publishes the embedded component
+        gallery as an app tree and returns its signed viewer URL.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1251,11 +1696,10 @@ class AppService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetAppMemberStateResponse:
-        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 
-        Per-member app state: one JSON blob per (app, member) so apps remember
-        settings/progress. Member always resolved server-side from auth context;
-        per-member persistence, so viewers with read access can save their own state.
+        Staff-only (superadmin gated in-handler): publishes the embedded component
+        gallery as an app tree and returns its signed viewer URL.
 
         :param connect_timeout_ms:
         :param app_id:

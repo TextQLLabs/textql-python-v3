@@ -10,19 +10,15 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicObserveRefineTopicDraftRequestTypedDict(TypedDict):
     prompt: NotRequired[str]
     examples: NotRequired[List[str]]
-    r"""example questions users ask"""
     exclusions: NotRequired[List[str]]
-    r"""\"should NOT be tagged\" phrases"""
 
 
 class TextqlRPCPublicObserveRefineTopicDraftRequest(BaseModel):
     prompt: Optional[str] = None
 
     examples: Optional[List[str]] = None
-    r"""example questions users ask"""
 
     exclusions: Optional[List[str]] = None
-    r"""\"should NOT be tagged\" phrases"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

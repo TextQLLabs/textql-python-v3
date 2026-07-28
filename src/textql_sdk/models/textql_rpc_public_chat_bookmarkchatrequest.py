@@ -9,13 +9,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatBookmarkChatRequestTypedDict(TypedDict):
-    r"""Bookmark management"""
+    r"""Simplified query request for external API users"""
 
     chat_id: NotRequired[str]
 
 
 class TextqlRPCPublicChatBookmarkChatRequest(BaseModel):
-    r"""Bookmark management"""
+    r"""Simplified query request for external API users"""
 
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 

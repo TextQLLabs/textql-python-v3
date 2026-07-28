@@ -23,6 +23,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_OPUS_4_8"`
 - `"MODEL_FABLE_5"`
 - `"MODEL_SONNET_5"`
+- `"MODEL_OPUS_5"`
 - `"MODEL_GPT_5_6_SOL"`
 - `"MODEL_GEMINI_3_FLASH"`
 - `"MODEL_GEMINI_3_PRO"`
@@ -37,4 +38,5 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_GLM_5_2"`
 - `"MODEL_KIMI_K2_7_CODE"`
 - `"MODEL_QWEN3_7_PLUS"`
+- `"MODEL_KIMI_K3"`
 - `"MODEL_MUSE_SPARK_1_1"`

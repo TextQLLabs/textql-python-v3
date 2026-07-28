@@ -14,21 +14,39 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicChatApproveContextPromptChangeResponseTypedDict(TypedDict):
     success: NotRequired[bool]
     message: NotRequired[str]
+    r"""range: [0, 1]"""
     status: NotRequired[TextqlRPCPublicCellsContextPromptChangeStatus]
     resumed: NotRequired[bool]
+    r"""Estimated sandbox/compute cost for this chat (USD): chat sandbox-seconds →
+    ACUs → USD at the org's effective rate. Add to estimated_cost for the
+    thread's total cost. Requires the console rate (0/omitted if unavailable).
+    """
     resume_error: NotRequired[str]
+    r"""The chat's sandbox id ({orgID}-{chatID}), set when the thread used any
+    sandbox compute. Lets the UI deep-link to the sandbox detail. Empty/omitted
+    when the thread had no sandbox usage.
+    """
 
 
 class TextqlRPCPublicChatApproveContextPromptChangeResponse(BaseModel):
     success: Optional[bool] = None
 
     message: Optional[str] = None
+    r"""range: [0, 1]"""
 
     status: Optional[TextqlRPCPublicCellsContextPromptChangeStatus] = None
 
     resumed: Optional[bool] = None
+    r"""Estimated sandbox/compute cost for this chat (USD): chat sandbox-seconds →
+    ACUs → USD at the org's effective rate. Add to estimated_cost for the
+    thread's total cost. Requires the console rate (0/omitted if unavailable).
+    """
 
     resume_error: Annotated[Optional[str], pydantic.Field(alias="resumeError")] = None
+    r"""The chat's sandbox id ({orgID}-{chatID}), set when the thread used any
+    sandbox compute. Lets the UI deep-link to the sandbox detail. Empty/omitted
+    when the thread had no sandbox usage.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

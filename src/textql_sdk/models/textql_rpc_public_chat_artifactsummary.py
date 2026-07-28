@@ -17,12 +17,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatArtifactSummaryTypedDict(TypedDict):
-    r"""Lightweight summary for drawer item list (minimal data transfer)"""
+    r"""Bookmark management"""
 
     id: NotRequired[str]
-    r"""cell_id or unique identifier"""
     name: NotRequired[str]
-    r"""Display name"""
     type: NotRequired[TextqlRPCPublicChatArtifactType]
     r"""Artifact types for drawer items"""
     created_at: NotRequired[datetime]
@@ -117,17 +115,14 @@ class TextqlRPCPublicChatArtifactSummaryTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     thumbnail_url: NotRequired[Nullable[str]]
-    r"""Small preview if available"""
 
 
 class TextqlRPCPublicChatArtifactSummary(BaseModel):
-    r"""Lightweight summary for drawer item list (minimal data transfer)"""
+    r"""Bookmark management"""
 
     id: Optional[str] = None
-    r"""cell_id or unique identifier"""
 
     name: Optional[str] = None
-    r"""Display name"""
 
     type: Optional[TextqlRPCPublicChatArtifactType] = None
     r"""Artifact types for drawer items"""
@@ -227,7 +222,6 @@ class TextqlRPCPublicChatArtifactSummary(BaseModel):
     thumbnail_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="thumbnailUrl")
     ] = UNSET
-    r"""Small preview if available"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

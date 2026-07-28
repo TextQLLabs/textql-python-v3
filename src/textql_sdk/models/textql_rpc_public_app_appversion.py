@@ -34,9 +34,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
     id: NotRequired[str]
     app_id: NotRequired[str]
-    r"""Routing observability: warm | warm_fallback | tql | sql."""
     version_number: NotRequired[int]
-    r"""Whether this invoke paid phase-1 module definition (cold imports)."""
+    r"""JSON object, keys map to function kwargs"""
     code: NotRequired[str]
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
@@ -44,6 +43,7 @@ class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     published_html_url: NotRequired[Nullable[str]]
+    staleness_window_seconds: NotRequired[Nullable[int]]
     published_by: NotRequired[str]
     label: NotRequired[Nullable[str]]
     published_at: NotRequired[datetime]
@@ -138,18 +138,18 @@ class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     publisher: NotRequired[TextqlRPCIdentityMemberPreviewTypedDict]
+    commit_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicAppAppVersion(BaseModel):
     id: Optional[str] = None
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
-    r"""Routing observability: warm | warm_fallback | tql | sql."""
 
     version_number: Annotated[Optional[int], pydantic.Field(alias="versionNumber")] = (
         None
     )
-    r"""Whether this invoke paid phase-1 module definition (cold imports)."""
+    r"""JSON object, keys map to function kwargs"""
 
     code: Optional[str] = None
 
@@ -171,6 +171,10 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
 
     published_html_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="publishedHtmlUrl")
+    ] = UNSET
+
+    staleness_window_seconds: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="stalenessWindowSeconds")
     ] = UNSET
 
     published_by: Annotated[Optional[str], pydantic.Field(alias="publishedBy")] = None
@@ -273,6 +277,10 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
 
     publisher: Optional[TextqlRPCIdentityMemberPreview] = None
 
+    commit_id: Annotated[OptionalNullable[str], pydantic.Field(alias="commitId")] = (
+        UNSET
+    )
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -287,13 +295,23 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
                 "name",
                 "description",
                 "publishedHtmlUrl",
+                "stalenessWindowSeconds",
                 "publishedBy",
                 "label",
                 "publishedAt",
                 "publisher",
+                "commitId",
             ]
         )
-        nullable_fields = set(["description", "publishedHtmlUrl", "label"])
+        nullable_fields = set(
+            [
+                "description",
+                "publishedHtmlUrl",
+                "stalenessWindowSeconds",
+                "label",
+                "commitId",
+            ]
+        )
         serialized = handler(self)
         m = {}
 

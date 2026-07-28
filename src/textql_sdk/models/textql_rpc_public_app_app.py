@@ -45,6 +45,7 @@ class TextqlRPCPublicAppAppTypedDict(TypedDict):
     chat_id: NotRequired[Nullable[str]]
     published_html_url: NotRequired[Nullable[str]]
     has_unpublished_changes: NotRequired[bool]
+    staleness_window_seconds: NotRequired[Nullable[int]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
     schedule_enabled: NotRequired[bool]
@@ -453,12 +454,24 @@ class TextqlRPCPublicAppApp(BaseModel):
     chat_id: Annotated[OptionalNullable[str], pydantic.Field(alias="chatId")] = UNSET
 
     published_html_url: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="publishedHtmlUrl")
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="publishedHtmlUrl",
+        ),
     ] = UNSET
 
     has_unpublished_changes: Annotated[
-        Optional[bool], pydantic.Field(alias="hasUnpublishedChanges")
+        Optional[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="hasUnpublishedChanges",
+        ),
     ] = None
+
+    staleness_window_seconds: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="stalenessWindowSeconds")
+    ] = UNSET
 
     compute_functions: Annotated[
         Optional[List[TextqlRPCPublicAppComputeFunction]],
@@ -892,6 +905,7 @@ class TextqlRPCPublicAppApp(BaseModel):
                 "chatId",
                 "publishedHtmlUrl",
                 "hasUnpublishedChanges",
+                "stalenessWindowSeconds",
                 "computeFunctions",
                 "files",
                 "scheduleEnabled",
@@ -916,6 +930,7 @@ class TextqlRPCPublicAppApp(BaseModel):
                 "screenshotUrl",
                 "chatId",
                 "publishedHtmlUrl",
+                "stalenessWindowSeconds",
                 "cronString",
                 "folderId",
             ]

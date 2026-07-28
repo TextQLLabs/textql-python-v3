@@ -9,10 +9,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatDashboardArtifactDataTypedDict(TypedDict):
+    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
+
     dashboard_id: NotRequired[str]
 
 
 class TextqlRPCPublicChatDashboardArtifactData(BaseModel):
+    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
+
     dashboard_id: Annotated[Optional[str], pydantic.Field(alias="dashboardId")] = None
 
     @model_serializer(mode="wrap")

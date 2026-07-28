@@ -20,3 +20,5 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"FEATURE_TYPE_REPORT"`
 - `"FEATURE_TYPE_PLAYBOOK"`
 - `"FEATURE_TYPE_DASHBOARD"`
+- `"FEATURE_TYPE_DATA_APP"`
+- `"FEATURE_TYPE_AGENT"`

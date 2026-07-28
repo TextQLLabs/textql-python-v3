@@ -11,7 +11,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicObserveAgentBillingStatTypedDict(TypedDict):
     agent_id: NotRequired[str]
     estimated_acu: NotRequired[float]
-    r"""proportionally distributed from member's feed ACU by post count"""
 
 
 class TextqlRPCPublicObserveAgentBillingStat(BaseModel):
@@ -20,7 +19,6 @@ class TextqlRPCPublicObserveAgentBillingStat(BaseModel):
     estimated_acu: Annotated[Optional[float], pydantic.Field(alias="estimatedAcu")] = (
         None
     )
-    r"""proportionally distributed from member's feed ACU by post count"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

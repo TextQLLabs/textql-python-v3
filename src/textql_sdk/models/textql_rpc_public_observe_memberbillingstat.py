@@ -14,9 +14,7 @@ class TextqlRPCPublicObserveMemberBillingStatTypedDict(TypedDict):
     email: NotRequired[str]
     total_acu: NotRequired[float]
     acu_by_category: NotRequired[Dict[str, float]]
-    r"""llm_tokens, compute_hours, cell_execution"""
     acu_by_source: NotRequired[Dict[str, float]]
-    r"""chat, feed, observability"""
     profile_image_url: NotRequired[str]
     thread_count: NotRequired[int]
     playbook_count: NotRequired[int]
@@ -24,10 +22,6 @@ class TextqlRPCPublicObserveMemberBillingStatTypedDict(TypedDict):
     agent_count: NotRequired[int]
     is_former_member: NotRequired[bool]
     positive_signal_count: NotRequired[int]
-    r"""Per-member signal quality over the same window. Signal counts are rows
-    (one thread can contribute several); flagged/analyzed count distinct
-    threads, so flagged/analyzed is the per-member flagged rate.
-    """
     negative_signal_count: NotRequired[int]
     flagged_thread_count: NotRequired[int]
     analyzed_thread_count: NotRequired[int]
@@ -45,12 +39,10 @@ class TextqlRPCPublicObserveMemberBillingStat(BaseModel):
     acu_by_category: Annotated[
         Optional[Dict[str, float]], pydantic.Field(alias="acuByCategory")
     ] = None
-    r"""llm_tokens, compute_hours, cell_execution"""
 
     acu_by_source: Annotated[
         Optional[Dict[str, float]], pydantic.Field(alias="acuBySource")
     ] = None
-    r"""chat, feed, observability"""
 
     profile_image_url: Annotated[
         Optional[str], pydantic.Field(alias="profileImageUrl")
@@ -75,10 +67,6 @@ class TextqlRPCPublicObserveMemberBillingStat(BaseModel):
     positive_signal_count: Annotated[
         Optional[int], pydantic.Field(alias="positiveSignalCount")
     ] = None
-    r"""Per-member signal quality over the same window. Signal counts are rows
-    (one thread can contribute several); flagged/analyzed count distinct
-    threads, so flagged/analyzed is the per-member flagged rate.
-    """
 
     negative_signal_count: Annotated[
         Optional[int], pydantic.Field(alias="negativeSignalCount")
