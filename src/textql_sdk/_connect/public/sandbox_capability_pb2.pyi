@@ -1,3 +1,4 @@
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
 from ..public import sandbox_query_pb2 as _sandbox_query_pb2

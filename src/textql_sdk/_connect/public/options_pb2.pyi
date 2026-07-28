@@ -1,3 +1,4 @@
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
 from google.protobuf import descriptor_pb2 as _descriptor_pb2

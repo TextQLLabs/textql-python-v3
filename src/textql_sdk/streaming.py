@@ -98,8 +98,13 @@ class _ApiKeyInterceptor:
     async def on_start(self, ctx: RequestContext) -> None:
         ctx.request_headers()["tql_api_key"] = self._api_key
 
+    # pylint: disable=unused-argument
+    # Parameter names must match MetadataInterceptor exactly: the protocol does
+    # not mark them positional-only, so pyright matches structurally by name.
+    # Renaming them (e.g. to _token) silently breaks conformance even though
+    # connectrpc only ever calls this positionally.
     async def on_end(
-        self, _token: None, _ctx: RequestContext, _error: Optional[Exception]
+        self, token: None, ctx: RequestContext, error: Optional[Exception]
     ) -> None:
         return None
 
@@ -113,8 +118,10 @@ class _ApiKeyInterceptorSync:
     def on_start_sync(self, ctx: RequestContext) -> None:
         ctx.request_headers()["tql_api_key"] = self._api_key
 
+    # pylint: disable=unused-argument
+    # See _ApiKeyInterceptor.on_end -- names are load-bearing for the protocol.
     def on_end_sync(
-        self, _token: None, _ctx: RequestContext, _error: Optional[Exception]
+        self, token: None, ctx: RequestContext, error: Optional[Exception]
     ) -> None:
         return None
 
