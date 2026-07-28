@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from . import agent_pb2
 from . import api_oauth_pb2
 from . import apps_pb2

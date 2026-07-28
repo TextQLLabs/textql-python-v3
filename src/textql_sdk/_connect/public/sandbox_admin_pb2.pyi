@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -10,6 +10,38 @@ from google.protobuf import message as _message
 from collections.abc import Iterable as _Iterable, Mapping as _Mapping
 from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class GetSandboxLeaseSettingsRequest(_message.Message):
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        ...
+
+class GetSandboxLeaseSettingsResponse(_message.Message):
+    __slots__ = ('thread_duration_minutes', 'dashboard_duration_minutes')
+    THREAD_DURATION_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    DASHBOARD_DURATION_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    thread_duration_minutes: int
+    dashboard_duration_minutes: int
+
+    def __init__(self, thread_duration_minutes: _Optional[int]=..., dashboard_duration_minutes: _Optional[int]=...) -> None:
+        ...
+
+class SetSandboxLeaseSettingsRequest(_message.Message):
+    __slots__ = ('thread_duration_minutes', 'dashboard_duration_minutes')
+    THREAD_DURATION_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    DASHBOARD_DURATION_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    thread_duration_minutes: int
+    dashboard_duration_minutes: int
+
+    def __init__(self, thread_duration_minutes: _Optional[int]=..., dashboard_duration_minutes: _Optional[int]=...) -> None:
+        ...
+
+class SetSandboxLeaseSettingsResponse(_message.Message):
+    __slots__ = ()
+
+    def __init__(self) -> None:
+        ...
 
 class SandboxSummary(_message.Message):
     __slots__ = ('sandbox_id', 'status', 'member_id', 'chat_id', 'started_at', 'released_at')

@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from collections.abc import AsyncGenerator, AsyncIterator, Iterable, Iterator, Mapping
 from typing import Protocol
 from connectrpc.client import ConnectClient, ConnectClientSync

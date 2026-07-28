@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

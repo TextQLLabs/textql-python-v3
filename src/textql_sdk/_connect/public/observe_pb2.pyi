@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -128,27 +128,43 @@ class GetCheckRecordFixResponse(_message.Message):
         ...
 
 class GetObservabilityStatsRequest(_message.Message):
-    __slots__ = ('days',)
+    __slots__ = ('days', 'timezone')
     DAYS_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     days: int
+    timezone: str
 
-    def __init__(self, days: _Optional[int]=...) -> None:
+    def __init__(self, days: _Optional[int]=..., timezone: _Optional[str]=...) -> None:
         ...
 
 class GetObservabilityStatsResponse(_message.Message):
-    __slots__ = ('summary', 'daily_volume', 'warning_distribution', 'warning_catalog', 'warning_daily_distribution')
+    __slots__ = ('summary', 'daily_volume', 'warning_distribution', 'warning_catalog', 'warning_daily_distribution', 'usage_heatmap')
     SUMMARY_FIELD_NUMBER: _ClassVar[int]
     DAILY_VOLUME_FIELD_NUMBER: _ClassVar[int]
     WARNING_DISTRIBUTION_FIELD_NUMBER: _ClassVar[int]
     WARNING_CATALOG_FIELD_NUMBER: _ClassVar[int]
     WARNING_DAILY_DISTRIBUTION_FIELD_NUMBER: _ClassVar[int]
+    USAGE_HEATMAP_FIELD_NUMBER: _ClassVar[int]
     summary: ObservabilitySummary
     daily_volume: _containers.RepeatedCompositeFieldContainer[DailyVolumePoint]
     warning_distribution: _containers.RepeatedCompositeFieldContainer[WarningTypeCount]
     warning_catalog: _containers.RepeatedCompositeFieldContainer[WarningTypeMeta]
     warning_daily_distribution: _containers.RepeatedCompositeFieldContainer[WarningTypeDailyCount]
+    usage_heatmap: _containers.RepeatedCompositeFieldContainer[UsageHeatmapPoint]
 
-    def __init__(self, summary: _Optional[_Union[ObservabilitySummary, _Mapping]]=..., daily_volume: _Optional[_Iterable[_Union[DailyVolumePoint, _Mapping]]]=..., warning_distribution: _Optional[_Iterable[_Union[WarningTypeCount, _Mapping]]]=..., warning_catalog: _Optional[_Iterable[_Union[WarningTypeMeta, _Mapping]]]=..., warning_daily_distribution: _Optional[_Iterable[_Union[WarningTypeDailyCount, _Mapping]]]=...) -> None:
+    def __init__(self, summary: _Optional[_Union[ObservabilitySummary, _Mapping]]=..., daily_volume: _Optional[_Iterable[_Union[DailyVolumePoint, _Mapping]]]=..., warning_distribution: _Optional[_Iterable[_Union[WarningTypeCount, _Mapping]]]=..., warning_catalog: _Optional[_Iterable[_Union[WarningTypeMeta, _Mapping]]]=..., warning_daily_distribution: _Optional[_Iterable[_Union[WarningTypeDailyCount, _Mapping]]]=..., usage_heatmap: _Optional[_Iterable[_Union[UsageHeatmapPoint, _Mapping]]]=...) -> None:
+        ...
+
+class UsageHeatmapPoint(_message.Message):
+    __slots__ = ('dow', 'hour', 'total')
+    DOW_FIELD_NUMBER: _ClassVar[int]
+    HOUR_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
+    dow: int
+    hour: int
+    total: int
+
+    def __init__(self, dow: _Optional[int]=..., hour: _Optional[int]=..., total: _Optional[int]=...) -> None:
         ...
 
 class ObservabilitySummary(_message.Message):
@@ -365,6 +381,30 @@ class GetBillingStatsRequest(_message.Message):
     days: int
 
     def __init__(self, days: _Optional[int]=...) -> None:
+        ...
+
+class GetPlaybookBillingStatsRequest(_message.Message):
+    __slots__ = ('days',)
+    DAYS_FIELD_NUMBER: _ClassVar[int]
+    days: int
+
+    def __init__(self, days: _Optional[int]=...) -> None:
+        ...
+
+class GetPlaybookBillingStatsResponse(_message.Message):
+    __slots__ = ('playbook_stats', 'total_playbook_acu', 'unattributed_playbook_acu', 'total_playbook_count', 'acu_rate_per_1000_usd')
+    PLAYBOOK_STATS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_PLAYBOOK_ACU_FIELD_NUMBER: _ClassVar[int]
+    UNATTRIBUTED_PLAYBOOK_ACU_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_PLAYBOOK_COUNT_FIELD_NUMBER: _ClassVar[int]
+    ACU_RATE_PER_1000_USD_FIELD_NUMBER: _ClassVar[int]
+    playbook_stats: _containers.RepeatedCompositeFieldContainer[PlaybookBillingStat]
+    total_playbook_acu: float
+    unattributed_playbook_acu: float
+    total_playbook_count: int
+    acu_rate_per_1000_usd: float
+
+    def __init__(self, playbook_stats: _Optional[_Iterable[_Union[PlaybookBillingStat, _Mapping]]]=..., total_playbook_acu: _Optional[float]=..., unattributed_playbook_acu: _Optional[float]=..., total_playbook_count: _Optional[int]=..., acu_rate_per_1000_usd: _Optional[float]=...) -> None:
         ...
 
 class MemberBillingStat(_message.Message):

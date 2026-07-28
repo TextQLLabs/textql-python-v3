@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 from .google.api import visibility_pb2 as _visibility_pb2
 from . import powerbi_selection_pb2 as _powerbi_selection_pb2
 from google.protobuf.internal import containers as _containers

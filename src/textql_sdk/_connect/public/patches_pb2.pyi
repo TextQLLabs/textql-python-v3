@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
@@ -44,6 +44,7 @@ class OntologyFileKind(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ONTOLOGY_FILE_KIND_IMAGE: _ClassVar[OntologyFileKind]
     ONTOLOGY_FILE_KIND_ASSET: _ClassVar[OntologyFileKind]
     ONTOLOGY_FILE_KIND_TABULAR: _ClassVar[OntologyFileKind]
+    ONTOLOGY_FILE_KIND_DOCUMENT: _ClassVar[OntologyFileKind]
 
 class OntologyHistoryChangeType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -112,6 +113,7 @@ ONTOLOGY_FILE_KIND_PDF: OntologyFileKind
 ONTOLOGY_FILE_KIND_IMAGE: OntologyFileKind
 ONTOLOGY_FILE_KIND_ASSET: OntologyFileKind
 ONTOLOGY_FILE_KIND_TABULAR: OntologyFileKind
+ONTOLOGY_FILE_KIND_DOCUMENT: OntologyFileKind
 ONTOLOGY_HISTORY_CHANGE_TYPE_UNSPECIFIED: OntologyHistoryChangeType
 ONTOLOGY_HISTORY_CHANGE_TYPE_ADDED: OntologyHistoryChangeType
 ONTOLOGY_HISTORY_CHANGE_TYPE_MODIFIED: OntologyHistoryChangeType
@@ -608,6 +610,34 @@ class ValidateConfigResponse(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[ConfigDiagnostic]
 
     def __init__(self, ok: bool=..., diagnostics: _Optional[_Iterable[_Union[ConfigDiagnostic, _Mapping]]]=...) -> None:
+        ...
+
+class ListPatchObjectsRequest(_message.Message):
+    __slots__ = ('patch_ref',)
+    PATCH_REF_FIELD_NUMBER: _ClassVar[int]
+    patch_ref: str
+
+    def __init__(self, patch_ref: _Optional[str]=...) -> None:
+        ...
+
+class PatchObject(_message.Message):
+    __slots__ = ('path', 'name', 'type')
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    path: str
+    name: str
+    type: str
+
+    def __init__(self, path: _Optional[str]=..., name: _Optional[str]=..., type: _Optional[str]=...) -> None:
+        ...
+
+class ListPatchObjectsResponse(_message.Message):
+    __slots__ = ('objects',)
+    OBJECTS_FIELD_NUMBER: _ClassVar[int]
+    objects: _containers.RepeatedCompositeFieldContainer[PatchObject]
+
+    def __init__(self, objects: _Optional[_Iterable[_Union[PatchObject, _Mapping]]]=...) -> None:
         ...
 
 class GetPatchCapabilitiesRequest(_message.Message):
@@ -1963,7 +1993,7 @@ class GetFileUsageRequest(_message.Message):
         ...
 
 class FileUsage(_message.Message):
-    __slots__ = ('file_path', 'average_tokens', 'average_query_time', 'hit_rate', 'num_errors', 'num_empties', 'chats_pulled', 'chats_used', 'last_pulled', 'last_run', 'last_used')
+    __slots__ = ('file_path', 'average_tokens', 'average_query_time', 'hit_rate', 'num_errors', 'num_empties', 'chats_pulled', 'chats_used', 'last_pulled', 'last_run', 'last_used', 'chats_cited')
     FILE_PATH_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TOKENS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_QUERY_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -1975,6 +2005,7 @@ class FileUsage(_message.Message):
     LAST_PULLED_FIELD_NUMBER: _ClassVar[int]
     LAST_RUN_FIELD_NUMBER: _ClassVar[int]
     LAST_USED_FIELD_NUMBER: _ClassVar[int]
+    CHATS_CITED_FIELD_NUMBER: _ClassVar[int]
     file_path: str
     average_tokens: int
     average_query_time: _duration_pb2.Duration
@@ -1986,8 +2017,9 @@ class FileUsage(_message.Message):
     last_pulled: _timestamp_pb2.Timestamp
     last_run: _timestamp_pb2.Timestamp
     last_used: _timestamp_pb2.Timestamp
+    chats_cited: int
 
-    def __init__(self, file_path: _Optional[str]=..., average_tokens: _Optional[int]=..., average_query_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]]=..., hit_rate: _Optional[float]=..., num_errors: _Optional[int]=..., num_empties: _Optional[int]=..., chats_pulled: _Optional[int]=..., chats_used: _Optional[int]=..., last_pulled: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., last_run: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., last_used: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=...) -> None:
+    def __init__(self, file_path: _Optional[str]=..., average_tokens: _Optional[int]=..., average_query_time: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]]=..., hit_rate: _Optional[float]=..., num_errors: _Optional[int]=..., num_empties: _Optional[int]=..., chats_pulled: _Optional[int]=..., chats_used: _Optional[int]=..., last_pulled: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., last_run: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., last_used: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]]=..., chats_cited: _Optional[int]=...) -> None:
         ...
 
 class GetFileUsageResponse(_message.Message):
@@ -2009,21 +2041,29 @@ class GetOntologyUsageSummaryRequest(_message.Message):
         ...
 
 class GetOntologyUsageSummaryResponse(_message.Message):
-    __slots__ = ('total_files', 'pulled_files', 'dead_files', 'avg_hit_rate', 'error_files', 'reclaimable_tokens')
+    __slots__ = ('total_files', 'pulled_files', 'dead_files', 'avg_hit_rate', 'error_files', 'reclaimable_tokens', 'tql_pulled_files', 'avg_doc_cited_rate', 'doc_pulled_files', 'doc_citations_enabled')
     TOTAL_FILES_FIELD_NUMBER: _ClassVar[int]
     PULLED_FILES_FIELD_NUMBER: _ClassVar[int]
     DEAD_FILES_FIELD_NUMBER: _ClassVar[int]
     AVG_HIT_RATE_FIELD_NUMBER: _ClassVar[int]
     ERROR_FILES_FIELD_NUMBER: _ClassVar[int]
     RECLAIMABLE_TOKENS_FIELD_NUMBER: _ClassVar[int]
+    TQL_PULLED_FILES_FIELD_NUMBER: _ClassVar[int]
+    AVG_DOC_CITED_RATE_FIELD_NUMBER: _ClassVar[int]
+    DOC_PULLED_FILES_FIELD_NUMBER: _ClassVar[int]
+    DOC_CITATIONS_ENABLED_FIELD_NUMBER: _ClassVar[int]
     total_files: int
     pulled_files: int
     dead_files: int
     avg_hit_rate: float
     error_files: int
     reclaimable_tokens: int
+    tql_pulled_files: int
+    avg_doc_cited_rate: float
+    doc_pulled_files: int
+    doc_citations_enabled: bool
 
-    def __init__(self, total_files: _Optional[int]=..., pulled_files: _Optional[int]=..., dead_files: _Optional[int]=..., avg_hit_rate: _Optional[float]=..., error_files: _Optional[int]=..., reclaimable_tokens: _Optional[int]=...) -> None:
+    def __init__(self, total_files: _Optional[int]=..., pulled_files: _Optional[int]=..., dead_files: _Optional[int]=..., avg_hit_rate: _Optional[float]=..., error_files: _Optional[int]=..., reclaimable_tokens: _Optional[int]=..., tql_pulled_files: _Optional[int]=..., avg_doc_cited_rate: _Optional[float]=..., doc_pulled_files: _Optional[int]=..., doc_citations_enabled: bool=...) -> None:
         ...
 
 class ListOntologyFilesRequest(_message.Message):

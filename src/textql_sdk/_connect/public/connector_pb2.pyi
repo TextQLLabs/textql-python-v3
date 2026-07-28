@@ -1,6 +1,6 @@
-# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 # pylint: skip-file
 # mypy: ignore-errors
+# pyright: reportInvalidTypeForm=false, reportAttributeAccessIssue=false
 import datetime
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from ..public import options_pb2 as _options_pb2
@@ -51,6 +51,8 @@ class FeatureType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FEATURE_TYPE_REPORT: _ClassVar[FeatureType]
     FEATURE_TYPE_PLAYBOOK: _ClassVar[FeatureType]
     FEATURE_TYPE_DASHBOARD: _ClassVar[FeatureType]
+    FEATURE_TYPE_DATA_APP: _ClassVar[FeatureType]
+    FEATURE_TYPE_AGENT: _ClassVar[FeatureType]
 CONNECTOR_TYPE_UNSPECIFIED: ConnectorType
 REDSHIFT: ConnectorType
 SNOWFLAKE: ConnectorType
@@ -85,6 +87,8 @@ FEATURE_TYPE_UNSPECIFIED: FeatureType
 FEATURE_TYPE_REPORT: FeatureType
 FEATURE_TYPE_PLAYBOOK: FeatureType
 FEATURE_TYPE_DASHBOARD: FeatureType
+FEATURE_TYPE_DATA_APP: FeatureType
+FEATURE_TYPE_AGENT: FeatureType
 
 class ConnectorConfig(_message.Message):
     __slots__ = ('connector_type', 'name', 'redshift', 'snowflake', 'bigquery', 'azure_synapse', 'tableau', 'aurora', 'databricks', 'motherduck', 'clickhouse', 'mysql', 'athena', 'google_drive', 'powerbi', 'postgres', 'supabase', 'sql_server', 'microsoft_365', 'sap_hana', 'oracle', 'gmail', 'trino', 'google_calendar', 'google', 'dremio', 'exasol', 'firebolt', 'kdb', 'mongodb', 'auth_strategy')
