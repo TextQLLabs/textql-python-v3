@@ -62,4 +62,9 @@ find "$OUT_DIR" -name '*.bak' -delete
 # copy would double-register in the descriptor pool).
 rm -rf "$OUT_DIR/platform" "$OUT_DIR/demo" "$OUT_DIR/google/protobuf"
 
+# Fix up the .pyi imports protoletariat misses, drop the package-stub entries
+# for the trees just deleted, and opt the generated code out of mypy/pylint.
+# Runs last: it decides what stays absolute by what's left on disk.
+python3 "$SDK_DIR/scripts/postprocess-connect.py" "$OUT_DIR"
+
 echo "regenerated $OUT_DIR"

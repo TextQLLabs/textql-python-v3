@@ -1,3 +1,5 @@
+# pylint: skip-file
+# mypy: ignore-errors
 import datetime
 from google.protobuf import descriptor_pb2 as _descriptor_pb2
 from google.protobuf import duration_pb2 as _duration_pb2

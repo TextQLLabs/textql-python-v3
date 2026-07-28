@@ -1,4 +1,6 @@
-from public import sandbox_query_pb2 as _sandbox_query_pb2
+# pylint: skip-file
+# mypy: ignore-errors
+from ..public import sandbox_query_pb2 as _sandbox_query_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

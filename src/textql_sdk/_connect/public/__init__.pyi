@@ -1,3 +1,5 @@
+# pylint: skip-file
+# mypy: ignore-errors
 from . import agent_pb2
 from . import api_oauth_pb2
 from . import apps_pb2

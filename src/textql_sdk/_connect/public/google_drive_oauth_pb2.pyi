@@ -1,5 +1,7 @@
+# pylint: skip-file
+# mypy: ignore-errors
 from google.protobuf import struct_pb2 as _struct_pb2
-from public import options_pb2 as _options_pb2
+from ..public import options_pb2 as _options_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from collections.abc import Mapping as _Mapping

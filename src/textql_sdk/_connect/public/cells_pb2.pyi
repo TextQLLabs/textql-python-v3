@@ -1,16 +1,18 @@
+# pylint: skip-file
+# mypy: ignore-errors
 import datetime
 from google.protobuf import struct_pb2 as _struct_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
-import paradigm_params_pb2 as _paradigm_params_pb2
-from public import connector_pb2 as _connector_pb2
-from public import dashboard_pb2 as _dashboard_pb2
-from public import dataframe_pb2 as _dataframe_pb2
-from public import dataset_pb2 as _dataset_pb2
-from public import llm_model_pb2 as _llm_model_pb2
-from public import ontology_pb2 as _ontology_pb2
-from public import paradigm_pb2 as _paradigm_pb2
-from public import patches_pb2 as _patches_pb2
-from public import report_pb2 as _report_pb2
+from .. import paradigm_params_pb2 as _paradigm_params_pb2
+from ..public import connector_pb2 as _connector_pb2
+from ..public import dashboard_pb2 as _dashboard_pb2
+from ..public import dataframe_pb2 as _dataframe_pb2
+from ..public import dataset_pb2 as _dataset_pb2
+from ..public import llm_model_pb2 as _llm_model_pb2
+from ..public import ontology_pb2 as _ontology_pb2
+from ..public import paradigm_pb2 as _paradigm_pb2
+from ..public import patches_pb2 as _patches_pb2
+from ..public import report_pb2 as _report_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor

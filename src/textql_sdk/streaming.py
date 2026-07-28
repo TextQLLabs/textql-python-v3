@@ -99,7 +99,7 @@ class _ApiKeyInterceptor:
         ctx.request_headers()["tql_api_key"] = self._api_key
 
     async def on_end(
-        self, token: None, ctx: RequestContext, error: Optional[Exception]
+        self, _token: None, _ctx: RequestContext, _error: Optional[Exception]
     ) -> None:
         return None
 
@@ -114,7 +114,7 @@ class _ApiKeyInterceptorSync:
         ctx.request_headers()["tql_api_key"] = self._api_key
 
     def on_end_sync(
-        self, token: None, ctx: RequestContext, error: Optional[Exception]
+        self, _token: None, _ctx: RequestContext, _error: Optional[Exception]
     ) -> None:
         return None
 

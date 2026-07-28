@@ -1,9 +1,11 @@
-import auth_pb2 as _auth_pb2
-from google.api import visibility_pb2 as _visibility_pb2
+# pylint: skip-file
+# mypy: ignore-errors
+from .. import auth_pb2 as _auth_pb2
+from ..google.api import visibility_pb2 as _visibility_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
-import paradigm_params_pb2 as _paradigm_params_pb2
-from public import chat_pb2 as _chat_pb2
-from public import options_pb2 as _options_pb2
+from .. import paradigm_params_pb2 as _paradigm_params_pb2
+from ..public import chat_pb2 as _chat_pb2
+from ..public import options_pb2 as _options_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message

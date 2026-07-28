@@ -1,9 +1,11 @@
+# pylint: skip-file
+# mypy: ignore-errors
 import datetime
-import auth_pb2 as _auth_pb2
+from .. import auth_pb2 as _auth_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
-import paradigm_params_pb2 as _paradigm_params_pb2
-from public import chat_pb2 as _chat_pb2
-from public import options_pb2 as _options_pb2
+from .. import paradigm_params_pb2 as _paradigm_params_pb2
+from ..public import chat_pb2 as _chat_pb2
+from ..public import options_pb2 as _options_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
