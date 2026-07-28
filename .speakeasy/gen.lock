@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.791.0
   generationVersion: 2.924.0
-  releaseVersion: 1.0.6
-  configChecksum: 00d8940dfb3806c567f957fed8076cc4
+  releaseVersion: 1.0.7
+  configChecksum: 985ac204dff5625219a9422ef633b5e4
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: e6fda3af-c1e5-4287-a28d-a54b13d05ba8
-  pristine_commit_hash: 4dcd4e85c0172442f61d216e597e903fd73041ce
-  pristine_tree_hash: c5729cf904a46b293c66a60deb4ea790686bee6a
+  generation_id: 3c2d3312-7602-433e-818f-300b3243ce03
+  pristine_commit_hash: 8a461dbcd26ba0f2180f734e1f18d0eaa3e3e708
+  pristine_tree_hash: 7ca35317a9da15b6ee98070a8c9fc83aab1124a6
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9359,8 +9359,8 @@ trackedFiles:
     pristine_git_object: 14a5ab5a0178bf5f37c25306ec11372c1dfc1f4e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:3d9b1d391e4d900e3abbdf39120e5ed8e873bbc4
-    pristine_git_object: 0778efce7ff2e023e8172d90e2679e359ff49ced
+    last_write_checksum: sha1:d7b38c0424c95d641cc84b10b84ea6b681ecdfe7
+    pristine_git_object: 2ff03e91918930e8e94a6edf6c7886735edb8031
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9387,8 +9387,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:4a52df8dda9f8c8d8b2e211222b6a30b3c2df545
-    pristine_git_object: c335ce77d23c91497e8b9b6f8d9e32486aa50ecd
+    last_write_checksum: sha1:b7d6fc0548f89b5ea0c26faf2aac8726f056ddc0
+    pristine_git_object: 028371d7622518b9fcd18cba868d3c71edffbe4d
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:252b63c0c3383616c59e5e34194932f32e9d223f
@@ -26667,4 +26667,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.agent_service.agent_service_get_agent_db_schema()`: **Added**\n* `textql.agent_service.agent_service_get_agent_db_table_preview()`: **Added**\n* `textql.app_service.app_service_get_app_db_schema()`: **Added**\n* `textql.app_service.app_service_get_app_db_table_preview()`: **Added**\n* `textql.ontology_management_service.ontology_management_service_list_patch_objects()`: **Added**\n* `textql.settings_service.settings_service_check_member_status()`: **Added**\n* `textql.settings_service.settings_service_delete_organization_member()`: **Added**\n* `textql.settings_service.settings_service_invite_organization_member()`: **Added**\n* `textql.settings_service.settings_service_list_organization_members()`: **Added**\n* `textql.settings_service.settings_service_update_organization_settings()`: **Added**\n* `textql.rbac.add_group_member()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.approve_access_request()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.convert_role_to_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.create_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.delete_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.generate_share_link()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.get_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.get_member_groups()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.get_object_access()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.has_object_access()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.list_access_requests()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.list_group_connectors()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.list_groups()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.list_scim_group_mappings()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.migrate_all_scim_group_mappings()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.migrate_scim_group_mapping_to_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.reject_access_request()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.remove_group_member()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.request_access()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.revert_scim_group_mapping_to_role()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.revoke_object_access()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.share_object()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.share_with_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.share_object_with_role()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.update_group()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.update_object_access()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.update_object_visibility()`: **Removed** (Breaking ⚠️)\n* `textql.agents.create()`: \n  *  `request` **Changed**\n  *  `response.agent` **Changed**\n* `textql.agents.duplicate()`:  `response.agent` **Changed**\n* `textql.agents.get_agent()`:  `response.agent` **Changed**\n* `textql.agents.list()`:  `response.agents[]` **Changed**\n* `textql.agents.update()`: \n  *  `request` **Changed**\n  *  `response.agent` **Changed**\n* `textql.apps.create_app()`:  `response.app.staleness_window_seconds` **Added**\n* `textql.apps.duplicate()`:  `response.app.staleness_window_seconds` **Added**\n* `textql.apps.get()`:  `response.app.staleness_window_seconds` **Added**\n* `textql.apps.get_app_version()`: \n  *  `request.commit_id` **Added**\n  *  `response.version` **Changed**\n* `textql.apps.list_versions()`:  `response.versions[]` **Changed**\n* `textql.apps.list()`:  `response.apps[].staleness_window_seconds` **Added**\n* `textql.apps.move_app_to_folder()`:  `response.app.staleness_window_seconds` **Added**\n* `textql.apps.refresh()`:  `response.app.staleness_window_seconds` **Added**\n* `textql.apps.restore_app_version()`: \n  *  `request.commit_id` **Added**\n  *  `response.app.staleness_window_seconds` **Added**\n* `textql.apps.update()`: \n  *  `request.staleness_window_seconds` **Added**\n  *  `response.app.staleness_window_seconds` **Added**\n* `textql.chats.attach_agent()`:  `response.chat` **Changed**\n* `textql.chats.attach_app()`:  `response` **Changed**\n* `textql.chats.attach_dashboard()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.attach_dataset()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.check_health()`:  `request.model` **Changed**\n* `textql.chats.check_streamlit_health()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.create_chat()`: \n  *  `request` **Changed**\n  *  `response.chat` **Changed**\n* `textql.chats.duplicate_chat()`:  `response.chat` **Changed**\n* `textql.chats.get_artifact()`:  `response.union(file).file.type.enum(artifact_type_dashboard_preview)` **Added**\n* `textql.chats.get()`:  `response.chat` **Changed**\n* `textql.chats.get_artifacts_summary()`:  `response.artifacts[].type.enum(artifact_type_dashboard_preview)` **Added**\n* `textql.chats.get_history()`:  `response.cells[].union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.get_all()`:  `response.chats[]` **Changed**\n* `textql.chats.get_playbook_chats()`:  `response.chats[]` **Changed**\n* `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.query_one_shot()`: \n  *  `request` **Changed**\n  *  `response.cells[].union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.run()`: \n  *  `request.model` **Changed**\n  *  `response.cells[].union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.chats.update()`:  `response.chat` **Changed**\n* `textql.connectors.get_example_queries()`: \n  *  `request.feature_filter` **Changed**\n  *  `response.examples[].segments[].feature_type` **Changed**\n* `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.observability.get_observability_stats()`: \n  *  `request.timezone` **Added**\n  *  `response.usage_heatmap` **Added**\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(feed_create_cell).feed_create_cell.agent` **Changed**\n* `textql.ontology_management_service.ontology_management_service_get_file_usage()`:  `response.files[].chats_cited` **Added**\n* `textql.ontology_management_service.ontology_management_service_get_ontology_usage_summary()`:  `response` **Changed**\n* `textql.playbooks.create_playbook()`:  `response.playbook` **Changed**\n* `textql.playbooks.duplicate()`:  `response.playbook` **Changed**\n* `textql.playbooks.fetch()`:  `response.playbook` **Changed**\n* `textql.playbooks.get()`:  `response.playbooks[]` **Changed**\n* `textql.playbooks.update()`: \n  *  `request` **Changed**\n  *  `response.playbook` **Changed**\n"
