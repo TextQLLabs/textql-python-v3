@@ -5,7 +5,6 @@ or **uv** — pick whichever your project already uses.
 
 | Example | What it shows |
 | --- | --- |
-| [`interactive_chat.py`](interactive_chat.py) | A live REPL: one chat, many turns, one long-lived `watch_chat` stream |
 | [`watch_chat.py`](watch_chat.py) | One chat, one run, streamed cell-by-cell over Connect-RPC |
 | [`create_agent.py`](create_agent.py) | Create an agent and trigger it |
 | [`create_playbook.py`](create_playbook.py) | Create a scheduled playbook and configure delivery |
@@ -50,13 +49,13 @@ The streaming examples also expect a real connector: replace the placeholder
 With pip, activate the venv and run the script directly:
 
 ```bash
-python examples/interactive_chat.py
+python examples/watch_chat.py
 ```
 
 With uv, prefix the same command with `uv run`:
 
 ```bash
-uv run python examples/interactive_chat.py
+uv run python examples/watch_chat.py
 ```
 
 Both are run from the repo root, not from inside `examples/`.
