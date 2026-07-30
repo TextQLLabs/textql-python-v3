@@ -10,12 +10,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetUsageDetailsForFileRequestTypedDict(TypedDict):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+    r"""Aggregate ontology-usage health for the window — the roll-ups the Ontology
+    Health hero needs without paging every file to the client. pulled_files,
+    avg_hit_rate, and error_files are Postgres aggregates over the pull/run data;
+    total_files, dead_files, and reclaimable_tokens come from the current git
+    tree diffed against the set of pulled paths (a dead file is one present in
+    the ontology but never pulled in the window).
+    """
 
     file_path: NotRequired[str]
-    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-    a year.
-    """
     observation_period: NotRequired[timedelta]
     r"""A Duration represents a signed, fixed-length span of time represented
     as a count of seconds and fractions of seconds at nanosecond
@@ -79,12 +82,15 @@ class TextqlRPCPublicPatchesGetUsageDetailsForFileRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesGetUsageDetailsForFileRequest(BaseModel):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+    r"""Aggregate ontology-usage health for the window — the roll-ups the Ontology
+    Health hero needs without paging every file to the client. pulled_files,
+    avg_hit_rate, and error_files are Postgres aggregates over the pull/run data;
+    total_files, dead_files, and reclaimable_tokens come from the current git
+    tree diffed against the set of pulled paths (a dead file is one present in
+    the ontology but never pulled in the window).
+    """
 
     file_path: Annotated[Optional[str], pydantic.Field(alias="filePath")] = None
-    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-    a year.
-    """
 
     observation_period: Annotated[
         Optional[timedelta], pydantic.Field(alias="observationPeriod")

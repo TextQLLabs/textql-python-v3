@@ -11,50 +11,25 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 ReclaimableTokensTypedDict = TypeAliasType(
     "ReclaimableTokensTypedDict", Union[int, str]
 )
-r"""estimated tokens held by dead files (~size/4)"""
 
 
 ReclaimableTokens = TypeAliasType("ReclaimableTokens", Union[int, str])
-r"""estimated tokens held by dead files (~size/4)"""
 
 
 class TextqlRPCPublicPatchesGetOntologyUsageSummaryResponseTypedDict(TypedDict):
-    r"""Aggregate ontology-usage health for the window — the roll-ups the Ontology
-    Health hero needs without paging every file to the client. pulled_files,
-    avg_hit_rate, and error_files are Postgres aggregates over the pull/run data;
-    total_files, dead_files, and reclaimable_tokens come from the current git
-    tree diffed against the set of pulled paths (a dead file is one present in
-    the ontology but never pulled in the window).
-    """
-
     total_files: NotRequired[int]
     pulled_files: NotRequired[int]
     dead_files: NotRequired[int]
     avg_hit_rate: NotRequired[float]
-    r"""0..1, averaged over pulled .tql files with chat-attributed pulls"""
     error_files: NotRequired[int]
-    r"""files with at least one errored pull in the window"""
     reclaimable_tokens: NotRequired[ReclaimableTokensTypedDict]
-    r"""estimated tokens held by dead files (~size/4)"""
     tql_pulled_files: NotRequired[int]
-    r""".tql files behind avg_hit_rate; 0 = rate has no signal"""
     avg_doc_cited_rate: NotRequired[float]
-    r"""0..1 cited-when-pulled over pulled docs (excludes .tql and config-managed .playbook/.dashboard)"""
     doc_pulled_files: NotRequired[int]
-    r"""docs behind avg_doc_cited_rate; 0 = rate has no signal"""
     doc_citations_enabled: NotRequired[bool]
-    r"""source attribution active for this org (traces enabled)"""
 
 
 class TextqlRPCPublicPatchesGetOntologyUsageSummaryResponse(BaseModel):
-    r"""Aggregate ontology-usage health for the window — the roll-ups the Ontology
-    Health hero needs without paging every file to the client. pulled_files,
-    avg_hit_rate, and error_files are Postgres aggregates over the pull/run data;
-    total_files, dead_files, and reclaimable_tokens come from the current git
-    tree diffed against the set of pulled paths (a dead file is one present in
-    the ontology but never pulled in the window).
-    """
-
     total_files: Annotated[Optional[int], pydantic.Field(alias="totalFiles")] = None
 
     pulled_files: Annotated[Optional[int], pydantic.Field(alias="pulledFiles")] = None
@@ -62,35 +37,28 @@ class TextqlRPCPublicPatchesGetOntologyUsageSummaryResponse(BaseModel):
     dead_files: Annotated[Optional[int], pydantic.Field(alias="deadFiles")] = None
 
     avg_hit_rate: Annotated[Optional[float], pydantic.Field(alias="avgHitRate")] = None
-    r"""0..1, averaged over pulled .tql files with chat-attributed pulls"""
 
     error_files: Annotated[Optional[int], pydantic.Field(alias="errorFiles")] = None
-    r"""files with at least one errored pull in the window"""
 
     reclaimable_tokens: Annotated[
         Optional[ReclaimableTokens], pydantic.Field(alias="reclaimableTokens")
     ] = None
-    r"""estimated tokens held by dead files (~size/4)"""
 
     tql_pulled_files: Annotated[
         Optional[int], pydantic.Field(alias="tqlPulledFiles")
     ] = None
-    r""".tql files behind avg_hit_rate; 0 = rate has no signal"""
 
     avg_doc_cited_rate: Annotated[
         Optional[float], pydantic.Field(alias="avgDocCitedRate")
     ] = None
-    r"""0..1 cited-when-pulled over pulled docs (excludes .tql and config-managed .playbook/.dashboard)"""
 
     doc_pulled_files: Annotated[
         Optional[int], pydantic.Field(alias="docPulledFiles")
     ] = None
-    r"""docs behind avg_doc_cited_rate; 0 = rate has no signal"""
 
     doc_citations_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="docCitationsEnabled")
     ] = None
-    r"""source attribution active for this org (traces enabled)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

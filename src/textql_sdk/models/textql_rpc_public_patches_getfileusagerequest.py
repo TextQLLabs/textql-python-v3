@@ -81,7 +81,6 @@ class TextqlRPCPublicPatchesGetFileUsageRequestTypedDict(TypedDict):
     """
     page_cursor: NotRequired[Nullable[str]]
     page_size: NotRequired[Nullable[int]]
-    r"""default 1000, capped at 1000"""
 
 
 class TextqlRPCPublicPatchesGetFileUsageRequest(BaseModel):
@@ -161,7 +160,6 @@ class TextqlRPCPublicPatchesGetFileUsageRequest(BaseModel):
     page_size: Annotated[OptionalNullable[int], pydantic.Field(alias="pageSize")] = (
         UNSET
     )
-    r"""default 1000, capped at 1000"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
