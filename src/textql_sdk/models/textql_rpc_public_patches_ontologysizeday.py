@@ -13,18 +13,31 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
 TotalBytesTypedDict = TypeAliasType("TotalBytesTypedDict", Union[int, str])
+r"""empty for untitled chats"""
 
 
 TotalBytes = TypeAliasType("TotalBytes", Union[int, str])
+r"""empty for untitled chats"""
 
 
 class TextqlRPCPublicPatchesOntologySizeDayTypedDict(TypedDict):
+    r"""FileChatUsage is one chat that retrieved a ontology file inside the
+    observation window. Only pulls attributed to a chat are listed — background
+    or sandbox reads carry no chat id and are excluded.
+    """
+
     date_: NotRequired[TextqlRPCPublicPatchesDateTypedDict]
     total_bytes: NotRequired[TotalBytesTypedDict]
+    r"""empty for untitled chats"""
     file_count: NotRequired[int]
 
 
 class TextqlRPCPublicPatchesOntologySizeDay(BaseModel):
+    r"""FileChatUsage is one chat that retrieved a ontology file inside the
+    observation window. Only pulls attributed to a chat are listed — background
+    or sandbox reads carry no chat id and are excluded.
+    """
+
     date_: Annotated[
         Optional[TextqlRPCPublicPatchesDate], pydantic.Field(alias="date")
     ] = None
@@ -32,6 +45,7 @@ class TextqlRPCPublicPatchesOntologySizeDay(BaseModel):
     total_bytes: Annotated[Optional[TotalBytes], pydantic.Field(alias="totalBytes")] = (
         None
     )
+    r"""empty for untitled chats"""
 
     file_count: Annotated[Optional[int], pydantic.Field(alias="fileCount")] = None
 

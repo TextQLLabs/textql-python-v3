@@ -4051,7 +4051,7 @@ class OntologyManagementService(BaseSDK):
             be expressed in JSON format as \"3.000000001s\", and 3 seconds and 1
             microsecond should be expressed in JSON format as \"3.000001s\".
         :param page_cursor:
-        :param page_size: default 1000, capped at 1000
+        :param page_size:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4224,7 +4224,7 @@ class OntologyManagementService(BaseSDK):
             be expressed in JSON format as \"3.000000001s\", and 3 seconds and 1
             microsecond should be expressed in JSON format as \"3.000001s\".
         :param page_cursor:
-        :param page_size: default 1000, capped at 1000
+        :param page_size:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7617,8 +7617,7 @@ class OntologyManagementService(BaseSDK):
         r"""GetUsageDetailsForFile
 
         :param connect_timeout_ms:
-        :param file_path: Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-            a year.
+        :param file_path:
         :param observation_period: A Duration represents a signed, fixed-length span of time represented
             as a count of seconds and fractions of seconds at nanosecond
             resolution. It is independent of any calendar and concepts like \"day\"
@@ -7782,8 +7781,7 @@ class OntologyManagementService(BaseSDK):
         r"""GetUsageDetailsForFile
 
         :param connect_timeout_ms:
-        :param file_path: Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-            a year.
+        :param file_path:
         :param observation_period: A Duration represents a signed, fixed-length span of time represented
             as a count of seconds and fractions of seconds at nanosecond
             resolution. It is independent of any calendar and concepts like \"day\"

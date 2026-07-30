@@ -10,12 +10,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesFileChatUsageTypedDict(TypedDict):
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+
     chat_id: NotRequired[str]
-    r"""most recent pull or run (imports included) inside the window; unset when
-    the file had no usage at all
+    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+    a year.
     """
     title: NotRequired[str]
-    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
+    r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+    month and day.
+    """
     last_pulled: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -111,13 +115,17 @@ class TextqlRPCPublicPatchesFileChatUsageTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesFileChatUsage(BaseModel):
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
-    r"""most recent pull or run (imports included) inside the window; unset when
-    the file had no usage at all
+    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+    a year.
     """
 
     title: Optional[str] = None
-    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
+    r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+    month and day.
+    """
 
     last_pulled: Annotated[Optional[datetime], pydantic.Field(alias="lastPulled")] = (
         None
