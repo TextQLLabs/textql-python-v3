@@ -2042,6 +2042,12 @@ if TYPE_CHECKING:
         SandboxCapabilityServiceExecuteWriteResponse,
         SandboxCapabilityServiceExecuteWriteResponseTypedDict,
     )
+    from .sandboxcapabilityservice_pollaskop import (
+        SandboxCapabilityServicePollAskRequest,
+        SandboxCapabilityServicePollAskRequestTypedDict,
+        SandboxCapabilityServicePollAskResponse,
+        SandboxCapabilityServicePollAskResponseTypedDict,
+    )
     from .sandboxcapabilityservice_putassetop import (
         SandboxCapabilityServicePutAssetRequest,
         SandboxCapabilityServicePutAssetRequestTypedDict,
@@ -2053,6 +2059,12 @@ if TYPE_CHECKING:
         SandboxCapabilityServiceSendNotifyRequestTypedDict,
         SandboxCapabilityServiceSendNotifyResponse,
         SandboxCapabilityServiceSendNotifyResponseTypedDict,
+    )
+    from .sandboxcapabilityservice_startaskop import (
+        SandboxCapabilityServiceStartAskRequest,
+        SandboxCapabilityServiceStartAskRequestTypedDict,
+        SandboxCapabilityServiceStartAskResponse,
+        SandboxCapabilityServiceStartAskResponseTypedDict,
     )
     from .sandboxcapabilityservice_stateopop import (
         SandboxCapabilityServiceStateOpRequest,
@@ -7170,6 +7182,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicSandboxAdminStopSandboxResponse,
         TextqlRPCPublicSandboxAdminStopSandboxResponseTypedDict,
     )
+    from .textql_rpc_public_sandbox_capability_askblock import (
+        TextqlRPCPublicSandboxCapabilityAskBlock,
+        TextqlRPCPublicSandboxCapabilityAskBlockTypedDict,
+    )
     from .textql_rpc_public_sandbox_capability_sandboxexecutewriterequest import (
         TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest,
         TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRows,
@@ -7181,6 +7197,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTotalRows,
         TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTotalRowsTypedDict,
         TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_capability_sandboxpollaskrequest import (
+        TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest,
+        TextqlRPCPublicSandboxCapabilitySandboxPollAskRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_capability_sandboxpollaskresponse import (
+        TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse,
+        TextqlRPCPublicSandboxCapabilitySandboxPollAskResponseTypedDict,
     )
     from .textql_rpc_public_sandbox_capability_sandboxputassetrequest import (
         TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest,
@@ -7197,6 +7221,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_sandbox_capability_sandboxsendnotifyresponse import (
         TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponse,
         TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_capability_sandboxstartaskrequest import (
+        TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest,
+        TextqlRPCPublicSandboxCapabilitySandboxStartAskRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_capability_sandboxstartaskresponse import (
+        TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse,
+        TextqlRPCPublicSandboxCapabilitySandboxStartAskResponseTypedDict,
     )
     from .textql_rpc_public_sandbox_capability_sandboxstateoprequest import (
         TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest,
@@ -9287,6 +9319,10 @@ __all__ = [
     "SandboxCapabilityServiceExecuteWriteRequestTypedDict",
     "SandboxCapabilityServiceExecuteWriteResponse",
     "SandboxCapabilityServiceExecuteWriteResponseTypedDict",
+    "SandboxCapabilityServicePollAskRequest",
+    "SandboxCapabilityServicePollAskRequestTypedDict",
+    "SandboxCapabilityServicePollAskResponse",
+    "SandboxCapabilityServicePollAskResponseTypedDict",
     "SandboxCapabilityServicePutAssetRequest",
     "SandboxCapabilityServicePutAssetRequestTypedDict",
     "SandboxCapabilityServicePutAssetResponse",
@@ -9295,6 +9331,10 @@ __all__ = [
     "SandboxCapabilityServiceSendNotifyRequestTypedDict",
     "SandboxCapabilityServiceSendNotifyResponse",
     "SandboxCapabilityServiceSendNotifyResponseTypedDict",
+    "SandboxCapabilityServiceStartAskRequest",
+    "SandboxCapabilityServiceStartAskRequestTypedDict",
+    "SandboxCapabilityServiceStartAskResponse",
+    "SandboxCapabilityServiceStartAskResponseTypedDict",
     "SandboxCapabilityServiceStateOpRequest",
     "SandboxCapabilityServiceStateOpRequestTypedDict",
     "SandboxCapabilityServiceStateOpResponse",
@@ -11862,6 +11902,8 @@ __all__ = [
     "TextqlRPCPublicSandboxAdminStopSandboxRequestTypedDict",
     "TextqlRPCPublicSandboxAdminStopSandboxResponse",
     "TextqlRPCPublicSandboxAdminStopSandboxResponseTypedDict",
+    "TextqlRPCPublicSandboxCapabilityAskBlock",
+    "TextqlRPCPublicSandboxCapabilityAskBlockTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRows",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRowsTypedDict",
@@ -11870,6 +11912,10 @@ __all__ = [
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTotalRows",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTotalRowsTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTypedDict",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskRequestTypedDict",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskResponseTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest",
     "TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequestTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxPutAssetResponse",
@@ -11878,6 +11924,10 @@ __all__ = [
     "TextqlRPCPublicSandboxCapabilitySandboxSendNotifyRequestTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponse",
     "TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponseTypedDict",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskRequestTypedDict",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskResponseTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpRequestTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse",
@@ -13481,6 +13531,10 @@ _dynamic_imports: dict[str, str] = {
     "SandboxCapabilityServiceExecuteWriteRequestTypedDict": ".sandboxcapabilityservice_executewriteop",
     "SandboxCapabilityServiceExecuteWriteResponse": ".sandboxcapabilityservice_executewriteop",
     "SandboxCapabilityServiceExecuteWriteResponseTypedDict": ".sandboxcapabilityservice_executewriteop",
+    "SandboxCapabilityServicePollAskRequest": ".sandboxcapabilityservice_pollaskop",
+    "SandboxCapabilityServicePollAskRequestTypedDict": ".sandboxcapabilityservice_pollaskop",
+    "SandboxCapabilityServicePollAskResponse": ".sandboxcapabilityservice_pollaskop",
+    "SandboxCapabilityServicePollAskResponseTypedDict": ".sandboxcapabilityservice_pollaskop",
     "SandboxCapabilityServicePutAssetRequest": ".sandboxcapabilityservice_putassetop",
     "SandboxCapabilityServicePutAssetRequestTypedDict": ".sandboxcapabilityservice_putassetop",
     "SandboxCapabilityServicePutAssetResponse": ".sandboxcapabilityservice_putassetop",
@@ -13489,6 +13543,10 @@ _dynamic_imports: dict[str, str] = {
     "SandboxCapabilityServiceSendNotifyRequestTypedDict": ".sandboxcapabilityservice_sendnotifyop",
     "SandboxCapabilityServiceSendNotifyResponse": ".sandboxcapabilityservice_sendnotifyop",
     "SandboxCapabilityServiceSendNotifyResponseTypedDict": ".sandboxcapabilityservice_sendnotifyop",
+    "SandboxCapabilityServiceStartAskRequest": ".sandboxcapabilityservice_startaskop",
+    "SandboxCapabilityServiceStartAskRequestTypedDict": ".sandboxcapabilityservice_startaskop",
+    "SandboxCapabilityServiceStartAskResponse": ".sandboxcapabilityservice_startaskop",
+    "SandboxCapabilityServiceStartAskResponseTypedDict": ".sandboxcapabilityservice_startaskop",
     "SandboxCapabilityServiceStateOpRequest": ".sandboxcapabilityservice_stateopop",
     "SandboxCapabilityServiceStateOpRequestTypedDict": ".sandboxcapabilityservice_stateopop",
     "SandboxCapabilityServiceStateOpResponse": ".sandboxcapabilityservice_stateopop",
@@ -16398,6 +16456,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxAdminStopSandboxRequestTypedDict": ".textql_rpc_public_sandbox_admin_stopsandboxrequest",
     "TextqlRPCPublicSandboxAdminStopSandboxResponse": ".textql_rpc_public_sandbox_admin_stopsandboxresponse",
     "TextqlRPCPublicSandboxAdminStopSandboxResponseTypedDict": ".textql_rpc_public_sandbox_admin_stopsandboxresponse",
+    "TextqlRPCPublicSandboxCapabilityAskBlock": ".textql_rpc_public_sandbox_capability_askblock",
+    "TextqlRPCPublicSandboxCapabilityAskBlockTypedDict": ".textql_rpc_public_sandbox_capability_askblock",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest": ".textql_rpc_public_sandbox_capability_sandboxexecutewriterequest",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRows": ".textql_rpc_public_sandbox_capability_sandboxexecutewriterequest",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRowsTypedDict": ".textql_rpc_public_sandbox_capability_sandboxexecutewriterequest",
@@ -16406,6 +16466,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTotalRows": ".textql_rpc_public_sandbox_capability_sandboxexecutewriteresponse",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTotalRowsTypedDict": ".textql_rpc_public_sandbox_capability_sandboxexecutewriteresponse",
     "TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponseTypedDict": ".textql_rpc_public_sandbox_capability_sandboxexecutewriteresponse",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest": ".textql_rpc_public_sandbox_capability_sandboxpollaskrequest",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskRequestTypedDict": ".textql_rpc_public_sandbox_capability_sandboxpollaskrequest",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse": ".textql_rpc_public_sandbox_capability_sandboxpollaskresponse",
+    "TextqlRPCPublicSandboxCapabilitySandboxPollAskResponseTypedDict": ".textql_rpc_public_sandbox_capability_sandboxpollaskresponse",
     "TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest": ".textql_rpc_public_sandbox_capability_sandboxputassetrequest",
     "TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequestTypedDict": ".textql_rpc_public_sandbox_capability_sandboxputassetrequest",
     "TextqlRPCPublicSandboxCapabilitySandboxPutAssetResponse": ".textql_rpc_public_sandbox_capability_sandboxputassetresponse",
@@ -16414,6 +16478,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxCapabilitySandboxSendNotifyRequestTypedDict": ".textql_rpc_public_sandbox_capability_sandboxsendnotifyrequest",
     "TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponse": ".textql_rpc_public_sandbox_capability_sandboxsendnotifyresponse",
     "TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponseTypedDict": ".textql_rpc_public_sandbox_capability_sandboxsendnotifyresponse",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest": ".textql_rpc_public_sandbox_capability_sandboxstartaskrequest",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskRequestTypedDict": ".textql_rpc_public_sandbox_capability_sandboxstartaskrequest",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse": ".textql_rpc_public_sandbox_capability_sandboxstartaskresponse",
+    "TextqlRPCPublicSandboxCapabilitySandboxStartAskResponseTypedDict": ".textql_rpc_public_sandbox_capability_sandboxstartaskresponse",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest": ".textql_rpc_public_sandbox_capability_sandboxstateoprequest",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpRequestTypedDict": ".textql_rpc_public_sandbox_capability_sandboxstateoprequest",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse": ".textql_rpc_public_sandbox_capability_sandboxstateopresponse",

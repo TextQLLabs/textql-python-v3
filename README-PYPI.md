@@ -585,8 +585,10 @@ with Textql(
 ### [SandboxCapabilityService](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md)
 
 * [sandbox_capability_service_execute_write](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_execute_write) - ExecuteWrite
+* [sandbox_capability_service_poll_ask](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_poll_ask) - PollAsk
 * [sandbox_capability_service_put_asset](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_put_asset) - PutAsset
 * [sandbox_capability_service_send_notify](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_send_notify) - SendNotify
+* [sandbox_capability_service_start_ask](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_start_ask) - StartAsk
 * [sandbox_capability_service_state_op](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_state_op) - StateOp
 
 ### [Scim](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/scim/README.md)

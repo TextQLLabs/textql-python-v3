@@ -22,6 +22,7 @@ class TextqlRPCPublicPatchesGetOntologyRemoteResponseTypedDict(TypedDict):
     remote: NotRequired[TextqlRPCPublicPatchesOntologyRemoteTypedDict]
     hosted_github_app_available: NotRequired[bool]
     hosted_github_app_slug: NotRequired[Nullable[str]]
+    github_oauth_available: NotRequired[bool]
 
 
 class TextqlRPCPublicPatchesGetOntologyRemoteResponse(BaseModel):
@@ -35,10 +36,19 @@ class TextqlRPCPublicPatchesGetOntologyRemoteResponse(BaseModel):
         OptionalNullable[str], pydantic.Field(alias="hostedGithubAppSlug")
     ] = UNSET
 
+    github_oauth_available: Annotated[
+        Optional[bool], pydantic.Field(alias="githubOauthAvailable")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["remote", "hostedGithubAppAvailable", "hostedGithubAppSlug"]
+            [
+                "remote",
+                "hostedGithubAppAvailable",
+                "hostedGithubAppSlug",
+                "githubOauthAvailable",
+            ]
         )
         nullable_fields = set(["hostedGithubAppSlug"])
         serialized = handler(self)

@@ -5,8 +5,10 @@
 ### Available Operations
 
 * [sandbox_capability_service_execute_write](#sandbox_capability_service_execute_write) - ExecuteWrite
+* [sandbox_capability_service_poll_ask](#sandbox_capability_service_poll_ask) - PollAsk
 * [sandbox_capability_service_put_asset](#sandbox_capability_service_put_asset) - PutAsset
 * [sandbox_capability_service_send_notify](#sandbox_capability_service_send_notify) - SendNotify
+* [sandbox_capability_service_start_ask](#sandbox_capability_service_start_ask) - StartAsk
 * [sandbox_capability_service_state_op](#sandbox_capability_service_state_op) - StateOp
 
 ## sandbox_capability_service_execute_write
@@ -47,6 +49,51 @@ with Textql(
 ### Response
 
 **[models.SandboxCapabilityServiceExecuteWriteResponse](../../models/sandboxcapabilityserviceexecutewriteresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## sandbox_capability_service_poll_ask
+
+PollAsk
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SandboxCapabilityService_PollAsk" method="post" path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PollAsk" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.sandbox_capability_service.sandbox_capability_service_poll_ask()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `agent_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `ask_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `cursor`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_db`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SandboxCapabilityServicePollAskResponse](../../models/sandboxcapabilityservicepollaskresponse.md)**
 
 ### Errors
 
@@ -134,6 +181,51 @@ with Textql(
 ### Response
 
 **[models.SandboxCapabilityServiceSendNotifyResponse](../../models/sandboxcapabilityservicesendnotifyresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## sandbox_capability_service_start_ask
+
+StartAsk
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SandboxCapabilityService_StartAsk" method="post" path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StartAsk" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.sandbox_capability_service.sandbox_capability_service_start_ask()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `connect_timeout_ms`                                                           | *Optional[float]*                                                              | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `name`                                                                         | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `agent_id`                                                                     | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `prompt`                                                                       | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `app_db`                                                                       | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `continue_ask_id`                                                              | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | ask id of an earlier base-agent ask to follow up in; empty starts a new thread |
+| `retries`                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)               | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
+
+### Response
+
+**[models.SandboxCapabilityServiceStartAskResponse](../../models/sandboxcapabilityservicestartaskresponse.md)**
 
 ### Errors
 

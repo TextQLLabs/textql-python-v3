@@ -3,7 +3,13 @@
 from __future__ import annotations
 import pydantic
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -11,6 +17,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesUpdateOntologySyncConfigRequestTypedDict(TypedDict):
     sync_enabled: NotRequired[bool]
     sync_interval_minutes: NotRequired[int]
+    push_mode: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicPatchesUpdateOntologySyncConfigRequest(BaseModel):
@@ -20,18 +27,31 @@ class TextqlRPCPublicPatchesUpdateOntologySyncConfigRequest(BaseModel):
         Optional[int], pydantic.Field(alias="syncIntervalMinutes")
     ] = None
 
+    push_mode: Annotated[OptionalNullable[str], pydantic.Field(alias="pushMode")] = (
+        UNSET
+    )
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["syncEnabled", "syncIntervalMinutes"])
+        optional_fields = set(["syncEnabled", "syncIntervalMinutes", "pushMode"])
+        nullable_fields = set(["pushMode"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m
