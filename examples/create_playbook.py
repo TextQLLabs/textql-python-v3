@@ -5,6 +5,12 @@ update API surface: scheduling, model, output style, Slack/email
 delivery, access controls, and concurrency settings.
 
     uv run python examples/create_playbook.py
+
+With pip, activate your venv and drop the `uv run` prefix:
+
+    python examples/create_playbook.py
+
+See examples/README.md for setup under either package manager.
 """
 
 import os

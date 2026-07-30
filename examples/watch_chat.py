@@ -7,6 +7,12 @@ cell as it's produced. See STREAMING.md for the other streaming methods.
 
     uv run python examples/watch_chat.py
     uv run python examples/watch_chat.py "plot sinx"
+
+With pip, activate your venv and drop the `uv run` prefix:
+
+    python examples/watch_chat.py "plot sinx"
+
+See examples/README.md for setup under either package manager.
 """
 
 import asyncio

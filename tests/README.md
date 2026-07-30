@@ -9,12 +9,24 @@ Pytest suite for the `textql_sdk` Python client, two layers:
 
 ## Setup
 
+Either package manager works.
+
 ```bash
+# pip
+python -m venv .venv
+source .venv/bin/activate    # Windows: .venv\Scripts\activate
+pip install -e .
+pip install pytest pytest-asyncio pytest-xdist
+
+# uv
 uv venv --python 3.11        # first time only
 uv sync --group dev
 ```
 
 ## Running unit tests (fast, safe, no credentials needed)
+
+Under pip, activate the venv and run `pytest` directly; under uv, prefix with
+`uv run`. The rest of this doc shows the `uv run` form.
 
 ```bash
 uv run pytest tests/unit -v
