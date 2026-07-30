@@ -16,6 +16,7 @@ TextqlRPCPublicChatChatSource = Union[
         "CHAT_SOURCE_SMS",
         "CHAT_SOURCE_MCP",
         "CHAT_SOURCE_SYSTEM",
+        "CHAT_SOURCE_DATA_APP",
     ],
     UnrecognizedStr,
 ]

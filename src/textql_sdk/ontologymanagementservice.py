@@ -14745,6 +14745,7 @@ class OntologyManagementService(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         sync_enabled: Optional[bool] = None,
         sync_interval_minutes: Optional[int] = None,
+        push_mode: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -14755,6 +14756,7 @@ class OntologyManagementService(BaseSDK):
         :param connect_timeout_ms:
         :param sync_enabled:
         :param sync_interval_minutes:
+        :param push_mode:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -14775,6 +14777,7 @@ class OntologyManagementService(BaseSDK):
             body=models.TextqlRPCPublicPatchesUpdateOntologySyncConfigRequest(
                 sync_enabled=sync_enabled,
                 sync_interval_minutes=sync_interval_minutes,
+                push_mode=push_mode,
             ),
         )
 
@@ -14852,6 +14855,7 @@ class OntologyManagementService(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         sync_enabled: Optional[bool] = None,
         sync_interval_minutes: Optional[int] = None,
+        push_mode: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -14862,6 +14866,7 @@ class OntologyManagementService(BaseSDK):
         :param connect_timeout_ms:
         :param sync_enabled:
         :param sync_interval_minutes:
+        :param push_mode:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -14882,6 +14887,7 @@ class OntologyManagementService(BaseSDK):
             body=models.TextqlRPCPublicPatchesUpdateOntologySyncConfigRequest(
                 sync_enabled=sync_enabled,
                 sync_interval_minutes=sync_interval_minutes,
+                push_mode=push_mode,
             ),
         )
 

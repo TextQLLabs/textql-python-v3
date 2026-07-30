@@ -270,6 +270,238 @@ class SandboxCapabilityService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def sandbox_capability_service_poll_ask(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        ask_id: Optional[str] = None,
+        cursor: Optional[str] = None,
+        app_db: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServicePollAskResponse:
+        r"""PollAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param ask_id:
+        :param cursor:
+        :param app_db:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServicePollAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest(
+                name=name,
+                agent_id=agent_id,
+                ask_id=ask_id,
+                cursor=cursor,
+                app_db=app_db,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PollAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_PollAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def sandbox_capability_service_poll_ask_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        ask_id: Optional[str] = None,
+        cursor: Optional[str] = None,
+        app_db: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServicePollAskResponse:
+        r"""PollAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param ask_id:
+        :param cursor:
+        :param app_db:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServicePollAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest(
+                name=name,
+                agent_id=agent_id,
+                ask_id=ask_id,
+                cursor=cursor,
+                app_db=app_db,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PollAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_PollAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def sandbox_capability_service_put_asset(
         self,
         *,
@@ -718,6 +950,238 @@ class SandboxCapabilityService(BaseSDK):
             return unmarshal_json_response(
                 models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponse,
                 http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def sandbox_capability_service_start_ask(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        prompt: Optional[str] = None,
+        app_db: Optional[str] = None,
+        continue_ask_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceStartAskResponse:
+        r"""StartAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param prompt:
+        :param app_db:
+        :param continue_ask_id: ask id of an earlier base-agent ask to follow up in; empty starts a new thread
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceStartAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest(
+                name=name,
+                agent_id=agent_id,
+                prompt=prompt,
+                app_db=app_db,
+                continue_ask_id=continue_ask_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StartAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_StartAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def sandbox_capability_service_start_ask_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        prompt: Optional[str] = None,
+        app_db: Optional[str] = None,
+        continue_ask_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceStartAskResponse:
+        r"""StartAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param prompt:
+        :param app_db:
+        :param continue_ask_id: ask id of an earlier base-agent ask to follow up in; empty starts a new thread
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceStartAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest(
+                name=name,
+                agent_id=agent_id,
+                prompt=prompt,
+                app_db=app_db,
+                continue_ask_id=continue_ask_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StartAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_StartAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

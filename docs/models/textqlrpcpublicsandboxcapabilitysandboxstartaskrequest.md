@@ -1,0 +1,12 @@
+# TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `name`                                                                         | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `agent_id`                                                                     | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `prompt`                                                                       | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `app_db`                                                                       | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `continue_ask_id`                                                              | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | ask id of an earlier base-agent ask to follow up in; empty starts a new thread |

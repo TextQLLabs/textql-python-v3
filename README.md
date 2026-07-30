@@ -585,8 +585,10 @@ with Textql(
 ### [SandboxCapabilityService](docs/sdks/sandboxcapabilityservice/README.md)
 
 * [sandbox_capability_service_execute_write](docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_execute_write) - ExecuteWrite
+* [sandbox_capability_service_poll_ask](docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_poll_ask) - PollAsk
 * [sandbox_capability_service_put_asset](docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_put_asset) - PutAsset
 * [sandbox_capability_service_send_notify](docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_send_notify) - SendNotify
+* [sandbox_capability_service_start_ask](docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_start_ask) - StartAsk
 * [sandbox_capability_service_state_op](docs/sdks/sandboxcapabilityservice/README.md#sandbox_capability_service_state_op) - StateOp
 
 ### [Scim](docs/sdks/scim/README.md)

@@ -301,6 +301,8 @@ class TextqlRPCPublicPatchesOntologyRemoteTypedDict(TypedDict):
     github_app_installation_id: NotRequired[Nullable[str]]
     has_conflicts: NotRequired[bool]
     push_mode: NotRequired[str]
+    open_pr_url: NotRequired[Nullable[str]]
+    open_pr_number: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicPatchesOntologyRemote(BaseModel):
@@ -620,6 +622,14 @@ class TextqlRPCPublicPatchesOntologyRemote(BaseModel):
 
     push_mode: Annotated[Optional[str], pydantic.Field(alias="pushMode")] = None
 
+    open_pr_url: Annotated[OptionalNullable[str], pydantic.Field(alias="openPrUrl")] = (
+        UNSET
+    )
+
+    open_pr_number: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="openPrNumber")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -639,10 +649,18 @@ class TextqlRPCPublicPatchesOntologyRemote(BaseModel):
                 "githubAppInstallationId",
                 "hasConflicts",
                 "pushMode",
+                "openPrUrl",
+                "openPrNumber",
             ]
         )
         nullable_fields = set(
-            ["lastSyncError", "githubAppId", "githubAppInstallationId"]
+            [
+                "lastSyncError",
+                "githubAppId",
+                "githubAppInstallationId",
+                "openPrUrl",
+                "openPrNumber",
+            ]
         )
         serialized = handler(self)
         m = {}

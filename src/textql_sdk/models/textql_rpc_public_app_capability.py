@@ -28,6 +28,8 @@ class TextqlRPCPublicAppCapabilityTypedDict(TypedDict):
     subject: NotRequired[Nullable[str]]
     body: NotRequired[Nullable[str]]
     parameters: NotRequired[List[TextqlRPCPublicAppCapabilityParamTypedDict]]
+    agent_id: NotRequired[Nullable[str]]
+    app_db: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicAppCapability(BaseModel):
@@ -50,6 +52,10 @@ class TextqlRPCPublicAppCapability(BaseModel):
 
     parameters: Optional[List[TextqlRPCPublicAppCapabilityParam]] = None
 
+    agent_id: Annotated[OptionalNullable[str], pydantic.Field(alias="agentId")] = UNSET
+
+    app_db: Annotated[OptionalNullable[str], pydantic.Field(alias="appDb")] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -62,10 +68,21 @@ class TextqlRPCPublicAppCapability(BaseModel):
                 "subject",
                 "body",
                 "parameters",
+                "agentId",
+                "appDb",
             ]
         )
         nullable_fields = set(
-            ["name", "connectorId", "statement", "scope", "subject", "body"]
+            [
+                "name",
+                "connectorId",
+                "statement",
+                "scope",
+                "subject",
+                "body",
+                "agentId",
+                "appDb",
+            ]
         )
         serialized = handler(self)
         m = {}
