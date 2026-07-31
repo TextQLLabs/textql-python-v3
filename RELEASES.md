@@ -99,3 +99,12 @@ Based on:
 - [python v1.0.9] .
 ### Releases
 - [PyPI v1.0.9] https://pypi.org/project/textql-sdk/1.0.9 - .
+
+## 2026-07-31 16:00:00
+### Changes
+Based on:
+- No OpenAPI or generator change; every client now resolves `TEXTQL_SERVER_URL`.
+### Generated
+- [python v1.0.10] .
+### Releases
+- [PyPI v1.0.10] https://pypi.org/project/textql-sdk/1.0.10 - .

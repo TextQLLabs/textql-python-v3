@@ -18,8 +18,9 @@ streaming inherits both -- you never pass a server URL or think about the
     async for event in streaming.chats.watch_chat(WatchChatRequest(chat_id=chat_id)):
         ...
 
-Without an SDK instance, pass ``api_key`` directly; ``server_url`` defaults to
-the same server list the generated SDK uses (from the Speakeasy config).
+Without an SDK instance, pass ``api_key`` directly; ``server_url`` falls back to
+``TEXTQL_SERVER_URL``, then to the same server list the generated SDK uses (from
+the Speakeasy config).
 
 Server-streaming methods: ``chats.watch_chat``, ``chats.stream_chat``,
 ``agents.stream_agent_status``, ``apps.stream_app_activity``,
@@ -41,6 +42,7 @@ from connectrpc.client import ConnectClient, ConnectClientSync
 from connectrpc.request import RequestContext
 
 from .sdk import Textql
+from ._hooks.registration import server_url_from_env
 from .sdkconfiguration import SERVERS
 from ._connect.public.agent_connect import AgentServiceClient, AgentServiceClientSync
 from ._connect.public.apps_connect import AppServiceClient, AppServiceClientSync
@@ -72,7 +74,7 @@ def _resolve(
     sdk: Optional[Textql], api_key: Optional[str], server_url: Optional[str]
 ) -> Tuple[str, str]:
     """Resolve (base address, api_key), preferring explicit args, then a
-    configured SDK, then the generated server default."""
+    configured SDK, then ``TEXTQL_SERVER_URL``, then the generated default."""
     if sdk is not None:
         config = sdk.sdk_configuration
         if server_url is None:
@@ -81,7 +83,7 @@ def _resolve(
             security = config.security() if callable(config.security) else config.security
             api_key = security.api_key if security is not None else None
     if server_url is None:
-        server_url = SERVERS[0]
+        server_url = server_url_from_env() or SERVERS[0]
     if not api_key:
         raise ValueError(
             "no api_key available: pass api_key=... or an sdk configured with one"

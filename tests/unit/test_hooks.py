@@ -13,6 +13,21 @@ from textql_sdk._hooks import (
     SDKHooks,
     SDKInitHook,
 )
+from textql_sdk.sdkconfiguration import SERVERS, SDKConfiguration
+from textql_sdk.utils.logger import get_default_logger
+
+
+def _sdk_config(**overrides):
+    """A real SDKConfiguration, since the SDK's own init hooks read its fields."""
+    return SDKConfiguration(
+        client=None,
+        client_supplied=False,
+        async_client=None,
+        async_client_supplied=False,
+        debug_logger=get_default_logger(),
+        server_url=overrides.get("server_url"),
+        server_idx=overrides.get("server_idx"),
+    )
 
 
 def _hook_ctx(config=None):
@@ -175,6 +190,8 @@ class TestAfterErrorChain:
 
 
 class TestSdkInitHook:
+    # SDKHooks() registers the SDK's own init hooks, which read real
+    # SDKConfiguration fields, so these pass a config rather than a bare stub.
     def test_sdk_init_hooks_can_transform_config(self):
         class SetLanguage(SDKInitHook):
             def sdk_init(self, config):
@@ -184,13 +201,35 @@ class TestSdkInitHook:
         hooks = SDKHooks()
         hooks.register_sdk_init_hook(SetLanguage())
 
-        class FakeConfig:
-            language = "python"
-
-        result = hooks.sdk_init(FakeConfig())
+        result = hooks.sdk_init(_sdk_config())
         assert result.language == "python-modified"
 
-    def test_no_sdk_init_hooks_returns_config_unchanged(self):
+    def test_registered_hooks_are_applied_in_order(self):
+        class Append(SDKInitHook):
+            def __init__(self, suffix):
+                self.suffix = suffix
+
+            def sdk_init(self, config):
+                config.language += self.suffix
+                return config
+
         hooks = SDKHooks()
-        sentinel = object()
-        assert hooks.sdk_init(sentinel) is sentinel
+        hooks.register_sdk_init_hook(Append("-one"))
+        hooks.register_sdk_init_hook(Append("-two"))
+
+        assert hooks.sdk_init(_sdk_config()).language == "python-one-two"
+
+    def test_server_url_read_from_env(self, monkeypatch):
+        monkeypatch.setenv("TEXTQL_SERVER_URL", "https://textql.internal.example.com")
+        config = SDKHooks().sdk_init(_sdk_config())
+        assert config.get_server_details()[0] == "https://textql.internal.example.com"
+
+    def test_explicit_server_url_beats_env(self, monkeypatch):
+        monkeypatch.setenv("TEXTQL_SERVER_URL", "https://textql.internal.example.com")
+        config = SDKHooks().sdk_init(_sdk_config(server_url="https://explicit.example.com"))
+        assert config.get_server_details()[0] == "https://explicit.example.com"
+
+    def test_falls_back_to_generated_default(self, monkeypatch):
+        monkeypatch.delenv("TEXTQL_SERVER_URL", raising=False)
+        config = SDKHooks().sdk_init(_sdk_config())
+        assert config.get_server_details()[0] == SERVERS[0]

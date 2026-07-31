@@ -43,12 +43,15 @@ asyncio.run(main())
 An on-prem/dev host set on the SDK is picked up automatically:
 
 ```python
-sdk = Textql(api_key=..., server_url="https://your-host")  # e.g. from TEXTQL_SERVER_URL
+sdk = Textql(api_key=..., server_url="https://your-host")
 streaming = create_streaming_client(sdk)  # streams to https://your-host/rpc/public
 ```
 
-Without an SDK instance, pass `api_key=` directly (`server_url` then defaults to
-the same server list the generated SDK uses, from the Speakeasy config):
+Setting `TEXTQL_SERVER_URL` names the host once for every client instead —
+`Textql()`, `create_streaming_client()`, and `create_connect_client()` all read
+it, and an explicit `server_url` still wins. Without an SDK instance, pass
+`api_key=` directly and the same lookup applies, falling back to the server list
+the generated SDK uses (from the Speakeasy config):
 
 ```python
 streaming = create_streaming_client(api_key=os.environ["TEXTQL_API_KEY"])
