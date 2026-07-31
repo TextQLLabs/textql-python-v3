@@ -13,12 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesGetOntologySizeTimelineResponseTypedDict(TypedDict):
     days: NotRequired[List[TextqlRPCPublicPatchesOntologySizeDayTypedDict]]
-    r"""most recent pull first"""
 
 
 class TextqlRPCPublicPatchesGetOntologySizeTimelineResponse(BaseModel):
     days: Optional[List[TextqlRPCPublicPatchesOntologySizeDay]] = None
-    r"""most recent pull first"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

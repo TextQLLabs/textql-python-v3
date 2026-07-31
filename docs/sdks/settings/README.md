@@ -1,16 +1,16 @@
-# SettingsService
+# Settings
 
 ## Overview
 
 ### Available Operations
 
-* [settings_service_check_member_status](#settings_service_check_member_status) - CheckMemberStatus
-* [settings_service_delete_organization_member](#settings_service_delete_organization_member) - DeleteOrganizationMember
-* [settings_service_invite_organization_member](#settings_service_invite_organization_member) - InviteOrganizationMember
-* [settings_service_list_organization_members](#settings_service_list_organization_members) - ListOrganizationMembers
-* [settings_service_update_organization_settings](#settings_service_update_organization_settings) - UpdateOrganizationSettings
+* [check_member_status](#check_member_status) - CheckMemberStatus
+* [delete_member](#delete_member) - DeleteOrganizationMember
+* [invite_member](#invite_member) - InviteOrganizationMember
+* [list_members](#list_members) - ListOrganizationMembers
+* [update](#update) - UpdateOrganizationSettings
 
-## settings_service_check_member_status
+## check_member_status
 
 CheckMemberStatus
 
@@ -26,7 +26,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.settings_service.settings_service_check_member_status()
+    res = textql.settings.check_member_status()
 
     # Handle response
     print(res)
@@ -51,7 +51,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## settings_service_delete_organization_member
+## delete_member
 
 DeleteOrganizationMember
 
@@ -67,7 +67,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.settings_service.settings_service_delete_organization_member()
+    res = textql.settings.delete_member()
 
     # Handle response
     print(res)
@@ -94,7 +94,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## settings_service_invite_organization_member
+## invite_member
 
 InviteOrganizationMember
 
@@ -110,7 +110,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.settings_service.settings_service_invite_organization_member()
+    res = textql.settings.invite_member()
 
     # Handle response
     print(res)
@@ -137,7 +137,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## settings_service_list_organization_members
+## list_members
 
 ListOrganizationMembers
 
@@ -153,7 +153,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.settings_service.settings_service_list_organization_members()
+    res = textql.settings.list_members()
 
     # Handle response
     print(res)
@@ -178,7 +178,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## settings_service_update_organization_settings
+## update
 
 UpdateOrganizationSettings
 
@@ -194,7 +194,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.settings_service.settings_service_update_organization_settings()
+    res = textql.settings.update()
 
     # Handle response
     print(res)

@@ -16,7 +16,6 @@ class TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict(TypedDict):
     r"""Object access management messages"""
 
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
-    r"""Get current member roles and permissions messages"""
     api_key_secret: NotRequired[str]
     api_key_hash: NotRequired[str]
 
@@ -27,7 +26,6 @@ class TextqlRPCPublicRbacCreateAPIKeyResponse(BaseModel):
     api_key: Annotated[
         Optional[TextqlRPCPublicRbacAPIKey], pydantic.Field(alias="apiKey")
     ] = None
-    r"""Get current member roles and permissions messages"""
 
     api_key_secret: Annotated[Optional[str], pydantic.Field(alias="apiKeySecret")] = (
         None

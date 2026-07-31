@@ -1,0 +1,12 @@
+# TextqlRPCPublicRbacCallerModelAccess
+
+WhoAmI messages
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `allowed_models`                                                                         | List[[models.TextqlRPCPublicChatLlmModel](../models/textqlrpcpublicchatllmmodel.md)]     | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `default_model`                                                                          | [Optional[models.TextqlRPCPublicChatLlmModel]](../models/textqlrpcpublicchatllmmodel.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `restricted`                                                                             | *Optional[bool]*                                                                         | :heavy_minus_sign:                                                                       | N/A                                                                                      |

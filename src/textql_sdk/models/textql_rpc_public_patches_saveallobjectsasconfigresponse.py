@@ -19,24 +19,22 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesSaveAllObjectsAsConfigResponseTypedDict(TypedDict):
     patch: NotRequired[TextqlRPCPublicPatchesPatchTypedDict]
     file_paths: NotRequired[List[str]]
-    r"""Ontology-relative paths of the config files in the patch."""
+    r"""Ontology-relative path the config file was placed at."""
     skipped: NotRequired[List[TextqlRPCPublicPatchesSkippedConfigExportTypedDict]]
     already_managed_count: NotRequired[int]
-    r"""Objects excluded up front because a config file already manages them."""
 
 
 class TextqlRPCPublicPatchesSaveAllObjectsAsConfigResponse(BaseModel):
     patch: Optional[TextqlRPCPublicPatchesPatch] = None
 
     file_paths: Annotated[Optional[List[str]], pydantic.Field(alias="filePaths")] = None
-    r"""Ontology-relative paths of the config files in the patch."""
+    r"""Ontology-relative path the config file was placed at."""
 
     skipped: Optional[List[TextqlRPCPublicPatchesSkippedConfigExport]] = None
 
     already_managed_count: Annotated[
         Optional[int], pydantic.Field(alias="alreadyManagedCount")
     ] = None
-    r"""Objects excluded up front because a config file already manages them."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

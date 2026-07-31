@@ -24,7 +24,9 @@
 * [remove_role_from_member](#remove_role_from_member) - RemoveRoleFromMember
 * [revoke_api_key](#revoke_api_key) - RevokeApiKey
 * [rotate_api_key](#rotate_api_key) - RotateApiKey
+* [set_role_permissions](#set_role_permissions) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
 * [update_role](#update_role) - UpdateRole
+* [who_am_i](#who_am_i) - Describe what a key is allowed to do.
 
 ## assign_permission_to_role
 
@@ -869,6 +871,49 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## set_role_permissions
+
+Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RBACService_SetRolePermissions" method="post" path="/textql.rpc.public.rbac.RBACService/SetRolePermissions" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.rbac.set_role_permissions()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `role_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `add_permission_ids`                                                | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `remove_permission_ids`                                             | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.RBACServiceSetRolePermissionsResponse](../../models/rbacservicesetrolepermissionsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## update_role
 
 UpdateRole
@@ -909,6 +954,47 @@ with Textql(
 ### Response
 
 **[models.RBACServiceUpdateRoleResponse](../../models/rbacserviceupdateroleresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## who_am_i
+
+Describe what a key is allowed to do.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RBACService_WhoAmI" method="post" path="/textql.rpc.public.rbac.RBACService/WhoAmI" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.rbac.who_am_i(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `body`                                                                                      | [models.TextqlRPCPublicRbacWhoAmIRequest](../../models/textqlrpcpublicrbacwhoamirequest.md) | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `connect_timeout_ms`                                                                        | *Optional[float]*                                                                           | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
+
+### Response
+
+**[models.RBACServiceWhoAmIResponse](../../models/rbacservicewhoamiresponse.md)**
 
 ### Errors
 

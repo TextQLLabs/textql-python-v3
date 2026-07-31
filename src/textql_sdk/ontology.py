@@ -10,8 +10,8 @@ from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Iterable, List, Mapping, Optional, Union
 
 
-class OntologyManagementService(BaseSDK):
-    def ontology_management_service_add_ontology_submodule(
+class Ontology(BaseSDK):
+    def add_submodule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -121,7 +121,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_add_ontology_submodule_async(
+    async def add_submodule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -231,7 +231,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_approve_patch(
+    def approve_patch(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -338,7 +338,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_approve_patch_async(
+    async def approve_patch_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -445,7 +445,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_configure_ontology_remote(
+    def configure_remote(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -585,7 +585,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_configure_ontology_remote_async(
+    async def configure_remote_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -725,7 +725,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_create_approval_rule(
+    def create_approval_rule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -836,7 +836,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_create_approval_rule_async(
+    async def create_approval_rule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -947,7 +947,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_create_context_patch_auto_approve_rule(
+    def create_context_patch_auto_approve_rule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1062,7 +1062,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_create_context_patch_auto_approve_rule_async(
+    async def create_context_patch_auto_approve_rule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1177,7 +1177,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_create_ontology_directory(
+    def create_directory(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1284,7 +1284,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_create_ontology_directory_async(
+    async def create_directory_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1391,7 +1391,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_create_ontology_file_upload_url(
+    def create_file_upload_url(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1507,7 +1507,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_create_ontology_file_upload_url_async(
+    async def create_file_upload_url_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1623,7 +1623,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_delete_approval_rule(
+    def delete_approval_rule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1725,7 +1725,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_delete_approval_rule_async(
+    async def delete_approval_rule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1827,7 +1827,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_delete_context_patch_auto_approve_rule(
+    def delete_context_patch_auto_approve_rule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1929,7 +1929,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_delete_context_patch_auto_approve_rule_async(
+    async def delete_context_patch_auto_approve_rule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2031,7 +2031,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_delete_ontology_directory(
+    def delete_directory(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2048,10 +2048,7 @@ class OntologyManagementService(BaseSDK):
         :param connect_timeout_ms:
         :param path:
         :param commit_message:
-        :param recursive: When true, delete the directory and all of its contents (files and
-            subdirectories) in a single atomic commit. The caller must have write
-            access to every nested subdirectory. When false (default), the directory
-            must be empty of non-reserved entries.
+        :param recursive:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2142,7 +2139,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_delete_ontology_directory_async(
+    async def delete_directory_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2159,10 +2156,7 @@ class OntologyManagementService(BaseSDK):
         :param connect_timeout_ms:
         :param path:
         :param commit_message:
-        :param recursive: When true, delete the directory and all of its contents (files and
-            subdirectories) in a single atomic commit. The caller must have write
-            access to every nested subdirectory. When false (default), the directory
-            must be empty of non-reserved entries.
+        :param recursive:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2253,7 +2247,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_delete_ontology_file(
+    def delete_file(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2358,7 +2352,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_delete_ontology_file_async(
+    async def delete_file_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2463,7 +2457,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_delete_ontology_owners(
+    def delete_owners(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2571,7 +2565,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_delete_ontology_owners_async(
+    async def delete_owners_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2679,7 +2673,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_deny_patch(
+    def deny_patch(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2784,7 +2778,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_deny_patch_async(
+    async def deny_patch_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -2889,7 +2883,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_exchange_ontology_github_code(
+    def exchange_github_code(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -3000,7 +2994,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_exchange_ontology_github_code_async(
+    async def exchange_github_code_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -3111,7 +3105,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_finalize_ontology_file_upload(
+    def finalize_file_upload(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -3222,7 +3216,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_finalize_ontology_file_upload_async(
+    async def finalize_file_upload_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -3333,7 +3327,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_codeowner_coverage(
+    def get_codeowner_coverage(
         self,
         *,
         body: Union[
@@ -3440,7 +3434,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_codeowner_coverage_async(
+    async def get_codeowner_coverage_async(
         self,
         *,
         body: Union[
@@ -3547,7 +3541,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_config_export_capabilities(
+    def get_config_export_capabilities(
         self,
         *,
         body: Union[
@@ -3655,7 +3649,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_config_export_capabilities_async(
+    async def get_config_export_capabilities_async(
         self,
         *,
         body: Union[
@@ -3763,7 +3757,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_effective_ontology_owners(
+    def get_effective_owners(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -3868,7 +3862,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_effective_ontology_owners_async(
+    async def get_effective_owners_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -3973,7 +3967,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_file_usage(
+    def get_file_usage(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4146,7 +4140,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_file_usage_async(
+    async def get_file_usage_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4319,7 +4313,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_file_usage_timeline(
+    def get_file_usage_timeline(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4333,7 +4327,8 @@ class OntologyManagementService(BaseSDK):
         r"""GetFileUsageTimeline
 
         :param connect_timeout_ms:
-        :param path_prefix:
+        :param path_prefix: Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+            a year.
         :param observation_period: A Duration represents a signed, fixed-length span of time represented
             as a count of seconds and fractions of seconds at nanosecond
             resolution. It is independent of any calendar and concepts like \"day\"
@@ -4483,7 +4478,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_file_usage_timeline_async(
+    async def get_file_usage_timeline_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4497,7 +4492,8 @@ class OntologyManagementService(BaseSDK):
         r"""GetFileUsageTimeline
 
         :param connect_timeout_ms:
-        :param path_prefix:
+        :param path_prefix: Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+            a year.
         :param observation_period: A Duration represents a signed, fixed-length span of time represented
             as a count of seconds and fractions of seconds at nanosecond
             resolution. It is independent of any calendar and concepts like \"day\"
@@ -4647,7 +4643,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_ana_config(
+    def get_ana_config(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4751,7 +4747,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_ana_config_async(
+    async def get_ana_config_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4855,7 +4851,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_file(
+    def get_file(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -4959,7 +4955,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_file_async(
+    async def get_file_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5063,7 +5059,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_github_o_auth_url(
+    def get_github_o_auth_url(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5170,7 +5166,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_github_o_auth_url_async(
+    async def get_github_o_auth_url_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5277,7 +5273,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_history_file_diff(
+    def get_history_file_diff(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5385,7 +5381,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_history_file_diff_async(
+    async def get_history_file_diff_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5493,7 +5489,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_owners(
+    def get_owners(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5597,7 +5593,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_owners_async(
+    async def get_owners_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -5701,7 +5697,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_remote(
+    def get_remote(
         self,
         *,
         body: Union[
@@ -5808,7 +5804,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_remote_async(
+    async def get_remote_async(
         self,
         *,
         body: Union[
@@ -5915,7 +5911,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_size_timeline(
+    def get_size_timeline(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -6076,7 +6072,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_size_timeline_async(
+    async def get_size_timeline_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -6237,7 +6233,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_sync_conflicts(
+    def get_sync_conflicts(
         self,
         *,
         body: Union[
@@ -6344,7 +6340,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_sync_conflicts_async(
+    async def get_sync_conflicts_async(
         self,
         *,
         body: Union[
@@ -6451,7 +6447,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_ontology_usage_summary(
+    def get_usage_summary(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -6612,7 +6608,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_ontology_usage_summary_async(
+    async def get_usage_summary_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -6773,7 +6769,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_patch(
+    def get_patch(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -6878,7 +6874,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_patch_async(
+    async def get_patch_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -6983,7 +6979,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_patch_by_number(
+    def get_patch_by_number(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7085,7 +7081,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_patch_by_number_async(
+    async def get_patch_by_number_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7187,7 +7183,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_patch_capabilities(
+    def get_patch_capabilities(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7200,7 +7196,7 @@ class OntologyManagementService(BaseSDK):
         r"""GetPatchCapabilities
 
         :param connect_timeout_ms:
-        :param patch_id:
+        :param patch_id: Library path of the file that defines the object
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7291,7 +7287,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_patch_capabilities_async(
+    async def get_patch_capabilities_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7304,7 +7300,7 @@ class OntologyManagementService(BaseSDK):
         r"""GetPatchCapabilities
 
         :param connect_timeout_ms:
-        :param patch_id:
+        :param patch_id: Library path of the file that defines the object
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7395,7 +7391,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_raw_patch(
+    def get_raw_patch(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7499,7 +7495,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_raw_patch_async(
+    async def get_raw_patch_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7603,7 +7599,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_get_usage_details_for_file(
+    def get_usage_details_for_file(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7767,7 +7763,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_get_usage_details_for_file_async(
+    async def get_usage_details_for_file_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -7931,7 +7927,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_approval_rules(
+    def list_approval_rules(
         self,
         *,
         body: Union[
@@ -8038,7 +8034,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_approval_rules_async(
+    async def list_approval_rules_async(
         self,
         *,
         body: Union[
@@ -8145,7 +8141,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_chats_for_file(
+    def list_chats_for_file(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -8312,7 +8308,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_chats_for_file_async(
+    async def list_chats_for_file_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -8479,7 +8475,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_context_patch_auto_approve_rules(
+    def list_context_patch_auto_approve_rules(
         self,
         *,
         body: Union[
@@ -8588,7 +8584,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_context_patch_auto_approve_rules_async(
+    async def list_context_patch_auto_approve_rules_async(
         self,
         *,
         body: Union[
@@ -8697,7 +8693,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_golden_files(
+    def list_golden_files(
         self,
         *,
         body: Union[
@@ -8804,7 +8800,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_golden_files_async(
+    async def list_golden_files_async(
         self,
         *,
         body: Union[
@@ -8911,7 +8907,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_ontology_entries(
+    def list_entries(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -8928,7 +8924,7 @@ class OntologyManagementService(BaseSDK):
         :param connect_timeout_ms:
         :param path:
         :param recursive:
-        :param include_debug_files: when true, reserved files like OWNERS are included
+        :param include_debug_files:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -9021,7 +9017,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_ontology_entries_async(
+    async def list_entries_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -9038,7 +9034,7 @@ class OntologyManagementService(BaseSDK):
         :param connect_timeout_ms:
         :param path:
         :param recursive:
-        :param include_debug_files: when true, reserved files like OWNERS are included
+        :param include_debug_files:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -9131,7 +9127,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_ontology_history(
+    def list_history(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -9241,7 +9237,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_ontology_history_async(
+    async def list_history_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -9351,7 +9347,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_ontology_imports(
+    def list_imports(
         self,
         *,
         body: Union[
@@ -9458,7 +9454,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_ontology_imports_async(
+    async def list_imports_async(
         self,
         *,
         body: Union[
@@ -9565,7 +9561,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_ontology_submodules(
+    def list_submodules(
         self,
         *,
         body: Union[
@@ -9672,7 +9668,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_ontology_submodules_async(
+    async def list_submodules_async(
         self,
         *,
         body: Union[
@@ -9779,7 +9775,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_ontology_sync_runs(
+    def list_sync_runs(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -9886,7 +9882,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_ontology_sync_runs_async(
+    async def list_sync_runs_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -9993,7 +9989,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_patch_objects(
+    def list_patch_objects(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -10013,7 +10009,7 @@ class OntologyManagementService(BaseSDK):
         frontend uses the dashboard subtype to decide previewability (streamlit/dash).
 
         :param connect_timeout_ms:
-        :param patch_ref: git ref of the patch to inspect
+        :param patch_ref: path is the config file the finding is attributed to.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -10104,7 +10100,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_patch_objects_async(
+    async def list_patch_objects_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -10124,7 +10120,7 @@ class OntologyManagementService(BaseSDK):
         frontend uses the dashboard subtype to decide previewability (streamlit/dash).
 
         :param connect_timeout_ms:
-        :param patch_ref: git ref of the patch to inspect
+        :param patch_ref: path is the config file the finding is attributed to.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -10215,7 +10211,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_patch_reviewers(
+    def list_patch_reviewers(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -10319,7 +10315,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_patch_reviewers_async(
+    async def list_patch_reviewers_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -10423,7 +10419,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_patches(
+    def list_patches(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -10538,7 +10534,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_patches_async(
+    async def list_patches_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -10653,7 +10649,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_list_skills(
+    def list_skills(
         self,
         *,
         body: Union[
@@ -10764,7 +10760,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_list_skills_async(
+    async def list_skills_async(
         self,
         *,
         body: Union[
@@ -10875,7 +10871,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_plan_ontology_merge(
+    def plan_merge(
         self,
         *,
         body: Union[
@@ -10982,7 +10978,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_plan_ontology_merge_async(
+    async def plan_merge_async(
         self,
         *,
         body: Union[
@@ -11089,7 +11085,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_preview_ontology_pull_from_remote(
+    def preview_pull_from_remote(
         self,
         *,
         body: Union[
@@ -11102,7 +11098,12 @@ class OntologyManagementService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServicePreviewOntologyPullFromRemoteResponse:
-        r"""PreviewOntologyPullFromRemote
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param body:
         :param connect_timeout_ms:
@@ -11197,7 +11198,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_preview_ontology_pull_from_remote_async(
+    async def preview_pull_from_remote_async(
         self,
         *,
         body: Union[
@@ -11210,7 +11211,12 @@ class OntologyManagementService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServicePreviewOntologyPullFromRemoteResponse:
-        r"""PreviewOntologyPullFromRemote
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param body:
         :param connect_timeout_ms:
@@ -11305,7 +11311,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_pull_ontology_from_remote(
+    def pull_from_remote(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -11413,7 +11419,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_pull_ontology_from_remote_async(
+    async def pull_from_remote_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -11521,7 +11527,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_push_ontology_to_remote(
+    def push_to_remote(
         self,
         *,
         body: Union[
@@ -11626,7 +11632,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_push_ontology_to_remote_async(
+    async def push_to_remote_async(
         self,
         *,
         body: Union[
@@ -11731,7 +11737,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_recover_ontology(
+    def recover(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -11833,7 +11839,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_recover_ontology_async(
+    async def recover_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -11935,7 +11941,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_remove_ontology_remote(
+    def remove_remote(
         self,
         *,
         body: Union[
@@ -12040,7 +12046,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_remove_ontology_remote_async(
+    async def remove_remote_async(
         self,
         *,
         body: Union[
@@ -12145,7 +12151,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_remove_ontology_submodule(
+    def remove_submodule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12247,7 +12253,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_remove_ontology_submodule_async(
+    async def remove_submodule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12349,7 +12355,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_rename_ontology_file(
+    def rename_file(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12459,7 +12465,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_rename_ontology_file_async(
+    async def rename_file_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12569,7 +12575,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_request_patch_review(
+    def request_patch_review(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12676,7 +12682,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_request_patch_review_async(
+    async def request_patch_review_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12783,7 +12789,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_resolve_ontology_sync_conflict(
+    def resolve_sync_conflict(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12888,7 +12894,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_resolve_ontology_sync_conflict_async(
+    async def resolve_sync_conflict_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -12993,7 +12999,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_restore_patch(
+    def restore_patch(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13007,7 +13013,7 @@ class OntologyManagementService(BaseSDK):
         r"""RestorePatch
 
         :param connect_timeout_ms:
-        :param patch_id:
+        :param patch_id: Code owners first, then admins, matching the sidebar's display order.
         :param expected_git_ref:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -13098,7 +13104,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_restore_patch_async(
+    async def restore_patch_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13112,7 +13118,7 @@ class OntologyManagementService(BaseSDK):
         r"""RestorePatch
 
         :param connect_timeout_ms:
-        :param patch_id:
+        :param patch_id: Code owners first, then admins, matching the sidebar's display order.
         :param expected_git_ref:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -13203,7 +13209,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_revert_patch(
+    def revert_patch(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13307,7 +13313,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_revert_patch_async(
+    async def revert_patch_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13411,7 +13417,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_save_all_objects_as_config(
+    def save_all_objects_as_config(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13515,7 +13521,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_save_all_objects_as_config_async(
+    async def save_all_objects_as_config_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13619,7 +13625,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_save_object_as_config(
+    def save_object_as_config(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13726,7 +13732,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_save_object_as_config_async(
+    async def save_object_as_config_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13833,7 +13839,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_set_ontology_file_golden(
+    def set_file_golden(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13848,7 +13854,7 @@ class OntologyManagementService(BaseSDK):
 
         :param connect_timeout_ms:
         :param path:
-        :param golden: true = certify, false = retire
+        :param golden:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -13940,7 +13946,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_set_ontology_file_golden_async(
+    async def set_file_golden_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -13955,7 +13961,7 @@ class OntologyManagementService(BaseSDK):
 
         :param connect_timeout_ms:
         :param path:
-        :param golden: true = certify, false = retire
+        :param golden:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -14047,7 +14053,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_trigger_config_drift_reconcile(
+    def trigger_config_drift_reconcile(
         self,
         *,
         body: Union[
@@ -14060,12 +14066,7 @@ class OntologyManagementService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceTriggerConfigDriftReconcileResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""TriggerConfigDriftReconcile
 
         :param body:
         :param connect_timeout_ms:
@@ -14160,7 +14161,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_trigger_config_drift_reconcile_async(
+    async def trigger_config_drift_reconcile_async(
         self,
         *,
         body: Union[
@@ -14173,12 +14174,7 @@ class OntologyManagementService(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceTriggerConfigDriftReconcileResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""TriggerConfigDriftReconcile
 
         :param body:
         :param connect_timeout_ms:
@@ -14273,7 +14269,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_update_approval_rule(
+    def update_approval_rule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -14387,7 +14383,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_update_approval_rule_async(
+    async def update_approval_rule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -14501,7 +14497,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_update_context_patch_auto_approve_rule(
+    def update_context_patch_auto_approve_rule(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -14619,7 +14615,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_update_context_patch_auto_approve_rule_async(
+    async def update_context_patch_auto_approve_rule_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -14737,7 +14733,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_update_ontology_sync_config(
+    def update_sync_config(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -14847,7 +14843,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_update_ontology_sync_config_async(
+    async def update_sync_config_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -14957,7 +14953,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_upsert_ontology_ana_config(
+    def upsert_ana_config(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15086,7 +15082,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_upsert_ontology_ana_config_async(
+    async def upsert_ana_config_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15215,7 +15211,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_upsert_ontology_file(
+    def upsert_file(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15325,7 +15321,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_upsert_ontology_file_async(
+    async def upsert_file_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15435,7 +15431,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_upsert_ontology_owners(
+    def upsert_owners(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15553,7 +15549,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_upsert_ontology_owners_async(
+    async def upsert_owners_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15671,7 +15667,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def ontology_management_service_validate_config(
+    def validate_config(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -15780,7 +15776,7 @@ class OntologyManagementService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def ontology_management_service_validate_config_async(
+    async def validate_config_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,

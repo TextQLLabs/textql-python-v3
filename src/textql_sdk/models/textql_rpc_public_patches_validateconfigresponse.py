@@ -12,8 +12,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesValidateConfigResponseTypedDict(TypedDict):
-    r"""ValidateConfigResponse: ok == true with no diagnostics means functionally valid
-    against current org state — not a merge guarantee.
+    r"""ValidateConfigRequest validates a filed patch's ref. The proposed sandbox
+    working-tree source is served by the Ana chat-cell tool, not this RPC.
     """
 
     ok: NotRequired[bool]
@@ -21,8 +21,8 @@ class TextqlRPCPublicPatchesValidateConfigResponseTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesValidateConfigResponse(BaseModel):
-    r"""ValidateConfigResponse: ok == true with no diagnostics means functionally valid
-    against current org state — not a merge guarantee.
+    r"""ValidateConfigRequest validates a filed patch's ref. The proposed sandbox
+    working-tree source is served by the Ana chat-cell tool, not this RPC.
     """
 
     ok: Optional[bool] = None

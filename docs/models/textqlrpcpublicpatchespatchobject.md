@@ -1,12 +1,13 @@
 # TextqlRPCPublicPatchesPatchObject
 
-PatchObject is one config object parsed from a patch ref.
+ValidateConfigResponse: ok == true with no diagnostics means functionally valid
+ against current org state — not a merge guarantee.
 
 
 ## Fields
 
-| Field                                                                                                                                              | Type                                                                                                                                               | Required                                                                                                                                           | Description                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `path`                                                                                                                                             | *Optional[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                 | Library path of the file that defines the object                                                                                                   |
-| `name`                                                                                                                                             | *Optional[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                 | resolved display name                                                                                                                              |
-| `type`                                                                                                                                             | *Optional[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                 | type is the granular object type: "playbook", "dashboard/streamlit",<br/> "dashboard/dash" (the dashboard subtype is load-bearing for previewability). |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `path`             | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `name`             | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `type`             | *Optional[str]*    | :heavy_minus_sign: | N/A                |

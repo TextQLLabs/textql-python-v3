@@ -27,6 +27,7 @@
 * [get_custom_topic_threads](#get_custom_topic_threads) - GetCustomTopicThreads
 * [get_engagement_spectrum](#get_engagement_spectrum) - GetEngagementSpectrum
 * [get_member_activity](#get_member_activity) - GetMemberActivity
+* [get_member_signal_trend](#get_member_signal_trend) - GetMemberSignalTrend
 * [get_observability_stats](#get_observability_stats) - GetObservabilityStats
 * [get_thread_warnings](#get_thread_warnings) - GetThreadWarnings
 * [list_custom_topics](#list_custom_topics) - ListCustomTopics
@@ -999,6 +1000,47 @@ with Textql(
 ### Response
 
 **[models.ObservabilityServiceGetMemberActivityResponse](../../models/observabilityservicegetmemberactivityresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_member_signal_trend
+
+GetMemberSignalTrend
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ObservabilityService_GetMemberSignalTrend" method="post" path="/textql.rpc.public.observe.ObservabilityService/GetMemberSignalTrend" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.observability.get_member_signal_trend()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `days`                                                              | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ObservabilityServiceGetMemberSignalTrendResponse](../../models/observabilityservicegetmembersignaltrendresponse.md)**
 
 ### Errors
 

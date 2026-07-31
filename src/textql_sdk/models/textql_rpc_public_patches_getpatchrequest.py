@@ -15,11 +15,25 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetPatchRequestTypedDict(TypedDict):
+    r"""GetConfigExportCapabilities tells the UI whether to offer \"Save as config\":
+    which object types currently have a working exporter (registered AND its
+    dependencies — e.g. the ontology parser — reachable), and whether the caller
+    holds the permission SaveObjectAsConfig requires. Authn-only: the response
+    carries the authorization answer instead of failing the call.
+    """
+
     patch_id: NotRequired[str]
     revision: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicPatchesGetPatchRequest(BaseModel):
+    r"""GetConfigExportCapabilities tells the UI whether to offer \"Save as config\":
+    which object types currently have a working exporter (registered AND its
+    dependencies — e.g. the ontology parser — reachable), and whether the caller
+    holds the permission SaveObjectAsConfig requires. Authn-only: the response
+    carries the authorization answer instead of failing the call.
+    """
+
     patch_id: Annotated[Optional[str], pydantic.Field(alias="patchId")] = None
 
     revision: OptionalNullable[int] = UNSET

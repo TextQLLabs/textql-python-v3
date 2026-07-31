@@ -9,12 +9,24 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesSkippedConfigExportTypedDict(TypedDict):
+    r"""SaveAllObjectsAsConfig is the bulk SaveObjectAsConfig: it renders every
+    object of the type the caller can read (and that has no config history) into
+    ONE open patch. Objects the config format cannot express are skipped with a
+    per-object reason rather than failing the batch.
+    """
+
     object_id: NotRequired[str]
     object_name: NotRequired[str]
     reason: NotRequired[str]
 
 
 class TextqlRPCPublicPatchesSkippedConfigExport(BaseModel):
+    r"""SaveAllObjectsAsConfig is the bulk SaveObjectAsConfig: it renders every
+    object of the type the caller can read (and that has no config history) into
+    ONE open patch. Objects the config format cannot express are skipped with a
+    per-object reason rather than failing the batch.
+    """
+
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None
 
     object_name: Annotated[Optional[str], pydantic.Field(alias="objectName")] = None

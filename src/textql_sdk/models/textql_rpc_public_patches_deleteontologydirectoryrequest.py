@@ -18,11 +18,6 @@ class TextqlRPCPublicPatchesDeleteOntologyDirectoryRequestTypedDict(TypedDict):
     path: NotRequired[str]
     commit_message: NotRequired[Nullable[str]]
     recursive: NotRequired[bool]
-    r"""When true, delete the directory and all of its contents (files and
-    subdirectories) in a single atomic commit. The caller must have write
-    access to every nested subdirectory. When false (default), the directory
-    must be empty of non-reserved entries.
-    """
 
 
 class TextqlRPCPublicPatchesDeleteOntologyDirectoryRequest(BaseModel):
@@ -33,11 +28,6 @@ class TextqlRPCPublicPatchesDeleteOntologyDirectoryRequest(BaseModel):
     ] = UNSET
 
     recursive: Optional[bool] = None
-    r"""When true, delete the directory and all of its contents (files and
-    subdirectories) in a single atomic commit. The caller must have write
-    access to every nested subdirectory. When false (default), the directory
-    must be empty of non-reserved entries.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

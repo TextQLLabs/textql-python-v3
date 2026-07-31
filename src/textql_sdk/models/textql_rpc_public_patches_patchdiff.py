@@ -43,7 +43,6 @@ class TextqlRPCPublicPatchesPatchDiffTypedDict(TypedDict):
     is_rename: NotRequired[bool]
     is_delete: NotRequired[bool]
     old_content: NotRequired[Nullable[str]]
-    r"""optional: provide full file content for easy navigation"""
     new_content: NotRequired[Nullable[str]]
 
 
@@ -73,7 +72,6 @@ class TextqlRPCPublicPatchesPatchDiff(BaseModel):
     old_content: Annotated[
         OptionalNullable[str], pydantic.Field(alias="oldContent")
     ] = UNSET
-    r"""optional: provide full file content for easy navigation"""
 
     new_content: Annotated[
         OptionalNullable[str], pydantic.Field(alias="newContent")

@@ -130,14 +130,7 @@ class TextqlRPCPublicPatchesOntologyEntryTypedDict(TypedDict):
     can_read: NotRequired[bool]
     config_sync_status: NotRequired[TextqlRPCPublicConfigSourceConfigSyncStatus]
     config_object_id: NotRequired[Nullable[str]]
-    r"""config_object_id is the id of the object this file defines (the playbook
-    id), enabling file -> object links. Empty when no object is materialized yet.
-    """
     config_sync_error: NotRequired[Nullable[str]]
-    r"""config_sync_error is the latest sync failure message for a config-managed
-    entry whose status is ERROR; empty otherwise. Lets the file view surface the
-    error inline without a second fetch.
-    """
 
 
 class TextqlRPCPublicPatchesOntologyEntry(BaseModel):
@@ -256,17 +249,10 @@ class TextqlRPCPublicPatchesOntologyEntry(BaseModel):
     config_object_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="configObjectId")
     ] = UNSET
-    r"""config_object_id is the id of the object this file defines (the playbook
-    id), enabling file -> object links. Empty when no object is materialized yet.
-    """
 
     config_sync_error: Annotated[
         OptionalNullable[str], pydantic.Field(alias="configSyncError")
     ] = UNSET
-    r"""config_sync_error is the latest sync failure message for a config-managed
-    entry whose status is ERROR; empty otherwise. Lets the file view surface the
-    error inline without a second fetch.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

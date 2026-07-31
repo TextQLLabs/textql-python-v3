@@ -13,16 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineResponseTypedDict(TypedDict):
     days: NotRequired[List[TextqlRPCPublicPatchesDailyFileUsageTypedDict]]
-    r"""most recent pull or run (imports included) inside the window; unset when
-    the file had no usage at all
-    """
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineResponse(BaseModel):
     days: Optional[List[TextqlRPCPublicPatchesDailyFileUsage]] = None
-    r"""most recent pull or run (imports included) inside the window; unset when
-    the file had no usage at all
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

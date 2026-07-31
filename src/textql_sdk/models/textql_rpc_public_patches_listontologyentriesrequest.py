@@ -18,7 +18,6 @@ class TextqlRPCPublicPatchesListOntologyEntriesRequestTypedDict(TypedDict):
     path: NotRequired[str]
     recursive: NotRequired[Nullable[bool]]
     include_debug_files: NotRequired[bool]
-    r"""when true, reserved files like OWNERS are included"""
 
 
 class TextqlRPCPublicPatchesListOntologyEntriesRequest(BaseModel):
@@ -29,7 +28,6 @@ class TextqlRPCPublicPatchesListOntologyEntriesRequest(BaseModel):
     include_debug_files: Annotated[
         Optional[bool], pydantic.Field(alias="includeDebugFiles")
     ] = None
-    r"""when true, reserved files like OWNERS are included"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

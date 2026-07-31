@@ -1,8 +1,5 @@
 # TextqlRPCPublicPatchesValidateConfigRequest
 
-ValidateConfigRequest validates a filed patch's ref. The proposed sandbox
- working-tree source is served by the Ana chat-cell tool, not this RPC.
-
 
 ## Fields
 

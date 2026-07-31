@@ -1,17 +1,17 @@
-# SandboxCapabilityService
+# SandboxCapabilities
 
 ## Overview
 
 ### Available Operations
 
-* [sandbox_capability_service_execute_write](#sandbox_capability_service_execute_write) - ExecuteWrite
-* [sandbox_capability_service_poll_ask](#sandbox_capability_service_poll_ask) - PollAsk
-* [sandbox_capability_service_put_asset](#sandbox_capability_service_put_asset) - PutAsset
-* [sandbox_capability_service_send_notify](#sandbox_capability_service_send_notify) - SendNotify
-* [sandbox_capability_service_start_ask](#sandbox_capability_service_start_ask) - StartAsk
-* [sandbox_capability_service_state_op](#sandbox_capability_service_state_op) - StateOp
+* [execute_write](#execute_write) - ExecuteWrite
+* [poll_ask](#poll_ask) - PollAsk
+* [put_asset](#put_asset) - PutAsset
+* [send_notify](#send_notify) - SendNotify
+* [start_ask](#start_ask) - StartAsk
+* [state_op](#state_op) - StateOp
 
-## sandbox_capability_service_execute_write
+## execute_write
 
 ExecuteWrite
 
@@ -27,7 +27,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.sandbox_capability_service.sandbox_capability_service_execute_write()
+    res = textql.sandbox_capabilities.execute_write()
 
     # Handle response
     print(res)
@@ -56,7 +56,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## sandbox_capability_service_poll_ask
+## poll_ask
 
 PollAsk
 
@@ -72,7 +72,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.sandbox_capability_service.sandbox_capability_service_poll_ask()
+    res = textql.sandbox_capabilities.poll_ask()
 
     # Handle response
     print(res)
@@ -101,7 +101,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## sandbox_capability_service_put_asset
+## put_asset
 
 PutAsset
 
@@ -117,7 +117,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.sandbox_capability_service.sandbox_capability_service_put_asset()
+    res = textql.sandbox_capabilities.put_asset()
 
     # Handle response
     print(res)
@@ -144,7 +144,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## sandbox_capability_service_send_notify
+## send_notify
 
 SendNotify
 
@@ -160,7 +160,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.sandbox_capability_service.sandbox_capability_service_send_notify()
+    res = textql.sandbox_capabilities.send_notify()
 
     # Handle response
     print(res)
@@ -188,7 +188,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## sandbox_capability_service_start_ask
+## start_ask
 
 StartAsk
 
@@ -204,7 +204,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.sandbox_capability_service.sandbox_capability_service_start_ask()
+    res = textql.sandbox_capabilities.start_ask()
 
     # Handle response
     print(res)
@@ -233,7 +233,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## sandbox_capability_service_state_op
+## state_op
 
 StateOp
 
@@ -249,7 +249,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.sandbox_capability_service.sandbox_capability_service_state_op()
+    res = textql.sandbox_capabilities.state_op()
 
     # Handle response
     print(res)

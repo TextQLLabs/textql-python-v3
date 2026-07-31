@@ -16,7 +16,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineRequestTypedDict(TypedDict):
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+
     path_prefix: NotRequired[Nullable[str]]
+    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+    a year.
+    """
     observation_period: NotRequired[timedelta]
     r"""A Duration represents a signed, fixed-length span of time represented
     as a count of seconds and fractions of seconds at nanosecond
@@ -80,9 +85,14 @@ class TextqlRPCPublicPatchesGetFileUsageTimelineRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineRequest(BaseModel):
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+
     path_prefix: Annotated[
         OptionalNullable[str], pydantic.Field(alias="pathPrefix")
     ] = UNSET
+    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+    a year.
+    """
 
     observation_period: Annotated[
         Optional[timedelta], pydantic.Field(alias="observationPeriod")

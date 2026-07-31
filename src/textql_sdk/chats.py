@@ -3069,6 +3069,7 @@ class Chats(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         chat_id: Optional[str] = None,
         only_if_different_owner: OptionalNullable[bool] = UNSET,
+        up_to_cell_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3079,6 +3080,7 @@ class Chats(BaseSDK):
         :param connect_timeout_ms:
         :param chat_id: \"user\" or \"assistant\"
         :param only_if_different_owner:
+        :param up_to_cell_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3099,6 +3101,7 @@ class Chats(BaseSDK):
             body=models.TextqlRPCPublicChatDuplicateChatRequest(
                 chat_id=chat_id,
                 only_if_different_owner=only_if_different_owner,
+                up_to_cell_id=up_to_cell_id,
             ),
         )
 
@@ -3176,6 +3179,7 @@ class Chats(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         chat_id: Optional[str] = None,
         only_if_different_owner: OptionalNullable[bool] = UNSET,
+        up_to_cell_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3186,6 +3190,7 @@ class Chats(BaseSDK):
         :param connect_timeout_ms:
         :param chat_id: \"user\" or \"assistant\"
         :param only_if_different_owner:
+        :param up_to_cell_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3206,6 +3211,7 @@ class Chats(BaseSDK):
             body=models.TextqlRPCPublicChatDuplicateChatRequest(
                 chat_id=chat_id,
                 only_if_different_owner=only_if_different_owner,
+                up_to_cell_id=up_to_cell_id,
             ),
         )
 
