@@ -9,17 +9,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesListPatchObjectsRequestTypedDict(TypedDict):
-    r"""ListPatchObjectsRequest inspects the config objects at a patch's git ref."""
-
     patch_ref: NotRequired[str]
-    r"""git ref of the patch to inspect"""
+    r"""path is the config file the finding is attributed to."""
 
 
 class TextqlRPCPublicPatchesListPatchObjectsRequest(BaseModel):
-    r"""ListPatchObjectsRequest inspects the config objects at a patch's git ref."""
-
     patch_ref: Annotated[Optional[str], pydantic.Field(alias="patchRef")] = None
-    r"""git ref of the patch to inspect"""
+    r"""path is the config file the finding is attributed to."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

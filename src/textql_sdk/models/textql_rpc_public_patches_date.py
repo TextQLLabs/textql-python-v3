@@ -11,6 +11,7 @@ class TextqlRPCPublicPatchesDateTypedDict(TypedDict):
     year: NotRequired[int]
     month: NotRequired[int]
     day: NotRequired[int]
+    r"""default 7d"""
 
 
 class TextqlRPCPublicPatchesDate(BaseModel):
@@ -19,6 +20,7 @@ class TextqlRPCPublicPatchesDate(BaseModel):
     month: Optional[int] = None
 
     day: Optional[int] = None
+    r"""default 7d"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -18,6 +18,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict(TypedDict):
+    r"""Returns the *effective* owners for a directory after walking ancestor
+    OWNERS files: for every role in the org, the resolved permission the
+    role would have on this directory (per `permissionForDirWithRoles`).
+    Use this when you need to compare permissions across paths — the
+    literal GetOntologyOwners only reflects the OWNERS file at the exact
+    path, missing inheritance.
+    """
+
     path: NotRequired[str]
     role_ids: NotRequired[List[str]]
     permissions: NotRequired[List[TextqlRPCPublicPatchesOntologyPermission]]
@@ -25,6 +33,14 @@ class TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesUpsertOntologyOwnersRequest(BaseModel):
+    r"""Returns the *effective* owners for a directory after walking ancestor
+    OWNERS files: for every role in the org, the resolved permission the
+    role would have on this directory (per `permissionForDirWithRoles`).
+    Use this when you need to compare permissions across paths — the
+    literal GetOntologyOwners only reflects the OWNERS file at the exact
+    path, missing inheritance.
+    """
+
     path: Optional[str] = None
 
     role_ids: Annotated[Optional[List[str]], pydantic.Field(alias="roleIds")] = None

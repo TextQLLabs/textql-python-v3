@@ -13,12 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesListPatchReviewersResponseTypedDict(TypedDict):
     reviewers: NotRequired[List[TextqlRPCPublicPatchesPatchReviewerTypedDict]]
-    r"""Code owners first, then admins, matching the sidebar's display order."""
 
 
 class TextqlRPCPublicPatchesListPatchReviewersResponse(BaseModel):
     reviewers: Optional[List[TextqlRPCPublicPatchesPatchReviewer]] = None
-    r"""Code owners first, then admins, matching the sidebar's display order."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -12,7 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesGoldenEntryTypedDict(TypedDict):
     path: NotRequired[str]
     set_by_member_id: NotRequired[str]
-    r"""backend"""
+    r"""deprecated: use connector_ids"""
     set_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -112,7 +112,7 @@ class TextqlRPCPublicPatchesGoldenEntry(BaseModel):
     set_by_member_id: Annotated[
         Optional[str], pydantic.Field(alias="setByMemberId")
     ] = None
-    r"""backend"""
+    r"""deprecated: use connector_ids"""
 
     set_at: Annotated[Optional[datetime], pydantic.Field(alias="setAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

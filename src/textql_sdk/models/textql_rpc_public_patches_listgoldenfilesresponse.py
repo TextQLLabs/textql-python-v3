@@ -13,10 +13,12 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesListGoldenFilesResponseTypedDict(TypedDict):
     golden: NotRequired[List[TextqlRPCPublicPatchesGoldenEntryTypedDict]]
+    r"""full active list after the change"""
 
 
 class TextqlRPCPublicPatchesListGoldenFilesResponse(BaseModel):
     golden: Optional[List[TextqlRPCPublicPatchesGoldenEntry]] = None
+    r"""full active list after the change"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

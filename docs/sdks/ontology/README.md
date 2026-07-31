@@ -1,81 +1,81 @@
-# OntologyManagementService
+# Ontology
 
 ## Overview
 
 ### Available Operations
 
-* [ontology_management_service_add_ontology_submodule](#ontology_management_service_add_ontology_submodule) - AddOntologySubmodule
-* [ontology_management_service_approve_patch](#ontology_management_service_approve_patch) - ApprovePatch
-* [ontology_management_service_configure_ontology_remote](#ontology_management_service_configure_ontology_remote) - ConfigureOntologyRemote
-* [ontology_management_service_create_approval_rule](#ontology_management_service_create_approval_rule) - CreateApprovalRule
-* [ontology_management_service_create_context_patch_auto_approve_rule](#ontology_management_service_create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
-* [ontology_management_service_create_ontology_directory](#ontology_management_service_create_ontology_directory) - CreateOntologyDirectory
-* [ontology_management_service_create_ontology_file_upload_url](#ontology_management_service_create_ontology_file_upload_url) - CreateOntologyFileUploadUrl
-* [ontology_management_service_delete_approval_rule](#ontology_management_service_delete_approval_rule) - DeleteApprovalRule
-* [ontology_management_service_delete_context_patch_auto_approve_rule](#ontology_management_service_delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
-* [ontology_management_service_delete_ontology_directory](#ontology_management_service_delete_ontology_directory) - DeleteOntologyDirectory
-* [ontology_management_service_delete_ontology_file](#ontology_management_service_delete_ontology_file) - DeleteOntologyFile
-* [ontology_management_service_delete_ontology_owners](#ontology_management_service_delete_ontology_owners) - DeleteOntologyOwners
-* [ontology_management_service_deny_patch](#ontology_management_service_deny_patch) - DenyPatch
-* [ontology_management_service_exchange_ontology_github_code](#ontology_management_service_exchange_ontology_github_code) - ExchangeOntologyGithubCode
-* [ontology_management_service_finalize_ontology_file_upload](#ontology_management_service_finalize_ontology_file_upload) - FinalizeOntologyFileUpload
-* [ontology_management_service_get_codeowner_coverage](#ontology_management_service_get_codeowner_coverage) - GetCodeownerCoverage
-* [ontology_management_service_get_config_export_capabilities](#ontology_management_service_get_config_export_capabilities) - GetConfigExportCapabilities
-* [ontology_management_service_get_effective_ontology_owners](#ontology_management_service_get_effective_ontology_owners) - GetEffectiveOntologyOwners
-* [ontology_management_service_get_file_usage](#ontology_management_service_get_file_usage) - GetFileUsage
-* [ontology_management_service_get_file_usage_timeline](#ontology_management_service_get_file_usage_timeline) - GetFileUsageTimeline
-* [ontology_management_service_get_ontology_ana_config](#ontology_management_service_get_ontology_ana_config) - GetOntologyAnaConfig
-* [ontology_management_service_get_ontology_file](#ontology_management_service_get_ontology_file) - GetOntologyFile
-* [ontology_management_service_get_ontology_github_o_auth_url](#ontology_management_service_get_ontology_github_o_auth_url) - GetOntologyGithubOAuthURL
-* [ontology_management_service_get_ontology_history_file_diff](#ontology_management_service_get_ontology_history_file_diff) - GetOntologyHistoryFileDiff
-* [ontology_management_service_get_ontology_owners](#ontology_management_service_get_ontology_owners) - GetOntologyOwners
-* [ontology_management_service_get_ontology_remote](#ontology_management_service_get_ontology_remote) - GetOntologyRemote
-* [ontology_management_service_get_ontology_size_timeline](#ontology_management_service_get_ontology_size_timeline) - GetOntologySizeTimeline
-* [ontology_management_service_get_ontology_sync_conflicts](#ontology_management_service_get_ontology_sync_conflicts) - GetOntologySyncConflicts
-* [ontology_management_service_get_ontology_usage_summary](#ontology_management_service_get_ontology_usage_summary) - GetOntologyUsageSummary
-* [ontology_management_service_get_patch](#ontology_management_service_get_patch) - GetPatch
-* [ontology_management_service_get_patch_by_number](#ontology_management_service_get_patch_by_number) - GetPatchByNumber
-* [ontology_management_service_get_patch_capabilities](#ontology_management_service_get_patch_capabilities) - GetPatchCapabilities
-* [ontology_management_service_get_raw_patch](#ontology_management_service_get_raw_patch) - GetRawPatch
-* [ontology_management_service_get_usage_details_for_file](#ontology_management_service_get_usage_details_for_file) - GetUsageDetailsForFile
-* [ontology_management_service_list_approval_rules](#ontology_management_service_list_approval_rules) - ListApprovalRules
-* [ontology_management_service_list_chats_for_file](#ontology_management_service_list_chats_for_file) - ListChatsForFile
-* [ontology_management_service_list_context_patch_auto_approve_rules](#ontology_management_service_list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
-* [ontology_management_service_list_golden_files](#ontology_management_service_list_golden_files) - ListGoldenFiles
-* [ontology_management_service_list_ontology_entries](#ontology_management_service_list_ontology_entries) - ListOntologyEntries
-* [ontology_management_service_list_ontology_history](#ontology_management_service_list_ontology_history) - ListOntologyHistory
-* [ontology_management_service_list_ontology_imports](#ontology_management_service_list_ontology_imports) - ListOntologyImports
-* [ontology_management_service_list_ontology_submodules](#ontology_management_service_list_ontology_submodules) - ListOntologySubmodules
-* [ontology_management_service_list_ontology_sync_runs](#ontology_management_service_list_ontology_sync_runs) - ListOntologySyncRuns
-* [ontology_management_service_list_patch_objects](#ontology_management_service_list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
-* [ontology_management_service_list_patch_reviewers](#ontology_management_service_list_patch_reviewers) - ListPatchReviewers
-* [ontology_management_service_list_patches](#ontology_management_service_list_patches) - ListPatches
-* [ontology_management_service_list_skills](#ontology_management_service_list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
-* [ontology_management_service_plan_ontology_merge](#ontology_management_service_plan_ontology_merge) - PlanOntologyMerge
-* [ontology_management_service_preview_ontology_pull_from_remote](#ontology_management_service_preview_ontology_pull_from_remote) - PreviewOntologyPullFromRemote
-* [ontology_management_service_pull_ontology_from_remote](#ontology_management_service_pull_ontology_from_remote) - PullOntologyFromRemote
-* [ontology_management_service_push_ontology_to_remote](#ontology_management_service_push_ontology_to_remote) - PushOntologyToRemote
-* [ontology_management_service_recover_ontology](#ontology_management_service_recover_ontology) - RecoverOntology
-* [ontology_management_service_remove_ontology_remote](#ontology_management_service_remove_ontology_remote) - RemoveOntologyRemote
-* [ontology_management_service_remove_ontology_submodule](#ontology_management_service_remove_ontology_submodule) - RemoveOntologySubmodule
-* [ontology_management_service_rename_ontology_file](#ontology_management_service_rename_ontology_file) - RenameOntologyFile
-* [ontology_management_service_request_patch_review](#ontology_management_service_request_patch_review) - RequestPatchReview
-* [ontology_management_service_resolve_ontology_sync_conflict](#ontology_management_service_resolve_ontology_sync_conflict) - ResolveOntologySyncConflict
-* [ontology_management_service_restore_patch](#ontology_management_service_restore_patch) - RestorePatch
-* [ontology_management_service_revert_patch](#ontology_management_service_revert_patch) - RevertPatch
-* [ontology_management_service_save_all_objects_as_config](#ontology_management_service_save_all_objects_as_config) - SaveAllObjectsAsConfig
-* [ontology_management_service_save_object_as_config](#ontology_management_service_save_object_as_config) - SaveObjectAsConfig
-* [ontology_management_service_set_ontology_file_golden](#ontology_management_service_set_ontology_file_golden) - SetOntologyFileGolden
-* [ontology_management_service_trigger_config_drift_reconcile](#ontology_management_service_trigger_config_drift_reconcile) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-* [ontology_management_service_update_approval_rule](#ontology_management_service_update_approval_rule) - UpdateApprovalRule
-* [ontology_management_service_update_context_patch_auto_approve_rule](#ontology_management_service_update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
-* [ontology_management_service_update_ontology_sync_config](#ontology_management_service_update_ontology_sync_config) - UpdateOntologySyncConfig
-* [ontology_management_service_upsert_ontology_ana_config](#ontology_management_service_upsert_ontology_ana_config) - UpsertOntologyAnaConfig
-* [ontology_management_service_upsert_ontology_file](#ontology_management_service_upsert_ontology_file) - UpsertOntologyFile
-* [ontology_management_service_upsert_ontology_owners](#ontology_management_service_upsert_ontology_owners) - UpsertOntologyOwners
-* [ontology_management_service_validate_config](#ontology_management_service_validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
+* [add_submodule](#add_submodule) - AddOntologySubmodule
+* [approve_patch](#approve_patch) - ApprovePatch
+* [configure_remote](#configure_remote) - ConfigureOntologyRemote
+* [create_approval_rule](#create_approval_rule) - CreateApprovalRule
+* [create_context_patch_auto_approve_rule](#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
+* [create_directory](#create_directory) - CreateOntologyDirectory
+* [create_file_upload_url](#create_file_upload_url) - CreateOntologyFileUploadUrl
+* [delete_approval_rule](#delete_approval_rule) - DeleteApprovalRule
+* [delete_context_patch_auto_approve_rule](#delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
+* [delete_directory](#delete_directory) - DeleteOntologyDirectory
+* [delete_file](#delete_file) - DeleteOntologyFile
+* [delete_owners](#delete_owners) - DeleteOntologyOwners
+* [deny_patch](#deny_patch) - DenyPatch
+* [exchange_github_code](#exchange_github_code) - ExchangeOntologyGithubCode
+* [finalize_file_upload](#finalize_file_upload) - FinalizeOntologyFileUpload
+* [get_codeowner_coverage](#get_codeowner_coverage) - GetCodeownerCoverage
+* [get_config_export_capabilities](#get_config_export_capabilities) - GetConfigExportCapabilities
+* [get_effective_owners](#get_effective_owners) - GetEffectiveOntologyOwners
+* [get_file_usage](#get_file_usage) - GetFileUsage
+* [get_file_usage_timeline](#get_file_usage_timeline) - GetFileUsageTimeline
+* [get_ana_config](#get_ana_config) - GetOntologyAnaConfig
+* [get_file](#get_file) - GetOntologyFile
+* [get_github_o_auth_url](#get_github_o_auth_url) - GetOntologyGithubOAuthURL
+* [get_history_file_diff](#get_history_file_diff) - GetOntologyHistoryFileDiff
+* [get_owners](#get_owners) - GetOntologyOwners
+* [get_remote](#get_remote) - GetOntologyRemote
+* [get_size_timeline](#get_size_timeline) - GetOntologySizeTimeline
+* [get_sync_conflicts](#get_sync_conflicts) - GetOntologySyncConflicts
+* [get_usage_summary](#get_usage_summary) - GetOntologyUsageSummary
+* [get_patch](#get_patch) - GetPatch
+* [get_patch_by_number](#get_patch_by_number) - GetPatchByNumber
+* [get_patch_capabilities](#get_patch_capabilities) - GetPatchCapabilities
+* [get_raw_patch](#get_raw_patch) - GetRawPatch
+* [get_usage_details_for_file](#get_usage_details_for_file) - GetUsageDetailsForFile
+* [list_approval_rules](#list_approval_rules) - ListApprovalRules
+* [list_chats_for_file](#list_chats_for_file) - ListChatsForFile
+* [list_context_patch_auto_approve_rules](#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
+* [list_golden_files](#list_golden_files) - ListGoldenFiles
+* [list_entries](#list_entries) - ListOntologyEntries
+* [list_history](#list_history) - ListOntologyHistory
+* [list_imports](#list_imports) - ListOntologyImports
+* [list_submodules](#list_submodules) - ListOntologySubmodules
+* [list_sync_runs](#list_sync_runs) - ListOntologySyncRuns
+* [list_patch_objects](#list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
+* [list_patch_reviewers](#list_patch_reviewers) - ListPatchReviewers
+* [list_patches](#list_patches) - ListPatches
+* [list_skills](#list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+* [plan_merge](#plan_merge) - PlanOntologyMerge
+* [preview_pull_from_remote](#preview_pull_from_remote) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+* [pull_from_remote](#pull_from_remote) - PullOntologyFromRemote
+* [push_to_remote](#push_to_remote) - PushOntologyToRemote
+* [recover](#recover) - RecoverOntology
+* [remove_remote](#remove_remote) - RemoveOntologyRemote
+* [remove_submodule](#remove_submodule) - RemoveOntologySubmodule
+* [rename_file](#rename_file) - RenameOntologyFile
+* [request_patch_review](#request_patch_review) - RequestPatchReview
+* [resolve_sync_conflict](#resolve_sync_conflict) - ResolveOntologySyncConflict
+* [restore_patch](#restore_patch) - RestorePatch
+* [revert_patch](#revert_patch) - RevertPatch
+* [save_all_objects_as_config](#save_all_objects_as_config) - SaveAllObjectsAsConfig
+* [save_object_as_config](#save_object_as_config) - SaveObjectAsConfig
+* [set_file_golden](#set_file_golden) - SetOntologyFileGolden
+* [trigger_config_drift_reconcile](#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile
+* [update_approval_rule](#update_approval_rule) - UpdateApprovalRule
+* [update_context_patch_auto_approve_rule](#update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
+* [update_sync_config](#update_sync_config) - UpdateOntologySyncConfig
+* [upsert_ana_config](#upsert_ana_config) - UpsertOntologyAnaConfig
+* [upsert_file](#upsert_file) - UpsertOntologyFile
+* [upsert_owners](#upsert_owners) - UpsertOntologyOwners
+* [validate_config](#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
 
-## ontology_management_service_add_ontology_submodule
+## add_submodule
 
 AddOntologySubmodule
 
@@ -91,7 +91,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_add_ontology_submodule()
+    res = textql.ontology.add_submodule()
 
     # Handle response
     print(res)
@@ -118,7 +118,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_approve_patch
+## approve_patch
 
 ApprovePatch
 
@@ -134,7 +134,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_approve_patch()
+    res = textql.ontology.approve_patch()
 
     # Handle response
     print(res)
@@ -160,7 +160,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_configure_ontology_remote
+## configure_remote
 
 ConfigureOntologyRemote
 
@@ -176,7 +176,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_configure_ontology_remote()
+    res = textql.ontology.configure_remote()
 
     # Handle response
     print(res)
@@ -213,7 +213,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_create_approval_rule
+## create_approval_rule
 
 CreateApprovalRule
 
@@ -229,7 +229,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_create_approval_rule()
+    res = textql.ontology.create_approval_rule()
 
     # Handle response
     print(res)
@@ -254,7 +254,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_create_context_patch_auto_approve_rule
+## create_context_patch_auto_approve_rule
 
 CreateContextPatchAutoApproveRule
 
@@ -270,7 +270,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_create_context_patch_auto_approve_rule()
+    res = textql.ontology.create_context_patch_auto_approve_rule()
 
     # Handle response
     print(res)
@@ -295,7 +295,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_create_ontology_directory
+## create_directory
 
 CreateOntologyDirectory
 
@@ -311,7 +311,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_create_ontology_directory()
+    res = textql.ontology.create_directory()
 
     # Handle response
     print(res)
@@ -337,7 +337,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_create_ontology_file_upload_url
+## create_file_upload_url
 
 CreateOntologyFileUploadUrl
 
@@ -353,7 +353,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_create_ontology_file_upload_url()
+    res = textql.ontology.create_file_upload_url()
 
     # Handle response
     print(res)
@@ -380,7 +380,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_delete_approval_rule
+## delete_approval_rule
 
 DeleteApprovalRule
 
@@ -396,7 +396,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_delete_approval_rule()
+    res = textql.ontology.delete_approval_rule()
 
     # Handle response
     print(res)
@@ -421,7 +421,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_delete_context_patch_auto_approve_rule
+## delete_context_patch_auto_approve_rule
 
 DeleteContextPatchAutoApproveRule
 
@@ -437,7 +437,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_delete_context_patch_auto_approve_rule()
+    res = textql.ontology.delete_context_patch_auto_approve_rule()
 
     # Handle response
     print(res)
@@ -462,7 +462,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_delete_ontology_directory
+## delete_directory
 
 DeleteOntologyDirectory
 
@@ -478,7 +478,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_delete_ontology_directory()
+    res = textql.ontology.delete_directory()
 
     # Handle response
     print(res)
@@ -487,13 +487,13 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                                                                                   | Type                                                                                                                                                                                                                                                        | Required                                                                                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                                                                                                                                                                                                        | *Optional[float]*                                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                          | N/A                                                                                                                                                                                                                                                         |
-| `path`                                                                                                                                                                                                                                                      | *Optional[str]*                                                                                                                                                                                                                                             | :heavy_minus_sign:                                                                                                                                                                                                                                          | N/A                                                                                                                                                                                                                                                         |
-| `commit_message`                                                                                                                                                                                                                                            | *OptionalNullable[str]*                                                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                                          | N/A                                                                                                                                                                                                                                                         |
-| `recursive`                                                                                                                                                                                                                                                 | *Optional[bool]*                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                          | When true, delete the directory and all of its contents (files and<br/> subdirectories) in a single atomic commit. The caller must have write<br/> access to every nested subdirectory. When false (default), the directory<br/> must be empty of non-reserved entries. |
-| `retries`                                                                                                                                                                                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                          | Configuration to override the default retry behavior of the client.                                                                                                                                                                                         |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `path`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `commit_message`                                                    | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `recursive`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -505,7 +505,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_delete_ontology_file
+## delete_file
 
 DeleteOntologyFile
 
@@ -521,7 +521,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_delete_ontology_file()
+    res = textql.ontology.delete_file()
 
     # Handle response
     print(res)
@@ -547,7 +547,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_delete_ontology_owners
+## delete_owners
 
 DeleteOntologyOwners
 
@@ -563,7 +563,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_delete_ontology_owners()
+    res = textql.ontology.delete_owners()
 
     # Handle response
     print(res)
@@ -590,7 +590,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_deny_patch
+## deny_patch
 
 DenyPatch
 
@@ -606,7 +606,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_deny_patch()
+    res = textql.ontology.deny_patch()
 
     # Handle response
     print(res)
@@ -632,7 +632,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_exchange_ontology_github_code
+## exchange_github_code
 
 ExchangeOntologyGithubCode
 
@@ -648,7 +648,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_exchange_ontology_github_code()
+    res = textql.ontology.exchange_github_code()
 
     # Handle response
     print(res)
@@ -675,7 +675,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_finalize_ontology_file_upload
+## finalize_file_upload
 
 FinalizeOntologyFileUpload
 
@@ -691,7 +691,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_finalize_ontology_file_upload()
+    res = textql.ontology.finalize_file_upload()
 
     # Handle response
     print(res)
@@ -718,7 +718,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_codeowner_coverage
+## get_codeowner_coverage
 
 GetCodeownerCoverage
 
@@ -734,7 +734,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_codeowner_coverage(body={})
+    res = textql.ontology.get_codeowner_coverage(body={})
 
     # Handle response
     print(res)
@@ -759,7 +759,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_config_export_capabilities
+## get_config_export_capabilities
 
 GetConfigExportCapabilities
 
@@ -775,7 +775,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_config_export_capabilities(body={})
+    res = textql.ontology.get_config_export_capabilities(body={})
 
     # Handle response
     print(res)
@@ -800,7 +800,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_effective_ontology_owners
+## get_effective_owners
 
 GetEffectiveOntologyOwners
 
@@ -816,7 +816,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_effective_ontology_owners()
+    res = textql.ontology.get_effective_owners()
 
     # Handle response
     print(res)
@@ -841,7 +841,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_file_usage
+## get_file_usage
 
 GetFileUsage
 
@@ -857,7 +857,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_file_usage()
+    res = textql.ontology.get_file_usage()
 
     # Handle response
     print(res)
@@ -886,7 +886,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_file_usage_timeline
+## get_file_usage_timeline
 
 GetFileUsageTimeline
 
@@ -902,7 +902,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_file_usage_timeline()
+    res = textql.ontology.get_file_usage_timeline()
 
     # Handle response
     print(res)
@@ -914,7 +914,7 @@ with Textql(
 | Parameter                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | *Optional[float]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `path_prefix`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `path_prefix`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Year of the date. Must be from 1 to 9999, or 0 to specify a date without<br/> a year.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `observation_period`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | *Optional[timedelta]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | A Duration represents a signed, fixed-length span of time represented<br/> as a count of seconds and fractions of seconds at nanosecond<br/> resolution. It is independent of any calendar and concepts like "day"<br/> or "month". It is related to Timestamp in that the difference between<br/> two Timestamp values is a Duration and it can be added or subtracted<br/> from a Timestamp. Range is approximately +-10,000 years.<br/><br/> # Examples<br/><br/> Example 1: Compute Duration from two Timestamps in pseudo code.<br/><br/>     Timestamp start = ...;<br/>     Timestamp end = ...;<br/>     Duration duration = ...;<br/><br/>     duration.seconds = end.seconds - start.seconds;<br/>     duration.nanos = end.nanos - start.nanos;<br/><br/>     if (duration.seconds < 0 && duration.nanos > 0) {<br/>       duration.seconds += 1;<br/>       duration.nanos -= 1000000000;<br/>     } else if (duration.seconds > 0 && duration.nanos < 0) {<br/>       duration.seconds -= 1;<br/>       duration.nanos += 1000000000;<br/>     }<br/><br/> Example 2: Compute Timestamp from Timestamp + Duration in pseudo code.<br/><br/>     Timestamp start = ...;<br/>     Duration duration = ...;<br/>     Timestamp end = ...;<br/><br/>     end.seconds = start.seconds + duration.seconds;<br/>     end.nanos = start.nanos + duration.nanos;<br/><br/>     if (end.nanos < 0) {<br/>       end.seconds -= 1;<br/>       end.nanos += 1000000000;<br/>     } else if (end.nanos >= 1000000000) {<br/>       end.seconds += 1;<br/>       end.nanos -= 1000000000;<br/>     }<br/><br/> Example 3: Compute Duration from datetime.timedelta in Python.<br/><br/>     td = datetime.timedelta(days=3, minutes=10)<br/>     duration = Duration()<br/>     duration.FromTimedelta(td)<br/><br/> # JSON Mapping<br/><br/> In JSON format, the Duration type is encoded as a string rather than an<br/> object, where the string ends in the suffix "s" (indicating seconds) and<br/> is preceded by the number of seconds, with nanoseconds expressed as<br/> fractional seconds. For example, 3 seconds with 0 nanoseconds should be<br/> encoded in JSON format as "3s", while 3 seconds and 1 nanosecond should<br/> be expressed in JSON format as "3.000000001s", and 3 seconds and 1<br/> microsecond should be expressed in JSON format as "3.000001s". |
 | `retries`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Configuration to override the default retry behavior of the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
@@ -928,7 +928,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_ana_config
+## get_ana_config
 
 GetOntologyAnaConfig
 
@@ -944,7 +944,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_ana_config()
+    res = textql.ontology.get_ana_config()
 
     # Handle response
     print(res)
@@ -969,7 +969,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_file
+## get_file
 
 GetOntologyFile
 
@@ -985,7 +985,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_file()
+    res = textql.ontology.get_file()
 
     # Handle response
     print(res)
@@ -1010,7 +1010,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_github_o_auth_url
+## get_github_o_auth_url
 
 GetOntologyGithubOAuthURL
 
@@ -1026,7 +1026,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_github_o_auth_url()
+    res = textql.ontology.get_github_o_auth_url()
 
     # Handle response
     print(res)
@@ -1052,7 +1052,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_history_file_diff
+## get_history_file_diff
 
 GetOntologyHistoryFileDiff
 
@@ -1068,7 +1068,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_history_file_diff()
+    res = textql.ontology.get_history_file_diff()
 
     # Handle response
     print(res)
@@ -1094,7 +1094,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_owners
+## get_owners
 
 GetOntologyOwners
 
@@ -1110,7 +1110,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_owners()
+    res = textql.ontology.get_owners()
 
     # Handle response
     print(res)
@@ -1135,7 +1135,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_remote
+## get_remote
 
 GetOntologyRemote
 
@@ -1151,7 +1151,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_remote(body={})
+    res = textql.ontology.get_remote(body={})
 
     # Handle response
     print(res)
@@ -1176,7 +1176,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_size_timeline
+## get_size_timeline
 
 GetOntologySizeTimeline
 
@@ -1192,7 +1192,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_size_timeline()
+    res = textql.ontology.get_size_timeline()
 
     # Handle response
     print(res)
@@ -1217,7 +1217,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_sync_conflicts
+## get_sync_conflicts
 
 GetOntologySyncConflicts
 
@@ -1233,7 +1233,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_sync_conflicts(body={})
+    res = textql.ontology.get_sync_conflicts(body={})
 
     # Handle response
     print(res)
@@ -1258,7 +1258,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_ontology_usage_summary
+## get_usage_summary
 
 GetOntologyUsageSummary
 
@@ -1274,7 +1274,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_ontology_usage_summary()
+    res = textql.ontology.get_usage_summary()
 
     # Handle response
     print(res)
@@ -1299,7 +1299,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_patch
+## get_patch
 
 GetPatch
 
@@ -1315,7 +1315,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_patch()
+    res = textql.ontology.get_patch()
 
     # Handle response
     print(res)
@@ -1341,7 +1341,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_patch_by_number
+## get_patch_by_number
 
 GetPatchByNumber
 
@@ -1357,7 +1357,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_patch_by_number()
+    res = textql.ontology.get_patch_by_number()
 
     # Handle response
     print(res)
@@ -1382,7 +1382,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_patch_capabilities
+## get_patch_capabilities
 
 GetPatchCapabilities
 
@@ -1398,7 +1398,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_patch_capabilities()
+    res = textql.ontology.get_patch_capabilities()
 
     # Handle response
     print(res)
@@ -1410,7 +1410,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `patch_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `patch_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Library path of the file that defines the object                    |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1423,7 +1423,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_raw_patch
+## get_raw_patch
 
 GetRawPatch
 
@@ -1439,7 +1439,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_raw_patch()
+    res = textql.ontology.get_raw_patch()
 
     # Handle response
     print(res)
@@ -1464,7 +1464,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_get_usage_details_for_file
+## get_usage_details_for_file
 
 GetUsageDetailsForFile
 
@@ -1480,7 +1480,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_get_usage_details_for_file()
+    res = textql.ontology.get_usage_details_for_file()
 
     # Handle response
     print(res)
@@ -1506,7 +1506,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_approval_rules
+## list_approval_rules
 
 ListApprovalRules
 
@@ -1522,7 +1522,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_approval_rules(body={})
+    res = textql.ontology.list_approval_rules(body={})
 
     # Handle response
     print(res)
@@ -1547,7 +1547,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_chats_for_file
+## list_chats_for_file
 
 ListChatsForFile
 
@@ -1563,7 +1563,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_chats_for_file()
+    res = textql.ontology.list_chats_for_file()
 
     # Handle response
     print(res)
@@ -1590,7 +1590,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_context_patch_auto_approve_rules
+## list_context_patch_auto_approve_rules
 
 ListContextPatchAutoApproveRules
 
@@ -1606,7 +1606,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_context_patch_auto_approve_rules(body={})
+    res = textql.ontology.list_context_patch_auto_approve_rules(body={})
 
     # Handle response
     print(res)
@@ -1631,7 +1631,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_golden_files
+## list_golden_files
 
 ListGoldenFiles
 
@@ -1647,7 +1647,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_golden_files(body={})
+    res = textql.ontology.list_golden_files(body={})
 
     # Handle response
     print(res)
@@ -1672,7 +1672,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_ontology_entries
+## list_entries
 
 ListOntologyEntries
 
@@ -1688,7 +1688,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_ontology_entries()
+    res = textql.ontology.list_entries()
 
     # Handle response
     print(res)
@@ -1702,7 +1702,7 @@ with Textql(
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `path`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `recursive`                                                         | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `include_debug_files`                                               | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | when true, reserved files like OWNERS are included                  |
+| `include_debug_files`                                               | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1715,7 +1715,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_ontology_history
+## list_history
 
 ListOntologyHistory
 
@@ -1731,7 +1731,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_ontology_history()
+    res = textql.ontology.list_history()
 
     # Handle response
     print(res)
@@ -1758,7 +1758,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_ontology_imports
+## list_imports
 
 ListOntologyImports
 
@@ -1774,7 +1774,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_ontology_imports(body={})
+    res = textql.ontology.list_imports(body={})
 
     # Handle response
     print(res)
@@ -1799,7 +1799,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_ontology_submodules
+## list_submodules
 
 ListOntologySubmodules
 
@@ -1815,7 +1815,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_ontology_submodules(body={})
+    res = textql.ontology.list_submodules(body={})
 
     # Handle response
     print(res)
@@ -1840,7 +1840,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_ontology_sync_runs
+## list_sync_runs
 
 ListOntologySyncRuns
 
@@ -1856,7 +1856,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_ontology_sync_runs()
+    res = textql.ontology.list_sync_runs()
 
     # Handle response
     print(res)
@@ -1882,7 +1882,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_patch_objects
+## list_patch_objects
 
 ListPatchObjects parses the config objects present at a patch's git ref and
  returns each object's Library path, resolved display name, and granular type
@@ -1903,7 +1903,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_patch_objects()
+    res = textql.ontology.list_patch_objects()
 
     # Handle response
     print(res)
@@ -1915,7 +1915,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | git ref of the patch to inspect                                     |
+| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | path is the config file the finding is attributed to.               |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1928,7 +1928,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_patch_reviewers
+## list_patch_reviewers
 
 ListPatchReviewers
 
@@ -1944,7 +1944,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_patch_reviewers()
+    res = textql.ontology.list_patch_reviewers()
 
     # Handle response
     print(res)
@@ -1969,7 +1969,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_patches
+## list_patches
 
 ListPatches
 
@@ -1985,7 +1985,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_patches()
+    res = textql.ontology.list_patches()
 
     # Handle response
     print(res)
@@ -2013,7 +2013,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_list_skills
+## list_skills
 
 Lists the skills under the ontology's flat skills/ root that the caller can
  read (OWNERS-filtered). Returns display metadata only — never instruction
@@ -2031,7 +2031,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_list_skills(body={})
+    res = textql.ontology.list_skills(body={})
 
     # Handle response
     print(res)
@@ -2056,7 +2056,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_plan_ontology_merge
+## plan_merge
 
 PlanOntologyMerge
 
@@ -2072,7 +2072,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_plan_ontology_merge(body={})
+    res = textql.ontology.plan_merge(body={})
 
     # Handle response
     print(res)
@@ -2097,9 +2097,12 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_preview_ontology_pull_from_remote
+## preview_pull_from_remote
 
-PreviewOntologyPullFromRemote
+TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+ caller's org: if the Ontology repo's live HEAD differs from the last
+ reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+ equivalent of waiting for the periodic drift scan.
 
 ### Example Usage
 
@@ -2113,7 +2116,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_preview_ontology_pull_from_remote(body={})
+    res = textql.ontology.preview_pull_from_remote(body={})
 
     # Handle response
     print(res)
@@ -2138,7 +2141,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_pull_ontology_from_remote
+## pull_from_remote
 
 PullOntologyFromRemote
 
@@ -2154,7 +2157,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_pull_ontology_from_remote()
+    res = textql.ontology.pull_from_remote()
 
     # Handle response
     print(res)
@@ -2181,7 +2184,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_push_ontology_to_remote
+## push_to_remote
 
 PushOntologyToRemote
 
@@ -2197,7 +2200,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_push_ontology_to_remote(body={})
+    res = textql.ontology.push_to_remote(body={})
 
     # Handle response
     print(res)
@@ -2222,7 +2225,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_recover_ontology
+## recover
 
 RecoverOntology
 
@@ -2238,7 +2241,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_recover_ontology()
+    res = textql.ontology.recover()
 
     # Handle response
     print(res)
@@ -2263,7 +2266,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_remove_ontology_remote
+## remove_remote
 
 RemoveOntologyRemote
 
@@ -2279,7 +2282,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_remove_ontology_remote(body={})
+    res = textql.ontology.remove_remote(body={})
 
     # Handle response
     print(res)
@@ -2304,7 +2307,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_remove_ontology_submodule
+## remove_submodule
 
 RemoveOntologySubmodule
 
@@ -2320,7 +2323,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_remove_ontology_submodule()
+    res = textql.ontology.remove_submodule()
 
     # Handle response
     print(res)
@@ -2345,7 +2348,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_rename_ontology_file
+## rename_file
 
 RenameOntologyFile
 
@@ -2361,7 +2364,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_rename_ontology_file()
+    res = textql.ontology.rename_file()
 
     # Handle response
     print(res)
@@ -2388,7 +2391,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_request_patch_review
+## request_patch_review
 
 RequestPatchReview
 
@@ -2404,7 +2407,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_request_patch_review()
+    res = textql.ontology.request_patch_review()
 
     # Handle response
     print(res)
@@ -2430,7 +2433,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_resolve_ontology_sync_conflict
+## resolve_sync_conflict
 
 ResolveOntologySyncConflict
 
@@ -2446,7 +2449,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_resolve_ontology_sync_conflict()
+    res = textql.ontology.resolve_sync_conflict()
 
     # Handle response
     print(res)
@@ -2472,7 +2475,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_restore_patch
+## restore_patch
 
 RestorePatch
 
@@ -2488,7 +2491,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_restore_patch()
+    res = textql.ontology.restore_patch()
 
     # Handle response
     print(res)
@@ -2497,12 +2500,12 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `patch_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `expected_git_ref`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                  | *Optional[float]*                                                     | :heavy_minus_sign:                                                    | N/A                                                                   |
+| `patch_id`                                                            | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | Code owners first, then admins, matching the sidebar's display order. |
+| `expected_git_ref`                                                    | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | N/A                                                                   |
+| `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
 
 ### Response
 
@@ -2514,7 +2517,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_revert_patch
+## revert_patch
 
 RevertPatch
 
@@ -2530,7 +2533,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_revert_patch()
+    res = textql.ontology.revert_patch()
 
     # Handle response
     print(res)
@@ -2555,7 +2558,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_save_all_objects_as_config
+## save_all_objects_as_config
 
 SaveAllObjectsAsConfig
 
@@ -2571,7 +2574,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_save_all_objects_as_config()
+    res = textql.ontology.save_all_objects_as_config()
 
     # Handle response
     print(res)
@@ -2596,7 +2599,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_save_object_as_config
+## save_object_as_config
 
 SaveObjectAsConfig
 
@@ -2612,7 +2615,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_save_object_as_config()
+    res = textql.ontology.save_object_as_config()
 
     # Handle response
     print(res)
@@ -2638,7 +2641,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_set_ontology_file_golden
+## set_file_golden
 
 SetOntologyFileGolden
 
@@ -2654,7 +2657,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_set_ontology_file_golden()
+    res = textql.ontology.set_file_golden()
 
     # Handle response
     print(res)
@@ -2667,7 +2670,7 @@ with Textql(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `path`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `golden`                                                            | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | true = certify, false = retire                                      |
+| `golden`                                                            | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -2680,12 +2683,9 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_trigger_config_drift_reconcile
+## trigger_config_drift_reconcile
 
-TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
- caller's org: if the Ontology repo's live HEAD differs from the last
- reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
- equivalent of waiting for the periodic drift scan.
+TriggerConfigDriftReconcile
 
 ### Example Usage
 
@@ -2699,7 +2699,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_trigger_config_drift_reconcile(body={})
+    res = textql.ontology.trigger_config_drift_reconcile(body={})
 
     # Handle response
     print(res)
@@ -2724,7 +2724,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_update_approval_rule
+## update_approval_rule
 
 UpdateApprovalRule
 
@@ -2740,7 +2740,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_update_approval_rule()
+    res = textql.ontology.update_approval_rule()
 
     # Handle response
     print(res)
@@ -2766,7 +2766,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_update_context_patch_auto_approve_rule
+## update_context_patch_auto_approve_rule
 
 UpdateContextPatchAutoApproveRule
 
@@ -2782,7 +2782,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_update_context_patch_auto_approve_rule()
+    res = textql.ontology.update_context_patch_auto_approve_rule()
 
     # Handle response
     print(res)
@@ -2808,7 +2808,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_update_ontology_sync_config
+## update_sync_config
 
 UpdateOntologySyncConfig
 
@@ -2824,7 +2824,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_update_ontology_sync_config()
+    res = textql.ontology.update_sync_config()
 
     # Handle response
     print(res)
@@ -2851,7 +2851,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_upsert_ontology_ana_config
+## upsert_ana_config
 
 UpsertOntologyAnaConfig
 
@@ -2867,7 +2867,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_upsert_ontology_ana_config()
+    res = textql.ontology.upsert_ana_config()
 
     # Handle response
     print(res)
@@ -2895,7 +2895,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_upsert_ontology_file
+## upsert_file
 
 UpsertOntologyFile
 
@@ -2911,7 +2911,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_upsert_ontology_file()
+    res = textql.ontology.upsert_file()
 
     # Handle response
     print(res)
@@ -2938,7 +2938,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_upsert_ontology_owners
+## upsert_owners
 
 UpsertOntologyOwners
 
@@ -2954,7 +2954,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_upsert_ontology_owners()
+    res = textql.ontology.upsert_owners()
 
     # Handle response
     print(res)
@@ -2982,7 +2982,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## ontology_management_service_validate_config
+## validate_config
 
 Read-only functional validation of a proposed config: parse + dependency
  resolution/reachability, no authorization and no persistence. "ok" means
@@ -3001,7 +3001,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology_management_service.ontology_management_service_validate_config()
+    res = textql.ontology.validate_config()
 
     # Handle response
     print(res)

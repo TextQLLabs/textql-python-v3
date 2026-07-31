@@ -8,31 +8,25 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesPatchObjectTypedDict(TypedDict):
-    r"""PatchObject is one config object parsed from a patch ref."""
+    r"""ValidateConfigResponse: ok == true with no diagnostics means functionally valid
+    against current org state — not a merge guarantee.
+    """
 
     path: NotRequired[str]
-    r"""Library path of the file that defines the object"""
     name: NotRequired[str]
-    r"""resolved display name"""
     type: NotRequired[str]
-    r"""type is the granular object type: \"playbook\", \"dashboard/streamlit\",
-    \"dashboard/dash\" (the dashboard subtype is load-bearing for previewability).
-    """
 
 
 class TextqlRPCPublicPatchesPatchObject(BaseModel):
-    r"""PatchObject is one config object parsed from a patch ref."""
+    r"""ValidateConfigResponse: ok == true with no diagnostics means functionally valid
+    against current org state — not a merge guarantee.
+    """
 
     path: Optional[str] = None
-    r"""Library path of the file that defines the object"""
 
     name: Optional[str] = None
-    r"""resolved display name"""
 
     type: Optional[str] = None
-    r"""type is the granular object type: \"playbook\", \"dashboard/streamlit\",
-    \"dashboard/dash\" (the dashboard subtype is load-bearing for previewability).
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

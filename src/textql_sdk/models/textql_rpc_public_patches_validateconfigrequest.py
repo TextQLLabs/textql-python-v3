@@ -9,18 +9,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesValidateConfigRequestTypedDict(TypedDict):
-    r"""ValidateConfigRequest validates a filed patch's ref. The proposed sandbox
-    working-tree source is served by the Ana chat-cell tool, not this RPC.
-    """
-
     patch_id: NotRequired[str]
 
 
 class TextqlRPCPublicPatchesValidateConfigRequest(BaseModel):
-    r"""ValidateConfigRequest validates a filed patch's ref. The proposed sandbox
-    working-tree source is served by the Ana chat-cell tool, not this RPC.
-    """
-
     patch_id: Annotated[Optional[str], pydantic.Field(alias="patchId")] = None
 
     @model_serializer(mode="wrap")

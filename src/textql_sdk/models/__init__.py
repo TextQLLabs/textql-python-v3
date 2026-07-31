@@ -1982,6 +1982,12 @@ if TYPE_CHECKING:
         RBACServiceUpdateRoleResponse,
         RBACServiceUpdateRoleResponseTypedDict,
     )
+    from .rbacservice_whoamiop import (
+        RBACServiceWhoAmIRequest,
+        RBACServiceWhoAmIRequestTypedDict,
+        RBACServiceWhoAmIResponse,
+        RBACServiceWhoAmIResponseTypedDict,
+    )
     from .sandboxadminservice_getsandboxop import (
         SandboxAdminServiceGetSandboxRequest,
         SandboxAdminServiceGetSandboxRequestTypedDict,
@@ -6857,6 +6863,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacAssignRoleToMemberResponse,
         TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_callercredential import (
+        TextqlRPCPublicRbacCallerCredential,
+        TextqlRPCPublicRbacCallerCredentialTypedDict,
+    )
+    from .textql_rpc_public_rbac_callermodelaccess import (
+        TextqlRPCPublicRbacCallerModelAccess,
+        TextqlRPCPublicRbacCallerModelAccessTypedDict,
+    )
     from .textql_rpc_public_rbac_createapikeyrequest import (
         TextqlRPCPublicRbacCreateAPIKeyRequest,
         TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict,
@@ -7025,6 +7039,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacSetRolePermissionsResponse,
         TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_sharedobject import (
+        TextqlRPCPublicRbacSharedObject,
+        TextqlRPCPublicRbacSharedObjectTypedDict,
+    )
     from .textql_rpc_public_rbac_updaterolerequest import (
         TextqlRPCPublicRbacUpdateRoleRequest,
         TextqlRPCPublicRbacUpdateRoleRequestTypedDict,
@@ -7032,6 +7050,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_updateroleresponse import (
         TextqlRPCPublicRbacUpdateRoleResponse,
         TextqlRPCPublicRbacUpdateRoleResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_whoamirequest import (
+        TextqlRPCPublicRbacWhoAmIRequest,
+        TextqlRPCPublicRbacWhoAmIRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_whoamiresponse import (
+        TextqlRPCPublicRbacWhoAmIResponse,
+        TextqlRPCPublicRbacWhoAmIResponseTypedDict,
     )
     from .textql_rpc_public_reports_dividerblock import (
         TextqlRPCPublicReportsDividerBlock,
@@ -9255,6 +9281,10 @@ __all__ = [
     "RBACServiceUpdateRoleRequestTypedDict",
     "RBACServiceUpdateRoleResponse",
     "RBACServiceUpdateRoleResponseTypedDict",
+    "RBACServiceWhoAmIRequest",
+    "RBACServiceWhoAmIRequestTypedDict",
+    "RBACServiceWhoAmIResponse",
+    "RBACServiceWhoAmIResponseTypedDict",
     "ReclaimableTokens",
     "ReclaimableTokensTypedDict",
     "Redshift",
@@ -11725,6 +11755,10 @@ __all__ = [
     "TextqlRPCPublicRbacAssignRoleToMemberRequestTypedDict",
     "TextqlRPCPublicRbacAssignRoleToMemberResponse",
     "TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict",
+    "TextqlRPCPublicRbacCallerCredential",
+    "TextqlRPCPublicRbacCallerCredentialTypedDict",
+    "TextqlRPCPublicRbacCallerModelAccess",
+    "TextqlRPCPublicRbacCallerModelAccessTypedDict",
     "TextqlRPCPublicRbacCreateAPIKeyRequest",
     "TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacCreateAPIKeyResponse",
@@ -11809,10 +11843,16 @@ __all__ = [
     "TextqlRPCPublicRbacSetRolePermissionsRequestTypedDict",
     "TextqlRPCPublicRbacSetRolePermissionsResponse",
     "TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict",
+    "TextqlRPCPublicRbacSharedObject",
+    "TextqlRPCPublicRbacSharedObjectTypedDict",
     "TextqlRPCPublicRbacUpdateRoleRequest",
     "TextqlRPCPublicRbacUpdateRoleRequestTypedDict",
     "TextqlRPCPublicRbacUpdateRoleResponse",
     "TextqlRPCPublicRbacUpdateRoleResponseTypedDict",
+    "TextqlRPCPublicRbacWhoAmIRequest",
+    "TextqlRPCPublicRbacWhoAmIRequestTypedDict",
+    "TextqlRPCPublicRbacWhoAmIResponse",
+    "TextqlRPCPublicRbacWhoAmIResponseTypedDict",
     "TextqlRPCPublicReportsCardBlock1",
     "TextqlRPCPublicReportsCardBlock1TypedDict",
     "TextqlRPCPublicReportsDividerBlock",
@@ -13491,6 +13531,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceUpdateRoleRequestTypedDict": ".rbacservice_updateroleop",
     "RBACServiceUpdateRoleResponse": ".rbacservice_updateroleop",
     "RBACServiceUpdateRoleResponseTypedDict": ".rbacservice_updateroleop",
+    "RBACServiceWhoAmIRequest": ".rbacservice_whoamiop",
+    "RBACServiceWhoAmIRequestTypedDict": ".rbacservice_whoamiop",
+    "RBACServiceWhoAmIResponse": ".rbacservice_whoamiop",
+    "RBACServiceWhoAmIResponseTypedDict": ".rbacservice_whoamiop",
     "SandboxAdminServiceGetSandboxRequest": ".sandboxadminservice_getsandboxop",
     "SandboxAdminServiceGetSandboxRequestTypedDict": ".sandboxadminservice_getsandboxop",
     "SandboxAdminServiceGetSandboxResponse": ".sandboxadminservice_getsandboxop",
@@ -16283,6 +16327,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacAssignRoleToMemberRequestTypedDict": ".textql_rpc_public_rbac_assignroletomemberrequest",
     "TextqlRPCPublicRbacAssignRoleToMemberResponse": ".textql_rpc_public_rbac_assignroletomemberresponse",
     "TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict": ".textql_rpc_public_rbac_assignroletomemberresponse",
+    "TextqlRPCPublicRbacCallerCredential": ".textql_rpc_public_rbac_callercredential",
+    "TextqlRPCPublicRbacCallerCredentialTypedDict": ".textql_rpc_public_rbac_callercredential",
+    "TextqlRPCPublicRbacCallerModelAccess": ".textql_rpc_public_rbac_callermodelaccess",
+    "TextqlRPCPublicRbacCallerModelAccessTypedDict": ".textql_rpc_public_rbac_callermodelaccess",
     "TextqlRPCPublicRbacCreateAPIKeyRequest": ".textql_rpc_public_rbac_createapikeyrequest",
     "TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_createapikeyrequest",
     "TextqlRPCPublicRbacCreateAPIKeyResponse": ".textql_rpc_public_rbac_createapikeyresponse",
@@ -16367,10 +16415,16 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacSetRolePermissionsRequestTypedDict": ".textql_rpc_public_rbac_setrolepermissionsrequest",
     "TextqlRPCPublicRbacSetRolePermissionsResponse": ".textql_rpc_public_rbac_setrolepermissionsresponse",
     "TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict": ".textql_rpc_public_rbac_setrolepermissionsresponse",
+    "TextqlRPCPublicRbacSharedObject": ".textql_rpc_public_rbac_sharedobject",
+    "TextqlRPCPublicRbacSharedObjectTypedDict": ".textql_rpc_public_rbac_sharedobject",
     "TextqlRPCPublicRbacUpdateRoleRequest": ".textql_rpc_public_rbac_updaterolerequest",
     "TextqlRPCPublicRbacUpdateRoleRequestTypedDict": ".textql_rpc_public_rbac_updaterolerequest",
     "TextqlRPCPublicRbacUpdateRoleResponse": ".textql_rpc_public_rbac_updateroleresponse",
     "TextqlRPCPublicRbacUpdateRoleResponseTypedDict": ".textql_rpc_public_rbac_updateroleresponse",
+    "TextqlRPCPublicRbacWhoAmIRequest": ".textql_rpc_public_rbac_whoamirequest",
+    "TextqlRPCPublicRbacWhoAmIRequestTypedDict": ".textql_rpc_public_rbac_whoamirequest",
+    "TextqlRPCPublicRbacWhoAmIResponse": ".textql_rpc_public_rbac_whoamiresponse",
+    "TextqlRPCPublicRbacWhoAmIResponseTypedDict": ".textql_rpc_public_rbac_whoamiresponse",
     "TextqlRPCPublicReportsDividerBlock": ".textql_rpc_public_reports_dividerblock",
     "TextqlRPCPublicReportsDividerBlockTypedDict": ".textql_rpc_public_reports_dividerblock",
     "TextqlRPCPublicReportsHeroBlock": ".textql_rpc_public_reports_heroblock",

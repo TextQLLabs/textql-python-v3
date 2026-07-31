@@ -18,6 +18,7 @@ class TextqlRPCPublicChatDuplicateChatRequestTypedDict(TypedDict):
     chat_id: NotRequired[str]
     r"""\"user\" or \"assistant\" """
     only_if_different_owner: NotRequired[Nullable[bool]]
+    up_to_cell_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
@@ -28,10 +29,14 @@ class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="onlyIfDifferentOwner")
     ] = UNSET
 
+    up_to_cell_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="upToCellId")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["chatId", "onlyIfDifferentOwner"])
-        nullable_fields = set(["onlyIfDifferentOwner"])
+        optional_fields = set(["chatId", "onlyIfDifferentOwner", "upToCellId"])
+        nullable_fields = set(["onlyIfDifferentOwner", "upToCellId"])
         serialized = handler(self)
         m = {}
 

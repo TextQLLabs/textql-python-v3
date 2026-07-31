@@ -6,985 +6,42 @@ from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
 from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional, Union
+from typing import Iterable, List, Mapping, Optional, Union
 
 
-class SettingsService(BaseSDK):
-    def settings_service_check_member_status(
+class SandboxCapabilities(BaseSDK):
+    def execute_write(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        force_refresh: Optional[bool] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceCheckMemberStatusResponse:
-        r"""CheckMemberStatus
-
-        :param connect_timeout_ms:
-        :param force_refresh:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceCheckMemberStatusRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsCheckMemberStatusRequest(
-                force_refresh=force_refresh,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/CheckMemberStatus",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsCheckMemberStatusRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_CheckMemberStatus",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsCheckMemberStatusResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def settings_service_check_member_status_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        force_refresh: Optional[bool] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceCheckMemberStatusResponse:
-        r"""CheckMemberStatus
-
-        :param connect_timeout_ms:
-        :param force_refresh:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceCheckMemberStatusRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsCheckMemberStatusRequest(
-                force_refresh=force_refresh,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/CheckMemberStatus",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsCheckMemberStatusRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_CheckMemberStatus",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsCheckMemberStatusResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def settings_service_delete_organization_member(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        member_id: Optional[str] = None,
-        hard_delete: Optional[bool] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceDeleteOrganizationMemberResponse:
-        r"""DeleteOrganizationMember
-
-        :param connect_timeout_ms:
-        :param org_id:
-        :param member_id:
-        :param hard_delete:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceDeleteOrganizationMemberRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsDeleteOrganizationMemberRequest(
-                org_id=org_id,
-                member_id=member_id,
-                hard_delete=hard_delete,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/DeleteOrganizationMember",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsDeleteOrganizationMemberRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_DeleteOrganizationMember",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsDeleteOrganizationMemberResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def settings_service_delete_organization_member_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        member_id: Optional[str] = None,
-        hard_delete: Optional[bool] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceDeleteOrganizationMemberResponse:
-        r"""DeleteOrganizationMember
-
-        :param connect_timeout_ms:
-        :param org_id:
-        :param member_id:
-        :param hard_delete:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceDeleteOrganizationMemberRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsDeleteOrganizationMemberRequest(
-                org_id=org_id,
-                member_id=member_id,
-                hard_delete=hard_delete,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/DeleteOrganizationMember",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsDeleteOrganizationMemberRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_DeleteOrganizationMember",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsDeleteOrganizationMemberResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def settings_service_invite_organization_member(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        email: Optional[str] = None,
-        role: OptionalNullable[str] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceInviteOrganizationMemberResponse:
-        r"""InviteOrganizationMember
-
-        :param connect_timeout_ms:
-        :param org_id:
-        :param email:
-        :param role:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceInviteOrganizationMemberRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsInviteOrganizationMemberRequest(
-                org_id=org_id,
-                email=email,
-                role=role,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/InviteOrganizationMember",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsInviteOrganizationMemberRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_InviteOrganizationMember",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsInviteOrganizationMemberResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def settings_service_invite_organization_member_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        email: Optional[str] = None,
-        role: OptionalNullable[str] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceInviteOrganizationMemberResponse:
-        r"""InviteOrganizationMember
-
-        :param connect_timeout_ms:
-        :param org_id:
-        :param email:
-        :param role:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceInviteOrganizationMemberRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsInviteOrganizationMemberRequest(
-                org_id=org_id,
-                email=email,
-                role=role,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/InviteOrganizationMember",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsInviteOrganizationMemberRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_InviteOrganizationMember",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsInviteOrganizationMemberResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def settings_service_list_organization_members(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceListOrganizationMembersResponse:
-        r"""ListOrganizationMembers
-
-        :param connect_timeout_ms:
-        :param org_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceListOrganizationMembersRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsListOrganizationMembersRequest(
-                org_id=org_id,
-            ),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/ListOrganizationMembers",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsListOrganizationMembersRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_ListOrganizationMembers",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsListOrganizationMembersResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    async def settings_service_list_organization_members_async(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceListOrganizationMembersResponse:
-        r"""ListOrganizationMembers
-
-        :param connect_timeout_ms:
-        :param org_id:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.SettingsServiceListOrganizationMembersRequest(
-            connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsListOrganizationMembersRequest(
-                org_id=org_id,
-            ),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/textql.rpc.public.settings.SettingsService/ListOrganizationMembers",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.body,
-                False,
-                False,
-                "json",
-                models.TextqlRPCPublicSettingsListOrganizationMembersRequest,
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="SettingsService_ListOrganizationMembers",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-                tags=["SettingsService"],
-                extensions=None,
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsListOrganizationMembersResponse, http_res
-            )
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.TextqlDefaultError(
-                "API error occurred", http_res, http_res_text
-            )
-        if utils.match_response(http_res, "default", "application/json"):
-            return unmarshal_json_response(models.ConnectError, http_res)
-
-        raise errors.TextqlDefaultError("Unexpected response received", http_res)
-
-    def settings_service_update_organization_settings(
-        self,
-        *,
-        connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        hide_example_connectors: Optional[bool] = None,
-        paradigm_params: Optional[
+        name: Optional[str] = None,
+        connector_id: Optional[int] = None,
+        statement: Optional[str] = None,
+        parameters: Optional[
             Union[
-                models.TextqlRPCParadigmParamsParadigmParams,
-                models.TextqlRPCParadigmParamsParadigmParamsTypedDict,
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParam],
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict],
             ]
         ] = None,
-        training_mode: Optional[bool] = None,
-        dashboards_enabled: Optional[bool] = None,
-        methodology_enabled: Optional[bool] = None,
-        feed_enabled: Optional[bool] = None,
-        observability_enabled: Optional[bool] = None,
-        notifications_enabled: Optional[bool] = None,
-        fast_mode_enabled: Optional[bool] = None,
-        max_thinking_enabled: Optional[bool] = None,
-        traces_enabled: Optional[bool] = None,
-        sandbox_observability_enabled: Optional[bool] = None,
-        data_apps_enabled: Optional[bool] = None,
-        tool_restrictions: Optional[
+        max_rows: Optional[
             Union[
-                models.TextqlRPCParadigmParamsParadigmParams,
-                models.TextqlRPCParadigmParamsParadigmParamsTypedDict,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRows,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRowsTypedDict,
             ]
         ] = None,
-        subagents_enabled: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceUpdateOrganizationSettingsResponse:
-        r"""UpdateOrganizationSettings
+    ) -> models.SandboxCapabilityServiceExecuteWriteResponse:
+        r"""ExecuteWrite
 
         :param connect_timeout_ms:
-        :param org_id:
-        :param hide_example_connectors: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param paradigm_params:
-        :param training_mode: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param dashboards_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param methodology_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param feed_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param observability_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param notifications_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param fast_mode_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param max_thinking_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param traces_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param sandbox_observability_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param data_apps_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param tool_restrictions:
-        :param subagents_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
+        :param name:
+        :param connector_id:
+        :param statement:
+        :param parameters:
+        :param max_rows:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1000,37 +57,23 @@ class SettingsService(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.SettingsServiceUpdateOrganizationSettingsRequest(
+        request = models.SandboxCapabilityServiceExecuteWriteRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(
-                org_id=org_id,
-                hide_example_connectors=hide_example_connectors,
-                paradigm_params=utils.get_pydantic_model(
-                    paradigm_params,
-                    Optional[models.TextqlRPCParadigmParamsParadigmParams],
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest(
+                name=name,
+                connector_id=connector_id,
+                statement=statement,
+                parameters=utils.get_pydantic_model(
+                    parameters,
+                    Optional[List[models.TextqlRPCPublicSandboxQuerySandboxQueryParam]],
                 ),
-                training_mode=training_mode,
-                dashboards_enabled=dashboards_enabled,
-                methodology_enabled=methodology_enabled,
-                feed_enabled=feed_enabled,
-                observability_enabled=observability_enabled,
-                notifications_enabled=notifications_enabled,
-                fast_mode_enabled=fast_mode_enabled,
-                max_thinking_enabled=max_thinking_enabled,
-                traces_enabled=traces_enabled,
-                sandbox_observability_enabled=sandbox_observability_enabled,
-                data_apps_enabled=data_apps_enabled,
-                tool_restrictions=utils.get_pydantic_model(
-                    tool_restrictions,
-                    Optional[models.TextqlRPCParadigmParamsParadigmParams],
-                ),
-                subagents_enabled=subagents_enabled,
+                max_rows=max_rows,
             ),
         )
 
         req = self._build_request(
             method="POST",
-            path="/textql.rpc.public.settings.SettingsService/UpdateOrganizationSettings",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/ExecuteWrite",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1046,7 +89,7 @@ class SettingsService(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1064,12 +107,12 @@ class SettingsService(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="SettingsService_UpdateOrganizationSettings",
+                operation_id="SandboxCapabilityService_ExecuteWrite",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
-                tags=["SettingsService"],
+                tags=["SandboxCapabilityService"],
                 extensions=None,
             ),
             request=req,
@@ -1079,7 +122,7 @@ class SettingsService(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponse,
                 http_res,
             )
         if utils.match_response(http_res, "4XX", "*"):
@@ -1097,125 +140,38 @@ class SettingsService(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def settings_service_update_organization_settings_async(
+    async def execute_write_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        org_id: Optional[str] = None,
-        hide_example_connectors: Optional[bool] = None,
-        paradigm_params: Optional[
+        name: Optional[str] = None,
+        connector_id: Optional[int] = None,
+        statement: Optional[str] = None,
+        parameters: Optional[
             Union[
-                models.TextqlRPCParadigmParamsParadigmParams,
-                models.TextqlRPCParadigmParamsParadigmParamsTypedDict,
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParam],
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict],
             ]
         ] = None,
-        training_mode: Optional[bool] = None,
-        dashboards_enabled: Optional[bool] = None,
-        methodology_enabled: Optional[bool] = None,
-        feed_enabled: Optional[bool] = None,
-        observability_enabled: Optional[bool] = None,
-        notifications_enabled: Optional[bool] = None,
-        fast_mode_enabled: Optional[bool] = None,
-        max_thinking_enabled: Optional[bool] = None,
-        traces_enabled: Optional[bool] = None,
-        sandbox_observability_enabled: Optional[bool] = None,
-        data_apps_enabled: Optional[bool] = None,
-        tool_restrictions: Optional[
+        max_rows: Optional[
             Union[
-                models.TextqlRPCParadigmParamsParadigmParams,
-                models.TextqlRPCParadigmParamsParadigmParamsTypedDict,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRows,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequestMaxRowsTypedDict,
             ]
         ] = None,
-        subagents_enabled: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.SettingsServiceUpdateOrganizationSettingsResponse:
-        r"""UpdateOrganizationSettings
+    ) -> models.SandboxCapabilityServiceExecuteWriteResponse:
+        r"""ExecuteWrite
 
         :param connect_timeout_ms:
-        :param org_id:
-        :param hide_example_connectors: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param paradigm_params:
-        :param training_mode: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param dashboards_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param methodology_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param feed_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param observability_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param notifications_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param fast_mode_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param max_thinking_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param traces_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param sandbox_observability_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param data_apps_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param tool_restrictions:
-        :param subagents_enabled: Wrapper message for `bool`.
-
-            The JSON representation for `BoolValue` is JSON `true` and `false`.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
+        :param name:
+        :param connector_id:
+        :param statement:
+        :param parameters:
+        :param max_rows:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1231,37 +187,23 @@ class SettingsService(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.SettingsServiceUpdateOrganizationSettingsRequest(
+        request = models.SandboxCapabilityServiceExecuteWriteRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=models.TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(
-                org_id=org_id,
-                hide_example_connectors=hide_example_connectors,
-                paradigm_params=utils.get_pydantic_model(
-                    paradigm_params,
-                    Optional[models.TextqlRPCParadigmParamsParadigmParams],
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest(
+                name=name,
+                connector_id=connector_id,
+                statement=statement,
+                parameters=utils.get_pydantic_model(
+                    parameters,
+                    Optional[List[models.TextqlRPCPublicSandboxQuerySandboxQueryParam]],
                 ),
-                training_mode=training_mode,
-                dashboards_enabled=dashboards_enabled,
-                methodology_enabled=methodology_enabled,
-                feed_enabled=feed_enabled,
-                observability_enabled=observability_enabled,
-                notifications_enabled=notifications_enabled,
-                fast_mode_enabled=fast_mode_enabled,
-                max_thinking_enabled=max_thinking_enabled,
-                traces_enabled=traces_enabled,
-                sandbox_observability_enabled=sandbox_observability_enabled,
-                data_apps_enabled=data_apps_enabled,
-                tool_restrictions=utils.get_pydantic_model(
-                    tool_restrictions,
-                    Optional[models.TextqlRPCParadigmParamsParadigmParams],
-                ),
-                subagents_enabled=subagents_enabled,
+                max_rows=max_rows,
             ),
         )
 
         req = self._build_request_async(
             method="POST",
-            path="/textql.rpc.public.settings.SettingsService/UpdateOrganizationSettings",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/ExecuteWrite",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1277,7 +219,7 @@ class SettingsService(BaseSDK):
                 False,
                 False,
                 "json",
-                models.TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteRequest,
             ),
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -1295,12 +237,12 @@ class SettingsService(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="SettingsService_UpdateOrganizationSettings",
+                operation_id="SandboxCapabilityService_ExecuteWrite",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
-                tags=["SettingsService"],
+                tags=["SandboxCapabilityService"],
                 extensions=None,
             ),
             request=req,
@@ -1310,8 +252,1162 @@ class SettingsService(BaseSDK):
 
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
-                models.TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse,
+                models.TextqlRPCPublicSandboxCapabilitySandboxExecuteWriteResponse,
                 http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def poll_ask(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        ask_id: Optional[str] = None,
+        cursor: Optional[str] = None,
+        app_db: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServicePollAskResponse:
+        r"""PollAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param ask_id:
+        :param cursor:
+        :param app_db:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServicePollAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest(
+                name=name,
+                agent_id=agent_id,
+                ask_id=ask_id,
+                cursor=cursor,
+                app_db=app_db,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PollAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_PollAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def poll_ask_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        ask_id: Optional[str] = None,
+        cursor: Optional[str] = None,
+        app_db: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServicePollAskResponse:
+        r"""PollAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param ask_id:
+        :param cursor:
+        :param app_db:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServicePollAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest(
+                name=name,
+                agent_id=agent_id,
+                ask_id=ask_id,
+                cursor=cursor,
+                app_db=app_db,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PollAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_PollAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxPollAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def put_asset(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        file_name: Optional[str] = None,
+        content_type: Optional[str] = None,
+        data: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServicePutAssetResponse:
+        r"""PutAsset
+
+        :param connect_timeout_ms:
+        :param file_name:
+        :param content_type:
+        :param data:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServicePutAssetRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest(
+                file_name=file_name,
+                content_type=content_type,
+                data=data,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PutAsset",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_PutAsset",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxPutAssetResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def put_asset_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        file_name: Optional[str] = None,
+        content_type: Optional[str] = None,
+        data: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServicePutAssetResponse:
+        r"""PutAsset
+
+        :param connect_timeout_ms:
+        :param file_name:
+        :param content_type:
+        :param data:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServicePutAssetRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest(
+                file_name=file_name,
+                content_type=content_type,
+                data=data,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/PutAsset",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxPutAssetRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_PutAsset",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxPutAssetResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def send_notify(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        subject: Optional[str] = None,
+        body: Optional[str] = None,
+        parameters: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParam],
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict],
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceSendNotifyResponse:
+        r"""SendNotify
+
+        :param connect_timeout_ms:
+        :param name:
+        :param subject:
+        :param body:
+        :param parameters:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceSendNotifyRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyRequest(
+                name=name,
+                subject=subject,
+                body=body,
+                parameters=utils.get_pydantic_model(
+                    parameters,
+                    Optional[List[models.TextqlRPCPublicSandboxQuerySandboxQueryParam]],
+                ),
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/SendNotify",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_SendNotify",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def send_notify_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        subject: Optional[str] = None,
+        body: Optional[str] = None,
+        parameters: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParam],
+                Iterable[models.TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict],
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceSendNotifyResponse:
+        r"""SendNotify
+
+        :param connect_timeout_ms:
+        :param name:
+        :param subject:
+        :param body:
+        :param parameters:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceSendNotifyRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyRequest(
+                name=name,
+                subject=subject,
+                body=body,
+                parameters=utils.get_pydantic_model(
+                    parameters,
+                    Optional[List[models.TextqlRPCPublicSandboxQuerySandboxQueryParam]],
+                ),
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/SendNotify",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_SendNotify",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxSendNotifyResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def start_ask(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        prompt: Optional[str] = None,
+        app_db: Optional[str] = None,
+        continue_ask_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceStartAskResponse:
+        r"""StartAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param prompt:
+        :param app_db:
+        :param continue_ask_id: ask id of an earlier base-agent ask to follow up in; empty starts a new thread
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceStartAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest(
+                name=name,
+                agent_id=agent_id,
+                prompt=prompt,
+                app_db=app_db,
+                continue_ask_id=continue_ask_id,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StartAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_StartAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def start_ask_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: Optional[str] = None,
+        agent_id: Optional[str] = None,
+        prompt: Optional[str] = None,
+        app_db: Optional[str] = None,
+        continue_ask_id: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceStartAskResponse:
+        r"""StartAsk
+
+        :param connect_timeout_ms:
+        :param name:
+        :param agent_id:
+        :param prompt:
+        :param app_db:
+        :param continue_ask_id: ask id of an earlier base-agent ask to follow up in; empty starts a new thread
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceStartAskRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest(
+                name=name,
+                agent_id=agent_id,
+                prompt=prompt,
+                app_db=app_db,
+                continue_ask_id=continue_ask_id,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StartAsk",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_StartAsk",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxStartAskResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def state_op(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        op: Optional[str] = None,
+        scope: Optional[str] = None,
+        key: Optional[str] = None,
+        value: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceStateOpResponse:
+        r"""StateOp
+
+        :param connect_timeout_ms:
+        :param op:
+        :param scope:
+        :param key:
+        :param value:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceStateOpRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest(
+                op=op,
+                scope=scope,
+                key=key,
+                value=value,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StateOp",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_StateOp",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def state_op_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        op: Optional[str] = None,
+        scope: Optional[str] = None,
+        key: Optional[str] = None,
+        value: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SandboxCapabilityServiceStateOpResponse:
+        r"""StateOp
+
+        :param connect_timeout_ms:
+        :param op:
+        :param scope:
+        :param key:
+        :param value:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SandboxCapabilityServiceStateOpRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest(
+                op=op,
+                scope=scope,
+                key=key,
+                value=value,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/StateOp",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSandboxCapabilitySandboxStateOpRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SandboxCapabilityService_StateOp",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SandboxCapabilityService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

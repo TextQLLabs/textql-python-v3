@@ -8,6 +8,8 @@
 * [delete](#delete) - DeleteAgent
 * [duplicate](#duplicate) - DuplicateAgent
 * [get_agent](#get_agent) - GetAgent
+* [get_db_schema](#get_db_schema) - GetAgentDBSchema
+* [get_db_table_preview](#get_db_table_preview) - GetAgentDBTablePreview
 * [get_run](#get_run) - GetAgentRun
 * [list_runs](#list_runs) - ListAgentRuns
 * [list](#list) - ListAgents
@@ -190,6 +192,90 @@ with Textql(
 ### Response
 
 **[models.AgentServiceGetAgentResponse](../../models/agentservicegetagentresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_db_schema
+
+GetAgentDBSchema
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AgentService_GetAgentDBSchema" method="post" path="/textql.rpc.public.agent.AgentService/GetAgentDBSchema" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.agents.get_db_schema()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `agent_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AgentServiceGetAgentDBSchemaResponse](../../models/agentservicegetagentdbschemaresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_db_table_preview
+
+GetAgentDBTablePreview
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AgentService_GetAgentDBTablePreview" method="post" path="/textql.rpc.public.agent.AgentService/GetAgentDBTablePreview" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.agents.get_db_table_preview()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `agent_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `table_name`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | clamped server-side; 0 uses the default                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AgentServiceGetAgentDBTablePreviewResponse](../../models/agentservicegetagentdbtablepreviewresponse.md)**
 
 ### Errors
 

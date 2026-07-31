@@ -16,9 +16,7 @@ import weakref
 
 if TYPE_CHECKING:
     from textql_sdk.agents import Agents
-    from textql_sdk.agentservice import AgentService
     from textql_sdk.apps import Apps
-    from textql_sdk.appservice import AppService
     from textql_sdk.auditlogs import AuditLogs
     from textql_sdk.chats import Chats
     from textql_sdk.connectors import Connectors
@@ -27,18 +25,16 @@ if TYPE_CHECKING:
     from textql_sdk.mcp import Mcp
     from textql_sdk.metricsexports import MetricsExports
     from textql_sdk.observability import Observability
-    from textql_sdk.observabilityservice import ObservabilityService
-    from textql_sdk.ontologymanagementservice import OntologyManagementService
+    from textql_sdk.ontology import Ontology
     from textql_sdk.playbooks import Playbooks
     from textql_sdk.powerbi_sdk import PowerbiSDK
     from textql_sdk.rbac import Rbac
-    from textql_sdk.rbacservice import RBACService
     from textql_sdk.sandbox import Sandbox
     from textql_sdk.sandboxadmin import SandboxAdmin
-    from textql_sdk.sandboxcapabilityservice import SandboxCapabilityService
+    from textql_sdk.sandboxcapabilities import SandboxCapabilities
     from textql_sdk.scim import Scim
     from textql_sdk.secrets import Secrets
-    from textql_sdk.settingsservice import SettingsService
+    from textql_sdk.settings import Settings
     from textql_sdk.slack import Slack
     from textql_sdk.tableau_sdk import TableauSDK
     from textql_sdk.teams import Teams
@@ -51,13 +47,7 @@ class Textql(BaseSDK):
     """
 
     agents: "Agents"
-    agent_service: "AgentService"
     apps: "Apps"
-    app_service: "AppService"
-    r"""AppService manages data apps: the generative app execution primitive.
-    An app is agent-authored single-file HTML/JS/CSS executing in a CSP sandbox,
-    fed a snapshot of its declared data sources. First-class resource, not a dashboard.
-    """
     audit_logs: "AuditLogs"
     chats: "Chats"
     connectors: "Connectors"
@@ -66,27 +56,22 @@ class Textql(BaseSDK):
     mcp: "Mcp"
     metrics_exports: "MetricsExports"
     observability: "Observability"
-    observability_service: "ObservabilityService"
-    ontology_management_service: "OntologyManagementService"
+    ontology: "Ontology"
     playbooks: "Playbooks"
     powerbi: "PowerbiSDK"
     rbac: "Rbac"
-    rbac_service: "RBACService"
-    r"""RBAC service for managing roles, permissions, and access control"""
     sandbox_admin: "SandboxAdmin"
-    sandbox_capability_service: "SandboxCapabilityService"
+    sandbox_capabilities: "SandboxCapabilities"
     sandbox: "Sandbox"
     scim: "Scim"
     secrets: "Secrets"
-    settings_service: "SettingsService"
+    settings: "Settings"
     slack: "Slack"
     tableau: "TableauSDK"
     teams: "Teams"
     _sub_sdk_map = {
         "agents": ("textql_sdk.agents", "Agents"),
-        "agent_service": ("textql_sdk.agentservice", "AgentService"),
         "apps": ("textql_sdk.apps", "Apps"),
-        "app_service": ("textql_sdk.appservice", "AppService"),
         "audit_logs": ("textql_sdk.auditlogs", "AuditLogs"),
         "chats": ("textql_sdk.chats", "Chats"),
         "connectors": ("textql_sdk.connectors", "Connectors"),
@@ -95,27 +80,19 @@ class Textql(BaseSDK):
         "mcp": ("textql_sdk.mcp", "Mcp"),
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
         "observability": ("textql_sdk.observability", "Observability"),
-        "observability_service": (
-            "textql_sdk.observabilityservice",
-            "ObservabilityService",
-        ),
-        "ontology_management_service": (
-            "textql_sdk.ontologymanagementservice",
-            "OntologyManagementService",
-        ),
+        "ontology": ("textql_sdk.ontology", "Ontology"),
         "playbooks": ("textql_sdk.playbooks", "Playbooks"),
         "powerbi": ("textql_sdk.powerbi_sdk", "PowerbiSDK"),
         "rbac": ("textql_sdk.rbac", "Rbac"),
-        "rbac_service": ("textql_sdk.rbacservice", "RBACService"),
         "sandbox_admin": ("textql_sdk.sandboxadmin", "SandboxAdmin"),
-        "sandbox_capability_service": (
-            "textql_sdk.sandboxcapabilityservice",
-            "SandboxCapabilityService",
+        "sandbox_capabilities": (
+            "textql_sdk.sandboxcapabilities",
+            "SandboxCapabilities",
         ),
         "sandbox": ("textql_sdk.sandbox", "Sandbox"),
         "scim": ("textql_sdk.scim", "Scim"),
         "secrets": ("textql_sdk.secrets", "Secrets"),
-        "settings_service": ("textql_sdk.settingsservice", "SettingsService"),
+        "settings": ("textql_sdk.settings", "Settings"),
         "slack": ("textql_sdk.slack", "Slack"),
         "tableau": ("textql_sdk.tableau_sdk", "TableauSDK"),
         "teams": ("textql_sdk.teams", "Teams"),
