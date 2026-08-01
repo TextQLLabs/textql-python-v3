@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.791.0
   generationVersion: 2.924.0
-  releaseVersion: 1.0.11
-  configChecksum: 10220743ca9ac62ad91cf6bd18fa7ead
+  releaseVersion: 1.0.12
+  configChecksum: 1b8e94b0a204c89cd014f6eb4371656d
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: a3a584f2-40f3-4f67-800b-6bada9453f1a
-  pristine_commit_hash: 1163c085cfa316e42b33c390f260e0440aaf362d
-  pristine_tree_hash: 2544cfe6675ee19628402402ea9be1ace9ffc0fa
+  generation_id: 54c17016-b0de-4f94-913e-8c59c46c41b3
+  pristine_commit_hash: 3b92781bec6a91e189d368d5af4b7acf4d62713a
+  pristine_tree_hash: 6475877b6b7bf9aa6ada5cd5b3ca7a9b618c0093
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9407,8 +9407,8 @@ trackedFiles:
     pristine_git_object: 14a5ab5a0178bf5f37c25306ec11372c1dfc1f4e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:35f68707314486f2ce51348b21a02329cd993ee8
-    pristine_git_object: eebfa6fe1ffd80979eb93e80d725d1ef149a4e3b
+    last_write_checksum: sha1:81f35a026d4c5724be5fde91bc11b2c2c9b04b2d
+    pristine_git_object: 3b2d20002184b10af2989d32d934f1c048284fe2
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9435,8 +9435,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:2ac4fb34725f9712bf30525de34aab1c989525ba
-    pristine_git_object: 83acda199573e32a21b653ee175d9528b3e0657c
+    last_write_checksum: sha1:6a93e7bc49b93ad10e95c50c227983b002515365
+    pristine_git_object: e3409a1a16a7b98ddaa9a4b9439a146ed631910e
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:8a4e32311f74147bc4e282a193bc0131d91d3fda
@@ -26787,195 +26787,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes:
-  * `textql.agents.get_db_schema()`: **Added**
-  * `textql.agents.get_db_table_preview()`: **Added**
-  * `textql.apps.get_db_schema()`: **Added**
-  * `textql.apps.get_db_table_preview()`: **Added**
-  * `textql.apps.get_member_state()`: **Added**
-  * `textql.apps.list_activity_since()`: **Added**
-  * `textql.apps.list_my_member_activity()`: **Added**
-  * `textql.apps.presence_heartbeat()`: **Added**
-  * `textql.apps.record_member_activity()`: **Added**
-  * `textql.apps.set_member_state()`: **Added**
-  * `textql.observability.get_member_signal_trend()`: **Added**
-  * `textql.ontology.add_submodule()`: **Added**
-  * `textql.ontology.approve_patch()`: **Added**
-  * `textql.ontology.configure_remote()`: **Added**
-  * `textql.ontology.create_approval_rule()`: **Added**
-  * `textql.ontology.create_context_patch_auto_approve_rule()`: **Added**
-  * `textql.ontology.create_directory()`: **Added**
-  * `textql.ontology.create_file_upload_url()`: **Added**
-  * `textql.ontology.delete_approval_rule()`: **Added**
-  * `textql.ontology.delete_context_patch_auto_approve_rule()`: **Added**
-  * `textql.ontology.delete_directory()`: **Added**
-  * `textql.ontology.delete_file()`: **Added**
-  * `textql.ontology.delete_owners()`: **Added**
-  * `textql.ontology.deny_patch()`: **Added**
-  * `textql.ontology.exchange_github_code()`: **Added**
-  * `textql.ontology.finalize_file_upload()`: **Added**
-  * `textql.ontology.get_codeowner_coverage()`: **Added**
-  * `textql.ontology.get_config_export_capabilities()`: **Added**
-  * `textql.ontology.get_effective_owners()`: **Added**
-  * `textql.ontology.get_file_usage()`: **Added**
-  * `textql.ontology.get_file_usage_timeline()`: **Added**
-  * `textql.ontology.get_ana_config()`: **Added**
-  * `textql.ontology.get_file()`: **Added**
-  * `textql.ontology.get_github_o_auth_url()`: **Added**
-  * `textql.ontology.get_history_file_diff()`: **Added**
-  * `textql.ontology.get_owners()`: **Added**
-  * `textql.ontology.get_remote()`: **Added**
-  * `textql.ontology.get_size_timeline()`: **Added**
-  * `textql.ontology.get_sync_conflicts()`: **Added**
-  * `textql.ontology.get_usage_summary()`: **Added**
-  * `textql.ontology.get_patch()`: **Added**
-  * `textql.ontology.get_patch_by_number()`: **Added**
-  * `textql.ontology.get_patch_capabilities()`: **Added**
-  * `textql.ontology.get_raw_patch()`: **Added**
-  * `textql.ontology.get_usage_details_for_file()`: **Added**
-  * `textql.ontology.list_approval_rules()`: **Added**
-  * `textql.ontology.list_chats_for_file()`: **Added**
-  * `textql.ontology.list_context_patch_auto_approve_rules()`: **Added**
-  * `textql.ontology.list_golden_files()`: **Added**
-  * `textql.ontology.list_entries()`: **Added**
-  * `textql.ontology.list_history()`: **Added**
-  * `textql.ontology.list_imports()`: **Added**
-  * `textql.ontology.list_submodules()`: **Added**
-  * `textql.ontology.list_sync_runs()`: **Added**
-  * `textql.ontology.list_patch_objects()`: **Added**
-  * `textql.ontology.list_patch_reviewers()`: **Added**
-  * `textql.ontology.list_patches()`: **Added**
-  * `textql.ontology.list_skills()`: **Added**
-  * `textql.ontology.plan_merge()`: **Added**
-  * `textql.ontology.preview_pull_from_remote()`: **Added**
-  * `textql.ontology.pull_from_remote()`: **Added**
-  * `textql.ontology.push_to_remote()`: **Added**
-  * `textql.ontology.recover()`: **Added**
-  * `textql.ontology.remove_remote()`: **Added**
-  * `textql.ontology.remove_submodule()`: **Added**
-  * `textql.ontology.rename_file()`: **Added**
-  * `textql.ontology.request_patch_review()`: **Added**
-  * `textql.ontology.resolve_sync_conflict()`: **Added**
-  * `textql.ontology.restore_patch()`: **Added**
-  * `textql.ontology.revert_patch()`: **Added**
-  * `textql.ontology.save_all_objects_as_config()`: **Added**
-  * `textql.ontology.save_object_as_config()`: **Added**
-  * `textql.ontology.set_file_golden()`: **Added**
-  * `textql.ontology.trigger_config_drift_reconcile()`: **Added**
-  * `textql.ontology.update_approval_rule()`: **Added**
-  * `textql.ontology.update_context_patch_auto_approve_rule()`: **Added**
-  * `textql.ontology.update_sync_config()`: **Added**
-  * `textql.ontology.upsert_ana_config()`: **Added**
-  * `textql.ontology.upsert_file()`: **Added**
-  * `textql.ontology.upsert_owners()`: **Added**
-  * `textql.ontology.validate_config()`: **Added**
-  * `textql.rbac.set_role_permissions()`: **Added**
-  * `textql.rbac.who_am_i()`: **Added**
-  * `textql.sandbox_capabilities.execute_write()`: **Added**
-  * `textql.sandbox_capabilities.poll_ask()`: **Added**
-  * `textql.sandbox_capabilities.put_asset()`: **Added**
-  * `textql.sandbox_capabilities.send_notify()`: **Added**
-  * `textql.sandbox_capabilities.start_ask()`: **Added**
-  * `textql.sandbox_capabilities.state_op()`: **Added**
-  * `textql.settings.check_member_status()`: **Added**
-  * `textql.settings.delete_member()`: **Added**
-  * `textql.settings.invite_member()`: **Added**
-  * `textql.settings.list_members()`: **Added**
-  * `textql.settings.update()`: **Added**
-  * `textql.agent_service.agent_service_get_agent_db_schema()`: **Removed** (Breaking ⚠️)
-  * `textql.agent_service.agent_service_get_agent_db_table_preview()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_get_app_db_schema()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_get_app_db_table_preview()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_get_app_member_state()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_list_app_activity_since()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_list_my_app_member_activity()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_presence_heartbeat()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_record_app_member_activity()`: **Removed** (Breaking ⚠️)
-  * `textql.app_service.app_service_set_app_member_state()`: **Removed** (Breaking ⚠️)
-  * `textql.observability_service.observability_service_get_member_signal_trend()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_add_ontology_submodule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_approve_patch()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_configure_ontology_remote()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_create_approval_rule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_create_context_patch_auto_approve_rule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_create_ontology_directory()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_create_ontology_file_upload_url()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_delete_approval_rule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_delete_context_patch_auto_approve_rule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_delete_ontology_directory()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_delete_ontology_file()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_delete_ontology_owners()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_deny_patch()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_exchange_ontology_github_code()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_finalize_ontology_file_upload()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_codeowner_coverage()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_config_export_capabilities()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_effective_ontology_owners()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_file_usage()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_file_usage_timeline()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_ana_config()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_file()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_github_o_auth_url()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_history_file_diff()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_owners()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_remote()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_size_timeline()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_sync_conflicts()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_ontology_usage_summary()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_patch()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_patch_by_number()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_patch_capabilities()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_raw_patch()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_get_usage_details_for_file()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_approval_rules()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_chats_for_file()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_context_patch_auto_approve_rules()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_golden_files()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_ontology_entries()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_ontology_history()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_ontology_imports()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_ontology_submodules()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_ontology_sync_runs()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_patch_objects()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_patch_reviewers()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_patches()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_list_skills()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_plan_ontology_merge()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_preview_ontology_pull_from_remote()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_pull_ontology_from_remote()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_push_ontology_to_remote()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_recover_ontology()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_remove_ontology_remote()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_remove_ontology_submodule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_rename_ontology_file()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_request_patch_review()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_resolve_ontology_sync_conflict()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_restore_patch()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_revert_patch()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_save_all_objects_as_config()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_save_object_as_config()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_set_ontology_file_golden()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_trigger_config_drift_reconcile()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_update_approval_rule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_update_context_patch_auto_approve_rule()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_update_ontology_sync_config()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_upsert_ontology_ana_config()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_upsert_ontology_file()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_upsert_ontology_owners()`: **Removed** (Breaking ⚠️)
-  * `textql.ontology_management_service.ontology_management_service_validate_config()`: **Removed** (Breaking ⚠️)
-  * `textql.rbac_service.rbac_service_set_role_permissions()`: **Removed** (Breaking ⚠️)
-  * `textql.sandbox_capability_service.sandbox_capability_service_execute_write()`: **Removed** (Breaking ⚠️)
-  * `textql.sandbox_capability_service.sandbox_capability_service_poll_ask()`: **Removed** (Breaking ⚠️)
-  * `textql.sandbox_capability_service.sandbox_capability_service_put_asset()`: **Removed** (Breaking ⚠️)
-  * `textql.sandbox_capability_service.sandbox_capability_service_send_notify()`: **Removed** (Breaking ⚠️)
-  * `textql.sandbox_capability_service.sandbox_capability_service_start_ask()`: **Removed** (Breaking ⚠️)
-  * `textql.sandbox_capability_service.sandbox_capability_service_state_op()`: **Removed** (Breaking ⚠️)
-  * `textql.settings_service.settings_service_check_member_status()`: **Removed** (Breaking ⚠️)
-  * `textql.settings_service.settings_service_delete_organization_member()`: **Removed** (Breaking ⚠️)
-  * `textql.settings_service.settings_service_invite_organization_member()`: **Removed** (Breaking ⚠️)
-  * `textql.settings_service.settings_service_list_organization_members()`: **Removed** (Breaking ⚠️)
-  * `textql.settings_service.settings_service_update_organization_settings()`: **Removed** (Breaking ⚠️)
-  * `textql.chats.duplicate_chat()`:  `request.up_to_cell_id` **Added**
-  * `textql.chats.get_artifact()`:  `response.union(file).file.type.enum(artifact_type_skill)` **Added**
-  * `textql.chats.get_artifacts_summary()`:  `response.artifacts[].type.enum(artifact_type_skill)` **Added**
