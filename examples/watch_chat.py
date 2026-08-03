@@ -5,12 +5,14 @@ Server-streaming RPCs aren't part of the generated REST SDK, so they live in
 run lifecycle events (`run_started`, `run_complete`, `run_error`) plus every
 cell as it's produced. See STREAMING.md for the other streaming methods.
 
-    uv run python examples/watch_chat.py
-    uv run python examples/watch_chat.py "plot sinx"
+Activate your venv, then:
 
-With pip, activate your venv and drop the `uv run` prefix:
-
+    python examples/watch_chat.py
     python examples/watch_chat.py "plot sinx"
+
+With uv, prefix the same command with `uv run`:
+
+    uv run python examples/watch_chat.py "plot sinx"
 
 See examples/README.md for setup under either package manager.
 """

@@ -6,6 +6,9 @@ or **uv** — pick whichever your project already uses.
 | Example | What it shows |
 | --- | --- |
 | [`watch_chat.py`](watch_chat.py) | One chat, one run, streamed cell-by-cell over Connect-RPC |
+| [`list_chats.py`](list_chats.py) | List chats with paging, sorting, and search |
+| [`chat_history.py`](chat_history.py) | Page through a chat's cells and render each one |
+| [`cancel_chat.py`](cancel_chat.py) | Start a long-running chat and cancel it mid-run |
 | [`create_agent.py`](create_agent.py) | Create an agent and trigger it |
 | [`create_playbook.py`](create_playbook.py) | Create a scheduled playbook and configure delivery |
 
@@ -41,8 +44,10 @@ TEXTQL_API_KEY=your-api-key
 TEXTQL_SERVER_URL=https://app.textql.com
 ```
 
-The streaming examples also expect a real connector: replace the placeholder
-`connector_ids=[1]` in the paradigm with your own connector ID(s).
+The examples that create a chat (`watch_chat.py`, `cancel_chat.py`) expect a
+real connector: replace the placeholder `connector_ids=[1]` in the paradigm
+with your own connector ID(s). The read-only ones (`list_chats.py`,
+`chat_history.py`) work as-is.
 
 ## Running
 

@@ -3,11 +3,13 @@
 Agents are persistent AI assistants configured with a system prompt.
 Triggering an agent generates a fresh report based on its prompt.
 
-    uv run python examples/create_agent.py
-
-With pip, activate your venv and drop the `uv run` prefix:
+Activate your venv, then:
 
     python examples/create_agent.py
+
+With uv, prefix the same command with `uv run`:
+
+    uv run python examples/create_agent.py
 
 See examples/README.md for setup under either package manager.
 """

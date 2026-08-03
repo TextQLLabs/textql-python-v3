@@ -4,11 +4,13 @@ Playbooks are recurring AI reports. This example exercises the full
 update API surface: scheduling, model, output style, Slack/email
 delivery, access controls, and concurrency settings.
 
-    uv run python examples/create_playbook.py
-
-With pip, activate your venv and drop the `uv run` prefix:
+Activate your venv, then:
 
     python examples/create_playbook.py
+
+With uv, prefix the same command with `uv run`:
+
+    uv run python examples/create_playbook.py
 
 See examples/README.md for setup under either package manager.
 """

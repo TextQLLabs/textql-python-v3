@@ -59,6 +59,7 @@ from textql_sdk.models import (
     TabularFileCell,
     TextCell,
     TextqlRPCPublicChatCell,
+    ThinkingCell,
     UseSkillCell,
     WsCell,
 )
@@ -94,6 +95,8 @@ def cell_text(cell: TextqlRPCPublicChatCell) -> tuple[str, str]:
         return "ans", cell.ans_cell.content or ""
     if isinstance(cell, TextCell):
         return "text", cell.text_cell.content or ""
+    if isinstance(cell, ThinkingCell):
+        return "thinking", cell.thinking_cell.content or ""
     if isinstance(cell, CompactionCell):
         return "compaction", cell.compaction_cell.content or ""
     if isinstance(cell, FeedCommentCell):
