@@ -470,7 +470,7 @@ wheels = [
 
 [[package]]
 name = "textql-sdk"
-version = "1.0.12"
+version = "1.0.13"
 source = { editable = "." }
 dependencies = [
     { name = "connect-python" },
@@ -494,7 +494,7 @@ requires-dist = [
     { name = "httpcore", specifier = ">=1.0.9" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "protobuf", specifier = ">=6.31,<8" },
-    { name = "pydantic", specifier = ">=2.11.2,<2.13" },
+    { name = "pydantic", specifier = ">=2.11.2" },
 ]
 
 [package.metadata.requires-dev]

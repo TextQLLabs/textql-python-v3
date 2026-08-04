@@ -32,6 +32,7 @@ TextqlRPCPublicChatLlmModel = Union[
         "MODEL_KIMI_K2_7_CODE",
         "MODEL_QWEN3_7_PLUS",
         "MODEL_KIMI_K3",
+        "MODEL_DEEPSEEK_V4_FLASH_0731",
         "MODEL_MUSE_SPARK_1_1",
     ],
     UnrecognizedStr,
