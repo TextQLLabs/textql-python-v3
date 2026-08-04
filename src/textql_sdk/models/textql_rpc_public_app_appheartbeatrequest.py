@@ -10,12 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppAppHeartbeatRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
-    r"""'app' | 'dashboard' | 'agent'"""
+    r"""full replacement for the calling member"""
 
 
 class TextqlRPCPublicAppAppHeartbeatRequest(BaseModel):
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
-    r"""'app' | 'dashboard' | 'agent'"""
+    r"""full replacement for the calling member"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

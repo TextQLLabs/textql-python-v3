@@ -25,7 +25,7 @@ class Apps(BaseSDK):
         Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
-        :param app_id: 'app' | 'dashboard' | 'agent'
+        :param app_id: full replacement for the calling member
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -129,7 +129,7 @@ class Apps(BaseSDK):
         Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
-        :param app_id: 'app' | 'dashboard' | 'agent'
+        :param app_id: full replacement for the calling member
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1166,10 +1166,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
-
-        Server stream of live activity batches + presence snapshots, driven by
-        Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+        r"""GetAppDBSchema
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1273,10 +1270,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
-
-        Server stream of live activity batches + presence snapshots, driven by
-        Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+        r"""GetAppDBSchema
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1382,10 +1376,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
 
-        Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
-        the app's stream. Presence never touches Postgres and never exposes emails.
+        Cross-member live activity: rows from every member of the app after a seq,
+        each carrying member_id + display_name (resolved server-side; never email).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1495,10 +1489,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
 
-        Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
-        the app's stream. Presence never touches Postgres and never exposes emails.
+        Cross-member live activity: rows from every member of the app after a seq,
+        each carrying member_id + display_name (resolved server-side; never email).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1606,9 +1600,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Ordering overlay for the sidebar Bookmarks section: one position list per
+        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
+        Membership truth stays in library_favorite / chat bookmarks; this persists
+        only the drag-and-drop order.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1712,9 +1709,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Ordering overlay for the sidebar Bookmarks section: one position list per
+        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
+        Membership truth stays in library_favorite / chat bookmarks; this persists
+        only the drag-and-drop order.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2693,10 +2693,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
 
-        Append-only per-member activity log. Listing is own rows only; no
-        cross-member reads in this release.
+        Per-member app state: one JSON blob per (app, member) so apps remember
+        settings/progress. Member always resolved server-side from auth context;
+        per-member persistence, so viewers with read access can save their own state.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2809,10 +2810,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
 
-        Append-only per-member activity log. Listing is own rows only; no
-        cross-member reads in this release.
+        Per-member app state: one JSON blob per (app, member) so apps remember
+        settings/progress. Member always resolved server-side from auth context;
+        per-member persistence, so viewers with read access can save their own state.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3386,7 +3388,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""ListMyAppMemberActivity
+        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+
+        Staff-only (superadmin gated in-handler): publishes the embedded component
+        gallery as an app tree and returns its signed viewer URL.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3496,7 +3501,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""ListMyAppMemberActivity
+        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+
+        Staff-only (superadmin gated in-handler): publishes the embedded component
+        gallery as an app tree and returns its signed viewer URL.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3823,10 +3831,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
 
-        Cross-member live activity: rows from every member of the app after a seq,
-        each carrying member_id + display_name (resolved server-side; never email).
+        Append-only per-member activity log. Listing is own rows only; no
+        cross-member reads in this release.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3931,10 +3939,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
 
-        Cross-member live activity: rows from every member of the app after a seq,
-        each carrying member_id + display_name (resolved server-side; never email).
+        Append-only per-member activity log. Listing is own rows only; no
+        cross-member reads in this release.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4042,11 +4050,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Per-member app state: one JSON blob per (app, member) so apps remember
-        settings/progress. Member always resolved server-side from auth context;
-        per-member persistence, so viewers with read access can save their own state.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4162,11 +4168,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Per-member app state: one JSON blob per (app, member) so apps remember
-        settings/progress. Member always resolved server-side from auth context;
-        per-member persistence, so viewers with read access can save their own state.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4711,10 +4715,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetAppMemberStateResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""Replaces the calling member's entire ordering; capped server-side.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        Replaces the calling member's entire ordering; capped server-side.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4821,10 +4824,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetAppMemberStateResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""Replaces the calling member's entire ordering; capped server-side.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        Replaces the calling member's entire ordering; capped server-side.
 
         :param connect_timeout_ms:
         :param app_id:

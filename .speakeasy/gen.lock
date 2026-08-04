@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: 757876e560e801e732b58cb9b321e58a
+  docChecksum: 5803591d65148a94402aefe31dc76d9f
   docVersion: 1.0.0
-  speakeasyVersion: 1.791.0
-  generationVersion: 2.924.0
-  releaseVersion: 1.0.12
-  configChecksum: 1b8e94b0a204c89cd014f6eb4371656d
+  speakeasyVersion: 1.791.1
+  generationVersion: 2.926.2
+  releaseVersion: 1.0.13
+  configChecksum: 35f0e99338ef54a63d1cf26a9cd38f16
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 54c17016-b0de-4f94-913e-8c59c46c41b3
-  pristine_commit_hash: 3b92781bec6a91e189d368d5af4b7acf4d62713a
-  pristine_tree_hash: 6475877b6b7bf9aa6ada5cd5b3ca7a9b618c0093
+  generation_id: 9faffa8c-45ab-4a7b-9bcb-8c1d03d55bc9
+  pristine_commit_hash: 44dc074513f5720050e55acad6a87839fef12c87
+  pristine_tree_hash: 7be6be3dd29efbf8598dadf28696d58efa034279
 features:
   python:
     additionalDependencies: 1.1.0
     additionalProperties: 1.0.2
     constsAndDefaults: 1.0.7
-    core: 6.0.34
+    core: 6.0.35
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -39,7 +39,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.0.7
     sdkHooks: 1.3.0
-    unions: 3.1.7
+    unions: 3.1.8
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -4131,8 +4131,8 @@ trackedFiles:
     pristine_git_object: 81c52b63b438b523b923f319aab89b99086e3400
   docs/models/textqlrpcpublicappappheartbeatrequest.md:
     id: 69c5da31899b
-    last_write_checksum: sha1:0d8a41d7dfd1c1def96f90af8c239a6b95fda73d
-    pristine_git_object: 426bca7a4c4874823404efa63242ad03d456a951
+    last_write_checksum: sha1:fe7364277c29372ad76b005a4696221aeebad304
+    pristine_git_object: 4f5ba85b93a01f1877997124be9b742ad570b648
   docs/models/textqlrpcpublicappappmemberactivityrow.md:
     id: 64ab0140bfeb
     last_write_checksum: sha1:dd7f06e6430948ab17ba54e199e7d7b097601d0d
@@ -5487,8 +5487,8 @@ trackedFiles:
     pristine_git_object: dcf7be5bf0dd4ec9737c0c8943d3ecce7b2154ff
   docs/models/textqlrpcpublicchatllmmodel.md:
     id: 250bb4e00bcc
-    last_write_checksum: sha1:b8fdf19a3db0b89a04fbf470a511d5f17b09d393
-    pristine_git_object: 5dffba5289a49a8d3a13e82e237e2adc41e70927
+    last_write_checksum: sha1:cc6b1b99586a9c80d349e343128165de889bc204
+    pristine_git_object: 96a991e0ed78fe5557130922a8cdcc95b3faef3b
   docs/models/textqlrpcpublicchatllmusage.md:
     id: ecc4cb95a86e
     last_write_checksum: sha1:9069590bf76c674a1546f7b9de494a6a687b86a3
@@ -9311,8 +9311,8 @@ trackedFiles:
     pristine_git_object: f806094a48b61b067b013b15499ba784a552c7f0
   docs/sdks/apps/README.md:
     id: 9c9c1a6527a3
-    last_write_checksum: sha1:0172fdd75d64333df8aa61a5b54b4d1fce112ae2
-    pristine_git_object: 460278c6929224d6a7dea1cff442ca9ead40a2dc
+    last_write_checksum: sha1:f17fc17f41a9a8a6e821d86b11b791bd82a5abac
+    pristine_git_object: b6e6bbba58d5964674401c13d4da2ade2001c7c9
   docs/sdks/auditlogs/README.md:
     id: 4ed8509e422e
     last_write_checksum: sha1:df57ed85cbdc1fbe99d03c567f8a6a48293e01dd
@@ -9407,8 +9407,8 @@ trackedFiles:
     pristine_git_object: 14a5ab5a0178bf5f37c25306ec11372c1dfc1f4e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:81f35a026d4c5724be5fde91bc11b2c2c9b04b2d
-    pristine_git_object: 3b2d20002184b10af2989d32d934f1c048284fe2
+    last_write_checksum: sha1:5e1aef3366ca012440350f95f18872ce2841b3ec
+    pristine_git_object: cc0cfa53d93be34dd493718210d677dfc6d3008d
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9435,16 +9435,16 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:6a93e7bc49b93ad10e95c50c227983b002515365
-    pristine_git_object: e3409a1a16a7b98ddaa9a4b9439a146ed631910e
+    last_write_checksum: sha1:da28f44493ee76d5d82581dadead58a579f399be
+    pristine_git_object: 80a1d737a539d43f5d29579c16a4e508f9a94f30
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:8a4e32311f74147bc4e282a193bc0131d91d3fda
     pristine_git_object: 1e2b6f0d3121a4ca65d8f19499473c7bbb8efa71
   src/textql_sdk/apps.py:
     id: c38298d579a3
-    last_write_checksum: sha1:7ac5d424c69687b6dcd9bcdbc2b6f99c261debf5
-    pristine_git_object: f275d83e11837f6ddf7bbfec2bda668a142dbe28
+    last_write_checksum: sha1:3ee5f438058e9f0b3a75fd52e8c479f9b5c06026
+    pristine_git_object: 599f87ca000a8a1b587742aac3348ea5f5b4022c
   src/textql_sdk/auditlogs.py:
     id: 3ce1ab522e54
     last_write_checksum: sha1:0f4cd972de53f799932de040611ca13379524530
@@ -11255,8 +11255,8 @@ trackedFiles:
     pristine_git_object: 23578c12e535bf77a96daecff47ab126e330a1db
   src/textql_sdk/models/textql_rpc_public_app_appheartbeatrequest.py:
     id: 8823a5a1ad3f
-    last_write_checksum: sha1:054cd6f2eefd65bb830246263ebbbbe3ca444adc
-    pristine_git_object: 3fb0767e444945fd1ef7660ad4e01bcfd4dc4107
+    last_write_checksum: sha1:2c9c29293374d130fb74e40e2ca256afccd652f0
+    pristine_git_object: 55581a27f13439ff720337423c721aa9a9b763b3
   src/textql_sdk/models/textql_rpc_public_app_appmemberactivityrow.py:
     id: e427294c8cfa
     last_write_checksum: sha1:6ee66427d2dd6cfd1dae100ea571b9d39986163f
@@ -12299,8 +12299,8 @@ trackedFiles:
     pristine_git_object: f2813d045ba6d4d248e703e2a838b8f5793f0e1d
   src/textql_sdk/models/textql_rpc_public_chat_llmmodel.py:
     id: e334ecfa931c
-    last_write_checksum: sha1:f55c7c23f3d2b4ea29eec4aaef72539c32b28eef
-    pristine_git_object: 77bcc7db081bc577cf453aba10f07aa899fdd9e1
+    last_write_checksum: sha1:1a326b16e1a3f3ae0cc76b9475b4e5d584a28a0b
+    pristine_git_object: 8b60f8be053a8ff047e7f96070484328b1c37e4e
   src/textql_sdk/models/textql_rpc_public_chat_llmusage.py:
     id: 3877f58cdf3c
     last_write_checksum: sha1:dad162d161a3fcb19160f8af3f2231c29f10e388
@@ -26787,3 +26787,4 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
+releaseNotes: "## Python SDK Changes:\n* `textql.agents.create()`: \n  *  `request.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n  *  `response.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.agents.duplicate()`:  `response.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.agents.get_agent()`:  `response.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.agents.list()`:  `response.agents[].llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.agents.update()`: \n  *  `request.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n  *  `response.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.attach_agent()`:  `response.chat.model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.attach_app()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.attach_dashboard()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.attach_dataset()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.check_health()`: \n  *  `request.model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.check_streamlit_health()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.create_chat()`: \n  *  `request.model.enum(model_deepseek_v4_flash_0731)` **Added**\n  *  `response.chat.model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.duplicate_chat()`:  `response.chat.model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.get()`:  `response.chat.model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.get_history()`:  `response.cells[].union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.get_all()`:  `response.chats[].model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.get_playbook_chats()`:  `response.chats[].model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.query_one_shot()`: \n  *  `request.model.enum(model_deepseek_v4_flash_0731)` **Added**\n  *  `response.cells[].union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.run()`: \n  *  `request.model.enum(model_deepseek_v4_flash_0731)` **Added**\n  *  `response.cells[].union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.chats.update()`:  `response.chat.model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(feed_create_cell).feed_create_cell.agent.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.playbooks.create_playbook()`:  `response.playbook.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.playbooks.duplicate()`:  `response.playbook.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.playbooks.fetch()`:  `response.playbook.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.playbooks.get()`:  `response.playbooks[].llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.playbooks.update()`: \n  *  `request.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n  *  `response.playbook.llm_model.enum(model_deepseek_v4_flash_0731)` **Added**\n* `textql.rbac.who_am_i()`:  `response.model_access.allowed_models[].enum(model_deepseek_v4_flash_0731)` **Added**\n"

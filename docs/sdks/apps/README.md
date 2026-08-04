@@ -9,23 +9,23 @@
 * [delete_app](#delete_app) - DeleteApp
 * [duplicate](#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](#get) - GetApp
-* [get_db_schema](#get_db_schema) - Server stream of live activity batches + presence snapshots, driven by  Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
-* [get_db_table_preview](#get_db_table_preview) - Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
-* [get_member_state](#get_member_state) - View analytics: reads the engagement views recorded on app page load.
+* [get_db_schema](#get_db_schema) - GetAppDBSchema
+* [get_db_table_preview](#get_db_table_preview) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+* [get_member_state](#get_member_state) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
 * [get_app_version](#get_app_version) - GetAppVersion
 * [get_app_view_stats](#get_app_view_stats) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
-* [list_activity_since](#list_activity_since) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [list_activity_since](#list_activity_since) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
 * [list_versions](#list_versions) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 * [list](#list) - ListApps
-* [list_my_member_activity](#list_my_member_activity) - ListMyAppMemberActivity
+* [list_my_member_activity](#list_my_member_activity) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
 * [move_app_to_folder](#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
-* [presence_heartbeat](#presence_heartbeat) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
-* [record_member_activity](#record_member_activity) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [presence_heartbeat](#presence_heartbeat) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [record_member_activity](#record_member_activity) - View analytics: reads the engagement views recorded on app page load.
 * [refresh](#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 * [restore_app_version](#restore_app_version) - RestoreAppVersion
-* [set_member_state](#set_member_state) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+* [set_member_state](#set_member_state) - Replaces the calling member's entire ordering; capped server-side.
 * [set_favorite](#set_favorite) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 * [update](#update) - UpdateApp
 
@@ -57,7 +57,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | 'app' \| 'dashboard' \| 'agent'                                     |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | full replacement for the calling member                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -245,8 +245,7 @@ with Textql(
 
 ## get_db_schema
 
-Server stream of live activity batches + presence snapshots, driven by
- Valkey nudges over the app_activity:{app_id} channel; Postgres stays SSoT.
+GetAppDBSchema
 
 ### Example Usage
 
@@ -287,8 +286,8 @@ with Textql(
 
 ## get_db_table_preview
 
-Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
- the app's stream. Presence never touches Postgres and never exposes emails.
+Cross-member live activity: rows from every member of the app after a seq,
+ each carrying member_id + display_name (resolved server-side; never email).
 
 ### Example Usage
 
@@ -331,7 +330,10 @@ with Textql(
 
 ## get_member_state
 
-View analytics: reads the engagement views recorded on app page load.
+Ordering overlay for the sidebar Bookmarks section: one position list per
+ member covering favorites and thread bookmarks ('<kind>:<id>' keys).
+ Membership truth stays in library_favorite / chat bookmarks; this persists
+ only the drag-and-drop order.
 
 ### Example Usage
 
@@ -541,8 +543,9 @@ with Textql(
 
 ## list_activity_since
 
-Append-only per-member activity log. Listing is own rows only; no
- cross-member reads in this release.
+Per-member app state: one JSON blob per (app, member) so apps remember
+ settings/progress. Member always resolved server-side from auth context;
+ per-member persistence, so viewers with read access can save their own state.
 
 ### Example Usage
 
@@ -675,7 +678,8 @@ with Textql(
 
 ## list_my_member_activity
 
-ListMyAppMemberActivity
+Staff-only (superadmin gated in-handler): publishes the embedded component
+ gallery as an app tree and returns its signed viewer URL.
 
 ### Example Usage
 
@@ -760,8 +764,8 @@ with Textql(
 
 ## presence_heartbeat
 
-Cross-member live activity: rows from every member of the app after a seq,
- each carrying member_id + display_name (resolved server-side; never email).
+Append-only per-member activity log. Listing is own rows only; no
+ cross-member reads in this release.
 
 ### Example Usage
 
@@ -803,9 +807,7 @@ with Textql(
 
 ## record_member_activity
 
-Per-member app state: one JSON blob per (app, member) so apps remember
- settings/progress. Member always resolved server-side from auth context;
- per-member persistence, so viewers with read access can save their own state.
+View analytics: reads the engagement views recorded on app page load.
 
 ### Example Usage
 
@@ -934,8 +936,7 @@ with Textql(
 
 ## set_member_state
 
-Staff-only (superadmin gated in-handler): publishes the embedded component
- gallery as an app tree and returns its signed viewer URL.
+Replaces the calling member's entire ordering; capped server-side.
 
 ### Example Usage
 
