@@ -108,6 +108,40 @@ can reach `run_complete` with individual cells that failed. Check both.
 
 `examples/watch_chat.py` implements this.
 
+### Custom TLS (private CA, mTLS)
+
+Streaming does **not** share the SDK's HTTP client. Unary REST calls go through
+`httpx`; Connect streaming goes through `pyqwest`. `verify=` on the `Textql`
+client therefore does nothing for streaming — configure both:
+
+```python
+import pathlib, httpx, pyqwest
+from textql_sdk import Textql
+from textql_sdk.streaming import create_streaming_client
+
+ca = pathlib.Path("corp-ca.pem")
+
+sdk = Textql(api_key=..., async_client=httpx.AsyncClient(verify=str(ca)))
+streaming = create_streaming_client(
+    sdk,
+    http_client=pyqwest.Client(
+        pyqwest.HTTPTransport(
+            tls_ca_cert=ca.read_bytes(),
+            tls_include_system_certs=True,
+        )
+    ),
+)
+```
+
+> **`tls_include_system_certs=True` is not optional.** A `HTTPTransport` you
+> construct yourself starts with an empty trust store, so omitting it fails
+> *every* TLS handshake, not just ones needing the private CA. Passing no
+> `http_client` at all uses the shared default transport, which already trusts
+> the system store — so only build one when you actually need a custom CA.
+
+`http_client` is also accepted by `create_streaming_client_sync` (a
+`pyqwest.SyncClient`), `create_connect_client`, and `create_connect_client_sync`.
+
 For any other service in `textql_sdk._connect`, use the escape hatch:
 
 ```python

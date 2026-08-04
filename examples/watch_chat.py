@@ -19,6 +19,13 @@ by `cell.id` and replace what you're holding. Three fields tell you where it is:
 * `exec_error` — per-cell failure. A run can reach `run_complete` with
   individual cells that errored, so this is *not* covered by `run_error`.
 
+Custom TLS
+----------
+Set ``TEXTQL_CA_BUNDLE`` to a PEM path to trust a private CA (corporate proxy,
+on-prem gateway). The SDK and the streaming bridge use *different* HTTP stacks —
+``httpx`` for unary REST calls, ``pyqwest`` for Connect streaming — so the bundle
+has to be handed to both. See ``build_tls`` below.
+
 Activate your venv, then:
 
     python examples/watch_chat.py
@@ -31,12 +38,21 @@ With uv, prefix the same command with `uv run`:
 See examples/README.md for setup under either package manager.
 """
 
+# pylint: disable=no-member,no-name-in-module
+# chat_pb2 builds its members at import time, so pylint can't see WatchChatRequest
+# or the LIFECYCLE_* constants. Suppressed in-file because pylintrc is
+# Speakeasy-managed and overwritten on every `speakeasy run` (see
+# scripts/postprocess-connect.py). pyright, which gates CI, resolves them fine.
+
 import asyncio
 import os
+import pathlib
 import sys
 from dataclasses import dataclass
+from typing import Optional, Union
 
 import httpx
+import pyqwest
 from connectrpc.errors import ConnectError as ConnectRpcError
 from dotenv import load_dotenv
 
@@ -57,6 +73,27 @@ LIFECYCLE_MARKERS = {
     chat_pb2.LIFECYCLE_EXECUTING: "⏳ executing",
     chat_pb2.LIFECYCLE_HANDOFF_PENDING: "⏸  waiting for input",
 }
+
+
+def build_tls() -> tuple[Union[bool, str], Optional[pyqwest.Client]]:
+    """Resolve TEXTQL_CA_BUNDLE into config for both HTTP stacks.
+
+    Returns ``(httpx_verify, connect_http_client)``. With no bundle set, both
+    fall back to their defaults, which already trust the system store.
+    """
+    bundle = os.environ.get("TEXTQL_CA_BUNDLE")
+    if not bundle:
+        return True, None
+
+    ca_pem = pathlib.Path(bundle).read_bytes()
+    # tls_include_system_certs is not optional here: a transport you construct
+    # yourself starts with an empty trust store, so omitting it fails *every*
+    # TLS handshake, not just ones needing the private CA.
+    transport = pyqwest.HTTPTransport(
+        tls_ca_cert=ca_pem,
+        tls_include_system_certs=True,
+    )
+    return bundle, pyqwest.Client(transport)
 
 
 def cell_text(cell) -> str:
@@ -141,17 +178,20 @@ async def main() -> None:
         sys.argv[1] if len(sys.argv) > 1 else "Tell me about this month's usage?"
     )
 
-    # Configure the SDK once; streaming inherits its server + API key.
+    # Configure the SDK once; streaming inherits its server + API key. TLS is
+    # the exception — the two stacks are separate, so pass it to each.
     # Set TEXTQL_SERVER_URL for on-prem/dev; it defaults to the cloud server.
+    verify, connect_client = build_tls()
     sdk = Textql(
         api_key=os.environ["TEXTQL_API_KEY"],
         server_url=os.environ.get("TEXTQL_SERVER_URL"),
         async_client=httpx.AsyncClient(
             follow_redirects=True,
             timeout=httpx.Timeout(None, connect=10.0),
+            verify=verify,
         ),
     )
-    streaming = create_streaming_client(sdk)
+    streaming = create_streaming_client(sdk, http_client=connect_client)
 
     paradigm = TextqlRPCPublicParadigmParadigm(
         type="TYPE_UNIVERSAL",
@@ -168,7 +208,7 @@ async def main() -> None:
     # 1) Create the chat (message is the first user turn).
     created = await sdk.chats.create_chat_async(
         message=message,
-        model="MODEL_SONNET_5",
+        model="MODEL_SONNET_4_6",
         paradigm=paradigm,
     )
     if isinstance(created, ConnectError):
@@ -217,7 +257,7 @@ async def main() -> None:
     await opened.wait()
 
     # 3) Start the run; watch_task receives cells + lifecycle until run_complete.
-    run = await sdk.chats.run_async(chat_id=chat_id, model="MODEL_SONNET_5")
+    run = await sdk.chats.run_async(chat_id=chat_id, model="MODEL_SONNET_4_6")
     if isinstance(run, ConnectError):
         watch_task.cancel()
         raise RuntimeError(f"run failed: {run}")

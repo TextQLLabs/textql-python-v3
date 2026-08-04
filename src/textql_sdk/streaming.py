@@ -41,6 +41,12 @@ from urllib.parse import urlparse
 from connectrpc.client import ConnectClient, ConnectClientSync
 from connectrpc.request import RequestContext
 
+# The Connect transport is pyqwest, not httpx. Imported under the same aliases
+# connectrpc.client uses, so the `http_client` annotations below match what
+# ConnectClient actually accepts.
+from pyqwest import Client as HTTPClient
+from pyqwest import SyncClient as SyncHTTPClient
+
 from .sdk import Textql
 from ._hooks.registration import server_url_from_env
 from .sdkconfiguration import SERVERS
@@ -135,6 +141,7 @@ def create_connect_client(
     api_key: Optional[str] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
+    http_client: Optional[HTTPClient] = None,
 ) -> _AsyncClientT:
     """Build an authenticated async Connect client for a single service.
 
@@ -145,10 +152,16 @@ def create_connect_client(
         from textql_sdk._connect.public.feed_connect import FeedServiceClient
 
         feed = create_connect_client(FeedServiceClient, sdk)
+
+    ``http_client`` accepts a ``pyqwest.Client`` for custom TLS -- see
+    :func:`create_streaming_client`.
     """
     address, key = _resolve(sdk, api_key, server_url)
     return service_client(
-        address, interceptors=[_ApiKeyInterceptor(key)], timeout_ms=timeout_ms
+        address,
+        interceptors=[_ApiKeyInterceptor(key)],
+        timeout_ms=timeout_ms,
+        http_client=http_client,
     )
 
 
@@ -159,12 +172,16 @@ def create_connect_client_sync(
     api_key: Optional[str] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
+    http_client: Optional[SyncHTTPClient] = None,
 ) -> _SyncClientT:
     """Sync counterpart to :func:`create_connect_client` -- pass a generated
     ``*ServiceClientSync`` class."""
     address, key = _resolve(sdk, api_key, server_url)
     return service_client(
-        address, interceptors=[_ApiKeyInterceptorSync(key)], timeout_ms=timeout_ms
+        address,
+        interceptors=[_ApiKeyInterceptorSync(key)],
+        timeout_ms=timeout_ms,
+        http_client=http_client,
     )
 
 
@@ -198,6 +215,7 @@ def create_streaming_client(
     api_key: Optional[str] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
+    http_client: Optional[HTTPClient] = None,
 ) -> StreamingClient:
     """Streaming bridge over Connect-RPC for the server-streaming endpoints that
     have no HTTP/JSON shape in the OpenAPI spec.
@@ -209,13 +227,32 @@ def create_streaming_client(
     ``agents.stream_agent_status``, ``apps.stream_app_activity``,
     ``dashboards.watch_dashboard_health``,
     ``playbooks.stream_template_data_status``.
+
+    ``http_client`` takes a ``pyqwest.Client`` when you need custom TLS -- a
+    private CA or mTLS. This transport is independent of the ``httpx`` client on
+    the ``Textql`` SDK, so ``verify=`` there does not apply here and both must be
+    configured. A transport you build yourself trusts *nothing* unless you pass
+    ``tls_include_system_certs=True``::
+
+        import pyqwest
+        transport = pyqwest.HTTPTransport(
+            tls_ca_cert=pathlib.Path("corp-ca.pem").read_bytes(),
+            tls_include_system_certs=True,
+        )
+        streaming = create_streaming_client(sdk, http_client=pyqwest.Client(transport))
+
+    Leave it as ``None`` to use the shared default transport, which already
+    trusts the system store.
     """
     address, key = _resolve(sdk, api_key, server_url)
     interceptor = _ApiKeyInterceptor(key)
 
     def build(service_client: type[_AsyncClientT]) -> _AsyncClientT:
         return service_client(
-            address, interceptors=[interceptor], timeout_ms=timeout_ms
+            address,
+            interceptors=[interceptor],
+            timeout_ms=timeout_ms,
+            http_client=http_client,
         )
 
     return StreamingClient(
@@ -233,15 +270,20 @@ def create_streaming_client_sync(
     api_key: Optional[str] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
+    http_client: Optional[SyncHTTPClient] = None,
 ) -> StreamingClientSync:
     """Sync counterpart to :func:`create_streaming_client`. Streaming methods
-    return plain iterators (usable in a ``for`` loop)."""
+    return plain iterators (usable in a ``for`` loop). ``http_client`` takes a
+    ``pyqwest.SyncClient``."""
     address, key = _resolve(sdk, api_key, server_url)
     interceptor = _ApiKeyInterceptorSync(key)
 
     def build(service_client: type[_SyncClientT]) -> _SyncClientT:
         return service_client(
-            address, interceptors=[interceptor], timeout_ms=timeout_ms
+            address,
+            interceptors=[interceptor],
+            timeout_ms=timeout_ms,
+            http_client=http_client,
         )
 
     return StreamingClientSync(
