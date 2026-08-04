@@ -5,6 +5,20 @@ Server-streaming RPCs aren't part of the generated REST SDK, so they live in
 run lifecycle events (`run_started`, `run_complete`, `run_error`) plus every
 cell as it's produced. See STREAMING.md for the other streaming methods.
 
+Reading cell state
+------------------
+Every `cell` event carries a **full snapshot** of that cell, not a delta, so key
+by `cell.id` and replace what you're holding. Three fields tell you where it is:
+
+* `complete` — terminal. Branch on this, not on `lifecycle`. It's polymorphic
+  server-side: a markdown cell is complete as soon as it's created, while a SQL
+  cell is only complete once executed. Comparing `lifecycle` to
+  `LIFECYCLE_EXECUTED` yourself marks non-executable cells as never finishing.
+* `lifecycle` — the raw state. `LIFECYCLE_EXECUTING` is the one worth surfacing,
+  so a long query reads as in-flight rather than as a finished empty cell.
+* `exec_error` — per-cell failure. A run can reach `run_complete` with
+  individual cells that errored, so this is *not* covered by `run_error`.
+
 Activate your venv, then:
 
     python examples/watch_chat.py
@@ -20,12 +34,14 @@ See examples/README.md for setup under either package manager.
 import asyncio
 import os
 import sys
+from dataclasses import dataclass
 
 import httpx
 from connectrpc.errors import ConnectError as ConnectRpcError
 from dotenv import load_dotenv
 
 from textql_sdk import Textql
+from textql_sdk._connect.public import chat_pb2
 from textql_sdk._connect.public.chat_pb2 import WatchChatRequest
 from textql_sdk.models import (
     ConnectError,
@@ -34,6 +50,13 @@ from textql_sdk.models import (
     Universal,
 )
 from textql_sdk.streaming import create_streaming_client
+
+# Non-terminal states worth showing. Anything absent is either terminal (see
+# cell_status) or too noisy to be useful (CREATING, CREATED).
+LIFECYCLE_MARKERS = {
+    chat_pb2.LIFECYCLE_EXECUTING: "⏳ executing",
+    chat_pb2.LIFECYCLE_HANDOFF_PENDING: "⏸  waiting for input",
+}
 
 
 def cell_text(cell) -> str:
@@ -51,11 +74,65 @@ def cell_text(cell) -> str:
     if url:
         name = getattr(payload, "name", "")
         return f"{name}: {url}" if name else url
-    for field in ("content", "summary", "status", "query", "code"):
-        text = getattr(payload, field, "")
+    for field_name in ("content", "summary", "status", "query", "code"):
+        text = getattr(payload, field_name, "")
         if text:
             return text
     return f"({kind})"
+
+
+def cell_status(cell) -> str:
+    """One-line terminal status for a cell that just reported complete."""
+    if cell.exec_error:
+        return f"✗ failed: {cell.exec_error}"
+    if cell.lifecycle == chat_pb2.LIFECYCLE_HALTED:
+        return "⏹  halted"
+    took = f" ({cell.duration_ms}ms)" if cell.HasField("duration_ms") else ""
+    return f"✓ done{took}"
+
+
+@dataclass
+class CellView:
+    """What we've already rendered for one cell, so we only print what changed."""
+
+    text: str = ""
+    lifecycle: int = chat_pb2.LIFECYCLE_UNKNOWN
+    complete: bool = False
+    failed: bool = False
+    opened: bool = False
+
+
+def render_cell(cell, views: dict[str, CellView]) -> None:
+    view = views.setdefault(cell.id, CellView())
+    text = cell_text(cell)
+
+    if not view.opened:
+        print(f"\n[{cell.WhichOneof('value')} {cell.id[:8]}] ", end="", flush=True)
+        view.opened = True
+
+    if text.startswith(view.text):
+        # Monotonic growth — the common case while a cell streams tokens.
+        delta = text[len(view.text) :]
+        if delta:
+            print(delta, end="", flush=True)
+    elif text != view.text:
+        # Content was replaced rather than appended, e.g. a SQL cell swapping
+        # its query for query + results on EXECUTING -> EXECUTED. Slicing a
+        # delta here would print garbage, so reprint the whole thing.
+        print(f"\n  ↻ {text}", end="", flush=True)
+    view.text = text
+
+    if cell.lifecycle != view.lifecycle:
+        view.lifecycle = cell.lifecycle
+        marker = LIFECYCLE_MARKERS.get(cell.lifecycle)
+        if marker:
+            print(f"  {marker}", end="", flush=True)
+
+    # Latch `complete` so a re-emitted snapshot doesn't print the status twice.
+    if cell.complete and not view.complete:
+        view.complete = True
+        view.failed = bool(cell.exec_error)
+        print(f"\n  {cell_status(cell)}", flush=True)
 
 
 async def main() -> None:
@@ -101,12 +178,9 @@ async def main() -> None:
     print(f"Chat created: {chat_id}")
 
     opened = asyncio.Event()
-
-    printed: dict[str, int] = {}
-    streaming_id = ""
+    views: dict[str, CellView] = {}
 
     async def watch() -> None:
-        nonlocal streaming_id
         try:
             async for event in streaming.chats.watch_chat(
                 WatchChatRequest(chat_id=chat_id)
@@ -116,27 +190,23 @@ async def main() -> None:
                     print("watch opened")
                     opened.set()
                 elif kind == "cell":
-                    cell = event.cell
-                    text = cell_text(cell)
-                    if cell.id != streaming_id:
-                        if streaming_id:
-                            print()
-                        print(f"[{cell.WhichOneof('value')} {cell.id}] ", end="", flush=True)
-                        streaming_id = cell.id
-                    already = printed.get(cell.id, 0)
-                    if len(text) > already:
-                        print(text[already:], end="", flush=True)
-                        printed[cell.id] = len(text)
+                    render_cell(event.cell, views)
                 elif kind == "run_started":
                     print("run started")
                 elif kind == "run_complete":
-                    if streaming_id:
-                        print()  # close the last cell line
-                    print("run complete")
+                    # A run completes even when individual cells failed, so
+                    # report those instead of a bare "run complete".
+                    failed = [cid for cid, v in views.items() if v.failed]
+                    pending = [cid for cid, v in views.items() if not v.complete]
+                    print("\nrun complete")
+                    if failed:
+                        ids = ", ".join(c[:8] for c in failed)
+                        print(f"  {len(failed)} cell(s) failed: {ids}")
+                    if pending:
+                        print(f"  {len(pending)} cell(s) never reached a terminal state")
                     return
                 elif kind == "run_error":
-                    if streaming_id:
-                        print()
+                    print()
                     raise RuntimeError(f"run error: {event.run_error}")
                 elif kind == "heartbeat":
                     pass  # keepalive

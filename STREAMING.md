@@ -83,6 +83,31 @@ for update in streaming.agents.stream_agent_status(StreamAgentStatusRequest()):
 
 Request/response types live under `textql_sdk._connect.public.<service>_pb2`.
 
+### Reading cell state
+
+`watch_chat` and `stream_chat` emit a **full snapshot** of a cell on every
+update, never a delta. Key by `cell.id` and replace what you're holding — don't
+concatenate, or a cell that rewrites its content mid-run (a SQL cell swapping
+its query for query + results) will render as garbage.
+
+Three fields tell you where a cell is:
+
+| Field | Use it for |
+| --- | --- |
+| `complete` | Terminal state. **Branch on this**, not on `lifecycle`. |
+| `lifecycle` | `LIFECYCLE_EXECUTING` — render the cell as in-flight. |
+| `exec_error` | Per-cell failure. |
+
+`complete` is polymorphic server-side: a non-executable cell (markdown, text) is
+complete as soon as it's created, while an executable one (SQL, Python) is only
+complete once it has executed or halted. Comparing `lifecycle` to
+`LIFECYCLE_EXECUTED` yourself marks every markdown cell as never finishing.
+
+`exec_error` is per cell and is **not** covered by the `run_error` event — a run
+can reach `run_complete` with individual cells that failed. Check both.
+
+`examples/watch_chat.py` implements this.
+
 For any other service in `textql_sdk._connect`, use the escape hatch:
 
 ```python
