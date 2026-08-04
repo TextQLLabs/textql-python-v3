@@ -106,7 +106,27 @@ complete once it has executed or halted. Comparing `lifecycle` to
 `exec_error` is per cell and is **not** covered by the `run_error` event — a run
 can reach `run_complete` with individual cells that failed. Check both.
 
-`examples/watch_chat.py` implements this.
+### Resuming a dropped stream
+
+Every event carries a `cursor`, and cells that report `complete` mark a safe
+restart point. Hold both and replay them on reconnect so the server resumes
+instead of re-sending the whole chat:
+
+```python
+request = WatchChatRequest(chat_id=chat_id)
+if last_complete_cell_id:
+    request.latest_complete_cell_id = last_complete_cell_id
+if cursor:
+    request.resume_cursor = cursor
+```
+
+Long runs *will* be cut by intermediary proxies, so treat a dropped stream as
+routine and retry with backoff rather than surfacing it as a run failure. A
+`run_error` event is different — that's the run itself failing, and is terminal.
+
+`examples/watch_chat.py` implements all of this. The reference consumer is
+`fe/src/lib/clients/WatchChatClient.ts` in the main repo, which uses the same
+cursor/`complete` checkpointing and a 7-attempt exponential backoff from 500ms.
 
 ### Custom TLS (private CA, mTLS)
 

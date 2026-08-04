@@ -74,6 +74,11 @@ LIFECYCLE_MARKERS = {
     chat_pb2.LIFECYCLE_HANDOFF_PENDING: "⏸  waiting for input",
 }
 
+# Matches fe/src/lib/clients/WatchChatClient.ts, which is the reference consumer
+# of this stream.
+MAX_RECONNECT_ATTEMPTS = 7
+BASE_RECONNECT_DELAY_S = 0.5
+
 
 def build_tls() -> tuple[Union[bool, str], Optional[pyqwest.Client]]:
     """Resolve TEXTQL_CA_BUNDLE into config for both HTTP stacks.
@@ -220,38 +225,83 @@ async def main() -> None:
     opened = asyncio.Event()
     views: dict[str, CellView] = {}
 
+    # Resume state. `cursor` advances on every event; `last_complete_cell_id`
+    # only on cells that reported complete. Both are replayed on reconnect so
+    # the server resumes instead of re-sending the whole chat.
+    cursor = ""
+    last_complete_cell_id = ""
+
+    def build_request() -> WatchChatRequest:
+        request = WatchChatRequest(chat_id=chat_id)
+        if last_complete_cell_id:
+            request.latest_complete_cell_id = last_complete_cell_id
+        if cursor:
+            request.resume_cursor = cursor
+        return request
+
     async def watch() -> None:
-        try:
-            async for event in streaming.chats.watch_chat(
-                WatchChatRequest(chat_id=chat_id)
-            ):
-                kind = event.WhichOneof("payload")
-                if kind == "opened":
-                    print("watch opened")
-                    opened.set()
-                elif kind == "cell":
-                    render_cell(event.cell, views)
-                elif kind == "run_started":
-                    print("run started")
-                elif kind == "run_complete":
-                    # A run completes even when individual cells failed, so
-                    # report those instead of a bare "run complete".
-                    failed = [cid for cid, v in views.items() if v.failed]
-                    pending = [cid for cid, v in views.items() if not v.complete]
-                    print("\nrun complete")
-                    if failed:
-                        ids = ", ".join(c[:8] for c in failed)
-                        print(f"  {len(failed)} cell(s) failed: {ids}")
-                    if pending:
-                        print(f"  {len(pending)} cell(s) never reached a terminal state")
-                    return
-                elif kind == "run_error":
-                    print()
-                    raise RuntimeError(f"run error: {event.run_error}")
-                elif kind == "heartbeat":
-                    pass  # keepalive
-        except ConnectRpcError as e:
-            raise RuntimeError(f"watch_chat failed: {e.code}") from e
+        nonlocal cursor, last_complete_cell_id
+        attempt = 0
+
+        while True:
+            try:
+                async for event in streaming.chats.watch_chat(build_request()):
+                    attempt = 0  # a delivered event means the stream is healthy
+                    if event.cursor:
+                        cursor = event.cursor
+
+                    kind = event.WhichOneof("payload")
+                    if kind == "opened":
+                        print("watch opened")
+                        opened.set()
+                    elif kind == "cell":
+                        if event.cell.complete:
+                            last_complete_cell_id = event.cell.id
+                        render_cell(event.cell, views)
+                    elif kind == "run_started":
+                        print("run started")
+                    elif kind == "run_complete":
+                        # A run completes even when individual cells failed, so
+                        # report those instead of a bare "run complete".
+                        failed = [cid for cid, v in views.items() if v.failed]
+                        pending = [c for c, v in views.items() if not v.complete]
+                        print("\nrun complete")
+                        if failed:
+                            ids = ", ".join(c[:8] for c in failed)
+                            print(f"  {len(failed)} cell(s) failed: {ids}")
+                        if pending:
+                            print(
+                                f"  {len(pending)} cell(s) never reached a "
+                                "terminal state"
+                            )
+                        return
+                    elif kind == "run_error":
+                        # Terminal: the run itself failed, so don't reconnect.
+                        print()
+                        raise RuntimeError(f"run error: {event.run_error}")
+                    elif kind == "handoff_pending":
+                        print(f"\nhandoff pending: {event.handoff_pending.handoff_marker}")
+                    elif kind == "heartbeat":
+                        pass  # keepalive
+            except ConnectRpcError as e:
+                # Transport-level failure. Idle streams get closed by proxies on
+                # long runs, so retry from the cursor rather than giving up.
+                attempt += 1
+                if attempt > MAX_RECONNECT_ATTEMPTS:
+                    raise RuntimeError(
+                        f"watch_chat failed after {MAX_RECONNECT_ATTEMPTS} "
+                        f"reconnect attempts: {e.code}"
+                    ) from e
+                delay = BASE_RECONNECT_DELAY_S * 2 ** (attempt - 1)
+                print(f"\nstream dropped ({e.code}); reconnecting in {delay:.1f}s")
+                await asyncio.sleep(delay)
+                continue
+
+            # Generator ended without run_complete — same treatment.
+            attempt += 1
+            if attempt > MAX_RECONNECT_ATTEMPTS:
+                raise RuntimeError("watch_chat ended without run_complete")
+            await asyncio.sleep(BASE_RECONNECT_DELAY_S * 2 ** (attempt - 1))
 
     watch_task = asyncio.create_task(watch())
     await opened.wait()
