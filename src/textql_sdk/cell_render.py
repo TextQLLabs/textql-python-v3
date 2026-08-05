@@ -132,9 +132,6 @@ NEVER_INLINE = frozenset({
     "dataframe_preview", "final_message", "email_summary", "event_summary",
 })
 
-MAX_FIELD_LINES = 12  # per field, before "… N more lines"
-MAX_ITEMS = 6  # per repeated message field
-
 LABEL_WIDTH = 6  # "cell  ", "text  ", "done  "
 INDENT = " " * LABEL_WIDTH
 
@@ -205,32 +202,24 @@ def _message_summary(msg: Any) -> str:
     return " ".join(parts[:3]) or f"({msg.DESCRIPTOR.name})"
 
 
-def _cap(lines: list[str]) -> list[str]:
-    if len(lines) <= MAX_FIELD_LINES:
-        return lines
-    return [*lines[:MAX_FIELD_LINES], f"… {len(lines) - MAX_FIELD_LINES} more lines"]
-
-
 def _field_lines(field: FieldDescriptor, value: Any, bare: bool) -> list[str]:
     """Lines for one field. `bare` drops the label (the field stands alone)."""
     label = FIELD_LABELS.get(field.name, field.name.replace("_", " "))
 
     if field.is_repeated:
         if field.type == FieldDescriptor.TYPE_MESSAGE:
-            rows = [_message_summary(item) for item in value[:MAX_ITEMS]]
-            if len(value) > MAX_ITEMS:
-                rows.append(f"… {len(value) - MAX_ITEMS} more")
-            return [f"{label} ({len(value)})", *(f"  {row}" for row in rows)]
+            rows = (f"  {_message_summary(item)}" for item in value)
+            return [f"{label} ({len(value)})", *rows]
         if field.type == FieldDescriptor.TYPE_STRING:
             # Repeated strings are chunked text (stdout, previews) — join them.
-            lines = _cap("\n".join(value).rstrip().splitlines())
+            lines = "\n".join(value).rstrip().splitlines()
             return lines if bare else [f"{label}:", *lines]
         return [f"{label}: {', '.join(_scalar_text(field, v) for v in value)}"]
 
     if field.type == FieldDescriptor.TYPE_MESSAGE:
         return [f"{label}: {_message_summary(value)}"]
 
-    lines = _cap(_scalar_text(field, value).rstrip().splitlines())
+    lines = _scalar_text(field, value).rstrip().splitlines()
     if bare:
         return lines
     if len(lines) == 1:
