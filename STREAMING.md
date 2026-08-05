@@ -106,6 +106,43 @@ complete once it has executed or halted. Comparing `lifecycle` to
 `exec_error` is per cell and is **not** covered by the `run_error` event — a run
 can reach `run_complete` with individual cells that failed. Check both.
 
+### Printing cells
+
+`textql_sdk.cell_render` prints a cell snapshot the way the v2 SSE stream
+(`POST /v2/chats/stream`) presents it — a flat event log where an execution step
+appears twice: once when it starts running, carrying the query or code the model
+generated, and once when it finishes, carrying the result.
+
+```python
+from textql_sdk.cell_render import CellPrinter
+
+printer = CellPrinter()
+async for event in streaming.chats.watch_chat(request):
+    if event.WhichOneof("payload") == "cell":
+        printer.cell(event.cell)
+```
+
+```text
+cell  sql 4f2a91c8-…  running  connector_id=3
+      SELECT customer, sum(amount) AS revenue FROM orders GROUP BY 1
+cell  sql 4f2a91c8-…  done  842ms
+      dataframe: 12 rows × 2 cols
+      | customer | revenue |
+text  Acme led at $12,000.
+done  completed
+```
+
+`watch_chat` re-sends a full snapshot on every update, so `CellPrinter` collapses
+those to the two events above and never reprints a cell in the same state. A
+`Cell` is a oneof over ~50 payload types: `CELL_INPUTS` in that module names the
+input fields per type, and everything else the server set is printed directly off
+the protobuf descriptors, so an unfamiliar cell type still shows its contents.
+The registries are plain module-level dicts — reassign them to change what a type
+looks like. `cell_lines(cell, done)` gives you the lines for one event if you
+want to print them yourself.
+
+`examples/watch_chat.py` is the worked example.
+
 ### Resuming a dropped stream
 
 Every event carries a `cursor`, and cells that report `complete` mark a safe

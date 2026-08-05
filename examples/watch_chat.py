@@ -8,7 +8,7 @@ cell as it's produced. See STREAMING.md for the other streaming methods.
 Reading cell state
 ------------------
 Every `cell` event carries a **full snapshot** of that cell, not a delta, so key
-by `cell.id` and replace what you're holding. Three fields tell you where it is:
+by `cell.id` and re-render from the snapshot. Three fields tell you where it is:
 
 * `complete` — terminal. Branch on this, not on `lifecycle`. It's polymorphic
   server-side: a markdown cell is complete as soon as it's created, while a SQL
@@ -18,6 +18,25 @@ by `cell.id` and replace what you're holding. Three fields tell you where it is:
   so a long query reads as in-flight rather than as a finished empty cell.
 * `exec_error` — per-cell failure. A run can reach `run_complete` with
   individual cells that errored, so this is *not* covered by `run_error`.
+
+Printing a cell
+---------------
+A `Cell` is a oneof over ~50 payload types. This prints them as the flat event
+log the v2 SSE stream (`POST /v2/chats/stream`) produces: an execution step
+appears once when it starts running, carrying the query or code the model
+generated, and once when it finishes, carrying the result.
+
+    cell  sql 4f2a91c8-…  running
+          SELECT customer, sum(amount) AS revenue FROM orders GROUP BY 1
+    cell  sql 4f2a91c8-…  done  842ms
+          12 rows × 2 cols
+          | customer | revenue |
+    text  Acme led at $12,000.
+    done  completed
+
+`watch_chat` re-sends a full snapshot on every update, so `CellPrinter` (in
+`textql_sdk.cell_render`, not here) collapses those to those two events. See
+that module to change what a cell type looks like.
 
 Custom TLS
 ----------
@@ -39,16 +58,15 @@ See examples/README.md for setup under either package manager.
 """
 
 # pylint: disable=no-member,no-name-in-module
-# chat_pb2 builds its members at import time, so pylint can't see WatchChatRequest
-# or the LIFECYCLE_* constants. Suppressed in-file because pylintrc is
-# Speakeasy-managed and overwritten on every `speakeasy run` (see
-# scripts/postprocess-connect.py). pyright, which gates CI, resolves them fine.
+# chat_pb2 builds its members at import time, so pylint can't see
+# WatchChatRequest. Suppressed in-file because pylintrc is Speakeasy-managed and
+# overwritten on every `speakeasy run` (see scripts/postprocess-connect.py).
+# pyright, which gates CI, resolves it fine.
 
 import asyncio
 import os
 import pathlib
 import sys
-from dataclasses import dataclass
 from typing import Optional, Union
 
 import httpx
@@ -57,8 +75,8 @@ from connectrpc.errors import ConnectError as ConnectRpcError
 from dotenv import load_dotenv
 
 from textql_sdk import Textql
-from textql_sdk._connect.public import chat_pb2
 from textql_sdk._connect.public.chat_pb2 import WatchChatRequest
+from textql_sdk.cell_render import CellPrinter
 from textql_sdk.models import (
     ConnectError,
     TextqlRPCPublicParadigmParadigm,
@@ -66,13 +84,6 @@ from textql_sdk.models import (
     Universal,
 )
 from textql_sdk.streaming import create_streaming_client
-
-# Non-terminal states worth showing. Anything absent is either terminal (see
-# cell_status) or too noisy to be useful (CREATING, CREATED).
-LIFECYCLE_MARKERS = {
-    chat_pb2.LIFECYCLE_EXECUTING: "⏳ executing",
-    chat_pb2.LIFECYCLE_HANDOFF_PENDING: "⏸  waiting for input",
-}
 
 # Matches fe/src/lib/clients/WatchChatClient.ts, which is the reference consumer
 # of this stream.
@@ -99,82 +110,6 @@ def build_tls() -> tuple[Union[bool, str], Optional[pyqwest.Client]]:
         tls_include_system_certs=True,
     )
     return bundle, pyqwest.Client(transport)
-
-
-def cell_text(cell) -> str:
-    """Pull the human-readable text out of a Cell.
-
-    A Cell is a oneof over ~50 cell types; `WhichOneof("value")` names the
-    active one and each keeps its text in a different field. We cover the
-    common conversational types and fall back to the type name otherwise.
-    """
-    kind = cell.WhichOneof("value")
-    if kind is None:
-        return "(empty)"
-    payload = getattr(cell, kind)
-    url = getattr(payload, "url", "")
-    if url:
-        name = getattr(payload, "name", "")
-        return f"{name}: {url}" if name else url
-    for field_name in ("content", "summary", "status", "query", "code"):
-        text = getattr(payload, field_name, "")
-        if text:
-            return text
-    return f"({kind})"
-
-
-def cell_status(cell) -> str:
-    """One-line terminal status for a cell that just reported complete."""
-    if cell.exec_error:
-        return f"✗ failed: {cell.exec_error}"
-    if cell.lifecycle == chat_pb2.LIFECYCLE_HALTED:
-        return "⏹  halted"
-    took = f" ({cell.duration_ms}ms)" if cell.HasField("duration_ms") else ""
-    return f"✓ done{took}"
-
-
-@dataclass
-class CellView:
-    """What we've already rendered for one cell, so we only print what changed."""
-
-    text: str = ""
-    lifecycle: int = chat_pb2.LIFECYCLE_UNKNOWN
-    complete: bool = False
-    failed: bool = False
-    opened: bool = False
-
-
-def render_cell(cell, views: dict[str, CellView]) -> None:
-    view = views.setdefault(cell.id, CellView())
-    text = cell_text(cell)
-
-    if not view.opened:
-        print(f"\n[{cell.WhichOneof('value')} {cell.id[:8]}] ", end="", flush=True)
-        view.opened = True
-
-    if text.startswith(view.text):
-        # Monotonic growth — the common case while a cell streams tokens.
-        delta = text[len(view.text) :]
-        if delta:
-            print(delta, end="", flush=True)
-    elif text != view.text:
-        # Content was replaced rather than appended, e.g. a SQL cell swapping
-        # its query for query + results on EXECUTING -> EXECUTED. Slicing a
-        # delta here would print garbage, so reprint the whole thing.
-        print(f"\n  ↻ {text}", end="", flush=True)
-    view.text = text
-
-    if cell.lifecycle != view.lifecycle:
-        view.lifecycle = cell.lifecycle
-        marker = LIFECYCLE_MARKERS.get(cell.lifecycle)
-        if marker:
-            print(f"  {marker}", end="", flush=True)
-
-    # Latch `complete` so a re-emitted snapshot doesn't print the status twice.
-    if cell.complete and not view.complete:
-        view.complete = True
-        view.failed = bool(cell.exec_error)
-        print(f"\n  {cell_status(cell)}", flush=True)
 
 
 async def main() -> None:
@@ -220,10 +155,12 @@ async def main() -> None:
         raise RuntimeError(f"create_chat failed: {created}")
     assert created.chat is not None
     chat_id = created.chat.id
-    print(f"Chat created: {chat_id}")
+    assert isinstance(chat_id, str), "create_chat returned a chat with no ID"
+
+    out = CellPrinter()
+    out.note("chat", chat_id)
 
     opened = asyncio.Event()
-    views: dict[str, CellView] = {}
 
     # Resume state. `cursor` advances on every event; `last_complete_cell_id`
     # only on cells that reported complete. Both are replayed on reconnect so
@@ -252,35 +189,36 @@ async def main() -> None:
 
                     kind = event.WhichOneof("payload")
                     if kind == "opened":
-                        print("watch opened")
+                        out.note("watch", "opened")
                         opened.set()
                     elif kind == "cell":
                         if event.cell.complete:
                             last_complete_cell_id = event.cell.id
-                        render_cell(event.cell, views)
+                        out.cell(event.cell)
                     elif kind == "run_started":
-                        print("run started")
+                        out.note("run", "started")
                     elif kind == "run_complete":
-                        # A run completes even when individual cells failed, so
-                        # report those instead of a bare "run complete".
-                        failed = [cid for cid, v in views.items() if v.failed]
-                        pending = [c for c, v in views.items() if not v.complete]
-                        print("\nrun complete")
+                        out.flush()
+                        failed, pending = out.failed(), out.unfinished()
+                        # `run_complete` fires even when individual cells
+                        # failed; only `run_error` fails the run itself.
+                        out.note("done", "completed")
                         if failed:
-                            ids = ", ".join(c[:8] for c in failed)
-                            print(f"  {len(failed)} cell(s) failed: {ids}")
+                            out.note("", f"{len(failed)} cell(s) failed: "
+                                     + ", ".join(failed))
                         if pending:
-                            print(
-                                f"  {len(pending)} cell(s) never reached a "
-                                "terminal state"
-                            )
+                            out.note("", f"{len(pending)} cell(s) never reached "
+                                     "a terminal state")
                         return
                     elif kind == "run_error":
                         # Terminal: the run itself failed, so don't reconnect.
-                        print()
+                        out.flush()
+                        out.note("done", f"failed: {event.run_error}")
                         raise RuntimeError(f"run error: {event.run_error}")
                     elif kind == "handoff_pending":
-                        print(f"\nhandoff pending: {event.handoff_pending.handoff_marker}")
+                        out.note(
+                            "handoff", event.handoff_pending.handoff_marker
+                        )
                     elif kind == "heartbeat":
                         pass  # keepalive
             except ConnectRpcError as e:
@@ -293,7 +231,8 @@ async def main() -> None:
                         f"reconnect attempts: {e.code}"
                     ) from e
                 delay = BASE_RECONNECT_DELAY_S * 2 ** (attempt - 1)
-                print(f"\nstream dropped ({e.code}); reconnecting in {delay:.1f}s")
+                out.note("retry", f"stream dropped ({e.code}); "
+                         f"reconnecting in {delay:.1f}s")
                 await asyncio.sleep(delay)
                 continue
 
