@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: 5803591d65148a94402aefe31dc76d9f
+  docChecksum: d5248ecf0f593a80864b33e889ee78b1
   docVersion: 1.0.0
-  speakeasyVersion: 1.791.3
-  generationVersion: 2.926.2
-  releaseVersion: 1.0.14
-  configChecksum: 095777b145cab84798a6df812de840ea
+  speakeasyVersion: 1.791.4
+  generationVersion: 2.926.8
+  releaseVersion: 1.0.15
+  configChecksum: de9caa06906b661c83ab3ef5ad3ec9c8
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: d767d43d-5bcc-4f1d-863c-d75aee8d0992
-  pristine_commit_hash: 2c829b52c539199ced6f6256612ecf42a5f72ac7
-  pristine_tree_hash: 3b1d3cb6060cde338cb542be5cd57f042bf54dec
+  generation_id: d4286bf6-880e-4214-ae83-540360e69826
+  pristine_commit_hash: d8bfa89798428cfc67cfddab06ab6b41e1664c79
+  pristine_tree_hash: 58bab7c13b9cdf4481525f4a86127989ce7091ae
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9407,8 +9407,8 @@ trackedFiles:
     pristine_git_object: 14a5ab5a0178bf5f37c25306ec11372c1dfc1f4e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:489af49483530b50c65419c6bb10ca84984618eb
-    pristine_git_object: cecb0c221ae897521a789f0bf7b967b123e6a462
+    last_write_checksum: sha1:fe642a24863866cdc9c675905ffa73c8a9c87415
+    pristine_git_object: f1cb5e5a653ea76a7073b78569255fcefe3a152c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9435,8 +9435,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:c484812f479c67762474b82ef9c3ba70bf328db7
-    pristine_git_object: 41f81763e2b3088a1a4afb192b3bbf02f5505ee9
+    last_write_checksum: sha1:77f9579850a8acdb866be309ef7732c5553e5660
+    pristine_git_object: fc28a3c401dda43cc3cb23db40de804cd56310ee
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:8a4e32311f74147bc4e282a193bc0131d91d3fda
