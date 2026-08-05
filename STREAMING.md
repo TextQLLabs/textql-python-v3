@@ -83,6 +83,122 @@ for update in streaming.agents.stream_agent_status(StreamAgentStatusRequest()):
 
 Request/response types live under `textql_sdk._connect.public.<service>_pb2`.
 
+### Reading cell state
+
+`watch_chat` and `stream_chat` emit a **full snapshot** of a cell on every
+update, never a delta. Key by `cell.id` and replace what you're holding — don't
+concatenate, or a cell that rewrites its content mid-run (a SQL cell swapping
+its query for query + results) will render as garbage.
+
+Three fields tell you where a cell is:
+
+| Field | Use it for |
+| --- | --- |
+| `complete` | Terminal state. **Branch on this**, not on `lifecycle`. |
+| `lifecycle` | `LIFECYCLE_EXECUTING` — render the cell as in-flight. |
+| `exec_error` | Per-cell failure. |
+
+`complete` is polymorphic server-side: a non-executable cell (markdown, text) is
+complete as soon as it's created, while an executable one (SQL, Python) is only
+complete once it has executed or halted. Comparing `lifecycle` to
+`LIFECYCLE_EXECUTED` yourself marks every markdown cell as never finishing.
+
+`exec_error` is per cell and is **not** covered by the `run_error` event — a run
+can reach `run_complete` with individual cells that failed. Check both.
+
+### Printing cells
+
+`textql_sdk.cell_render` prints a cell snapshot the way the v2 SSE stream
+(`POST /v2/chats/stream`) presents it — a flat event log where an execution step
+appears twice: once when it starts running, carrying the query or code the model
+generated, and once when it finishes, carrying the result.
+
+```python
+from textql_sdk.cell_render import CellPrinter
+
+printer = CellPrinter()
+async for event in streaming.chats.watch_chat(request):
+    if event.WhichOneof("payload") == "cell":
+        printer.cell(event.cell)
+```
+
+```text
+cell  sql 4f2a91c8-…  running  connector_id=3
+      SELECT customer, sum(amount) AS revenue FROM orders GROUP BY 1
+cell  sql 4f2a91c8-…  done  842ms
+      dataframe: 12 rows × 2 cols
+      | customer | revenue |
+text  Acme led at $12,000.
+done  completed
+```
+
+`watch_chat` re-sends a full snapshot on every update, so `CellPrinter` collapses
+those to the two events above and never reprints a cell in the same state. A
+`Cell` is a oneof over ~50 payload types: `CELL_INPUTS` in that module names the
+input fields per type, and everything else the server set is printed directly off
+the protobuf descriptors, so an unfamiliar cell type still shows its contents.
+The registries are plain module-level dicts — reassign them to change what a type
+looks like. `cell_lines(cell, done)` gives you the lines for one event if you
+want to print them yourself.
+
+`examples/watch_chat.py` is the worked example.
+
+### Resuming a dropped stream
+
+Every event carries a `cursor`, and cells that report `complete` mark a safe
+restart point. Hold both and replay them on reconnect so the server resumes
+instead of re-sending the whole chat:
+
+```python
+request = WatchChatRequest(chat_id=chat_id)
+if last_complete_cell_id:
+    request.latest_complete_cell_id = last_complete_cell_id
+if cursor:
+    request.resume_cursor = cursor
+```
+
+Long runs *will* be cut by intermediary proxies, so treat a dropped stream as
+routine and retry with backoff rather than surfacing it as a run failure. A
+`run_error` event is different — that's the run itself failing, and is terminal.
+
+`examples/watch_chat.py` implements all of this. The reference consumer is
+`fe/src/lib/clients/WatchChatClient.ts` in the main repo, which uses the same
+cursor/`complete` checkpointing and a 7-attempt exponential backoff from 500ms.
+
+### Custom TLS (private CA, mTLS)
+
+Streaming does **not** share the SDK's HTTP client. Unary REST calls go through
+`httpx`; Connect streaming goes through `pyqwest`. `verify=` on the `Textql`
+client therefore does nothing for streaming — configure both:
+
+```python
+import pathlib, httpx, pyqwest
+from textql_sdk import Textql
+from textql_sdk.streaming import create_streaming_client
+
+ca = pathlib.Path("corp-ca.pem")
+
+sdk = Textql(api_key=..., async_client=httpx.AsyncClient(verify=str(ca)))
+streaming = create_streaming_client(
+    sdk,
+    http_client=pyqwest.Client(
+        pyqwest.HTTPTransport(
+            tls_ca_cert=ca.read_bytes(),
+            tls_include_system_certs=True,
+        )
+    ),
+)
+```
+
+> **`tls_include_system_certs=True` is not optional.** A `HTTPTransport` you
+> construct yourself starts with an empty trust store, so omitting it fails
+> *every* TLS handshake, not just ones needing the private CA. Passing no
+> `http_client` at all uses the shared default transport, which already trusts
+> the system store — so only build one when you actually need a custom CA.
+
+`http_client` is also accepted by `create_streaming_client_sync` (a
+`pyqwest.SyncClient`), `create_connect_client`, and `create_connect_client_sync`.
+
 For any other service in `textql_sdk._connect`, use the escape hatch:
 
 ```python

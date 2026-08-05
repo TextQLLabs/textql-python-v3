@@ -5,7 +5,7 @@ or **uv** — pick whichever your project already uses.
 
 | Example | What it shows |
 | --- | --- |
-| [`watch_chat.py`](watch_chat.py) | One chat, one run, streamed cell-by-cell over Connect-RPC |
+| [`watch_chat.py`](watch_chat.py) | One chat, one run, streamed over Connect-RPC and printed as a flat event log |
 | [`list_chats.py`](list_chats.py) | List chats with paging, sorting, and search |
 | [`chat_history.py`](chat_history.py) | Page through a chat's cells and render each one |
 | [`cancel_chat.py`](cancel_chat.py) | Start a long-running chat and cancel it mid-run |
