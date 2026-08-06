@@ -67,13 +67,13 @@ class OntologyManagementServiceApprovePatchRequest(BaseModel):
 
 OntologyManagementServiceApprovePatchResponseTypedDict = TypeAliasType(
     "OntologyManagementServiceApprovePatchResponseTypedDict",
-    Union[TextqlRPCPublicPatchesApprovePatchResponseTypedDict, ConnectErrorTypedDict],
+    Union[ConnectErrorTypedDict, TextqlRPCPublicPatchesApprovePatchResponseTypedDict],
 )
 
 
 OntologyManagementServiceApprovePatchResponse = TypeAliasType(
     "OntologyManagementServiceApprovePatchResponse",
-    Union[TextqlRPCPublicPatchesApprovePatchResponse, ConnectError],
+    Union[ConnectError, TextqlRPCPublicPatchesApprovePatchResponse],
 )
 
 

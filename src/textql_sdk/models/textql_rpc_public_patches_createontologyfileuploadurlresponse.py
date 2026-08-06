@@ -9,11 +9,21 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesCreateOntologyFileUploadURLResponseTypedDict(TypedDict):
+    r"""Counts of the entries a caller may see beneath a subtree. Excludes the subtree
+    root itself and reserved names (OWNERS, .gitignore, .DS_Store, .tmp-*), which
+    are bookkeeping rather than Ontology content.
+    """
+
     upload_url: NotRequired[str]
     upload_key: NotRequired[str]
 
 
 class TextqlRPCPublicPatchesCreateOntologyFileUploadURLResponse(BaseModel):
+    r"""Counts of the entries a caller may see beneath a subtree. Excludes the subtree
+    root itself and reserved names (OWNERS, .gitignore, .DS_Store, .tmp-*), which
+    are bookkeeping rather than Ontology content.
+    """
+
     upload_url: Annotated[Optional[str], pydantic.Field(alias="uploadUrl")] = None
 
     upload_key: Annotated[Optional[str], pydantic.Field(alias="uploadKey")] = None

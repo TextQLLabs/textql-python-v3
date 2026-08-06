@@ -12,6 +12,7 @@ TextqlRPCPublicChatLlmModel = Union[
         "MODEL_DEFAULT",
         "MODEL_DEFAULT_LARGE",
         "MODEL_DEFAULT_REASONING",
+        "MODEL_DEFAULT_SYSTEM",
         "MODEL_HAIKU_4_5",
         "MODEL_OPUS_4_8",
         "MODEL_FABLE_5",

@@ -11,6 +11,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesFileChatUsageTypedDict(TypedDict):
     chat_id: NotRequired[str]
+    r"""default 7d"""
     title: NotRequired[str]
     last_pulled: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -108,6 +109,7 @@ class TextqlRPCPublicPatchesFileChatUsageTypedDict(TypedDict):
 
 class TextqlRPCPublicPatchesFileChatUsage(BaseModel):
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    r"""default 7d"""
 
     title: Optional[str] = None
 

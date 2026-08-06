@@ -13,17 +13,14 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
 TotalBytesTypedDict = TypeAliasType("TotalBytesTypedDict", Union[int, str])
-r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
 
 TotalBytes = TypeAliasType("TotalBytes", Union[int, str])
-r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
 
 class TextqlRPCPublicPatchesOntologySizeDayTypedDict(TypedDict):
     date_: NotRequired[TextqlRPCPublicPatchesDateTypedDict]
     total_bytes: NotRequired[TotalBytesTypedDict]
-    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
     file_count: NotRequired[int]
 
 
@@ -35,7 +32,6 @@ class TextqlRPCPublicPatchesOntologySizeDay(BaseModel):
     total_bytes: Annotated[Optional[TotalBytes], pydantic.Field(alias="totalBytes")] = (
         None
     )
-    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
     file_count: Annotated[Optional[int], pydantic.Field(alias="fileCount")] = None
 

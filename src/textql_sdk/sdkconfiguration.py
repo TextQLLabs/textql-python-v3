@@ -16,7 +16,7 @@ from typing import Callable, Dict, Optional, Tuple, Union
 
 
 SERVERS = [
-    "https://app.textql.com",
+    "https://app.textql.com/rpc/public",
 ]
 """Contains the list of servers available to the SDK"""
 

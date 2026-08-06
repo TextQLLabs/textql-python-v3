@@ -13,6 +13,7 @@ TextqlRPCPublicPatchesPatchStatus = Union[
         "PATCH_STATUS_OPEN",
         "PATCH_STATUS_APPROVED",
         "PATCH_STATUS_DENIED",
+        "PATCH_STATUS_AWAITING_REMOTE_MERGE",
     ],
     UnrecognizedStr,
 ]
