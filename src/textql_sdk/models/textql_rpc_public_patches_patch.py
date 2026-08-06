@@ -233,6 +233,8 @@ class TextqlRPCPublicPatchesPatchTypedDict(TypedDict):
         List[TextqlRPCPublicPatchesPatchCodeownerStatusTypedDict]
     ]
     requested_reviewer_member_ids: NotRequired[List[str]]
+    remote_pr_url: NotRequired[Nullable[str]]
+    remote_pr_number: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicPatchesPatch(BaseModel):
@@ -477,6 +479,14 @@ class TextqlRPCPublicPatchesPatch(BaseModel):
         Optional[List[str]], pydantic.Field(alias="requestedReviewerMemberIds")
     ] = None
 
+    remote_pr_url: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="remotePrUrl")
+    ] = UNSET
+
+    remote_pr_number: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="remotePrNumber")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -503,10 +513,20 @@ class TextqlRPCPublicPatchesPatch(BaseModel):
                 "capabilities",
                 "codeOwnerStatus",
                 "requestedReviewerMemberIds",
+                "remotePrUrl",
+                "remotePrNumber",
             ]
         )
         nullable_fields = set(
-            ["chatId", "headAtMerge", "reviewerId", "authorEmail", "authorName"]
+            [
+                "chatId",
+                "headAtMerge",
+                "reviewerId",
+                "authorEmail",
+                "authorName",
+                "remotePrUrl",
+                "remotePrNumber",
+            ]
         )
         serialized = handler(self)
         m = {}

@@ -424,11 +424,11 @@ with Textql(
 * [get_file_usage](docs/sdks/ontology/README.md#get_file_usage) - GetFileUsage
 * [get_file_usage_timeline](docs/sdks/ontology/README.md#get_file_usage_timeline) - GetFileUsageTimeline
 * [get_ana_config](docs/sdks/ontology/README.md#get_ana_config) - GetOntologyAnaConfig
-* [get_file](docs/sdks/ontology/README.md#get_file) - GetOntologyFile
+* [get_file](docs/sdks/ontology/README.md#get_file) - Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
 * [get_github_o_auth_url](docs/sdks/ontology/README.md#get_github_o_auth_url) - GetOntologyGithubOAuthURL
 * [get_history_file_diff](docs/sdks/ontology/README.md#get_history_file_diff) - GetOntologyHistoryFileDiff
 * [get_owners](docs/sdks/ontology/README.md#get_owners) - GetOntologyOwners
-* [get_remote](docs/sdks/ontology/README.md#get_remote) - GetOntologyRemote
+* [get_remote](docs/sdks/ontology/README.md#get_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
 * [get_size_timeline](docs/sdks/ontology/README.md#get_size_timeline) - GetOntologySizeTimeline
 * [get_sync_conflicts](docs/sdks/ontology/README.md#get_sync_conflicts) - GetOntologySyncConflicts
 * [get_usage_summary](docs/sdks/ontology/README.md#get_usage_summary) - GetOntologyUsageSummary
@@ -449,12 +449,12 @@ with Textql(
 * [list_patch_objects](docs/sdks/ontology/README.md#list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
 * [list_patch_reviewers](docs/sdks/ontology/README.md#list_patch_reviewers) - ListPatchReviewers
 * [list_patches](docs/sdks/ontology/README.md#list_patches) - ListPatches
-* [list_skills](docs/sdks/ontology/README.md#list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+* [list_skills](docs/sdks/ontology/README.md#list_skills) - ListSkills
 * [plan_merge](docs/sdks/ontology/README.md#plan_merge) - PlanOntologyMerge
-* [preview_pull_from_remote](docs/sdks/ontology/README.md#preview_pull_from_remote) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+* [preview_pull_from_remote](docs/sdks/ontology/README.md#preview_pull_from_remote) - PreviewOntologyPullFromRemote
 * [pull_from_remote](docs/sdks/ontology/README.md#pull_from_remote) - PullOntologyFromRemote
 * [push_to_remote](docs/sdks/ontology/README.md#push_to_remote) - PushOntologyToRemote
-* [recover](docs/sdks/ontology/README.md#recover) - RecoverOntology
+* [recover](docs/sdks/ontology/README.md#recover) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
 * [remove_remote](docs/sdks/ontology/README.md#remove_remote) - RemoveOntologyRemote
 * [remove_submodule](docs/sdks/ontology/README.md#remove_submodule) - RemoveOntologySubmodule
 * [rename_file](docs/sdks/ontology/README.md#rename_file) - RenameOntologyFile
@@ -763,7 +763,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    server_url="https://app.textql.com",
+    server_url="https://app.textql.com/rpc/public",
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 

@@ -3,7 +3,13 @@
 from __future__ import annotations
 import pydantic
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -13,6 +19,8 @@ class TextqlRPCPublicPatchesApprovePatchResponseTypedDict(TypedDict):
     approval_count: NotRequired[int]
     required_approvals: NotRequired[int]
     already_approved: NotRequired[bool]
+    awaiting_remote_merge: NotRequired[bool]
+    remote_pr_url: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicPatchesApprovePatchResponse(BaseModel):
@@ -30,20 +38,44 @@ class TextqlRPCPublicPatchesApprovePatchResponse(BaseModel):
         Optional[bool], pydantic.Field(alias="alreadyApproved")
     ] = None
 
+    awaiting_remote_merge: Annotated[
+        Optional[bool], pydantic.Field(alias="awaitingRemoteMerge")
+    ] = None
+
+    remote_pr_url: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="remotePrUrl")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["merged", "approvalCount", "requiredApprovals", "alreadyApproved"]
+            [
+                "merged",
+                "approvalCount",
+                "requiredApprovals",
+                "alreadyApproved",
+                "awaitingRemoteMerge",
+                "remotePrUrl",
+            ]
         )
+        nullable_fields = set(["remotePrUrl"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m

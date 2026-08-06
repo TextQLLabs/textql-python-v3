@@ -214,6 +214,8 @@ class TextqlRPCPublicDashboardDashboardFolderTypedDict(TypedDict):
     r"""Direct apps in this folder"""
     total_app_count: NotRequired[int]
     r"""Including nested folders"""
+    is_favorited: NotRequired[bool]
+    r"""per-caller pin state (enriched, not stored on the folder)"""
 
 
 class TextqlRPCPublicDashboardDashboardFolder(BaseModel):
@@ -435,6 +437,9 @@ class TextqlRPCPublicDashboardDashboardFolder(BaseModel):
     )
     r"""Including nested folders"""
 
+    is_favorited: Annotated[Optional[bool], pydantic.Field(alias="isFavorited")] = None
+    r"""per-caller pin state (enriched, not stored on the folder)"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -451,6 +456,7 @@ class TextqlRPCPublicDashboardDashboardFolder(BaseModel):
                 "children",
                 "appCount",
                 "totalAppCount",
+                "isFavorited",
             ]
         )
         nullable_fields = set(["parentId"])
