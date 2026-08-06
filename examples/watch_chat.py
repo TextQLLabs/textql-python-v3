@@ -63,11 +63,17 @@ With uv, prefix the same command with `uv run`:
 See examples/README.md for setup under either package manager.
 """
 
+# pylint: disable=no-member,no-name-in-module
+# chat_pb2 builds its members at import time, so pylint can't see
+# WatchChatRequest. Suppressed in-file because pylintrc is Speakeasy-managed and
+# overwritten on every `speakeasy run` (see scripts/postprocess-connect.py).
+# pyright, which gates CI, resolves it fine.
 
 import asyncio
 import os
 import pathlib
 import sys
+from contextlib import aclosing
 from typing import AsyncGenerator, Optional, Union, cast
 
 import httpx
@@ -86,8 +92,11 @@ from textql_sdk.models import (
 )
 from textql_sdk.streaming import create_streaming_client
 
+# Matches fe/src/lib/clients/WatchChatClient.ts, which is the reference consumer
+# of this stream — including the watchdog's reset semantics in `watch` below.
 MAX_RECONNECT_ATTEMPTS = 7
 BASE_RECONNECT_DELAY_S = 0.5
+# Longer than the server's ~20s heartbeat, so only a wedged connection trips it.
 WATCHDOG_TIMEOUT_S = 30.0
 
 
@@ -219,30 +228,22 @@ async def main() -> None:
 
     async def stream_once() -> bool:
         """Consume one connection. True if the run finished, False if the
-        stream ended on its own. Raises `TimeoutError` if it goes quiet."""
-        nonlocal attempt
-        events = cast(
-            "AsyncGenerator[WatchChatEvent, None]",
+        stream ended on its own. Raises `asyncio.TimeoutError` if it goes
+        quiet — `aclosing` releases the socket that `wait_for` left mid-read."""
+        stream = cast(
+            AsyncGenerator[WatchChatEvent, None],
             streaming.chats.watch_chat(build_request()),
         )
-        try:
+        async with aclosing(stream) as events:
             while True:
-                try:
-                    event = await asyncio.wait_for(
-                        events.__anext__(), WATCHDOG_TIMEOUT_S
-                    )
-                except StopAsyncIteration:
+                event = await anext(events, None)  # type: ignore[call-overload]
+                if event is None:
                     return False
-                attempt = 0  # a delivered event means the stream is healthy
                 if handle(event):
                     return True
-        finally:
-            # wait_for cancels the read mid-flight, so the generator has to be
-            # closed explicitly before the socket is dropped.
-            await events.aclose()
 
     async def watch() -> None:
-        nonlocal attempt
+        attempt = 0
 
         while True:
             try:
@@ -250,9 +251,15 @@ async def main() -> None:
                     return
                 reason = "stream ended without run_complete"
             except asyncio.TimeoutError:
+                # Silence past the heartbeat means the connection is wedged, not
+                # that the model is slow. Like the FE, a watchdog trip restarts
+                # the backoff rather than spending a retry, so a long quiet run
+                # can't exhaust its budget just by being quiet.
                 attempt = 0
                 reason = f"no events for {WATCHDOG_TIMEOUT_S:.0f}s"
             except ConnectRpcError as e:
+                # Idle streams get closed by proxies on long runs, so retry from
+                # the cursor rather than giving up.
                 reason = f"stream dropped ({e.code})"
 
             attempt += 1
