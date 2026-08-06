@@ -90,6 +90,13 @@ update, never a delta. Key by `cell.id` and replace what you're holding — don'
 concatenate, or a cell that rewrites its content mid-run (a SQL cell swapping
 its query for query + results) will render as garbage.
 
+The one safe exception is conversational text (`md_cell`, `ans_cell`,
+`summary_cell`), which grows a few tokens at a time. `CellPrinter` does append
+those, because a terminal can't repaint the way the FE does — but it checks that
+each snapshot still starts with what it already printed and falls back to
+reprinting when it doesn't, since even markdown content is re-derived per
+snapshot server-side. Replacing is still the right default for everything else.
+
 Three fields tell you where a cell is:
 
 | Field | Use it for |
@@ -133,7 +140,9 @@ done  completed
 ```
 
 `watch_chat` re-sends a full snapshot on every update, so `CellPrinter` collapses
-those to the two events above and never reprints a cell in the same state. A
+those to the two events above and never reprints a cell in the same state —
+except for prose, which it appends as it arrives so the answer types itself out
+rather than landing in one block at the end. A
 `Cell` is a oneof over ~50 payload types: `CELL_INPUTS` in that module names the
 input fields per type, and everything else the server set is printed directly off
 the protobuf descriptors, so an unfamiliar cell type still shows its contents.
@@ -161,9 +170,16 @@ Long runs *will* be cut by intermediary proxies, so treat a dropped stream as
 routine and retry with backoff rather than surfacing it as a run failure. A
 `run_error` event is different — that's the run itself failing, and is terminal.
 
+A stream can also wedge without dropping: a buffering proxy may accept the
+request and never send anything back, which is indistinguishable from a slow
+model unless you time it out. Read with an idle timeout longer than the server's
+~20s heartbeat (the example uses 30s) and reconnect from the cursor when it
+trips. Don't count that against the retry budget, or a quiet run exhausts it.
+
 `examples/watch_chat.py` implements all of this. The reference consumer is
 `fe/src/lib/clients/WatchChatClient.ts` in the main repo, which uses the same
-cursor/`complete` checkpointing and a 7-attempt exponential backoff from 500ms.
+cursor/`complete` checkpointing, 30s watchdog, and 7-attempt exponential backoff
+from 500ms.
 
 ### Custom TLS (private CA, mTLS)
 

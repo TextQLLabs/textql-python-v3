@@ -189,7 +189,8 @@ async def main() -> None:
 
     def handle(event: WatchChatEvent) -> bool:
         """Dispatch one event. True once the run is over."""
-        nonlocal last_complete_cell_id, cursor
+        nonlocal last_complete_cell_id, cursor, attempt
+        attempt = 0  # a delivered event means the stream is healthy
         if event.cursor:
             cursor = event.cursor
 
@@ -236,14 +237,16 @@ async def main() -> None:
         )
         async with aclosing(stream) as events:
             while True:
-                event = await anext(events, None)  # type: ignore[call-overload]
+                event = await asyncio.wait_for(
+                    anext(events, None), WATCHDOG_TIMEOUT_S
+                )
                 if event is None:
                     return False
                 if handle(event):
                     return True
 
     async def watch() -> None:
-        attempt = 0
+        nonlocal attempt
 
         while True:
             try:
