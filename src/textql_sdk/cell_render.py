@@ -28,6 +28,13 @@ Usage over the streaming bridge:
 collapses those to the two moments above; it never reprints a cell it has
 already shown in the same state.
 
+Prose is the exception. Its snapshots carry a *longer message* rather than a
+further-along cell — `content` grows a few tokens at a time with `complete`
+false the whole way — so each one's new text is appended as it lands and the
+answer types itself out. `fe/src/lib/clients/WatchChatClient.ts` feeds every
+snapshot to `updateMessageInPlace` and lets Svelte repaint for the same reason;
+a terminal can't repaint, so it appends instead.
+
 `CELL_INPUTS` names the input fields per cell type, and everything else the
 server set is printed directly off the protobuf descriptors — so a cell type this
 module has never heard of still shows its contents. The registries are plain
@@ -46,6 +53,7 @@ __all__ = [
     "CellPrinter",
     "cell_lines",
     "cell_kind",
+    "cell_prose",
     "cell_state",
     "CELL_KINDS",
     "CELL_INPUTS",
@@ -142,6 +150,27 @@ def cell_kind(cell: Any) -> str:
     if kind is None:
         return "empty"
     return CELL_KINDS.get(kind, str(kind).removesuffix("_cell"))
+
+
+def cell_prose(cell: Any) -> Optional[tuple[str, str]]:
+    """`(label, text)` for a conversational cell, or `None` if it isn't one.
+
+    Prose is written a token at a time: the stream re-sends the cell with a
+    longer `content` every few hundred milliseconds, `complete` staying false
+    the whole way. Waiting for `complete` therefore turns a message that took
+    six seconds to write into one block that appears at the end, so
+    `CellPrinter` renders the new suffix on every snapshot instead.
+    """
+    kind = cell.WhichOneof("value")
+    field = PROSE_CELLS.get(kind)
+    if field is None:
+        return None
+    payload = getattr(cell, kind)
+    if field not in {f.name for f in payload.DESCRIPTOR.fields}:
+        return None
+    # v2 calls the assistant's prose `text`; a human turn is not one of its
+    # events at all, so label it rather than blur the two together.
+    return ("text" if cell.generated else "you"), (getattr(payload, field) or "")
 
 
 def cell_state(cell: Any) -> str:
@@ -290,16 +319,12 @@ def cell_lines(cell: Any, done: bool) -> list[str]:
     if kind == "thinking_cell" and not payload.content:
         return []
 
-    text_field = PROSE_CELLS.get(kind)
-    if text_field is not None and text_field in {
-        f.name for f in payload.DESCRIPTOR.fields
-    }:
+    prose = cell_prose(cell)
+    if prose is not None:
         if not done:
             return []
-        # v2 calls the assistant's prose `text`; a human turn is not one of its
-        # events at all, so label it rather than blur the two together.
-        label = "text" if cell.generated else "you"
-        body = (getattr(payload, text_field) or "").strip().splitlines() or ["(empty)"]
+        label, text = prose
+        body = text.strip().splitlines() or ["(empty)"]
         rest = [(INDENT + line).rstrip() for line in body[1:]]
         return [f"{label:<{LABEL_WIDTH}}{body[0]}", *rest]
 
@@ -326,6 +351,16 @@ def cell_lines(cell: Any, done: bool) -> list[str]:
     return [head, *((INDENT + line).rstrip() for line in body)]
 
 
+def _reflow(delta: str) -> str:
+    """Indent a prose chunk's continuation lines under the label.
+
+    Every line but the last one is finished, so its trailing whitespace is
+    dropped the way the block form does; the last is still being written.
+    """
+    *finished, tail = delta.split("\n")
+    return ("\n" + INDENT).join([*(line.rstrip() for line in finished), tail])
+
+
 class CellPrinter:
     """Prints each cell twice: when it starts running, and when it finishes.
 
@@ -333,14 +368,24 @@ class CellPrinter:
     still being written, while it executes, and once more when it settles. This
     collapses that to the two events the v2 stream emits, so a run reads as a
     flat log instead of the same cell scrolling past a dozen times.
+
+    Prose is the exception. Those snapshots carry a *longer* message rather than
+    a further-along cell, so they're written out as they land — the message
+    types itself instead of appearing all at once when the cell completes. See
+    :func:`cell_prose`.
     """
 
     def __init__(self) -> None:
         self.latest: dict[str, Any] = {}
         self.shown: set[tuple[str, bool]] = set()
+        # Prose cell holding the cursor mid-line, and how much of each cell's
+        # text has already gone out.
+        self._open: Optional[str] = None
+        self._offsets: dict[str, int] = {}
 
     def note(self, event: str, text: str = "") -> None:
         """Print a run-level line, lined up with the cell bodies."""
+        self._close()
         print(f"{event:<{LABEL_WIDTH}}{text}".rstrip(), flush=True)
 
     def cell(self, cell: Any) -> None:
@@ -348,12 +393,46 @@ class CellPrinter:
         # pylint: disable=no-member
         # chat_pb2 builds LIFECYCLE_EXECUTING at import time; pyright resolves it.
         self.latest[cell.id] = cell
+        prose = cell_prose(cell)
+        if prose is not None:
+            self._prose(cell, *prose)
+            return
         if cell.lifecycle >= chat_pb2.LIFECYCLE_EXECUTING:
             # Only now is the generated query or code final. Cells that never
             # execute (markdown, documents) skip straight to the done event.
             self._emit(cell, done=False)
         if cell.complete:
             self._emit(cell, done=True)
+
+    def _prose(self, cell: Any, label: str, text: str) -> None:
+        """Append whatever this snapshot added to a message already in flight."""
+        if (cell.id, True) in self.shown:
+            return
+        written = self._offsets.get(cell.id, 0)
+        if self._open != cell.id:
+            if not text.strip() and not cell.complete:
+                return  # nothing said yet — don't open a bare label line
+            # Another cell printed in between (or this is the first token), so
+            # re-label. Mid-message that reads as a continuation, not a repeat.
+            self._close()
+            print(f"{label:<{LABEL_WIDTH}}", end="", flush=True)
+            self._open = cell.id
+        delta = text[written:]
+        if written == 0:
+            delta = delta.lstrip()  # would otherwise land right after the label
+        self._offsets[cell.id] = len(text)
+        print(_reflow(delta), end="", flush=True)
+        if cell.complete:
+            if not text.strip():
+                print("(empty)", end="")
+            self.shown.add((cell.id, True))
+            self._close()
+
+    def _close(self) -> None:
+        """End the line a streaming prose cell left open."""
+        if self._open is not None:
+            self._open = None
+            print(flush=True)
 
     def _emit(self, cell: Any, done: bool) -> None:
         if (cell.id, done) in self.shown:
@@ -365,12 +444,17 @@ class CellPrinter:
             lines = [f"cell  {cell.id}  print failed: {exc!r}"]
         self.shown.add((cell.id, done))
         if lines:
+            self._close()  # don't land on the end of a half-written message
             print("\n".join(lines), flush=True)
 
     def flush(self) -> None:
         """Print cells that never reached a terminal state."""
+        self._close()
         for cell in self.latest.values():
-            self._emit(cell, done=True)
+            # Prose that was still being written has already had everything the
+            # stream delivered; reprinting it as a block would duplicate it.
+            if cell.id not in self._offsets:
+                self._emit(cell, done=True)
 
     def failed(self) -> list[str]:
         """IDs of cells that reported `exec_error` — not covered by `run_error`."""

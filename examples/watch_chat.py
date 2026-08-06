@@ -38,6 +38,12 @@ generated, and once when it finishes, carrying the result.
 `textql_sdk.cell_render`, not here) collapses those to those two events. See
 that module to change what a cell type looks like.
 
+Prose is the exception. Its snapshots carry a longer message rather than a
+further-along cell — `content` grows by a few tokens at a time with `complete`
+false the whole way — so `CellPrinter` appends each one's new text and the
+answer types itself out. Waiting for `complete` instead turns a message that
+took six seconds to write into a block that lands all at once at the end.
+
 Custom TLS
 ----------
 Set ``TEXTQL_CA_BUNDLE`` to a PEM path to trust a private CA (corporate proxy,
@@ -57,17 +63,12 @@ With uv, prefix the same command with `uv run`:
 See examples/README.md for setup under either package manager.
 """
 
-# pylint: disable=no-member,no-name-in-module
-# chat_pb2 builds its members at import time, so pylint can't see
-# WatchChatRequest. Suppressed in-file because pylintrc is Speakeasy-managed and
-# overwritten on every `speakeasy run` (see scripts/postprocess-connect.py).
-# pyright, which gates CI, resolves it fine.
 
 import asyncio
 import os
 import pathlib
 import sys
-from typing import Optional, Union
+from typing import AsyncGenerator, Optional, Union, cast
 
 import httpx
 import pyqwest
@@ -75,7 +76,7 @@ from connectrpc.errors import ConnectError as ConnectRpcError
 from dotenv import load_dotenv
 
 from textql_sdk import Textql
-from textql_sdk._connect.public.chat_pb2 import WatchChatRequest
+from textql_sdk._connect.public.chat_pb2 import WatchChatEvent, WatchChatRequest
 from textql_sdk.cell_render import CellPrinter
 from textql_sdk.models import (
     ConnectError,
@@ -85,10 +86,9 @@ from textql_sdk.models import (
 )
 from textql_sdk.streaming import create_streaming_client
 
-# Matches fe/src/lib/clients/WatchChatClient.ts, which is the reference consumer
-# of this stream.
 MAX_RECONNECT_ATTEMPTS = 7
 BASE_RECONNECT_DELAY_S = 0.5
+WATCHDOG_TIMEOUT_S = 30.0
 
 
 def build_tls() -> tuple[Union[bool, str], Optional[pyqwest.Client]]:
@@ -145,7 +145,8 @@ async def main() -> None:
         ),
     )
 
-    # 1) Create the chat (message is the first user turn).
+    # Create the chat (message is the first user turn). The model is fixed here
+    # for the life of the chat.
     created = await sdk.chats.create_chat_async(
         message=message,
         model="MODEL_SONNET_4_6",
@@ -167,6 +168,7 @@ async def main() -> None:
     # the server resumes instead of re-sending the whole chat.
     cursor = ""
     last_complete_cell_id = ""
+    attempt = 0
 
     def build_request() -> WatchChatRequest:
         request = WatchChatRequest(chat_id=chat_id)
@@ -176,77 +178,97 @@ async def main() -> None:
             request.resume_cursor = cursor
         return request
 
+    def handle(event: WatchChatEvent) -> bool:
+        """Dispatch one event. True once the run is over."""
+        nonlocal last_complete_cell_id, cursor
+        if event.cursor:
+            cursor = event.cursor
+
+        kind = event.WhichOneof("payload")
+        if kind == "opened":
+            out.note("watch", "opened")
+            opened.set()
+        elif kind == "cell":
+            if event.cell.complete:
+                last_complete_cell_id = event.cell.id
+            out.cell(event.cell)
+        elif kind == "run_started":
+            out.note("run", "started")
+        elif kind == "run_complete":
+            out.flush()
+            failed, pending = out.failed(), out.unfinished()
+            # `run_complete` fires even when individual cells failed; only
+            # `run_error` fails the run itself.
+            out.note("done", "completed")
+            if failed:
+                out.note("", f"{len(failed)} cell(s) failed: " + ", ".join(failed))
+            if pending:
+                out.note("", f"{len(pending)} cell(s) never reached "
+                         "a terminal state")
+            return True
+        elif kind == "run_error":
+            # Terminal: the run itself failed, so don't reconnect.
+            out.flush()
+            out.note("done", f"failed: {event.run_error}")
+            raise RuntimeError(f"run error: {event.run_error}")
+        elif kind == "handoff_pending":
+            out.note("handoff", event.handoff_pending.handoff_marker)
+        elif kind == "heartbeat":
+            pass  # keepalive
+        return False
+
+    async def stream_once() -> bool:
+        """Consume one connection. True if the run finished, False if the
+        stream ended on its own. Raises `TimeoutError` if it goes quiet."""
+        nonlocal attempt
+        events = cast(
+            "AsyncGenerator[WatchChatEvent, None]",
+            streaming.chats.watch_chat(build_request()),
+        )
+        try:
+            while True:
+                try:
+                    event = await asyncio.wait_for(
+                        events.__anext__(), WATCHDOG_TIMEOUT_S
+                    )
+                except StopAsyncIteration:
+                    return False
+                attempt = 0  # a delivered event means the stream is healthy
+                if handle(event):
+                    return True
+        finally:
+            # wait_for cancels the read mid-flight, so the generator has to be
+            # closed explicitly before the socket is dropped.
+            await events.aclose()
+
     async def watch() -> None:
-        nonlocal cursor, last_complete_cell_id
-        attempt = 0
+        nonlocal attempt
 
         while True:
             try:
-                async for event in streaming.chats.watch_chat(build_request()):
-                    attempt = 0  # a delivered event means the stream is healthy
-                    if event.cursor:
-                        cursor = event.cursor
-
-                    kind = event.WhichOneof("payload")
-                    if kind == "opened":
-                        out.note("watch", "opened")
-                        opened.set()
-                    elif kind == "cell":
-                        if event.cell.complete:
-                            last_complete_cell_id = event.cell.id
-                        out.cell(event.cell)
-                    elif kind == "run_started":
-                        out.note("run", "started")
-                    elif kind == "run_complete":
-                        out.flush()
-                        failed, pending = out.failed(), out.unfinished()
-                        # `run_complete` fires even when individual cells
-                        # failed; only `run_error` fails the run itself.
-                        out.note("done", "completed")
-                        if failed:
-                            out.note("", f"{len(failed)} cell(s) failed: "
-                                     + ", ".join(failed))
-                        if pending:
-                            out.note("", f"{len(pending)} cell(s) never reached "
-                                     "a terminal state")
-                        return
-                    elif kind == "run_error":
-                        # Terminal: the run itself failed, so don't reconnect.
-                        out.flush()
-                        out.note("done", f"failed: {event.run_error}")
-                        raise RuntimeError(f"run error: {event.run_error}")
-                    elif kind == "handoff_pending":
-                        out.note(
-                            "handoff", event.handoff_pending.handoff_marker
-                        )
-                    elif kind == "heartbeat":
-                        pass  # keepalive
+                if await stream_once():
+                    return
+                reason = "stream ended without run_complete"
+            except asyncio.TimeoutError:
+                attempt = 0
+                reason = f"no events for {WATCHDOG_TIMEOUT_S:.0f}s"
             except ConnectRpcError as e:
-                # Transport-level failure. Idle streams get closed by proxies on
-                # long runs, so retry from the cursor rather than giving up.
-                attempt += 1
-                if attempt > MAX_RECONNECT_ATTEMPTS:
-                    raise RuntimeError(
-                        f"watch_chat failed after {MAX_RECONNECT_ATTEMPTS} "
-                        f"reconnect attempts: {e.code}"
-                    ) from e
-                delay = BASE_RECONNECT_DELAY_S * 2 ** (attempt - 1)
-                out.note("retry", f"stream dropped ({e.code}); "
-                         f"reconnecting in {delay:.1f}s")
-                await asyncio.sleep(delay)
-                continue
+                reason = f"stream dropped ({e.code})"
 
-            # Generator ended without run_complete — same treatment.
             attempt += 1
             if attempt > MAX_RECONNECT_ATTEMPTS:
-                raise RuntimeError("watch_chat ended without run_complete")
-            await asyncio.sleep(BASE_RECONNECT_DELAY_S * 2 ** (attempt - 1))
+                raise RuntimeError(
+                    f"watch_chat failed after {MAX_RECONNECT_ATTEMPTS} "
+                    f"reconnect attempts: {reason}"
+                )
+            delay = BASE_RECONNECT_DELAY_S * 2 ** (attempt - 1)
+            out.note("retry", f"{reason}; reconnecting in {delay:.1f}s")
+            await asyncio.sleep(delay)
 
     watch_task = asyncio.create_task(watch())
     await opened.wait()
 
-    # 3) Start the run; watch_task receives cells + lifecycle until run_complete.
-    run = await sdk.chats.run_async(chat_id=chat_id, model="MODEL_SONNET_4_6")
+    run = await sdk.chats.run_async(chat_id=chat_id)
     if isinstance(run, ConnectError):
         watch_task.cancel()
         raise RuntimeError(f"run failed: {run}")
