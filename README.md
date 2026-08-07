@@ -206,29 +206,29 @@ with Textql(
 
 ### [Apps](docs/sdks/apps/README.md)
 
-* [heartbeat](docs/sdks/apps/README.md#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+* [heartbeat](docs/sdks/apps/README.md#heartbeat) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [create_app](docs/sdks/apps/README.md#create_app) - CreateApp
 * [delete_app](docs/sdks/apps/README.md#delete_app) - DeleteApp
 * [duplicate](docs/sdks/apps/README.md#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](docs/sdks/apps/README.md#get) - GetApp
-* [get_db_schema](docs/sdks/apps/README.md#get_db_schema) - GetAppDBSchema
-* [get_db_table_preview](docs/sdks/apps/README.md#get_db_table_preview) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
-* [get_member_state](docs/sdks/apps/README.md#get_member_state) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
-* [get_app_version](docs/sdks/apps/README.md#get_app_version) - GetAppVersion
-* [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+* [get_db_schema](docs/sdks/apps/README.md#get_db_schema) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [get_db_table_preview](docs/sdks/apps/README.md#get_db_table_preview) - GetAppDBTablePreview
+* [get_member_state](docs/sdks/apps/README.md#get_member_state) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+* [get_app_version](docs/sdks/apps/README.md#get_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+* [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 * [get_members_with_apps](docs/sdks/apps/README.md#get_members_with_apps) - GetMembersWithApps
-* [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
-* [list_activity_since](docs/sdks/apps/README.md#list_activity_since) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
-* [list_versions](docs/sdks/apps/README.md#list_versions) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+* [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - InvokeAppComputeFunction
+* [list_activity_since](docs/sdks/apps/README.md#list_activity_since) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+* [list_versions](docs/sdks/apps/README.md#list_versions) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 * [list](docs/sdks/apps/README.md#list) - ListApps
-* [list_my_member_activity](docs/sdks/apps/README.md#list_my_member_activity) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+* [list_my_member_activity](docs/sdks/apps/README.md#list_my_member_activity) - View analytics: reads the engagement views recorded on app page load.
 * [move_app_to_folder](docs/sdks/apps/README.md#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
-* [presence_heartbeat](docs/sdks/apps/README.md#presence_heartbeat) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
-* [record_member_activity](docs/sdks/apps/README.md#record_member_activity) - View analytics: reads the engagement views recorded on app page load.
+* [presence_heartbeat](docs/sdks/apps/README.md#presence_heartbeat) - PresenceHeartbeat
+* [record_member_activity](docs/sdks/apps/README.md#record_member_activity) - Replaces the calling member's entire ordering; capped server-side.
 * [refresh](docs/sdks/apps/README.md#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 * [restore_app_version](docs/sdks/apps/README.md#restore_app_version) - RestoreAppVersion
-* [set_member_state](docs/sdks/apps/README.md#set_member_state) - Replaces the calling member's entire ordering; capped server-side.
-* [set_favorite](docs/sdks/apps/README.md#set_favorite) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+* [set_member_state](docs/sdks/apps/README.md#set_member_state) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
+* [set_favorite](docs/sdks/apps/README.md#set_favorite) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [update](docs/sdks/apps/README.md#update) - UpdateApp
 
 ### [AuditLogs](docs/sdks/auditlogs/README.md)
@@ -405,11 +405,11 @@ with Textql(
 
 * [add_submodule](docs/sdks/ontology/README.md#add_submodule) - AddOntologySubmodule
 * [approve_patch](docs/sdks/ontology/README.md#approve_patch) - ApprovePatch
-* [configure_remote](docs/sdks/ontology/README.md#configure_remote) - ConfigureOntologyRemote
+* [configure_remote](docs/sdks/ontology/README.md#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
 * [create_approval_rule](docs/sdks/ontology/README.md#create_approval_rule) - CreateApprovalRule
 * [create_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
 * [create_directory](docs/sdks/ontology/README.md#create_directory) - CreateOntologyDirectory
-* [create_file_upload_url](docs/sdks/ontology/README.md#create_file_upload_url) - CreateOntologyFileUploadUrl
+* [create_file_upload_url](docs/sdks/ontology/README.md#create_file_upload_url) - Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
 * [delete_approval_rule](docs/sdks/ontology/README.md#delete_approval_rule) - DeleteApprovalRule
 * [delete_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
 * [delete_directory](docs/sdks/ontology/README.md#delete_directory) - DeleteOntologyDirectory
@@ -424,17 +424,17 @@ with Textql(
 * [get_file_usage](docs/sdks/ontology/README.md#get_file_usage) - GetFileUsage
 * [get_file_usage_timeline](docs/sdks/ontology/README.md#get_file_usage_timeline) - GetFileUsageTimeline
 * [get_ana_config](docs/sdks/ontology/README.md#get_ana_config) - GetOntologyAnaConfig
-* [get_file](docs/sdks/ontology/README.md#get_file) - Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+* [get_file](docs/sdks/ontology/README.md#get_file) - GetOntologyFile
 * [get_github_o_auth_url](docs/sdks/ontology/README.md#get_github_o_auth_url) - GetOntologyGithubOAuthURL
 * [get_history_file_diff](docs/sdks/ontology/README.md#get_history_file_diff) - GetOntologyHistoryFileDiff
 * [get_owners](docs/sdks/ontology/README.md#get_owners) - GetOntologyOwners
-* [get_remote](docs/sdks/ontology/README.md#get_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+* [get_remote](docs/sdks/ontology/README.md#get_remote) - GetOntologyRemote
 * [get_size_timeline](docs/sdks/ontology/README.md#get_size_timeline) - GetOntologySizeTimeline
 * [get_sync_conflicts](docs/sdks/ontology/README.md#get_sync_conflicts) - GetOntologySyncConflicts
 * [get_usage_summary](docs/sdks/ontology/README.md#get_usage_summary) - GetOntologyUsageSummary
 * [get_patch](docs/sdks/ontology/README.md#get_patch) - GetPatch
 * [get_patch_by_number](docs/sdks/ontology/README.md#get_patch_by_number) - GetPatchByNumber
-* [get_patch_capabilities](docs/sdks/ontology/README.md#get_patch_capabilities) - GetPatchCapabilities
+* [get_patch_capabilities](docs/sdks/ontology/README.md#get_patch_capabilities) - PlanConfigMigration reports what the lazy config migration WOULD do to this  org's objects, and writes nothing. Admin-only, internal: it exists so a  release manager can warn the specific orgs a rollout will affect — notably  the objects that will stop running because adoption binds a Runner who can  no longer run them.
 * [get_raw_patch](docs/sdks/ontology/README.md#get_raw_patch) - GetRawPatch
 * [get_usage_details_for_file](docs/sdks/ontology/README.md#get_usage_details_for_file) - GetUsageDetailsForFile
 * [list_approval_rules](docs/sdks/ontology/README.md#list_approval_rules) - ListApprovalRules
@@ -454,7 +454,7 @@ with Textql(
 * [preview_pull_from_remote](docs/sdks/ontology/README.md#preview_pull_from_remote) - PreviewOntologyPullFromRemote
 * [pull_from_remote](docs/sdks/ontology/README.md#pull_from_remote) - PullOntologyFromRemote
 * [push_to_remote](docs/sdks/ontology/README.md#push_to_remote) - PushOntologyToRemote
-* [recover](docs/sdks/ontology/README.md#recover) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+* [recover](docs/sdks/ontology/README.md#recover) - RecoverOntology
 * [remove_remote](docs/sdks/ontology/README.md#remove_remote) - RemoveOntologyRemote
 * [remove_submodule](docs/sdks/ontology/README.md#remove_submodule) - RemoveOntologySubmodule
 * [rename_file](docs/sdks/ontology/README.md#rename_file) - RenameOntologyFile
@@ -468,7 +468,7 @@ with Textql(
 * [trigger_config_drift_reconcile](docs/sdks/ontology/README.md#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile
 * [update_approval_rule](docs/sdks/ontology/README.md#update_approval_rule) - UpdateApprovalRule
 * [update_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
-* [update_sync_config](docs/sdks/ontology/README.md#update_sync_config) - UpdateOntologySyncConfig
+* [update_sync_config](docs/sdks/ontology/README.md#update_sync_config) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
 * [upsert_ana_config](docs/sdks/ontology/README.md#upsert_ana_config) - UpsertOntologyAnaConfig
 * [upsert_file](docs/sdks/ontology/README.md#upsert_file) - UpsertOntologyFile
 * [upsert_owners](docs/sdks/ontology/README.md#upsert_owners) - UpsertOntologyOwners

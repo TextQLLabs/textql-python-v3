@@ -15,12 +15,14 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicAppCapabilityParamTypedDict(TypedDict):
     name: NotRequired[str]
+    r"""False when the document predates tree publishing and has no runtime to overwrite."""
     type: NotRequired[Nullable[str]]
     description: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicAppCapabilityParam(BaseModel):
     name: Optional[str] = None
+    r"""False when the document predates tree publishing and has no runtime to overwrite."""
 
     type: OptionalNullable[str] = UNSET
 

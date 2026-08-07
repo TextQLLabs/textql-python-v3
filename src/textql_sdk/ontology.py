@@ -467,7 +467,11 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceConfigureOntologyRemoteResponse:
-        r"""ConfigureOntologyRemote
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+
+        Lists the skills under the ontology's flat skills/ root that the caller can
+        read (OWNERS-filtered). Returns display metadata only — never instruction
+        bodies — feeding the chat composer's `/` autocomplete.
 
         :param connect_timeout_ms:
         :param remote_url:
@@ -607,7 +611,11 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceConfigureOntologyRemoteResponse:
-        r"""ConfigureOntologyRemote
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+
+        Lists the skills under the ontology's flat skills/ root that the caller can
+        read (OWNERS-filtered). Returns display metadata only — never instruction
+        bodies — feeding the chat composer's `/` autocomplete.
 
         :param connect_timeout_ms:
         :param remote_url:
@@ -1408,7 +1416,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceCreateOntologyFileUploadURLResponse:
-        r"""CreateOntologyFileUploadUrl
+        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+
+        Streams how many folders and files a subtree holds, so the UI can report the
+        size of the whole Ontology rather than only the directories it has lazily
+        listed. Counts rise monotonically across frames; the last frame sets
+        `final`. A cache hit emits a single `final` frame with `from_cache` set.
 
         :param connect_timeout_ms:
         :param path:
@@ -1524,7 +1537,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceCreateOntologyFileUploadURLResponse:
-        r"""CreateOntologyFileUploadUrl
+        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+
+        Streams how many folders and files a subtree holds, so the UI can report the
+        size of the whole Ontology rather than only the directories it has lazily
+        listed. Counts rise monotonically across frames; the last frame sets
+        `final`. A cache hit emits a single `final` frame with `from_cache` set.
 
         :param connect_timeout_ms:
         :param path:
@@ -4859,12 +4877,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetOntologyFileResponse:
-        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
-
-        Streams how many folders and files a subtree holds, so the UI can report the
-        size of the whole Ontology rather than only the directories it has lazily
-        listed. Counts rise monotonically across frames; the last frame sets
-        `final`. A cache hit emits a single `final` frame with `from_cache` set.
+        r"""GetOntologyFile
 
         :param connect_timeout_ms:
         :param path:
@@ -4968,12 +4981,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetOntologyFileResponse:
-        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
-
-        Streams how many folders and files a subtree holds, so the UI can report the
-        size of the whole Ontology rather than only the directories it has lazily
-        listed. Counts rise monotonically across frames; the last frame sets
-        `final`. A cache hit emits a single `final` frame with `from_cache` set.
+        r"""GetOntologyFile
 
         :param connect_timeout_ms:
         :param path:
@@ -5718,11 +5726,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetOntologyRemoteResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
-
-        Lists the skills under the ontology's flat skills/ root that the caller can
-        read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete.
+        r"""GetOntologyRemote
 
         :param body:
         :param connect_timeout_ms:
@@ -5829,11 +5833,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetOntologyRemoteResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
-
-        Lists the skills under the ontology's flat skills/ root that the caller can
-        read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete.
+        r"""GetOntologyRemote
 
         :param body:
         :param connect_timeout_ms:
@@ -7209,7 +7209,13 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetPatchCapabilitiesResponse:
-        r"""GetPatchCapabilities
+        r"""PlanConfigMigration reports what the lazy config migration WOULD do to this  org's objects, and writes nothing. Admin-only, internal: it exists so a  release manager can warn the specific orgs a rollout will affect — notably  the objects that will stop running because adoption binds a Runner who can  no longer run them.
+
+        PlanConfigMigration reports what the lazy config migration WOULD do to this
+        org's objects, and writes nothing. Admin-only, internal: it exists so a
+        release manager can warn the specific orgs a rollout will affect — notably
+        the objects that will stop running because adoption binds a Runner who can
+        no longer run them.
 
         :param connect_timeout_ms:
         :param patch_id: Library path of the file that defines the object
@@ -7313,7 +7319,13 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetPatchCapabilitiesResponse:
-        r"""GetPatchCapabilities
+        r"""PlanConfigMigration reports what the lazy config migration WOULD do to this  org's objects, and writes nothing. Admin-only, internal: it exists so a  release manager can warn the specific orgs a rollout will affect — notably  the objects that will stop running because adoption binds a Runner who can  no longer run them.
+
+        PlanConfigMigration reports what the lazy config migration WOULD do to this
+        org's objects, and writes nothing. Admin-only, internal: it exists so a
+        release manager can warn the specific orgs a rollout will affect — notably
+        the objects that will stop running because adoption binds a Runner who can
+        no longer run them.
 
         :param connect_timeout_ms:
         :param patch_id: Library path of the file that defines the object
@@ -11745,12 +11757,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceRecoverOntologyResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""RecoverOntology
 
         :param connect_timeout_ms:
         :param level:
@@ -11852,12 +11859,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceRecoverOntologyResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""RecoverOntology
 
         :param connect_timeout_ms:
         :param level:
@@ -14753,7 +14755,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceUpdateOntologySyncConfigResponse:
-        r"""UpdateOntologySyncConfig
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param connect_timeout_ms:
         :param sync_enabled:
@@ -14863,7 +14870,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceUpdateOntologySyncConfigResponse:
-        r"""UpdateOntologySyncConfig
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param connect_timeout_ms:
         :param sync_enabled:
