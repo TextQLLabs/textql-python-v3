@@ -467,11 +467,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceConfigureOntologyRemoteResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 
         Lists the skills under the ontology's flat skills/ root that the caller can
         read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete.
+        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+        omitted unless include_unlisted is set.
 
         :param connect_timeout_ms:
         :param remote_url:
@@ -611,11 +612,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceConfigureOntologyRemoteResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 
         Lists the skills under the ontology's flat skills/ root that the caller can
         read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete.
+        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+        omitted unless include_unlisted is set.
 
         :param connect_timeout_ms:
         :param remote_url:
@@ -10680,11 +10682,8 @@ class Ontology(BaseSDK):
     def list_skills(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicPatchesListSkillsRequest,
-            models.TextqlRPCPublicPatchesListSkillsRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        include_unlisted: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -10692,8 +10691,8 @@ class Ontology(BaseSDK):
     ) -> models.OntologyManagementServiceListSkillsResponse:
         r"""ListSkills
 
-        :param body:
         :param connect_timeout_ms:
+        :param include_unlisted: Picker callers leave unset so hidden skills stay hidden; tooling opts in.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -10711,8 +10710,8 @@ class Ontology(BaseSDK):
 
         request = models.OntologyManagementServiceListSkillsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicPatchesListSkillsRequest
+            body=models.TextqlRPCPublicPatchesListSkillsRequest(
+                include_unlisted=include_unlisted,
             ),
         )
 
@@ -10787,11 +10786,8 @@ class Ontology(BaseSDK):
     async def list_skills_async(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicPatchesListSkillsRequest,
-            models.TextqlRPCPublicPatchesListSkillsRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        include_unlisted: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -10799,8 +10795,8 @@ class Ontology(BaseSDK):
     ) -> models.OntologyManagementServiceListSkillsResponse:
         r"""ListSkills
 
-        :param body:
         :param connect_timeout_ms:
+        :param include_unlisted: Picker callers leave unset so hidden skills stay hidden; tooling opts in.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -10818,8 +10814,8 @@ class Ontology(BaseSDK):
 
         request = models.OntologyManagementServiceListSkillsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicPatchesListSkillsRequest
+            body=models.TextqlRPCPublicPatchesListSkillsRequest(
+                include_unlisted=include_unlisted,
             ),
         )
 

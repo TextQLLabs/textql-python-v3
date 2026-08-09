@@ -10,7 +10,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCallerModelAccessTypedDict(TypedDict):
-    r"""WhoAmI messages"""
+    r"""The credential that authenticated the request."""
 
     allowed_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
     default_model: NotRequired[TextqlRPCPublicChatLlmModel]
@@ -18,7 +18,7 @@ class TextqlRPCPublicRbacCallerModelAccessTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacCallerModelAccess(BaseModel):
-    r"""WhoAmI messages"""
+    r"""The credential that authenticated the request."""
 
     allowed_models: Annotated[
         Optional[List[TextqlRPCPublicChatLlmModel]],

@@ -405,7 +405,7 @@ with Textql(
 
 * [add_submodule](docs/sdks/ontology/README.md#add_submodule) - AddOntologySubmodule
 * [approve_patch](docs/sdks/ontology/README.md#approve_patch) - ApprovePatch
-* [configure_remote](docs/sdks/ontology/README.md#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+* [configure_remote](docs/sdks/ontology/README.md#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [create_approval_rule](docs/sdks/ontology/README.md#create_approval_rule) - CreateApprovalRule
 * [create_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
 * [create_directory](docs/sdks/ontology/README.md#create_directory) - CreateOntologyDirectory
@@ -531,27 +531,39 @@ with Textql(
 
 ### [Rbac](docs/sdks/rbac/README.md)
 
+* [approve_access_request](docs/sdks/rbac/README.md#approve_access_request) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
 * [assign_permission_to_role](docs/sdks/rbac/README.md#assign_permission_to_role) - AssignPermissionToRole
 * [assign_role_to_member](docs/sdks/rbac/README.md#assign_role_to_member) - Member role assignment
-* [create_api_key](docs/sdks/rbac/README.md#create_api_key) - Group management. Internal only.
+* [create_api_key](docs/sdks/rbac/README.md#create_api_key) - CreateApiKey
 * [create_role](docs/sdks/rbac/README.md#create_role) - Role management
 * [create_service_account](docs/sdks/rbac/README.md#create_service_account) - CreateServiceAccount
 * [delete_role](docs/sdks/rbac/README.md#delete_role) - DeleteRole
 * [delete_service_account](docs/sdks/rbac/README.md#delete_service_account) - DeleteServiceAccount
+* [generate_share_link](docs/sdks/rbac/README.md#generate_share_link) - GenerateShareLink
 * [get_current_member_roles_and_permissions](docs/sdks/rbac/README.md#get_current_member_roles_and_permissions) - Get current member roles and permissions
 * [get_embed_user_api_key](docs/sdks/rbac/README.md#get_embed_user_api_key) - GetEmbedUserApiKey
 * [get_member_roles](docs/sdks/rbac/README.md#get_member_roles) - GetMemberRoles
+* [get_object_access](docs/sdks/rbac/README.md#get_object_access) - GetObjectAccess
 * [get_role](docs/sdks/rbac/README.md#get_role) - GetRole
 * [get_role_permissions](docs/sdks/rbac/README.md#get_role_permissions) - GetRolePermissions
+* [has_object_access](docs/sdks/rbac/README.md#has_object_access) - HasObjectAccess
+* [list_access_requests](docs/sdks/rbac/README.md#list_access_requests) - ListAccessRequests
 * [list_api_keys](docs/sdks/rbac/README.md#list_api_keys) - ListApiKeys
 * [list_permissions](docs/sdks/rbac/README.md#list_permissions) - Permission management
 * [list_roles](docs/sdks/rbac/README.md#list_roles) - ListRoles
 * [list_service_accounts](docs/sdks/rbac/README.md#list_service_accounts) - ListServiceAccounts
+* [reject_access_request](docs/sdks/rbac/README.md#reject_access_request) - RejectAccessRequest
 * [remove_permission_from_role](docs/sdks/rbac/README.md#remove_permission_from_role) - RemovePermissionFromRole
 * [remove_role_from_member](docs/sdks/rbac/README.md#remove_role_from_member) - RemoveRoleFromMember
+* [request_access](docs/sdks/rbac/README.md#request_access) - RequestAccess
 * [revoke_api_key](docs/sdks/rbac/README.md#revoke_api_key) - RevokeApiKey
-* [rotate_api_key](docs/sdks/rbac/README.md#rotate_api_key) - RotateApiKey
+* [revoke_object_access](docs/sdks/rbac/README.md#revoke_object_access) - RevokeObjectAccess
+* [rotate_api_key](docs/sdks/rbac/README.md#rotate_api_key) - Object sharing and access control
 * [set_role_permissions](docs/sdks/rbac/README.md#set_role_permissions) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+* [share_object](docs/sdks/rbac/README.md#share_object) - Group management. Internal only.
+* [share_object_with_role](docs/sdks/rbac/README.md#share_object_with_role) - ShareObjectWithRole
+* [update_object_access](docs/sdks/rbac/README.md#update_object_access) - UpdateObjectAccess
+* [update_object_visibility](docs/sdks/rbac/README.md#update_object_visibility) - UpdateObjectVisibility
 * [update_role](docs/sdks/rbac/README.md#update_role) - UpdateRole
 * [who_am_i](docs/sdks/rbac/README.md#who_am_i) - Describe what a key is allowed to do.
 

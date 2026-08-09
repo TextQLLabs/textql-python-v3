@@ -16,7 +16,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicRbacListServiceAccountsRequestTypedDict(TypedDict):
     search_term: NotRequired[Nullable[str]]
     page_size: NotRequired[Nullable[int]]
-    r"""owner, editor, viewer"""
     page_token: NotRequired[Nullable[str]]
 
 
@@ -28,7 +27,6 @@ class TextqlRPCPublicRbacListServiceAccountsRequest(BaseModel):
     page_size: Annotated[OptionalNullable[int], pydantic.Field(alias="pageSize")] = (
         UNSET
     )
-    r"""owner, editor, viewer"""
 
     page_token: Annotated[OptionalNullable[str], pydantic.Field(alias="pageToken")] = (
         UNSET

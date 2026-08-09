@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacListPermissionsResponse
 
+Permission management requests/responses
+
 
 ## Fields
 

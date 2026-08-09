@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacRemoveRoleFromMemberRequest
 
-Member role management messages
-
 
 ## Fields
 

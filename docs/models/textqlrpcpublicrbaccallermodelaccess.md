@@ -1,6 +1,6 @@
 # TextqlRPCPublicRbacCallerModelAccess
 
-WhoAmI messages
+The credential that authenticated the request.
 
 
 ## Fields

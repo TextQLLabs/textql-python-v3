@@ -405,7 +405,7 @@ with Textql(
 
 * [add_submodule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#add_submodule) - AddOntologySubmodule
 * [approve_patch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#approve_patch) - ApprovePatch
-* [configure_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+* [configure_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [create_approval_rule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#create_approval_rule) - CreateApprovalRule
 * [create_context_patch_auto_approve_rule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
 * [create_directory](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#create_directory) - CreateOntologyDirectory
@@ -531,27 +531,39 @@ with Textql(
 
 ### [Rbac](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md)
 
+* [approve_access_request](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#approve_access_request) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
 * [assign_permission_to_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#assign_permission_to_role) - AssignPermissionToRole
 * [assign_role_to_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#assign_role_to_member) - Member role assignment
-* [create_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_api_key) - Group management. Internal only.
+* [create_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_api_key) - CreateApiKey
 * [create_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_role) - Role management
 * [create_service_account](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_service_account) - CreateServiceAccount
 * [delete_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_role) - DeleteRole
 * [delete_service_account](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_service_account) - DeleteServiceAccount
+* [generate_share_link](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#generate_share_link) - GenerateShareLink
 * [get_current_member_roles_and_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_current_member_roles_and_permissions) - Get current member roles and permissions
 * [get_embed_user_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_embed_user_api_key) - GetEmbedUserApiKey
 * [get_member_roles](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_member_roles) - GetMemberRoles
+* [get_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_object_access) - GetObjectAccess
 * [get_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_role) - GetRole
 * [get_role_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_role_permissions) - GetRolePermissions
+* [has_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#has_object_access) - HasObjectAccess
+* [list_access_requests](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_access_requests) - ListAccessRequests
 * [list_api_keys](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_api_keys) - ListApiKeys
 * [list_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_permissions) - Permission management
 * [list_roles](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_roles) - ListRoles
 * [list_service_accounts](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#list_service_accounts) - ListServiceAccounts
+* [reject_access_request](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#reject_access_request) - RejectAccessRequest
 * [remove_permission_from_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#remove_permission_from_role) - RemovePermissionFromRole
 * [remove_role_from_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#remove_role_from_member) - RemoveRoleFromMember
+* [request_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#request_access) - RequestAccess
 * [revoke_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#revoke_api_key) - RevokeApiKey
-* [rotate_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#rotate_api_key) - RotateApiKey
+* [revoke_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#revoke_object_access) - RevokeObjectAccess
+* [rotate_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#rotate_api_key) - Object sharing and access control
 * [set_role_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#set_role_permissions) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+* [share_object](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#share_object) - Group management. Internal only.
+* [share_object_with_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#share_object_with_role) - ShareObjectWithRole
+* [update_object_access](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_object_access) - UpdateObjectAccess
+* [update_object_visibility](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_object_visibility) - UpdateObjectVisibility
 * [update_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#update_role) - UpdateRole
 * [who_am_i](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#who_am_i) - Describe what a key is allowed to do.
 
