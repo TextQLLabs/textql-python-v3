@@ -13,16 +13,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict(TypedDict):
-    r"""Object access management messages"""
-
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
     api_key_secret: NotRequired[str]
     api_key_hash: NotRequired[str]
 
 
 class TextqlRPCPublicRbacCreateAPIKeyResponse(BaseModel):
-    r"""Object access management messages"""
-
     api_key: Annotated[
         Optional[TextqlRPCPublicRbacAPIKey], pydantic.Field(alias="apiKey")
     ] = None

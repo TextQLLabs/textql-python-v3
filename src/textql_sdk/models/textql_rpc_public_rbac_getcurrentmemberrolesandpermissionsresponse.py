@@ -18,11 +18,15 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponseTypedDict(
     TypedDict
 ):
+    r"""Get current member roles and permissions messages"""
+
     roles: NotRequired[List[TextqlRPCPublicRbacRoleTypedDict]]
     permissions: NotRequired[List[TextqlRPCPublicRbacPermissionTypedDict]]
 
 
 class TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponse(BaseModel):
+    r"""Get current member roles and permissions messages"""
+
     roles: Optional[List[TextqlRPCPublicRbacRole]] = None
 
     permissions: Optional[List[TextqlRPCPublicRbacPermission]] = None

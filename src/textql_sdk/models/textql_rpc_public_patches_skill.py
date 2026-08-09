@@ -21,6 +21,8 @@ class TextqlRPCPublicPatchesSkillTypedDict(TypedDict):
     r"""frontmatter description (may be empty)"""
     path: NotRequired[str]
     r"""ontology-relative path, e.g. \"skills/forecast\" """
+    unlisted: NotRequired[bool]
+    r"""frontmatter listed: false — invocable by trigger, hidden from the picker"""
 
 
 class TextqlRPCPublicPatchesSkill(BaseModel):
@@ -41,9 +43,12 @@ class TextqlRPCPublicPatchesSkill(BaseModel):
     path: Optional[str] = None
     r"""ontology-relative path, e.g. \"skills/forecast\" """
 
+    unlisted: Optional[bool] = None
+    r"""frontmatter listed: false — invocable by trigger, hidden from the picker"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["trigger", "name", "description", "path"])
+        optional_fields = set(["trigger", "name", "description", "path", "unlisted"])
         serialized = handler(self)
         m = {}
 

@@ -1,6 +1,6 @@
 # TextqlRPCPublicRbacSharedObject
 
-The credential that authenticated the request.
+Which LLM models the caller may run.
 
 
 ## Fields

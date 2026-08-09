@@ -6,7 +6,7 @@
 
 * [add_submodule](#add_submodule) - AddOntologySubmodule
 * [approve_patch](#approve_patch) - ApprovePatch
-* [configure_remote](#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete.
+* [configure_remote](#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [create_approval_rule](#create_approval_rule) - CreateApprovalRule
 * [create_context_patch_auto_approve_rule](#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
 * [create_directory](#create_directory) - CreateOntologyDirectory
@@ -164,7 +164,8 @@ with Textql(
 
 Lists the skills under the ontology's flat skills/ root that the caller can
  read (OWNERS-filtered). Returns display metadata only — never instruction
- bodies — feeding the chat composer's `/` autocomplete.
+ bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+ omitted unless include_unlisted is set.
 
 ### Example Usage
 
@@ -2038,7 +2039,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.ontology.list_skills(body={})
+    res = textql.ontology.list_skills()
 
     # Handle response
     print(res)
@@ -2047,11 +2048,11 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `body`                                                                                                    | [models.TextqlRPCPublicPatchesListSkillsRequest](../../models/textqlrpcpublicpatcheslistskillsrequest.md) | :heavy_check_mark:                                                                                        | N/A                                                                                                       |
-| `connect_timeout_ms`                                                                                      | *Optional[float]*                                                                                         | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `retries`                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                          | :heavy_minus_sign:                                                                                        | Configuration to override the default retry behavior of the client.                                       |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                      | *Optional[float]*                                                         | :heavy_minus_sign:                                                        | N/A                                                                       |
+| `include_unlisted`                                                        | *Optional[bool]*                                                          | :heavy_minus_sign:                                                        | Picker callers leave unset so hidden skills stay hidden; tooling opts in. |
+| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
 
 ### Response
 

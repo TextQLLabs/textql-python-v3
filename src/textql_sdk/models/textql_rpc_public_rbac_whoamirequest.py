@@ -6,8 +6,8 @@ from typing_extensions import TypedDict
 
 
 class TextqlRPCPublicRbacWhoAmIRequestTypedDict(TypedDict):
-    r"""Get current member roles and permissions messages"""
+    pass
 
 
 class TextqlRPCPublicRbacWhoAmIRequest(BaseModel):
-    r"""Get current member roles and permissions messages"""
+    pass

@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacCreateAPIKeyResponse
 
-Object access management messages
-
 
 ## Fields
 

@@ -1850,6 +1850,12 @@ if TYPE_CHECKING:
         PowerBIServiceUnsyncPowerBIItemsResponse,
         PowerBIServiceUnsyncPowerBIItemsResponseTypedDict,
     )
+    from .rbacservice_approveaccessrequestop import (
+        RBACServiceApproveAccessRequestRequest,
+        RBACServiceApproveAccessRequestRequestTypedDict,
+        RBACServiceApproveAccessRequestResponse,
+        RBACServiceApproveAccessRequestResponseTypedDict,
+    )
     from .rbacservice_assignpermissiontoroleop import (
         RBACServiceAssignPermissionToRoleRequest,
         RBACServiceAssignPermissionToRoleRequestTypedDict,
@@ -1892,6 +1898,12 @@ if TYPE_CHECKING:
         RBACServiceDeleteServiceAccountResponse,
         RBACServiceDeleteServiceAccountResponseTypedDict,
     )
+    from .rbacservice_generatesharelinkop import (
+        RBACServiceGenerateShareLinkRequest,
+        RBACServiceGenerateShareLinkRequestTypedDict,
+        RBACServiceGenerateShareLinkResponse,
+        RBACServiceGenerateShareLinkResponseTypedDict,
+    )
     from .rbacservice_getcurrentmemberrolesandpermissionsop import (
         RBACServiceGetCurrentMemberRolesAndPermissionsRequest,
         RBACServiceGetCurrentMemberRolesAndPermissionsRequestTypedDict,
@@ -1910,6 +1922,12 @@ if TYPE_CHECKING:
         RBACServiceGetMemberRolesResponse,
         RBACServiceGetMemberRolesResponseTypedDict,
     )
+    from .rbacservice_getobjectaccessop import (
+        RBACServiceGetObjectAccessRequest,
+        RBACServiceGetObjectAccessRequestTypedDict,
+        RBACServiceGetObjectAccessResponse,
+        RBACServiceGetObjectAccessResponseTypedDict,
+    )
     from .rbacservice_getroleop import (
         RBACServiceGetRoleRequest,
         RBACServiceGetRoleRequestTypedDict,
@@ -1921,6 +1939,18 @@ if TYPE_CHECKING:
         RBACServiceGetRolePermissionsRequestTypedDict,
         RBACServiceGetRolePermissionsResponse,
         RBACServiceGetRolePermissionsResponseTypedDict,
+    )
+    from .rbacservice_hasobjectaccessop import (
+        RBACServiceHasObjectAccessRequest,
+        RBACServiceHasObjectAccessRequestTypedDict,
+        RBACServiceHasObjectAccessResponse,
+        RBACServiceHasObjectAccessResponseTypedDict,
+    )
+    from .rbacservice_listaccessrequestsop import (
+        RBACServiceListAccessRequestsRequest,
+        RBACServiceListAccessRequestsRequestTypedDict,
+        RBACServiceListAccessRequestsResponse,
+        RBACServiceListAccessRequestsResponseTypedDict,
     )
     from .rbacservice_listapikeysop import (
         RBACServiceListAPIKeysRequest,
@@ -1946,6 +1976,12 @@ if TYPE_CHECKING:
         RBACServiceListServiceAccountsResponse,
         RBACServiceListServiceAccountsResponseTypedDict,
     )
+    from .rbacservice_rejectaccessrequestop import (
+        RBACServiceRejectAccessRequestRequest,
+        RBACServiceRejectAccessRequestRequestTypedDict,
+        RBACServiceRejectAccessRequestResponse,
+        RBACServiceRejectAccessRequestResponseTypedDict,
+    )
     from .rbacservice_removepermissionfromroleop import (
         RBACServiceRemovePermissionFromRoleRequest,
         RBACServiceRemovePermissionFromRoleRequestTypedDict,
@@ -1958,11 +1994,23 @@ if TYPE_CHECKING:
         RBACServiceRemoveRoleFromMemberResponse,
         RBACServiceRemoveRoleFromMemberResponseTypedDict,
     )
+    from .rbacservice_requestaccessop import (
+        RBACServiceRequestAccessRequest,
+        RBACServiceRequestAccessRequestTypedDict,
+        RBACServiceRequestAccessResponse,
+        RBACServiceRequestAccessResponseTypedDict,
+    )
     from .rbacservice_revokeapikeyop import (
         RBACServiceRevokeAPIKeyRequest,
         RBACServiceRevokeAPIKeyRequestTypedDict,
         RBACServiceRevokeAPIKeyResponse,
         RBACServiceRevokeAPIKeyResponseTypedDict,
+    )
+    from .rbacservice_revokeobjectaccessop import (
+        RBACServiceRevokeObjectAccessRequest,
+        RBACServiceRevokeObjectAccessRequestTypedDict,
+        RBACServiceRevokeObjectAccessResponse,
+        RBACServiceRevokeObjectAccessResponseTypedDict,
     )
     from .rbacservice_rotateapikeyop import (
         RBACServiceRotateAPIKeyRequest,
@@ -1975,6 +2023,30 @@ if TYPE_CHECKING:
         RBACServiceSetRolePermissionsRequestTypedDict,
         RBACServiceSetRolePermissionsResponse,
         RBACServiceSetRolePermissionsResponseTypedDict,
+    )
+    from .rbacservice_shareobjectop import (
+        RBACServiceShareObjectRequest,
+        RBACServiceShareObjectRequestTypedDict,
+        RBACServiceShareObjectResponse,
+        RBACServiceShareObjectResponseTypedDict,
+    )
+    from .rbacservice_shareobjectwithroleop import (
+        RBACServiceShareObjectWithRoleRequest,
+        RBACServiceShareObjectWithRoleRequestTypedDict,
+        RBACServiceShareObjectWithRoleResponse,
+        RBACServiceShareObjectWithRoleResponseTypedDict,
+    )
+    from .rbacservice_updateobjectaccessop import (
+        RBACServiceUpdateObjectAccessRequest,
+        RBACServiceUpdateObjectAccessRequestTypedDict,
+        RBACServiceUpdateObjectAccessResponse,
+        RBACServiceUpdateObjectAccessResponseTypedDict,
+    )
+    from .rbacservice_updateobjectvisibilityop import (
+        RBACServiceUpdateObjectVisibilityRequest,
+        RBACServiceUpdateObjectVisibilityRequestTypedDict,
+        RBACServiceUpdateObjectVisibilityResponse,
+        RBACServiceUpdateObjectVisibilityResponseTypedDict,
     )
     from .rbacservice_updateroleop import (
         RBACServiceUpdateRoleRequest,
@@ -6838,6 +6910,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse,
         TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_accessrequest import (
+        TextqlRPCPublicRbacAccessRequest,
+        TextqlRPCPublicRbacAccessRequestTypedDict,
+    )
     from .textql_rpc_public_rbac_apikey import (
         TextqlRPCPublicRbacAPIKey,
         TextqlRPCPublicRbacAPIKeyTypedDict,
@@ -6847,6 +6923,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacAPIKeySortField,
     )
     from .textql_rpc_public_rbac_apikeystatus import TextqlRPCPublicRbacAPIKeyStatus
+    from .textql_rpc_public_rbac_approveaccessrequestrequest import (
+        TextqlRPCPublicRbacApproveAccessRequestRequest,
+        TextqlRPCPublicRbacApproveAccessRequestRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_approveaccessrequestresponse import (
+        TextqlRPCPublicRbacApproveAccessRequestResponse,
+        TextqlRPCPublicRbacApproveAccessRequestResponseTypedDict,
+    )
     from .textql_rpc_public_rbac_assignpermissiontorolerequest import (
         TextqlRPCPublicRbacAssignPermissionToRoleRequest,
         TextqlRPCPublicRbacAssignPermissionToRoleRequestTypedDict,
@@ -6911,6 +6995,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacDeleteServiceAccountResponse,
         TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_generatesharelinkrequest import (
+        TextqlRPCPublicRbacGenerateShareLinkRequest,
+        TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_generatesharelinkresponse import (
+        TextqlRPCPublicRbacGenerateShareLinkResponse,
+        TextqlRPCPublicRbacGenerateShareLinkResponseTypedDict,
+    )
     from .textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsrequest import (
         TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequest,
         TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequestTypedDict,
@@ -6935,6 +7027,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacGetMemberRolesResponse,
         TextqlRPCPublicRbacGetMemberRolesResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_getobjectaccessrequest import (
+        TextqlRPCPublicRbacGetObjectAccessRequest,
+        TextqlRPCPublicRbacGetObjectAccessRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_getobjectaccessresponse import (
+        TextqlRPCPublicRbacGetObjectAccessResponse,
+        TextqlRPCPublicRbacGetObjectAccessResponseTypedDict,
+    )
     from .textql_rpc_public_rbac_getrolepermissionsrequest import (
         TextqlRPCPublicRbacGetRolePermissionsRequest,
         TextqlRPCPublicRbacGetRolePermissionsRequestTypedDict,
@@ -6950,6 +7050,22 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_getroleresponse import (
         TextqlRPCPublicRbacGetRoleResponse,
         TextqlRPCPublicRbacGetRoleResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_hasobjectaccessrequest import (
+        TextqlRPCPublicRbacHasObjectAccessRequest,
+        TextqlRPCPublicRbacHasObjectAccessRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_hasobjectaccessresponse import (
+        TextqlRPCPublicRbacHasObjectAccessResponse,
+        TextqlRPCPublicRbacHasObjectAccessResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_listaccessrequestsrequest import (
+        TextqlRPCPublicRbacListAccessRequestsRequest,
+        TextqlRPCPublicRbacListAccessRequestsRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_listaccessrequestsresponse import (
+        TextqlRPCPublicRbacListAccessRequestsResponse,
+        TextqlRPCPublicRbacListAccessRequestsResponseTypedDict,
     )
     from .textql_rpc_public_rbac_listapikeysrequest import (
         TextqlRPCPublicRbacListAPIKeysRequest,
@@ -6987,9 +7103,21 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacMemberRoles,
         TextqlRPCPublicRbacMemberRolesTypedDict,
     )
+    from .textql_rpc_public_rbac_objectaccess import (
+        TextqlRPCPublicRbacObjectAccess,
+        TextqlRPCPublicRbacObjectAccessTypedDict,
+    )
     from .textql_rpc_public_rbac_permission import (
         TextqlRPCPublicRbacPermission,
         TextqlRPCPublicRbacPermissionTypedDict,
+    )
+    from .textql_rpc_public_rbac_rejectaccessrequestrequest import (
+        TextqlRPCPublicRbacRejectAccessRequestRequest,
+        TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_rejectaccessrequestresponse import (
+        TextqlRPCPublicRbacRejectAccessRequestResponse,
+        TextqlRPCPublicRbacRejectAccessRequestResponseTypedDict,
     )
     from .textql_rpc_public_rbac_removepermissionfromrolerequest import (
         TextqlRPCPublicRbacRemovePermissionFromRoleRequest,
@@ -7007,6 +7135,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacRemoveRoleFromMemberResponse,
         TextqlRPCPublicRbacRemoveRoleFromMemberResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_requestaccessrequest import (
+        TextqlRPCPublicRbacRequestAccessRequest,
+        TextqlRPCPublicRbacRequestAccessRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_requestaccessresponse import (
+        TextqlRPCPublicRbacRequestAccessResponse,
+        TextqlRPCPublicRbacRequestAccessResponseTypedDict,
+    )
     from .textql_rpc_public_rbac_revokeapikeyrequest import (
         TextqlRPCPublicRbacRevokeAPIKeyRequest,
         TextqlRPCPublicRbacRevokeAPIKeyRequestTypedDict,
@@ -7014,6 +7150,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_revokeapikeyresponse import (
         TextqlRPCPublicRbacRevokeAPIKeyResponse,
         TextqlRPCPublicRbacRevokeAPIKeyResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_revokeobjectaccessrequest import (
+        TextqlRPCPublicRbacRevokeObjectAccessRequest,
+        TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_revokeobjectaccessresponse import (
+        TextqlRPCPublicRbacRevokeObjectAccessResponse,
+        TextqlRPCPublicRbacRevokeObjectAccessResponseTypedDict,
     )
     from .textql_rpc_public_rbac_role import (
         TextqlRPCPublicRbacRole,
@@ -7042,6 +7186,38 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_sharedobject import (
         TextqlRPCPublicRbacSharedObject,
         TextqlRPCPublicRbacSharedObjectTypedDict,
+    )
+    from .textql_rpc_public_rbac_shareobjectrequest import (
+        TextqlRPCPublicRbacShareObjectRequest,
+        TextqlRPCPublicRbacShareObjectRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_shareobjectresponse import (
+        TextqlRPCPublicRbacShareObjectResponse,
+        TextqlRPCPublicRbacShareObjectResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_shareobjectwithrolerequest import (
+        TextqlRPCPublicRbacShareObjectWithRoleRequest,
+        TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_shareobjectwithroleresponse import (
+        TextqlRPCPublicRbacShareObjectWithRoleResponse,
+        TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_updateobjectaccessrequest import (
+        TextqlRPCPublicRbacUpdateObjectAccessRequest,
+        TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_updateobjectaccessresponse import (
+        TextqlRPCPublicRbacUpdateObjectAccessResponse,
+        TextqlRPCPublicRbacUpdateObjectAccessResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_updateobjectvisibilityrequest import (
+        TextqlRPCPublicRbacUpdateObjectVisibilityRequest,
+        TextqlRPCPublicRbacUpdateObjectVisibilityRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_updateobjectvisibilityresponse import (
+        TextqlRPCPublicRbacUpdateObjectVisibilityResponse,
+        TextqlRPCPublicRbacUpdateObjectVisibilityResponseTypedDict,
     )
     from .textql_rpc_public_rbac_updaterolerequest import (
         TextqlRPCPublicRbacUpdateRoleRequest,
@@ -9193,6 +9369,10 @@ __all__ = [
     "PythonCodeTypedDict",
     "QuestionsCell",
     "QuestionsCellTypedDict",
+    "RBACServiceApproveAccessRequestRequest",
+    "RBACServiceApproveAccessRequestRequestTypedDict",
+    "RBACServiceApproveAccessRequestResponse",
+    "RBACServiceApproveAccessRequestResponseTypedDict",
     "RBACServiceAssignPermissionToRoleRequest",
     "RBACServiceAssignPermissionToRoleRequestTypedDict",
     "RBACServiceAssignPermissionToRoleResponse",
@@ -9221,6 +9401,10 @@ __all__ = [
     "RBACServiceDeleteServiceAccountRequestTypedDict",
     "RBACServiceDeleteServiceAccountResponse",
     "RBACServiceDeleteServiceAccountResponseTypedDict",
+    "RBACServiceGenerateShareLinkRequest",
+    "RBACServiceGenerateShareLinkRequestTypedDict",
+    "RBACServiceGenerateShareLinkResponse",
+    "RBACServiceGenerateShareLinkResponseTypedDict",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequest",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequestTypedDict",
     "RBACServiceGetCurrentMemberRolesAndPermissionsResponse",
@@ -9233,6 +9417,10 @@ __all__ = [
     "RBACServiceGetMemberRolesRequestTypedDict",
     "RBACServiceGetMemberRolesResponse",
     "RBACServiceGetMemberRolesResponseTypedDict",
+    "RBACServiceGetObjectAccessRequest",
+    "RBACServiceGetObjectAccessRequestTypedDict",
+    "RBACServiceGetObjectAccessResponse",
+    "RBACServiceGetObjectAccessResponseTypedDict",
     "RBACServiceGetRolePermissionsRequest",
     "RBACServiceGetRolePermissionsRequestTypedDict",
     "RBACServiceGetRolePermissionsResponse",
@@ -9241,10 +9429,18 @@ __all__ = [
     "RBACServiceGetRoleRequestTypedDict",
     "RBACServiceGetRoleResponse",
     "RBACServiceGetRoleResponseTypedDict",
+    "RBACServiceHasObjectAccessRequest",
+    "RBACServiceHasObjectAccessRequestTypedDict",
+    "RBACServiceHasObjectAccessResponse",
+    "RBACServiceHasObjectAccessResponseTypedDict",
     "RBACServiceListAPIKeysRequest",
     "RBACServiceListAPIKeysRequestTypedDict",
     "RBACServiceListAPIKeysResponse",
     "RBACServiceListAPIKeysResponseTypedDict",
+    "RBACServiceListAccessRequestsRequest",
+    "RBACServiceListAccessRequestsRequestTypedDict",
+    "RBACServiceListAccessRequestsResponse",
+    "RBACServiceListAccessRequestsResponseTypedDict",
     "RBACServiceListPermissionsRequest",
     "RBACServiceListPermissionsRequestTypedDict",
     "RBACServiceListPermissionsResponse",
@@ -9257,6 +9453,10 @@ __all__ = [
     "RBACServiceListServiceAccountsRequestTypedDict",
     "RBACServiceListServiceAccountsResponse",
     "RBACServiceListServiceAccountsResponseTypedDict",
+    "RBACServiceRejectAccessRequestRequest",
+    "RBACServiceRejectAccessRequestRequestTypedDict",
+    "RBACServiceRejectAccessRequestResponse",
+    "RBACServiceRejectAccessRequestResponseTypedDict",
     "RBACServiceRemovePermissionFromRoleRequest",
     "RBACServiceRemovePermissionFromRoleRequestTypedDict",
     "RBACServiceRemovePermissionFromRoleResponse",
@@ -9265,10 +9465,18 @@ __all__ = [
     "RBACServiceRemoveRoleFromMemberRequestTypedDict",
     "RBACServiceRemoveRoleFromMemberResponse",
     "RBACServiceRemoveRoleFromMemberResponseTypedDict",
+    "RBACServiceRequestAccessRequest",
+    "RBACServiceRequestAccessRequestTypedDict",
+    "RBACServiceRequestAccessResponse",
+    "RBACServiceRequestAccessResponseTypedDict",
     "RBACServiceRevokeAPIKeyRequest",
     "RBACServiceRevokeAPIKeyRequestTypedDict",
     "RBACServiceRevokeAPIKeyResponse",
     "RBACServiceRevokeAPIKeyResponseTypedDict",
+    "RBACServiceRevokeObjectAccessRequest",
+    "RBACServiceRevokeObjectAccessRequestTypedDict",
+    "RBACServiceRevokeObjectAccessResponse",
+    "RBACServiceRevokeObjectAccessResponseTypedDict",
     "RBACServiceRotateAPIKeyRequest",
     "RBACServiceRotateAPIKeyRequestTypedDict",
     "RBACServiceRotateAPIKeyResponse",
@@ -9277,6 +9485,22 @@ __all__ = [
     "RBACServiceSetRolePermissionsRequestTypedDict",
     "RBACServiceSetRolePermissionsResponse",
     "RBACServiceSetRolePermissionsResponseTypedDict",
+    "RBACServiceShareObjectRequest",
+    "RBACServiceShareObjectRequestTypedDict",
+    "RBACServiceShareObjectResponse",
+    "RBACServiceShareObjectResponseTypedDict",
+    "RBACServiceShareObjectWithRoleRequest",
+    "RBACServiceShareObjectWithRoleRequestTypedDict",
+    "RBACServiceShareObjectWithRoleResponse",
+    "RBACServiceShareObjectWithRoleResponseTypedDict",
+    "RBACServiceUpdateObjectAccessRequest",
+    "RBACServiceUpdateObjectAccessRequestTypedDict",
+    "RBACServiceUpdateObjectAccessResponse",
+    "RBACServiceUpdateObjectAccessResponseTypedDict",
+    "RBACServiceUpdateObjectVisibilityRequest",
+    "RBACServiceUpdateObjectVisibilityRequestTypedDict",
+    "RBACServiceUpdateObjectVisibilityResponse",
+    "RBACServiceUpdateObjectVisibilityResponseTypedDict",
     "RBACServiceUpdateRoleRequest",
     "RBACServiceUpdateRoleRequestTypedDict",
     "RBACServiceUpdateRoleResponse",
@@ -11747,6 +11971,12 @@ __all__ = [
     "TextqlRPCPublicRbacAPIKeySortField",
     "TextqlRPCPublicRbacAPIKeyStatus",
     "TextqlRPCPublicRbacAPIKeyTypedDict",
+    "TextqlRPCPublicRbacAccessRequest",
+    "TextqlRPCPublicRbacAccessRequestTypedDict",
+    "TextqlRPCPublicRbacApproveAccessRequestRequest",
+    "TextqlRPCPublicRbacApproveAccessRequestRequestTypedDict",
+    "TextqlRPCPublicRbacApproveAccessRequestResponse",
+    "TextqlRPCPublicRbacApproveAccessRequestResponseTypedDict",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequest",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequestTypedDict",
     "TextqlRPCPublicRbacAssignPermissionToRoleResponse",
@@ -11779,6 +12009,10 @@ __all__ = [
     "TextqlRPCPublicRbacDeleteServiceAccountRequestTypedDict",
     "TextqlRPCPublicRbacDeleteServiceAccountResponse",
     "TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict",
+    "TextqlRPCPublicRbacGenerateShareLinkRequest",
+    "TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict",
+    "TextqlRPCPublicRbacGenerateShareLinkResponse",
+    "TextqlRPCPublicRbacGenerateShareLinkResponseTypedDict",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequest",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequestTypedDict",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponse",
@@ -11791,6 +12025,10 @@ __all__ = [
     "TextqlRPCPublicRbacGetMemberRolesRequestTypedDict",
     "TextqlRPCPublicRbacGetMemberRolesResponse",
     "TextqlRPCPublicRbacGetMemberRolesResponseTypedDict",
+    "TextqlRPCPublicRbacGetObjectAccessRequest",
+    "TextqlRPCPublicRbacGetObjectAccessRequestTypedDict",
+    "TextqlRPCPublicRbacGetObjectAccessResponse",
+    "TextqlRPCPublicRbacGetObjectAccessResponseTypedDict",
     "TextqlRPCPublicRbacGetRolePermissionsRequest",
     "TextqlRPCPublicRbacGetRolePermissionsRequestTypedDict",
     "TextqlRPCPublicRbacGetRolePermissionsResponse",
@@ -11799,10 +12037,18 @@ __all__ = [
     "TextqlRPCPublicRbacGetRoleRequestTypedDict",
     "TextqlRPCPublicRbacGetRoleResponse",
     "TextqlRPCPublicRbacGetRoleResponseTypedDict",
+    "TextqlRPCPublicRbacHasObjectAccessRequest",
+    "TextqlRPCPublicRbacHasObjectAccessRequestTypedDict",
+    "TextqlRPCPublicRbacHasObjectAccessResponse",
+    "TextqlRPCPublicRbacHasObjectAccessResponseTypedDict",
     "TextqlRPCPublicRbacListAPIKeysRequest",
     "TextqlRPCPublicRbacListAPIKeysRequestTypedDict",
     "TextqlRPCPublicRbacListAPIKeysResponse",
     "TextqlRPCPublicRbacListAPIKeysResponseTypedDict",
+    "TextqlRPCPublicRbacListAccessRequestsRequest",
+    "TextqlRPCPublicRbacListAccessRequestsRequestTypedDict",
+    "TextqlRPCPublicRbacListAccessRequestsResponse",
+    "TextqlRPCPublicRbacListAccessRequestsResponseTypedDict",
     "TextqlRPCPublicRbacListPermissionsRequest",
     "TextqlRPCPublicRbacListPermissionsRequestTypedDict",
     "TextqlRPCPublicRbacListPermissionsResponse",
@@ -11817,8 +12063,14 @@ __all__ = [
     "TextqlRPCPublicRbacListServiceAccountsResponseTypedDict",
     "TextqlRPCPublicRbacMemberRoles",
     "TextqlRPCPublicRbacMemberRolesTypedDict",
+    "TextqlRPCPublicRbacObjectAccess",
+    "TextqlRPCPublicRbacObjectAccessTypedDict",
     "TextqlRPCPublicRbacPermission",
     "TextqlRPCPublicRbacPermissionTypedDict",
+    "TextqlRPCPublicRbacRejectAccessRequestRequest",
+    "TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict",
+    "TextqlRPCPublicRbacRejectAccessRequestResponse",
+    "TextqlRPCPublicRbacRejectAccessRequestResponseTypedDict",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequest",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequestTypedDict",
     "TextqlRPCPublicRbacRemovePermissionFromRoleResponse",
@@ -11827,10 +12079,18 @@ __all__ = [
     "TextqlRPCPublicRbacRemoveRoleFromMemberRequestTypedDict",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponse",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponseTypedDict",
+    "TextqlRPCPublicRbacRequestAccessRequest",
+    "TextqlRPCPublicRbacRequestAccessRequestTypedDict",
+    "TextqlRPCPublicRbacRequestAccessResponse",
+    "TextqlRPCPublicRbacRequestAccessResponseTypedDict",
     "TextqlRPCPublicRbacRevokeAPIKeyRequest",
     "TextqlRPCPublicRbacRevokeAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacRevokeAPIKeyResponse",
     "TextqlRPCPublicRbacRevokeAPIKeyResponseTypedDict",
+    "TextqlRPCPublicRbacRevokeObjectAccessRequest",
+    "TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict",
+    "TextqlRPCPublicRbacRevokeObjectAccessResponse",
+    "TextqlRPCPublicRbacRevokeObjectAccessResponseTypedDict",
     "TextqlRPCPublicRbacRole",
     "TextqlRPCPublicRbacRoleTypedDict",
     "TextqlRPCPublicRbacRotateAPIKeyRequest",
@@ -11843,8 +12103,24 @@ __all__ = [
     "TextqlRPCPublicRbacSetRolePermissionsRequestTypedDict",
     "TextqlRPCPublicRbacSetRolePermissionsResponse",
     "TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict",
+    "TextqlRPCPublicRbacShareObjectRequest",
+    "TextqlRPCPublicRbacShareObjectRequestTypedDict",
+    "TextqlRPCPublicRbacShareObjectResponse",
+    "TextqlRPCPublicRbacShareObjectResponseTypedDict",
+    "TextqlRPCPublicRbacShareObjectWithRoleRequest",
+    "TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict",
+    "TextqlRPCPublicRbacShareObjectWithRoleResponse",
+    "TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict",
     "TextqlRPCPublicRbacSharedObject",
     "TextqlRPCPublicRbacSharedObjectTypedDict",
+    "TextqlRPCPublicRbacUpdateObjectAccessRequest",
+    "TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict",
+    "TextqlRPCPublicRbacUpdateObjectAccessResponse",
+    "TextqlRPCPublicRbacUpdateObjectAccessResponseTypedDict",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityRequest",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityRequestTypedDict",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityResponse",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityResponseTypedDict",
     "TextqlRPCPublicRbacUpdateRoleRequest",
     "TextqlRPCPublicRbacUpdateRoleRequestTypedDict",
     "TextqlRPCPublicRbacUpdateRoleResponse",
@@ -13443,6 +13719,10 @@ _dynamic_imports: dict[str, str] = {
     "PowerBIServiceUnsyncPowerBIItemsRequestTypedDict": ".powerbiservice_unsyncpowerbiitemsop",
     "PowerBIServiceUnsyncPowerBIItemsResponse": ".powerbiservice_unsyncpowerbiitemsop",
     "PowerBIServiceUnsyncPowerBIItemsResponseTypedDict": ".powerbiservice_unsyncpowerbiitemsop",
+    "RBACServiceApproveAccessRequestRequest": ".rbacservice_approveaccessrequestop",
+    "RBACServiceApproveAccessRequestRequestTypedDict": ".rbacservice_approveaccessrequestop",
+    "RBACServiceApproveAccessRequestResponse": ".rbacservice_approveaccessrequestop",
+    "RBACServiceApproveAccessRequestResponseTypedDict": ".rbacservice_approveaccessrequestop",
     "RBACServiceAssignPermissionToRoleRequest": ".rbacservice_assignpermissiontoroleop",
     "RBACServiceAssignPermissionToRoleRequestTypedDict": ".rbacservice_assignpermissiontoroleop",
     "RBACServiceAssignPermissionToRoleResponse": ".rbacservice_assignpermissiontoroleop",
@@ -13471,6 +13751,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceDeleteServiceAccountRequestTypedDict": ".rbacservice_deleteserviceaccountop",
     "RBACServiceDeleteServiceAccountResponse": ".rbacservice_deleteserviceaccountop",
     "RBACServiceDeleteServiceAccountResponseTypedDict": ".rbacservice_deleteserviceaccountop",
+    "RBACServiceGenerateShareLinkRequest": ".rbacservice_generatesharelinkop",
+    "RBACServiceGenerateShareLinkRequestTypedDict": ".rbacservice_generatesharelinkop",
+    "RBACServiceGenerateShareLinkResponse": ".rbacservice_generatesharelinkop",
+    "RBACServiceGenerateShareLinkResponseTypedDict": ".rbacservice_generatesharelinkop",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequest": ".rbacservice_getcurrentmemberrolesandpermissionsop",
     "RBACServiceGetCurrentMemberRolesAndPermissionsRequestTypedDict": ".rbacservice_getcurrentmemberrolesandpermissionsop",
     "RBACServiceGetCurrentMemberRolesAndPermissionsResponse": ".rbacservice_getcurrentmemberrolesandpermissionsop",
@@ -13483,6 +13767,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceGetMemberRolesRequestTypedDict": ".rbacservice_getmemberrolesop",
     "RBACServiceGetMemberRolesResponse": ".rbacservice_getmemberrolesop",
     "RBACServiceGetMemberRolesResponseTypedDict": ".rbacservice_getmemberrolesop",
+    "RBACServiceGetObjectAccessRequest": ".rbacservice_getobjectaccessop",
+    "RBACServiceGetObjectAccessRequestTypedDict": ".rbacservice_getobjectaccessop",
+    "RBACServiceGetObjectAccessResponse": ".rbacservice_getobjectaccessop",
+    "RBACServiceGetObjectAccessResponseTypedDict": ".rbacservice_getobjectaccessop",
     "RBACServiceGetRoleRequest": ".rbacservice_getroleop",
     "RBACServiceGetRoleRequestTypedDict": ".rbacservice_getroleop",
     "RBACServiceGetRoleResponse": ".rbacservice_getroleop",
@@ -13491,6 +13779,14 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceGetRolePermissionsRequestTypedDict": ".rbacservice_getrolepermissionsop",
     "RBACServiceGetRolePermissionsResponse": ".rbacservice_getrolepermissionsop",
     "RBACServiceGetRolePermissionsResponseTypedDict": ".rbacservice_getrolepermissionsop",
+    "RBACServiceHasObjectAccessRequest": ".rbacservice_hasobjectaccessop",
+    "RBACServiceHasObjectAccessRequestTypedDict": ".rbacservice_hasobjectaccessop",
+    "RBACServiceHasObjectAccessResponse": ".rbacservice_hasobjectaccessop",
+    "RBACServiceHasObjectAccessResponseTypedDict": ".rbacservice_hasobjectaccessop",
+    "RBACServiceListAccessRequestsRequest": ".rbacservice_listaccessrequestsop",
+    "RBACServiceListAccessRequestsRequestTypedDict": ".rbacservice_listaccessrequestsop",
+    "RBACServiceListAccessRequestsResponse": ".rbacservice_listaccessrequestsop",
+    "RBACServiceListAccessRequestsResponseTypedDict": ".rbacservice_listaccessrequestsop",
     "RBACServiceListAPIKeysRequest": ".rbacservice_listapikeysop",
     "RBACServiceListAPIKeysRequestTypedDict": ".rbacservice_listapikeysop",
     "RBACServiceListAPIKeysResponse": ".rbacservice_listapikeysop",
@@ -13507,6 +13803,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceListServiceAccountsRequestTypedDict": ".rbacservice_listserviceaccountsop",
     "RBACServiceListServiceAccountsResponse": ".rbacservice_listserviceaccountsop",
     "RBACServiceListServiceAccountsResponseTypedDict": ".rbacservice_listserviceaccountsop",
+    "RBACServiceRejectAccessRequestRequest": ".rbacservice_rejectaccessrequestop",
+    "RBACServiceRejectAccessRequestRequestTypedDict": ".rbacservice_rejectaccessrequestop",
+    "RBACServiceRejectAccessRequestResponse": ".rbacservice_rejectaccessrequestop",
+    "RBACServiceRejectAccessRequestResponseTypedDict": ".rbacservice_rejectaccessrequestop",
     "RBACServiceRemovePermissionFromRoleRequest": ".rbacservice_removepermissionfromroleop",
     "RBACServiceRemovePermissionFromRoleRequestTypedDict": ".rbacservice_removepermissionfromroleop",
     "RBACServiceRemovePermissionFromRoleResponse": ".rbacservice_removepermissionfromroleop",
@@ -13515,10 +13815,18 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceRemoveRoleFromMemberRequestTypedDict": ".rbacservice_removerolefrommemberop",
     "RBACServiceRemoveRoleFromMemberResponse": ".rbacservice_removerolefrommemberop",
     "RBACServiceRemoveRoleFromMemberResponseTypedDict": ".rbacservice_removerolefrommemberop",
+    "RBACServiceRequestAccessRequest": ".rbacservice_requestaccessop",
+    "RBACServiceRequestAccessRequestTypedDict": ".rbacservice_requestaccessop",
+    "RBACServiceRequestAccessResponse": ".rbacservice_requestaccessop",
+    "RBACServiceRequestAccessResponseTypedDict": ".rbacservice_requestaccessop",
     "RBACServiceRevokeAPIKeyRequest": ".rbacservice_revokeapikeyop",
     "RBACServiceRevokeAPIKeyRequestTypedDict": ".rbacservice_revokeapikeyop",
     "RBACServiceRevokeAPIKeyResponse": ".rbacservice_revokeapikeyop",
     "RBACServiceRevokeAPIKeyResponseTypedDict": ".rbacservice_revokeapikeyop",
+    "RBACServiceRevokeObjectAccessRequest": ".rbacservice_revokeobjectaccessop",
+    "RBACServiceRevokeObjectAccessRequestTypedDict": ".rbacservice_revokeobjectaccessop",
+    "RBACServiceRevokeObjectAccessResponse": ".rbacservice_revokeobjectaccessop",
+    "RBACServiceRevokeObjectAccessResponseTypedDict": ".rbacservice_revokeobjectaccessop",
     "RBACServiceRotateAPIKeyRequest": ".rbacservice_rotateapikeyop",
     "RBACServiceRotateAPIKeyRequestTypedDict": ".rbacservice_rotateapikeyop",
     "RBACServiceRotateAPIKeyResponse": ".rbacservice_rotateapikeyop",
@@ -13527,6 +13835,22 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceSetRolePermissionsRequestTypedDict": ".rbacservice_setrolepermissionsop",
     "RBACServiceSetRolePermissionsResponse": ".rbacservice_setrolepermissionsop",
     "RBACServiceSetRolePermissionsResponseTypedDict": ".rbacservice_setrolepermissionsop",
+    "RBACServiceShareObjectRequest": ".rbacservice_shareobjectop",
+    "RBACServiceShareObjectRequestTypedDict": ".rbacservice_shareobjectop",
+    "RBACServiceShareObjectResponse": ".rbacservice_shareobjectop",
+    "RBACServiceShareObjectResponseTypedDict": ".rbacservice_shareobjectop",
+    "RBACServiceShareObjectWithRoleRequest": ".rbacservice_shareobjectwithroleop",
+    "RBACServiceShareObjectWithRoleRequestTypedDict": ".rbacservice_shareobjectwithroleop",
+    "RBACServiceShareObjectWithRoleResponse": ".rbacservice_shareobjectwithroleop",
+    "RBACServiceShareObjectWithRoleResponseTypedDict": ".rbacservice_shareobjectwithroleop",
+    "RBACServiceUpdateObjectAccessRequest": ".rbacservice_updateobjectaccessop",
+    "RBACServiceUpdateObjectAccessRequestTypedDict": ".rbacservice_updateobjectaccessop",
+    "RBACServiceUpdateObjectAccessResponse": ".rbacservice_updateobjectaccessop",
+    "RBACServiceUpdateObjectAccessResponseTypedDict": ".rbacservice_updateobjectaccessop",
+    "RBACServiceUpdateObjectVisibilityRequest": ".rbacservice_updateobjectvisibilityop",
+    "RBACServiceUpdateObjectVisibilityRequestTypedDict": ".rbacservice_updateobjectvisibilityop",
+    "RBACServiceUpdateObjectVisibilityResponse": ".rbacservice_updateobjectvisibilityop",
+    "RBACServiceUpdateObjectVisibilityResponseTypedDict": ".rbacservice_updateobjectvisibilityop",
     "RBACServiceUpdateRoleRequest": ".rbacservice_updateroleop",
     "RBACServiceUpdateRoleRequestTypedDict": ".rbacservice_updateroleop",
     "RBACServiceUpdateRoleResponse": ".rbacservice_updateroleop",
@@ -16314,11 +16638,17 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequestTypedDict": ".textql_rpc_public_powerbi_unsyncpowerbiitemsrequest",
     "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse": ".textql_rpc_public_powerbi_unsyncpowerbiitemsresponse",
     "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict": ".textql_rpc_public_powerbi_unsyncpowerbiitemsresponse",
+    "TextqlRPCPublicRbacAccessRequest": ".textql_rpc_public_rbac_accessrequest",
+    "TextqlRPCPublicRbacAccessRequestTypedDict": ".textql_rpc_public_rbac_accessrequest",
     "TextqlRPCPublicRbacAPIKey": ".textql_rpc_public_rbac_apikey",
     "TextqlRPCPublicRbacAPIKeyTypedDict": ".textql_rpc_public_rbac_apikey",
     "TextqlRPCPublicRbacAPIKeyScope": ".textql_rpc_public_rbac_apikeyscope",
     "TextqlRPCPublicRbacAPIKeySortField": ".textql_rpc_public_rbac_apikeysortfield",
     "TextqlRPCPublicRbacAPIKeyStatus": ".textql_rpc_public_rbac_apikeystatus",
+    "TextqlRPCPublicRbacApproveAccessRequestRequest": ".textql_rpc_public_rbac_approveaccessrequestrequest",
+    "TextqlRPCPublicRbacApproveAccessRequestRequestTypedDict": ".textql_rpc_public_rbac_approveaccessrequestrequest",
+    "TextqlRPCPublicRbacApproveAccessRequestResponse": ".textql_rpc_public_rbac_approveaccessrequestresponse",
+    "TextqlRPCPublicRbacApproveAccessRequestResponseTypedDict": ".textql_rpc_public_rbac_approveaccessrequestresponse",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequest": ".textql_rpc_public_rbac_assignpermissiontorolerequest",
     "TextqlRPCPublicRbacAssignPermissionToRoleRequestTypedDict": ".textql_rpc_public_rbac_assignpermissiontorolerequest",
     "TextqlRPCPublicRbacAssignPermissionToRoleResponse": ".textql_rpc_public_rbac_assignpermissiontoroleresponse",
@@ -16351,6 +16681,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacDeleteServiceAccountRequestTypedDict": ".textql_rpc_public_rbac_deleteserviceaccountrequest",
     "TextqlRPCPublicRbacDeleteServiceAccountResponse": ".textql_rpc_public_rbac_deleteserviceaccountresponse",
     "TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict": ".textql_rpc_public_rbac_deleteserviceaccountresponse",
+    "TextqlRPCPublicRbacGenerateShareLinkRequest": ".textql_rpc_public_rbac_generatesharelinkrequest",
+    "TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict": ".textql_rpc_public_rbac_generatesharelinkrequest",
+    "TextqlRPCPublicRbacGenerateShareLinkResponse": ".textql_rpc_public_rbac_generatesharelinkresponse",
+    "TextqlRPCPublicRbacGenerateShareLinkResponseTypedDict": ".textql_rpc_public_rbac_generatesharelinkresponse",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequest": ".textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsrequest",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsRequestTypedDict": ".textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsrequest",
     "TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponse": ".textql_rpc_public_rbac_getcurrentmemberrolesandpermissionsresponse",
@@ -16363,6 +16697,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacGetMemberRolesRequestTypedDict": ".textql_rpc_public_rbac_getmemberrolesrequest",
     "TextqlRPCPublicRbacGetMemberRolesResponse": ".textql_rpc_public_rbac_getmemberrolesresponse",
     "TextqlRPCPublicRbacGetMemberRolesResponseTypedDict": ".textql_rpc_public_rbac_getmemberrolesresponse",
+    "TextqlRPCPublicRbacGetObjectAccessRequest": ".textql_rpc_public_rbac_getobjectaccessrequest",
+    "TextqlRPCPublicRbacGetObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_getobjectaccessrequest",
+    "TextqlRPCPublicRbacGetObjectAccessResponse": ".textql_rpc_public_rbac_getobjectaccessresponse",
+    "TextqlRPCPublicRbacGetObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_getobjectaccessresponse",
     "TextqlRPCPublicRbacGetRolePermissionsRequest": ".textql_rpc_public_rbac_getrolepermissionsrequest",
     "TextqlRPCPublicRbacGetRolePermissionsRequestTypedDict": ".textql_rpc_public_rbac_getrolepermissionsrequest",
     "TextqlRPCPublicRbacGetRolePermissionsResponse": ".textql_rpc_public_rbac_getrolepermissionsresponse",
@@ -16371,6 +16709,14 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacGetRoleRequestTypedDict": ".textql_rpc_public_rbac_getrolerequest",
     "TextqlRPCPublicRbacGetRoleResponse": ".textql_rpc_public_rbac_getroleresponse",
     "TextqlRPCPublicRbacGetRoleResponseTypedDict": ".textql_rpc_public_rbac_getroleresponse",
+    "TextqlRPCPublicRbacHasObjectAccessRequest": ".textql_rpc_public_rbac_hasobjectaccessrequest",
+    "TextqlRPCPublicRbacHasObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_hasobjectaccessrequest",
+    "TextqlRPCPublicRbacHasObjectAccessResponse": ".textql_rpc_public_rbac_hasobjectaccessresponse",
+    "TextqlRPCPublicRbacHasObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_hasobjectaccessresponse",
+    "TextqlRPCPublicRbacListAccessRequestsRequest": ".textql_rpc_public_rbac_listaccessrequestsrequest",
+    "TextqlRPCPublicRbacListAccessRequestsRequestTypedDict": ".textql_rpc_public_rbac_listaccessrequestsrequest",
+    "TextqlRPCPublicRbacListAccessRequestsResponse": ".textql_rpc_public_rbac_listaccessrequestsresponse",
+    "TextqlRPCPublicRbacListAccessRequestsResponseTypedDict": ".textql_rpc_public_rbac_listaccessrequestsresponse",
     "TextqlRPCPublicRbacListAPIKeysRequest": ".textql_rpc_public_rbac_listapikeysrequest",
     "TextqlRPCPublicRbacListAPIKeysRequestTypedDict": ".textql_rpc_public_rbac_listapikeysrequest",
     "TextqlRPCPublicRbacListAPIKeysResponse": ".textql_rpc_public_rbac_listapikeysresponse",
@@ -16389,8 +16735,14 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacListServiceAccountsResponseTypedDict": ".textql_rpc_public_rbac_listserviceaccountsresponse",
     "TextqlRPCPublicRbacMemberRoles": ".textql_rpc_public_rbac_memberroles",
     "TextqlRPCPublicRbacMemberRolesTypedDict": ".textql_rpc_public_rbac_memberroles",
+    "TextqlRPCPublicRbacObjectAccess": ".textql_rpc_public_rbac_objectaccess",
+    "TextqlRPCPublicRbacObjectAccessTypedDict": ".textql_rpc_public_rbac_objectaccess",
     "TextqlRPCPublicRbacPermission": ".textql_rpc_public_rbac_permission",
     "TextqlRPCPublicRbacPermissionTypedDict": ".textql_rpc_public_rbac_permission",
+    "TextqlRPCPublicRbacRejectAccessRequestRequest": ".textql_rpc_public_rbac_rejectaccessrequestrequest",
+    "TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict": ".textql_rpc_public_rbac_rejectaccessrequestrequest",
+    "TextqlRPCPublicRbacRejectAccessRequestResponse": ".textql_rpc_public_rbac_rejectaccessrequestresponse",
+    "TextqlRPCPublicRbacRejectAccessRequestResponseTypedDict": ".textql_rpc_public_rbac_rejectaccessrequestresponse",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequest": ".textql_rpc_public_rbac_removepermissionfromrolerequest",
     "TextqlRPCPublicRbacRemovePermissionFromRoleRequestTypedDict": ".textql_rpc_public_rbac_removepermissionfromrolerequest",
     "TextqlRPCPublicRbacRemovePermissionFromRoleResponse": ".textql_rpc_public_rbac_removepermissionfromroleresponse",
@@ -16399,10 +16751,18 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacRemoveRoleFromMemberRequestTypedDict": ".textql_rpc_public_rbac_removerolefrommemberrequest",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponse": ".textql_rpc_public_rbac_removerolefrommemberresponse",
     "TextqlRPCPublicRbacRemoveRoleFromMemberResponseTypedDict": ".textql_rpc_public_rbac_removerolefrommemberresponse",
+    "TextqlRPCPublicRbacRequestAccessRequest": ".textql_rpc_public_rbac_requestaccessrequest",
+    "TextqlRPCPublicRbacRequestAccessRequestTypedDict": ".textql_rpc_public_rbac_requestaccessrequest",
+    "TextqlRPCPublicRbacRequestAccessResponse": ".textql_rpc_public_rbac_requestaccessresponse",
+    "TextqlRPCPublicRbacRequestAccessResponseTypedDict": ".textql_rpc_public_rbac_requestaccessresponse",
     "TextqlRPCPublicRbacRevokeAPIKeyRequest": ".textql_rpc_public_rbac_revokeapikeyrequest",
     "TextqlRPCPublicRbacRevokeAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_revokeapikeyrequest",
     "TextqlRPCPublicRbacRevokeAPIKeyResponse": ".textql_rpc_public_rbac_revokeapikeyresponse",
     "TextqlRPCPublicRbacRevokeAPIKeyResponseTypedDict": ".textql_rpc_public_rbac_revokeapikeyresponse",
+    "TextqlRPCPublicRbacRevokeObjectAccessRequest": ".textql_rpc_public_rbac_revokeobjectaccessrequest",
+    "TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_revokeobjectaccessrequest",
+    "TextqlRPCPublicRbacRevokeObjectAccessResponse": ".textql_rpc_public_rbac_revokeobjectaccessresponse",
+    "TextqlRPCPublicRbacRevokeObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_revokeobjectaccessresponse",
     "TextqlRPCPublicRbacRole": ".textql_rpc_public_rbac_role",
     "TextqlRPCPublicRbacRoleTypedDict": ".textql_rpc_public_rbac_role",
     "TextqlRPCPublicRbacRotateAPIKeyRequest": ".textql_rpc_public_rbac_rotateapikeyrequest",
@@ -16417,6 +16777,22 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacSetRolePermissionsResponseTypedDict": ".textql_rpc_public_rbac_setrolepermissionsresponse",
     "TextqlRPCPublicRbacSharedObject": ".textql_rpc_public_rbac_sharedobject",
     "TextqlRPCPublicRbacSharedObjectTypedDict": ".textql_rpc_public_rbac_sharedobject",
+    "TextqlRPCPublicRbacShareObjectRequest": ".textql_rpc_public_rbac_shareobjectrequest",
+    "TextqlRPCPublicRbacShareObjectRequestTypedDict": ".textql_rpc_public_rbac_shareobjectrequest",
+    "TextqlRPCPublicRbacShareObjectResponse": ".textql_rpc_public_rbac_shareobjectresponse",
+    "TextqlRPCPublicRbacShareObjectResponseTypedDict": ".textql_rpc_public_rbac_shareobjectresponse",
+    "TextqlRPCPublicRbacShareObjectWithRoleRequest": ".textql_rpc_public_rbac_shareobjectwithrolerequest",
+    "TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict": ".textql_rpc_public_rbac_shareobjectwithrolerequest",
+    "TextqlRPCPublicRbacShareObjectWithRoleResponse": ".textql_rpc_public_rbac_shareobjectwithroleresponse",
+    "TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict": ".textql_rpc_public_rbac_shareobjectwithroleresponse",
+    "TextqlRPCPublicRbacUpdateObjectAccessRequest": ".textql_rpc_public_rbac_updateobjectaccessrequest",
+    "TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict": ".textql_rpc_public_rbac_updateobjectaccessrequest",
+    "TextqlRPCPublicRbacUpdateObjectAccessResponse": ".textql_rpc_public_rbac_updateobjectaccessresponse",
+    "TextqlRPCPublicRbacUpdateObjectAccessResponseTypedDict": ".textql_rpc_public_rbac_updateobjectaccessresponse",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityRequest": ".textql_rpc_public_rbac_updateobjectvisibilityrequest",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityRequestTypedDict": ".textql_rpc_public_rbac_updateobjectvisibilityrequest",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityResponse": ".textql_rpc_public_rbac_updateobjectvisibilityresponse",
+    "TextqlRPCPublicRbacUpdateObjectVisibilityResponseTypedDict": ".textql_rpc_public_rbac_updateobjectvisibilityresponse",
     "TextqlRPCPublicRbacUpdateRoleRequest": ".textql_rpc_public_rbac_updaterolerequest",
     "TextqlRPCPublicRbacUpdateRoleRequestTypedDict": ".textql_rpc_public_rbac_updaterolerequest",
     "TextqlRPCPublicRbacUpdateRoleResponse": ".textql_rpc_public_rbac_updateroleresponse",
