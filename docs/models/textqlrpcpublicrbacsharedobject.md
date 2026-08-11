@@ -1,6 +1,6 @@
 # TextqlRPCPublicRbacSharedObject
 
-Which LLM models the caller may run.
+WhoAmI messages
 
 
 ## Fields

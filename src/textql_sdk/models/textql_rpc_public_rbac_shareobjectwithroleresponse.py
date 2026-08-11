@@ -8,10 +8,14 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict(TypedDict):
+    r"""Object access management messages"""
+
     success: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleResponse(BaseModel):
+    r"""Object access management messages"""
+
     success: Optional[bool] = None
 
     @model_serializer(mode="wrap")

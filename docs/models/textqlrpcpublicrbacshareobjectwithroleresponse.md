@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacShareObjectWithRoleResponse
 
+Object access management messages
+
 
 ## Fields
 

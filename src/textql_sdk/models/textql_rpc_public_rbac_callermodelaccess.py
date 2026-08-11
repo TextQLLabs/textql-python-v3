@@ -10,16 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCallerModelAccessTypedDict(TypedDict):
-    r"""The credential that authenticated the request."""
-
     allowed_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
     default_model: NotRequired[TextqlRPCPublicChatLlmModel]
     restricted: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacCallerModelAccess(BaseModel):
-    r"""The credential that authenticated the request."""
-
     allowed_models: Annotated[
         Optional[List[TextqlRPCPublicChatLlmModel]],
         pydantic.Field(alias="allowedModels"),

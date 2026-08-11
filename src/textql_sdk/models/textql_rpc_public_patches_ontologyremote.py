@@ -16,6 +16,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesOntologyRemoteTypedDict(TypedDict):
+    r"""Deprecated: use SetOntologyOwnersResponse."""
+
     id: NotRequired[str]
     remote_url: NotRequired[str]
     auth_type: NotRequired[str]
@@ -306,6 +308,8 @@ class TextqlRPCPublicPatchesOntologyRemoteTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesOntologyRemote(BaseModel):
+    r"""Deprecated: use SetOntologyOwnersResponse."""
+
     id: Optional[str] = None
 
     remote_url: Annotated[Optional[str], pydantic.Field(alias="remoteUrl")] = None

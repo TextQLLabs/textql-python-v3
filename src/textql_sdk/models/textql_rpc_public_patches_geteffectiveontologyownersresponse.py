@@ -5,15 +5,20 @@ from .textql_rpc_public_patches_ontologyownerentry import (
     TextqlRPCPublicPatchesOntologyOwnerEntry,
     TextqlRPCPublicPatchesOntologyOwnerEntryTypedDict,
 )
+from .textql_rpc_public_patches_ontologypermission import (
+    TextqlRPCPublicPatchesOntologyPermission,
+)
+import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetEffectiveOntologyOwnersResponseTypedDict(TypedDict):
     path: NotRequired[str]
     entries: NotRequired[List[TextqlRPCPublicPatchesOntologyOwnerEntryTypedDict]]
+    unlisted_principal_permission: NotRequired[TextqlRPCPublicPatchesOntologyPermission]
 
 
 class TextqlRPCPublicPatchesGetEffectiveOntologyOwnersResponse(BaseModel):
@@ -21,9 +26,14 @@ class TextqlRPCPublicPatchesGetEffectiveOntologyOwnersResponse(BaseModel):
 
     entries: Optional[List[TextqlRPCPublicPatchesOntologyOwnerEntry]] = None
 
+    unlisted_principal_permission: Annotated[
+        Optional[TextqlRPCPublicPatchesOntologyPermission],
+        pydantic.Field(alias="unlistedPrincipalPermission"),
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["path", "entries"])
+        optional_fields = set(["path", "entries", "unlistedPrincipalPermission"])
         serialized = handler(self)
         m = {}
 
@@ -36,3 +46,9 @@ class TextqlRPCPublicPatchesGetEffectiveOntologyOwnersResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TextqlRPCPublicPatchesGetEffectiveOntologyOwnersResponse.model_rebuild()
+except NameError:
+    pass

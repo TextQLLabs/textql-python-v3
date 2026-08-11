@@ -8,14 +8,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacAssignRoleToMemberResponseTypedDict(TypedDict):
-    r"""Member role management messages"""
-
     success: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacAssignRoleToMemberResponse(BaseModel):
-    r"""Member role management messages"""
-
     success: Optional[bool] = None
 
     @model_serializer(mode="wrap")

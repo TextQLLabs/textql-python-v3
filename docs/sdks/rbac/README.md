@@ -4,16 +4,18 @@
 
 ### Available Operations
 
-* [approve_access_request](#approve_access_request) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+* [approve_access_request](#approve_access_request) - ApproveAccessRequest
 * [assign_permission_to_role](#assign_permission_to_role) - AssignPermissionToRole
-* [assign_role_to_member](#assign_role_to_member) - Member role assignment
+* [assign_role_to_member](#assign_role_to_member) - AssignRoleToMember
 * [create_api_key](#create_api_key) - CreateApiKey
+* [create_personal_api_key](#create_personal_api_key) - CreatePersonalApiKey
 * [create_role](#create_role) - Role management
 * [create_service_account](#create_service_account) - CreateServiceAccount
+* [create_service_account_api_key](#create_service_account_api_key) - CreateServiceAccountApiKey
 * [delete_role](#delete_role) - DeleteRole
 * [delete_service_account](#delete_service_account) - DeleteServiceAccount
 * [generate_share_link](#generate_share_link) - GenerateShareLink
-* [get_current_member_roles_and_permissions](#get_current_member_roles_and_permissions) - Get current member roles and permissions
+* [get_current_member_roles_and_permissions](#get_current_member_roles_and_permissions) - GetCurrentMemberRolesAndPermissions
 * [get_embed_user_api_key](#get_embed_user_api_key) - GetEmbedUserApiKey
 * [get_member_roles](#get_member_roles) - GetMemberRoles
 * [get_object_access](#get_object_access) - GetObjectAccess
@@ -25,25 +27,24 @@
 * [list_permissions](#list_permissions) - Permission management
 * [list_roles](#list_roles) - ListRoles
 * [list_service_accounts](#list_service_accounts) - ListServiceAccounts
-* [reject_access_request](#reject_access_request) - RejectAccessRequest
+* [reject_access_request](#reject_access_request) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
 * [remove_permission_from_role](#remove_permission_from_role) - RemovePermissionFromRole
-* [remove_role_from_member](#remove_role_from_member) - RemoveRoleFromMember
+* [remove_role_from_member](#remove_role_from_member) - Member role assignment
 * [request_access](#request_access) - RequestAccess
-* [revoke_api_key](#revoke_api_key) - RevokeApiKey
+* [revoke_api_key](#revoke_api_key) - Object sharing and access control
 * [revoke_object_access](#revoke_object_access) - RevokeObjectAccess
-* [rotate_api_key](#rotate_api_key) - Object sharing and access control
+* [rotate_api_key](#rotate_api_key) - RotateApiKey
 * [set_role_permissions](#set_role_permissions) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
-* [share_object](#share_object) - Group management. Internal only.
-* [share_object_with_role](#share_object_with_role) - ShareObjectWithRole
+* [share_object](#share_object) - Describe what a key is allowed to do.
+* [share_object_with_role](#share_object_with_role) - Group management. Internal only.
 * [update_object_access](#update_object_access) - UpdateObjectAccess
 * [update_object_visibility](#update_object_visibility) - UpdateObjectVisibility
 * [update_role](#update_role) - UpdateRole
-* [who_am_i](#who_am_i) - Describe what a key is allowed to do.
+* [who_am_i](#who_am_i) - Get current member roles and permissions
 
 ## approve_access_request
 
-SCIM group-mapping migration tooling: one-time role<->group conversion,
- internal only.
+ApproveAccessRequest
 
 ### Example Usage
 
@@ -126,7 +127,7 @@ with Textql(
 
 ## assign_role_to_member
 
-Member role assignment
+AssignRoleToMember
 
 ### Example Usage
 
@@ -201,11 +202,59 @@ with Textql(
 | `target_member_id`                                                  | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `client_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `suppress_superadmin`                                               | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `full_member_access`                                                | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
 **[models.RBACServiceCreateAPIKeyResponse](../../models/rbacservicecreateapikeyresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## create_personal_api_key
+
+CreatePersonalApiKey
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RBACService_CreatePersonalApiKey" method="post" path="/textql.rpc.public.rbac.RBACService/CreatePersonalApiKey" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.rbac.create_personal_api_key()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `expiry_seconds`                                                    | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `assumed_roles`                                                     | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `inherit_all_roles`                                                 | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `client_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `full_member_access`                                                | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `suppress_superadmin`                                               | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.RBACServiceCreatePersonalAPIKeyResponse](../../models/rbacservicecreatepersonalapikeyresponse.md)**
 
 ### Errors
 
@@ -292,6 +341,53 @@ with Textql(
 ### Response
 
 **[models.RBACServiceCreateServiceAccountResponse](../../models/rbacservicecreateserviceaccountresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## create_service_account_api_key
+
+CreateServiceAccountApiKey
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RBACService_CreateServiceAccountApiKey" method="post" path="/textql.rpc.public.rbac.RBACService/CreateServiceAccountApiKey" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.rbac.create_service_account_api_key()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `service_account_member_id`                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `expiry_seconds`                                                    | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `assumed_roles`                                                     | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `inherit_all_roles`                                                 | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `client_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `full_member_access`                                                | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.RBACServiceCreateServiceAccountAPIKeyResponse](../../models/rbacservicecreateserviceaccountapikeyresponse.md)**
 
 ### Errors
 
@@ -425,7 +521,7 @@ with Textql(
 
 ## get_current_member_roles_and_permissions
 
-Get current member roles and permissions
+GetCurrentMemberRolesAndPermissions
 
 ### Example Usage
 
@@ -932,7 +1028,8 @@ with Textql(
 
 ## reject_access_request
 
-RejectAccessRequest
+SCIM group-mapping migration tooling: one-time role<->group conversion,
+ internal only.
 
 ### Example Usage
 
@@ -1016,7 +1113,7 @@ with Textql(
 
 ## remove_role_from_member
 
-RemoveRoleFromMember
+Member role assignment
 
 ### Example Usage
 
@@ -1103,7 +1200,7 @@ with Textql(
 
 ## revoke_api_key
 
-RevokeApiKey
+Object sharing and access control
 
 ### Example Usage
 
@@ -1188,7 +1285,7 @@ with Textql(
 
 ## rotate_api_key
 
-Object sharing and access control
+RotateApiKey
 
 ### Example Usage
 
@@ -1272,7 +1369,7 @@ with Textql(
 
 ## share_object
 
-Group management. Internal only.
+Describe what a key is allowed to do.
 
 ### Example Usage
 
@@ -1319,7 +1416,7 @@ with Textql(
 
 ## share_object_with_role
 
-ShareObjectWithRole
+Group management. Internal only.
 
 ### Example Usage
 
@@ -1500,7 +1597,7 @@ with Textql(
 
 ## who_am_i
 
-Describe what a key is allowed to do.
+Get current member roles and permissions
 
 ### Example Usage
 

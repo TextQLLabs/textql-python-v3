@@ -17,7 +17,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCallerCredentialTypedDict(TypedDict):
-    r"""WhoAmI messages"""
+    r"""Get current member roles and permissions messages"""
 
     auth_method: NotRequired[str]
     api_key_id: NotRequired[Nullable[str]]
@@ -121,7 +121,7 @@ class TextqlRPCPublicRbacCallerCredentialTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacCallerCredential(BaseModel):
-    r"""WhoAmI messages"""
+    r"""Get current member roles and permissions messages"""
 
     auth_method: Annotated[Optional[str], pydantic.Field(alias="authMethod")] = None
 

@@ -248,6 +248,11 @@ class TextqlRPCAuthMemberTypedDict(TypedDict):
     Unset -> the client falls back to its own default. Scoped to the
     membership, so a user in multiple orgs sets this per org.
     """
+    share_app_builder_chat: NotRequired[Nullable[bool]]
+    r"""When this member creates a data app from a chat, share that builder chat
+    (read-only) with everyone who can view the app. Unset -> off (opt-in).
+    Snapshotted onto the app at creation time; later toggles only affect future apps.
+    """
 
 
 class TextqlRPCAuthMember(BaseModel):
@@ -551,6 +556,14 @@ class TextqlRPCAuthMember(BaseModel):
     membership, so a user in multiple orgs sets this per org.
     """
 
+    share_app_builder_chat: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="shareAppBuilderChat")
+    ] = UNSET
+    r"""When this member creates a data app from a chat, share that builder chat
+    (read-only) with everyone who can view the app. Unset -> off (opt-in).
+    Snapshotted onto the app at creation time; later toggles only affect future apps.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -586,6 +599,7 @@ class TextqlRPCAuthMember(BaseModel):
                 "firstName",
                 "lastName",
                 "themeMode",
+                "shareAppBuilderChat",
             ]
         )
         nullable_fields = set(
@@ -608,6 +622,7 @@ class TextqlRPCAuthMember(BaseModel):
                 "firstName",
                 "lastName",
                 "themeMode",
+                "shareAppBuilderChat",
             ]
         )
         serialized = handler(self)

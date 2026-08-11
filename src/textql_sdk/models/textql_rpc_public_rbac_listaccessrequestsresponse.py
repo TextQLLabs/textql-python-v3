@@ -12,10 +12,14 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacListAccessRequestsResponseTypedDict(TypedDict):
+    r"""Access request management messages"""
+
     requests: NotRequired[List[TextqlRPCPublicRbacAccessRequestTypedDict]]
 
 
 class TextqlRPCPublicRbacListAccessRequestsResponse(BaseModel):
+    r"""Access request management messages"""
+
     requests: Optional[List[TextqlRPCPublicRbacAccessRequest]] = None
 
     @model_serializer(mode="wrap")

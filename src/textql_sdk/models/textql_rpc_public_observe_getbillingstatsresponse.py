@@ -50,6 +50,7 @@ class TextqlRPCPublicObserveGetBillingStatsResponseTypedDict(TypedDict):
     unattributed_app_acu: NotRequired[float]
     total_app_count: NotRequired[int]
     acu_rate_per1000_usd: NotRequired[float]
+    unattributed_app_llm_acu: NotRequired[float]
 
 
 class TextqlRPCPublicObserveGetBillingStatsResponse(BaseModel):
@@ -126,6 +127,10 @@ class TextqlRPCPublicObserveGetBillingStatsResponse(BaseModel):
         Optional[float], pydantic.Field(alias="acuRatePer1000Usd")
     ] = None
 
+    unattributed_app_llm_acu: Annotated[
+        Optional[float], pydantic.Field(alias="unattributedAppLlmAcu")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -147,6 +152,7 @@ class TextqlRPCPublicObserveGetBillingStatsResponse(BaseModel):
                 "unattributedAppAcu",
                 "totalAppCount",
                 "acuRatePer1000Usd",
+                "unattributedAppLlmAcu",
             ]
         )
         serialized = handler(self)

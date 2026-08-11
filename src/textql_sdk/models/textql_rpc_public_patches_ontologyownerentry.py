@@ -6,7 +6,13 @@ from .textql_rpc_public_patches_ontologypermission import (
 )
 import pydantic
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -14,6 +20,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesOntologyOwnerEntryTypedDict(TypedDict):
     role_id: NotRequired[str]
     permission: NotRequired[TextqlRPCPublicPatchesOntologyPermission]
+    member_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicPatchesOntologyOwnerEntry(BaseModel):
@@ -21,18 +28,31 @@ class TextqlRPCPublicPatchesOntologyOwnerEntry(BaseModel):
 
     permission: Optional[TextqlRPCPublicPatchesOntologyPermission] = None
 
+    member_id: Annotated[OptionalNullable[str], pydantic.Field(alias="memberId")] = (
+        UNSET
+    )
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["roleId", "permission"])
+        optional_fields = set(["roleId", "permission", "memberId"])
+        nullable_fields = set(["memberId"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m

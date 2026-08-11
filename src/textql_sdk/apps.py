@@ -1166,10 +1166,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Append-only per-member activity log. Listing is own rows only; no
-        cross-member reads in this release.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1273,10 +1272,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Append-only per-member activity log. Listing is own rows only; no
-        cross-member reads in this release.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1382,7 +1380,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""GetAppDBTablePreview
+        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+
+        Staff-only (superadmin gated in-handler): publishes the embedded component
+        gallery as an app tree and returns its signed viewer URL.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1492,7 +1493,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""GetAppDBTablePreview
+        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+
+        Staff-only (superadmin gated in-handler): publishes the embedded component
+        gallery as an app tree and returns its signed viewer URL.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1600,10 +1604,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
-
-        Lists the calling member's favorited library items (apps, dashboards,
-        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+        r"""GetAppMemberState
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1707,10 +1708,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
-
-        Lists the calling member's favorited library items (apps, dashboards,
-        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+        r"""GetAppMemberState
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2038,11 +2036,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+        r"""Per-member notification subscription to an app (\"watch this app\").
 
-        Favorite/unfavorite a library item (app or dashboard) for the calling member.
-        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
-        since the merged library page pins apps and dashboards through one client.
+        Per-member notification subscription to an app (\"watch this app\").
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2146,11 +2142,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+        r"""Per-member notification subscription to an app (\"watch this app\").
 
-        Favorite/unfavorite a library item (app or dashboard) for the calling member.
-        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
-        since the merged library page pins apps and dashboards through one client.
+        Per-member notification subscription to an app (\"watch this app\").
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2691,10 +2685,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        Lists the calling member's favorited library items (apps, dashboards,
+        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2807,10 +2801,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        Lists the calling member's favorited library items (apps, dashboards,
+        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3384,9 +3378,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Favorite/unfavorite a library item (app or dashboard) for the calling member.
+        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+        since the merged library page pins apps and dashboards through one client.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3496,9 +3492,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Favorite/unfavorite a library item (app or dashboard) for the calling member.
+        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+        since the merged library page pins apps and dashboards through one client.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3825,7 +3823,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""PresenceHeartbeat
+        r"""Replaces the calling member's entire ordering; capped server-side.
+
+        Replaces the calling member's entire ordering; capped server-side.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3930,7 +3930,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""PresenceHeartbeat
+        r"""Replaces the calling member's entire ordering; capped server-side.
+
+        Replaces the calling member's entire ordering; capped server-side.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4038,9 +4040,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""Replaces the calling member's entire ordering; capped server-side.
+        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
 
-        Replaces the calling member's entire ordering; capped server-side.
+        Watcher management: app owners/editors and org admins list the app's
+        subscribers and add/remove members (Upsert/Delete with member_id).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4156,9 +4159,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""Replaces the calling member's entire ordering; capped server-side.
+        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
 
-        Replaces the calling member's entire ordering; capped server-side.
+        Watcher management: app owners/editors and org admins list the app's
+        subscribers and add/remove members (Upsert/Delete with member_id).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4703,12 +4707,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetAppMemberStateResponse:
-        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
-
-        Ordering overlay for the sidebar Bookmarks section: one position list per
-        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
-        Membership truth stays in library_favorite / chat bookmarks; this persists
-        only the drag-and-drop order.
+        r"""SetAppMemberState
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4815,12 +4814,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetAppMemberStateResponse:
-        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
-
-        Ordering overlay for the sidebar Bookmarks section: one position list per
-        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
-        Membership truth stays in library_favorite / chat bookmarks; this persists
-        only the drag-and-drop order.
+        r"""SetAppMemberState
 
         :param connect_timeout_ms:
         :param app_id:

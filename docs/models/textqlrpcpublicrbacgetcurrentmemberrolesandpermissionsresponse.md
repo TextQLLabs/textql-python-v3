@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacGetCurrentMemberRolesAndPermissionsResponse
 
-Get current member roles and permissions messages
-
 
 ## Fields
 

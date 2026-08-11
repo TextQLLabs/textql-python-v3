@@ -31,3 +31,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"ARTIFACT_TYPE_APP"`
 - `"ARTIFACT_TYPE_DASHBOARD_PREVIEW"`
 - `"ARTIFACT_TYPE_SKILL"`
+- `"ARTIFACT_TYPE_PATCH_DIFF"`
