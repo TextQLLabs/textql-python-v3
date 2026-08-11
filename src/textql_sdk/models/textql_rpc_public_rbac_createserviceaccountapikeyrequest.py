@@ -14,18 +14,23 @@ from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict(TypedDict):
+class TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict(TypedDict):
+    service_account_member_id: NotRequired[str]
+    name: NotRequired[Nullable[str]]
     expiry_seconds: NotRequired[Nullable[int]]
     assumed_roles: NotRequired[List[str]]
     inherit_all_roles: NotRequired[Nullable[bool]]
-    name: NotRequired[Nullable[str]]
-    target_member_id: NotRequired[Nullable[str]]
     client_id: NotRequired[Nullable[str]]
-    suppress_superadmin: NotRequired[bool]
     full_member_access: NotRequired[bool]
 
 
-class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
+class TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(BaseModel):
+    service_account_member_id: Annotated[
+        Optional[str], pydantic.Field(alias="serviceAccountMemberId")
+    ] = None
+
+    name: OptionalNullable[str] = UNSET
+
     expiry_seconds: Annotated[
         OptionalNullable[int], pydantic.Field(alias="expirySeconds")
     ] = UNSET
@@ -38,19 +43,9 @@ class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="inheritAllRoles")
     ] = UNSET
 
-    name: OptionalNullable[str] = UNSET
-
-    target_member_id: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="targetMemberId")
-    ] = UNSET
-
     client_id: Annotated[OptionalNullable[str], pydantic.Field(alias="clientId")] = (
         UNSET
     )
-
-    suppress_superadmin: Annotated[
-        Optional[bool], pydantic.Field(alias="suppressSuperadmin")
-    ] = None
 
     full_member_access: Annotated[
         Optional[bool], pydantic.Field(alias="fullMemberAccess")
@@ -60,19 +55,16 @@ class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "serviceAccountMemberId",
+                "name",
                 "expirySeconds",
                 "assumedRoles",
                 "inheritAllRoles",
-                "name",
-                "targetMemberId",
                 "clientId",
-                "suppressSuperadmin",
                 "fullMemberAccess",
             ]
         )
-        nullable_fields = set(
-            ["expirySeconds", "inheritAllRoles", "name", "targetMemberId", "clientId"]
-        )
+        nullable_fields = set(["name", "expirySeconds", "inheritAllRoles", "clientId"])
         serialized = handler(self)
         m = {}
 
@@ -96,6 +88,6 @@ class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
 
 
 try:
-    TextqlRPCPublicRbacCreateAPIKeyRequest.model_rebuild()
+    TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest.model_rebuild()
 except NameError:
     pass

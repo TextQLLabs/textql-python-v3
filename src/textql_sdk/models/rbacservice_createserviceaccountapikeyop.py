@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
-from .google_protobuf_empty import GoogleProtobufEmpty, GoogleProtobufEmptyTypedDict
-from .textql_rpc_public_patches_deleteontologyownersrequest import (
-    TextqlRPCPublicPatchesDeleteOntologyOwnersRequest,
-    TextqlRPCPublicPatchesDeleteOntologyOwnersRequestTypedDict,
+from .textql_rpc_public_rbac_createapikeyresult import (
+    TextqlRPCPublicRbacCreateAPIKeyResult,
+    TextqlRPCPublicRbacCreateAPIKeyResultTypedDict,
+)
+from .textql_rpc_public_rbac_createserviceaccountapikeyrequest import (
+    TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest,
+    TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict,
 )
 import pydantic
 from pydantic import model_serializer
@@ -21,15 +24,15 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-class OntologyManagementServiceDeleteOntologyOwnersRequestTypedDict(TypedDict):
-    body: TextqlRPCPublicPatchesDeleteOntologyOwnersRequestTypedDict
+class RBACServiceCreateServiceAccountAPIKeyRequestTypedDict(TypedDict):
+    body: TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict
     connect_protocol_version: float
     connect_timeout_ms: NotRequired[float]
 
 
-class OntologyManagementServiceDeleteOntologyOwnersRequest(BaseModel):
+class RBACServiceCreateServiceAccountAPIKeyRequest(BaseModel):
     body: Annotated[
-        TextqlRPCPublicPatchesDeleteOntologyOwnersRequest,
+        TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
 
@@ -62,19 +65,19 @@ class OntologyManagementServiceDeleteOntologyOwnersRequest(BaseModel):
         return m
 
 
-OntologyManagementServiceDeleteOntologyOwnersResponseTypedDict = TypeAliasType(
-    "OntologyManagementServiceDeleteOntologyOwnersResponseTypedDict",
-    Union[GoogleProtobufEmptyTypedDict, ConnectErrorTypedDict],
+RBACServiceCreateServiceAccountAPIKeyResponseTypedDict = TypeAliasType(
+    "RBACServiceCreateServiceAccountAPIKeyResponseTypedDict",
+    Union[TextqlRPCPublicRbacCreateAPIKeyResultTypedDict, ConnectErrorTypedDict],
 )
 
 
-OntologyManagementServiceDeleteOntologyOwnersResponse = TypeAliasType(
-    "OntologyManagementServiceDeleteOntologyOwnersResponse",
-    Union[GoogleProtobufEmpty, ConnectError],
+RBACServiceCreateServiceAccountAPIKeyResponse = TypeAliasType(
+    "RBACServiceCreateServiceAccountAPIKeyResponse",
+    Union[TextqlRPCPublicRbacCreateAPIKeyResult, ConnectError],
 )
 
 
 try:
-    OntologyManagementServiceDeleteOntologyOwnersRequest.model_rebuild()
+    RBACServiceCreateServiceAccountAPIKeyRequest.model_rebuild()
 except NameError:
     pass

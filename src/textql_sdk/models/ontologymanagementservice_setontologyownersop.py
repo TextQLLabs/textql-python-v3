@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
-from .textql_rpc_public_patches_upsertontologyownersrequest import (
-    TextqlRPCPublicPatchesUpsertOntologyOwnersRequest,
-    TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict,
+from .textql_rpc_public_patches_setontologyownersrequest import (
+    TextqlRPCPublicPatchesSetOntologyOwnersRequest,
+    TextqlRPCPublicPatchesSetOntologyOwnersRequestTypedDict,
 )
-from .textql_rpc_public_patches_upsertontologyownersresponse import (
-    TextqlRPCPublicPatchesUpsertOntologyOwnersResponse,
-    TextqlRPCPublicPatchesUpsertOntologyOwnersResponseTypedDict,
+from .textql_rpc_public_patches_setontologyownersresponse import (
+    TextqlRPCPublicPatchesSetOntologyOwnersResponse,
+    TextqlRPCPublicPatchesSetOntologyOwnersResponseTypedDict,
 )
 import pydantic
 from pydantic import model_serializer
@@ -24,15 +24,15 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-class OntologyManagementServiceUpsertOntologyOwnersRequestTypedDict(TypedDict):
-    body: TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict
+class OntologyManagementServiceSetOntologyOwnersRequestTypedDict(TypedDict):
+    body: TextqlRPCPublicPatchesSetOntologyOwnersRequestTypedDict
     connect_protocol_version: float
     connect_timeout_ms: NotRequired[float]
 
 
-class OntologyManagementServiceUpsertOntologyOwnersRequest(BaseModel):
+class OntologyManagementServiceSetOntologyOwnersRequest(BaseModel):
     body: Annotated[
-        TextqlRPCPublicPatchesUpsertOntologyOwnersRequest,
+        TextqlRPCPublicPatchesSetOntologyOwnersRequest,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
 
@@ -65,22 +65,21 @@ class OntologyManagementServiceUpsertOntologyOwnersRequest(BaseModel):
         return m
 
 
-OntologyManagementServiceUpsertOntologyOwnersResponseTypedDict = TypeAliasType(
-    "OntologyManagementServiceUpsertOntologyOwnersResponseTypedDict",
+OntologyManagementServiceSetOntologyOwnersResponseTypedDict = TypeAliasType(
+    "OntologyManagementServiceSetOntologyOwnersResponseTypedDict",
     Union[
-        TextqlRPCPublicPatchesUpsertOntologyOwnersResponseTypedDict,
-        ConnectErrorTypedDict,
+        TextqlRPCPublicPatchesSetOntologyOwnersResponseTypedDict, ConnectErrorTypedDict
     ],
 )
 
 
-OntologyManagementServiceUpsertOntologyOwnersResponse = TypeAliasType(
-    "OntologyManagementServiceUpsertOntologyOwnersResponse",
-    Union[TextqlRPCPublicPatchesUpsertOntologyOwnersResponse, ConnectError],
+OntologyManagementServiceSetOntologyOwnersResponse = TypeAliasType(
+    "OntologyManagementServiceSetOntologyOwnersResponse",
+    Union[TextqlRPCPublicPatchesSetOntologyOwnersResponse, ConnectError],
 )
 
 
 try:
-    OntologyManagementServiceUpsertOntologyOwnersRequest.model_rebuild()
+    OntologyManagementServiceSetOntologyOwnersRequest.model_rebuild()
 except NameError:
     pass

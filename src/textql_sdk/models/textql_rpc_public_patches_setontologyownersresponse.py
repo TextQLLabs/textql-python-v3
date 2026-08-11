@@ -11,11 +11,11 @@ from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class TextqlRPCPublicPatchesUpsertOntologyOwnersResponseTypedDict(TypedDict):
+class TextqlRPCPublicPatchesSetOntologyOwnersResponseTypedDict(TypedDict):
     owners: NotRequired[TextqlRPCPublicPatchesOntologyOwnersTypedDict]
 
 
-class TextqlRPCPublicPatchesUpsertOntologyOwnersResponse(BaseModel):
+class TextqlRPCPublicPatchesSetOntologyOwnersResponse(BaseModel):
     owners: Optional[TextqlRPCPublicPatchesOntologyOwners] = None
 
     @model_serializer(mode="wrap")

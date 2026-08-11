@@ -16,7 +16,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacSharedObjectTypedDict(TypedDict):
-    r"""Which LLM models the caller may run."""
+    r"""WhoAmI messages"""
 
     object_type: NotRequired[str]
     object_id: NotRequired[str]
@@ -118,7 +118,7 @@ class TextqlRPCPublicRbacSharedObjectTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacSharedObject(BaseModel):
-    r"""Which LLM models the caller may run."""
+    r"""WhoAmI messages"""
 
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 

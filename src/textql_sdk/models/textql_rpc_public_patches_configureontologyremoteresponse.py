@@ -13,10 +13,12 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesConfigureOntologyRemoteResponseTypedDict(TypedDict):
     remote: NotRequired[TextqlRPCPublicPatchesOntologyRemoteTypedDict]
+    r"""Deprecated: use SetOntologyOwnersResponse."""
 
 
 class TextqlRPCPublicPatchesConfigureOntologyRemoteResponse(BaseModel):
     remote: Optional[TextqlRPCPublicPatchesOntologyRemote] = None
+    r"""Deprecated: use SetOntologyOwnersResponse."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

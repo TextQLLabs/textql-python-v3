@@ -9,23 +9,23 @@
 * [delete_app](#delete_app) - DeleteApp
 * [duplicate](#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](#get) - GetApp
-* [get_db_schema](#get_db_schema) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
-* [get_db_table_preview](#get_db_table_preview) - GetAppDBTablePreview
-* [get_member_state](#get_member_state) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+* [get_db_schema](#get_db_schema) - View analytics: reads the engagement views recorded on app page load.
+* [get_db_table_preview](#get_db_table_preview) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+* [get_member_state](#get_member_state) - GetAppMemberState
 * [get_app_version](#get_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
-* [get_app_view_stats](#get_app_view_stats) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+* [get_app_view_stats](#get_app_view_stats) - Per-member notification subscription to an app ("watch this app").
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](#invoke_compute_function) - InvokeAppComputeFunction
-* [list_activity_since](#list_activity_since) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+* [list_activity_since](#list_activity_since) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 * [list_versions](#list_versions) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 * [list](#list) - ListApps
-* [list_my_member_activity](#list_my_member_activity) - View analytics: reads the engagement views recorded on app page load.
+* [list_my_member_activity](#list_my_member_activity) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 * [move_app_to_folder](#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
-* [presence_heartbeat](#presence_heartbeat) - PresenceHeartbeat
-* [record_member_activity](#record_member_activity) - Replaces the calling member's entire ordering; capped server-side.
+* [presence_heartbeat](#presence_heartbeat) - Replaces the calling member's entire ordering; capped server-side.
+* [record_member_activity](#record_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
 * [refresh](#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 * [restore_app_version](#restore_app_version) - RestoreAppVersion
-* [set_member_state](#set_member_state) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
+* [set_member_state](#set_member_state) - SetAppMemberState
 * [set_favorite](#set_favorite) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [update](#update) - UpdateApp
 
@@ -245,8 +245,7 @@ with Textql(
 
 ## get_db_schema
 
-Append-only per-member activity log. Listing is own rows only; no
- cross-member reads in this release.
+View analytics: reads the engagement views recorded on app page load.
 
 ### Example Usage
 
@@ -287,7 +286,8 @@ with Textql(
 
 ## get_db_table_preview
 
-GetAppDBTablePreview
+Staff-only (superadmin gated in-handler): publishes the embedded component
+ gallery as an app tree and returns its signed viewer URL.
 
 ### Example Usage
 
@@ -330,8 +330,7 @@ with Textql(
 
 ## get_member_state
 
-Lists the calling member's favorited library items (apps, dashboards,
- agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+GetAppMemberState
 
 ### Example Usage
 
@@ -415,9 +414,7 @@ with Textql(
 
 ## get_app_view_stats
 
-Favorite/unfavorite a library item (app or dashboard) for the calling member.
- Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
- since the merged library page pins apps and dashboards through one client.
+Per-member notification subscription to an app ("watch this app").
 
 ### Example Usage
 
@@ -542,8 +539,8 @@ with Textql(
 
 ## list_activity_since
 
-Staff-only (superadmin gated in-handler): publishes the embedded component
- gallery as an app tree and returns its signed viewer URL.
+Lists the calling member's favorited library items (apps, dashboards,
+ agents) for the sidebar Pinned section: id, type, name, preview screenshot.
 
 ### Example Usage
 
@@ -676,7 +673,9 @@ with Textql(
 
 ## list_my_member_activity
 
-View analytics: reads the engagement views recorded on app page load.
+Favorite/unfavorite a library item (app or dashboard) for the calling member.
+ Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+ since the merged library page pins apps and dashboards through one client.
 
 ### Example Usage
 
@@ -761,7 +760,7 @@ with Textql(
 
 ## presence_heartbeat
 
-PresenceHeartbeat
+Replaces the calling member's entire ordering; capped server-side.
 
 ### Example Usage
 
@@ -803,7 +802,8 @@ with Textql(
 
 ## record_member_activity
 
-Replaces the calling member's entire ordering; capped server-side.
+Watcher management: app owners/editors and org admins list the app's
+ subscribers and add/remove members (Upsert/Delete with member_id).
 
 ### Example Usage
 
@@ -932,10 +932,7 @@ with Textql(
 
 ## set_member_state
 
-Ordering overlay for the sidebar Bookmarks section: one position list per
- member covering favorites and thread bookmarks ('<kind>:<id>' keys).
- Membership truth stays in library_favorite / chat bookmarks; this persists
- only the drag-and-drop order.
+SetAppMemberState
 
 ### Example Usage
 

@@ -21,10 +21,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceApproveAccessRequestResponse:
-        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
-
-        SCIM group-mapping migration tooling: one-time role<->group conversion,
-        internal only.
+        r"""ApproveAccessRequest
 
         :param connect_timeout_ms:
         :param request_id:
@@ -128,10 +125,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceApproveAccessRequestResponse:
-        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
-
-        SCIM group-mapping migration tooling: one-time role<->group conversion,
-        internal only.
+        r"""ApproveAccessRequest
 
         :param connect_timeout_ms:
         :param request_id:
@@ -450,9 +444,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceAssignRoleToMemberResponse:
-        r"""Member role assignment
-
-        Member role assignment
+        r"""AssignRoleToMember
 
         :param connect_timeout_ms:
         :param member_id:
@@ -559,9 +551,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceAssignRoleToMemberResponse:
-        r"""Member role assignment
-
-        Member role assignment
+        r"""AssignRoleToMember
 
         :param connect_timeout_ms:
         :param member_id:
@@ -668,6 +658,7 @@ class Rbac(BaseSDK):
         target_member_id: OptionalNullable[str] = UNSET,
         client_id: OptionalNullable[str] = UNSET,
         suppress_superadmin: Optional[bool] = None,
+        full_member_access: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -683,6 +674,7 @@ class Rbac(BaseSDK):
         :param target_member_id:
         :param client_id:
         :param suppress_superadmin:
+        :param full_member_access:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -708,6 +700,7 @@ class Rbac(BaseSDK):
                 target_member_id=target_member_id,
                 client_id=client_id,
                 suppress_superadmin=suppress_superadmin,
+                full_member_access=full_member_access,
             ),
         )
 
@@ -790,6 +783,7 @@ class Rbac(BaseSDK):
         target_member_id: OptionalNullable[str] = UNSET,
         client_id: OptionalNullable[str] = UNSET,
         suppress_superadmin: Optional[bool] = None,
+        full_member_access: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -805,6 +799,7 @@ class Rbac(BaseSDK):
         :param target_member_id:
         :param client_id:
         :param suppress_superadmin:
+        :param full_member_access:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -830,6 +825,7 @@ class Rbac(BaseSDK):
                 target_member_id=target_member_id,
                 client_id=client_id,
                 suppress_superadmin=suppress_superadmin,
+                full_member_access=full_member_access,
             ),
         )
 
@@ -885,6 +881,250 @@ class Rbac(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicRbacCreateAPIKeyResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def create_personal_api_key(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: OptionalNullable[str] = UNSET,
+        expiry_seconds: OptionalNullable[int] = UNSET,
+        assumed_roles: Optional[Iterable[str]] = None,
+        inherit_all_roles: OptionalNullable[bool] = UNSET,
+        client_id: OptionalNullable[str] = UNSET,
+        full_member_access: Optional[bool] = None,
+        suppress_superadmin: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceCreatePersonalAPIKeyResponse:
+        r"""CreatePersonalApiKey
+
+        :param connect_timeout_ms:
+        :param name:
+        :param expiry_seconds:
+        :param assumed_roles:
+        :param inherit_all_roles:
+        :param client_id:
+        :param full_member_access:
+        :param suppress_superadmin:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceCreatePersonalAPIKeyRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(
+                name=name,
+                expiry_seconds=expiry_seconds,
+                assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
+                inherit_all_roles=inherit_all_roles,
+                client_id=client_id,
+                full_member_access=full_member_access,
+                suppress_superadmin=suppress_superadmin,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/CreatePersonalApiKey",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacCreatePersonalAPIKeyRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_CreatePersonalApiKey",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacCreateAPIKeyResult, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def create_personal_api_key_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        name: OptionalNullable[str] = UNSET,
+        expiry_seconds: OptionalNullable[int] = UNSET,
+        assumed_roles: Optional[Iterable[str]] = None,
+        inherit_all_roles: OptionalNullable[bool] = UNSET,
+        client_id: OptionalNullable[str] = UNSET,
+        full_member_access: Optional[bool] = None,
+        suppress_superadmin: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceCreatePersonalAPIKeyResponse:
+        r"""CreatePersonalApiKey
+
+        :param connect_timeout_ms:
+        :param name:
+        :param expiry_seconds:
+        :param assumed_roles:
+        :param inherit_all_roles:
+        :param client_id:
+        :param full_member_access:
+        :param suppress_superadmin:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceCreatePersonalAPIKeyRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(
+                name=name,
+                expiry_seconds=expiry_seconds,
+                assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
+                inherit_all_roles=inherit_all_roles,
+                client_id=client_id,
+                full_member_access=full_member_access,
+                suppress_superadmin=suppress_superadmin,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/CreatePersonalApiKey",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacCreatePersonalAPIKeyRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_CreatePersonalApiKey",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacCreateAPIKeyResult, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1329,6 +1569,250 @@ class Rbac(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(
                 models.TextqlRPCPublicRbacCreateServiceAccountResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    def create_service_account_api_key(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        service_account_member_id: Optional[str] = None,
+        name: OptionalNullable[str] = UNSET,
+        expiry_seconds: OptionalNullable[int] = UNSET,
+        assumed_roles: Optional[Iterable[str]] = None,
+        inherit_all_roles: OptionalNullable[bool] = UNSET,
+        client_id: OptionalNullable[str] = UNSET,
+        full_member_access: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceCreateServiceAccountAPIKeyResponse:
+        r"""CreateServiceAccountApiKey
+
+        :param connect_timeout_ms:
+        :param service_account_member_id:
+        :param name:
+        :param expiry_seconds:
+        :param assumed_roles:
+        :param inherit_all_roles:
+        :param client_id:
+        :param full_member_access:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceCreateServiceAccountAPIKeyRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(
+                service_account_member_id=service_account_member_id,
+                name=name,
+                expiry_seconds=expiry_seconds,
+                assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
+                inherit_all_roles=inherit_all_roles,
+                client_id=client_id,
+                full_member_access=full_member_access,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/CreateServiceAccountApiKey",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_CreateServiceAccountApiKey",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacCreateAPIKeyResult, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def create_service_account_api_key_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        service_account_member_id: Optional[str] = None,
+        name: OptionalNullable[str] = UNSET,
+        expiry_seconds: OptionalNullable[int] = UNSET,
+        assumed_roles: Optional[Iterable[str]] = None,
+        inherit_all_roles: OptionalNullable[bool] = UNSET,
+        client_id: OptionalNullable[str] = UNSET,
+        full_member_access: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceCreateServiceAccountAPIKeyResponse:
+        r"""CreateServiceAccountApiKey
+
+        :param connect_timeout_ms:
+        :param service_account_member_id:
+        :param name:
+        :param expiry_seconds:
+        :param assumed_roles:
+        :param inherit_all_roles:
+        :param client_id:
+        :param full_member_access:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceCreateServiceAccountAPIKeyRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(
+                service_account_member_id=service_account_member_id,
+                name=name,
+                expiry_seconds=expiry_seconds,
+                assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
+                inherit_all_roles=inherit_all_roles,
+                client_id=client_id,
+                full_member_access=full_member_access,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/CreateServiceAccountApiKey",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_CreateServiceAccountApiKey",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacCreateAPIKeyResult, http_res
             )
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1988,9 +2472,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetCurrentMemberRolesAndPermissionsResponse:
-        r"""Get current member roles and permissions
-
-        Get current member roles and permissions
+        r"""GetCurrentMemberRolesAndPermissions
 
         :param body:
         :param connect_timeout_ms:
@@ -2099,9 +2581,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetCurrentMemberRolesAndPermissionsResponse:
-        r"""Get current member roles and permissions
-
-        Get current member roles and permissions
+        r"""GetCurrentMemberRolesAndPermissions
 
         :param body:
         :param connect_timeout_ms:
@@ -4602,7 +5082,10 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRejectAccessRequestResponse:
-        r"""RejectAccessRequest
+        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+
+        SCIM group-mapping migration tooling: one-time role<->group conversion,
+        internal only.
 
         :param connect_timeout_ms:
         :param request_id:
@@ -4709,7 +5192,10 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRejectAccessRequestResponse:
-        r"""RejectAccessRequest
+        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+
+        SCIM group-mapping migration tooling: one-time role<->group conversion,
+        internal only.
 
         :param connect_timeout_ms:
         :param request_id:
@@ -5030,7 +5516,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRemoveRoleFromMemberResponse:
-        r"""RemoveRoleFromMember
+        r"""Member role assignment
+
+        Member role assignment
 
         :param connect_timeout_ms:
         :param member_id:
@@ -5137,7 +5625,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRemoveRoleFromMemberResponse:
-        r"""RemoveRoleFromMember
+        r"""Member role assignment
+
+        Member role assignment
 
         :param connect_timeout_ms:
         :param member_id:
@@ -5475,7 +5965,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeAPIKeyResponse:
-        r"""RevokeApiKey
+        r"""Object sharing and access control
+
+        Object sharing and access control
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -5579,7 +6071,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeAPIKeyResponse:
-        r"""RevokeApiKey
+        r"""Object sharing and access control
+
+        Object sharing and access control
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -5909,9 +6403,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRotateAPIKeyResponse:
-        r"""Object sharing and access control
-
-        Object sharing and access control
+        r"""RotateApiKey
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6015,9 +6507,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRotateAPIKeyResponse:
-        r"""Object sharing and access control
-
-        Object sharing and access control
+        r"""RotateApiKey
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6358,9 +6848,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectResponse:
-        r"""Group management. Internal only.
+        r"""Describe what a key is allowed to do.
 
-        Group management. Internal only.
+        Describe what a key is allowed to do.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -6567,9 +7057,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectResponse:
-        r"""Group management. Internal only.
+        r"""Describe what a key is allowed to do.
 
-        Group management. Internal only.
+        Describe what a key is allowed to do.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -6776,7 +7266,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectWithRoleResponse:
-        r"""ShareObjectWithRole
+        r"""Group management. Internal only.
+
+        Group management. Internal only.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -6983,7 +7475,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectWithRoleResponse:
-        r"""ShareObjectWithRole
+        r"""Group management. Internal only.
+
+        Group management. Internal only.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -8072,9 +8566,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceWhoAmIResponse:
-        r"""Describe what a key is allowed to do.
+        r"""Get current member roles and permissions
 
-        Describe what a key is allowed to do.
+        Get current member roles and permissions
 
         :param body:
         :param connect_timeout_ms:
@@ -8181,9 +8675,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceWhoAmIResponse:
-        r"""Describe what a key is allowed to do.
+        r"""Get current member roles and permissions
 
-        Describe what a key is allowed to do.
+        Get current member roles and permissions
 
         :param body:
         :param connect_timeout_ms:

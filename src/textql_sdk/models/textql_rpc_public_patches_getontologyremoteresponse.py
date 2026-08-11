@@ -20,6 +20,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesGetOntologyRemoteResponseTypedDict(TypedDict):
     remote: NotRequired[TextqlRPCPublicPatchesOntologyRemoteTypedDict]
+    r"""Deprecated: use SetOntologyOwnersResponse."""
     hosted_github_app_available: NotRequired[bool]
     hosted_github_app_slug: NotRequired[Nullable[str]]
     github_oauth_available: NotRequired[bool]
@@ -27,6 +28,7 @@ class TextqlRPCPublicPatchesGetOntologyRemoteResponseTypedDict(TypedDict):
 
 class TextqlRPCPublicPatchesGetOntologyRemoteResponse(BaseModel):
     remote: Optional[TextqlRPCPublicPatchesOntologyRemote] = None
+    r"""Deprecated: use SetOntologyOwnersResponse."""
 
     hosted_github_app_available: Annotated[
         Optional[bool], pydantic.Field(alias="hostedGithubAppAvailable")

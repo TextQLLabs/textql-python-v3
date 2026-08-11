@@ -6,7 +6,7 @@
 
 * [add_submodule](#add_submodule) - AddOntologySubmodule
 * [approve_patch](#approve_patch) - ApprovePatch
-* [configure_remote](#configure_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+* [configure_remote](#configure_remote) - ConfigureOntologyRemote
 * [create_approval_rule](#create_approval_rule) - CreateApprovalRule
 * [create_context_patch_auto_approve_rule](#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
 * [create_directory](#create_directory) - CreateOntologyDirectory
@@ -15,9 +15,8 @@
 * [delete_context_patch_auto_approve_rule](#delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
 * [delete_directory](#delete_directory) - DeleteOntologyDirectory
 * [delete_file](#delete_file) - DeleteOntologyFile
-* [delete_owners](#delete_owners) - DeleteOntologyOwners
 * [deny_patch](#deny_patch) - DenyPatch
-* [exchange_github_code](#exchange_github_code) - ExchangeOntologyGithubCode
+* [exchange_github_code](#exchange_github_code) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [finalize_file_upload](#finalize_file_upload) - FinalizeOntologyFileUpload
 * [get_codeowner_coverage](#get_codeowner_coverage) - GetCodeownerCoverage
 * [get_config_export_capabilities](#get_config_export_capabilities) - GetConfigExportCapabilities
@@ -31,7 +30,7 @@
 * [get_owners](#get_owners) - GetOntologyOwners
 * [get_remote](#get_remote) - GetOntologyRemote
 * [get_size_timeline](#get_size_timeline) - GetOntologySizeTimeline
-* [get_sync_conflicts](#get_sync_conflicts) - GetOntologySyncConflicts
+* [get_sync_conflicts](#get_sync_conflicts) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
 * [get_usage_summary](#get_usage_summary) - GetOntologyUsageSummary
 * [get_patch](#get_patch) - GetPatch
 * [get_patch_by_number](#get_patch_by_number) - GetPatchByNumber
@@ -65,14 +64,14 @@
 * [revert_patch](#revert_patch) - RevertPatch
 * [save_all_objects_as_config](#save_all_objects_as_config) - SaveAllObjectsAsConfig
 * [save_object_as_config](#save_object_as_config) - SaveObjectAsConfig
-* [set_file_golden](#set_file_golden) - SetOntologyFileGolden
+* [set_file_golden](#set_file_golden) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+* [set_owners](#set_owners) - SetOntologyOwners
 * [trigger_config_drift_reconcile](#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile
 * [update_approval_rule](#update_approval_rule) - UpdateApprovalRule
 * [update_context_patch_auto_approve_rule](#update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
-* [update_sync_config](#update_sync_config) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-* [upsert_ana_config](#upsert_ana_config) - UpsertOntologyAnaConfig
+* [update_sync_config](#update_sync_config) - UpdateOntologySyncConfig
+* [upsert_ana_config](#upsert_ana_config) - Deprecated: use SetOntologyOwners with the complete desired entry set.
 * [upsert_file](#upsert_file) - UpsertOntologyFile
-* [upsert_owners](#upsert_owners) - UpsertOntologyOwners
 * [validate_config](#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
 
 ## add_submodule
@@ -162,10 +161,7 @@ with Textql(
 
 ## configure_remote
 
-Lists the skills under the ontology's flat skills/ root that the caller can
- read (OWNERS-filtered). Returns display metadata only — never instruction
- bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
- omitted unless include_unlisted is set.
+ConfigureOntologyRemote
 
 ### Example Usage
 
@@ -553,49 +549,6 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## delete_owners
-
-DeleteOntologyOwners
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="OntologyManagementService_DeleteOntologyOwners" method="post" path="/textql.rpc.public.patches.OntologyManagementService/DeleteOntologyOwners" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.ontology.delete_owners()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `path`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `role_ids`                                                          | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `commit_message`                                                    | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.OntologyManagementServiceDeleteOntologyOwnersResponse](../../models/ontologymanagementservicedeleteontologyownersresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
 ## deny_patch
 
 DenyPatch
@@ -640,7 +593,10 @@ with Textql(
 
 ## exchange_github_code
 
-ExchangeOntologyGithubCode
+Lists the skills under the ontology's flat skills/ root that the caller can
+ read (OWNERS-filtered). Returns display metadata only — never instruction
+ bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+ omitted unless include_unlisted is set.
 
 ### Example Usage
 
@@ -1225,7 +1181,10 @@ with Textql(
 
 ## get_sync_conflicts
 
-GetOntologySyncConflicts
+TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+ caller's org: if the Ontology repo's live HEAD differs from the last
+ reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+ equivalent of waiting for the periodic drift scan.
 
 ### Example Usage
 
@@ -2648,7 +2607,8 @@ with Textql(
 
 ## set_file_golden
 
-SetOntologyFileGolden
+Deprecated: use SetOntologyOwners with the desired entry set. An empty
+ desired set is not currently supported, so retain this RPC for deletion.
 
 ### Example Usage
 
@@ -2681,6 +2641,49 @@ with Textql(
 ### Response
 
 **[models.OntologyManagementServiceSetOntologyFileGoldenResponse](../../models/ontologymanagementservicesetontologyfilegoldenresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## set_owners
+
+SetOntologyOwners
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="OntologyManagementService_SetOntologyOwners" method="post" path="/textql.rpc.public.patches.OntologyManagementService/SetOntologyOwners" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.ontology.set_owners()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                              | *Optional[float]*                                                                                                 | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `path`                                                                                                            | *Optional[str]*                                                                                                   | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `entries`                                                                                                         | List[[models.TextqlRPCPublicPatchesOntologyOwnerEntry](../../models/textqlrpcpublicpatchesontologyownerentry.md)] | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `commit_message`                                                                                                  | *OptionalNullable[str]*                                                                                           | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
+| `retries`                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                  | :heavy_minus_sign:                                                                                                | Configuration to override the default retry behavior of the client.                                               |
+
+### Response
+
+**[models.OntologyManagementServiceSetOntologyOwnersResponse](../../models/ontologymanagementservicesetontologyownersresponse.md)**
 
 ### Errors
 
@@ -2815,10 +2818,7 @@ with Textql(
 
 ## update_sync_config
 
-TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
- caller's org: if the Ontology repo's live HEAD differs from the last
- reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
- equivalent of waiting for the periodic drift scan.
+UpdateOntologySyncConfig
 
 ### Example Usage
 
@@ -2861,7 +2861,7 @@ with Textql(
 
 ## upsert_ana_config
 
-UpsertOntologyAnaConfig
+Deprecated: use SetOntologyOwners with the complete desired entry set.
 
 ### Example Usage
 
@@ -2939,50 +2939,6 @@ with Textql(
 ### Response
 
 **[models.OntologyManagementServiceUpsertOntologyFileResponse](../../models/ontologymanagementserviceupsertontologyfileresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
-## upsert_owners
-
-UpsertOntologyOwners
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="OntologyManagementService_UpsertOntologyOwners" method="post" path="/textql.rpc.public.patches.OntologyManagementService/UpsertOntologyOwners" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.ontology.upsert_owners()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                                                              | *Optional[float]*                                                                                                 | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
-| `path`                                                                                                            | *Optional[str]*                                                                                                   | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
-| `role_ids`                                                                                                        | List[*str*]                                                                                                       | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
-| `permissions`                                                                                                     | List[[models.TextqlRPCPublicPatchesOntologyPermission](../../models/textqlrpcpublicpatchesontologypermission.md)] | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
-| `commit_message`                                                                                                  | *OptionalNullable[str]*                                                                                           | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
-| `retries`                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                  | :heavy_minus_sign:                                                                                                | Configuration to override the default retry behavior of the client.                                               |
-
-### Response
-
-**[models.OntologyManagementServiceUpsertOntologyOwnersResponse](../../models/ontologymanagementserviceupsertontologyownersresponse.md)**
 
 ### Errors
 

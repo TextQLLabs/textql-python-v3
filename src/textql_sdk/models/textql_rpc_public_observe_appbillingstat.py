@@ -110,6 +110,8 @@ class TextqlRPCPublicObserveAppBillingStatTypedDict(TypedDict):
     """
     daily_view_counts: NotRequired[List[int]]
     is_published: NotRequired[bool]
+    llm_acu: NotRequired[float]
+    total_acu: NotRequired[float]
 
 
 class TextqlRPCPublicObserveAppBillingStat(BaseModel):
@@ -227,6 +229,10 @@ class TextqlRPCPublicObserveAppBillingStat(BaseModel):
 
     is_published: Annotated[Optional[bool], pydantic.Field(alias="isPublished")] = None
 
+    llm_acu: Annotated[Optional[float], pydantic.Field(alias="llmAcu")] = None
+
+    total_acu: Annotated[Optional[float], pydantic.Field(alias="totalAcu")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -241,6 +247,8 @@ class TextqlRPCPublicObserveAppBillingStat(BaseModel):
                 "lastViewedAt",
                 "dailyViewCounts",
                 "isPublished",
+                "llmAcu",
+                "totalAcu",
             ]
         )
         serialized = handler(self)

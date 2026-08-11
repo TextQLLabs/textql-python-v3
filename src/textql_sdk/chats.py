@@ -3070,6 +3070,14 @@ class Chats(BaseSDK):
         chat_id: Optional[str] = None,
         only_if_different_owner: OptionalNullable[bool] = UNSET,
         up_to_cell_id: OptionalNullable[str] = UNSET,
+        paradigm_options: Optional[
+            Union[
+                models.TextqlRPCPublicParadigmParadigmOptions,
+                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
+            ]
+        ] = None,
+        model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        fast_mode: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3081,6 +3089,9 @@ class Chats(BaseSDK):
         :param chat_id: \"user\" or \"assistant\"
         :param only_if_different_owner:
         :param up_to_cell_id:
+        :param paradigm_options:
+        :param model:
+        :param fast_mode:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3102,6 +3113,12 @@ class Chats(BaseSDK):
                 chat_id=chat_id,
                 only_if_different_owner=only_if_different_owner,
                 up_to_cell_id=up_to_cell_id,
+                paradigm_options=utils.get_pydantic_model(
+                    paradigm_options,
+                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
+                ),
+                model=model,
+                fast_mode=fast_mode,
             ),
         )
 
@@ -3180,6 +3197,14 @@ class Chats(BaseSDK):
         chat_id: Optional[str] = None,
         only_if_different_owner: OptionalNullable[bool] = UNSET,
         up_to_cell_id: OptionalNullable[str] = UNSET,
+        paradigm_options: Optional[
+            Union[
+                models.TextqlRPCPublicParadigmParadigmOptions,
+                models.TextqlRPCPublicParadigmParadigmOptionsTypedDict,
+            ]
+        ] = None,
+        model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        fast_mode: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3191,6 +3216,9 @@ class Chats(BaseSDK):
         :param chat_id: \"user\" or \"assistant\"
         :param only_if_different_owner:
         :param up_to_cell_id:
+        :param paradigm_options:
+        :param model:
+        :param fast_mode:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3212,6 +3240,12 @@ class Chats(BaseSDK):
                 chat_id=chat_id,
                 only_if_different_owner=only_if_different_owner,
                 up_to_cell_id=up_to_cell_id,
+                paradigm_options=utils.get_pydantic_model(
+                    paradigm_options,
+                    Optional[models.TextqlRPCPublicParadigmParadigmOptions],
+                ),
+                model=model,
+                fast_mode=fast_mode,
             ),
         )
 

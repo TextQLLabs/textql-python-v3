@@ -10,6 +10,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectRequestTypedDict(TypedDict):
+    r"""Which LLM models the caller may run."""
+
     object_type: NotRequired[str]
     object_id: NotRequired[str]
     member_id: NotRequired[str]
@@ -109,6 +111,8 @@ class TextqlRPCPublicRbacShareObjectRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacShareObjectRequest(BaseModel):
+    r"""Which LLM models the caller may run."""
+
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None

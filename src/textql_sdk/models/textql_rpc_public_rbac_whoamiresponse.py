@@ -35,20 +35,23 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacWhoAmIResponseTypedDict(TypedDict):
+    r"""The credential that authenticated the request."""
+
     member_id: NotRequired[str]
     org_id: NotRequired[str]
     email: NotRequired[Nullable[str]]
     credential: NotRequired[TextqlRPCPublicRbacCallerCredentialTypedDict]
-    r"""WhoAmI messages"""
+    r"""Get current member roles and permissions messages"""
     roles: NotRequired[List[TextqlRPCPublicRbacRoleTypedDict]]
     permissions: NotRequired[List[TextqlRPCPublicRbacPermissionTypedDict]]
     model_access: NotRequired[TextqlRPCPublicRbacCallerModelAccessTypedDict]
-    r"""The credential that authenticated the request."""
     shared_access: NotRequired[List[TextqlRPCPublicRbacSharedObjectTypedDict]]
     shared_access_truncated: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacWhoAmIResponse(BaseModel):
+    r"""The credential that authenticated the request."""
+
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     org_id: Annotated[Optional[str], pydantic.Field(alias="orgId")] = None
@@ -56,7 +59,7 @@ class TextqlRPCPublicRbacWhoAmIResponse(BaseModel):
     email: OptionalNullable[str] = UNSET
 
     credential: Optional[TextqlRPCPublicRbacCallerCredential] = None
-    r"""WhoAmI messages"""
+    r"""Get current member roles and permissions messages"""
 
     roles: Optional[List[TextqlRPCPublicRbacRole]] = None
 
@@ -66,7 +69,6 @@ class TextqlRPCPublicRbacWhoAmIResponse(BaseModel):
         Optional[TextqlRPCPublicRbacCallerModelAccess],
         pydantic.Field(alias="modelAccess"),
     ] = None
-    r"""The credential that authenticated the request."""
 
     shared_access: Annotated[
         Optional[List[TextqlRPCPublicRbacSharedObject]],

@@ -22,6 +22,7 @@ TextqlRPCPublicChatArtifactType = Union[
         "ARTIFACT_TYPE_APP",
         "ARTIFACT_TYPE_DASHBOARD_PREVIEW",
         "ARTIFACT_TYPE_SKILL",
+        "ARTIFACT_TYPE_PATCH_DIFF",
     ],
     UnrecognizedStr,
 ]

@@ -1202,12 +1202,6 @@ if TYPE_CHECKING:
         OntologyManagementServiceDeleteOntologyFileResponse,
         OntologyManagementServiceDeleteOntologyFileResponseTypedDict,
     )
-    from .ontologymanagementservice_deleteontologyownersop import (
-        OntologyManagementServiceDeleteOntologyOwnersRequest,
-        OntologyManagementServiceDeleteOntologyOwnersRequestTypedDict,
-        OntologyManagementServiceDeleteOntologyOwnersResponse,
-        OntologyManagementServiceDeleteOntologyOwnersResponseTypedDict,
-    )
     from .ontologymanagementservice_denypatchop import (
         OntologyManagementServiceDenyPatchRequest,
         OntologyManagementServiceDenyPatchRequestTypedDict,
@@ -1508,6 +1502,12 @@ if TYPE_CHECKING:
         OntologyManagementServiceSetOntologyFileGoldenResponse,
         OntologyManagementServiceSetOntologyFileGoldenResponseTypedDict,
     )
+    from .ontologymanagementservice_setontologyownersop import (
+        OntologyManagementServiceSetOntologyOwnersRequest,
+        OntologyManagementServiceSetOntologyOwnersRequestTypedDict,
+        OntologyManagementServiceSetOntologyOwnersResponse,
+        OntologyManagementServiceSetOntologyOwnersResponseTypedDict,
+    )
     from .ontologymanagementservice_triggerconfigdriftreconcileop import (
         OntologyManagementServiceTriggerConfigDriftReconcileRequest,
         OntologyManagementServiceTriggerConfigDriftReconcileRequestTypedDict,
@@ -1543,12 +1543,6 @@ if TYPE_CHECKING:
         OntologyManagementServiceUpsertOntologyFileRequestTypedDict,
         OntologyManagementServiceUpsertOntologyFileResponse,
         OntologyManagementServiceUpsertOntologyFileResponseTypedDict,
-    )
-    from .ontologymanagementservice_upsertontologyownersop import (
-        OntologyManagementServiceUpsertOntologyOwnersRequest,
-        OntologyManagementServiceUpsertOntologyOwnersRequestTypedDict,
-        OntologyManagementServiceUpsertOntologyOwnersResponse,
-        OntologyManagementServiceUpsertOntologyOwnersResponseTypedDict,
     )
     from .ontologymanagementservice_validateconfigop import (
         OntologyManagementServiceValidateConfigRequest,
@@ -1874,11 +1868,23 @@ if TYPE_CHECKING:
         RBACServiceCreateAPIKeyResponse,
         RBACServiceCreateAPIKeyResponseTypedDict,
     )
+    from .rbacservice_createpersonalapikeyop import (
+        RBACServiceCreatePersonalAPIKeyRequest,
+        RBACServiceCreatePersonalAPIKeyRequestTypedDict,
+        RBACServiceCreatePersonalAPIKeyResponse,
+        RBACServiceCreatePersonalAPIKeyResponseTypedDict,
+    )
     from .rbacservice_createroleop import (
         RBACServiceCreateRoleRequest,
         RBACServiceCreateRoleRequestTypedDict,
         RBACServiceCreateRoleResponse,
         RBACServiceCreateRoleResponseTypedDict,
+    )
+    from .rbacservice_createserviceaccountapikeyop import (
+        RBACServiceCreateServiceAccountAPIKeyRequest,
+        RBACServiceCreateServiceAccountAPIKeyRequestTypedDict,
+        RBACServiceCreateServiceAccountAPIKeyResponse,
+        RBACServiceCreateServiceAccountAPIKeyResponseTypedDict,
     )
     from .rbacservice_createserviceaccountop import (
         RBACServiceCreateServiceAccountRequest,
@@ -5818,10 +5824,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesDeleteOntologyFileRequest,
         TextqlRPCPublicPatchesDeleteOntologyFileRequestTypedDict,
     )
-    from .textql_rpc_public_patches_deleteontologyownersrequest import (
-        TextqlRPCPublicPatchesDeleteOntologyOwnersRequest,
-        TextqlRPCPublicPatchesDeleteOntologyOwnersRequestTypedDict,
-    )
     from .textql_rpc_public_patches_denypatchrequest import (
         TextqlRPCPublicPatchesDenyPatchRequest,
         TextqlRPCPublicPatchesDenyPatchRequestTypedDict,
@@ -6342,6 +6344,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesSetOntologyFileGoldenResponse,
         TextqlRPCPublicPatchesSetOntologyFileGoldenResponseTypedDict,
     )
+    from .textql_rpc_public_patches_setontologyownersrequest import (
+        TextqlRPCPublicPatchesSetOntologyOwnersRequest,
+        TextqlRPCPublicPatchesSetOntologyOwnersRequestTypedDict,
+    )
+    from .textql_rpc_public_patches_setontologyownersresponse import (
+        TextqlRPCPublicPatchesSetOntologyOwnersResponse,
+        TextqlRPCPublicPatchesSetOntologyOwnersResponseTypedDict,
+    )
     from .textql_rpc_public_patches_skill import (
         TextqlRPCPublicPatchesSkill,
         TextqlRPCPublicPatchesSkillTypedDict,
@@ -6397,14 +6407,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_patches_upsertontologyfileresponse import (
         TextqlRPCPublicPatchesUpsertOntologyFileResponse,
         TextqlRPCPublicPatchesUpsertOntologyFileResponseTypedDict,
-    )
-    from .textql_rpc_public_patches_upsertontologyownersrequest import (
-        TextqlRPCPublicPatchesUpsertOntologyOwnersRequest,
-        TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict,
-    )
-    from .textql_rpc_public_patches_upsertontologyownersresponse import (
-        TextqlRPCPublicPatchesUpsertOntologyOwnersResponse,
-        TextqlRPCPublicPatchesUpsertOntologyOwnersResponseTypedDict,
     )
     from .textql_rpc_public_patches_usageorderby import (
         TextqlRPCPublicPatchesUsageOrderBy,
@@ -6963,6 +6965,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacCreateAPIKeyResponse,
         TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_createapikeyresult import (
+        TextqlRPCPublicRbacCreateAPIKeyResult,
+        TextqlRPCPublicRbacCreateAPIKeyResultTypedDict,
+    )
+    from .textql_rpc_public_rbac_createpersonalapikeyrequest import (
+        TextqlRPCPublicRbacCreatePersonalAPIKeyRequest,
+        TextqlRPCPublicRbacCreatePersonalAPIKeyRequestTypedDict,
+    )
     from .textql_rpc_public_rbac_createrolerequest import (
         TextqlRPCPublicRbacCreateRoleRequest,
         TextqlRPCPublicRbacCreateRoleRequestTypedDict,
@@ -6970,6 +6980,10 @@ if TYPE_CHECKING:
     from .textql_rpc_public_rbac_createroleresponse import (
         TextqlRPCPublicRbacCreateRoleResponse,
         TextqlRPCPublicRbacCreateRoleResponseTypedDict,
+    )
+    from .textql_rpc_public_rbac_createserviceaccountapikeyrequest import (
+        TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest,
+        TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict,
     )
     from .textql_rpc_public_rbac_createserviceaccountrequest import (
         TextqlRPCPublicRbacCreateServiceAccountRequest,
@@ -8889,10 +8903,6 @@ __all__ = [
     "OntologyManagementServiceDeleteOntologyFileRequestTypedDict",
     "OntologyManagementServiceDeleteOntologyFileResponse",
     "OntologyManagementServiceDeleteOntologyFileResponseTypedDict",
-    "OntologyManagementServiceDeleteOntologyOwnersRequest",
-    "OntologyManagementServiceDeleteOntologyOwnersRequestTypedDict",
-    "OntologyManagementServiceDeleteOntologyOwnersResponse",
-    "OntologyManagementServiceDeleteOntologyOwnersResponseTypedDict",
     "OntologyManagementServiceDenyPatchRequest",
     "OntologyManagementServiceDenyPatchRequestTypedDict",
     "OntologyManagementServiceDenyPatchResponse",
@@ -9093,6 +9103,10 @@ __all__ = [
     "OntologyManagementServiceSetOntologyFileGoldenRequestTypedDict",
     "OntologyManagementServiceSetOntologyFileGoldenResponse",
     "OntologyManagementServiceSetOntologyFileGoldenResponseTypedDict",
+    "OntologyManagementServiceSetOntologyOwnersRequest",
+    "OntologyManagementServiceSetOntologyOwnersRequestTypedDict",
+    "OntologyManagementServiceSetOntologyOwnersResponse",
+    "OntologyManagementServiceSetOntologyOwnersResponseTypedDict",
     "OntologyManagementServiceTriggerConfigDriftReconcileRequest",
     "OntologyManagementServiceTriggerConfigDriftReconcileRequestTypedDict",
     "OntologyManagementServiceTriggerConfigDriftReconcileResponse",
@@ -9117,10 +9131,6 @@ __all__ = [
     "OntologyManagementServiceUpsertOntologyFileRequestTypedDict",
     "OntologyManagementServiceUpsertOntologyFileResponse",
     "OntologyManagementServiceUpsertOntologyFileResponseTypedDict",
-    "OntologyManagementServiceUpsertOntologyOwnersRequest",
-    "OntologyManagementServiceUpsertOntologyOwnersRequestTypedDict",
-    "OntologyManagementServiceUpsertOntologyOwnersResponse",
-    "OntologyManagementServiceUpsertOntologyOwnersResponseTypedDict",
     "OntologyManagementServiceValidateConfigRequest",
     "OntologyManagementServiceValidateConfigRequestTypedDict",
     "OntologyManagementServiceValidateConfigResponse",
@@ -9385,10 +9395,18 @@ __all__ = [
     "RBACServiceCreateAPIKeyRequestTypedDict",
     "RBACServiceCreateAPIKeyResponse",
     "RBACServiceCreateAPIKeyResponseTypedDict",
+    "RBACServiceCreatePersonalAPIKeyRequest",
+    "RBACServiceCreatePersonalAPIKeyRequestTypedDict",
+    "RBACServiceCreatePersonalAPIKeyResponse",
+    "RBACServiceCreatePersonalAPIKeyResponseTypedDict",
     "RBACServiceCreateRoleRequest",
     "RBACServiceCreateRoleRequestTypedDict",
     "RBACServiceCreateRoleResponse",
     "RBACServiceCreateRoleResponseTypedDict",
+    "RBACServiceCreateServiceAccountAPIKeyRequest",
+    "RBACServiceCreateServiceAccountAPIKeyRequestTypedDict",
+    "RBACServiceCreateServiceAccountAPIKeyResponse",
+    "RBACServiceCreateServiceAccountAPIKeyResponseTypedDict",
     "RBACServiceCreateServiceAccountRequest",
     "RBACServiceCreateServiceAccountRequestTypedDict",
     "RBACServiceCreateServiceAccountResponse",
@@ -11434,8 +11452,6 @@ __all__ = [
     "TextqlRPCPublicPatchesDeleteOntologyDirectoryRequestTypedDict",
     "TextqlRPCPublicPatchesDeleteOntologyFileRequest",
     "TextqlRPCPublicPatchesDeleteOntologyFileRequestTypedDict",
-    "TextqlRPCPublicPatchesDeleteOntologyOwnersRequest",
-    "TextqlRPCPublicPatchesDeleteOntologyOwnersRequestTypedDict",
     "TextqlRPCPublicPatchesDenyPatchRequest",
     "TextqlRPCPublicPatchesDenyPatchRequestTypedDict",
     "TextqlRPCPublicPatchesExchangeOntologyGithubCodeRequest",
@@ -11684,6 +11700,10 @@ __all__ = [
     "TextqlRPCPublicPatchesSetOntologyFileGoldenRequestTypedDict",
     "TextqlRPCPublicPatchesSetOntologyFileGoldenResponse",
     "TextqlRPCPublicPatchesSetOntologyFileGoldenResponseTypedDict",
+    "TextqlRPCPublicPatchesSetOntologyOwnersRequest",
+    "TextqlRPCPublicPatchesSetOntologyOwnersRequestTypedDict",
+    "TextqlRPCPublicPatchesSetOntologyOwnersResponse",
+    "TextqlRPCPublicPatchesSetOntologyOwnersResponseTypedDict",
     "TextqlRPCPublicPatchesSkill",
     "TextqlRPCPublicPatchesSkillTypedDict",
     "TextqlRPCPublicPatchesSkippedConfigExport",
@@ -11712,10 +11732,6 @@ __all__ = [
     "TextqlRPCPublicPatchesUpsertOntologyFileRequestTypedDict",
     "TextqlRPCPublicPatchesUpsertOntologyFileResponse",
     "TextqlRPCPublicPatchesUpsertOntologyFileResponseTypedDict",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersRequest",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersResponse",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersResponseTypedDict",
     "TextqlRPCPublicPatchesUsageOrderBy",
     "TextqlRPCPublicPatchesValidateConfigRequest",
     "TextqlRPCPublicPatchesValidateConfigRequestTypedDict",
@@ -11993,10 +12009,16 @@ __all__ = [
     "TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacCreateAPIKeyResponse",
     "TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict",
+    "TextqlRPCPublicRbacCreateAPIKeyResult",
+    "TextqlRPCPublicRbacCreateAPIKeyResultTypedDict",
+    "TextqlRPCPublicRbacCreatePersonalAPIKeyRequest",
+    "TextqlRPCPublicRbacCreatePersonalAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacCreateRoleRequest",
     "TextqlRPCPublicRbacCreateRoleRequestTypedDict",
     "TextqlRPCPublicRbacCreateRoleResponse",
     "TextqlRPCPublicRbacCreateRoleResponseTypedDict",
+    "TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest",
+    "TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict",
     "TextqlRPCPublicRbacCreateServiceAccountRequest",
     "TextqlRPCPublicRbacCreateServiceAccountRequestTypedDict",
     "TextqlRPCPublicRbacCreateServiceAccountResponse",
@@ -13287,10 +13309,6 @@ _dynamic_imports: dict[str, str] = {
     "OntologyManagementServiceDeleteOntologyFileRequestTypedDict": ".ontologymanagementservice_deleteontologyfileop",
     "OntologyManagementServiceDeleteOntologyFileResponse": ".ontologymanagementservice_deleteontologyfileop",
     "OntologyManagementServiceDeleteOntologyFileResponseTypedDict": ".ontologymanagementservice_deleteontologyfileop",
-    "OntologyManagementServiceDeleteOntologyOwnersRequest": ".ontologymanagementservice_deleteontologyownersop",
-    "OntologyManagementServiceDeleteOntologyOwnersRequestTypedDict": ".ontologymanagementservice_deleteontologyownersop",
-    "OntologyManagementServiceDeleteOntologyOwnersResponse": ".ontologymanagementservice_deleteontologyownersop",
-    "OntologyManagementServiceDeleteOntologyOwnersResponseTypedDict": ".ontologymanagementservice_deleteontologyownersop",
     "OntologyManagementServiceDenyPatchRequest": ".ontologymanagementservice_denypatchop",
     "OntologyManagementServiceDenyPatchRequestTypedDict": ".ontologymanagementservice_denypatchop",
     "OntologyManagementServiceDenyPatchResponse": ".ontologymanagementservice_denypatchop",
@@ -13491,6 +13509,10 @@ _dynamic_imports: dict[str, str] = {
     "OntologyManagementServiceSetOntologyFileGoldenRequestTypedDict": ".ontologymanagementservice_setontologyfilegoldenop",
     "OntologyManagementServiceSetOntologyFileGoldenResponse": ".ontologymanagementservice_setontologyfilegoldenop",
     "OntologyManagementServiceSetOntologyFileGoldenResponseTypedDict": ".ontologymanagementservice_setontologyfilegoldenop",
+    "OntologyManagementServiceSetOntologyOwnersRequest": ".ontologymanagementservice_setontologyownersop",
+    "OntologyManagementServiceSetOntologyOwnersRequestTypedDict": ".ontologymanagementservice_setontologyownersop",
+    "OntologyManagementServiceSetOntologyOwnersResponse": ".ontologymanagementservice_setontologyownersop",
+    "OntologyManagementServiceSetOntologyOwnersResponseTypedDict": ".ontologymanagementservice_setontologyownersop",
     "OntologyManagementServiceTriggerConfigDriftReconcileRequest": ".ontologymanagementservice_triggerconfigdriftreconcileop",
     "OntologyManagementServiceTriggerConfigDriftReconcileRequestTypedDict": ".ontologymanagementservice_triggerconfigdriftreconcileop",
     "OntologyManagementServiceTriggerConfigDriftReconcileResponse": ".ontologymanagementservice_triggerconfigdriftreconcileop",
@@ -13515,10 +13537,6 @@ _dynamic_imports: dict[str, str] = {
     "OntologyManagementServiceUpsertOntologyFileRequestTypedDict": ".ontologymanagementservice_upsertontologyfileop",
     "OntologyManagementServiceUpsertOntologyFileResponse": ".ontologymanagementservice_upsertontologyfileop",
     "OntologyManagementServiceUpsertOntologyFileResponseTypedDict": ".ontologymanagementservice_upsertontologyfileop",
-    "OntologyManagementServiceUpsertOntologyOwnersRequest": ".ontologymanagementservice_upsertontologyownersop",
-    "OntologyManagementServiceUpsertOntologyOwnersRequestTypedDict": ".ontologymanagementservice_upsertontologyownersop",
-    "OntologyManagementServiceUpsertOntologyOwnersResponse": ".ontologymanagementservice_upsertontologyownersop",
-    "OntologyManagementServiceUpsertOntologyOwnersResponseTypedDict": ".ontologymanagementservice_upsertontologyownersop",
     "OntologyManagementServiceValidateConfigRequest": ".ontologymanagementservice_validateconfigop",
     "OntologyManagementServiceValidateConfigRequestTypedDict": ".ontologymanagementservice_validateconfigop",
     "OntologyManagementServiceValidateConfigResponse": ".ontologymanagementservice_validateconfigop",
@@ -13735,10 +13753,18 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceCreateAPIKeyRequestTypedDict": ".rbacservice_createapikeyop",
     "RBACServiceCreateAPIKeyResponse": ".rbacservice_createapikeyop",
     "RBACServiceCreateAPIKeyResponseTypedDict": ".rbacservice_createapikeyop",
+    "RBACServiceCreatePersonalAPIKeyRequest": ".rbacservice_createpersonalapikeyop",
+    "RBACServiceCreatePersonalAPIKeyRequestTypedDict": ".rbacservice_createpersonalapikeyop",
+    "RBACServiceCreatePersonalAPIKeyResponse": ".rbacservice_createpersonalapikeyop",
+    "RBACServiceCreatePersonalAPIKeyResponseTypedDict": ".rbacservice_createpersonalapikeyop",
     "RBACServiceCreateRoleRequest": ".rbacservice_createroleop",
     "RBACServiceCreateRoleRequestTypedDict": ".rbacservice_createroleop",
     "RBACServiceCreateRoleResponse": ".rbacservice_createroleop",
     "RBACServiceCreateRoleResponseTypedDict": ".rbacservice_createroleop",
+    "RBACServiceCreateServiceAccountAPIKeyRequest": ".rbacservice_createserviceaccountapikeyop",
+    "RBACServiceCreateServiceAccountAPIKeyRequestTypedDict": ".rbacservice_createserviceaccountapikeyop",
+    "RBACServiceCreateServiceAccountAPIKeyResponse": ".rbacservice_createserviceaccountapikeyop",
+    "RBACServiceCreateServiceAccountAPIKeyResponseTypedDict": ".rbacservice_createserviceaccountapikeyop",
     "RBACServiceCreateServiceAccountRequest": ".rbacservice_createserviceaccountop",
     "RBACServiceCreateServiceAccountRequestTypedDict": ".rbacservice_createserviceaccountop",
     "RBACServiceCreateServiceAccountResponse": ".rbacservice_createserviceaccountop",
@@ -16082,8 +16108,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesDeleteOntologyDirectoryRequestTypedDict": ".textql_rpc_public_patches_deleteontologydirectoryrequest",
     "TextqlRPCPublicPatchesDeleteOntologyFileRequest": ".textql_rpc_public_patches_deleteontologyfilerequest",
     "TextqlRPCPublicPatchesDeleteOntologyFileRequestTypedDict": ".textql_rpc_public_patches_deleteontologyfilerequest",
-    "TextqlRPCPublicPatchesDeleteOntologyOwnersRequest": ".textql_rpc_public_patches_deleteontologyownersrequest",
-    "TextqlRPCPublicPatchesDeleteOntologyOwnersRequestTypedDict": ".textql_rpc_public_patches_deleteontologyownersrequest",
     "TextqlRPCPublicPatchesDenyPatchRequest": ".textql_rpc_public_patches_denypatchrequest",
     "TextqlRPCPublicPatchesDenyPatchRequestTypedDict": ".textql_rpc_public_patches_denypatchrequest",
     "TextqlRPCPublicPatchesExchangeOntologyGithubCodeRequest": ".textql_rpc_public_patches_exchangeontologygithubcoderequest",
@@ -16356,6 +16380,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesSetOntologyFileGoldenRequestTypedDict": ".textql_rpc_public_patches_setontologyfilegoldenrequest",
     "TextqlRPCPublicPatchesSetOntologyFileGoldenResponse": ".textql_rpc_public_patches_setontologyfilegoldenresponse",
     "TextqlRPCPublicPatchesSetOntologyFileGoldenResponseTypedDict": ".textql_rpc_public_patches_setontologyfilegoldenresponse",
+    "TextqlRPCPublicPatchesSetOntologyOwnersRequest": ".textql_rpc_public_patches_setontologyownersrequest",
+    "TextqlRPCPublicPatchesSetOntologyOwnersRequestTypedDict": ".textql_rpc_public_patches_setontologyownersrequest",
+    "TextqlRPCPublicPatchesSetOntologyOwnersResponse": ".textql_rpc_public_patches_setontologyownersresponse",
+    "TextqlRPCPublicPatchesSetOntologyOwnersResponseTypedDict": ".textql_rpc_public_patches_setontologyownersresponse",
     "TextqlRPCPublicPatchesSkill": ".textql_rpc_public_patches_skill",
     "TextqlRPCPublicPatchesSkillTypedDict": ".textql_rpc_public_patches_skill",
     "TextqlRPCPublicPatchesSkippedConfigExport": ".textql_rpc_public_patches_skippedconfigexport",
@@ -16384,10 +16412,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesUpsertOntologyFileRequestTypedDict": ".textql_rpc_public_patches_upsertontologyfilerequest",
     "TextqlRPCPublicPatchesUpsertOntologyFileResponse": ".textql_rpc_public_patches_upsertontologyfileresponse",
     "TextqlRPCPublicPatchesUpsertOntologyFileResponseTypedDict": ".textql_rpc_public_patches_upsertontologyfileresponse",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersRequest": ".textql_rpc_public_patches_upsertontologyownersrequest",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersRequestTypedDict": ".textql_rpc_public_patches_upsertontologyownersrequest",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersResponse": ".textql_rpc_public_patches_upsertontologyownersresponse",
-    "TextqlRPCPublicPatchesUpsertOntologyOwnersResponseTypedDict": ".textql_rpc_public_patches_upsertontologyownersresponse",
     "TextqlRPCPublicPatchesUsageOrderBy": ".textql_rpc_public_patches_usageorderby",
     "TextqlRPCPublicPatchesValidateConfigRequest": ".textql_rpc_public_patches_validateconfigrequest",
     "TextqlRPCPublicPatchesValidateConfigRequestTypedDict": ".textql_rpc_public_patches_validateconfigrequest",
@@ -16665,10 +16689,16 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_createapikeyrequest",
     "TextqlRPCPublicRbacCreateAPIKeyResponse": ".textql_rpc_public_rbac_createapikeyresponse",
     "TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict": ".textql_rpc_public_rbac_createapikeyresponse",
+    "TextqlRPCPublicRbacCreateAPIKeyResult": ".textql_rpc_public_rbac_createapikeyresult",
+    "TextqlRPCPublicRbacCreateAPIKeyResultTypedDict": ".textql_rpc_public_rbac_createapikeyresult",
+    "TextqlRPCPublicRbacCreatePersonalAPIKeyRequest": ".textql_rpc_public_rbac_createpersonalapikeyrequest",
+    "TextqlRPCPublicRbacCreatePersonalAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_createpersonalapikeyrequest",
     "TextqlRPCPublicRbacCreateRoleRequest": ".textql_rpc_public_rbac_createrolerequest",
     "TextqlRPCPublicRbacCreateRoleRequestTypedDict": ".textql_rpc_public_rbac_createrolerequest",
     "TextqlRPCPublicRbacCreateRoleResponse": ".textql_rpc_public_rbac_createroleresponse",
     "TextqlRPCPublicRbacCreateRoleResponseTypedDict": ".textql_rpc_public_rbac_createroleresponse",
+    "TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest": ".textql_rpc_public_rbac_createserviceaccountapikeyrequest",
+    "TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict": ".textql_rpc_public_rbac_createserviceaccountapikeyrequest",
     "TextqlRPCPublicRbacCreateServiceAccountRequest": ".textql_rpc_public_rbac_createserviceaccountrequest",
     "TextqlRPCPublicRbacCreateServiceAccountRequestTypedDict": ".textql_rpc_public_rbac_createserviceaccountrequest",
     "TextqlRPCPublicRbacCreateServiceAccountResponse": ".textql_rpc_public_rbac_createserviceaccountresponse",
