@@ -2156,6 +2156,36 @@ if TYPE_CHECKING:
         SandboxCapabilityServiceStateOpResponse,
         SandboxCapabilityServiceStateOpResponseTypedDict,
     )
+    from .sandboxexecservice_createsandboxop import (
+        SandboxExecServiceCreateSandboxRequest,
+        SandboxExecServiceCreateSandboxRequestTypedDict,
+        SandboxExecServiceCreateSandboxResponse,
+        SandboxExecServiceCreateSandboxResponseTypedDict,
+    )
+    from .sandboxexecservice_execop import (
+        SandboxExecServiceExecRequest,
+        SandboxExecServiceExecRequestTypedDict,
+        SandboxExecServiceExecResponse,
+        SandboxExecServiceExecResponseTypedDict,
+    )
+    from .sandboxexecservice_executecodeop import (
+        SandboxExecServiceExecuteCodeRequest,
+        SandboxExecServiceExecuteCodeRequestTypedDict,
+        SandboxExecServiceExecuteCodeResponse,
+        SandboxExecServiceExecuteCodeResponseTypedDict,
+    )
+    from .sandboxexecservice_gettoolavailabilityop import (
+        SandboxExecServiceGetToolAvailabilityRequest,
+        SandboxExecServiceGetToolAvailabilityRequestTypedDict,
+        SandboxExecServiceGetToolAvailabilityResponse,
+        SandboxExecServiceGetToolAvailabilityResponseTypedDict,
+    )
+    from .sandboxexecservice_loadconnectordataop import (
+        SandboxExecServiceLoadConnectorDataRequest,
+        SandboxExecServiceLoadConnectorDataRequestTypedDict,
+        SandboxExecServiceLoadConnectorDataResponse,
+        SandboxExecServiceLoadConnectorDataResponseTypedDict,
+    )
     from .sandboxqueryservice_executequeryop import (
         SandboxQueryServiceExecuteQueryRequest,
         SandboxQueryServiceExecuteQueryRequestTypedDict,
@@ -7454,6 +7484,64 @@ if TYPE_CHECKING:
         TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse,
         TextqlRPCPublicSandboxCapabilitySandboxStateOpResponseTypedDict,
     )
+    from .textql_rpc_public_sandbox_exec_createsandboxrequest import (
+        TextqlRPCPublicSandboxExecCreateSandboxRequest,
+        TextqlRPCPublicSandboxExecCreateSandboxRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_createsandboxresponse import (
+        TextqlRPCPublicSandboxExecCreateSandboxResponse,
+        TextqlRPCPublicSandboxExecCreateSandboxResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_gettoolavailabilityrequest import (
+        TextqlRPCPublicSandboxExecGetToolAvailabilityRequest,
+        TextqlRPCPublicSandboxExecGetToolAvailabilityRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_gettoolavailabilityresponse import (
+        TextqlRPCPublicSandboxExecGetToolAvailabilityResponse,
+        TextqlRPCPublicSandboxExecGetToolAvailabilityResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxdataframeoutput import (
+        TextqlRPCPublicSandboxExecSandboxDataFrameOutput,
+        TextqlRPCPublicSandboxExecSandboxDataFrameOutputTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxexecrequest import (
+        TextqlRPCPublicSandboxExecSandboxExecRequest,
+        TextqlRPCPublicSandboxExecSandboxExecRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxexecresponse import (
+        TextqlRPCPublicSandboxExecSandboxExecResponse,
+        TextqlRPCPublicSandboxExecSandboxExecResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxexecutecoderequest import (
+        TextqlRPCPublicSandboxExecSandboxExecuteCodeRequest,
+        TextqlRPCPublicSandboxExecSandboxExecuteCodeRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxexecutecoderesponse import (
+        TextqlRPCPublicSandboxExecSandboxExecuteCodeResponse,
+        TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseExecutionTimeMs,
+        TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseExecutionTimeMsTypedDict,
+        TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxfileoutput import (
+        TextqlRPCPublicSandboxExecSandboxFileOutput,
+        TextqlRPCPublicSandboxExecSandboxFileOutputTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxloadconnectordatarequest import (
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataRequest,
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse import (
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponse,
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumCols,
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumColsTypedDict,
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRows,
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRowsTypedDict,
+        TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_toolavailability import (
+        TextqlRPCPublicSandboxExecToolAvailability,
+        TextqlRPCPublicSandboxExecToolAvailabilityTypedDict,
+    )
     from .textql_rpc_public_sandbox_query_appdbtemplate import (
         TextqlRPCPublicSandboxQueryAppDBTemplate,
         TextqlRPCPublicSandboxQueryAppDBTemplateTypedDict,
@@ -9611,6 +9699,26 @@ __all__ = [
     "SandboxCapabilityServiceStateOpRequestTypedDict",
     "SandboxCapabilityServiceStateOpResponse",
     "SandboxCapabilityServiceStateOpResponseTypedDict",
+    "SandboxExecServiceCreateSandboxRequest",
+    "SandboxExecServiceCreateSandboxRequestTypedDict",
+    "SandboxExecServiceCreateSandboxResponse",
+    "SandboxExecServiceCreateSandboxResponseTypedDict",
+    "SandboxExecServiceExecRequest",
+    "SandboxExecServiceExecRequestTypedDict",
+    "SandboxExecServiceExecResponse",
+    "SandboxExecServiceExecResponseTypedDict",
+    "SandboxExecServiceExecuteCodeRequest",
+    "SandboxExecServiceExecuteCodeRequestTypedDict",
+    "SandboxExecServiceExecuteCodeResponse",
+    "SandboxExecServiceExecuteCodeResponseTypedDict",
+    "SandboxExecServiceGetToolAvailabilityRequest",
+    "SandboxExecServiceGetToolAvailabilityRequestTypedDict",
+    "SandboxExecServiceGetToolAvailabilityResponse",
+    "SandboxExecServiceGetToolAvailabilityResponseTypedDict",
+    "SandboxExecServiceLoadConnectorDataRequest",
+    "SandboxExecServiceLoadConnectorDataRequestTypedDict",
+    "SandboxExecServiceLoadConnectorDataResponse",
+    "SandboxExecServiceLoadConnectorDataResponseTypedDict",
     "SandboxQueryServiceExecuteQueryRequest",
     "SandboxQueryServiceExecuteQueryRequestTypedDict",
     "SandboxQueryServiceExecuteQueryResponse",
@@ -12270,6 +12378,38 @@ __all__ = [
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpRequestTypedDict",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpResponseTypedDict",
+    "TextqlRPCPublicSandboxExecCreateSandboxRequest",
+    "TextqlRPCPublicSandboxExecCreateSandboxRequestTypedDict",
+    "TextqlRPCPublicSandboxExecCreateSandboxResponse",
+    "TextqlRPCPublicSandboxExecCreateSandboxResponseTypedDict",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityRequest",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityRequestTypedDict",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityResponse",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityResponseTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxDataFrameOutput",
+    "TextqlRPCPublicSandboxExecSandboxDataFrameOutputTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxExecRequest",
+    "TextqlRPCPublicSandboxExecSandboxExecRequestTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxExecResponse",
+    "TextqlRPCPublicSandboxExecSandboxExecResponseTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeRequest",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeRequestTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponse",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseExecutionTimeMs",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseExecutionTimeMsTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxFileOutput",
+    "TextqlRPCPublicSandboxExecSandboxFileOutputTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataRequest",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataRequestTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponse",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumCols",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumColsTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRows",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRowsTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseTypedDict",
+    "TextqlRPCPublicSandboxExecToolAvailability",
+    "TextqlRPCPublicSandboxExecToolAvailabilityTypedDict",
     "TextqlRPCPublicSandboxQueryAppDBTemplate",
     "TextqlRPCPublicSandboxQueryAppDBTemplateTypedDict",
     "TextqlRPCPublicSandboxQueryLibraryTQLTemplate",
@@ -13945,6 +14085,26 @@ _dynamic_imports: dict[str, str] = {
     "SandboxCapabilityServiceStateOpRequestTypedDict": ".sandboxcapabilityservice_stateopop",
     "SandboxCapabilityServiceStateOpResponse": ".sandboxcapabilityservice_stateopop",
     "SandboxCapabilityServiceStateOpResponseTypedDict": ".sandboxcapabilityservice_stateopop",
+    "SandboxExecServiceCreateSandboxRequest": ".sandboxexecservice_createsandboxop",
+    "SandboxExecServiceCreateSandboxRequestTypedDict": ".sandboxexecservice_createsandboxop",
+    "SandboxExecServiceCreateSandboxResponse": ".sandboxexecservice_createsandboxop",
+    "SandboxExecServiceCreateSandboxResponseTypedDict": ".sandboxexecservice_createsandboxop",
+    "SandboxExecServiceExecRequest": ".sandboxexecservice_execop",
+    "SandboxExecServiceExecRequestTypedDict": ".sandboxexecservice_execop",
+    "SandboxExecServiceExecResponse": ".sandboxexecservice_execop",
+    "SandboxExecServiceExecResponseTypedDict": ".sandboxexecservice_execop",
+    "SandboxExecServiceExecuteCodeRequest": ".sandboxexecservice_executecodeop",
+    "SandboxExecServiceExecuteCodeRequestTypedDict": ".sandboxexecservice_executecodeop",
+    "SandboxExecServiceExecuteCodeResponse": ".sandboxexecservice_executecodeop",
+    "SandboxExecServiceExecuteCodeResponseTypedDict": ".sandboxexecservice_executecodeop",
+    "SandboxExecServiceGetToolAvailabilityRequest": ".sandboxexecservice_gettoolavailabilityop",
+    "SandboxExecServiceGetToolAvailabilityRequestTypedDict": ".sandboxexecservice_gettoolavailabilityop",
+    "SandboxExecServiceGetToolAvailabilityResponse": ".sandboxexecservice_gettoolavailabilityop",
+    "SandboxExecServiceGetToolAvailabilityResponseTypedDict": ".sandboxexecservice_gettoolavailabilityop",
+    "SandboxExecServiceLoadConnectorDataRequest": ".sandboxexecservice_loadconnectordataop",
+    "SandboxExecServiceLoadConnectorDataRequestTypedDict": ".sandboxexecservice_loadconnectordataop",
+    "SandboxExecServiceLoadConnectorDataResponse": ".sandboxexecservice_loadconnectordataop",
+    "SandboxExecServiceLoadConnectorDataResponseTypedDict": ".sandboxexecservice_loadconnectordataop",
     "SandboxQueryServiceExecuteQueryRequest": ".sandboxqueryservice_executequeryop",
     "SandboxQueryServiceExecuteQueryRequestTypedDict": ".sandboxqueryservice_executequeryop",
     "SandboxQueryServiceExecuteQueryResponse": ".sandboxqueryservice_executequeryop",
@@ -16946,6 +17106,38 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpRequestTypedDict": ".textql_rpc_public_sandbox_capability_sandboxstateoprequest",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpResponse": ".textql_rpc_public_sandbox_capability_sandboxstateopresponse",
     "TextqlRPCPublicSandboxCapabilitySandboxStateOpResponseTypedDict": ".textql_rpc_public_sandbox_capability_sandboxstateopresponse",
+    "TextqlRPCPublicSandboxExecCreateSandboxRequest": ".textql_rpc_public_sandbox_exec_createsandboxrequest",
+    "TextqlRPCPublicSandboxExecCreateSandboxRequestTypedDict": ".textql_rpc_public_sandbox_exec_createsandboxrequest",
+    "TextqlRPCPublicSandboxExecCreateSandboxResponse": ".textql_rpc_public_sandbox_exec_createsandboxresponse",
+    "TextqlRPCPublicSandboxExecCreateSandboxResponseTypedDict": ".textql_rpc_public_sandbox_exec_createsandboxresponse",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityRequest": ".textql_rpc_public_sandbox_exec_gettoolavailabilityrequest",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityRequestTypedDict": ".textql_rpc_public_sandbox_exec_gettoolavailabilityrequest",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityResponse": ".textql_rpc_public_sandbox_exec_gettoolavailabilityresponse",
+    "TextqlRPCPublicSandboxExecGetToolAvailabilityResponseTypedDict": ".textql_rpc_public_sandbox_exec_gettoolavailabilityresponse",
+    "TextqlRPCPublicSandboxExecSandboxDataFrameOutput": ".textql_rpc_public_sandbox_exec_sandboxdataframeoutput",
+    "TextqlRPCPublicSandboxExecSandboxDataFrameOutputTypedDict": ".textql_rpc_public_sandbox_exec_sandboxdataframeoutput",
+    "TextqlRPCPublicSandboxExecSandboxExecRequest": ".textql_rpc_public_sandbox_exec_sandboxexecrequest",
+    "TextqlRPCPublicSandboxExecSandboxExecRequestTypedDict": ".textql_rpc_public_sandbox_exec_sandboxexecrequest",
+    "TextqlRPCPublicSandboxExecSandboxExecResponse": ".textql_rpc_public_sandbox_exec_sandboxexecresponse",
+    "TextqlRPCPublicSandboxExecSandboxExecResponseTypedDict": ".textql_rpc_public_sandbox_exec_sandboxexecresponse",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeRequest": ".textql_rpc_public_sandbox_exec_sandboxexecutecoderequest",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeRequestTypedDict": ".textql_rpc_public_sandbox_exec_sandboxexecutecoderequest",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponse": ".textql_rpc_public_sandbox_exec_sandboxexecutecoderesponse",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseExecutionTimeMs": ".textql_rpc_public_sandbox_exec_sandboxexecutecoderesponse",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseExecutionTimeMsTypedDict": ".textql_rpc_public_sandbox_exec_sandboxexecutecoderesponse",
+    "TextqlRPCPublicSandboxExecSandboxExecuteCodeResponseTypedDict": ".textql_rpc_public_sandbox_exec_sandboxexecutecoderesponse",
+    "TextqlRPCPublicSandboxExecSandboxFileOutput": ".textql_rpc_public_sandbox_exec_sandboxfileoutput",
+    "TextqlRPCPublicSandboxExecSandboxFileOutputTypedDict": ".textql_rpc_public_sandbox_exec_sandboxfileoutput",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataRequest": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordatarequest",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataRequestTypedDict": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordatarequest",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponse": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumCols": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumColsTypedDict": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRows": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRowsTypedDict": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseTypedDict": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecToolAvailability": ".textql_rpc_public_sandbox_exec_toolavailability",
+    "TextqlRPCPublicSandboxExecToolAvailabilityTypedDict": ".textql_rpc_public_sandbox_exec_toolavailability",
     "TextqlRPCPublicSandboxQueryAppDBTemplate": ".textql_rpc_public_sandbox_query_appdbtemplate",
     "TextqlRPCPublicSandboxQueryAppDBTemplateTypedDict": ".textql_rpc_public_sandbox_query_appdbtemplate",
     "TextqlRPCPublicSandboxQueryLibraryTQLTemplate": ".textql_rpc_public_sandbox_query_librarytqltemplate",

@@ -570,6 +570,11 @@ with Textql(
 
 ### [Sandbox](docs/sdks/sandbox/README.md)
 
+* [create](docs/sdks/sandbox/README.md#create) - CreateSandbox
+* [exec](docs/sdks/sandbox/README.md#exec) - Exec
+* [execute_code](docs/sdks/sandbox/README.md#execute_code) - ExecuteCode
+* [get_tool_availability](docs/sdks/sandbox/README.md#get_tool_availability) - GetToolAvailability
+* [load_connector_data](docs/sdks/sandbox/README.md#load_connector_data) - LoadConnectorData
 * [execute_query](docs/sdks/sandbox/README.md#execute_query) - ExecuteQuery
 
 ### [SandboxAdmin](docs/sdks/sandboxadmin/README.md)
