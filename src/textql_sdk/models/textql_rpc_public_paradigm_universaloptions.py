@@ -51,6 +51,7 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
     sms_mode: NotRequired[bool]
     api_access_key_ids: NotRequired[List[str]]
     feed_enabled: NotRequired[Nullable[bool]]
+    file_generation_disabled: NotRequired[bool]
 
 
 class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
@@ -169,6 +170,10 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
     ] = UNSET
 
+    file_generation_disabled: Annotated[
+        Optional[bool], pydantic.Field(alias="fileGenerationDisabled")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -203,6 +208,7 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
                 "smsMode",
                 "apiAccessKeyIds",
                 "feedEnabled",
+                "fileGenerationDisabled",
             ]
         )
         nullable_fields = set(["datasetId", "feedEnabled"])

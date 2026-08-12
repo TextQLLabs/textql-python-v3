@@ -46,8 +46,7 @@ class TextqlRPCPublicCellsEmailCellTypedDict(TypedDict):
     sent_count: NotRequired[int]
     r"""Number of recipients to which the provider call succeeded during this
     Execute pass. Not derivable from Status — a partial-failure cell has
-    Status=failed with sent_count > 0. Drives the per-run cap when chat
-    history is replayed.
+    Status=failed with sent_count > 0.
     """
     rendered_body_html: NotRequired[Nullable[str]]
     r"""The rendered HTML body of the email — exactly what landed in inboxes,
@@ -99,8 +98,7 @@ class TextqlRPCPublicCellsEmailCell(BaseModel):
     sent_count: Annotated[Optional[int], pydantic.Field(alias="sentCount")] = None
     r"""Number of recipients to which the provider call succeeded during this
     Execute pass. Not derivable from Status — a partial-failure cell has
-    Status=failed with sent_count > 0. Drives the per-run cap when chat
-    history is replayed.
+    Status=failed with sent_count > 0.
     """
 
     rendered_body_html: Annotated[

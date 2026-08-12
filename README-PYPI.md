@@ -570,6 +570,11 @@ with Textql(
 
 ### [Sandbox](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md)
 
+* [create](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#create) - CreateSandbox
+* [exec](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#exec) - Exec
+* [execute_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#execute_code) - ExecuteCode
+* [get_tool_availability](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#get_tool_availability) - GetToolAvailability
+* [load_connector_data](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#load_connector_data) - LoadConnectorData
 * [execute_query](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#execute_query) - ExecuteQuery
 
 ### [SandboxAdmin](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxadmin/README.md)

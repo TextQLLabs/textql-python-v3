@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .textql_rpc_public_chat_llmmodel import TextqlRPCPublicChatLlmModel
+from .textql_rpc_public_chat_methodology import TextqlRPCPublicChatMethodology
 from .textql_rpc_public_paradigm_paradigmoptions import (
     TextqlRPCPublicParadigmParadigmOptions,
     TextqlRPCPublicParadigmParadigmOptionsTypedDict,
@@ -27,6 +28,8 @@ class TextqlRPCPublicChatDuplicateChatRequestTypedDict(TypedDict):
     paradigm_options: NotRequired[TextqlRPCPublicParadigmParadigmOptionsTypedDict]
     model: NotRequired[TextqlRPCPublicChatLlmModel]
     fast_mode: NotRequired[Nullable[bool]]
+    methodology: NotRequired[TextqlRPCPublicChatMethodology]
+    max_thinking: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
@@ -52,6 +55,12 @@ class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
         UNSET
     )
 
+    methodology: Optional[TextqlRPCPublicChatMethodology] = None
+
+    max_thinking: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="maxThinking")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
         optional_fields = set(
@@ -62,9 +71,13 @@ class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
                 "paradigmOptions",
                 "model",
                 "fastMode",
+                "methodology",
+                "maxThinking",
             ]
         )
-        nullable_fields = set(["onlyIfDifferentOwner", "upToCellId", "fastMode"])
+        nullable_fields = set(
+            ["onlyIfDifferentOwner", "upToCellId", "fastMode", "maxThinking"]
+        )
         serialized = handler(self)
         m = {}
 
