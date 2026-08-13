@@ -619,6 +619,7 @@ with Textql(
 
 * [check_member_status](docs/sdks/settings/README.md#check_member_status) - CheckMemberStatus
 * [delete_member](docs/sdks/settings/README.md#delete_member) - DeleteOrganizationMember
+* [get](docs/sdks/settings/README.md#get) - GetOrganizationSettings
 * [invite_member](docs/sdks/settings/README.md#invite_member) - InviteOrganizationMember
 * [list_members](docs/sdks/settings/README.md#list_members) - ListOrganizationMembers
 * [update](docs/sdks/settings/README.md#update) - UpdateOrganizationSettings

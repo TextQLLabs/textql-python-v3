@@ -5,15 +5,25 @@ from .textql_rpc_paradigm_params_paradigmparams import (
     TextqlRPCParadigmParamsParadigmParams,
     TextqlRPCParadigmParamsParadigmParamsTypedDict,
 )
+from .textql_rpc_paradigm_params_paradigmtype import TextqlRPCParadigmParamsParadigmType
+from .textql_rpc_public_chat_methodology import TextqlRPCPublicChatMethodology
 import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import BaseModel, UNSET_SENTINEL
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDict):
     org_id: NotRequired[str]
+    secrets_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
     hide_example_connectors: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -23,6 +33,8 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     has no plan to be removed.
     """
     paradigm_params: NotRequired[TextqlRPCParadigmParamsParadigmParamsTypedDict]
+    default_paradigm_mode: NotRequired[TextqlRPCParadigmParamsParadigmType]
+    default_connector_ids: NotRequired[List[int]]
     training_mode: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -55,6 +67,14 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+    context_v3_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
     observability_enabled: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -64,6 +84,14 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     has no plan to be removed.
     """
     notifications_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+    hide_api_connectors: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
     The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -87,6 +115,16 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+    clear_default_connector_ids: NotRequired[bool]
+    default_dashboard_output: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+    default_methodology: NotRequired[TextqlRPCPublicChatMethodology]
     traces_enabled: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -111,8 +149,7 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
-    tool_restrictions: NotRequired[TextqlRPCParadigmParamsParadigmParamsTypedDict]
-    subagents_enabled: NotRequired[bool]
+    issues_enabled: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
     The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -120,10 +157,38 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+    spend_transparency_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+    sharing_disabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+    tool_restrictions: NotRequired[TextqlRPCParadigmParamsParadigmParamsTypedDict]
 
 
 class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     org_id: Annotated[Optional[str], pydantic.Field(alias="orgId")] = None
+
+    secrets_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="secretsEnabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
 
     hide_example_connectors: Annotated[
         Optional[bool], pydantic.Field(alias="hideExampleConnectors")
@@ -139,6 +204,15 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     paradigm_params: Annotated[
         Optional[TextqlRPCParadigmParamsParadigmParams],
         pydantic.Field(alias="paradigmParams"),
+    ] = None
+
+    default_paradigm_mode: Annotated[
+        Optional[TextqlRPCParadigmParamsParadigmType],
+        pydantic.Field(alias="defaultParadigmMode"),
+    ] = None
+
+    default_connector_ids: Annotated[
+        Optional[List[int]], pydantic.Field(alias="defaultConnectorIds")
     ] = None
 
     training_mode: Annotated[Optional[bool], pydantic.Field(alias="trainingMode")] = (
@@ -183,6 +257,17 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     has no plan to be removed.
     """
 
+    context_v3_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="contextV3Enabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
     observability_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="observabilityEnabled")
     ] = None
@@ -196,6 +281,17 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
 
     notifications_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="notificationsEnabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
+    hide_api_connectors: Annotated[
+        Optional[bool], pydantic.Field(alias="hideApiConnectors")
     ] = None
     r"""Wrapper message for `bool`.
 
@@ -226,6 +322,26 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+
+    clear_default_connector_ids: Annotated[
+        Optional[bool], pydantic.Field(alias="clearDefaultConnectorIds")
+    ] = None
+
+    default_dashboard_output: Annotated[
+        Optional[bool], pydantic.Field(alias="defaultDashboardOutput")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
+    default_methodology: Annotated[
+        Optional[TextqlRPCPublicChatMethodology],
+        pydantic.Field(alias="defaultMethodology"),
+    ] = None
 
     traces_enabled: Annotated[Optional[bool], pydantic.Field(alias="tracesEnabled")] = (
         None
@@ -260,13 +376,19 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     has no plan to be removed.
     """
 
-    tool_restrictions: Annotated[
-        Optional[TextqlRPCParadigmParamsParadigmParams],
-        pydantic.Field(alias="toolRestrictions"),
-    ] = None
+    issues_enabled: Annotated[Optional[bool], pydantic.Field(alias="issuesEnabled")] = (
+        None
+    )
+    r"""Wrapper message for `bool`.
 
-    subagents_enabled: Annotated[
-        Optional[bool], pydantic.Field(alias="subagentsEnabled")
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
+    spend_transparency_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="spendTransparencyEnabled")
     ] = None
     r"""Wrapper message for `bool`.
 
@@ -276,26 +398,52 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     has no plan to be removed.
     """
 
+    sharing_disabled: Annotated[
+        Optional[bool], pydantic.Field(alias="sharingDisabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
+    tool_restrictions: Annotated[
+        Optional[TextqlRPCParadigmParamsParadigmParams],
+        pydantic.Field(alias="toolRestrictions"),
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
             [
                 "orgId",
+                "secretsEnabled",
                 "hideExampleConnectors",
                 "paradigmParams",
+                "defaultParadigmMode",
+                "defaultConnectorIds",
                 "trainingMode",
                 "dashboardsEnabled",
                 "methodologyEnabled",
                 "feedEnabled",
+                "contextV3Enabled",
                 "observabilityEnabled",
                 "notificationsEnabled",
+                "hideApiConnectors",
                 "fastModeEnabled",
                 "maxThinkingEnabled",
+                "clearDefaultConnectorIds",
+                "defaultDashboardOutput",
+                "defaultMethodology",
                 "tracesEnabled",
                 "sandboxObservabilityEnabled",
                 "dataAppsEnabled",
+                "issuesEnabled",
+                "spendTransparencyEnabled",
+                "sharingDisabled",
                 "toolRestrictions",
-                "subagentsEnabled",
             ]
         )
         serialized = handler(self)

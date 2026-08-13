@@ -42,3 +42,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_KIMI_K3"`
 - `"MODEL_DEEPSEEK_V4_FLASH_0731"`
 - `"MODEL_MUSE_SPARK_1_1"`
+- `"MODEL_MUSE_SPARK_1_2"`

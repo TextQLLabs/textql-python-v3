@@ -2271,6 +2271,12 @@ if TYPE_CHECKING:
         SettingsServiceDeleteOrganizationMemberResponse,
         SettingsServiceDeleteOrganizationMemberResponseTypedDict,
     )
+    from .settingsservice_getorganizationsettingsop import (
+        SettingsServiceGetOrganizationSettingsRequest,
+        SettingsServiceGetOrganizationSettingsRequestTypedDict,
+        SettingsServiceGetOrganizationSettingsResponse,
+        SettingsServiceGetOrganizationSettingsResponseTypedDict,
+    )
     from .settingsservice_inviteorganizationmemberop import (
         SettingsServiceInviteOrganizationMemberRequest,
         SettingsServiceInviteOrganizationMemberRequestTypedDict,
@@ -2463,10 +2469,16 @@ if TYPE_CHECKING:
         TeamsServiceSyncWorkspaceResponse,
         TeamsServiceSyncWorkspaceResponseTypedDict,
     )
+    from .textql_rpc_auth_asseturlexpiry import TextqlRPCAuthAssetURLExpiry
     from .textql_rpc_auth_member import (
         TextqlRPCAuthMember,
         TextqlRPCAuthMemberTypedDict,
     )
+    from .textql_rpc_auth_organization import (
+        TextqlRPCAuthOrganization,
+        TextqlRPCAuthOrganizationTypedDict,
+    )
+    from .textql_rpc_auth_theme import TextqlRPCAuthTheme, TextqlRPCAuthThemeTypedDict
     from .textql_rpc_identity_memberpreview import (
         TextqlRPCIdentityMemberPreview,
         TextqlRPCIdentityMemberPreviewTypedDict,
@@ -7696,6 +7708,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicSettingsDeleteOrganizationMemberResponse,
         TextqlRPCPublicSettingsDeleteOrganizationMemberResponseTypedDict,
     )
+    from .textql_rpc_public_settings_getorganizationsettingsrequest import (
+        TextqlRPCPublicSettingsGetOrganizationSettingsRequest,
+        TextqlRPCPublicSettingsGetOrganizationSettingsRequestTypedDict,
+    )
+    from .textql_rpc_public_settings_getorganizationsettingsresponse import (
+        TextqlRPCPublicSettingsGetOrganizationSettingsResponse,
+        TextqlRPCPublicSettingsGetOrganizationSettingsResponseTypedDict,
+    )
     from .textql_rpc_public_settings_inviteorganizationmemberrequest import (
         TextqlRPCPublicSettingsInviteOrganizationMemberRequest,
         TextqlRPCPublicSettingsInviteOrganizationMemberRequestTypedDict,
@@ -9781,6 +9801,10 @@ __all__ = [
     "SettingsServiceDeleteOrganizationMemberRequestTypedDict",
     "SettingsServiceDeleteOrganizationMemberResponse",
     "SettingsServiceDeleteOrganizationMemberResponseTypedDict",
+    "SettingsServiceGetOrganizationSettingsRequest",
+    "SettingsServiceGetOrganizationSettingsRequestTypedDict",
+    "SettingsServiceGetOrganizationSettingsResponse",
+    "SettingsServiceGetOrganizationSettingsResponseTypedDict",
     "SettingsServiceInviteOrganizationMemberRequest",
     "SettingsServiceInviteOrganizationMemberRequestTypedDict",
     "SettingsServiceInviteOrganizationMemberResponse",
@@ -9955,8 +9979,13 @@ __all__ = [
     "TextCell",
     "TextCellTypedDict",
     "TextTypedDict",
+    "TextqlRPCAuthAssetURLExpiry",
     "TextqlRPCAuthMember",
     "TextqlRPCAuthMemberTypedDict",
+    "TextqlRPCAuthOrganization",
+    "TextqlRPCAuthOrganizationTypedDict",
+    "TextqlRPCAuthTheme",
+    "TextqlRPCAuthThemeTypedDict",
     "TextqlRPCIdentityMemberPreview",
     "TextqlRPCIdentityMemberPreviewTypedDict",
     "TextqlRPCParadigmParamsParadigmParams",
@@ -12492,6 +12521,10 @@ __all__ = [
     "TextqlRPCPublicSettingsDeleteOrganizationMemberRequestTypedDict",
     "TextqlRPCPublicSettingsDeleteOrganizationMemberResponse",
     "TextqlRPCPublicSettingsDeleteOrganizationMemberResponseTypedDict",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsRequest",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsRequestTypedDict",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsResponse",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsResponseTypedDict",
     "TextqlRPCPublicSettingsInviteOrganizationMemberRequest",
     "TextqlRPCPublicSettingsInviteOrganizationMemberRequestTypedDict",
     "TextqlRPCPublicSettingsInviteOrganizationMemberResponse",
@@ -14163,6 +14196,10 @@ _dynamic_imports: dict[str, str] = {
     "SettingsServiceDeleteOrganizationMemberRequestTypedDict": ".settingsservice_deleteorganizationmemberop",
     "SettingsServiceDeleteOrganizationMemberResponse": ".settingsservice_deleteorganizationmemberop",
     "SettingsServiceDeleteOrganizationMemberResponseTypedDict": ".settingsservice_deleteorganizationmemberop",
+    "SettingsServiceGetOrganizationSettingsRequest": ".settingsservice_getorganizationsettingsop",
+    "SettingsServiceGetOrganizationSettingsRequestTypedDict": ".settingsservice_getorganizationsettingsop",
+    "SettingsServiceGetOrganizationSettingsResponse": ".settingsservice_getorganizationsettingsop",
+    "SettingsServiceGetOrganizationSettingsResponseTypedDict": ".settingsservice_getorganizationsettingsop",
     "SettingsServiceInviteOrganizationMemberRequest": ".settingsservice_inviteorganizationmemberop",
     "SettingsServiceInviteOrganizationMemberRequestTypedDict": ".settingsservice_inviteorganizationmemberop",
     "SettingsServiceInviteOrganizationMemberResponse": ".settingsservice_inviteorganizationmemberop",
@@ -14291,8 +14328,13 @@ _dynamic_imports: dict[str, str] = {
     "TeamsServiceSyncWorkspaceRequestTypedDict": ".teamsservice_syncworkspaceop",
     "TeamsServiceSyncWorkspaceResponse": ".teamsservice_syncworkspaceop",
     "TeamsServiceSyncWorkspaceResponseTypedDict": ".teamsservice_syncworkspaceop",
+    "TextqlRPCAuthAssetURLExpiry": ".textql_rpc_auth_asseturlexpiry",
     "TextqlRPCAuthMember": ".textql_rpc_auth_member",
     "TextqlRPCAuthMemberTypedDict": ".textql_rpc_auth_member",
+    "TextqlRPCAuthOrganization": ".textql_rpc_auth_organization",
+    "TextqlRPCAuthOrganizationTypedDict": ".textql_rpc_auth_organization",
+    "TextqlRPCAuthTheme": ".textql_rpc_auth_theme",
+    "TextqlRPCAuthThemeTypedDict": ".textql_rpc_auth_theme",
     "TextqlRPCIdentityMemberPreview": ".textql_rpc_identity_memberpreview",
     "TextqlRPCIdentityMemberPreviewTypedDict": ".textql_rpc_identity_memberpreview",
     "TextqlRPCParadigmParamsParadigmParams": ".textql_rpc_paradigm_params_paradigmparams",
@@ -17222,6 +17264,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSettingsDeleteOrganizationMemberRequestTypedDict": ".textql_rpc_public_settings_deleteorganizationmemberrequest",
     "TextqlRPCPublicSettingsDeleteOrganizationMemberResponse": ".textql_rpc_public_settings_deleteorganizationmemberresponse",
     "TextqlRPCPublicSettingsDeleteOrganizationMemberResponseTypedDict": ".textql_rpc_public_settings_deleteorganizationmemberresponse",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsRequest": ".textql_rpc_public_settings_getorganizationsettingsrequest",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsRequestTypedDict": ".textql_rpc_public_settings_getorganizationsettingsrequest",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsResponse": ".textql_rpc_public_settings_getorganizationsettingsresponse",
+    "TextqlRPCPublicSettingsGetOrganizationSettingsResponseTypedDict": ".textql_rpc_public_settings_getorganizationsettingsresponse",
     "TextqlRPCPublicSettingsInviteOrganizationMemberRequest": ".textql_rpc_public_settings_inviteorganizationmemberrequest",
     "TextqlRPCPublicSettingsInviteOrganizationMemberRequestTypedDict": ".textql_rpc_public_settings_inviteorganizationmemberrequest",
     "TextqlRPCPublicSettingsInviteOrganizationMemberResponse": ".textql_rpc_public_settings_inviteorganizationmemberresponse",
