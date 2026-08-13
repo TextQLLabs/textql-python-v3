@@ -1,4 +1,4 @@
-# TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse
+# TextqlRPCPublicSettingsGetOrganizationSettingsResponse
 
 
 ## Fields

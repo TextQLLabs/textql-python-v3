@@ -11,11 +11,11 @@ from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class TextqlRPCPublicSettingsUpdateOrganizationSettingsResponseTypedDict(TypedDict):
+class TextqlRPCPublicSettingsGetOrganizationSettingsResponseTypedDict(TypedDict):
     organization: NotRequired[TextqlRPCAuthOrganizationTypedDict]
 
 
-class TextqlRPCPublicSettingsUpdateOrganizationSettingsResponse(BaseModel):
+class TextqlRPCPublicSettingsGetOrganizationSettingsResponse(BaseModel):
     organization: Optional[TextqlRPCAuthOrganization] = None
 
     @model_serializer(mode="wrap")

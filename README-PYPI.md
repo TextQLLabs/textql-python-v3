@@ -619,6 +619,7 @@ with Textql(
 
 * [check_member_status](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#check_member_status) - CheckMemberStatus
 * [delete_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#delete_member) - DeleteOrganizationMember
+* [get](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#get) - GetOrganizationSettings
 * [invite_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#invite_member) - InviteOrganizationMember
 * [list_members](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#list_members) - ListOrganizationMembers
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#update) - UpdateOrganizationSettings
