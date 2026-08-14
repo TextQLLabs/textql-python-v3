@@ -34,6 +34,10 @@ class TextqlRPCPublicCellsMCPToolCellTypedDict(TypedDict):
     execution_time_ms: NotRequired[
         Nullable[TextqlRPCPublicCellsMCPToolCellExecutionTimeMsTypedDict]
     ]
+    auth_required: NotRequired[Nullable[bool]]
+    auth_completed: NotRequired[Nullable[bool]]
+    auth_server_id: NotRequired[Nullable[str]]
+    auth_server_name: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicCellsMCPToolCell(BaseModel):
@@ -60,6 +64,22 @@ class TextqlRPCPublicCellsMCPToolCell(BaseModel):
         pydantic.Field(alias="executionTimeMs"),
     ] = UNSET
 
+    auth_required: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="authRequired")
+    ] = UNSET
+
+    auth_completed: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="authCompleted")
+    ] = UNSET
+
+    auth_server_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="authServerId")
+    ] = UNSET
+
+    auth_server_name: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="authServerName")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -71,10 +91,23 @@ class TextqlRPCPublicCellsMCPToolCell(BaseModel):
                 "isError",
                 "errorMessage",
                 "executionTimeMs",
+                "authRequired",
+                "authCompleted",
+                "authServerId",
+                "authServerName",
             ]
         )
         nullable_fields = set(
-            ["contentJson", "isError", "errorMessage", "executionTimeMs"]
+            [
+                "contentJson",
+                "isError",
+                "errorMessage",
+                "executionTimeMs",
+                "authRequired",
+                "authCompleted",
+                "authServerId",
+                "authServerName",
+            ]
         )
         serialized = handler(self)
         m = {}

@@ -320,9 +320,6 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     sharing_disabled: NotRequired[Nullable[bool]]
     app_writeback_auto_approve_enabled: NotRequired[Nullable[bool]]
     r"""Auto-merge Data App editor writeback config patches (recommended on); when off the writeback opens a reviewable patch instead."""
-    subagents_enabled: NotRequired[Nullable[bool]]
-    malloy_enabled: NotRequired[Nullable[bool]]
-    r"""Internal research flag: enables Malloy support for the org's ontology."""
 
 
 class TextqlRPCAuthOrganization(BaseModel):
@@ -880,15 +877,6 @@ class TextqlRPCAuthOrganization(BaseModel):
     ] = UNSET
     r"""Auto-merge Data App editor writeback config patches (recommended on); when off the writeback opens a reviewable patch instead."""
 
-    subagents_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="subagentsEnabled")
-    ] = UNSET
-
-    malloy_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="malloyEnabled")
-    ] = UNSET
-    r"""Internal research flag: enables Malloy support for the org's ontology."""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -979,8 +967,6 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "spendTransparencyEnabled",
                 "sharingDisabled",
                 "appWritebackAutoApproveEnabled",
-                "subagentsEnabled",
-                "malloyEnabled",
             ]
         )
         nullable_fields = set(
@@ -1051,8 +1037,6 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "spendTransparencyEnabled",
                 "sharingDisabled",
                 "appWritebackAutoApproveEnabled",
-                "subagentsEnabled",
-                "malloyEnabled",
             ]
         )
         serialized = handler(self)
