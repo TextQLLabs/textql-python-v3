@@ -10,14 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorTableauConnectorContextTypedDict(TypedDict):
     collection_ids: NotRequired[List[str]]
-    r"""dataset IDs for selected Tableau collections"""
 
 
 class TextqlRPCPublicConnectorTableauConnectorContext(BaseModel):
     collection_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="collectionIds")
     ] = None
-    r"""dataset IDs for selected Tableau collections"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

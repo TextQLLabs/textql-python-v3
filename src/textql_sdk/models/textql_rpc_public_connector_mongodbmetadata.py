@@ -14,12 +14,9 @@ class TextqlRPCPublicConnectorMongoDBMetadataTypedDict(TypedDict):
     user: NotRequired[str]
     password: NotRequired[str]
     database: NotRequired[str]
-    r"""default database to query"""
     auth_source: NotRequired[str]
-    r"""authSource (e.g. \"admin\"); defaults to database when empty"""
     tls: NotRequired[bool]
     srv: NotRequired[bool]
-    r"""mongodb+srv connection (Atlas) — host is the cluster DNS name"""
 
 
 class TextqlRPCPublicConnectorMongoDBMetadata(BaseModel):
@@ -32,15 +29,12 @@ class TextqlRPCPublicConnectorMongoDBMetadata(BaseModel):
     password: Optional[str] = None
 
     database: Optional[str] = None
-    r"""default database to query"""
 
     auth_source: Annotated[Optional[str], pydantic.Field(alias="authSource")] = None
-    r"""authSource (e.g. \"admin\"); defaults to database when empty"""
 
     tls: Optional[bool] = None
 
     srv: Optional[bool] = None
-    r"""mongodb+srv connection (Atlas) — host is the cluster DNS name"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -13,7 +13,7 @@
 | `schemas`               | List[*str*]             | :heavy_minus_sign:      | N/A                     |
 | `dialect`               | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |
 | `ssl_mode`              | *Optional[bool]*        | :heavy_minus_sign:      | N/A                     |
-| `auth_type`             | *Optional[str]*         | :heavy_minus_sign:      | PASSWORD, IAM_ROLE      |
+| `auth_type`             | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |
 | `role_arn`              | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |
 | `region`                | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |
 | `cluster_id`            | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |

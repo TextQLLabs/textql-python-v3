@@ -18,7 +18,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorConnectorTableTypedDict(TypedDict):
     table_database: NotRequired[str]
+    r"""Apache Arrow IPC format binary data"""
     table_schema: NotRequired[str]
+    r"""Total number of rows (for pagination/UI purposes)"""
     table_name: NotRequired[str]
     preview: NotRequired[TextqlRPCPublicConnectorQueryResultTypedDict]
     primary_keys: NotRequired[List[TextqlRPCPublicConnectorPrimaryKeyMetadataTypedDict]]
@@ -29,8 +31,10 @@ class TextqlRPCPublicConnectorConnectorTable(BaseModel):
     table_database: Annotated[Optional[str], pydantic.Field(alias="tableDatabase")] = (
         None
     )
+    r"""Apache Arrow IPC format binary data"""
 
     table_schema: Annotated[Optional[str], pydantic.Field(alias="tableSchema")] = None
+    r"""Total number of rows (for pagination/UI purposes)"""
 
     table_name: Annotated[Optional[str], pydantic.Field(alias="tableName")] = None
 

@@ -9,12 +9,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorGetConnectorStatsRequestTypedDict(TypedDict):
     days: NotRequired[int]
-    r"""0 = all-time"""
 
 
 class TextqlRPCPublicConnectorGetConnectorStatsRequest(BaseModel):
     days: Optional[int] = None
-    r"""0 = all-time"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

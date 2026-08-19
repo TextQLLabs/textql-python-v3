@@ -19,53 +19,45 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorExampleQueryTypedDict(TypedDict):
     id: NotRequired[str]
+    r"""PowerBI report IDs"""
     label: NotRequired[str]
-    r"""Display name (e.g., \"Explore Data\")"""
+    r"""PowerBI dataset IDs (PowerBI datasets, not internal dataset_source)"""
     message: NotRequired[str]
-    r"""Query text to send (plain text, no formatting)"""
+    r"""workspace dataset_source IDs (cache key, like Tableau collections)"""
     is_multi_source: NotRequired[bool]
-    r"""True if requires multiple connectors"""
     required_connector_ids: NotRequired[List[int]]
-    r"""Specific connectors needed"""
     category: NotRequired[str]
-    r"""Category (e.g., \"Users\", \"Sales\", \"Performance\")"""
     segments: NotRequired[List[TextqlRPCPublicConnectorMessageSegmentTypedDict]]
-    r"""Rich formatted message with styled feature words"""
     required_features: NotRequired[List[TextqlRPCPublicConnectorFeatureType]]
-    r"""Features this query will use (for tool enabling)"""
     source_context: NotRequired[TextqlRPCPublicConnectorConnectorContextTypedDict]
 
 
 class TextqlRPCPublicConnectorExampleQuery(BaseModel):
     id: Optional[str] = None
+    r"""PowerBI report IDs"""
 
     label: Optional[str] = None
-    r"""Display name (e.g., \"Explore Data\")"""
+    r"""PowerBI dataset IDs (PowerBI datasets, not internal dataset_source)"""
 
     message: Optional[str] = None
-    r"""Query text to send (plain text, no formatting)"""
+    r"""workspace dataset_source IDs (cache key, like Tableau collections)"""
 
     is_multi_source: Annotated[
         Optional[bool], pydantic.Field(alias="isMultiSource")
     ] = None
-    r"""True if requires multiple connectors"""
 
     required_connector_ids: Annotated[
         Optional[List[int]], pydantic.Field(alias="requiredConnectorIds")
     ] = None
-    r"""Specific connectors needed"""
 
     category: Optional[str] = None
-    r"""Category (e.g., \"Users\", \"Sales\", \"Performance\")"""
 
     segments: Optional[List[TextqlRPCPublicConnectorMessageSegment]] = None
-    r"""Rich formatted message with styled feature words"""
 
     required_features: Annotated[
         Optional[List[TextqlRPCPublicConnectorFeatureType]],
         pydantic.Field(alias="requiredFeatures"),
     ] = None
-    r"""Features this query will use (for tool enabling)"""
 
     source_context: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorContext],

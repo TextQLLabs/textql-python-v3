@@ -11,4 +11,4 @@
 | `password`         | *Optional[str]*    | :heavy_minus_sign: | N/A                |
 | `database`         | *Optional[str]*    | :heavy_minus_sign: | N/A                |
 | `use_ssl`          | *Optional[bool]*   | :heavy_minus_sign: | N/A                |
-| `protocol`         | *Optional[str]*    | :heavy_minus_sign: | "http" or "native" |
+| `protocol`         | *Optional[str]*    | :heavy_minus_sign: | N/A                |

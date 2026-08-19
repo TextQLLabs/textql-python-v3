@@ -10,21 +10,21 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorListQueryTemplatesRequestTypedDict(TypedDict):
     connector_id: NotRequired[int]
+    r"""0 = all-time"""
     limit: NotRequired[int]
     offset: NotRequired[int]
     days: NotRequired[int]
-    r"""Optional lookback window in days; 0 or unset means all-time."""
 
 
 class TextqlRPCPublicConnectorListQueryTemplatesRequest(BaseModel):
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
+    r"""0 = all-time"""
 
     limit: Optional[int] = None
 
     offset: Optional[int] = None
 
     days: Optional[int] = None
-    r"""Optional lookback window in days; 0 or unset means all-time."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

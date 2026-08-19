@@ -9,29 +9,21 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicConnectorKdbMetadataTypedDict(TypedDict):
-    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
-    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
-    """
-
     host: NotRequired[str]
     port: NotRequired[int]
     user: NotRequired[str]
     password: NotRequired[str]
     tls: NotRequired[bool]
     ssh_tunnel_enabled: NotRequired[bool]
-    r"""SSH tunnel / bastion host fields"""
     ssh_host: NotRequired[str]
     ssh_port: NotRequired[int]
     ssh_user: NotRequired[str]
+    r"""PASSWORD, IAM_ROLE"""
     ssh_private_key: NotRequired[str]
     ssh_host_public_key: NotRequired[str]
 
 
 class TextqlRPCPublicConnectorKdbMetadata(BaseModel):
-    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
-    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
-    """
-
     host: Optional[str] = None
 
     port: Optional[int] = None
@@ -45,13 +37,13 @@ class TextqlRPCPublicConnectorKdbMetadata(BaseModel):
     ssh_tunnel_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="sshTunnelEnabled")
     ] = None
-    r"""SSH tunnel / bastion host fields"""
 
     ssh_host: Annotated[Optional[str], pydantic.Field(alias="sshHost")] = None
 
     ssh_port: Annotated[Optional[int], pydantic.Field(alias="sshPort")] = None
 
     ssh_user: Annotated[Optional[str], pydantic.Field(alias="sshUser")] = None
+    r"""PASSWORD, IAM_ROLE"""
 
     ssh_private_key: Annotated[Optional[str], pydantic.Field(alias="sshPrivateKey")] = (
         None

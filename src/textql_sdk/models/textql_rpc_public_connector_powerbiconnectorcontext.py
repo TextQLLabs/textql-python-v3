@@ -10,26 +10,20 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorPowerBIConnectorContextTypedDict(TypedDict):
     report_ids: NotRequired[List[str]]
-    r"""PowerBI report IDs"""
     dataset_ids: NotRequired[List[str]]
-    r"""PowerBI dataset IDs (PowerBI datasets, not internal dataset_source)"""
     collection_ids: NotRequired[List[str]]
-    r"""workspace dataset_source IDs (cache key, like Tableau collections)"""
 
 
 class TextqlRPCPublicConnectorPowerBIConnectorContext(BaseModel):
     report_ids: Annotated[Optional[List[str]], pydantic.Field(alias="reportIds")] = None
-    r"""PowerBI report IDs"""
 
     dataset_ids: Annotated[Optional[List[str]], pydantic.Field(alias="datasetIds")] = (
         None
     )
-    r"""PowerBI dataset IDs (PowerBI datasets, not internal dataset_source)"""
 
     collection_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="collectionIds")
     ] = None
-    r"""workspace dataset_source IDs (cache key, like Tableau collections)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

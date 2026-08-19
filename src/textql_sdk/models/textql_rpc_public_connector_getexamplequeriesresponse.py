@@ -12,11 +12,17 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicConnectorGetExampleQueriesResponseTypedDict(TypedDict):
+    r"""A segment of an example query message - either plain text or a styled feature word"""
+
     examples: NotRequired[List[TextqlRPCPublicConnectorExampleQueryTypedDict]]
+    r"""The text content of this segment"""
 
 
 class TextqlRPCPublicConnectorGetExampleQueriesResponse(BaseModel):
+    r"""A segment of an example query message - either plain text or a styled feature word"""
+
     examples: Optional[List[TextqlRPCPublicConnectorExampleQuery]] = None
+    r"""The text content of this segment"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
