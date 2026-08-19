@@ -12,19 +12,21 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict = TypeAliasType(
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict", Union[int, str]
 )
+r"""Display name (e.g., \"Explore Data\")"""
 
 
 TextqlRPCPublicConnectorConnectorStatEntryQueryCount = TypeAliasType(
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCount", Union[int, str]
 )
+r"""Display name (e.g., \"Explore Data\")"""
 
 
 AvgQueryTimeMsTypedDict = TypeAliasType("AvgQueryTimeMsTypedDict", Union[int, str])
-r"""milliseconds"""
+r"""True if requires multiple connectors"""
 
 
 AvgQueryTimeMs = TypeAliasType("AvgQueryTimeMs", Union[int, str])
-r"""milliseconds"""
+r"""True if requires multiple connectors"""
 
 
 class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
@@ -32,11 +34,13 @@ class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
     query_count: NotRequired[
         TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict
     ]
+    r"""Display name (e.g., \"Explore Data\")"""
     error_rate: NotRequired[float]
-    r"""0.0-1.0"""
+    r"""Query text to send (plain text, no formatting)"""
     avg_query_time_ms: NotRequired[AvgQueryTimeMsTypedDict]
-    r"""milliseconds"""
+    r"""True if requires multiple connectors"""
     unique_users: NotRequired[int]
+    r"""Specific connectors needed"""
     last_queried_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -129,6 +133,7 @@ class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     table_count: NotRequired[int]
+    r"""Rich formatted message with styled feature words"""
 
 
 class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
@@ -138,16 +143,18 @@ class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
         Optional[TextqlRPCPublicConnectorConnectorStatEntryQueryCount],
         pydantic.Field(alias="queryCount"),
     ] = None
+    r"""Display name (e.g., \"Explore Data\")"""
 
     error_rate: Annotated[Optional[float], pydantic.Field(alias="errorRate")] = None
-    r"""0.0-1.0"""
+    r"""Query text to send (plain text, no formatting)"""
 
     avg_query_time_ms: Annotated[
         Optional[AvgQueryTimeMs], pydantic.Field(alias="avgQueryTimeMs")
     ] = None
-    r"""milliseconds"""
+    r"""True if requires multiple connectors"""
 
     unique_users: Annotated[Optional[int], pydantic.Field(alias="uniqueUsers")] = None
+    r"""Specific connectors needed"""
 
     last_queried_at: Annotated[
         Optional[datetime], pydantic.Field(alias="lastQueriedAt")
@@ -244,6 +251,7 @@ class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
     """
 
     table_count: Annotated[Optional[int], pydantic.Field(alias="tableCount")] = None
+    r"""Rich formatted message with styled feature words"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

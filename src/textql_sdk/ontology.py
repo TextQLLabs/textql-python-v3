@@ -2689,12 +2689,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceExchangeOntologyGithubCodeResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
-
-        Lists the skills under the ontology's flat skills/ root that the caller can
-        read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
-        omitted unless include_unlisted is set.
+        r"""ExchangeOntologyGithubCode
 
         :param connect_timeout_ms:
         :param code:
@@ -2805,12 +2800,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceExchangeOntologyGithubCodeResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
-
-        Lists the skills under the ontology's flat skills/ root that the caller can
-        read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
-        omitted unless include_unlisted is set.
+        r"""ExchangeOntologyGithubCode
 
         :param connect_timeout_ms:
         :param code:
@@ -6048,12 +6038,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetOntologySyncConflictsResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""GetOntologySyncConflicts
 
         :param body:
         :param connect_timeout_ms:
@@ -6160,12 +6145,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetOntologySyncConflictsResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""GetOntologySyncConflicts
 
         :param body:
         :param connect_timeout_ms:
@@ -8530,7 +8510,10 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListGoldenFilesResponse:
-        r"""ListGoldenFiles
+        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+
+        Deprecated: use SetOntologyOwners with the desired entry set. An empty
+        desired set is not currently supported, so retain this RPC for deletion.
 
         :param body:
         :param connect_timeout_ms:
@@ -8637,7 +8620,10 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListGoldenFilesResponse:
-        r"""ListGoldenFiles
+        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+
+        Deprecated: use SetOntologyOwners with the desired entry set. An empty
+        desired set is not currently supported, so retain this RPC for deletion.
 
         :param body:
         :param connect_timeout_ms:
@@ -11754,7 +11740,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceRemoveOntologyRemoteResponse:
-        r"""RemoveOntologyRemote
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+
+        Lists the skills under the ontology's flat skills/ root that the caller can
+        read (OWNERS-filtered). Returns display metadata only — never instruction
+        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+        omitted unless include_unlisted is set.
 
         :param body:
         :param connect_timeout_ms:
@@ -11859,7 +11850,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceRemoveOntologyRemoteResponse:
-        r"""RemoveOntologyRemote
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+
+        Lists the skills under the ontology's flat skills/ root that the caller can
+        read (OWNERS-filtered). Returns display metadata only — never instruction
+        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+        omitted unless include_unlisted is set.
 
         :param body:
         :param connect_timeout_ms:
@@ -12600,7 +12596,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceResolveOntologySyncConflictResponse:
-        r"""ResolveOntologySyncConflict
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param connect_timeout_ms:
         :param conflict_id:
@@ -12705,7 +12706,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceResolveOntologySyncConflictResponse:
-        r"""ResolveOntologySyncConflict
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param connect_timeout_ms:
         :param conflict_id:
@@ -13650,10 +13656,9 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceSetOntologyFileGoldenResponse:
-        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
 
-        Deprecated: use SetOntologyOwners with the desired entry set. An empty
-        desired set is not currently supported, so retain this RPC for deletion.
+        Deprecated: use SetOntologyOwners with the complete desired entry set.
 
         :param connect_timeout_ms:
         :param path:
@@ -13760,10 +13765,9 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceSetOntologyFileGoldenResponse:
-        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
 
-        Deprecated: use SetOntologyOwners with the desired entry set. An empty
-        desired set is not currently supported, so retain this RPC for deletion.
+        Deprecated: use SetOntologyOwners with the complete desired entry set.
 
         :param connect_timeout_ms:
         :param path:
@@ -15018,9 +15022,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceUpsertOntologyAnaConfigResponse:
-        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
-
-        Deprecated: use SetOntologyOwners with the complete desired entry set.
+        r"""UpsertOntologyAnaConfig
 
         :param connect_timeout_ms:
         :param path:
@@ -15149,9 +15151,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceUpsertOntologyAnaConfigResponse:
-        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
-
-        Deprecated: use SetOntologyOwners with the complete desired entry set.
+        r"""UpsertOntologyAnaConfig
 
         :param connect_timeout_ms:
         :param path:

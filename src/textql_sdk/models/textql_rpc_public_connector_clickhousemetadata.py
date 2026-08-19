@@ -16,7 +16,6 @@ class TextqlRPCPublicConnectorClickHouseMetadataTypedDict(TypedDict):
     database: NotRequired[str]
     use_ssl: NotRequired[bool]
     protocol: NotRequired[str]
-    r"""\"http\" or \"native\" """
 
 
 class TextqlRPCPublicConnectorClickHouseMetadata(BaseModel):
@@ -33,7 +32,6 @@ class TextqlRPCPublicConnectorClickHouseMetadata(BaseModel):
     use_ssl: Annotated[Optional[bool], pydantic.Field(alias="useSsl")] = None
 
     protocol: Optional[str] = None
-    r"""\"http\" or \"native\" """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

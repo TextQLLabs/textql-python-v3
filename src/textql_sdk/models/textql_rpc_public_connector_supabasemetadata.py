@@ -9,17 +9,26 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicConnectorSupabaseMetadataTypedDict(TypedDict):
+    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
+    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
+    """
+
     host: NotRequired[str]
     port: NotRequired[int]
     user: NotRequired[str]
     password: NotRequired[str]
     database: NotRequired[str]
     schemas: NotRequired[List[str]]
+    r"""SSH tunnel / bastion host fields"""
     dialect: NotRequired[str]
     ssl_mode: NotRequired[bool]
 
 
 class TextqlRPCPublicConnectorSupabaseMetadata(BaseModel):
+    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
+    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
+    """
+
     host: Optional[str] = None
 
     port: Optional[int] = None
@@ -31,6 +40,7 @@ class TextqlRPCPublicConnectorSupabaseMetadata(BaseModel):
     database: Optional[str] = None
 
     schemas: Optional[List[str]] = None
+    r"""SSH tunnel / bastion host fields"""
 
     dialect: Optional[str] = None
 

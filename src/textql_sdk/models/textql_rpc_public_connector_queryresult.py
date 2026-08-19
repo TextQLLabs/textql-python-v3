@@ -11,31 +11,25 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicConnectorQueryResultTotalRowsTypedDict = TypeAliasType(
     "TextqlRPCPublicConnectorQueryResultTotalRowsTypedDict", Union[int, str]
 )
-r"""Total number of rows (for pagination/UI purposes)"""
 
 
 TextqlRPCPublicConnectorQueryResultTotalRows = TypeAliasType(
     "TextqlRPCPublicConnectorQueryResultTotalRows", Union[int, str]
 )
-r"""Total number of rows (for pagination/UI purposes)"""
 
 
 class TextqlRPCPublicConnectorQueryResultTypedDict(TypedDict):
     arrow_data: NotRequired[str]
-    r"""Apache Arrow IPC format binary data"""
     total_rows: NotRequired[TextqlRPCPublicConnectorQueryResultTotalRowsTypedDict]
-    r"""Total number of rows (for pagination/UI purposes)"""
 
 
 class TextqlRPCPublicConnectorQueryResult(BaseModel):
     arrow_data: Annotated[Optional[str], pydantic.Field(alias="arrowData")] = None
-    r"""Apache Arrow IPC format binary data"""
 
     total_rows: Annotated[
         Optional[TextqlRPCPublicConnectorQueryResultTotalRows],
         pydantic.Field(alias="totalRows"),
     ] = None
-    r"""Total number of rows (for pagination/UI purposes)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

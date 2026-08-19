@@ -18,7 +18,6 @@ class TextqlRPCPublicConnectorRedshiftMetadataTypedDict(TypedDict):
     dialect: NotRequired[str]
     ssl_mode: NotRequired[bool]
     auth_type: NotRequired[str]
-    r"""PASSWORD, IAM_ROLE"""
     role_arn: NotRequired[str]
     region: NotRequired[str]
     cluster_id: NotRequired[str]
@@ -45,7 +44,6 @@ class TextqlRPCPublicConnectorRedshiftMetadata(BaseModel):
     ssl_mode: Annotated[Optional[bool], pydantic.Field(alias="sslMode")] = None
 
     auth_type: Annotated[Optional[str], pydantic.Field(alias="authType")] = None
-    r"""PASSWORD, IAM_ROLE"""
 
     role_arn: Annotated[Optional[str], pydantic.Field(alias="roleArn")] = None
 

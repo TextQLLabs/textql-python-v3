@@ -16,9 +16,7 @@ class TextqlRPCPublicConnectorMicrosoft365MetadataTypedDict(TypedDict):
     refresh_token: NotRequired[str]
     member_id: NotRequired[str]
     token_expiry: NotRequired[str]
-    r"""ISO 8601 timestamp"""
     metadata_only: NotRequired[bool]
-    r"""When true, only email metadata is accessible (no body content)"""
     scopes: NotRequired[List[str]]
 
 
@@ -36,12 +34,10 @@ class TextqlRPCPublicConnectorMicrosoft365Metadata(BaseModel):
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     token_expiry: Annotated[Optional[str], pydantic.Field(alias="tokenExpiry")] = None
-    r"""ISO 8601 timestamp"""
 
     metadata_only: Annotated[Optional[bool], pydantic.Field(alias="metadataOnly")] = (
         None
     )
-    r"""When true, only email metadata is accessible (no body content)"""
 
     scopes: Optional[List[str]] = None
 

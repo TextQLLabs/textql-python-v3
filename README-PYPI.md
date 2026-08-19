@@ -415,7 +415,7 @@ with Textql(
 * [delete_directory](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#delete_directory) - DeleteOntologyDirectory
 * [delete_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#delete_file) - DeleteOntologyFile
 * [deny_patch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#deny_patch) - DenyPatch
-* [exchange_github_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#exchange_github_code) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+* [exchange_github_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#exchange_github_code) - ExchangeOntologyGithubCode
 * [finalize_file_upload](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#finalize_file_upload) - FinalizeOntologyFileUpload
 * [get_codeowner_coverage](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_codeowner_coverage) - GetCodeownerCoverage
 * [get_config_export_capabilities](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_config_export_capabilities) - GetConfigExportCapabilities
@@ -429,7 +429,7 @@ with Textql(
 * [get_owners](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_owners) - GetOntologyOwners
 * [get_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_remote) - GetOntologyRemote
 * [get_size_timeline](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_size_timeline) - GetOntologySizeTimeline
-* [get_sync_conflicts](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_sync_conflicts) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+* [get_sync_conflicts](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_sync_conflicts) - GetOntologySyncConflicts
 * [get_usage_summary](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_usage_summary) - GetOntologyUsageSummary
 * [get_patch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_patch) - GetPatch
 * [get_patch_by_number](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_patch_by_number) - GetPatchByNumber
@@ -439,7 +439,7 @@ with Textql(
 * [list_approval_rules](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_approval_rules) - ListApprovalRules
 * [list_chats_for_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_chats_for_file) - ListChatsForFile
 * [list_context_patch_auto_approve_rules](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
-* [list_golden_files](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_golden_files) - ListGoldenFiles
+* [list_golden_files](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_golden_files) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
 * [list_entries](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_entries) - ListOntologyEntries
 * [list_history](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_history) - ListOntologyHistory
 * [list_imports](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_imports) - ListOntologyImports
@@ -454,22 +454,22 @@ with Textql(
 * [pull_from_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#pull_from_remote) - PullOntologyFromRemote
 * [push_to_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#push_to_remote) - PushOntologyToRemote
 * [recover](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#recover) - RecoverOntology
-* [remove_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#remove_remote) - RemoveOntologyRemote
+* [remove_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#remove_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [remove_submodule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#remove_submodule) - RemoveOntologySubmodule
 * [rename_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#rename_file) - RenameOntologyFile
 * [request_patch_review](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#request_patch_review) - RequestPatchReview
-* [resolve_sync_conflict](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#resolve_sync_conflict) - ResolveOntologySyncConflict
+* [resolve_sync_conflict](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#resolve_sync_conflict) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
 * [restore_patch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#restore_patch) - RestorePatch
 * [revert_patch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#revert_patch) - RevertPatch
 * [save_all_objects_as_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#save_all_objects_as_config) - SaveAllObjectsAsConfig
 * [save_object_as_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#save_object_as_config) - SaveObjectAsConfig
-* [set_file_golden](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#set_file_golden) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+* [set_file_golden](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#set_file_golden) - Deprecated: use SetOntologyOwners with the complete desired entry set.
 * [set_owners](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#set_owners) - SetOntologyOwners
 * [trigger_config_drift_reconcile](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile
 * [update_approval_rule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#update_approval_rule) - UpdateApprovalRule
 * [update_context_patch_auto_approve_rule](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
 * [update_sync_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#update_sync_config) - UpdateOntologySyncConfig
-* [upsert_ana_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#upsert_ana_config) - Deprecated: use SetOntologyOwners with the complete desired entry set.
+* [upsert_ana_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#upsert_ana_config) - UpsertOntologyAnaConfig
 * [upsert_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#upsert_file) - UpsertOntologyFile
 * [validate_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
 
@@ -873,6 +873,20 @@ class CustomClient(AsyncHttpClient):
 
 s = Textql(async_client=CustomClient(httpx.AsyncClient()))
 ```
+### httpx2 (Pydantic's httpx fork)
+
+[httpx2](https://httpx2.pydantic.dev/) is Pydantic's maintained fork of `httpx`. To run this SDK on httpx2, call `alias_httpx()` at your program's entry point, before importing the SDK, so every `import httpx` — including the ones inside the SDK — resolves to `httpx2`:
+```python
+import httpx2
+
+httpx2.alias_httpx()
+
+from textql_sdk import Textql
+
+s = Textql()
+```
+
+An SDK can also be generated against httpx2 directly, so it depends on the fork instead of `httpx`, by setting `python.httpClientLibrary: httpx2` in `gen.yaml`.
 <!-- End Custom HTTP Client [http-client] -->
 
 <!-- Start Resource Management [resource-management] -->

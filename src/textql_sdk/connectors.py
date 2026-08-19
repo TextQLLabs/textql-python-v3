@@ -1767,7 +1767,7 @@ class Connectors(BaseSDK):
         r"""GetConnectorStats
 
         :param connect_timeout_ms:
-        :param days: 0 = all-time
+        :param days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1871,7 +1871,7 @@ class Connectors(BaseSDK):
         r"""GetConnectorStats
 
         :param connect_timeout_ms:
-        :param days: 0 = all-time
+        :param days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3076,10 +3076,10 @@ class Connectors(BaseSDK):
         r"""ListQueryTemplates
 
         :param connect_timeout_ms:
-        :param connector_id:
+        :param connector_id: 0 = all-time
         :param limit:
         :param offset:
-        :param days: Optional lookback window in days; 0 or unset means all-time.
+        :param days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3189,10 +3189,10 @@ class Connectors(BaseSDK):
         r"""ListQueryTemplates
 
         :param connect_timeout_ms:
-        :param connector_id:
+        :param connector_id: 0 = all-time
         :param limit:
         :param offset:
-        :param days: Optional lookback window in days; 0 or unset means all-time.
+        :param days:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3306,9 +3306,7 @@ class Connectors(BaseSDK):
 
         :param connect_timeout_ms:
         :param config:
-        :param connector_id: Optional: If provided, confidential fields will be preserved from the existing connector
-            when the corresponding field in config is empty. This allows testing updates without
-            requiring the user to re-enter credentials.
+        :param connector_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3422,9 +3420,7 @@ class Connectors(BaseSDK):
 
         :param connect_timeout_ms:
         :param config:
-        :param connector_id: Optional: If provided, confidential fields will be preserved from the existing connector
-            when the corresponding field in config is empty. This allows testing updates without
-            requiring the user to re-enter credentials.
+        :param connector_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

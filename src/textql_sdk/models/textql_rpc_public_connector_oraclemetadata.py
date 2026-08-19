@@ -16,14 +16,14 @@ class TextqlRPCPublicConnectorOracleMetadataTypedDict(TypedDict):
     service_name: NotRequired[str]
     dialect: NotRequired[str]
     ssl_mode: NotRequired[bool]
+    r"""ISO 8601 timestamp"""
     connection_type: NotRequired[str]
+    r"""When true, only email metadata is accessible (no body content)"""
     sid: NotRequired[str]
     connect_string: NotRequired[str]
     wallet_zip: NotRequired[str]
-    r"""Oracle Wallet fields"""
     wallet_password: NotRequired[str]
     tns_alias: NotRequired[str]
-    r"""Optional - auto-detected from tnsnames.ora if not provided"""
 
 
 class TextqlRPCPublicConnectorOracleMetadata(BaseModel):
@@ -40,10 +40,12 @@ class TextqlRPCPublicConnectorOracleMetadata(BaseModel):
     dialect: Optional[str] = None
 
     ssl_mode: Annotated[Optional[bool], pydantic.Field(alias="sslMode")] = None
+    r"""ISO 8601 timestamp"""
 
     connection_type: Annotated[
         Optional[str], pydantic.Field(alias="connectionType")
     ] = None
+    r"""When true, only email metadata is accessible (no body content)"""
 
     sid: Optional[str] = None
 
@@ -52,14 +54,12 @@ class TextqlRPCPublicConnectorOracleMetadata(BaseModel):
     )
 
     wallet_zip: Annotated[Optional[str], pydantic.Field(alias="walletZip")] = None
-    r"""Oracle Wallet fields"""
 
     wallet_password: Annotated[
         Optional[str], pydantic.Field(alias="walletPassword")
     ] = None
 
     tns_alias: Annotated[Optional[str], pydantic.Field(alias="tnsAlias")] = None
-    r"""Optional - auto-detected from tnsnames.ora if not provided"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
