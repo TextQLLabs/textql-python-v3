@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: 84aa72504b076e8af9bdb12989fd34c5
+  docChecksum: fab853191a0cdedc7a1abaaed88c1915
   docVersion: 1.0.0
   speakeasyVersion: 1.795.0
   generationVersion: 2.931.0
-  releaseVersion: 1.1.2
-  configChecksum: f7ec5ca4885cc56ef1117c7d007ed1ab
+  releaseVersion: 1.1.3
+  configChecksum: 9993b8df4940cbe1e1c65d9affdee391
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 1cd3194f-87b2-4f6a-89e1-561ff0b0ceb5
-  pristine_commit_hash: 6f2719ae323ed8e094fa30b88bc25fdaa8dc68e8
-  pristine_tree_hash: 57445a27a473342f5b4355bc4dbfe613f877d433
+  generation_id: f5d5b14e-b645-4fce-a198-54672a9a089d
+  pristine_commit_hash: 2f963af37afd276f52d610d046d71ca6b4ee38a0
+  pristine_tree_hash: 099dab89d172f9d12a17a041b4383b61af358178
 features:
   python:
     additionalDependencies: 1.1.0
@@ -4731,8 +4731,8 @@ trackedFiles:
     pristine_git_object: b1c8961e1858a0b4ce04de969c957804e1ba5684
   docs/models/textqlrpcpubliccellsfeedagentinfo.md:
     id: 16770d256a53
-    last_write_checksum: sha1:05eeb7b669633a1b7190c9f2b1099fb8ce4a4e82
-    pristine_git_object: c94f9ee6c7ad7c900dfce79b7a0d1740685035cb
+    last_write_checksum: sha1:338cd94a2f5db4fe3b9e45c678aa0ba129db2e26
+    pristine_git_object: f11a3becc85912c9a297a324da8f136c83a58de4
   docs/models/textqlrpcpubliccellsfeedcommentcell.md:
     id: ddde6d4f7afa
     last_write_checksum: sha1:041733e0c57b2423696049af6f53d48bbcbee1be
@@ -9771,8 +9771,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:361c25ad58b1fa0180ca882112c8ba61a88b6248
-    pristine_git_object: 99cbced038df6be05853a39a0cde612af79a8dd7
+    last_write_checksum: sha1:af03053f2d73a27767e8082c755774e8901e4cdd
+    pristine_git_object: 7b084c662e006a595c753b13ff19452a3ce0934f
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9799,8 +9799,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:baa059410512be85041832a34c5cff8cf44b5db2
-    pristine_git_object: 463497233bacc3c527fbb5d454032e8954615403
+    last_write_checksum: sha1:f3ad43f28931a6d1165c10d59acb44330a9dd9b2
+    pristine_git_object: 4f19f8955e9f033207c48c795081266b69111801
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:8a4e32311f74147bc4e282a193bc0131d91d3fda
@@ -12127,8 +12127,8 @@ trackedFiles:
     pristine_git_object: 05b87b2f61cdfd80a013bd60d413b2dff4e1a210
   src/textql_sdk/models/textql_rpc_public_cells_feedagentinfo.py:
     id: 07e974e6c973
-    last_write_checksum: sha1:51dbcbd3f2c219167a9c1ae00798eac2e900490e
-    pristine_git_object: a4b6ca51fd7213e22010fb1f2625048063a55690
+    last_write_checksum: sha1:2a267bc74ca318d11186169ca937a6d0b4a1f9ef
+    pristine_git_object: 27d948fc1d85e7da6efb03939d2bd9912ead337d
   src/textql_sdk/models/textql_rpc_public_cells_feedcommentcell.py:
     id: 0202895106c1
     last_write_checksum: sha1:075fdf628df2e7e3d2a308ffe2141343880c2dd8
@@ -27543,4 +27543,15 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.chats.attach_app()`:  `response.cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.attach_dashboard()`:  `response.cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.attach_dataset()`:  `response.cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.check_streamlit_health()`:  `response.cell.union(sql_cell).sql_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.get_history()`:  `response.cells[].union(sql_cell).sql_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(sql_cell).sql_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.query_one_shot()`:  `response.cells[].union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.chats.run()`:  `response.cells[].union(sql_cell).sql_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.connectors.create()`: \n  *  `request.config.union(postgres).connector_type.enum(ana_billing)` **Added**\n  *  `response.connector_type.enum(ana_billing)` **Added**\n* `textql.connectors.duplicate_connector()`:  `response.connector.union(aurora_metadata).connector_type.enum(ana_billing)` **Added**\n* `textql.connectors.get()`:  `response.connector.union(redshift_metadata).connector_type.enum(ana_billing)` **Added**\n* `textql.connectors.get_connectors()`:  `response.connectors[].union(firebolt_metadata).connector_type.enum(ana_billing)` **Added**\n* `textql.connectors.test()`: \n  *  `request.config.union(azure_synapse).connector_type.enum(ana_billing)` **Added**\n* `textql.connectors.update()`: \n  *  `request.config.union(azure_synapse).connector_type.enum(ana_billing)` **Added**\n  *  `response.connector.union(trino_metadata).connector_type.enum(ana_billing)` **Added**\n* `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(ana_billing)` **Added**\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(ana_billing)` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `textql.chats.attach_app()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.attach_dashboard()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.attach_dataset()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.check_streamlit_health()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.get_history()`:  `response.cells[].union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.query_one_shot()`:  `response.cells[].union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.chats.run()`:  `response.cells[].union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(feed_create_cell).feed_create_cell.agent` **Changed**
+  * `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(feed_create_cell).feed_create_cell.agent` **Changed**

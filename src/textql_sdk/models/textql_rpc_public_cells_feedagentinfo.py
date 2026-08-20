@@ -121,6 +121,13 @@ class TextqlRPCPublicCellsFeedAgentInfoTypedDict(TypedDict):
     llm_model: NotRequired[TextqlRPCPublicChatLlmModel]
     fast_mode: NotRequired[Nullable[bool]]
     posting_frequency_crons: NotRequired[List[str]]
+    feed_enabled: NotRequired[bool]
+    is_stateful: NotRequired[bool]
+    callable_as_subagent: NotRequired[bool]
+    slack_channel: NotRequired[Nullable[str]]
+    teams_channel: NotRequired[Nullable[str]]
+    email_recipient_count: NotRequired[int]
+    email_recipients: NotRequired[List[str]]
 
 
 class TextqlRPCPublicCellsFeedAgentInfo(BaseModel):
@@ -245,6 +252,30 @@ class TextqlRPCPublicCellsFeedAgentInfo(BaseModel):
         Optional[List[str]], pydantic.Field(alias="postingFrequencyCrons")
     ] = None
 
+    feed_enabled: Annotated[Optional[bool], pydantic.Field(alias="feedEnabled")] = None
+
+    is_stateful: Annotated[Optional[bool], pydantic.Field(alias="isStateful")] = None
+
+    callable_as_subagent: Annotated[
+        Optional[bool], pydantic.Field(alias="callableAsSubagent")
+    ] = None
+
+    slack_channel: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="slackChannel")
+    ] = UNSET
+
+    teams_channel: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="teamsChannel")
+    ] = UNSET
+
+    email_recipient_count: Annotated[
+        Optional[int], pydantic.Field(alias="emailRecipientCount")
+    ] = None
+
+    email_recipients: Annotated[
+        Optional[List[str]], pydantic.Field(alias="emailRecipients")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -259,9 +290,16 @@ class TextqlRPCPublicCellsFeedAgentInfo(BaseModel):
                 "llmModel",
                 "fastMode",
                 "postingFrequencyCrons",
+                "feedEnabled",
+                "isStateful",
+                "callableAsSubagent",
+                "slackChannel",
+                "teamsChannel",
+                "emailRecipientCount",
+                "emailRecipients",
             ]
         )
-        nullable_fields = set(["fastMode"])
+        nullable_fields = set(["fastMode", "slackChannel", "teamsChannel"])
         serialized = handler(self)
         m = {}
 
