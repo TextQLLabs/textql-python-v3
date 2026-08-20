@@ -24954,6 +24954,7 @@ components:
         - FIREBOLT
         - KDB
         - MONGODB
+        - ANA_BILLING
     textql.rpc.public.connector.CreateConnectorRequest:
       type: object
       properties:
