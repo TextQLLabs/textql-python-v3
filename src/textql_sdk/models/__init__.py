@@ -2186,6 +2186,12 @@ if TYPE_CHECKING:
         SandboxExecServiceLoadConnectorDataResponse,
         SandboxExecServiceLoadConnectorDataResponseTypedDict,
     )
+    from .sandboxqueryservice_executebashop import (
+        SandboxQueryServiceExecuteBashRequest,
+        SandboxQueryServiceExecuteBashRequestTypedDict,
+        SandboxQueryServiceExecuteBashResponse,
+        SandboxQueryServiceExecuteBashResponseTypedDict,
+    )
     from .sandboxqueryservice_executequeryop import (
         SandboxQueryServiceExecuteQueryRequest,
         SandboxQueryServiceExecuteQueryRequestTypedDict,
@@ -7562,6 +7568,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicSandboxQueryLibraryTQLTemplate,
         TextqlRPCPublicSandboxQueryLibraryTQLTemplateTypedDict,
     )
+    from .textql_rpc_public_sandbox_query_sandboxexecutebashrequest import (
+        TextqlRPCPublicSandboxQuerySandboxExecuteBashRequest,
+        TextqlRPCPublicSandboxQuerySandboxExecuteBashRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_query_sandboxexecutebashresponse import (
+        TextqlRPCPublicSandboxQuerySandboxExecuteBashResponse,
+        TextqlRPCPublicSandboxQuerySandboxExecuteBashResponseTypedDict,
+    )
     from .textql_rpc_public_sandbox_query_sandboxexecutequeryrequest import (
         AppDb,
         AppDbTypedDict,
@@ -9739,6 +9753,10 @@ __all__ = [
     "SandboxExecServiceLoadConnectorDataRequestTypedDict",
     "SandboxExecServiceLoadConnectorDataResponse",
     "SandboxExecServiceLoadConnectorDataResponseTypedDict",
+    "SandboxQueryServiceExecuteBashRequest",
+    "SandboxQueryServiceExecuteBashRequestTypedDict",
+    "SandboxQueryServiceExecuteBashResponse",
+    "SandboxQueryServiceExecuteBashResponseTypedDict",
     "SandboxQueryServiceExecuteQueryRequest",
     "SandboxQueryServiceExecuteQueryRequestTypedDict",
     "SandboxQueryServiceExecuteQueryResponse",
@@ -12445,6 +12463,10 @@ __all__ = [
     "TextqlRPCPublicSandboxQueryLibraryTQLTemplateTypedDict",
     "TextqlRPCPublicSandboxQuerySQLQueryTemplate",
     "TextqlRPCPublicSandboxQuerySQLQueryTemplateTypedDict",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashRequest",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashRequestTypedDict",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashResponse",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashResponseTypedDict",
     "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequest",
     "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestLibraryTql",
     "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestLibraryTqlTypedDict",
@@ -14138,6 +14160,10 @@ _dynamic_imports: dict[str, str] = {
     "SandboxExecServiceLoadConnectorDataRequestTypedDict": ".sandboxexecservice_loadconnectordataop",
     "SandboxExecServiceLoadConnectorDataResponse": ".sandboxexecservice_loadconnectordataop",
     "SandboxExecServiceLoadConnectorDataResponseTypedDict": ".sandboxexecservice_loadconnectordataop",
+    "SandboxQueryServiceExecuteBashRequest": ".sandboxqueryservice_executebashop",
+    "SandboxQueryServiceExecuteBashRequestTypedDict": ".sandboxqueryservice_executebashop",
+    "SandboxQueryServiceExecuteBashResponse": ".sandboxqueryservice_executebashop",
+    "SandboxQueryServiceExecuteBashResponseTypedDict": ".sandboxqueryservice_executebashop",
     "SandboxQueryServiceExecuteQueryRequest": ".sandboxqueryservice_executequeryop",
     "SandboxQueryServiceExecuteQueryRequestTypedDict": ".sandboxqueryservice_executequeryop",
     "SandboxQueryServiceExecuteQueryResponse": ".sandboxqueryservice_executequeryop",
@@ -17184,6 +17210,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxQueryAppDBTemplateTypedDict": ".textql_rpc_public_sandbox_query_appdbtemplate",
     "TextqlRPCPublicSandboxQueryLibraryTQLTemplate": ".textql_rpc_public_sandbox_query_librarytqltemplate",
     "TextqlRPCPublicSandboxQueryLibraryTQLTemplateTypedDict": ".textql_rpc_public_sandbox_query_librarytqltemplate",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashRequest": ".textql_rpc_public_sandbox_query_sandboxexecutebashrequest",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashRequestTypedDict": ".textql_rpc_public_sandbox_query_sandboxexecutebashrequest",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashResponse": ".textql_rpc_public_sandbox_query_sandboxexecutebashresponse",
+    "TextqlRPCPublicSandboxQuerySandboxExecuteBashResponseTypedDict": ".textql_rpc_public_sandbox_query_sandboxexecutebashresponse",
     "AppDb": ".textql_rpc_public_sandbox_query_sandboxexecutequeryrequest",
     "AppDbTypedDict": ".textql_rpc_public_sandbox_query_sandboxexecutequeryrequest",
     "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequest": ".textql_rpc_public_sandbox_query_sandboxexecutequeryrequest",

@@ -9,6 +9,7 @@
 * [execute_code](#execute_code) - ExecuteCode
 * [get_tool_availability](#get_tool_availability) - GetToolAvailability
 * [load_connector_data](#load_connector_data) - LoadConnectorData
+* [execute_bash](#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
 * [execute_query](#execute_query) - ExecuteQuery
 
 ## create
@@ -219,6 +220,48 @@ with Textql(
 ### Response
 
 **[models.SandboxExecServiceLoadConnectorDataResponse](../../models/sandboxexecserviceloadconnectordataresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## execute_bash
+
+Runs in the caller's own worker; no connector/source scoping.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SandboxQueryService_ExecuteBash" method="post" path="/textql.rpc.public.sandbox_query.SandboxQueryService/ExecuteBash" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.sandbox.execute_bash()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `script`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `env`                                                               | Dict[str, *str*]                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SandboxQueryServiceExecuteBashResponse](../../models/sandboxqueryserviceexecutebashresponse.md)**
 
 ### Errors
 
