@@ -575,6 +575,7 @@ with Textql(
 * [execute_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#execute_code) - ExecuteCode
 * [get_tool_availability](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#get_tool_availability) - GetToolAvailability
 * [load_connector_data](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#load_connector_data) - LoadConnectorData
+* [execute_bash](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
 * [execute_query](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandbox/README.md#execute_query) - ExecuteQuery
 
 ### [SandboxAdmin](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxadmin/README.md)

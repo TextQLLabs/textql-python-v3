@@ -575,6 +575,7 @@ with Textql(
 * [execute_code](docs/sdks/sandbox/README.md#execute_code) - ExecuteCode
 * [get_tool_availability](docs/sdks/sandbox/README.md#get_tool_availability) - GetToolAvailability
 * [load_connector_data](docs/sdks/sandbox/README.md#load_connector_data) - LoadConnectorData
+* [execute_bash](docs/sdks/sandbox/README.md#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
 * [execute_query](docs/sdks/sandbox/README.md#execute_query) - ExecuteQuery
 
 ### [SandboxAdmin](docs/sdks/sandboxadmin/README.md)

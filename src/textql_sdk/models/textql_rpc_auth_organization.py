@@ -300,12 +300,18 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
     issues_enabled: NotRequired[Nullable[bool]]
     config_objects_enabled: NotRequired[Nullable[bool]]
-    r"""config_objects feature_flags row: umbrella switch for all config-managed-object behavior — Ana's
-    authoring tools, the export RPC + capabilities, reconcile takeover. Supersedes config_migrations_enabled (field 74).
+    r"""config_objects feature_flags row: the umbrella half of the config-management predicate
+    (library.ConfigManagedOrg = this flag AND the org already having a Library — the flag
+    alone does not make an org config-managed). One switch for every object type and every
+    config-managed-object behavior — Ana's authoring tools, the export RPC + capabilities,
+    reconcile takeover, the lazy row-to-config migration. Supersedes
+    config_migrations_enabled (field 74).
     """
     config_objects_playbooks_enabled: NotRequired[Nullable[bool]]
-    r"""Per-type sub-toggles under config_objects: playbooks-as-files / dashboards-as-files.
-    Effective only while config_objects_enabled is on; no feature_flags row means enabled.
+    r"""Deprecated: never populated. config_objects_enabled (field 80) is the umbrella for every
+    object type — config management is one-way, so a per-type switch that cannot
+    un-migrate an object is either inert or actively harmful (ADR-0040). Retained only
+    because proto/api is additive-only.
     """
     config_objects_dashboards_enabled: NotRequired[Nullable[bool]]
     config_autofix_enabled: NotRequired[Nullable[bool]]
@@ -831,19 +837,33 @@ class TextqlRPCAuthOrganization(BaseModel):
     config_objects_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="configObjectsEnabled")
     ] = UNSET
-    r"""config_objects feature_flags row: umbrella switch for all config-managed-object behavior — Ana's
-    authoring tools, the export RPC + capabilities, reconcile takeover. Supersedes config_migrations_enabled (field 74).
+    r"""config_objects feature_flags row: the umbrella half of the config-management predicate
+    (library.ConfigManagedOrg = this flag AND the org already having a Library — the flag
+    alone does not make an org config-managed). One switch for every object type and every
+    config-managed-object behavior — Ana's authoring tools, the export RPC + capabilities,
+    reconcile takeover, the lazy row-to-config migration. Supersedes
+    config_migrations_enabled (field 74).
     """
 
     config_objects_playbooks_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="configObjectsPlaybooksEnabled")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="configObjectsPlaybooksEnabled",
+        ),
     ] = UNSET
-    r"""Per-type sub-toggles under config_objects: playbooks-as-files / dashboards-as-files.
-    Effective only while config_objects_enabled is on; no feature_flags row means enabled.
+    r"""Deprecated: never populated. config_objects_enabled (field 80) is the umbrella for every
+    object type — config management is one-way, so a per-type switch that cannot
+    un-migrate an object is either inert or actively harmful (ADR-0040). Retained only
+    because proto/api is additive-only.
     """
 
     config_objects_dashboards_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="configObjectsDashboardsEnabled")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="configObjectsDashboardsEnabled",
+        ),
     ] = UNSET
 
     config_autofix_enabled: Annotated[
