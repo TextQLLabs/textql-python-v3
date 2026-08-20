@@ -37,6 +37,7 @@ TextqlRPCPublicConnectorConnectorType = Union[
         "FIREBOLT",
         "KDB",
         "MONGODB",
+        "ANA_BILLING",
     ],
     UnrecognizedStr,
 ]
