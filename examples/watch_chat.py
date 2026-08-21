@@ -46,10 +46,10 @@ took six seconds to write into a block that lands all at once at the end.
 
 Custom TLS
 ----------
-Set ``TEXTQL_CA_BUNDLE`` to a PEM path to trust a private CA (corporate proxy,
-on-prem gateway). The SDK and the streaming bridge use *different* HTTP stacks —
-``httpx`` for unary REST calls, ``pyqwest`` for Connect streaming — so the bundle
-has to be handed to both. See ``build_tls`` below.
+Behind a corporate proxy or an on-prem gateway, install the CA in the OS trust
+store. This example reaches it from both HTTP stacks without a PEM path:
+``truststore`` points ``httpx`` at the OS store for unary calls, and the Connect
+streaming bridge's default ``pyqwest`` transport already trusts it.
 
 Activate your venv, then:
 
@@ -71,13 +71,13 @@ See examples/README.md for setup under either package manager.
 
 import asyncio
 import os
-import pathlib
+import ssl
 import sys
 from contextlib import aclosing
-from typing import AsyncGenerator, Optional, Union, cast
+from typing import AsyncGenerator, cast
 
 import httpx
-import pyqwest
+import truststore
 from connectrpc.code import Code
 from connectrpc.errors import ConnectError as ConnectRpcError
 from dotenv import load_dotenv
@@ -109,47 +109,24 @@ RETRYABLE_CODES = frozenset(
 )
 
 
-def build_tls() -> tuple[Union[bool, str], Optional[pyqwest.Client]]:
-    """Resolve TEXTQL_CA_BUNDLE into config for both HTTP stacks.
-
-    Returns ``(httpx_verify, connect_http_client)``. With no bundle set, both
-    fall back to their defaults, which already trust the system store.
-    """
-    bundle = os.environ.get("TEXTQL_CA_BUNDLE")
-    if not bundle:
-        return True, None
-
-    ca_pem = pathlib.Path(bundle).read_bytes()
-    # tls_include_system_certs is not optional here: a transport you construct
-    # yourself starts with an empty trust store, so omitting it fails *every*
-    # TLS handshake, not just ones needing the private CA.
-    transport = pyqwest.HTTPTransport(
-        tls_ca_cert=ca_pem,
-        tls_include_system_certs=True,
-    )
-    return bundle, pyqwest.Client(transport)
-
-
 async def main() -> None:
     load_dotenv()
     message = (
         sys.argv[1] if len(sys.argv) > 1 else "Tell me about this month's usage?"
     )
 
-    # Configure the SDK once; streaming inherits its server + API key. TLS is
-    # the exception — the two stacks are separate, so pass it to each.
     # Set TEXTQL_SERVER_URL for on-prem/dev; it defaults to the cloud server.
-    verify, connect_client = build_tls()
+    ctx = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     sdk = Textql(
         api_key=os.environ["TEXTQL_API_KEY"],
         server_url=os.environ.get("TEXTQL_SERVER_URL"),
         async_client=httpx.AsyncClient(
             follow_redirects=True,
             timeout=httpx.Timeout(None, connect=10.0),
-            verify=verify,
+            verify=ctx,
         ),
     )
-    streaming = create_streaming_client(sdk, http_client=connect_client)
+    streaming = create_streaming_client(sdk)
 
     paradigm = TextqlRPCPublicParadigmParadigm(
         type="TYPE_UNIVERSAL",
@@ -181,9 +158,6 @@ async def main() -> None:
 
     opened = asyncio.Event()
 
-    # Resume state. `cursor` advances on every event; `last_complete_cell_id`
-    # only on cells that reported complete. Both are replayed on reconnect so
-    # the server resumes instead of re-sending the whole chat.
     cursor = ""
     last_complete_cell_id = ""
     attempt = 0

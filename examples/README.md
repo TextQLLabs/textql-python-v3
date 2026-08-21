@@ -14,8 +14,10 @@ or **uv** — pick whichever your project already uses.
 
 ## Setup
 
-The examples need the SDK plus `python-dotenv` (used only to load `.env`; the
-SDK itself doesn't require it).
+The examples need the SDK plus `python-dotenv` (used only to load `.env`) and
+`truststore` (used by `watch_chat.py` to verify TLS against the OS trust store,
+so a CA installed there is picked up without a PEM path). The SDK itself
+requires neither.
 
 ### pip
 
@@ -23,7 +25,7 @@ SDK itself doesn't require it).
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -e .                 # or: pip install textql-sdk
-pip install python-dotenv
+pip install python-dotenv truststore
 ```
 
 ### uv
@@ -31,7 +33,7 @@ pip install python-dotenv
 ```bash
 uv venv --python 3.11            # first time only
 uv sync
-uv add python-dotenv
+uv add python-dotenv truststore
 ```
 
 ## Credentials
