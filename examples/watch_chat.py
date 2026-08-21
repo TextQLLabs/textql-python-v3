@@ -78,6 +78,7 @@ from typing import AsyncGenerator, Optional, Union, cast
 
 import httpx
 import pyqwest
+from connectrpc.code import Code
 from connectrpc.errors import ConnectError as ConnectRpcError
 from dotenv import load_dotenv
 
@@ -92,12 +93,20 @@ from textql_sdk.models import (
 )
 from textql_sdk.streaming import create_streaming_client
 
-# Matches fe/src/lib/clients/WatchChatClient.ts, which is the reference consumer
-# of this stream — including the watchdog's reset semantics in `watch` below.
 MAX_RECONNECT_ATTEMPTS = 7
 BASE_RECONNECT_DELAY_S = 0.5
 # Longer than the server's ~20s heartbeat, so only a wedged connection trips it.
 WATCHDOG_TIMEOUT_S = 30.0
+
+RETRYABLE_CODES = frozenset(
+    {
+        Code.UNAVAILABLE,
+        Code.DEADLINE_EXCEEDED,
+        Code.RESOURCE_EXHAUSTED,
+        Code.ABORTED,
+        Code.INTERNAL,
+    }
+)
 
 
 def build_tls() -> tuple[Union[bool, str], Optional[pyqwest.Client]]:
@@ -207,9 +216,13 @@ async def main() -> None:
         elif kind == "run_complete":
             out.flush()
             failed, pending = out.failed(), out.unfinished()
+            if event.run_complete.final_cell_id:
+                last_complete_cell_id = event.run_complete.final_cell_id
             # `run_complete` fires even when individual cells failed; only
             # `run_error` fails the run itself.
             out.note("done", "completed")
+            if last_complete_cell_id:
+                out.note("", f"final cell {last_complete_cell_id}")
             if failed:
                 out.note("", f"{len(failed)} cell(s) failed: " + ", ".join(failed))
             if pending:
@@ -252,18 +265,20 @@ async def main() -> None:
             try:
                 if await stream_once():
                     return
-                reason = "stream ended without run_complete"
+                # `streamWatchEvents` returns nil to ask for a reconnect when its
+                # event source goes unhealthy — not a failure, so it costs no retry.
+                attempt = 0
+                out.note("retry", "stream ended without run_complete; reconnecting")
+                continue
             except asyncio.TimeoutError:
-                # Silence past the heartbeat means the connection is wedged, not
-                # that the model is slow. Like the FE, a watchdog trip restarts
-                # the backoff rather than spending a retry, so a long quiet run
-                # can't exhaust its budget just by being quiet.
                 attempt = 0
                 reason = f"no events for {WATCHDOG_TIMEOUT_S:.0f}s"
             except ConnectRpcError as e:
                 # Idle streams get closed by proxies on long runs, so retry from
-                # the cursor rather than giving up.
-                reason = f"stream dropped ({e.code})"
+                # the cursor — but only for codes that mean a lost connection.
+                if e.code not in RETRYABLE_CODES:
+                    raise
+                reason = f"stream dropped ({e.code.value})"
 
             attempt += 1
             if attempt > MAX_RECONNECT_ATTEMPTS:
@@ -276,7 +291,13 @@ async def main() -> None:
             await asyncio.sleep(delay)
 
     watch_task = asyncio.create_task(watch())
-    await opened.wait()
+
+    opened_task = asyncio.create_task(opened.wait())
+    await asyncio.wait({watch_task, opened_task}, return_when=asyncio.FIRST_COMPLETED)
+    if not opened.is_set():
+        opened_task.cancel()
+        await watch_task  # re-raises whatever kept the stream from opening
+        raise RuntimeError("watch ended before the chat opened")
 
     run = await sdk.chats.run_async(chat_id=chat_id)
     if isinstance(run, ConnectError):
