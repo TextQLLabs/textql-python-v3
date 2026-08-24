@@ -13,20 +13,20 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatSubmitQuestionsRequestTypedDict(TypedDict):
-    cell_id: NotRequired[str]
+    cell_id: str
     r"""UUID"""
     answers: NotRequired[List[TextqlRPCPublicCellsQuestionAnswerTypedDict]]
 
 
 class TextqlRPCPublicChatSubmitQuestionsRequest(BaseModel):
-    cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
+    cell_id: Annotated[str, pydantic.Field(alias="cellId")]
     r"""UUID"""
 
     answers: Optional[List[TextqlRPCPublicCellsQuestionAnswer]] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["cellId", "answers"])
+        optional_fields = set(["answers"])
         serialized = handler(self)
         m = {}
 

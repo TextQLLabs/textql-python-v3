@@ -45,10 +45,15 @@ class TextqlRPCPublicAgentCreateAgentRequestTypedDict(TypedDict):
     (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
     cron the backend generates; \"\" (or an empty list) means exact.
     """
-    feed_enabled: NotRequired[Nullable[bool]]
+    callable_as_subagent: NotRequired[Nullable[bool]]
     r"""Unset defaults to true: new agents are delegatable unless the caller opts
     out. Mirrors allow_ad_hoc_subagents below.
     """
+    subagent_invoker_member_ids: NotRequired[List[str]]
+    subagent_invoker_role_ids: NotRequired[List[str]]
+    feed_enabled: NotRequired[Nullable[bool]]
+    subagent_agent_ids: NotRequired[List[str]]
+    allow_ad_hoc_subagents: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicAgentCreateAgentRequest(BaseModel):
@@ -122,12 +127,32 @@ class TextqlRPCPublicAgentCreateAgentRequest(BaseModel):
     cron the backend generates; \"\" (or an empty list) means exact.
     """
 
-    feed_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
+    callable_as_subagent: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="callableAsSubagent")
     ] = UNSET
     r"""Unset defaults to true: new agents are delegatable unless the caller opts
     out. Mirrors allow_ad_hoc_subagents below.
     """
+
+    subagent_invoker_member_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="subagentInvokerMemberIds")
+    ] = None
+
+    subagent_invoker_role_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="subagentInvokerRoleIds")
+    ] = None
+
+    feed_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
+    ] = UNSET
+
+    subagent_agent_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="subagentAgentIds")
+    ] = None
+
+    allow_ad_hoc_subagents: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="allowAdHocSubagents")
+    ] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -150,7 +175,12 @@ class TextqlRPCPublicAgentCreateAgentRequest(BaseModel):
                 "teamsDmUserAadIds",
                 "slackTrigger",
                 "postingFrequencyCadences",
+                "callableAsSubagent",
+                "subagentInvokerMemberIds",
+                "subagentInvokerRoleIds",
                 "feedEnabled",
+                "subagentAgentIds",
+                "allowAdHocSubagents",
             ]
         )
         nullable_fields = set(
@@ -159,7 +189,9 @@ class TextqlRPCPublicAgentCreateAgentRequest(BaseModel):
                 "fastMode",
                 "isStateful",
                 "teamsChannelId",
+                "callableAsSubagent",
                 "feedEnabled",
+                "allowAdHocSubagents",
             ]
         )
         serialized = handler(self)

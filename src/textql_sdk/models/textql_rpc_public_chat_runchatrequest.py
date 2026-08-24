@@ -16,7 +16,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatRunChatRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     latest_complete_cell_id: NotRequired[Nullable[str]]
     research: NotRequired[Nullable[bool]]
     model: NotRequired[TextqlRPCPublicChatLlmModel]
@@ -25,7 +25,7 @@ class TextqlRPCPublicChatRunChatRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicChatRunChatRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     latest_complete_cell_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="latestCompleteCellId")
@@ -46,14 +46,7 @@ class TextqlRPCPublicChatRunChatRequest(BaseModel):
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
         optional_fields = set(
-            [
-                "chatId",
-                "latestCompleteCellId",
-                "research",
-                "model",
-                "fastMode",
-                "maxThinking",
-            ]
+            ["latestCompleteCellId", "research", "model", "fastMode", "maxThinking"]
         )
         nullable_fields = set(
             ["latestCompleteCellId", "research", "fastMode", "maxThinking"]

@@ -21,13 +21,13 @@ MinGeneration = TypeAliasType("MinGeneration", Union[int, str])
 
 
 class TextqlRPCPublicChatPollChatEventsRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     resume_cursor: NotRequired[Nullable[str]]
     min_generation: NotRequired[MinGenerationTypedDict]
 
 
 class TextqlRPCPublicChatPollChatEventsRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     resume_cursor: Annotated[
         OptionalNullable[str], pydantic.Field(alias="resumeCursor")
@@ -39,7 +39,7 @@ class TextqlRPCPublicChatPollChatEventsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["chatId", "resumeCursor", "minGeneration"])
+        optional_fields = set(["resumeCursor", "minGeneration"])
         nullable_fields = set(["resumeCursor"])
         serialized = handler(self)
         m = {}

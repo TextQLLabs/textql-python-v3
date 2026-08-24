@@ -10,10 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorListConnectorTablesRequestTypedDict(TypedDict):
     connector_id: NotRequired[int]
+    r"""Apache Arrow IPC format binary data"""
 
 
 class TextqlRPCPublicConnectorListConnectorTablesRequest(BaseModel):
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
+    r"""Apache Arrow IPC format binary data"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

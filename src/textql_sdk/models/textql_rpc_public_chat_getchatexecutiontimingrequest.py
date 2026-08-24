@@ -2,34 +2,16 @@
 
 from __future__ import annotations
 import pydantic
-from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from textql_sdk.types import BaseModel
+from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatGetChatExecutionTimingRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
 
 
 class TextqlRPCPublicChatGetChatExecutionTimingRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["chatId"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
 
 try:

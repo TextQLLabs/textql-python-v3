@@ -297,6 +297,12 @@ value: models.StatusCell = /* values here */
 value: models.StreamlitCell = /* values here */
 ```
 
+### `models.SubagentCell`
+
+```python
+value: models.SubagentCell = /* values here */
+```
+
 ### `models.SummaryCell`
 
 ```python

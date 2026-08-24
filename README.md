@@ -206,29 +206,29 @@ with Textql(
 
 ### [Apps](docs/sdks/apps/README.md)
 
-* [heartbeat](docs/sdks/apps/README.md#heartbeat) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+* [heartbeat](docs/sdks/apps/README.md#heartbeat) - AppHeartbeat
 * [create_app](docs/sdks/apps/README.md#create_app) - CreateApp
 * [delete_app](docs/sdks/apps/README.md#delete_app) - DeleteApp
 * [duplicate](docs/sdks/apps/README.md#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](docs/sdks/apps/README.md#get) - GetApp
-* [get_db_schema](docs/sdks/apps/README.md#get_db_schema) - View analytics: reads the engagement views recorded on app page load.
-* [get_db_table_preview](docs/sdks/apps/README.md#get_db_table_preview) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
-* [get_member_state](docs/sdks/apps/README.md#get_member_state) - GetAppMemberState
-* [get_app_version](docs/sdks/apps/README.md#get_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
-* [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - Per-member notification subscription to an app ("watch this app").
+* [get_db_schema](docs/sdks/apps/README.md#get_db_schema) - Replaces the calling member's entire ordering; capped server-side.
+* [get_db_table_preview](docs/sdks/apps/README.md#get_db_table_preview) - View analytics: reads the engagement views recorded on app page load.
+* [get_member_state](docs/sdks/apps/README.md#get_member_state) - Per-member notification subscription to an app ("watch this app").
+* [get_app_version](docs/sdks/apps/README.md#get_app_version) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+* [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [get_members_with_apps](docs/sdks/apps/README.md#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - InvokeAppComputeFunction
-* [list_activity_since](docs/sdks/apps/README.md#list_activity_since) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
-* [list_versions](docs/sdks/apps/README.md#list_versions) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+* [list_activity_since](docs/sdks/apps/README.md#list_activity_since) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+* [list_versions](docs/sdks/apps/README.md#list_versions) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 * [list](docs/sdks/apps/README.md#list) - ListApps
-* [list_my_member_activity](docs/sdks/apps/README.md#list_my_member_activity) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
-* [move_app_to_folder](docs/sdks/apps/README.md#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
-* [presence_heartbeat](docs/sdks/apps/README.md#presence_heartbeat) - Replaces the calling member's entire ordering; capped server-side.
-* [record_member_activity](docs/sdks/apps/README.md#record_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-* [refresh](docs/sdks/apps/README.md#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
-* [restore_app_version](docs/sdks/apps/README.md#restore_app_version) - RestoreAppVersion
+* [list_my_member_activity](docs/sdks/apps/README.md#list_my_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
+* [move_app_to_folder](docs/sdks/apps/README.md#move_app_to_folder) - MoveAppToFolder
+* [presence_heartbeat](docs/sdks/apps/README.md#presence_heartbeat) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
+* [record_member_activity](docs/sdks/apps/README.md#record_member_activity) - RecordAppMemberActivity
+* [refresh](docs/sdks/apps/README.md#refresh) - Moves an app into a library folder (or to root when folder_id is empty).
+* [restore_app_version](docs/sdks/apps/README.md#restore_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 * [set_member_state](docs/sdks/apps/README.md#set_member_state) - SetAppMemberState
-* [set_favorite](docs/sdks/apps/README.md#set_favorite) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+* [set_favorite](docs/sdks/apps/README.md#set_favorite) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [update](docs/sdks/apps/README.md#update) - UpdateApp
 
 ### [AuditLogs](docs/sdks/auditlogs/README.md)
@@ -623,6 +623,7 @@ with Textql(
 * [get](docs/sdks/settings/README.md#get) - GetOrganizationSettings
 * [invite_member](docs/sdks/settings/README.md#invite_member) - InviteOrganizationMember
 * [list_members](docs/sdks/settings/README.md#list_members) - ListOrganizationMembers
+* [update_model_settings](docs/sdks/settings/README.md#update_model_settings) - UpdateOrganizationModelSettings
 * [update](docs/sdks/settings/README.md#update) - UpdateOrganizationSettings
 
 ### [Slack](docs/sdks/slack/README.md)

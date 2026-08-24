@@ -28,7 +28,6 @@ class TextqlRPCPublicConnectorQueryTemplateTypedDict(TypedDict):
     normalized_sql: NotRequired[str]
     tables: NotRequired[List[str]]
     joins: NotRequired[List[TextqlRPCPublicConnectorQueryJoinInfoTypedDict]]
-    r"""Optional lookback window in days; 0 or unset means all-time."""
     event_count: NotRequired[EventCountTypedDict]
     first_seen: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -226,7 +225,6 @@ class TextqlRPCPublicConnectorQueryTemplate(BaseModel):
     tables: Optional[List[str]] = None
 
     joins: Optional[List[TextqlRPCPublicConnectorQueryJoinInfo]] = None
-    r"""Optional lookback window in days; 0 or unset means all-time."""
 
     event_count: Annotated[Optional[EventCount], pydantic.Field(alias="eventCount")] = (
         None

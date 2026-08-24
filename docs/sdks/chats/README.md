@@ -59,7 +59,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.approve_context_prompt_change()
+    res = textql.chats.approve_context_prompt_change(cell_id="<id>", edited_context="<value>")
 
     # Handle response
     print(res)
@@ -70,9 +70,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `edited_context`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `edited_context`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -101,7 +101,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.approve_ontology_change()
+    res = textql.chats.approve_ontology_change(cell_id="<id>")
 
     # Handle response
     print(res)
@@ -112,8 +112,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -142,7 +142,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.attach_agent()
+    res = textql.chats.attach_agent(chat_id="<id>", agent_id="<id>")
 
     # Handle response
     print(res)
@@ -153,9 +153,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `agent_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `agent_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -184,7 +184,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.attach_app()
+    res = textql.chats.attach_app(chat_id="<id>", app_id="<id>")
 
     # Handle response
     print(res)
@@ -195,9 +195,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `app_id`                                                            | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -226,7 +226,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.attach_dashboard()
+    res = textql.chats.attach_dashboard(chat_id="<id>", dashboard_id="<id>")
 
     # Handle response
     print(res)
@@ -237,9 +237,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `dashboard_id`                                                      | *str*                                                               | :heavy_check_mark:                                                  | uses latest version                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `dashboard_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | uses latest version                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -268,7 +268,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.attach_dataset()
+    res = textql.chats.attach_dataset(chat_id="<id>", dataset_id="<id>")
 
     # Handle response
     print(res)
@@ -279,9 +279,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `dataset_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `dataset_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -310,7 +310,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.bookmark()
+    res = textql.chats.bookmark(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -321,8 +321,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -351,7 +351,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.cancel_stream()
+    res = textql.chats.cancel_stream(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -362,8 +362,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -392,7 +392,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.check_permissions()
+    res = textql.chats.check_permissions(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -403,8 +403,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -475,7 +475,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.check_streamlit_health()
+    res = textql.chats.check_streamlit_health(chat_id="<id>", cell_id="<id>")
 
     # Handle response
     print(res)
@@ -486,9 +486,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -517,7 +517,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.create_chat()
+    res = textql.chats.create_chat(paradigm={})
 
     # Handle response
     print(res)
@@ -528,8 +528,8 @@ with Textql(
 
 | Parameter                                                                                                                                                | Type                                                                                                                                                     | Required                                                                                                                                                 | Description                                                                                                                                              |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `paradigm`                                                                                                                                               | [models.TextqlRPCPublicParadigmParadigm](../../models/textqlrpcpublicparadigmparadigm.md)                                                                | :heavy_check_mark:                                                                                                                                       | ChatParadigm includes paradigm options                                                                                                                   |
 | `connect_timeout_ms`                                                                                                                                     | *Optional[float]*                                                                                                                                        | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
-| `paradigm`                                                                                                                                               | [Optional[models.TextqlRPCPublicParadigmParadigm]](../../models/textqlrpcpublicparadigmparadigm.md)                                                      | :heavy_minus_sign:                                                                                                                                       | ChatParadigm includes paradigm options                                                                                                                   |
 | `model`                                                                                                                                                  | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md)                                                              | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
 | `message`                                                                                                                                                | *OptionalNullable[str]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                       | optionally pre-fill first message                                                                                                                        |
 | `playbook_id`                                                                                                                                            | *OptionalNullable[str]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                       | optionally associate with a playbook                                                                                                                     |
@@ -539,6 +539,7 @@ with Textql(
 | `vllm_model_id`                                                                                                                                          | *OptionalNullable[str]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                       | vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.<br/> Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.   |
 | `fast_mode`                                                                                                                                              | *OptionalNullable[bool]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | fast_mode enables Anthropic's fast inference (speed: "fast") for this chat.<br/> Currently supported on Opus 4.6 only. Pricing is 6x standard rates.     |
 | `max_thinking`                                                                                                                                           | *OptionalNullable[bool]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | max_thinking runs extended thinking at max effort with visible reasoning.<br/> Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna. |
+| `model_name`                                                                                                                                             | *OptionalNullable[str]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
 | `retries`                                                                                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                         | :heavy_minus_sign:                                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                                      |
 
 ### Response
@@ -567,7 +568,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.delete()
+    res = textql.chats.delete(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -578,8 +579,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -610,7 +611,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.dismiss_questions()
+    res = textql.chats.dismiss_questions(cell_id="<id>")
 
     # Handle response
     print(res)
@@ -621,8 +622,8 @@ with Textql(
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `cell_id`                                                                                             | *str*                                                                                                 | :heavy_check_mark:                                                                                    | UUID                                                                                                  |
 | `connect_timeout_ms`                                                                                  | *Optional[float]*                                                                                     | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
-| `cell_id`                                                                                             | *Optional[str]*                                                                                       | :heavy_minus_sign:                                                                                    | UUID                                                                                                  |
 | `answers`                                                                                             | List[[models.TextqlRPCPublicCellsQuestionAnswer](../../models/textqlrpcpubliccellsquestionanswer.md)] | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
 | `retries`                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                      | :heavy_minus_sign:                                                                                    | Configuration to override the default retry behavior of the client.                                   |
 
@@ -652,7 +653,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.duplicate_chat()
+    res = textql.chats.duplicate_chat(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -663,8 +664,8 @@ with Textql(
 
 | Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `chat_id`                                                                                                         | *str*                                                                                                             | :heavy_check_mark:                                                                                                | "user" or "assistant"                                                                                             |
 | `connect_timeout_ms`                                                                                              | *Optional[float]*                                                                                                 | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
-| `chat_id`                                                                                                         | *Optional[str]*                                                                                                   | :heavy_minus_sign:                                                                                                | "user" or "assistant"                                                                                             |
 | `only_if_different_owner`                                                                                         | *OptionalNullable[bool]*                                                                                          | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
 | `up_to_cell_id`                                                                                                   | *OptionalNullable[str]*                                                                                           | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
 | `paradigm_options`                                                                                                | [Optional[models.TextqlRPCPublicParadigmParadigmOptions]](../../models/textqlrpcpublicparadigmparadigmoptions.md) | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |
@@ -700,7 +701,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_api_answer()
+    res = textql.chats.get_api_answer(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -711,8 +712,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -741,7 +742,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_artifact()
+    res = textql.chats.get_artifact(artifact_id="<id>", chat_id="<id>")
 
     # Handle response
     print(res)
@@ -752,9 +753,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `artifact_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `artifact_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -783,7 +784,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get()
+    res = textql.chats.get(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -794,8 +795,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | whether to return only the user's chats or all of the org's chats   |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | whether to return only the user's chats or all of the org's chats   |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -824,7 +825,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_artifacts_summary()
+    res = textql.chats.get_artifacts_summary(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -835,8 +836,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -865,7 +866,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_chat_execution_timing()
+    res = textql.chats.get_chat_execution_timing(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -876,8 +877,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -906,7 +907,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_history()
+    res = textql.chats.get_history(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -917,8 +918,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `limit`                                                             | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `skip`                                                              | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
@@ -1011,7 +1012,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_completion_parameters()
+    res = textql.chats.get_completion_parameters(chat_id="<id>", cell_id="<id>")
 
     # Handle response
     print(res)
@@ -1022,9 +1023,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | UUID                                                                |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1053,7 +1054,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_completion_parameters_batch()
+    res = textql.chats.get_completion_parameters_batch(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -1064,8 +1065,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `cell_ids`                                                          | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -1095,7 +1096,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_llm_usage()
+    res = textql.chats.get_llm_usage(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -1106,8 +1107,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `include_costs`                                                     | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
@@ -1178,7 +1179,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.get_playbook_chats()
+    res = textql.chats.get_playbook_chats(playbook_id="<id>")
 
     # Handle response
     print(res)
@@ -1189,8 +1190,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `playbook_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `playbook_id`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `limit`                                                             | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `skip`                                                              | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
@@ -1221,7 +1222,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.poll_events()
+    res = textql.chats.poll_events(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -1232,8 +1233,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `resume_cursor`                                                     | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `min_generation`                                                    | [Optional[models.MinGeneration]](../../models/mingeneration.md)     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
@@ -1264,7 +1265,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.query_one_shot()
+    res = textql.chats.query_one_shot(question="<value>", paradigm={})
 
     # Handle response
     print(res)
@@ -1273,14 +1274,14 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                                                | *Optional[float]*                                                                                   | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
-| `question`                                                                                          | *Optional[str]*                                                                                     | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
-| `paradigm`                                                                                          | [Optional[models.TextqlRPCPublicParadigmParadigm]](../../models/textqlrpcpublicparadigmparadigm.md) | :heavy_minus_sign:                                                                                  | ChatParadigm includes paradigm options                                                              |
-| `model`                                                                                             | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md)         | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
-| `chat_id`                                                                                           | *OptionalNullable[str]*                                                                             | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
-| `retries`                                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                    | :heavy_minus_sign:                                                                                  | Configuration to override the default retry behavior of the client.                                 |
+| Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `question`                                                                                  | *str*                                                                                       | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `paradigm`                                                                                  | [models.TextqlRPCPublicParadigmParadigm](../../models/textqlrpcpublicparadigmparadigm.md)   | :heavy_check_mark:                                                                          | ChatParadigm includes paradigm options                                                      |
+| `connect_timeout_ms`                                                                        | *Optional[float]*                                                                           | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `model`                                                                                     | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `chat_id`                                                                                   | *OptionalNullable[str]*                                                                     | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
 
 ### Response
 
@@ -1308,7 +1309,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.rate_cell()
+    res = textql.chats.rate_cell(chat_id="<id>", cell_id="<id>", rating="CELL_RATING_UP")
 
     # Handle response
     print(res)
@@ -1317,14 +1318,14 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                                            | *Optional[float]*                                                                               | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `chat_id`                                                                                       | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `cell_id`                                                                                       | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `rating`                                                                                        | [Optional[models.TextqlRPCPublicChatCellRating]](../../models/textqlrpcpublicchatcellrating.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `reason`                                                                                        | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `chat_id`                                                                             | *str*                                                                                 | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `cell_id`                                                                             | *str*                                                                                 | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `rating`                                                                              | [models.TextqlRPCPublicChatCellRating](../../models/textqlrpcpublicchatcellrating.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `connect_timeout_ms`                                                                  | *Optional[float]*                                                                     | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `reason`                                                                              | *OptionalNullable[str]*                                                               | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |
 
 ### Response
 
@@ -1352,7 +1353,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.reject_context_prompt_change()
+    res = textql.chats.reject_context_prompt_change(cell_id="<id>")
 
     # Handle response
     print(res)
@@ -1363,8 +1364,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | UUID                                                                |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1396,7 +1397,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.reject_ontology_change()
+    res = textql.chats.reject_ontology_change(cell_id="<id>")
 
     # Handle response
     print(res)
@@ -1407,8 +1408,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | UUID                                                                |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1437,7 +1438,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.run()
+    res = textql.chats.run(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -1448,8 +1449,8 @@ with Textql(
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `chat_id`                                                                                   | *str*                                                                                       | :heavy_check_mark:                                                                          | N/A                                                                                         |
 | `connect_timeout_ms`                                                                        | *Optional[float]*                                                                           | :heavy_minus_sign:                                                                          | N/A                                                                                         |
-| `chat_id`                                                                                   | *Optional[str]*                                                                             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
 | `latest_complete_cell_id`                                                                   | *OptionalNullable[str]*                                                                     | :heavy_minus_sign:                                                                          | N/A                                                                                         |
 | `research`                                                                                  | *OptionalNullable[bool]*                                                                    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
 | `model`                                                                                     | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
@@ -1483,7 +1484,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.send()
+    res = textql.chats.send(chat_id="<id>", message="<value>")
 
     # Handle response
     print(res)
@@ -1494,9 +1495,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `message`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `message`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `image_urls`                                                        | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `message_id`                                                        | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `steering`                                                          | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
@@ -1528,7 +1529,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.submit_context_prompt_change()
+    res = textql.chats.submit_context_prompt_change(cell_id="<id>", edited_context="<value>")
 
     # Handle response
     print(res)
@@ -1539,9 +1540,9 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `cell_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | UUID                                                                |
+| `edited_context`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cell_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | UUID                                                                |
-| `edited_context`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1570,7 +1571,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.submit_questions()
+    res = textql.chats.submit_questions(cell_id="<id>")
 
     # Handle response
     print(res)
@@ -1581,8 +1582,8 @@ with Textql(
 
 | Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `cell_id`                                                                                             | *str*                                                                                                 | :heavy_check_mark:                                                                                    | UUID                                                                                                  |
 | `connect_timeout_ms`                                                                                  | *Optional[float]*                                                                                     | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
-| `cell_id`                                                                                             | *Optional[str]*                                                                                       | :heavy_minus_sign:                                                                                    | UUID                                                                                                  |
 | `answers`                                                                                             | List[[models.TextqlRPCPublicCellsQuestionAnswer](../../models/textqlrpcpubliccellsquestionanswer.md)] | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
 | `retries`                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                      | :heavy_minus_sign:                                                                                    | Configuration to override the default retry behavior of the client.                                   |
 
@@ -1612,7 +1613,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.unbookmark()
+    res = textql.chats.unbookmark(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -1623,8 +1624,8 @@ with Textql(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `chat_id`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1653,7 +1654,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.chats.update()
+    res = textql.chats.update(chat_id="<id>")
 
     # Handle response
     print(res)
@@ -1664,8 +1665,8 @@ with Textql(
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `chat_id`                                                                                         | *str*                                                                                             | :heavy_check_mark:                                                                                | N/A                                                                                               |
 | `connect_timeout_ms`                                                                              | *Optional[float]*                                                                                 | :heavy_minus_sign:                                                                                | N/A                                                                                               |
-| `chat_id`                                                                                         | *Optional[str]*                                                                                   | :heavy_minus_sign:                                                                                | N/A                                                                                               |
 | `research`                                                                                        | *OptionalNullable[bool]*                                                                          | :heavy_minus_sign:                                                                                | update report mode                                                                                |
 | `summary`                                                                                         | *OptionalNullable[str]*                                                                           | :heavy_minus_sign:                                                                                | update chat summary                                                                               |
 | `dashboard_mode`                                                                                  | *OptionalNullable[bool]*                                                                          | :heavy_minus_sign:                                                                                | update dashboard mode                                                                             |

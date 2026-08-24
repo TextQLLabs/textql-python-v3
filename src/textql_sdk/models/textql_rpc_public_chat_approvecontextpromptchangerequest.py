@@ -2,39 +2,19 @@
 
 from __future__ import annotations
 import pydantic
-from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from textql_sdk.types import BaseModel
+from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatApproveContextPromptChangeRequestTypedDict(TypedDict):
-    cell_id: NotRequired[str]
-    edited_context: NotRequired[str]
+    cell_id: str
+    edited_context: str
 
 
 class TextqlRPCPublicChatApproveContextPromptChangeRequest(BaseModel):
-    cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
+    cell_id: Annotated[str, pydantic.Field(alias="cellId")]
 
-    edited_context: Annotated[Optional[str], pydantic.Field(alias="editedContext")] = (
-        None
-    )
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["cellId", "editedContext"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
+    edited_context: Annotated[str, pydantic.Field(alias="editedContext")]
 
 
 try:

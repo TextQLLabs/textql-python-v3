@@ -16,13 +16,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsAppInfoTypedDict(TypedDict):
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
-
     id: NotRequired[str]
-    r"""create | update | publish"""
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     status: NotRequired[str]
+    r"""\"draft\" or \"published\" (derived from published_at)"""
     creator_id: NotRequired[str]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -391,16 +389,14 @@ class TextqlRPCPublicCellsAppInfoTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsAppInfo(BaseModel):
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
-
     id: Optional[str] = None
-    r"""create | update | publish"""
 
     name: Optional[str] = None
 
     description: OptionalNullable[str] = UNSET
 
     status: Optional[str] = None
+    r"""\"draft\" or \"published\" (derived from published_at)"""
 
     creator_id: Annotated[Optional[str], pydantic.Field(alias="creatorId")] = None
 

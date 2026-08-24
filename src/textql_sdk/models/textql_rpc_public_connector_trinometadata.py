@@ -16,7 +16,9 @@ class TextqlRPCPublicConnectorTrinoMetadataTypedDict(TypedDict):
     catalog: NotRequired[str]
     schema_: NotRequired[str]
     ssl_mode: NotRequired[bool]
+    r"""ISO 8601 timestamp"""
     access_token: NotRequired[str]
+    r"""When true, only email metadata is accessible (no body content)"""
     skip_tls_verify: NotRequired[bool]
 
 
@@ -34,8 +36,10 @@ class TextqlRPCPublicConnectorTrinoMetadata(BaseModel):
     schema_: Annotated[Optional[str], pydantic.Field(alias="schema")] = None
 
     ssl_mode: Annotated[Optional[bool], pydantic.Field(alias="sslMode")] = None
+    r"""ISO 8601 timestamp"""
 
     access_token: Annotated[Optional[str], pydantic.Field(alias="accessToken")] = None
+    r"""When true, only email metadata is accessible (no body content)"""
 
     skip_tls_verify: Annotated[
         Optional[bool], pydantic.Field(alias="skipTlsVerify")

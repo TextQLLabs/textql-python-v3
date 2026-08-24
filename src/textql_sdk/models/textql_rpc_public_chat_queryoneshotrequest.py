@@ -20,17 +20,17 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatQueryOneShotRequestTypedDict(TypedDict):
-    question: NotRequired[str]
-    paradigm: NotRequired[TextqlRPCPublicParadigmParadigmTypedDict]
+    question: str
+    paradigm: TextqlRPCPublicParadigmParadigmTypedDict
     r"""ChatParadigm includes paradigm options"""
     model: NotRequired[TextqlRPCPublicChatLlmModel]
     chat_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatQueryOneShotRequest(BaseModel):
-    question: Optional[str] = None
+    question: str
 
-    paradigm: Optional[TextqlRPCPublicParadigmParadigm] = None
+    paradigm: TextqlRPCPublicParadigmParadigm
     r"""ChatParadigm includes paradigm options"""
 
     model: Optional[TextqlRPCPublicChatLlmModel] = None
@@ -39,7 +39,7 @@ class TextqlRPCPublicChatQueryOneShotRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
-        optional_fields = set(["question", "paradigm", "model", "chatId"])
+        optional_fields = set(["model", "chatId"])
         nullable_fields = set(["chatId"])
         serialized = handler(self)
         m = {}

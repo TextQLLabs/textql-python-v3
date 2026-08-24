@@ -16,9 +16,7 @@ class TextqlRPCPublicConnectorOracleMetadataTypedDict(TypedDict):
     service_name: NotRequired[str]
     dialect: NotRequired[str]
     ssl_mode: NotRequired[bool]
-    r"""ISO 8601 timestamp"""
     connection_type: NotRequired[str]
-    r"""When true, only email metadata is accessible (no body content)"""
     sid: NotRequired[str]
     connect_string: NotRequired[str]
     wallet_zip: NotRequired[str]
@@ -40,12 +38,10 @@ class TextqlRPCPublicConnectorOracleMetadata(BaseModel):
     dialect: Optional[str] = None
 
     ssl_mode: Annotated[Optional[bool], pydantic.Field(alias="sslMode")] = None
-    r"""ISO 8601 timestamp"""
 
     connection_type: Annotated[
         Optional[str], pydantic.Field(alias="connectionType")
     ] = None
-    r"""When true, only email metadata is accessible (no body content)"""
 
     sid: Optional[str] = None
 

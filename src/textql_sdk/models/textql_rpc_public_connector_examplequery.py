@@ -19,11 +19,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorExampleQueryTypedDict(TypedDict):
     id: NotRequired[str]
-    r"""PowerBI report IDs"""
+    r"""dataset IDs for selected Tableau collections"""
     label: NotRequired[str]
-    r"""PowerBI dataset IDs (PowerBI datasets, not internal dataset_source)"""
     message: NotRequired[str]
-    r"""workspace dataset_source IDs (cache key, like Tableau collections)"""
     is_multi_source: NotRequired[bool]
     required_connector_ids: NotRequired[List[int]]
     category: NotRequired[str]
@@ -34,13 +32,11 @@ class TextqlRPCPublicConnectorExampleQueryTypedDict(TypedDict):
 
 class TextqlRPCPublicConnectorExampleQuery(BaseModel):
     id: Optional[str] = None
-    r"""PowerBI report IDs"""
+    r"""dataset IDs for selected Tableau collections"""
 
     label: Optional[str] = None
-    r"""PowerBI dataset IDs (PowerBI datasets, not internal dataset_source)"""
 
     message: Optional[str] = None
-    r"""workspace dataset_source IDs (cache key, like Tableau collections)"""
 
     is_multi_source: Annotated[
         Optional[bool], pydantic.Field(alias="isMultiSource")

@@ -7,5 +7,5 @@ Request all artifact summaries for a chat (for drawer dropdown)
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `artifact_id`      | *Optional[str]*    | :heavy_minus_sign: | N/A                |
-| `chat_id`          | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `artifact_id`      | *str*              | :heavy_check_mark: | N/A                |
+| `chat_id`          | *str*              | :heavy_check_mark: | N/A                |

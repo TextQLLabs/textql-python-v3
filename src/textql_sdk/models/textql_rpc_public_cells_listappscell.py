@@ -21,9 +21,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsListAppsCellTypedDict(TypedDict):
     search_term: NotRequired[str]
     app_id: NotRequired[str]
+    r"""Set for single-app lookup"""
     total_count: NotRequired[int]
     error_message: NotRequired[Nullable[str]]
-    r"""\"draft\" or \"published\" (derived from published_at)"""
     apps: NotRequired[List[TextqlRPCPublicCellsAppInfoTypedDict]]
 
 
@@ -31,13 +31,13 @@ class TextqlRPCPublicCellsListAppsCell(BaseModel):
     search_term: Annotated[Optional[str], pydantic.Field(alias="searchTerm")] = None
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""Set for single-app lookup"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
 
     error_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorMessage")
     ] = UNSET
-    r"""\"draft\" or \"published\" (derived from published_at)"""
 
     apps: Optional[List[TextqlRPCPublicCellsAppInfo]] = None
 

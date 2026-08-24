@@ -15,17 +15,17 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatSendRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
-    message: NotRequired[str]
+    chat_id: str
+    message: str
     image_urls: NotRequired[List[str]]
     message_id: NotRequired[Nullable[str]]
     steering: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicChatSendRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
-    message: Optional[str] = None
+    message: str
 
     image_urls: Annotated[Optional[List[str]], pydantic.Field(alias="imageUrls")] = None
 
@@ -37,9 +37,7 @@ class TextqlRPCPublicChatSendRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            ["chatId", "message", "imageUrls", "messageId", "steering"]
-        )
+        optional_fields = set(["imageUrls", "messageId", "steering"])
         nullable_fields = set(["messageId", "steering"])
         serialized = handler(self)
         m = {}

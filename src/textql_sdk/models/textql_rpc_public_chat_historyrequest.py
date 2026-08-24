@@ -10,18 +10,17 @@ from textql_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatHistoryRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     limit: NotRequired[Nullable[int]]
     skip: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicChatHistoryRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     limit: OptionalNullable[int] = UNSET
 
@@ -29,7 +28,7 @@ class TextqlRPCPublicChatHistoryRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["chatId", "limit", "skip"])
+        optional_fields = set(["limit", "skip"])
         nullable_fields = set(["limit", "skip"])
         serialized = handler(self)
         m = {}

@@ -6,6 +6,7 @@ from .textql_rpc_paradigm_params_paradigmparams import (
     TextqlRPCParadigmParamsParadigmParamsTypedDict,
 )
 from .textql_rpc_paradigm_params_paradigmtype import TextqlRPCParadigmParamsParadigmType
+from .textql_rpc_public_chat_llmmodel import TextqlRPCPublicChatLlmModel
 from .textql_rpc_public_chat_methodology import TextqlRPCPublicChatMethodology
 import pydantic
 from pydantic import model_serializer
@@ -75,6 +76,11 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+    clear_enabled_model_ids: NotRequired[bool]
+    clear_restricted_model_ids: NotRequired[bool]
+    enabled_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
+    restricted_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
+    default_model: NotRequired[TextqlRPCPublicChatLlmModel]
     observability_enabled: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -174,6 +180,14 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     has no plan to be removed.
     """
     tool_restrictions: NotRequired[TextqlRPCParadigmParamsParadigmParamsTypedDict]
+    subagents_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
 
 
 class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
@@ -267,6 +281,28 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+
+    clear_enabled_model_ids: Annotated[
+        Optional[bool], pydantic.Field(alias="clearEnabledModelIds")
+    ] = None
+
+    clear_restricted_model_ids: Annotated[
+        Optional[bool], pydantic.Field(alias="clearRestrictedModelIds")
+    ] = None
+
+    enabled_models: Annotated[
+        Optional[List[TextqlRPCPublicChatLlmModel]],
+        pydantic.Field(alias="enabledModels"),
+    ] = None
+
+    restricted_models: Annotated[
+        Optional[List[TextqlRPCPublicChatLlmModel]],
+        pydantic.Field(alias="restrictedModels"),
+    ] = None
+
+    default_model: Annotated[
+        Optional[TextqlRPCPublicChatLlmModel], pydantic.Field(alias="defaultModel")
+    ] = None
 
     observability_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="observabilityEnabled")
@@ -414,6 +450,17 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
         pydantic.Field(alias="toolRestrictions"),
     ] = None
 
+    subagents_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="subagentsEnabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -429,6 +476,11 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
                 "methodologyEnabled",
                 "feedEnabled",
                 "contextV3Enabled",
+                "clearEnabledModelIds",
+                "clearRestrictedModelIds",
+                "enabledModels",
+                "restrictedModels",
+                "defaultModel",
                 "observabilityEnabled",
                 "notificationsEnabled",
                 "hideApiConnectors",
@@ -444,6 +496,7 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
                 "spendTransparencyEnabled",
                 "sharingDisabled",
                 "toolRestrictions",
+                "subagentsEnabled",
             ]
         )
         serialized = handler(self)

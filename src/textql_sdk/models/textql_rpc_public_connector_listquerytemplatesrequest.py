@@ -10,21 +10,23 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorListQueryTemplatesRequestTypedDict(TypedDict):
     connector_id: NotRequired[int]
-    r"""0 = all-time"""
     limit: NotRequired[int]
     offset: NotRequired[int]
+    r"""0.0-1.0"""
     days: NotRequired[int]
+    r"""milliseconds"""
 
 
 class TextqlRPCPublicConnectorListQueryTemplatesRequest(BaseModel):
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
-    r"""0 = all-time"""
 
     limit: Optional[int] = None
 
     offset: Optional[int] = None
+    r"""0.0-1.0"""
 
     days: Optional[int] = None
+    r"""milliseconds"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

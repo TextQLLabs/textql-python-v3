@@ -19,7 +19,6 @@ class TextqlRPCPublicConnectorAzureSynapseMetadataTypedDict(TypedDict):
     client_id: NotRequired[str]
     client_secret: NotRequired[str]
     tenant_id: NotRequired[str]
-    r"""OAuth fields (used when auth_type = OAUTH)"""
 
 
 class TextqlRPCPublicConnectorAzureSynapseMetadata(BaseModel):
@@ -42,7 +41,6 @@ class TextqlRPCPublicConnectorAzureSynapseMetadata(BaseModel):
     client_secret: Annotated[Optional[str], pydantic.Field(alias="clientSecret")] = None
 
     tenant_id: Annotated[Optional[str], pydantic.Field(alias="tenantId")] = None
-    r"""OAuth fields (used when auth_type = OAUTH)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -14,9 +14,9 @@ class Chats(BaseSDK):
     def approve_context_prompt_change(
         self,
         *,
+        cell_id: str,
+        edited_context: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
-        edited_context: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -24,9 +24,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceApproveContextPromptChangeResponse:
         r"""ApproveContextPromptChange
 
-        :param connect_timeout_ms:
         :param cell_id:
         :param edited_context:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -121,9 +121,9 @@ class Chats(BaseSDK):
     async def approve_context_prompt_change_async(
         self,
         *,
+        cell_id: str,
+        edited_context: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
-        edited_context: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -131,9 +131,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceApproveContextPromptChangeResponse:
         r"""ApproveContextPromptChange
 
-        :param connect_timeout_ms:
         :param cell_id:
         :param edited_context:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -228,8 +228,8 @@ class Chats(BaseSDK):
     def approve_ontology_change(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -237,8 +237,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceApproveOntologyChangeResponse:
         r"""ApproveOntologyChange
 
-        :param connect_timeout_ms:
         :param cell_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -332,8 +332,8 @@ class Chats(BaseSDK):
     async def approve_ontology_change_async(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -341,8 +341,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceApproveOntologyChangeResponse:
         r"""ApproveOntologyChange
 
-        :param connect_timeout_ms:
         :param cell_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -436,9 +436,9 @@ class Chats(BaseSDK):
     def attach_agent(
         self,
         *,
+        chat_id: str,
+        agent_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        agent_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -446,9 +446,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceAttachAgentToChatResponse:
         r"""AttachAgentToChat
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param agent_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -543,9 +543,9 @@ class Chats(BaseSDK):
     async def attach_agent_async(
         self,
         *,
+        chat_id: str,
+        agent_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        agent_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -553,9 +553,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceAttachAgentToChatResponse:
         r"""AttachAgentToChat
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param agent_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -650,9 +650,9 @@ class Chats(BaseSDK):
     def attach_app(
         self,
         *,
+        chat_id: str,
+        app_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        app_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -660,9 +660,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceAttachAppResponse:
         r"""AttachApp
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param app_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -757,9 +757,9 @@ class Chats(BaseSDK):
     async def attach_app_async(
         self,
         *,
+        chat_id: str,
+        app_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        app_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -767,9 +767,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceAttachAppResponse:
         r"""AttachApp
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param app_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -864,9 +864,9 @@ class Chats(BaseSDK):
     def attach_dashboard(
         self,
         *,
+        chat_id: str,
+        dashboard_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        dashboard_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -874,9 +874,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceAttachDashboardResponse:
         r"""AttachDashboard
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param dashboard_id: uses latest version
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -971,9 +971,9 @@ class Chats(BaseSDK):
     async def attach_dashboard_async(
         self,
         *,
+        chat_id: str,
+        dashboard_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        dashboard_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -981,9 +981,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceAttachDashboardResponse:
         r"""AttachDashboard
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param dashboard_id: uses latest version
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1078,9 +1078,9 @@ class Chats(BaseSDK):
     def attach_dataset(
         self,
         *,
+        chat_id: str,
+        dataset_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        dataset_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1090,9 +1090,9 @@ class Chats(BaseSDK):
 
         RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param dataset_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1187,9 +1187,9 @@ class Chats(BaseSDK):
     async def attach_dataset_async(
         self,
         *,
+        chat_id: str,
+        dataset_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        dataset_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1199,9 +1199,9 @@ class Chats(BaseSDK):
 
         RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param dataset_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1296,8 +1296,8 @@ class Chats(BaseSDK):
     def bookmark(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1305,8 +1305,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceBookmarkChatResponse:
         r"""BookmarkChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1398,8 +1398,8 @@ class Chats(BaseSDK):
     async def bookmark_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1407,8 +1407,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceBookmarkChatResponse:
         r"""BookmarkChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1500,8 +1500,8 @@ class Chats(BaseSDK):
     def cancel_stream(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1509,8 +1509,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCancelStreamResponse:
         r"""CancelStream
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1604,8 +1604,8 @@ class Chats(BaseSDK):
     async def cancel_stream_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1613,8 +1613,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCancelStreamResponse:
         r"""CancelStream
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1708,8 +1708,8 @@ class Chats(BaseSDK):
     def check_permissions(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1717,8 +1717,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCheckChatPermissionsResponse:
         r"""CheckChatPermissions
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1812,8 +1812,8 @@ class Chats(BaseSDK):
     async def check_permissions_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1821,8 +1821,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCheckChatPermissionsResponse:
         r"""CheckChatPermissions
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2130,9 +2130,9 @@ class Chats(BaseSDK):
     def check_streamlit_health(
         self,
         *,
+        chat_id: str,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2140,9 +2140,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCheckStreamlitHealthResponse:
         r"""CheckStreamlitHealth
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param cell_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2237,9 +2237,9 @@ class Chats(BaseSDK):
     async def check_streamlit_health_async(
         self,
         *,
+        chat_id: str,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2247,9 +2247,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCheckStreamlitHealthResponse:
         r"""CheckStreamlitHealth
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param cell_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2344,13 +2344,11 @@ class Chats(BaseSDK):
     def create_chat(
         self,
         *,
+        paradigm: Union[
+            models.TextqlRPCPublicParadigmParadigm,
+            models.TextqlRPCPublicParadigmParadigmTypedDict,
+        ],
         connect_timeout_ms: Optional[float] = None,
-        paradigm: Optional[
-            Union[
-                models.TextqlRPCPublicParadigmParadigm,
-                models.TextqlRPCPublicParadigmParadigmTypedDict,
-            ]
-        ] = None,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         message: OptionalNullable[str] = UNSET,
         playbook_id: OptionalNullable[str] = UNSET,
@@ -2360,6 +2358,7 @@ class Chats(BaseSDK):
         vllm_model_id: OptionalNullable[str] = UNSET,
         fast_mode: OptionalNullable[bool] = UNSET,
         max_thinking: OptionalNullable[bool] = UNSET,
+        model_name: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2367,8 +2366,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCreateChatResponse:
         r"""CreateChat
 
-        :param connect_timeout_ms:
         :param paradigm: ChatParadigm includes paradigm options
+        :param connect_timeout_ms:
         :param model:
         :param message: optionally pre-fill first message
         :param playbook_id: optionally associate with a playbook
@@ -2381,6 +2380,7 @@ class Chats(BaseSDK):
             Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
             Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+        :param model_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2400,7 +2400,7 @@ class Chats(BaseSDK):
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicChatCreateRequest(
                 paradigm=utils.get_pydantic_model(
-                    paradigm, Optional[models.TextqlRPCPublicParadigmParadigm]
+                    paradigm, models.TextqlRPCPublicParadigmParadigm
                 ),
                 model=model,
                 message=message,
@@ -2411,6 +2411,7 @@ class Chats(BaseSDK):
                 vllm_model_id=vllm_model_id,
                 fast_mode=fast_mode,
                 max_thinking=max_thinking,
+                model_name=model_name,
             ),
         )
 
@@ -2485,13 +2486,11 @@ class Chats(BaseSDK):
     async def create_chat_async(
         self,
         *,
+        paradigm: Union[
+            models.TextqlRPCPublicParadigmParadigm,
+            models.TextqlRPCPublicParadigmParadigmTypedDict,
+        ],
         connect_timeout_ms: Optional[float] = None,
-        paradigm: Optional[
-            Union[
-                models.TextqlRPCPublicParadigmParadigm,
-                models.TextqlRPCPublicParadigmParadigmTypedDict,
-            ]
-        ] = None,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         message: OptionalNullable[str] = UNSET,
         playbook_id: OptionalNullable[str] = UNSET,
@@ -2501,6 +2500,7 @@ class Chats(BaseSDK):
         vllm_model_id: OptionalNullable[str] = UNSET,
         fast_mode: OptionalNullable[bool] = UNSET,
         max_thinking: OptionalNullable[bool] = UNSET,
+        model_name: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2508,8 +2508,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceCreateChatResponse:
         r"""CreateChat
 
-        :param connect_timeout_ms:
         :param paradigm: ChatParadigm includes paradigm options
+        :param connect_timeout_ms:
         :param model:
         :param message: optionally pre-fill first message
         :param playbook_id: optionally associate with a playbook
@@ -2522,6 +2522,7 @@ class Chats(BaseSDK):
             Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
             Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+        :param model_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2541,7 +2542,7 @@ class Chats(BaseSDK):
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicChatCreateRequest(
                 paradigm=utils.get_pydantic_model(
-                    paradigm, Optional[models.TextqlRPCPublicParadigmParadigm]
+                    paradigm, models.TextqlRPCPublicParadigmParadigm
                 ),
                 model=model,
                 message=message,
@@ -2552,6 +2553,7 @@ class Chats(BaseSDK):
                 vllm_model_id=vllm_model_id,
                 fast_mode=fast_mode,
                 max_thinking=max_thinking,
+                model_name=model_name,
             ),
         )
 
@@ -2626,8 +2628,8 @@ class Chats(BaseSDK):
     def delete(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2635,8 +2637,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceDeleteChatResponse:
         r"""DeleteChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2728,8 +2730,8 @@ class Chats(BaseSDK):
     async def delete_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2737,8 +2739,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceDeleteChatResponse:
         r"""DeleteChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2830,8 +2832,8 @@ class Chats(BaseSDK):
     def dismiss_questions(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         answers: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicCellsQuestionAnswer],
@@ -2849,8 +2851,8 @@ class Chats(BaseSDK):
         resumes it; Dismiss hands over only the answered count and does NOT resume
         (the user's next message becomes the dismissal reason).
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param answers:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2948,8 +2950,8 @@ class Chats(BaseSDK):
     async def dismiss_questions_async(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         answers: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicCellsQuestionAnswer],
@@ -2967,8 +2969,8 @@ class Chats(BaseSDK):
         resumes it; Dismiss hands over only the answered count and does NOT resume
         (the user's next message becomes the dismissal reason).
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param answers:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3066,8 +3068,8 @@ class Chats(BaseSDK):
     def duplicate_chat(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         only_if_different_owner: OptionalNullable[bool] = UNSET,
         up_to_cell_id: OptionalNullable[str] = UNSET,
         paradigm_options: Optional[
@@ -3087,8 +3089,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceDuplicateChatResponse:
         r"""DuplicateChat
 
-        :param connect_timeout_ms:
         :param chat_id: \"user\" or \"assistant\"
+        :param connect_timeout_ms:
         :param only_if_different_owner:
         :param up_to_cell_id:
         :param paradigm_options:
@@ -3199,8 +3201,8 @@ class Chats(BaseSDK):
     async def duplicate_chat_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         only_if_different_owner: OptionalNullable[bool] = UNSET,
         up_to_cell_id: OptionalNullable[str] = UNSET,
         paradigm_options: Optional[
@@ -3220,8 +3222,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceDuplicateChatResponse:
         r"""DuplicateChat
 
-        :param connect_timeout_ms:
         :param chat_id: \"user\" or \"assistant\"
+        :param connect_timeout_ms:
         :param only_if_different_owner:
         :param up_to_cell_id:
         :param paradigm_options:
@@ -3332,8 +3334,8 @@ class Chats(BaseSDK):
     def get_api_answer(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3341,8 +3343,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetAPIChatAnswerResponse:
         r"""GetAPIChatAnswer
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3436,8 +3438,8 @@ class Chats(BaseSDK):
     async def get_api_answer_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3445,8 +3447,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetAPIChatAnswerResponse:
         r"""GetAPIChatAnswer
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3540,9 +3542,9 @@ class Chats(BaseSDK):
     def get_artifact(
         self,
         *,
+        artifact_id: str,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        artifact_id: Optional[str] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3550,9 +3552,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetArtifactResponse:
         r"""GetArtifact
 
-        :param connect_timeout_ms:
         :param artifact_id:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3647,9 +3649,9 @@ class Chats(BaseSDK):
     async def get_artifact_async(
         self,
         *,
+        artifact_id: str,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        artifact_id: Optional[str] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3657,9 +3659,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetArtifactResponse:
         r"""GetArtifact
 
-        :param connect_timeout_ms:
         :param artifact_id:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3754,8 +3756,8 @@ class Chats(BaseSDK):
     def get(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3763,8 +3765,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatResponse:
         r"""GetChat
 
-        :param connect_timeout_ms:
         :param chat_id: whether to return only the user's chats or all of the org's chats
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3858,8 +3860,8 @@ class Chats(BaseSDK):
     async def get_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3867,8 +3869,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatResponse:
         r"""GetChat
 
-        :param connect_timeout_ms:
         :param chat_id: whether to return only the user's chats or all of the org's chats
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3962,8 +3964,8 @@ class Chats(BaseSDK):
     def get_artifacts_summary(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3971,8 +3973,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatArtifactsSummaryResponse:
         r"""GetChatArtifactsSummary
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4066,8 +4068,8 @@ class Chats(BaseSDK):
     async def get_artifacts_summary_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -4075,8 +4077,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatArtifactsSummaryResponse:
         r"""GetChatArtifactsSummary
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4170,8 +4172,8 @@ class Chats(BaseSDK):
     def get_chat_execution_timing(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -4179,8 +4181,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatExecutionTimingResponse:
         r"""GetChatExecutionTiming
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4274,8 +4276,8 @@ class Chats(BaseSDK):
     async def get_chat_execution_timing_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -4283,8 +4285,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatExecutionTimingResponse:
         r"""GetChatExecutionTiming
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4378,8 +4380,8 @@ class Chats(BaseSDK):
     def get_history(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         skip: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -4389,8 +4391,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatHistoryResponse:
         r"""GetChatHistory
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param limit:
         :param skip:
         :param retries: Override the default retry configuration for this method
@@ -4488,8 +4490,8 @@ class Chats(BaseSDK):
     async def get_history_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         skip: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -4499,8 +4501,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetChatHistoryResponse:
         r"""GetChatHistory
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param limit:
         :param skip:
         :param retries: Override the default retry configuration for this method
@@ -5296,9 +5298,9 @@ class Chats(BaseSDK):
     def get_completion_parameters(
         self,
         *,
+        chat_id: str,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -5308,9 +5310,9 @@ class Chats(BaseSDK):
 
         List distinct chat creators the user can access
 
-        :param connect_timeout_ms:
         :param chat_id: UUID
         :param cell_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5405,9 +5407,9 @@ class Chats(BaseSDK):
     async def get_completion_parameters_async(
         self,
         *,
+        chat_id: str,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -5417,9 +5419,9 @@ class Chats(BaseSDK):
 
         List distinct chat creators the user can access
 
-        :param connect_timeout_ms:
         :param chat_id: UUID
         :param cell_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5514,8 +5516,8 @@ class Chats(BaseSDK):
     def get_completion_parameters_batch(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         cell_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -5524,8 +5526,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetCompletionParametersBatchResponse:
         r"""GetCompletionParametersBatch
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param cell_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -5621,8 +5623,8 @@ class Chats(BaseSDK):
     async def get_completion_parameters_batch_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         cell_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -5631,8 +5633,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetCompletionParametersBatchResponse:
         r"""GetCompletionParametersBatch
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param cell_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -5728,8 +5730,8 @@ class Chats(BaseSDK):
     def get_llm_usage(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         include_costs: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -5738,8 +5740,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetLlmUsageResponse:
         r"""GetLlmUsage
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param include_costs:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -5835,8 +5837,8 @@ class Chats(BaseSDK):
     async def get_llm_usage_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         include_costs: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -5845,8 +5847,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetLlmUsageResponse:
         r"""GetLlmUsage
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param include_costs:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -6156,8 +6158,8 @@ class Chats(BaseSDK):
     def get_playbook_chats(
         self,
         *,
+        playbook_id: str,
         connect_timeout_ms: Optional[float] = None,
-        playbook_id: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         skip: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -6167,8 +6169,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetPlaybookChatsResponse:
         r"""GetPlaybookChats
 
-        :param connect_timeout_ms:
         :param playbook_id:
+        :param connect_timeout_ms:
         :param limit:
         :param skip:
         :param retries: Override the default retry configuration for this method
@@ -6266,8 +6268,8 @@ class Chats(BaseSDK):
     async def get_playbook_chats_async(
         self,
         *,
+        playbook_id: str,
         connect_timeout_ms: Optional[float] = None,
-        playbook_id: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         skip: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -6277,8 +6279,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceGetPlaybookChatsResponse:
         r"""GetPlaybookChats
 
-        :param connect_timeout_ms:
         :param playbook_id:
+        :param connect_timeout_ms:
         :param limit:
         :param skip:
         :param retries: Override the default retry configuration for this method
@@ -6376,8 +6378,8 @@ class Chats(BaseSDK):
     def poll_events(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         resume_cursor: OptionalNullable[str] = UNSET,
         min_generation: Optional[
             Union[models.MinGeneration, models.MinGenerationTypedDict]
@@ -6389,8 +6391,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServicePollChatEventsResponse:
         r"""PollChatEvents
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param resume_cursor:
         :param min_generation:
         :param retries: Override the default retry configuration for this method
@@ -6488,8 +6490,8 @@ class Chats(BaseSDK):
     async def poll_events_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         resume_cursor: OptionalNullable[str] = UNSET,
         min_generation: Optional[
             Union[models.MinGeneration, models.MinGenerationTypedDict]
@@ -6501,8 +6503,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServicePollChatEventsResponse:
         r"""PollChatEvents
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param resume_cursor:
         :param min_generation:
         :param retries: Override the default retry configuration for this method
@@ -6600,14 +6602,12 @@ class Chats(BaseSDK):
     def query_one_shot(
         self,
         *,
+        question: str,
+        paradigm: Union[
+            models.TextqlRPCPublicParadigmParadigm,
+            models.TextqlRPCPublicParadigmParadigmTypedDict,
+        ],
         connect_timeout_ms: Optional[float] = None,
-        question: Optional[str] = None,
-        paradigm: Optional[
-            Union[
-                models.TextqlRPCPublicParadigmParadigm,
-                models.TextqlRPCPublicParadigmParadigmTypedDict,
-            ]
-        ] = None,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         chat_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -6617,9 +6617,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceQueryOneShotResponse:
         r"""QueryOneShot
 
-        :param connect_timeout_ms:
         :param question:
         :param paradigm: ChatParadigm includes paradigm options
+        :param connect_timeout_ms:
         :param model:
         :param chat_id:
         :param retries: Override the default retry configuration for this method
@@ -6642,7 +6642,7 @@ class Chats(BaseSDK):
             body=models.TextqlRPCPublicChatQueryOneShotRequest(
                 question=question,
                 paradigm=utils.get_pydantic_model(
-                    paradigm, Optional[models.TextqlRPCPublicParadigmParadigm]
+                    paradigm, models.TextqlRPCPublicParadigmParadigm
                 ),
                 model=model,
                 chat_id=chat_id,
@@ -6720,14 +6720,12 @@ class Chats(BaseSDK):
     async def query_one_shot_async(
         self,
         *,
+        question: str,
+        paradigm: Union[
+            models.TextqlRPCPublicParadigmParadigm,
+            models.TextqlRPCPublicParadigmParadigmTypedDict,
+        ],
         connect_timeout_ms: Optional[float] = None,
-        question: Optional[str] = None,
-        paradigm: Optional[
-            Union[
-                models.TextqlRPCPublicParadigmParadigm,
-                models.TextqlRPCPublicParadigmParadigmTypedDict,
-            ]
-        ] = None,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         chat_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -6737,9 +6735,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceQueryOneShotResponse:
         r"""QueryOneShot
 
-        :param connect_timeout_ms:
         :param question:
         :param paradigm: ChatParadigm includes paradigm options
+        :param connect_timeout_ms:
         :param model:
         :param chat_id:
         :param retries: Override the default retry configuration for this method
@@ -6762,7 +6760,7 @@ class Chats(BaseSDK):
             body=models.TextqlRPCPublicChatQueryOneShotRequest(
                 question=question,
                 paradigm=utils.get_pydantic_model(
-                    paradigm, Optional[models.TextqlRPCPublicParadigmParadigm]
+                    paradigm, models.TextqlRPCPublicParadigmParadigm
                 ),
                 model=model,
                 chat_id=chat_id,
@@ -6840,10 +6838,10 @@ class Chats(BaseSDK):
     def rate_cell(
         self,
         *,
+        chat_id: str,
+        cell_id: str,
+        rating: models.TextqlRPCPublicChatCellRating,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        cell_id: Optional[str] = None,
-        rating: Optional[models.TextqlRPCPublicChatCellRating] = None,
         reason: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -6852,10 +6850,10 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceRateChatCellResponse:
         r"""RateChatCell
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param cell_id:
         :param rating:
+        :param connect_timeout_ms:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -6951,10 +6949,10 @@ class Chats(BaseSDK):
     async def rate_cell_async(
         self,
         *,
+        chat_id: str,
+        cell_id: str,
+        rating: models.TextqlRPCPublicChatCellRating,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        cell_id: Optional[str] = None,
-        rating: Optional[models.TextqlRPCPublicChatCellRating] = None,
         reason: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -6963,10 +6961,10 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceRateChatCellResponse:
         r"""RateChatCell
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param cell_id:
         :param rating:
+        :param connect_timeout_ms:
         :param reason:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -7062,8 +7060,8 @@ class Chats(BaseSDK):
     def reject_context_prompt_change(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7071,8 +7069,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceRejectContextPromptChangeResponse:
         r"""RejectContextPromptChange
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7166,8 +7164,8 @@ class Chats(BaseSDK):
     async def reject_context_prompt_change_async(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7175,8 +7173,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceRejectContextPromptChangeResponse:
         r"""RejectContextPromptChange
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7270,8 +7268,8 @@ class Chats(BaseSDK):
     def reject_ontology_change(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7284,8 +7282,8 @@ class Chats(BaseSDK):
         run); Dismiss treats it as a change request (no run, next message says what
         to change). All three set the cell's outcome, like the other approve/deny cells.
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7379,8 +7377,8 @@ class Chats(BaseSDK):
     async def reject_ontology_change_async(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7393,8 +7391,8 @@ class Chats(BaseSDK):
         run); Dismiss treats it as a change request (no run, next message says what
         to change). All three set the cell's outcome, like the other approve/deny cells.
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -7488,8 +7486,8 @@ class Chats(BaseSDK):
     def run(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         latest_complete_cell_id: OptionalNullable[str] = UNSET,
         research: OptionalNullable[bool] = UNSET,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
@@ -7502,8 +7500,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceRunChatResponse:
         r"""RunChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param latest_complete_cell_id:
         :param research:
         :param model:
@@ -7607,8 +7605,8 @@ class Chats(BaseSDK):
     async def run_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         latest_complete_cell_id: OptionalNullable[str] = UNSET,
         research: OptionalNullable[bool] = UNSET,
         model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
@@ -7621,8 +7619,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceRunChatResponse:
         r"""RunChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param latest_complete_cell_id:
         :param research:
         :param model:
@@ -7726,9 +7724,9 @@ class Chats(BaseSDK):
     def send(
         self,
         *,
+        chat_id: str,
+        message: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        message: Optional[str] = None,
         image_urls: Optional[Iterable[str]] = None,
         message_id: OptionalNullable[str] = UNSET,
         steering: OptionalNullable[bool] = UNSET,
@@ -7739,9 +7737,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceSendMessageResponse:
         r"""SendMessage
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param message:
+        :param connect_timeout_ms:
         :param image_urls:
         :param message_id:
         :param steering:
@@ -7842,9 +7840,9 @@ class Chats(BaseSDK):
     async def send_async(
         self,
         *,
+        chat_id: str,
+        message: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
-        message: Optional[str] = None,
         image_urls: Optional[Iterable[str]] = None,
         message_id: OptionalNullable[str] = UNSET,
         steering: OptionalNullable[bool] = UNSET,
@@ -7855,9 +7853,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceSendMessageResponse:
         r"""SendMessage
 
-        :param connect_timeout_ms:
         :param chat_id:
         :param message:
+        :param connect_timeout_ms:
         :param image_urls:
         :param message_id:
         :param steering:
@@ -7958,9 +7956,9 @@ class Chats(BaseSDK):
     def submit_context_prompt_change(
         self,
         *,
+        cell_id: str,
+        edited_context: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
-        edited_context: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -7968,9 +7966,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceSubmitContextPromptChangeResponse:
         r"""SubmitContextPromptChange
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
         :param edited_context:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8065,9 +8063,9 @@ class Chats(BaseSDK):
     async def submit_context_prompt_change_async(
         self,
         *,
+        cell_id: str,
+        edited_context: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
-        edited_context: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8075,9 +8073,9 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceSubmitContextPromptChangeResponse:
         r"""SubmitContextPromptChange
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
         :param edited_context:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8172,8 +8170,8 @@ class Chats(BaseSDK):
     def submit_questions(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         answers: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicCellsQuestionAnswer],
@@ -8187,8 +8185,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceSubmitQuestionsResponse:
         r"""SubmitQuestions
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param answers:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -8286,8 +8284,8 @@ class Chats(BaseSDK):
     async def submit_questions_async(
         self,
         *,
+        cell_id: str,
         connect_timeout_ms: Optional[float] = None,
-        cell_id: Optional[str] = None,
         answers: Optional[
             Union[
                 Iterable[models.TextqlRPCPublicCellsQuestionAnswer],
@@ -8301,8 +8299,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceSubmitQuestionsResponse:
         r"""SubmitQuestions
 
-        :param connect_timeout_ms:
         :param cell_id: UUID
+        :param connect_timeout_ms:
         :param answers:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -8400,8 +8398,8 @@ class Chats(BaseSDK):
     def unbookmark(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8409,8 +8407,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceUnbookmarkChatResponse:
         r"""UnbookmarkChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8502,8 +8500,8 @@ class Chats(BaseSDK):
     async def unbookmark_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8511,8 +8509,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceUnbookmarkChatResponse:
         r"""UnbookmarkChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8604,8 +8602,8 @@ class Chats(BaseSDK):
     def update(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         research: OptionalNullable[bool] = UNSET,
         summary: OptionalNullable[str] = UNSET,
         dashboard_mode: OptionalNullable[bool] = UNSET,
@@ -8619,8 +8617,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceUpdateChatResponse:
         r"""UpdateChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param research: update report mode
         :param summary: update chat summary
         :param dashboard_mode: update dashboard mode
@@ -8726,8 +8724,8 @@ class Chats(BaseSDK):
     async def update_async(
         self,
         *,
+        chat_id: str,
         connect_timeout_ms: Optional[float] = None,
-        chat_id: Optional[str] = None,
         research: OptionalNullable[bool] = UNSET,
         summary: OptionalNullable[str] = UNSET,
         dashboard_mode: OptionalNullable[bool] = UNSET,
@@ -8741,8 +8739,8 @@ class Chats(BaseSDK):
     ) -> models.ChatServiceUpdateChatResponse:
         r"""UpdateChat
 
-        :param connect_timeout_ms:
         :param chat_id:
+        :param connect_timeout_ms:
         :param research: update report mode
         :param summary: update chat summary
         :param dashboard_mode: update dashboard mode

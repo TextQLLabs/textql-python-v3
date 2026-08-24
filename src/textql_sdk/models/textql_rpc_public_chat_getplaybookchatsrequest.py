@@ -10,18 +10,17 @@ from textql_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetPlaybookChatsRequestTypedDict(TypedDict):
-    playbook_id: NotRequired[str]
+    playbook_id: str
     limit: NotRequired[Nullable[int]]
     skip: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicChatGetPlaybookChatsRequest(BaseModel):
-    playbook_id: Annotated[Optional[str], pydantic.Field(alias="playbookId")] = None
+    playbook_id: Annotated[str, pydantic.Field(alias="playbookId")]
 
     limit: OptionalNullable[int] = UNSET
 
@@ -29,7 +28,7 @@ class TextqlRPCPublicChatGetPlaybookChatsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["playbookId", "limit", "skip"])
+        optional_fields = set(["limit", "skip"])
         nullable_fields = set(["limit", "skip"])
         serialized = handler(self)
         m = {}
