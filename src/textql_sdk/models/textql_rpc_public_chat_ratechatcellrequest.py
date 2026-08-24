@@ -11,29 +11,28 @@ from textql_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatRateChatCellRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
-    cell_id: NotRequired[str]
-    rating: NotRequired[TextqlRPCPublicChatCellRating]
+    chat_id: str
+    cell_id: str
+    rating: TextqlRPCPublicChatCellRating
     reason: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatRateChatCellRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
-    cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
+    cell_id: Annotated[str, pydantic.Field(alias="cellId")]
 
-    rating: Optional[TextqlRPCPublicChatCellRating] = None
+    rating: TextqlRPCPublicChatCellRating
 
     reason: OptionalNullable[str] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["chatId", "cellId", "rating", "reason"])
+        optional_fields = set(["reason"])
         nullable_fields = set(["reason"])
         serialized = handler(self)
         m = {}

@@ -7,4 +7,4 @@ Per-member auth resume
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `cell_id`          | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `cell_id`          | *str*              | :heavy_check_mark: | N/A                |

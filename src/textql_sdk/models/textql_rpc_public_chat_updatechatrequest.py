@@ -16,7 +16,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatUpdateChatRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     research: NotRequired[Nullable[bool]]
     r"""update report mode"""
     summary: NotRequired[Nullable[str]]
@@ -31,7 +31,7 @@ class TextqlRPCPublicChatUpdateChatRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicChatUpdateChatRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     research: OptionalNullable[bool] = UNSET
     r"""update report mode"""
@@ -60,7 +60,6 @@ class TextqlRPCPublicChatUpdateChatRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
-                "chatId",
                 "research",
                 "summary",
                 "dashboardMode",

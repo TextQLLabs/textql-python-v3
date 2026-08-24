@@ -17,30 +17,40 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsCitationLineageNodeTypedDict(TypedDict):
     cell_id: NotRequired[str]
     kind: NotRequired[str]
+    r"""\"sql\" | \"python\" """
     dataframe_name: NotRequired[Nullable[str]]
+    r"""Produced dataframe name, if applicable"""
     connector_id: NotRequired[Nullable[int]]
+    r"""SQL only: connector ID; display name resolves client-side"""
     tables: NotRequired[List[str]]
+    r"""SQL only: referenced tables"""
     input_cell_ids: NotRequired[List[str]]
+    r"""upstream cell(s), for graph lineage"""
 
 
 class TextqlRPCPublicCellsCitationLineageNode(BaseModel):
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
 
     kind: Optional[str] = None
+    r"""\"sql\" | \"python\" """
 
     dataframe_name: Annotated[
         OptionalNullable[str], pydantic.Field(alias="dataframeName")
     ] = UNSET
+    r"""Produced dataframe name, if applicable"""
 
     connector_id: Annotated[
         OptionalNullable[int], pydantic.Field(alias="connectorId")
     ] = UNSET
+    r"""SQL only: connector ID; display name resolves client-side"""
 
     tables: Optional[List[str]] = None
+    r"""SQL only: referenced tables"""
 
     input_cell_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="inputCellIds")
     ] = None
+    r"""upstream cell(s), for graph lineage"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

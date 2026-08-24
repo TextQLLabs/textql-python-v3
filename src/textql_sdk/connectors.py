@@ -2865,7 +2865,7 @@ class Connectors(BaseSDK):
         r"""ListConnectorTables
 
         :param connect_timeout_ms:
-        :param connector_id:
+        :param connector_id: Apache Arrow IPC format binary data
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2969,7 +2969,7 @@ class Connectors(BaseSDK):
         r"""ListConnectorTables
 
         :param connect_timeout_ms:
-        :param connector_id:
+        :param connector_id: Apache Arrow IPC format binary data
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3076,10 +3076,10 @@ class Connectors(BaseSDK):
         r"""ListQueryTemplates
 
         :param connect_timeout_ms:
-        :param connector_id: 0 = all-time
+        :param connector_id:
         :param limit:
-        :param offset:
-        :param days:
+        :param offset: 0.0-1.0
+        :param days: milliseconds
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3189,10 +3189,10 @@ class Connectors(BaseSDK):
         r"""ListQueryTemplates
 
         :param connect_timeout_ms:
-        :param connector_id: 0 = all-time
+        :param connector_id:
         :param limit:
-        :param offset:
-        :param days:
+        :param offset: 0.0-1.0
+        :param days: milliseconds
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

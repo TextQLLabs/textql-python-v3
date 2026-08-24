@@ -1080,6 +1080,270 @@ class Settings(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def update_model_settings(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        enabled_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
+        clear_enabled_models: Optional[bool] = None,
+        restricted_models: Optional[
+            Iterable[models.TextqlRPCPublicChatLlmModel]
+        ] = None,
+        clear_restricted_models: Optional[bool] = None,
+        restricted_families: Optional[Iterable[str]] = None,
+        clear_restricted_families: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SettingsServiceUpdateOrganizationModelSettingsResponse:
+        r"""UpdateOrganizationModelSettings
+
+        :param connect_timeout_ms:
+        :param default_model:
+        :param enabled_models:
+        :param clear_enabled_models:
+        :param restricted_models:
+        :param clear_restricted_models:
+        :param restricted_families:
+        :param clear_restricted_families:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SettingsServiceUpdateOrganizationModelSettingsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest(
+                default_model=default_model,
+                enabled_models=utils.unmarshal(
+                    enabled_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
+                ),
+                clear_enabled_models=clear_enabled_models,
+                restricted_models=utils.unmarshal(
+                    restricted_models,
+                    Optional[List[models.TextqlRPCPublicChatLlmModel]],
+                ),
+                clear_restricted_models=clear_restricted_models,
+                restricted_families=utils.unmarshal(
+                    restricted_families, Optional[List[str]]
+                ),
+                clear_restricted_families=clear_restricted_families,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.settings.SettingsService/UpdateOrganizationModelSettings",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SettingsService_UpdateOrganizationModelSettings",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SettingsService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def update_model_settings_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        enabled_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
+        clear_enabled_models: Optional[bool] = None,
+        restricted_models: Optional[
+            Iterable[models.TextqlRPCPublicChatLlmModel]
+        ] = None,
+        clear_restricted_models: Optional[bool] = None,
+        restricted_families: Optional[Iterable[str]] = None,
+        clear_restricted_families: Optional[bool] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.SettingsServiceUpdateOrganizationModelSettingsResponse:
+        r"""UpdateOrganizationModelSettings
+
+        :param connect_timeout_ms:
+        :param default_model:
+        :param enabled_models:
+        :param clear_enabled_models:
+        :param restricted_models:
+        :param clear_restricted_models:
+        :param restricted_families:
+        :param clear_restricted_families:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.SettingsServiceUpdateOrganizationModelSettingsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest(
+                default_model=default_model,
+                enabled_models=utils.unmarshal(
+                    enabled_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
+                ),
+                clear_enabled_models=clear_enabled_models,
+                restricted_models=utils.unmarshal(
+                    restricted_models,
+                    Optional[List[models.TextqlRPCPublicChatLlmModel]],
+                ),
+                clear_restricted_models=clear_restricted_models,
+                restricted_families=utils.unmarshal(
+                    restricted_families, Optional[List[str]]
+                ),
+                clear_restricted_families=clear_restricted_families,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.settings.SettingsService/UpdateOrganizationModelSettings",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="SettingsService_UpdateOrganizationModelSettings",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["SettingsService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def update(
         self,
         *,
@@ -1102,6 +1366,13 @@ class Settings(BaseSDK):
         methodology_enabled: Optional[bool] = None,
         feed_enabled: Optional[bool] = None,
         context_v3_enabled: Optional[bool] = None,
+        clear_enabled_model_ids: Optional[bool] = None,
+        clear_restricted_model_ids: Optional[bool] = None,
+        enabled_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
+        restricted_models: Optional[
+            Iterable[models.TextqlRPCPublicChatLlmModel]
+        ] = None,
+        default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         observability_enabled: Optional[bool] = None,
         notifications_enabled: Optional[bool] = None,
         hide_api_connectors: Optional[bool] = None,
@@ -1122,6 +1393,7 @@ class Settings(BaseSDK):
                 models.TextqlRPCParadigmParamsParadigmParamsTypedDict,
             ]
         ] = None,
+        subagents_enabled: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1176,6 +1448,11 @@ class Settings(BaseSDK):
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
+        :param clear_enabled_model_ids:
+        :param clear_restricted_model_ids:
+        :param enabled_models:
+        :param restricted_models:
+        :param default_model:
         :param observability_enabled: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -1251,6 +1528,12 @@ class Settings(BaseSDK):
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
         :param tool_restrictions:
+        :param subagents_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1285,6 +1568,16 @@ class Settings(BaseSDK):
                 methodology_enabled=methodology_enabled,
                 feed_enabled=feed_enabled,
                 context_v3_enabled=context_v3_enabled,
+                clear_enabled_model_ids=clear_enabled_model_ids,
+                clear_restricted_model_ids=clear_restricted_model_ids,
+                enabled_models=utils.unmarshal(
+                    enabled_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
+                ),
+                restricted_models=utils.unmarshal(
+                    restricted_models,
+                    Optional[List[models.TextqlRPCPublicChatLlmModel]],
+                ),
+                default_model=default_model,
                 observability_enabled=observability_enabled,
                 notifications_enabled=notifications_enabled,
                 hide_api_connectors=hide_api_connectors,
@@ -1303,6 +1596,7 @@ class Settings(BaseSDK):
                     tool_restrictions,
                     Optional[models.TextqlRPCParadigmParamsParadigmParams],
                 ),
+                subagents_enabled=subagents_enabled,
             ),
         )
 
@@ -1397,6 +1691,13 @@ class Settings(BaseSDK):
         methodology_enabled: Optional[bool] = None,
         feed_enabled: Optional[bool] = None,
         context_v3_enabled: Optional[bool] = None,
+        clear_enabled_model_ids: Optional[bool] = None,
+        clear_restricted_model_ids: Optional[bool] = None,
+        enabled_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
+        restricted_models: Optional[
+            Iterable[models.TextqlRPCPublicChatLlmModel]
+        ] = None,
+        default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         observability_enabled: Optional[bool] = None,
         notifications_enabled: Optional[bool] = None,
         hide_api_connectors: Optional[bool] = None,
@@ -1417,6 +1718,7 @@ class Settings(BaseSDK):
                 models.TextqlRPCParadigmParamsParadigmParamsTypedDict,
             ]
         ] = None,
+        subagents_enabled: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1471,6 +1773,11 @@ class Settings(BaseSDK):
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
+        :param clear_enabled_model_ids:
+        :param clear_restricted_model_ids:
+        :param enabled_models:
+        :param restricted_models:
+        :param default_model:
         :param observability_enabled: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -1546,6 +1853,12 @@ class Settings(BaseSDK):
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
         :param tool_restrictions:
+        :param subagents_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1580,6 +1893,16 @@ class Settings(BaseSDK):
                 methodology_enabled=methodology_enabled,
                 feed_enabled=feed_enabled,
                 context_v3_enabled=context_v3_enabled,
+                clear_enabled_model_ids=clear_enabled_model_ids,
+                clear_restricted_model_ids=clear_restricted_model_ids,
+                enabled_models=utils.unmarshal(
+                    enabled_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
+                ),
+                restricted_models=utils.unmarshal(
+                    restricted_models,
+                    Optional[List[models.TextqlRPCPublicChatLlmModel]],
+                ),
+                default_model=default_model,
                 observability_enabled=observability_enabled,
                 notifications_enabled=notifications_enabled,
                 hide_api_connectors=hide_api_connectors,
@@ -1598,6 +1921,7 @@ class Settings(BaseSDK):
                     tool_restrictions,
                     Optional[models.TextqlRPCParadigmParamsParadigmParams],
                 ),
+                subagents_enabled=subagents_enabled,
             ),
         )
 

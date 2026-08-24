@@ -12,35 +12,33 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict = TypeAliasType(
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict", Union[int, str]
 )
-r"""Display name (e.g., \"Explore Data\")"""
+r"""If set, this is a feature word to be styled"""
 
 
 TextqlRPCPublicConnectorConnectorStatEntryQueryCount = TypeAliasType(
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCount", Union[int, str]
 )
-r"""Display name (e.g., \"Explore Data\")"""
+r"""If set, this is a feature word to be styled"""
 
 
 AvgQueryTimeMsTypedDict = TypeAliasType("AvgQueryTimeMsTypedDict", Union[int, str])
-r"""True if requires multiple connectors"""
 
 
 AvgQueryTimeMs = TypeAliasType("AvgQueryTimeMs", Union[int, str])
-r"""True if requires multiple connectors"""
 
 
 class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
+    r"""A segment of an example query message - either plain text or a styled feature word"""
+
     connector_id: NotRequired[int]
+    r"""The text content of this segment"""
     query_count: NotRequired[
         TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict
     ]
-    r"""Display name (e.g., \"Explore Data\")"""
+    r"""If set, this is a feature word to be styled"""
     error_rate: NotRequired[float]
-    r"""Query text to send (plain text, no formatting)"""
     avg_query_time_ms: NotRequired[AvgQueryTimeMsTypedDict]
-    r"""True if requires multiple connectors"""
     unique_users: NotRequired[int]
-    r"""Specific connectors needed"""
     last_queried_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -133,28 +131,27 @@ class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     table_count: NotRequired[int]
-    r"""Rich formatted message with styled feature words"""
 
 
 class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
+    r"""A segment of an example query message - either plain text or a styled feature word"""
+
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
+    r"""The text content of this segment"""
 
     query_count: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorStatEntryQueryCount],
         pydantic.Field(alias="queryCount"),
     ] = None
-    r"""Display name (e.g., \"Explore Data\")"""
+    r"""If set, this is a feature word to be styled"""
 
     error_rate: Annotated[Optional[float], pydantic.Field(alias="errorRate")] = None
-    r"""Query text to send (plain text, no formatting)"""
 
     avg_query_time_ms: Annotated[
         Optional[AvgQueryTimeMs], pydantic.Field(alias="avgQueryTimeMs")
     ] = None
-    r"""True if requires multiple connectors"""
 
     unique_users: Annotated[Optional[int], pydantic.Field(alias="uniqueUsers")] = None
-    r"""Specific connectors needed"""
 
     last_queried_at: Annotated[
         Optional[datetime], pydantic.Field(alias="lastQueriedAt")
@@ -251,7 +248,6 @@ class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
     """
 
     table_count: Annotated[Optional[int], pydantic.Field(alias="tableCount")] = None
-    r"""Rich formatted message with styled feature words"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

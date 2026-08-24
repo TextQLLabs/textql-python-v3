@@ -11,19 +11,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppListAppVersionsRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
     limit: NotRequired[int]
-    r"""Routing observability: warm | warm_fallback | tql | sql."""
     offset: NotRequired[int]
-    r"""Whether this invoke paid phase-1 module definition (cold imports)."""
 
 
 class TextqlRPCPublicAppListAppVersionsRequest(BaseModel):
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
 
     limit: Optional[int] = None
-    r"""Routing observability: warm | warm_fallback | tql | sql."""
 
     offset: Optional[int] = None
-    r"""Whether this invoke paid phase-1 module definition (cold imports)."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

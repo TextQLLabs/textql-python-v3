@@ -13,18 +13,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppListAppVersionsResponseTypedDict(TypedDict):
-    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
-
     versions: NotRequired[List[TextqlRPCPublicAppAppVersionTypedDict]]
-    r"""normalized relative path, forward slashes, no .. or leading /"""
     total_count: NotRequired[int]
 
 
 class TextqlRPCPublicAppListAppVersionsResponse(BaseModel):
-    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
-
     versions: Optional[List[TextqlRPCPublicAppAppVersion]] = None
-    r"""normalized relative path, forward slashes, no .. or leading /"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
 

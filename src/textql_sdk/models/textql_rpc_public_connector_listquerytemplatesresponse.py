@@ -14,11 +14,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorListQueryTemplatesResponseTypedDict(TypedDict):
     templates: NotRequired[List[TextqlRPCPublicConnectorQueryTemplateTypedDict]]
+    r"""0 = all-time"""
     total_count: NotRequired[int]
 
 
 class TextqlRPCPublicConnectorListQueryTemplatesResponse(BaseModel):
     templates: Optional[List[TextqlRPCPublicConnectorQueryTemplate]] = None
+    r"""0 = all-time"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
 

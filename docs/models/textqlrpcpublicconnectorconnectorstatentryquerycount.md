@@ -1,6 +1,6 @@
 # TextqlRPCPublicConnectorConnectorStatEntryQueryCount
 
-Display name (e.g., "Explore Data")
+If set, this is a feature word to be styled
 
 
 ## Supported Types

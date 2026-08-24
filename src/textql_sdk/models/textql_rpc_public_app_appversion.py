@@ -32,10 +32,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
+    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
+
     id: NotRequired[str]
+    r"""normalized relative path, forward slashes, no .. or leading /"""
     app_id: NotRequired[str]
     version_number: NotRequired[int]
-    r"""JSON object, keys map to function kwargs"""
     code: NotRequired[str]
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
@@ -142,14 +144,16 @@ class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
 
 
 class TextqlRPCPublicAppAppVersion(BaseModel):
+    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
+
     id: Optional[str] = None
+    r"""normalized relative path, forward slashes, no .. or leading /"""
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
 
     version_number: Annotated[Optional[int], pydantic.Field(alias="versionNumber")] = (
         None
     )
-    r"""JSON object, keys map to function kwargs"""
 
     code: Optional[str] = None
 

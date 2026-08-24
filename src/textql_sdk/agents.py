@@ -41,7 +41,12 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        callable_as_subagent: OptionalNullable[bool] = UNSET,
+        subagent_invoker_member_ids: Optional[Iterable[str]] = None,
+        subagent_invoker_role_ids: Optional[Iterable[str]] = None,
         feed_enabled: OptionalNullable[bool] = UNSET,
+        subagent_agent_ids: Optional[Iterable[str]] = None,
+        allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -69,8 +74,13 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
-        :param feed_enabled: Unset defaults to true: new agents are delegatable unless the caller opts
+        :param callable_as_subagent: Unset defaults to true: new agents are delegatable unless the caller opts
             out. Mirrors allow_ad_hoc_subagents below.
+        :param subagent_invoker_member_ids:
+        :param subagent_invoker_role_ids:
+        :param feed_enabled:
+        :param subagent_agent_ids:
+        :param allow_ad_hoc_subagents:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -122,7 +132,18 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                callable_as_subagent=callable_as_subagent,
+                subagent_invoker_member_ids=utils.unmarshal(
+                    subagent_invoker_member_ids, Optional[List[str]]
+                ),
+                subagent_invoker_role_ids=utils.unmarshal(
+                    subagent_invoker_role_ids, Optional[List[str]]
+                ),
                 feed_enabled=feed_enabled,
+                subagent_agent_ids=utils.unmarshal(
+                    subagent_agent_ids, Optional[List[str]]
+                ),
+                allow_ad_hoc_subagents=allow_ad_hoc_subagents,
             ),
         )
 
@@ -225,7 +246,12 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        callable_as_subagent: OptionalNullable[bool] = UNSET,
+        subagent_invoker_member_ids: Optional[Iterable[str]] = None,
+        subagent_invoker_role_ids: Optional[Iterable[str]] = None,
         feed_enabled: OptionalNullable[bool] = UNSET,
+        subagent_agent_ids: Optional[Iterable[str]] = None,
+        allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -253,8 +279,13 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
-        :param feed_enabled: Unset defaults to true: new agents are delegatable unless the caller opts
+        :param callable_as_subagent: Unset defaults to true: new agents are delegatable unless the caller opts
             out. Mirrors allow_ad_hoc_subagents below.
+        :param subagent_invoker_member_ids:
+        :param subagent_invoker_role_ids:
+        :param feed_enabled:
+        :param subagent_agent_ids:
+        :param allow_ad_hoc_subagents:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -306,7 +337,18 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                callable_as_subagent=callable_as_subagent,
+                subagent_invoker_member_ids=utils.unmarshal(
+                    subagent_invoker_member_ids, Optional[List[str]]
+                ),
+                subagent_invoker_role_ids=utils.unmarshal(
+                    subagent_invoker_role_ids, Optional[List[str]]
+                ),
                 feed_enabled=feed_enabled,
+                subagent_agent_ids=utils.unmarshal(
+                    subagent_agent_ids, Optional[List[str]]
+                ),
+                allow_ad_hoc_subagents=allow_ad_hoc_subagents,
             ),
         )
 
@@ -2536,7 +2578,14 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        callable_as_subagent: OptionalNullable[bool] = UNSET,
+        subagent_invoker_member_ids: Optional[Iterable[str]] = None,
+        subagent_invoker_role_ids: Optional[Iterable[str]] = None,
+        update_subagent_invokers: OptionalNullable[bool] = UNSET,
         feed_enabled: OptionalNullable[bool] = UNSET,
+        subagent_agent_ids: Optional[Iterable[str]] = None,
+        update_subagents: OptionalNullable[bool] = UNSET,
+        allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2567,7 +2616,14 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
-        :param feed_enabled: Feed participation; nil = don't touch (mirrors fast_mode/is_stateful).
+        :param callable_as_subagent: Feed participation; nil = don't touch (mirrors fast_mode/is_stateful).
+        :param subagent_invoker_member_ids:
+        :param subagent_invoker_role_ids:
+        :param update_subagent_invokers:
+        :param feed_enabled:
+        :param subagent_agent_ids:
+        :param update_subagents:
+        :param allow_ad_hoc_subagents:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2622,7 +2678,20 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                callable_as_subagent=callable_as_subagent,
+                subagent_invoker_member_ids=utils.unmarshal(
+                    subagent_invoker_member_ids, Optional[List[str]]
+                ),
+                subagent_invoker_role_ids=utils.unmarshal(
+                    subagent_invoker_role_ids, Optional[List[str]]
+                ),
+                update_subagent_invokers=update_subagent_invokers,
                 feed_enabled=feed_enabled,
+                subagent_agent_ids=utils.unmarshal(
+                    subagent_agent_ids, Optional[List[str]]
+                ),
+                update_subagents=update_subagents,
+                allow_ad_hoc_subagents=allow_ad_hoc_subagents,
             ),
         )
 
@@ -2728,7 +2797,14 @@ class Agents(BaseSDK):
             ]
         ] = None,
         posting_frequency_cadences: Optional[Iterable[str]] = None,
+        callable_as_subagent: OptionalNullable[bool] = UNSET,
+        subagent_invoker_member_ids: Optional[Iterable[str]] = None,
+        subagent_invoker_role_ids: Optional[Iterable[str]] = None,
+        update_subagent_invokers: OptionalNullable[bool] = UNSET,
         feed_enabled: OptionalNullable[bool] = UNSET,
+        subagent_agent_ids: Optional[Iterable[str]] = None,
+        update_subagents: OptionalNullable[bool] = UNSET,
+        allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2759,7 +2835,14 @@ class Agents(BaseSDK):
         :param posting_frequency_cadences: Index-aligned with posting_frequency_crons. A non-empty cadence
             (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
             cron the backend generates; \"\" (or an empty list) means exact.
-        :param feed_enabled: Feed participation; nil = don't touch (mirrors fast_mode/is_stateful).
+        :param callable_as_subagent: Feed participation; nil = don't touch (mirrors fast_mode/is_stateful).
+        :param subagent_invoker_member_ids:
+        :param subagent_invoker_role_ids:
+        :param update_subagent_invokers:
+        :param feed_enabled:
+        :param subagent_agent_ids:
+        :param update_subagents:
+        :param allow_ad_hoc_subagents:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2814,7 +2897,20 @@ class Agents(BaseSDK):
                 posting_frequency_cadences=utils.unmarshal(
                     posting_frequency_cadences, Optional[List[str]]
                 ),
+                callable_as_subagent=callable_as_subagent,
+                subagent_invoker_member_ids=utils.unmarshal(
+                    subagent_invoker_member_ids, Optional[List[str]]
+                ),
+                subagent_invoker_role_ids=utils.unmarshal(
+                    subagent_invoker_role_ids, Optional[List[str]]
+                ),
+                update_subagent_invokers=update_subagent_invokers,
                 feed_enabled=feed_enabled,
+                subagent_agent_ids=utils.unmarshal(
+                    subagent_agent_ids, Optional[List[str]]
+                ),
+                update_subagents=update_subagents,
+                allow_ad_hoc_subagents=allow_ad_hoc_subagents,
             ),
         )
 

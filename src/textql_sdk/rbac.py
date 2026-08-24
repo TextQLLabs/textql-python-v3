@@ -8292,10 +8292,10 @@ class Rbac(BaseSDK):
         role_id: Optional[str] = None,
         name: Optional[str] = None,
         description: Optional[str] = None,
-        default_model_id: Optional[float] = None,
-        allowed_model_ids: Optional[Iterable[int]] = None,
         allow_model_choice: Optional[bool] = None,
         clear_allowed_model_ids: Optional[bool] = None,
+        allowed_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
+        default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8307,13 +8307,6 @@ class Rbac(BaseSDK):
         :param role_id:
         :param name:
         :param description:
-        :param default_model_id: Wrapper message for `int32`.
-
-            The JSON representation for `Int32Value` is JSON number.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param allowed_model_ids:
         :param allow_model_choice: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -8321,6 +8314,8 @@ class Rbac(BaseSDK):
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
         :param clear_allowed_model_ids:
+        :param allowed_models:
+        :param default_model:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8342,12 +8337,12 @@ class Rbac(BaseSDK):
                 role_id=role_id,
                 name=name,
                 description=description,
-                default_model_id=default_model_id,
-                allowed_model_ids=utils.unmarshal(
-                    allowed_model_ids, Optional[List[int]]
-                ),
                 allow_model_choice=allow_model_choice,
                 clear_allowed_model_ids=clear_allowed_model_ids,
+                allowed_models=utils.unmarshal(
+                    allowed_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
+                ),
+                default_model=default_model,
             ),
         )
 
@@ -8426,10 +8421,10 @@ class Rbac(BaseSDK):
         role_id: Optional[str] = None,
         name: Optional[str] = None,
         description: Optional[str] = None,
-        default_model_id: Optional[float] = None,
-        allowed_model_ids: Optional[Iterable[int]] = None,
         allow_model_choice: Optional[bool] = None,
         clear_allowed_model_ids: Optional[bool] = None,
+        allowed_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
+        default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8441,13 +8436,6 @@ class Rbac(BaseSDK):
         :param role_id:
         :param name:
         :param description:
-        :param default_model_id: Wrapper message for `int32`.
-
-            The JSON representation for `Int32Value` is JSON number.
-
-            Not recommended for use in new APIs, but still useful for legacy APIs and
-            has no plan to be removed.
-        :param allowed_model_ids:
         :param allow_model_choice: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -8455,6 +8443,8 @@ class Rbac(BaseSDK):
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
         :param clear_allowed_model_ids:
+        :param allowed_models:
+        :param default_model:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8476,12 +8466,12 @@ class Rbac(BaseSDK):
                 role_id=role_id,
                 name=name,
                 description=description,
-                default_model_id=default_model_id,
-                allowed_model_ids=utils.unmarshal(
-                    allowed_model_ids, Optional[List[int]]
-                ),
                 allow_model_choice=allow_model_choice,
                 clear_allowed_model_ids=clear_allowed_model_ids,
+                allowed_models=utils.unmarshal(
+                    allowed_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
+                ),
+                default_model=default_model,
             ),
         )
 

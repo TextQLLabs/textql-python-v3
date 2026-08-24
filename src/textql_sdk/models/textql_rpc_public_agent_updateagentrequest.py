@@ -48,8 +48,15 @@ class TextqlRPCPublicAgentUpdateAgentRequestTypedDict(TypedDict):
     (HOURLY/FOUR-HOUR/EIGHT-HOUR/DAILY/WEEKLY) marks a flexible schedule whose
     cron the backend generates; \"\" (or an empty list) means exact.
     """
-    feed_enabled: NotRequired[Nullable[bool]]
+    callable_as_subagent: NotRequired[Nullable[bool]]
     r"""Feed participation; nil = don't touch (mirrors fast_mode/is_stateful)."""
+    subagent_invoker_member_ids: NotRequired[List[str]]
+    subagent_invoker_role_ids: NotRequired[List[str]]
+    update_subagent_invokers: NotRequired[Nullable[bool]]
+    feed_enabled: NotRequired[Nullable[bool]]
+    subagent_agent_ids: NotRequired[List[str]]
+    update_subagents: NotRequired[Nullable[bool]]
+    allow_ad_hoc_subagents: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
@@ -131,10 +138,38 @@ class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
     cron the backend generates; \"\" (or an empty list) means exact.
     """
 
+    callable_as_subagent: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="callableAsSubagent")
+    ] = UNSET
+    r"""Feed participation; nil = don't touch (mirrors fast_mode/is_stateful)."""
+
+    subagent_invoker_member_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="subagentInvokerMemberIds")
+    ] = None
+
+    subagent_invoker_role_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="subagentInvokerRoleIds")
+    ] = None
+
+    update_subagent_invokers: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="updateSubagentInvokers")
+    ] = UNSET
+
     feed_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
     ] = UNSET
-    r"""Feed participation; nil = don't touch (mirrors fast_mode/is_stateful)."""
+
+    subagent_agent_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="subagentAgentIds")
+    ] = None
+
+    update_subagents: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="updateSubagents")
+    ] = UNSET
+
+    allow_ad_hoc_subagents: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="allowAdHocSubagents")
+    ] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -160,7 +195,14 @@ class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
                 "teamsDmUserAadIds",
                 "slackTrigger",
                 "postingFrequencyCadences",
+                "callableAsSubagent",
+                "subagentInvokerMemberIds",
+                "subagentInvokerRoleIds",
+                "updateSubagentInvokers",
                 "feedEnabled",
+                "subagentAgentIds",
+                "updateSubagents",
+                "allowAdHocSubagents",
             ]
         )
         nullable_fields = set(
@@ -171,7 +213,11 @@ class TextqlRPCPublicAgentUpdateAgentRequest(BaseModel):
                 "updateEmailRecipients",
                 "updateChannelIds",
                 "teamsChannelId",
+                "callableAsSubagent",
+                "updateSubagentInvokers",
                 "feedEnabled",
+                "updateSubagents",
+                "allowAdHocSubagents",
             ]
         )
         serialized = handler(self)

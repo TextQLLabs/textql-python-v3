@@ -9,12 +9,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetLlmUsageRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     include_costs: NotRequired[bool]
 
 
 class TextqlRPCPublicChatGetLlmUsageRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     include_costs: Annotated[Optional[bool], pydantic.Field(alias="includeCosts")] = (
         None
@@ -22,7 +22,7 @@ class TextqlRPCPublicChatGetLlmUsageRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["chatId", "includeCosts"])
+        optional_fields = set(["includeCosts"])
         serialized = handler(self)
         m = {}
 

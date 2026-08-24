@@ -5,5 +5,5 @@
 
 | Field               | Type                | Required            | Description         |
 | ------------------- | ------------------- | ------------------- | ------------------- |
-| `chat_id`           | *Optional[str]*     | :heavy_minus_sign:  | N/A                 |
-| `dashboard_id`      | *Optional[str]*     | :heavy_minus_sign:  | uses latest version |
+| `chat_id`           | *str*               | :heavy_check_mark:  | N/A                 |
+| `dashboard_id`      | *str*               | :heavy_check_mark:  | uses latest version |

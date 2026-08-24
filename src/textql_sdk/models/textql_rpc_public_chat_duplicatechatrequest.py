@@ -21,7 +21,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatDuplicateChatRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     r"""\"user\" or \"assistant\" """
     only_if_different_owner: NotRequired[Nullable[bool]]
     up_to_cell_id: NotRequired[Nullable[str]]
@@ -33,7 +33,7 @@ class TextqlRPCPublicChatDuplicateChatRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
     r"""\"user\" or \"assistant\" """
 
     only_if_different_owner: Annotated[
@@ -65,7 +65,6 @@ class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
     def _serialize_model(self, handler):
         optional_fields = set(
             [
-                "chatId",
                 "onlyIfDifferentOwner",
                 "upToCellId",
                 "paradigmOptions",

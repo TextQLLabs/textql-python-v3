@@ -4,34 +4,34 @@
 
 ### Available Operations
 
-* [heartbeat](#heartbeat) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+* [heartbeat](#heartbeat) - AppHeartbeat
 * [create_app](#create_app) - CreateApp
 * [delete_app](#delete_app) - DeleteApp
 * [duplicate](#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](#get) - GetApp
-* [get_db_schema](#get_db_schema) - View analytics: reads the engagement views recorded on app page load.
-* [get_db_table_preview](#get_db_table_preview) - Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
-* [get_member_state](#get_member_state) - GetAppMemberState
-* [get_app_version](#get_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
-* [get_app_view_stats](#get_app_view_stats) - Per-member notification subscription to an app ("watch this app").
+* [get_db_schema](#get_db_schema) - Replaces the calling member's entire ordering; capped server-side.
+* [get_db_table_preview](#get_db_table_preview) - View analytics: reads the engagement views recorded on app page load.
+* [get_member_state](#get_member_state) - Per-member notification subscription to an app ("watch this app").
+* [get_app_version](#get_app_version) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+* [get_app_view_stats](#get_app_view_stats) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](#invoke_compute_function) - InvokeAppComputeFunction
-* [list_activity_since](#list_activity_since) - Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
-* [list_versions](#list_versions) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+* [list_activity_since](#list_activity_since) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+* [list_versions](#list_versions) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 * [list](#list) - ListApps
-* [list_my_member_activity](#list_my_member_activity) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
-* [move_app_to_folder](#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
-* [presence_heartbeat](#presence_heartbeat) - Replaces the calling member's entire ordering; capped server-side.
-* [record_member_activity](#record_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-* [refresh](#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
-* [restore_app_version](#restore_app_version) - RestoreAppVersion
+* [list_my_member_activity](#list_my_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
+* [move_app_to_folder](#move_app_to_folder) - MoveAppToFolder
+* [presence_heartbeat](#presence_heartbeat) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
+* [record_member_activity](#record_member_activity) - RecordAppMemberActivity
+* [refresh](#refresh) - Moves an app into a library folder (or to root when folder_id is empty).
+* [restore_app_version](#restore_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 * [set_member_state](#set_member_state) - SetAppMemberState
-* [set_favorite](#set_favorite) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+* [set_favorite](#set_favorite) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [update](#update) - UpdateApp
 
 ## heartbeat
 
-Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+AppHeartbeat
 
 ### Example Usage
 
@@ -245,7 +245,7 @@ with Textql(
 
 ## get_db_schema
 
-View analytics: reads the engagement views recorded on app page load.
+Replaces the calling member's entire ordering; capped server-side.
 
 ### Example Usage
 
@@ -286,8 +286,7 @@ with Textql(
 
 ## get_db_table_preview
 
-Staff-only (superadmin gated in-handler): publishes the embedded component
- gallery as an app tree and returns its signed viewer URL.
+View analytics: reads the engagement views recorded on app page load.
 
 ### Example Usage
 
@@ -330,7 +329,7 @@ with Textql(
 
 ## get_member_state
 
-GetAppMemberState
+Per-member notification subscription to an app ("watch this app").
 
 ### Example Usage
 
@@ -371,7 +370,7 @@ with Textql(
 
 ## get_app_version
 
-Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
 ### Example Usage
 
@@ -414,7 +413,7 @@ with Textql(
 
 ## get_app_view_stats
 
-Per-member notification subscription to an app ("watch this app").
+Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
 ### Example Usage
 
@@ -539,8 +538,9 @@ with Textql(
 
 ## list_activity_since
 
-Lists the calling member's favorited library items (apps, dashboards,
- agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+Favorite/unfavorite a library item (app or dashboard) for the calling member.
+ Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+ since the merged library page pins apps and dashboards through one client.
 
 ### Example Usage
 
@@ -584,7 +584,7 @@ with Textql(
 
 ## list_versions
 
-Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
 ### Example Usage
 
@@ -611,8 +611,8 @@ with Textql(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Routing observability: warm \| warm_fallback \| tql \| sql.         |
-| `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Whether this invoke paid phase-1 module definition (cold imports).  |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -673,9 +673,8 @@ with Textql(
 
 ## list_my_member_activity
 
-Favorite/unfavorite a library item (app or dashboard) for the calling member.
- Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
- since the merged library page pins apps and dashboards through one client.
+Watcher management: app owners/editors and org admins list the app's
+ subscribers and add/remove members (Upsert/Delete with member_id).
 
 ### Example Usage
 
@@ -718,7 +717,7 @@ with Textql(
 
 ## move_app_to_folder
 
-Moves an app into a library folder (or to root when folder_id is empty).
+MoveAppToFolder
 
 ### Example Usage
 
@@ -760,7 +759,10 @@ with Textql(
 
 ## presence_heartbeat
 
-Replaces the calling member's entire ordering; capped server-side.
+Ordering overlay for the sidebar Bookmarks section: one position list per
+ member covering favorites and thread bookmarks ('<kind>:<id>' keys).
+ Membership truth stays in library_favorite / chat bookmarks; this persists
+ only the drag-and-drop order.
 
 ### Example Usage
 
@@ -802,8 +804,7 @@ with Textql(
 
 ## record_member_activity
 
-Watcher management: app owners/editors and org admins list the app's
- subscribers and add/remove members (Upsert/Delete with member_id).
+RecordAppMemberActivity
 
 ### Example Usage
 
@@ -848,7 +849,7 @@ with Textql(
 
 ## refresh
 
-Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+Moves an app into a library folder (or to root when folder_id is empty).
 
 ### Example Usage
 
@@ -889,7 +890,7 @@ with Textql(
 
 ## restore_app_version
 
-RestoreAppVersion
+Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
 ### Example Usage
 
@@ -974,7 +975,7 @@ with Textql(
 
 ## set_favorite
 
-Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
 ### Example Usage
 

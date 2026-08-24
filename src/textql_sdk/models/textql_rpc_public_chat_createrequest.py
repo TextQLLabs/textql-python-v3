@@ -21,7 +21,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatCreateRequestTypedDict(TypedDict):
-    paradigm: NotRequired[TextqlRPCPublicParadigmParadigmTypedDict]
+    paradigm: TextqlRPCPublicParadigmParadigmTypedDict
     r"""ChatParadigm includes paradigm options"""
     model: NotRequired[TextqlRPCPublicChatLlmModel]
     message: NotRequired[Nullable[str]]
@@ -45,10 +45,11 @@ class TextqlRPCPublicChatCreateRequestTypedDict(TypedDict):
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
     Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
     """
+    model_name: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatCreateRequest(BaseModel):
-    paradigm: Optional[TextqlRPCPublicParadigmParadigm] = None
+    paradigm: TextqlRPCPublicParadigmParadigm
     r"""ChatParadigm includes paradigm options"""
 
     model: Optional[TextqlRPCPublicChatLlmModel] = None
@@ -92,11 +93,14 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
     Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
     """
 
+    model_name: Annotated[OptionalNullable[str], pydantic.Field(alias="modelName")] = (
+        UNSET
+    )
+
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
         optional_fields = set(
             [
-                "paradigm",
                 "model",
                 "message",
                 "playbookId",
@@ -106,6 +110,7 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
                 "vllmModelId",
                 "fastMode",
                 "maxThinking",
+                "modelName",
             ]
         )
         nullable_fields = set(
@@ -117,6 +122,7 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
                 "vllmModelId",
                 "fastMode",
                 "maxThinking",
+                "modelName",
             ]
         )
         serialized = handler(self)

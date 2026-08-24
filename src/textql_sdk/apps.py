@@ -20,9 +20,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceAppHeartbeatResponse:
-        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
-
-        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+        r"""AppHeartbeat
 
         :param connect_timeout_ms:
         :param app_id: full replacement for the calling member
@@ -124,9 +122,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceAppHeartbeatResponse:
-        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
-
-        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+        r"""AppHeartbeat
 
         :param connect_timeout_ms:
         :param app_id: full replacement for the calling member
@@ -1166,9 +1162,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Replaces the calling member's entire ordering; capped server-side.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Replaces the calling member's entire ordering; capped server-side.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1272,9 +1268,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""Replaces the calling member's entire ordering; capped server-side.
 
-        View analytics: reads the engagement views recorded on app page load.
+        Replaces the calling member's entire ordering; capped server-side.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1380,10 +1376,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1493,10 +1488,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""Staff-only (superadmin gated in-handler): publishes the embedded component  gallery as an app tree and returns its signed viewer URL.
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Staff-only (superadmin gated in-handler): publishes the embedded component
-        gallery as an app tree and returns its signed viewer URL.
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1604,7 +1598,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""GetAppMemberState
+        r"""Per-member notification subscription to an app (\"watch this app\").
+
+        Per-member notification subscription to an app (\"watch this app\").
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1708,7 +1704,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""GetAppMemberState
+        r"""Per-member notification subscription to an app (\"watch this app\").
+
+        Per-member notification subscription to an app (\"watch this app\").
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1814,9 +1812,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppVersionResponse:
-        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+        r"""Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
-        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+        Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1926,9 +1924,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppVersionResponse:
-        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+        r"""Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
-        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+        Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2036,9 +2034,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""Per-member notification subscription to an app (\"watch this app\").
+        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
-        Per-member notification subscription to an app (\"watch this app\").
+        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2142,9 +2140,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""Per-member notification subscription to an app (\"watch this app\").
+        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
-        Per-member notification subscription to an app (\"watch this app\").
+        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2685,10 +2683,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 
-        Lists the calling member's favorited library items (apps, dashboards,
-        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+        Favorite/unfavorite a library item (app or dashboard) for the calling member.
+        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+        since the merged library page pins apps and dashboards through one client.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2801,10 +2800,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Lists the calling member's favorited library items (apps, dashboards,  agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 
-        Lists the calling member's favorited library items (apps, dashboards,
-        agents) for the sidebar Pinned section: id, type, name, preview screenshot.
+        Favorite/unfavorite a library item (app or dashboard) for the calling member.
+        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+        since the merged library page pins apps and dashboards through one client.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2916,14 +2916,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppVersionsResponse:
-        r"""Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
-        Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
         :param connect_timeout_ms:
         :param app_id:
-        :param limit: Routing observability: warm | warm_fallback | tql | sql.
-        :param offset: Whether this invoke paid phase-1 module definition (cold imports).
+        :param limit:
+        :param offset:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3028,14 +3028,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppVersionsResponse:
-        r"""Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
-        Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
         :param connect_timeout_ms:
         :param app_id:
-        :param limit: Routing observability: warm | warm_fallback | tql | sql.
-        :param offset: Whether this invoke paid phase-1 module definition (cold imports).
+        :param limit:
+        :param offset:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3378,11 +3378,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
 
-        Favorite/unfavorite a library item (app or dashboard) for the calling member.
-        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
-        since the merged library page pins apps and dashboards through one client.
+        Watcher management: app owners/editors and org admins list the app's
+        subscribers and add/remove members (Upsert/Delete with member_id).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3492,11 +3491,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
 
-        Favorite/unfavorite a library item (app or dashboard) for the calling member.
-        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
-        since the merged library page pins apps and dashboards through one client.
+        Watcher management: app owners/editors and org admins list the app's
+        subscribers and add/remove members (Upsert/Delete with member_id).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3605,9 +3603,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceMoveAppToFolderResponse:
-        r"""Moves an app into a library folder (or to root when folder_id is empty).
-
-        Moves an app into a library folder (or to root when folder_id is empty).
+        r"""MoveAppToFolder
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3714,9 +3710,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceMoveAppToFolderResponse:
-        r"""Moves an app into a library folder (or to root when folder_id is empty).
-
-        Moves an app into a library folder (or to root when folder_id is empty).
+        r"""MoveAppToFolder
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3823,9 +3817,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Replaces the calling member's entire ordering; capped server-side.
+        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
 
-        Replaces the calling member's entire ordering; capped server-side.
+        Ordering overlay for the sidebar Bookmarks section: one position list per
+        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
+        Membership truth stays in library_favorite / chat bookmarks; this persists
+        only the drag-and-drop order.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3930,9 +3927,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Replaces the calling member's entire ordering; capped server-side.
+        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
 
-        Replaces the calling member's entire ordering; capped server-side.
+        Ordering overlay for the sidebar Bookmarks section: one position list per
+        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
+        Membership truth stays in library_favorite / chat bookmarks; this persists
+        only the drag-and-drop order.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4040,10 +4040,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-
-        Watcher management: app owners/editors and org admins list the app's
-        subscribers and add/remove members (Upsert/Delete with member_id).
+        r"""RecordAppMemberActivity
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4159,10 +4156,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-
-        Watcher management: app owners/editors and org admins list the app's
-        subscribers and add/remove members (Upsert/Delete with member_id).
+        r"""RecordAppMemberActivity
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4274,9 +4268,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRefreshAppResponse:
-        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        r"""Moves an app into a library folder (or to root when folder_id is empty).
 
-        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        Moves an app into a library folder (or to root when folder_id is empty).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4380,9 +4374,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRefreshAppResponse:
-        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        r"""Moves an app into a library folder (or to root when folder_id is empty).
 
-        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        Moves an app into a library folder (or to root when folder_id is empty).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4488,7 +4482,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRestoreAppVersionResponse:
-        r"""RestoreAppVersion
+        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+
+        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4598,7 +4594,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRestoreAppVersionResponse:
-        r"""RestoreAppVersion
+        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+
+        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4922,9 +4920,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetFavoriteResponse:
-        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
-        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
         :param connect_timeout_ms:
         :param primitive_type: optional; empty = current default vendor set
@@ -5034,9 +5032,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetFavoriteResponse:
-        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
-        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
         :param connect_timeout_ms:
         :param primitive_type: optional; empty = current default vendor set

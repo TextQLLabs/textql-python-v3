@@ -9,18 +9,18 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetCompletionParametersBatchRequestTypedDict(TypedDict):
-    chat_id: NotRequired[str]
+    chat_id: str
     cell_ids: NotRequired[List[str]]
 
 
 class TextqlRPCPublicChatGetCompletionParametersBatchRequest(BaseModel):
-    chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
+    chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     cell_ids: Annotated[Optional[List[str]], pydantic.Field(alias="cellIds")] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["chatId", "cellIds"])
+        optional_fields = set(["cellIds"])
         serialized = handler(self)
         m = {}
 
