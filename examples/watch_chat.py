@@ -144,7 +144,7 @@ async def main() -> None:
     # for the life of the chat.
     created = await sdk.chats.create_chat_async(
         message=message,
-        model="MODEL_SONNET_4_6",
+        model="MODEL_SONNET_5",
         paradigm=paradigm,
     )
     if isinstance(created, ConnectError):
