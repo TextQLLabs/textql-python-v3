@@ -9,7 +9,7 @@
 * [get](#get) - GetOrganizationSettings
 * [invite_member](#invite_member) - InviteOrganizationMember
 * [list_members](#list_members) - ListOrganizationMembers
-* [update_model_settings](#update_model_settings) - UpdateOrganizationModelSettings
+* [update_models](#update_models) - UpdateOrganizationModelSettings
 * [update](#update) - UpdateOrganizationSettings
 
 ## check_member_status
@@ -221,7 +221,7 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
-## update_model_settings
+## update_models
 
 UpdateOrganizationModelSettings
 
@@ -237,7 +237,7 @@ with Textql(
     api_key=os.getenv("TEXTQL_API_KEY", ""),
 ) as textql:
 
-    res = textql.settings.update_model_settings()
+    res = textql.settings.update_models()
 
     # Handle response
     print(res)

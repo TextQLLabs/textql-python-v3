@@ -8510,10 +8510,10 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListGoldenFilesResponse:
-        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
 
         Deprecated: use SetOntologyOwners with the desired entry set. An empty
-        desired set is not currently supported, so retain this RPC for deletion.
+        desired set removes every entry and opens the directory.
 
         :param body:
         :param connect_timeout_ms:
@@ -8620,10 +8620,10 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListGoldenFilesResponse:
-        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
 
         Deprecated: use SetOntologyOwners with the desired entry set. An empty
-        desired set is not currently supported, so retain this RPC for deletion.
+        desired set removes every entry and opens the directory.
 
         :param body:
         :param connect_timeout_ms:

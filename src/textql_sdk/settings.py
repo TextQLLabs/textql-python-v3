@@ -1080,7 +1080,7 @@ class Settings(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def update_model_settings(
+    def update_models(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
@@ -1212,7 +1212,7 @@ class Settings(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def update_model_settings_async(
+    async def update_models_async(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,

@@ -40,7 +40,7 @@
 * [list_approval_rules](#list_approval_rules) - ListApprovalRules
 * [list_chats_for_file](#list_chats_for_file) - ListChatsForFile
 * [list_context_patch_auto_approve_rules](#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
-* [list_golden_files](#list_golden_files) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+* [list_golden_files](#list_golden_files) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
 * [list_entries](#list_entries) - ListOntologyEntries
 * [list_history](#list_history) - ListOntologyHistory
 * [list_imports](#list_imports) - ListOntologyImports
@@ -1597,7 +1597,7 @@ with Textql(
 ## list_golden_files
 
 Deprecated: use SetOntologyOwners with the desired entry set. An empty
- desired set is not currently supported, so retain this RPC for deletion.
+ desired set removes every entry and opens the directory.
 
 ### Example Usage
 
