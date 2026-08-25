@@ -439,7 +439,7 @@ with Textql(
 * [list_approval_rules](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_approval_rules) - ListApprovalRules
 * [list_chats_for_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_chats_for_file) - ListChatsForFile
 * [list_context_patch_auto_approve_rules](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
-* [list_golden_files](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_golden_files) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set is not currently supported, so retain this RPC for deletion.
+* [list_golden_files](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_golden_files) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
 * [list_entries](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_entries) - ListOntologyEntries
 * [list_history](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_history) - ListOntologyHistory
 * [list_imports](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_imports) - ListOntologyImports
@@ -623,7 +623,7 @@ with Textql(
 * [get](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#get) - GetOrganizationSettings
 * [invite_member](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#invite_member) - InviteOrganizationMember
 * [list_members](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#list_members) - ListOrganizationMembers
-* [update_model_settings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#update_model_settings) - UpdateOrganizationModelSettings
+* [update_models](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#update_models) - UpdateOrganizationModelSettings
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md#update) - UpdateOrganizationSettings
 
 ### [Slack](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/slack/README.md)
