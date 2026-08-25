@@ -8,10 +8,7 @@ from typing import Literal, Union
 TextqlRPCPublicChatLlmModel = Union[
     Literal[
         "MODEL_UNKNOWN",
-        "MODEL_DEFAULT_SMALL",
         "MODEL_DEFAULT",
-        "MODEL_DEFAULT_LARGE",
-        "MODEL_DEFAULT_REASONING",
         "MODEL_DEFAULT_SYSTEM",
         "MODEL_HAIKU_4_5",
         "MODEL_OPUS_4_8",

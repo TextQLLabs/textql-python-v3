@@ -15,10 +15,7 @@ value: TextqlRPCPublicChatLlmModel = "MODEL_UNKNOWN"
 This is an open enum. Unrecognized values will not fail type checks.
 
 - `"MODEL_UNKNOWN"`
-- `"MODEL_DEFAULT_SMALL"`
 - `"MODEL_DEFAULT"`
-- `"MODEL_DEFAULT_LARGE"`
-- `"MODEL_DEFAULT_REASONING"`
 - `"MODEL_DEFAULT_SYSTEM"`
 - `"MODEL_HAIKU_4_5"`
 - `"MODEL_OPUS_4_8"`
