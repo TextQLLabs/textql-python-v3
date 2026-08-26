@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: ce57ccbd13fd199e98ffa69a574e61a4
+  docChecksum: fbd403f3cb694415633254a27e881a69
   docVersion: 1.0.0
   speakeasyVersion: 1.795.3
   generationVersion: 2.932.9
-  releaseVersion: 1.1.7
-  configChecksum: d6e8cd27f779fc123451ef8742938bb9
+  releaseVersion: 1.1.8
+  configChecksum: debe0308ee67a3f26d916bcc55c849ae
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 039ef2c3-3347-4b20-8e0d-7c6e8abd3ee6
-  pristine_commit_hash: b6e9469b196f283fba398de0a12733d610607a56
-  pristine_tree_hash: 44581f4beb0a18192b23213f87f90987ce4b05dc
+  generation_id: f9ee6159-59d9-4e5f-a9ec-9afe4eb13ef6
+  pristine_commit_hash: b3e2b5b18c905a9880332902d001f4e8df4165a5
+  pristine_tree_hash: 1fac53bd8e19c6673a362fc8d0e184ff0be1cd1b
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9811,8 +9811,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:a38949d796a30fcc9511311baf3c076d4aeed3ee
-    pristine_git_object: 24680eab79ad4498af73bb0af74ec065b2e03e67
+    last_write_checksum: sha1:99898cd8700e0a686cda110ca6d023beb49bce32
+    pristine_git_object: adc1de0648daac4c534d0b9b0ca23f087e1e998d
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9839,8 +9839,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:4f09ff9f69a6b3d09770426473ad89637735c3fe
-    pristine_git_object: 33c86418b59400a79b201379f9beb17faecb1b75
+    last_write_checksum: sha1:11fd2c047c8d104ada39aef0a91e3086cd3a626c
+    pristine_git_object: 458bda860259dd213983ab15e134430b118958e4
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:865c3c9444ec0da3e0805e7079a5004099ac0dc8

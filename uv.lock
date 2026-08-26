@@ -470,7 +470,7 @@ wheels = [
 
 [[package]]
 name = "textql-sdk"
-version = "1.1.7"
+version = "1.1.8"
 source = { editable = "." }
 dependencies = [
     { name = "connect-python" },
