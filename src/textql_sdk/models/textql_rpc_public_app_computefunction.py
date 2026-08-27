@@ -27,8 +27,11 @@ class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
     description: NotRequired[str]
     params: NotRequired[List[TextqlRPCPublicAppComputeFunctionParamTypedDict]]
     returns: NotRequired[Nullable[str]]
+    r"""Filter by specific folder"""
     code: NotRequired[str]
+    r"""Only show apps with no folder"""
     tql_path: NotRequired[Nullable[str]]
+    r"""Only apps shared with the caller (not authored by them)"""
     tql: NotRequired[Nullable[str]]
     grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
     r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
@@ -45,10 +48,13 @@ class TextqlRPCPublicAppComputeFunction(BaseModel):
     params: Optional[List[TextqlRPCPublicAppComputeFunctionParam]] = None
 
     returns: OptionalNullable[str] = UNSET
+    r"""Filter by specific folder"""
 
     code: Optional[str] = None
+    r"""Only show apps with no folder"""
 
     tql_path: Annotated[OptionalNullable[str], pydantic.Field(alias="tqlPath")] = UNSET
+    r"""Only apps shared with the caller (not authored by them)"""
 
     tql: OptionalNullable[str] = UNSET
 

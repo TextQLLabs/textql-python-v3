@@ -34,6 +34,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppAppTypedDict(TypedDict):
     id: NotRequired[str]
     org_id: NotRequired[str]
+    r"""the COMPLETE tree; files omitted here are deleted"""
     creator_id: NotRequired[str]
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
@@ -427,6 +428,7 @@ class TextqlRPCPublicAppApp(BaseModel):
     id: Optional[str] = None
 
     org_id: Annotated[Optional[str], pydantic.Field(alias="orgId")] = None
+    r"""the COMPLETE tree; files omitted here are deleted"""
 
     creator_id: Annotated[Optional[str], pydantic.Field(alias="creatorId")] = None
 

@@ -15,21 +15,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppGetAppVersionRequestTypedDict(TypedDict):
-    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
-    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
-    """
-
     app_id: NotRequired[str]
+    r"""False when the document predates tree publishing and has no runtime to overwrite."""
     version_number: NotRequired[int]
     commit_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicAppGetAppVersionRequest(BaseModel):
-    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
-    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
-    """
-
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""False when the document predates tree publishing and has no runtime to overwrite."""
 
     version_number: Annotated[Optional[int], pydantic.Field(alias="versionNumber")] = (
         None

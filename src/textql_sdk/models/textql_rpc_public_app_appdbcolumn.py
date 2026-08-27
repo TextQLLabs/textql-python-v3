@@ -9,24 +9,26 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppDBColumnTypedDict(TypedDict):
-    r"""View analytics"""
-
     name: NotRequired[str]
+    r"""running | stopped | error"""
     type: NotRequired[str]
+    r"""import/exec failure of the author module"""
     nullable: NotRequired[bool]
     primary_key: NotRequired[bool]
+    r"""tail of the server process log, redacted"""
 
 
 class TextqlRPCPublicAppAppDBColumn(BaseModel):
-    r"""View analytics"""
-
     name: Optional[str] = None
+    r"""running | stopped | error"""
 
     type: Optional[str] = None
+    r"""import/exec failure of the author module"""
 
     nullable: Optional[bool] = None
 
     primary_key: Annotated[Optional[bool], pydantic.Field(alias="primaryKey")] = None
+    r"""tail of the server process log, redacted"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

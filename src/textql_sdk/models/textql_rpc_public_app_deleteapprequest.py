@@ -10,10 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppDeleteAppRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
+    r"""full replacement for the calling member"""
 
 
 class TextqlRPCPublicAppDeleteAppRequest(BaseModel):
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""full replacement for the calling member"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
