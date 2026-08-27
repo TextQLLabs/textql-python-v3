@@ -3,23 +3,23 @@ id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
   docChecksum: fbd403f3cb694415633254a27e881a69
   docVersion: 1.0.0
-  speakeasyVersion: 1.795.3
-  generationVersion: 2.932.9
-  releaseVersion: 1.1.8
-  configChecksum: debe0308ee67a3f26d916bcc55c849ae
+  speakeasyVersion: 1.796.0
+  generationVersion: 2.932.15
+  releaseVersion: 1.1.9
+  configChecksum: c71fb722e1bdd38506ba52d3157ab9f8
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: f9ee6159-59d9-4e5f-a9ec-9afe4eb13ef6
-  pristine_commit_hash: b3e2b5b18c905a9880332902d001f4e8df4165a5
-  pristine_tree_hash: 1fac53bd8e19c6673a362fc8d0e184ff0be1cd1b
+  generation_id: 1eb65362-6641-4319-9479-347c0fe5db7d
+  pristine_commit_hash: 6f723d046c3abecbaef49e4561b3b3b505e79f03
+  pristine_tree_hash: ac2593e6b3969531798a979325220c191534d780
 features:
   python:
     additionalDependencies: 1.1.0
     additionalProperties: 1.0.2
     constsAndDefaults: 1.0.7
-    core: 6.1.0
+    core: 6.1.2
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -37,7 +37,7 @@ features:
     nameOverrides: 3.0.3
     nullables: 1.0.2
     responseFormat: 1.1.0
-    retries: 3.1.0
+    retries: 3.1.1
     sdkHooks: 1.3.0
     unions: 3.1.9
 trackedFiles:
@@ -9811,8 +9811,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:99898cd8700e0a686cda110ca6d023beb49bce32
-    pristine_git_object: adc1de0648daac4c534d0b9b0ca23f087e1e998d
+    last_write_checksum: sha1:fefed4ef5ab329d122944e021d2d26cb2697f848
+    pristine_git_object: 46db42680b1f4ffc0217f8d79b5c7e8cca5c77eb
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9839,8 +9839,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:11fd2c047c8d104ada39aef0a91e3086cd3a626c
-    pristine_git_object: 458bda860259dd213983ab15e134430b118958e4
+    last_write_checksum: sha1:de770d622f03a79efb4b909b78d11fe6e5b0d5c7
+    pristine_git_object: 451277403bda7ed50a1763e3392624dbe7698d03
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:865c3c9444ec0da3e0805e7079a5004099ac0dc8
@@ -16659,8 +16659,8 @@ trackedFiles:
     pristine_git_object: 591415af8e64baa410627b507d2740afb5387d13
   src/textql_sdk/utils/retries.py:
     id: 5b4c824a487d
-    last_write_checksum: sha1:481dfc7cd6a07a3987f0f443e91bee72888ae41d
-    pristine_git_object: c7418a62826fc73990a52e70df0d54093c5e2a57
+    last_write_checksum: sha1:251e4dd969bb6c06025afe1bad1b5035e94c2060
+    pristine_git_object: 406c1e7c36c7a4fa4fb48bb567d254e2803e1792
   src/textql_sdk/utils/security.py:
     id: efd3b1ad1cf2
     last_write_checksum: sha1:2ca867d1f68b1cb50cf4e02aa3d8c47fed72a752
