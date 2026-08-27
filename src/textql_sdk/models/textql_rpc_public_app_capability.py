@@ -21,7 +21,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppCapabilityTypedDict(TypedDict):
     type: NotRequired[str]
     name: NotRequired[Nullable[str]]
-    r"""string | number | boolean | object | array"""
+    r"""whether the caller may edit this app (HasAppWriteAccess)"""
     connector_id: NotRequired[Nullable[int]]
     statement: NotRequired[Nullable[str]]
     scope: NotRequired[Nullable[str]]
@@ -36,7 +36,7 @@ class TextqlRPCPublicAppCapability(BaseModel):
     type: Optional[str] = None
 
     name: OptionalNullable[str] = UNSET
-    r"""string | number | boolean | object | array"""
+    r"""whether the caller may edit this app (HasAppWriteAccess)"""
 
     connector_id: Annotated[
         OptionalNullable[int], pydantic.Field(alias="connectorId")

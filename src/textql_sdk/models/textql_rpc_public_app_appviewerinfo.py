@@ -16,6 +16,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppViewerInfoTypedDict(TypedDict):
+    r"""AppServer declares whether the app runs an optional persistent server: a
+    long-lived python process in the app's dedicated worker. Its handlers serve
+    webhook deliveries and server-handled compute functions, and module globals
+    persist between requests (until the worker recycles). The server's source is
+    not stored here — it lives in the app's file tree under `server/`, with
+    `server/main.py` as the entry module (importing sibling `server/*.py` files).
+    """
+
     member_id: NotRequired[str]
     last_viewed: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -109,12 +117,19 @@ class TextqlRPCPublicAppAppViewerInfoTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     view_count: NotRequired[int]
-    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
     display_name: NotRequired[Nullable[str]]
     recent_view_times: NotRequired[List[datetime]]
 
 
 class TextqlRPCPublicAppAppViewerInfo(BaseModel):
+    r"""AppServer declares whether the app runs an optional persistent server: a
+    long-lived python process in the app's dedicated worker. Its handlers serve
+    webhook deliveries and server-handled compute functions, and module globals
+    persist between requests (until the worker recycles). The server's source is
+    not stored here — it lives in the app's file tree under `server/`, with
+    `server/main.py` as the entry module (importing sibling `server/*.py` files).
+    """
+
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     last_viewed: Annotated[Optional[datetime], pydantic.Field(alias="lastViewed")] = (
@@ -212,7 +227,6 @@ class TextqlRPCPublicAppAppViewerInfo(BaseModel):
     """
 
     view_count: Annotated[Optional[int], pydantic.Field(alias="viewCount")] = None
-    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
 
     display_name: Annotated[
         OptionalNullable[str], pydantic.Field(alias="displayName")

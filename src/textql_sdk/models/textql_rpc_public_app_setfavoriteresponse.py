@@ -9,12 +9,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicAppSetFavoriteResponseTypedDict(TypedDict):
     favorited: NotRequired[bool]
-    r"""signed /asset/apptree viewer URL for the published gallery tree"""
 
 
 class TextqlRPCPublicAppSetFavoriteResponse(BaseModel):
     favorited: Optional[bool] = None
-    r"""signed /asset/apptree viewer URL for the published gallery tree"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

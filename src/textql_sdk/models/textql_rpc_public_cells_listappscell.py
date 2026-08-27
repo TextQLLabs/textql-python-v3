@@ -19,25 +19,31 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsListAppsCellTypedDict(TypedDict):
+    r"""create_design_system tool: authors/edits an org Data App design system."""
+
     search_term: NotRequired[str]
+    r"""create | edit"""
     app_id: NotRequired[str]
-    r"""Set for single-app lookup"""
     total_count: NotRequired[int]
     error_message: NotRequired[Nullable[str]]
+    r"""in-product viewer route"""
     apps: NotRequired[List[TextqlRPCPublicCellsAppInfoTypedDict]]
 
 
 class TextqlRPCPublicCellsListAppsCell(BaseModel):
+    r"""create_design_system tool: authors/edits an org Data App design system."""
+
     search_term: Annotated[Optional[str], pydantic.Field(alias="searchTerm")] = None
+    r"""create | edit"""
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
-    r"""Set for single-app lookup"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
 
     error_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorMessage")
     ] = UNSET
+    r"""in-product viewer route"""
 
     apps: Optional[List[TextqlRPCPublicCellsAppInfo]] = None
 

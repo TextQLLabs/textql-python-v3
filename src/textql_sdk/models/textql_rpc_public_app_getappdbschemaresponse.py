@@ -15,13 +15,13 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict = TypeAliasType(
     "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict", Union[int, str]
 )
-r"""DuckDB type name, e.g. \"VARCHAR\", \"BIGINT\" """
+r"""Routing observability: warm | warm_fallback | tql | sql."""
 
 
 TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes = TypeAliasType(
     "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes", Union[int, str]
 )
-r"""DuckDB type name, e.g. \"VARCHAR\", \"BIGINT\" """
+r"""Routing observability: warm | warm_fallback | tql | sql."""
 
 
 class TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict(TypedDict):
@@ -29,7 +29,7 @@ class TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict(TypedDict):
     change_log_bytes: NotRequired[
         TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict
     ]
-    r"""DuckDB type name, e.g. \"VARCHAR\", \"BIGINT\" """
+    r"""Routing observability: warm | warm_fallback | tql | sql."""
 
 
 class TextqlRPCPublicAppGetAppDBSchemaResponse(BaseModel):
@@ -39,7 +39,7 @@ class TextqlRPCPublicAppGetAppDBSchemaResponse(BaseModel):
         Optional[TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes],
         pydantic.Field(alias="changeLogBytes"),
     ] = None
-    r"""DuckDB type name, e.g. \"VARCHAR\", \"BIGINT\" """
+    r"""Routing observability: warm | warm_fallback | tql | sql."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -10,10 +10,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppGetAppRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
+    r"""signed /asset/apptree viewer URL for the published gallery tree"""
 
 
 class TextqlRPCPublicAppGetAppRequest(BaseModel):
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""signed /asset/apptree viewer URL for the published gallery tree"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

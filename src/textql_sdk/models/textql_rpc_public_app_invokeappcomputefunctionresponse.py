@@ -10,12 +10,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionResponseTypedDict(TypedDict):
     result_json: NotRequired[str]
-    r"""running | stopped | error"""
 
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionResponse(BaseModel):
     result_json: Annotated[Optional[str], pydantic.Field(alias="resultJson")] = None
-    r"""running | stopped | error"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -23,7 +23,7 @@ class Apps(BaseSDK):
         r"""AppHeartbeat
 
         :param connect_timeout_ms:
-        :param app_id: full replacement for the calling member
+        :param app_id: the resolved default after the change; unset when cleared
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -125,7 +125,7 @@ class Apps(BaseSDK):
         r"""AppHeartbeat
 
         :param connect_timeout_ms:
-        :param app_id: full replacement for the calling member
+        :param app_id: the resolved default after the change; unset when cleared
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -537,7 +537,7 @@ class Apps(BaseSDK):
         r"""DeleteApp
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: full replacement for the calling member
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -639,7 +639,7 @@ class Apps(BaseSDK):
         r"""DeleteApp
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: full replacement for the calling member
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -957,7 +957,7 @@ class Apps(BaseSDK):
         r"""GetApp
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: signed /asset/apptree viewer URL for the published gallery tree
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1061,7 +1061,7 @@ class Apps(BaseSDK):
         r"""GetApp
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: signed /asset/apptree viewer URL for the published gallery tree
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1381,7 +1381,7 @@ class Apps(BaseSDK):
         View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: normalized relative path, forward slashes, no .. or leading /
         :param table_name:
         :param limit:
         :param retries: Override the default retry configuration for this method
@@ -1493,7 +1493,7 @@ class Apps(BaseSDK):
         View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: normalized relative path, forward slashes, no .. or leading /
         :param table_name:
         :param limit:
         :param retries: Override the default retry configuration for this method
@@ -1817,7 +1817,7 @@ class Apps(BaseSDK):
         Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: False when the document predates tree publishing and has no runtime to overwrite.
         :param version_number:
         :param commit_id:
         :param retries: Override the default retry configuration for this method
@@ -1929,7 +1929,7 @@ class Apps(BaseSDK):
         Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
 
         :param connect_timeout_ms:
-        :param app_id:
+        :param app_id: False when the document predates tree publishing and has no runtime to overwrite.
         :param version_number:
         :param commit_id:
         :param retries: Override the default retry configuration for this method
@@ -4925,9 +4925,9 @@ class Apps(BaseSDK):
         Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
         :param connect_timeout_ms:
-        :param primitive_type: optional; empty = current default vendor set
-        :param primitive_id: optional; empty = default indigo #6366f1
-        :param favorited:
+        :param primitive_type:
+        :param primitive_id:
+        :param favorited: \"\" = brand/default accent
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5037,9 +5037,9 @@ class Apps(BaseSDK):
         Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
         :param connect_timeout_ms:
-        :param primitive_type: optional; empty = current default vendor set
-        :param primitive_id: optional; empty = default indigo #6366f1
-        :param favorited:
+        :param primitive_type:
+        :param primitive_id:
+        :param favorited: \"\" = brand/default accent
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

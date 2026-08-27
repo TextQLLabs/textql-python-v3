@@ -12,14 +12,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppGetMembersWithAppsResponseTypedDict(TypedDict):
-    r"""List responses omit code (heavyweight); fetch a single app for it."""
-
     members: NotRequired[List[TextqlRPCIdentityMemberPreviewTypedDict]]
 
 
 class TextqlRPCPublicAppGetMembersWithAppsResponse(BaseModel):
-    r"""List responses omit code (heavyweight); fetch a single app for it."""
-
     members: Optional[List[TextqlRPCIdentityMemberPreview]] = None
 
     @model_serializer(mode="wrap")

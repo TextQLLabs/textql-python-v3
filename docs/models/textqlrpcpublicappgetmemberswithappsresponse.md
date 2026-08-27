@@ -1,7 +1,5 @@
 # TextqlRPCPublicAppGetMembersWithAppsResponse
 
-List responses omit code (heavyweight); fetch a single app for it.
-
 
 ## Fields
 

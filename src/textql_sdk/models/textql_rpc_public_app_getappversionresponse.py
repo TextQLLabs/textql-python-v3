@@ -13,12 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicAppGetAppVersionResponseTypedDict(TypedDict):
     version: NotRequired[TextqlRPCPublicAppAppVersionTypedDict]
-    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
 
 
 class TextqlRPCPublicAppGetAppVersionResponse(BaseModel):
     version: Optional[TextqlRPCPublicAppAppVersion] = None
-    r"""AppFile is one non-entry file of a multi-file app tree; code remains the entry index.html."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
