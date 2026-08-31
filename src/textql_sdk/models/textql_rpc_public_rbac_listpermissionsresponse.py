@@ -12,14 +12,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacListPermissionsResponseTypedDict(TypedDict):
-    r"""Permission management requests/responses"""
-
     permissions: NotRequired[List[TextqlRPCPublicRbacPermissionTypedDict]]
 
 
 class TextqlRPCPublicRbacListPermissionsResponse(BaseModel):
-    r"""Permission management requests/responses"""
-
     permissions: Optional[List[TextqlRPCPublicRbacPermission]] = None
 
     @model_serializer(mode="wrap")

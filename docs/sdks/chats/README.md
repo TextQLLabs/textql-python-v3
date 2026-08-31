@@ -21,6 +21,7 @@
 * [duplicate_chat](#duplicate_chat) - DuplicateChat
 * [get_api_answer](#get_api_answer) - GetAPIChatAnswer
 * [get_artifact](#get_artifact) - GetArtifact
+* [get_auto_attached_files](#get_auto_attached_files) - GetAutoAttachedFiles
 * [get](#get) - GetChat
 * [get_artifacts_summary](#get_artifacts_summary) - GetChatArtifactsSummary
 * [get_chat_execution_timing](#get_chat_execution_timing) - GetChatExecutionTiming
@@ -537,7 +538,7 @@ with Textql(
 | `dashboard_mode`                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | whether to enable dashboard mode for this chat                                                                                                           |
 | `methodology`                                                                                                                                            | [Optional[models.TextqlRPCPublicChatMethodology]](../../models/textqlrpcpublicchatmethodology.md)                                                        | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
 | `vllm_model_id`                                                                                                                                          | *OptionalNullable[str]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                       | vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.<br/> Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.   |
-| `fast_mode`                                                                                                                                              | *OptionalNullable[bool]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | fast_mode enables Anthropic's fast inference (speed: "fast") for this chat.<br/> Currently supported on Opus 4.6 only. Pricing is 6x standard rates.     |
+| `fast_mode`                                                                                                                                              | *OptionalNullable[bool]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | fast_mode enables Anthropic's fast inference (speed: "fast") for this chat.<br/> Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.         |
 | `max_thinking`                                                                                                                                           | *OptionalNullable[bool]*                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | max_thinking runs extended thinking at max effort with visible reasoning.<br/> Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna. |
 | `model_name`                                                                                                                                             | *OptionalNullable[str]*                                                                                                                                  | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
 | `retries`                                                                                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                         | :heavy_minus_sign:                                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                                      |
@@ -761,6 +762,47 @@ with Textql(
 ### Response
 
 **[models.ChatServiceGetArtifactResponse](../../models/chatservicegetartifactresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_auto_attached_files
+
+GetAutoAttachedFiles
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ChatService_GetAutoAttachedFiles" method="post" path="/textql.rpc.public.chat.ChatService/GetAutoAttachedFiles" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.chats.get_auto_attached_files(chat_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `chat_id`                                                           | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ChatServiceGetAutoAttachedFilesResponse](../../models/chatservicegetautoattachedfilesresponse.md)**
 
 ### Errors
 

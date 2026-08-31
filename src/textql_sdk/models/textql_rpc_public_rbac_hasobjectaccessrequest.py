@@ -19,6 +19,7 @@ class TextqlRPCPublicRbacHasObjectAccessRequestTypedDict(TypedDict):
     object_id: NotRequired[str]
     member_id: NotRequired[Nullable[str]]
     role_id: NotRequired[Nullable[str]]
+    r"""owner, editor, viewer"""
 
 
 class TextqlRPCPublicRbacHasObjectAccessRequest(BaseModel):
@@ -31,6 +32,7 @@ class TextqlRPCPublicRbacHasObjectAccessRequest(BaseModel):
     )
 
     role_id: Annotated[OptionalNullable[str], pydantic.Field(alias="roleId")] = UNSET
+    r"""owner, editor, viewer"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -20,6 +20,7 @@ class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
     id: NotRequired[str]
     member_id: NotRequired[str]
     client_id: NotRequired[str]
+    r"""pending, approved, rejected"""
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -308,6 +309,7 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     client_id: Annotated[Optional[str], pydantic.Field(alias="clientId")] = None
+    r"""pending, approved, rejected"""
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

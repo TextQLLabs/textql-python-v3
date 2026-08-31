@@ -251,6 +251,12 @@ if TYPE_CHECKING:
         AppServiceUpdateAppResponse,
         AppServiceUpdateAppResponseTypedDict,
     )
+    from .appservice_verifyapprenderop import (
+        AppServiceVerifyAppRenderRequest,
+        AppServiceVerifyAppRenderRequestTypedDict,
+        AppServiceVerifyAppRenderResponse,
+        AppServiceVerifyAppRenderResponseTypedDict,
+    )
     from .auditlogservice_configureotlpexportop import (
         AuditLogServiceConfigureOtlpExportRequest,
         AuditLogServiceConfigureOtlpExportRequestTypedDict,
@@ -418,6 +424,12 @@ if TYPE_CHECKING:
         ChatServiceGetArtifactRequestTypedDict,
         ChatServiceGetArtifactResponse,
         ChatServiceGetArtifactResponseTypedDict,
+    )
+    from .chatservice_getautoattachedfilesop import (
+        ChatServiceGetAutoAttachedFilesRequest,
+        ChatServiceGetAutoAttachedFilesRequestTypedDict,
+        ChatServiceGetAutoAttachedFilesResponse,
+        ChatServiceGetAutoAttachedFilesResponseTypedDict,
     )
     from .chatservice_getchatartifactssummaryop import (
         ChatServiceGetChatArtifactsSummaryRequest,
@@ -2896,6 +2908,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicAppUpdateAppResponse,
         TextqlRPCPublicAppUpdateAppResponseTypedDict,
     )
+    from .textql_rpc_public_app_verifyapprenderrequest import (
+        TextqlRPCPublicAppVerifyAppRenderRequest,
+        TextqlRPCPublicAppVerifyAppRenderRequestTypedDict,
+    )
+    from .textql_rpc_public_app_verifyapprenderresponse import (
+        TextqlRPCPublicAppVerifyAppRenderResponse,
+        TextqlRPCPublicAppVerifyAppRenderResponseTypedDict,
+    )
     from .textql_rpc_public_audit_log_auditlogentry import (
         TextqlRPCPublicAuditLogAuditLogEntry,
         TextqlRPCPublicAuditLogAuditLogEntryTypedDict,
@@ -3507,6 +3527,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicChatAttachDatasetResponse,
         TextqlRPCPublicChatAttachDatasetResponseTypedDict,
     )
+    from .textql_rpc_public_chat_autoattachedlibraryfile import (
+        TextqlRPCPublicChatAutoAttachedLibraryFile,
+        TextqlRPCPublicChatAutoAttachedLibraryFileTypedDict,
+    )
     from .textql_rpc_public_chat_bookmarkchatrequest import (
         TextqlRPCPublicChatBookmarkChatRequest,
         TextqlRPCPublicChatBookmarkChatRequestTypedDict,
@@ -3897,6 +3921,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicChatGetArtifactResponseFile,
         TextqlRPCPublicChatGetArtifactResponseFileTypedDict,
         TextqlRPCPublicChatGetArtifactResponseTypedDict,
+    )
+    from .textql_rpc_public_chat_getautoattachedfilesrequest import (
+        TextqlRPCPublicChatGetAutoAttachedFilesRequest,
+        TextqlRPCPublicChatGetAutoAttachedFilesRequestTypedDict,
+    )
+    from .textql_rpc_public_chat_getautoattachedfilesresponse import (
+        TextqlRPCPublicChatGetAutoAttachedFilesResponse,
+        TextqlRPCPublicChatGetAutoAttachedFilesResponseTypedDict,
     )
     from .textql_rpc_public_chat_getchatartifactssummaryrequest import (
         TextqlRPCPublicChatGetChatArtifactsSummaryRequest,
@@ -8175,6 +8207,10 @@ __all__ = [
     "AppServiceUpdateAppRequestTypedDict",
     "AppServiceUpdateAppResponse",
     "AppServiceUpdateAppResponseTypedDict",
+    "AppServiceVerifyAppRenderRequest",
+    "AppServiceVerifyAppRenderRequestTypedDict",
+    "AppServiceVerifyAppRenderResponse",
+    "AppServiceVerifyAppRenderResponseTypedDict",
     "Athena",
     "AthenaMetadata",
     "AthenaMetadataTypedDict",
@@ -8327,6 +8363,10 @@ __all__ = [
     "ChatServiceGetArtifactRequestTypedDict",
     "ChatServiceGetArtifactResponse",
     "ChatServiceGetArtifactResponseTypedDict",
+    "ChatServiceGetAutoAttachedFilesRequest",
+    "ChatServiceGetAutoAttachedFilesRequestTypedDict",
+    "ChatServiceGetAutoAttachedFilesResponse",
+    "ChatServiceGetAutoAttachedFilesResponseTypedDict",
     "ChatServiceGetChatArtifactsSummaryRequest",
     "ChatServiceGetChatArtifactsSummaryRequestTypedDict",
     "ChatServiceGetChatArtifactsSummaryResponse",
@@ -10246,6 +10286,10 @@ __all__ = [
     "TextqlRPCPublicAppUpdateAppRequestTypedDict",
     "TextqlRPCPublicAppUpdateAppResponse",
     "TextqlRPCPublicAppUpdateAppResponseTypedDict",
+    "TextqlRPCPublicAppVerifyAppRenderRequest",
+    "TextqlRPCPublicAppVerifyAppRenderRequestTypedDict",
+    "TextqlRPCPublicAppVerifyAppRenderResponse",
+    "TextqlRPCPublicAppVerifyAppRenderResponseTypedDict",
     "TextqlRPCPublicAuditLogAuditLogEntry",
     "TextqlRPCPublicAuditLogAuditLogEntryTypedDict",
     "TextqlRPCPublicAuditLogConfigureOtlpExportRequest",
@@ -10551,6 +10595,8 @@ __all__ = [
     "TextqlRPCPublicChatAttachDatasetRequestTypedDict",
     "TextqlRPCPublicChatAttachDatasetResponse",
     "TextqlRPCPublicChatAttachDatasetResponseTypedDict",
+    "TextqlRPCPublicChatAutoAttachedLibraryFile",
+    "TextqlRPCPublicChatAutoAttachedLibraryFileTypedDict",
     "TextqlRPCPublicChatBookmarkChatRequest",
     "TextqlRPCPublicChatBookmarkChatRequestTypedDict",
     "TextqlRPCPublicChatCancelStreamRequest",
@@ -10750,6 +10796,10 @@ __all__ = [
     "TextqlRPCPublicChatGetArtifactResponseFile",
     "TextqlRPCPublicChatGetArtifactResponseFileTypedDict",
     "TextqlRPCPublicChatGetArtifactResponseTypedDict",
+    "TextqlRPCPublicChatGetAutoAttachedFilesRequest",
+    "TextqlRPCPublicChatGetAutoAttachedFilesRequestTypedDict",
+    "TextqlRPCPublicChatGetAutoAttachedFilesResponse",
+    "TextqlRPCPublicChatGetAutoAttachedFilesResponseTypedDict",
     "TextqlRPCPublicChatGetChatArtifactsSummaryRequest",
     "TextqlRPCPublicChatGetChatArtifactsSummaryRequestTypedDict",
     "TextqlRPCPublicChatGetChatArtifactsSummaryResponse",
@@ -12913,6 +12963,10 @@ _dynamic_imports: dict[str, str] = {
     "AppServiceUpdateAppRequestTypedDict": ".appservice_updateappop",
     "AppServiceUpdateAppResponse": ".appservice_updateappop",
     "AppServiceUpdateAppResponseTypedDict": ".appservice_updateappop",
+    "AppServiceVerifyAppRenderRequest": ".appservice_verifyapprenderop",
+    "AppServiceVerifyAppRenderRequestTypedDict": ".appservice_verifyapprenderop",
+    "AppServiceVerifyAppRenderResponse": ".appservice_verifyapprenderop",
+    "AppServiceVerifyAppRenderResponseTypedDict": ".appservice_verifyapprenderop",
     "AuditLogServiceConfigureOtlpExportRequest": ".auditlogservice_configureotlpexportop",
     "AuditLogServiceConfigureOtlpExportRequestTypedDict": ".auditlogservice_configureotlpexportop",
     "AuditLogServiceConfigureOtlpExportResponse": ".auditlogservice_configureotlpexportop",
@@ -13025,6 +13079,10 @@ _dynamic_imports: dict[str, str] = {
     "ChatServiceGetArtifactRequestTypedDict": ".chatservice_getartifactop",
     "ChatServiceGetArtifactResponse": ".chatservice_getartifactop",
     "ChatServiceGetArtifactResponseTypedDict": ".chatservice_getartifactop",
+    "ChatServiceGetAutoAttachedFilesRequest": ".chatservice_getautoattachedfilesop",
+    "ChatServiceGetAutoAttachedFilesRequestTypedDict": ".chatservice_getautoattachedfilesop",
+    "ChatServiceGetAutoAttachedFilesResponse": ".chatservice_getautoattachedfilesop",
+    "ChatServiceGetAutoAttachedFilesResponseTypedDict": ".chatservice_getautoattachedfilesop",
     "ChatServiceGetChatArtifactsSummaryRequest": ".chatservice_getchatartifactssummaryop",
     "ChatServiceGetChatArtifactsSummaryRequestTypedDict": ".chatservice_getchatartifactssummaryop",
     "ChatServiceGetChatArtifactsSummaryResponse": ".chatservice_getchatartifactssummaryop",
@@ -14624,6 +14682,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAppUpdateAppRequestTypedDict": ".textql_rpc_public_app_updateapprequest",
     "TextqlRPCPublicAppUpdateAppResponse": ".textql_rpc_public_app_updateappresponse",
     "TextqlRPCPublicAppUpdateAppResponseTypedDict": ".textql_rpc_public_app_updateappresponse",
+    "TextqlRPCPublicAppVerifyAppRenderRequest": ".textql_rpc_public_app_verifyapprenderrequest",
+    "TextqlRPCPublicAppVerifyAppRenderRequestTypedDict": ".textql_rpc_public_app_verifyapprenderrequest",
+    "TextqlRPCPublicAppVerifyAppRenderResponse": ".textql_rpc_public_app_verifyapprenderresponse",
+    "TextqlRPCPublicAppVerifyAppRenderResponseTypedDict": ".textql_rpc_public_app_verifyapprenderresponse",
     "TextqlRPCPublicAuditLogAuditLogEntry": ".textql_rpc_public_audit_log_auditlogentry",
     "TextqlRPCPublicAuditLogAuditLogEntryTypedDict": ".textql_rpc_public_audit_log_auditlogentry",
     "TextqlRPCPublicAuditLogConfigureOtlpExportRequest": ".textql_rpc_public_audit_log_configureotlpexportrequest",
@@ -14935,6 +14997,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicChatAttachDatasetRequestTypedDict": ".textql_rpc_public_chat_attachdatasetrequest",
     "TextqlRPCPublicChatAttachDatasetResponse": ".textql_rpc_public_chat_attachdatasetresponse",
     "TextqlRPCPublicChatAttachDatasetResponseTypedDict": ".textql_rpc_public_chat_attachdatasetresponse",
+    "TextqlRPCPublicChatAutoAttachedLibraryFile": ".textql_rpc_public_chat_autoattachedlibraryfile",
+    "TextqlRPCPublicChatAutoAttachedLibraryFileTypedDict": ".textql_rpc_public_chat_autoattachedlibraryfile",
     "TextqlRPCPublicChatBookmarkChatRequest": ".textql_rpc_public_chat_bookmarkchatrequest",
     "TextqlRPCPublicChatBookmarkChatRequestTypedDict": ".textql_rpc_public_chat_bookmarkchatrequest",
     "TextqlRPCPublicChatCancelStreamRequest": ".textql_rpc_public_chat_cancelstreamrequest",
@@ -15264,6 +15328,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicChatGetArtifactResponseFile": ".textql_rpc_public_chat_getartifactresponse",
     "TextqlRPCPublicChatGetArtifactResponseFileTypedDict": ".textql_rpc_public_chat_getartifactresponse",
     "TextqlRPCPublicChatGetArtifactResponseTypedDict": ".textql_rpc_public_chat_getartifactresponse",
+    "TextqlRPCPublicChatGetAutoAttachedFilesRequest": ".textql_rpc_public_chat_getautoattachedfilesrequest",
+    "TextqlRPCPublicChatGetAutoAttachedFilesRequestTypedDict": ".textql_rpc_public_chat_getautoattachedfilesrequest",
+    "TextqlRPCPublicChatGetAutoAttachedFilesResponse": ".textql_rpc_public_chat_getautoattachedfilesresponse",
+    "TextqlRPCPublicChatGetAutoAttachedFilesResponseTypedDict": ".textql_rpc_public_chat_getautoattachedfilesresponse",
     "TextqlRPCPublicChatGetChatArtifactsSummaryRequest": ".textql_rpc_public_chat_getchatartifactssummaryrequest",
     "TextqlRPCPublicChatGetChatArtifactsSummaryRequestTypedDict": ".textql_rpc_public_chat_getchatartifactssummaryrequest",
     "TextqlRPCPublicChatGetChatArtifactsSummaryResponse": ".textql_rpc_public_chat_getchatartifactssummaryresponse",

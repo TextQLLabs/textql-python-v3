@@ -9,11 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacGetObjectAccessRequestTypedDict(TypedDict):
+    r"""Object access management messages"""
+
     object_type: NotRequired[str]
     object_id: NotRequired[str]
 
 
 class TextqlRPCPublicRbacGetObjectAccessRequest(BaseModel):
+    r"""Object access management messages"""
+
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None

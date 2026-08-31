@@ -15,11 +15,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacRejectAccessRequestRequestTypedDict(TypedDict):
+    r"""Access request management messages"""
+
     request_id: NotRequired[str]
     rejection_reason: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicRbacRejectAccessRequestRequest(BaseModel):
+    r"""Access request management messages"""
+
     request_id: Annotated[Optional[str], pydantic.Field(alias="requestId")] = None
 
     rejection_reason: Annotated[

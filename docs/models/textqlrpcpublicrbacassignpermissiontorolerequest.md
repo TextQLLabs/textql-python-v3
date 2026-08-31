@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacAssignPermissionToRoleRequest
 
+Permission management requests/responses
+
 
 ## Fields
 
