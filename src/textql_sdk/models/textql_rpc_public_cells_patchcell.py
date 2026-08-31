@@ -14,9 +14,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsPatchCellTypedDict(TypedDict):
+    r"""EmailRecipient is one resolved recipient of an EmailCell. The frontend
+    renders these as chips; the backend uses the resolution to enforce the
+    internal-only policy at cell creation time.
+    """
+
     title: NotRequired[str]
     description: NotRequired[str]
+    r"""\"internal\" or \"external\" """
     number: NotRequired[int]
+    r"""populated when class == \"internal\" """
     has_conflicts: NotRequired[bool]
     conflict_view: NotRequired[str]
     status: NotRequired[TextqlRPCPublicPatchesPatchStatus]
@@ -28,11 +35,18 @@ class TextqlRPCPublicCellsPatchCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsPatchCell(BaseModel):
+    r"""EmailRecipient is one resolved recipient of an EmailCell. The frontend
+    renders these as chips; the backend uses the resolution to enforce the
+    internal-only policy at cell creation time.
+    """
+
     title: Optional[str] = None
 
     description: Optional[str] = None
+    r"""\"internal\" or \"external\" """
 
     number: Optional[int] = None
+    r"""populated when class == \"internal\" """
 
     has_conflicts: Annotated[Optional[bool], pydantic.Field(alias="hasConflicts")] = (
         None

@@ -16,6 +16,8 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsJavaScriptCellTypedDict(TypedDict):
+    r"""Simplified report info for report history cell"""
+
     code: NotRequired[str]
     title: NotRequired[str]
     files: NotRequired[List[TextqlRPCPublicCellsFileReferenceTypedDict]]
@@ -24,6 +26,8 @@ class TextqlRPCPublicCellsJavaScriptCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsJavaScriptCell(BaseModel):
+    r"""Simplified report info for report history cell"""
+
     code: Optional[str] = None
 
     title: Optional[str] = None

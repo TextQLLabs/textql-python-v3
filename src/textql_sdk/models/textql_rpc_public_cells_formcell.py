@@ -15,62 +15,46 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsFormCellTypedDict(TypedDict):
-    r"""FormCell is the v2 form editor cell. It only references a form_v5 row by id;
-    the frontend loads the full form via FormService (no chat-cell scanning). The
-    cached fields let the inline chat cell render without a round-trip.
-    """
-
     action: NotRequired[str]
-    r"""list | info | create | edit | view | update | test"""
+    r"""input \"inspect\" | \"render\" | \"execute\" """
     form_id: NotRequired[Nullable[str]]
     form_type: NotRequired[Nullable[str]]
-    r"""cached for inline display (e.g. \"connector\")"""
+    r"""JSON-encoded map of param name → value"""
     status: NotRequired[Nullable[str]]
-    r"""cached submission status (draft|submitting|submitted|rejected)"""
     test_status: NotRequired[Nullable[str]]
-    r"""cached test status (not_run|running|passed|failed)"""
+    r"""result"""
     name: NotRequired[Nullable[str]]
     approval_outcome: NotRequired[Nullable[str]]
-    r"""ask_approval outcome once the user acts: submitted | submit_failed | rejected | changes_requested."""
     test_message: NotRequired[Nullable[str]]
-    r"""this test's result message (shown by the test row)"""
 
 
 class TextqlRPCPublicCellsFormCell(BaseModel):
-    r"""FormCell is the v2 form editor cell. It only references a form_v5 row by id;
-    the frontend loads the full form via FormService (no chat-cell scanning). The
-    cached fields let the inline chat cell render without a round-trip.
-    """
-
     action: Optional[str] = None
-    r"""list | info | create | edit | view | update | test"""
+    r"""input \"inspect\" | \"render\" | \"execute\" """
 
     form_id: Annotated[OptionalNullable[str], pydantic.Field(alias="formId")] = UNSET
 
     form_type: Annotated[OptionalNullable[str], pydantic.Field(alias="formType")] = (
         UNSET
     )
-    r"""cached for inline display (e.g. \"connector\")"""
+    r"""JSON-encoded map of param name → value"""
 
     status: OptionalNullable[str] = UNSET
-    r"""cached submission status (draft|submitting|submitted|rejected)"""
 
     test_status: Annotated[
         OptionalNullable[str], pydantic.Field(alias="testStatus")
     ] = UNSET
-    r"""cached test status (not_run|running|passed|failed)"""
+    r"""result"""
 
     name: OptionalNullable[str] = UNSET
 
     approval_outcome: Annotated[
         OptionalNullable[str], pydantic.Field(alias="approvalOutcome")
     ] = UNSET
-    r"""ask_approval outcome once the user acts: submitted | submit_failed | rejected | changes_requested."""
 
     test_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="testMessage")
     ] = UNSET
-    r"""this test's result message (shown by the test row)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

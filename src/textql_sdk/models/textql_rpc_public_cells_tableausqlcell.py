@@ -13,6 +13,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsTableauSQLCellTypedDict(TypedDict):
+    r"""Deprecated: use tool_summary on Cell instead."""
+
     tableau_datasource_luid: NotRequired[str]
     query: NotRequired[str]
     dataframe: NotRequired[TextqlRPCPublicDataframeDataFrameWithInfoTypedDict]
@@ -20,6 +22,8 @@ class TextqlRPCPublicCellsTableauSQLCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsTableauSQLCell(BaseModel):
+    r"""Deprecated: use tool_summary on Cell instead."""
+
     tableau_datasource_luid: Annotated[
         Optional[str], pydantic.Field(alias="tableauDatasourceLuid")
     ] = None

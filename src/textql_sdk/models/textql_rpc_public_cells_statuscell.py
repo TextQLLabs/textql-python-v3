@@ -8,14 +8,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsStatusCellTypedDict(TypedDict):
-    r"""Deprecated: use tool_summary on Cell instead."""
-
     status: NotRequired[str]
 
 
 class TextqlRPCPublicCellsStatusCell(BaseModel):
-    r"""Deprecated: use tool_summary on Cell instead."""
-
     status: Optional[str] = None
 
     @model_serializer(mode="wrap")

@@ -23,62 +23,30 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsEmailCellTypedDict(TypedDict):
-    r"""EmailCell is the agent's \"send an email\" output. It is an executable cell:
-    the LLM emits the input (to/subject/body) and the framework executes the
-    send, mutating the result fields. The cell renders as a transcript (\"Email
-    sent to maya@acme.com at 2:14pm\") with the body visible after the fact.
-    """
-
     to: NotRequired[List[str]]
-    r"""Inputs (set by the LLM at cell creation time)"""
     subject: NotRequired[str]
     body: NotRequired[str]
-    r"""markdown — rendered to HTML at send time"""
     recipients: NotRequired[List[TextqlRPCPublicCellsEmailRecipientTypedDict]]
-    r"""Resolved recipients after internal-only enforcement"""
     status: NotRequired[str]
-    r"""Result fields (populated by Execute) \"sent\" | \"failed\" | \"blocked\" """
     sent_at: NotRequired[Nullable[str]]
     message_id: NotRequired[Nullable[str]]
     error_message: NotRequired[Nullable[str]]
     error_class: NotRequired[Nullable[str]]
-    r"""machine-readable error category"""
     sent_count: NotRequired[int]
-    r"""Number of recipients to which the provider call succeeded during this
-    Execute pass. Not derivable from Status — a partial-failure cell has
-    Status=failed with sent_count > 0.
-    """
     rendered_body_html: NotRequired[Nullable[str]]
-    r"""The rendered HTML body of the email — exactly what landed in inboxes,
-    including the actor signature footer. The frontend's EmailCell renders
-    this verbatim via {@html ...} in its preview, so a viewer sees what
-    recipients saw without the FE having to repeat the render pipeline.
-    Already sanitized server-side (sanitizeEmailHTML) and self-contained
-    for inline use within the chat thread.
-    """
     attachments: NotRequired[List[TextqlRPCPublicCellsEmailAttachmentTypedDict]]
 
 
 class TextqlRPCPublicCellsEmailCell(BaseModel):
-    r"""EmailCell is the agent's \"send an email\" output. It is an executable cell:
-    the LLM emits the input (to/subject/body) and the framework executes the
-    send, mutating the result fields. The cell renders as a transcript (\"Email
-    sent to maya@acme.com at 2:14pm\") with the body visible after the fact.
-    """
-
     to: Optional[List[str]] = None
-    r"""Inputs (set by the LLM at cell creation time)"""
 
     subject: Optional[str] = None
 
     body: Optional[str] = None
-    r"""markdown — rendered to HTML at send time"""
 
     recipients: Optional[List[TextqlRPCPublicCellsEmailRecipient]] = None
-    r"""Resolved recipients after internal-only enforcement"""
 
     status: Optional[str] = None
-    r"""Result fields (populated by Execute) \"sent\" | \"failed\" | \"blocked\" """
 
     sent_at: Annotated[OptionalNullable[str], pydantic.Field(alias="sentAt")] = UNSET
 
@@ -93,24 +61,12 @@ class TextqlRPCPublicCellsEmailCell(BaseModel):
     error_class: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorClass")
     ] = UNSET
-    r"""machine-readable error category"""
 
     sent_count: Annotated[Optional[int], pydantic.Field(alias="sentCount")] = None
-    r"""Number of recipients to which the provider call succeeded during this
-    Execute pass. Not derivable from Status — a partial-failure cell has
-    Status=failed with sent_count > 0.
-    """
 
     rendered_body_html: Annotated[
         OptionalNullable[str], pydantic.Field(alias="renderedBodyHtml")
     ] = UNSET
-    r"""The rendered HTML body of the email — exactly what landed in inboxes,
-    including the actor signature footer. The frontend's EmailCell renders
-    this verbatim via {@html ...} in its preview, so a viewer sees what
-    recipients saw without the FE having to repeat the render pipeline.
-    Already sanitized server-side (sanitizeEmailHTML) and self-contained
-    for inline use within the chat thread.
-    """
 
     attachments: Optional[List[TextqlRPCPublicCellsEmailAttachment]] = None
 

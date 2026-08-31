@@ -9,26 +9,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsConnectorsCellTypedDict(TypedDict):
-    r"""ConnectorsCell is the agent-only \"connectors\" inspect tool. The frontend only
-    shows that the tool ran (and a count); connector detail goes to the LLM, never
-    to the browser, and never carries secrets.
-    """
-
     action: NotRequired[str]
-    r"""list | get"""
     total_count: NotRequired[int]
+    r"""Set for single-dashboard lookup"""
 
 
 class TextqlRPCPublicCellsConnectorsCell(BaseModel):
-    r"""ConnectorsCell is the agent-only \"connectors\" inspect tool. The frontend only
-    shows that the tool ran (and a count); connector detail goes to the LLM, never
-    to the browser, and never carries secrets.
-    """
-
     action: Optional[str] = None
-    r"""list | get"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
+    r"""Set for single-dashboard lookup"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

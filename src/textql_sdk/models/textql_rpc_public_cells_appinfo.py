@@ -20,7 +20,6 @@ class TextqlRPCPublicCellsAppInfoTypedDict(TypedDict):
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     status: NotRequired[str]
-    r"""\"draft\" or \"published\" (derived from published_at)"""
     creator_id: NotRequired[str]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -396,7 +395,6 @@ class TextqlRPCPublicCellsAppInfo(BaseModel):
     description: OptionalNullable[str] = UNSET
 
     status: Optional[str] = None
-    r"""\"draft\" or \"published\" (derived from published_at)"""
 
     creator_id: Annotated[Optional[str], pydantic.Field(alias="creatorId")] = None
 

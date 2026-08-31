@@ -19,6 +19,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsGoogleDriveSearchCellTypedDict(TypedDict):
+    r"""Simplified playbook info for display in cells"""
+
     files: NotRequired[List[TextqlRPCPublicCellsGoogleDriveFileTypedDict]]
     dataframe_preview: NotRequired[Nullable[str]]
     error_message: NotRequired[Nullable[str]]
@@ -26,6 +28,8 @@ class TextqlRPCPublicCellsGoogleDriveSearchCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsGoogleDriveSearchCell(BaseModel):
+    r"""Simplified playbook info for display in cells"""
+
     files: Optional[List[TextqlRPCPublicCellsGoogleDriveFile]] = None
 
     dataframe_preview: Annotated[

@@ -18,36 +18,24 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsQuestionsCellTypedDict(TypedDict):
-    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
-    haltable cell: the agent pauses until the user submits or dismisses inline.
-    On submit the answers go to the agent; on dismiss only the answered count does
-    and the agent waits for the user's next message (the dismissal reason).
-    """
-
     status: NotRequired[TextqlRPCPublicCellsQuestionsStatus]
     questions: NotRequired[List[TextqlRPCPublicCellsQuestionSpecTypedDict]]
     answers: NotRequired[List[TextqlRPCPublicCellsQuestionAnswerTypedDict]]
-    r"""prefill (pending) / summary (answered); sensitive values blanked"""
     answered_count: NotRequired[int]
+    r"""formfield inputs: the value is never shown to the agent"""
 
 
 class TextqlRPCPublicCellsQuestionsCell(BaseModel):
-    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
-    haltable cell: the agent pauses until the user submits or dismisses inline.
-    On submit the answers go to the agent; on dismiss only the answered count does
-    and the agent waits for the user's next message (the dismissal reason).
-    """
-
     status: Optional[TextqlRPCPublicCellsQuestionsStatus] = None
 
     questions: Optional[List[TextqlRPCPublicCellsQuestionSpec]] = None
 
     answers: Optional[List[TextqlRPCPublicCellsQuestionAnswer]] = None
-    r"""prefill (pending) / summary (answered); sensitive values blanked"""
 
     answered_count: Annotated[Optional[int], pydantic.Field(alias="answeredCount")] = (
         None
     )
+    r"""formfield inputs: the value is never shown to the agent"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

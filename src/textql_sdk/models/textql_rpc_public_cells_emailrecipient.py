@@ -15,34 +15,32 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsEmailRecipientTypedDict(TypedDict):
-    r"""EmailRecipient is one resolved recipient of an EmailCell. The frontend
-    renders these as chips; the backend uses the resolution to enforce the
-    internal-only policy at cell creation time.
+    r"""ConnectorsCell is the agent-only \"connectors\" inspect tool. The frontend only
+    shows that the tool ran (and a count); connector detail goes to the LLM, never
+    to the browser, and never carries secrets.
     """
 
     address: NotRequired[str]
+    r"""list | get"""
     class_: NotRequired[str]
-    r"""\"internal\" or \"external\" """
     member_id: NotRequired[Nullable[str]]
-    r"""populated when class == \"internal\" """
     display_name: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicCellsEmailRecipient(BaseModel):
-    r"""EmailRecipient is one resolved recipient of an EmailCell. The frontend
-    renders these as chips; the backend uses the resolution to enforce the
-    internal-only policy at cell creation time.
+    r"""ConnectorsCell is the agent-only \"connectors\" inspect tool. The frontend only
+    shows that the tool ran (and a count); connector detail goes to the LLM, never
+    to the browser, and never carries secrets.
     """
 
     address: Optional[str] = None
+    r"""list | get"""
 
     class_: Annotated[Optional[str], pydantic.Field(alias="class")] = None
-    r"""\"internal\" or \"external\" """
 
     member_id: Annotated[OptionalNullable[str], pydantic.Field(alias="memberId")] = (
         UNSET
     )
-    r"""populated when class == \"internal\" """
 
     display_name: Annotated[
         OptionalNullable[str], pydantic.Field(alias="displayName")

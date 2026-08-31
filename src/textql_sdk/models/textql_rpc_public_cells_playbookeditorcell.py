@@ -52,7 +52,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsPlaybookEditorCellTypedDict(TypedDict):
     action: NotRequired[TextqlRPCPublicCellsPlaybookEditorAction]
     playbooks: NotRequired[List[TextqlRPCPublicCellsPlaybookInfoTypedDict]]
-    r"""results"""
     error_message: NotRequired[Nullable[str]]
     total_count: NotRequired[int]
     slack_channels: NotRequired[List[TextqlRPCPublicCellsSlackChannelRefTypedDict]]
@@ -70,7 +69,6 @@ class TextqlRPCPublicCellsPlaybookEditorCell(BaseModel):
     action: Optional[TextqlRPCPublicCellsPlaybookEditorAction] = None
 
     playbooks: Optional[List[TextqlRPCPublicCellsPlaybookInfo]] = None
-    r"""results"""
 
     error_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorMessage")

@@ -15,15 +15,11 @@ Bytes = TypeAliasType("Bytes", Union[int, str])
 
 
 class TextqlRPCPublicCellsEmailAttachmentTypedDict(TypedDict):
-    r"""EmailAttachment is delivered-attachment metadata surfaced to the frontend"""
-
     filename: NotRequired[str]
     bytes_: NotRequired[BytesTypedDict]
 
 
 class TextqlRPCPublicCellsEmailAttachment(BaseModel):
-    r"""EmailAttachment is delivered-attachment metadata surfaced to the frontend"""
-
     filename: Optional[str] = None
 
     bytes_: Annotated[Optional[Bytes], pydantic.Field(alias="bytes")] = None

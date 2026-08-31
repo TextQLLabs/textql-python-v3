@@ -11,19 +11,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsTableauMessageBlockTypedDict(TypedDict):
     content: NotRequired[str]
     image_base64: NotRequired[str]
-    r"""optional, only present for blocks with images"""
     pdf_base64: NotRequired[str]
-    r"""optional, only present for blocks with PDFs"""
 
 
 class TextqlRPCPublicCellsTableauMessageBlock(BaseModel):
     content: Optional[str] = None
 
     image_base64: Annotated[Optional[str], pydantic.Field(alias="imageBase64")] = None
-    r"""optional, only present for blocks with images"""
 
     pdf_base64: Annotated[Optional[str], pydantic.Field(alias="pdfBase64")] = None
-    r"""optional, only present for blocks with PDFs"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

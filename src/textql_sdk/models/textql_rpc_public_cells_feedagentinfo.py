@@ -25,6 +25,7 @@ class TextqlRPCPublicCellsFeedAgentInfoTypedDict(TypedDict):
     name: NotRequired[str]
     prompt: NotRequired[str]
     is_active: NotRequired[bool]
+    r"""\"human\" or \"bot\" """
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -138,6 +139,7 @@ class TextqlRPCPublicCellsFeedAgentInfo(BaseModel):
     prompt: Optional[str] = None
 
     is_active: Annotated[Optional[bool], pydantic.Field(alias="isActive")] = None
+    r"""\"human\" or \"bot\" """
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

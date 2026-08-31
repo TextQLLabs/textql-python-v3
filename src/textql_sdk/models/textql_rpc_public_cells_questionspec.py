@@ -28,11 +28,8 @@ class TextqlRPCPublicCellsQuestionSpecTypedDict(TypedDict):
     explanation: NotRequired[Nullable[str]]
     kind: NotRequired[TextqlRPCPublicCellsQuestionKind]
     options: NotRequired[List[TextqlRPCPublicCellsQuestionOptionTypedDict]]
-    r"""choice / multichoice"""
     allow_custom: NotRequired[bool]
-    r"""adds a free-text \"Other\" option"""
     inputs: NotRequired[List[TextqlRPCPublicCellsQuestionInputTypedDict]]
-    r"""inputs"""
 
 
 class TextqlRPCPublicCellsQuestionSpec(BaseModel):
@@ -43,13 +40,10 @@ class TextqlRPCPublicCellsQuestionSpec(BaseModel):
     kind: Optional[TextqlRPCPublicCellsQuestionKind] = None
 
     options: Optional[List[TextqlRPCPublicCellsQuestionOption]] = None
-    r"""choice / multichoice"""
 
     allow_custom: Annotated[Optional[bool], pydantic.Field(alias="allowCustom")] = None
-    r"""adds a free-text \"Other\" option"""
 
     inputs: Optional[List[TextqlRPCPublicCellsQuestionInput]] = None
-    r"""inputs"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

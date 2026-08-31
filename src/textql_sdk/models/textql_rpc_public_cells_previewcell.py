@@ -15,11 +15,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsPreviewCellTypedDict(TypedDict):
-    r"""primary interface for ana to render sandbox assets client side"""
-
     target: NotRequired[str]
     preview_type: NotRequired[str]
-    r"""\"image\", \"table\", \"pdf\", \"html\", \"dataframe\", \"download\" """
     name: NotRequired[str]
     url: NotRequired[Nullable[str]]
     content: NotRequired[Nullable[str]]
@@ -27,12 +24,9 @@ class TextqlRPCPublicCellsPreviewCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsPreviewCell(BaseModel):
-    r"""primary interface for ana to render sandbox assets client side"""
-
     target: Optional[str] = None
 
     preview_type: Annotated[Optional[str], pydantic.Field(alias="previewType")] = None
-    r"""\"image\", \"table\", \"pdf\", \"html\", \"dataframe\", \"download\" """
 
     name: Optional[str] = None
 

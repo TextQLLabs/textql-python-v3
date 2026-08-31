@@ -19,6 +19,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsEditableFormTypedDict(TypedDict):
+    r"""primary interface for ana to render sandbox assets client side"""
+
     form_name: NotRequired[str]
     fields: NotRequired[Dict[str, Nullable[GoogleProtobufValueTypedDict]]]
     r"""`Struct` represents a structured data value, consisting of fields
@@ -38,6 +40,8 @@ class TextqlRPCPublicCellsEditableFormTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsEditableForm(BaseModel):
+    r"""primary interface for ana to render sandbox assets client side"""
+
     form_name: Annotated[Optional[str], pydantic.Field(alias="formName")] = None
 
     fields: Optional[Dict[str, Nullable[GoogleProtobufValue]]] = None

@@ -549,11 +549,6 @@ TextqlRPCPublicChatCellDurationMs58 = TypeAliasType(
 
 class UseSkillCellTypedDict(TypedDict):
     use_skill_cell: TextqlRPCPublicCellsUseSkillCellTypedDict
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -662,11 +657,6 @@ class UseSkillCell(BaseModel):
     use_skill_cell: Annotated[
         TextqlRPCPublicCellsUseSkillCell, pydantic.Field(alias="useSkillCell")
     ]
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -1697,6 +1687,7 @@ TextqlRPCPublicChatCellDurationMs54 = TypeAliasType(
 
 class TableauSQLCellTypedDict(TypedDict):
     tableau_sql_cell: TextqlRPCPublicCellsTableauSQLCellTypedDict
+    r"""Deprecated: use tool_summary on Cell instead."""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -1805,6 +1796,7 @@ class TableauSQLCell(BaseModel):
     tableau_sql_cell: Annotated[
         TextqlRPCPublicCellsTableauSQLCell, pydantic.Field(alias="tableauSqlCell")
     ]
+    r"""Deprecated: use tool_summary on Cell instead."""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -3408,7 +3400,6 @@ TextqlRPCPublicChatCellDurationMs48 = TypeAliasType(
 
 class StatusCellTypedDict(TypedDict):
     status_cell: TextqlRPCPublicCellsStatusCellTypedDict
-    r"""Deprecated: use tool_summary on Cell instead."""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -3517,7 +3508,6 @@ class StatusCell(BaseModel):
     status_cell: Annotated[
         TextqlRPCPublicCellsStatusCell, pydantic.Field(alias="statusCell")
     ]
-    r"""Deprecated: use tool_summary on Cell instead."""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -4548,11 +4538,6 @@ TextqlRPCPublicChatCellDurationMs44 = TypeAliasType(
 
 class QuestionsCellTypedDict(TypedDict):
     questions_cell: TextqlRPCPublicCellsQuestionsCellTypedDict
-    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
-    haltable cell: the agent pauses until the user submits or dismisses inline.
-    On submit the answers go to the agent; on dismiss only the answered count does
-    and the agent waits for the user's next message (the dismissal reason).
-    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -4661,11 +4646,6 @@ class QuestionsCell(BaseModel):
     questions_cell: Annotated[
         TextqlRPCPublicCellsQuestionsCell, pydantic.Field(alias="questionsCell")
     ]
-    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
-    haltable cell: the agent pauses until the user submits or dismisses inline.
-    On submit the answers go to the agent; on dismiss only the answered count does
-    and the agent waits for the user's next message (the dismissal reason).
-    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -5126,7 +5106,6 @@ TextqlRPCPublicChatCellDurationMs42 = TypeAliasType(
 
 class PreviewCellTypedDict(TypedDict):
     preview_cell: TextqlRPCPublicCellsPreviewCellTypedDict
-    r"""primary interface for ana to render sandbox assets client side"""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -5235,7 +5214,6 @@ class PreviewCell(BaseModel):
     preview_cell: Annotated[
         TextqlRPCPublicCellsPreviewCell, pydantic.Field(alias="previewCell")
     ]
-    r"""primary interface for ana to render sandbox assets client side"""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -6269,6 +6247,10 @@ TextqlRPCPublicChatCellDurationMs38 = TypeAliasType(
 
 class PatchCellTypedDict(TypedDict):
     patch_cell: TextqlRPCPublicCellsPatchCellTypedDict
+    r"""EmailRecipient is one resolved recipient of an EmailCell. The frontend
+    renders these as chips; the backend uses the resolution to enforce the
+    internal-only policy at cell creation time.
+    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -6377,6 +6359,10 @@ class PatchCell(BaseModel):
     patch_cell: Annotated[
         TextqlRPCPublicCellsPatchCell, pydantic.Field(alias="patchCell")
     ]
+    r"""EmailRecipient is one resolved recipient of an EmailCell. The frontend
+    renders these as chips; the backend uses the resolution to enforce the
+    internal-only policy at cell creation time.
+    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -6840,6 +6826,11 @@ TextqlRPCPublicChatCellDurationMs36 = TypeAliasType(
 
 class OntologyQueryCellTypedDict(TypedDict):
     ontology_query_cell: TextqlRPCPublicCellsOntologyQueryCellTypedDict
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -6948,6 +6939,11 @@ class OntologyQueryCell(BaseModel):
     ontology_query_cell: Annotated[
         TextqlRPCPublicCellsOntologyQueryCell, pydantic.Field(alias="ontologyQueryCell")
     ]
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -9983,7 +9979,6 @@ TextqlRPCPublicChatCellDurationMs25 = TypeAliasType(
 
 class ListAppsCellTypedDict(TypedDict):
     list_apps_cell: TextqlRPCPublicCellsListAppsCellTypedDict
-    r"""create_design_system tool: authors/edits an org Data App design system."""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -10092,7 +10087,6 @@ class ListAppsCell(BaseModel):
     list_apps_cell: Annotated[
         TextqlRPCPublicCellsListAppsCell, pydantic.Field(alias="listAppsCell")
     ]
-    r"""create_design_system tool: authors/edits an org Data App design system."""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -10556,6 +10550,7 @@ TextqlRPCPublicChatCellDurationMs23 = TypeAliasType(
 
 class JavascriptCellTypedDict(TypedDict):
     javascript_cell: TextqlRPCPublicCellsJavaScriptCellTypedDict
+    r"""Simplified report info for report history cell"""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -10664,6 +10659,7 @@ class JavascriptCell(BaseModel):
     javascript_cell: Annotated[
         TextqlRPCPublicCellsJavaScriptCell, pydantic.Field(alias="javascriptCell")
     ]
+    r"""Simplified report info for report history cell"""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -11126,6 +11122,7 @@ TextqlRPCPublicChatCellDurationMs21 = TypeAliasType(
 
 class GoogleDriveSearchCellTypedDict(TypedDict):
     google_drive_search_cell: TextqlRPCPublicCellsGoogleDriveSearchCellTypedDict
+    r"""Simplified playbook info for display in cells"""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -11235,6 +11232,7 @@ class GoogleDriveSearchCell(BaseModel):
         TextqlRPCPublicCellsGoogleDriveSearchCell,
         pydantic.Field(alias="googleDriveSearchCell"),
     ]
+    r"""Simplified playbook info for display in cells"""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -12841,10 +12839,6 @@ TextqlRPCPublicChatCellDurationMs15 = TypeAliasType(
 
 class FormCellTypedDict(TypedDict):
     form_cell: TextqlRPCPublicCellsFormCellTypedDict
-    r"""FormCell is the v2 form editor cell. It only references a form_v5 row by id;
-    the frontend loads the full form via FormService (no chat-cell scanning). The
-    cached fields let the inline chat cell render without a round-trip.
-    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -12951,10 +12945,6 @@ class FormCellTypedDict(TypedDict):
 
 class FormCell(BaseModel):
     form_cell: Annotated[TextqlRPCPublicCellsFormCell, pydantic.Field(alias="formCell")]
-    r"""FormCell is the v2 form editor cell. It only references a form_v5 row by id;
-    the frontend loads the full form via FormService (no chat-cell scanning). The
-    cached fields let the inline chat cell render without a round-trip.
-    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -14557,11 +14547,6 @@ TextqlRPCPublicChatCellDurationMs9 = TypeAliasType(
 
 class EmailCellTypedDict(TypedDict):
     email_cell: TextqlRPCPublicCellsEmailCellTypedDict
-    r"""EmailCell is the agent's \"send an email\" output. It is an executable cell:
-    the LLM emits the input (to/subject/body) and the framework executes the
-    send, mutating the result fields. The cell renders as a transcript (\"Email
-    sent to maya@acme.com at 2:14pm\") with the body visible after the fact.
-    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -14670,11 +14655,6 @@ class EmailCell(BaseModel):
     email_cell: Annotated[
         TextqlRPCPublicCellsEmailCell, pydantic.Field(alias="emailCell")
     ]
-    r"""EmailCell is the agent's \"send an email\" output. It is an executable cell:
-    the LLM emits the input (to/subject/body) and the framework executes the
-    send, mutating the result fields. The cell renders as a transcript (\"Email
-    sent to maya@acme.com at 2:14pm\") with the body visible after the fact.
-    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -15708,10 +15688,6 @@ TextqlRPCPublicChatCellDurationMs5 = TypeAliasType(
 
 class ConnectorsCellTypedDict(TypedDict):
     connectors_cell: TextqlRPCPublicCellsConnectorsCellTypedDict
-    r"""ConnectorsCell is the agent-only \"connectors\" inspect tool. The frontend only
-    shows that the tool ran (and a count); connector detail goes to the LLM, never
-    to the browser, and never carries secrets.
-    """
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -15820,10 +15796,6 @@ class ConnectorsCell(BaseModel):
     connectors_cell: Annotated[
         TextqlRPCPublicCellsConnectorsCell, pydantic.Field(alias="connectorsCell")
     ]
-    r"""ConnectorsCell is the agent-only \"connectors\" inspect tool. The frontend only
-    shows that the tool ran (and a count); connector detail goes to the LLM, never
-    to the browser, and never carries secrets.
-    """
 
     id: Optional[str] = None
     r"""UUID"""
@@ -16286,6 +16258,7 @@ TextqlRPCPublicChatCellDurationMs3 = TypeAliasType(
 
 class BashCellTypedDict(TypedDict):
     bash_cell: TextqlRPCPublicCellsBashCellTypedDict
+    r"""Preview cell reference for report history"""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -16392,6 +16365,7 @@ class BashCellTypedDict(TypedDict):
 
 class BashCell(BaseModel):
     bash_cell: Annotated[TextqlRPCPublicCellsBashCell, pydantic.Field(alias="bashCell")]
+    r"""Preview cell reference for report history"""
 
     id: Optional[str] = None
     r"""UUID"""
@@ -16569,7 +16543,6 @@ TextqlRPCPublicChatCellDurationMs2 = TypeAliasType(
 
 class AppCellTypedDict(TypedDict):
     app_cell: TextqlRPCPublicCellsAppCellTypedDict
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
     id: NotRequired[str]
     r"""UUID"""
     timestamp: NotRequired[datetime]
@@ -16676,7 +16649,6 @@ class AppCellTypedDict(TypedDict):
 
 class AppCell(BaseModel):
     app_cell: Annotated[TextqlRPCPublicCellsAppCell, pydantic.Field(alias="appCell")]
-    r"""AppCell records an agent action on a data app (the generative app execution primitive; apps are first-class rows in the apps table)."""
 
     id: Optional[str] = None
     r"""UUID"""

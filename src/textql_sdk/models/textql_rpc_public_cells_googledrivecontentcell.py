@@ -16,6 +16,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsGoogleDriveContentCellTypedDict(TypedDict):
     file_name: NotRequired[Nullable[str]]
     content_type: NotRequired[Nullable[str]]
+    r"""results"""
     content: NotRequired[Nullable[str]]
     file_id: NotRequired[Nullable[str]]
     error_message: NotRequired[Nullable[str]]
@@ -29,6 +30,7 @@ class TextqlRPCPublicCellsGoogleDriveContentCell(BaseModel):
     content_type: Annotated[
         OptionalNullable[str], pydantic.Field(alias="contentType")
     ] = UNSET
+    r"""results"""
 
     content: OptionalNullable[str] = UNSET
 

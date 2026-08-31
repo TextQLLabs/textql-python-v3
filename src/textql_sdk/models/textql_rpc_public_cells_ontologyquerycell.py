@@ -26,20 +26,22 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsOntologyQueryCellTypedDict(TypedDict):
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
+
     action: NotRequired[str]
-    r"""input \"inspect\" | \"render\" | \"execute\" """
     path: NotRequired[str]
     params_json: NotRequired[str]
-    r"""JSON-encoded map of param name → value"""
     connector_id: NotRequired[Nullable[int]]
     declared_params: NotRequired[List[TextqlRPCPublicCellsOntologyQueryParamTypedDict]]
-    r"""result"""
     sql: NotRequired[str]
     used_connector_id: NotRequired[Nullable[int]]
     dataframe: NotRequired[TextqlRPCPublicDataframeDataFrameWithInfoTypedDict]
     dataframe_preview: NotRequired[str]
     auth_required: NotRequired[bool]
-    r"""auth hold"""
     auth_connector_name: NotRequired[str]
     auth_locator: NotRequired[str]
     auth_client_id: NotRequired[str]
@@ -50,13 +52,17 @@ class TextqlRPCPublicCellsOntologyQueryCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsOntologyQueryCell(BaseModel):
+    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
+    deliberately carries no body field: the skill's instructions are LLM-facing
+    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
+    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
+    """
+
     action: Optional[str] = None
-    r"""input \"inspect\" | \"render\" | \"execute\" """
 
     path: Optional[str] = None
 
     params_json: Annotated[Optional[str], pydantic.Field(alias="paramsJson")] = None
-    r"""JSON-encoded map of param name → value"""
 
     connector_id: Annotated[
         OptionalNullable[int], pydantic.Field(alias="connectorId")
@@ -66,7 +72,6 @@ class TextqlRPCPublicCellsOntologyQueryCell(BaseModel):
         Optional[List[TextqlRPCPublicCellsOntologyQueryParam]],
         pydantic.Field(alias="declaredParams"),
     ] = None
-    r"""result"""
 
     sql: Optional[str] = None
 
@@ -83,7 +88,6 @@ class TextqlRPCPublicCellsOntologyQueryCell(BaseModel):
     auth_required: Annotated[Optional[bool], pydantic.Field(alias="authRequired")] = (
         None
     )
-    r"""auth hold"""
 
     auth_connector_name: Annotated[
         Optional[str], pydantic.Field(alias="authConnectorName")

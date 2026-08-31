@@ -16,19 +16,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicCellsFeedExplorerCellTypedDict(TypedDict):
     operation: NotRequired[str]
-    r"""\"get_feed\", \"get_post\", \"get_comments\" """
     post_id: NotRequired[Nullable[str]]
     filter_: NotRequired[Nullable[str]]
     limit: NotRequired[Nullable[int]]
     result: NotRequired[str]
-    r"""JSON-serialized result"""
     channel_id: NotRequired[Nullable[str]]
-    r"""when set, get results for specific feed channel"""
 
 
 class TextqlRPCPublicCellsFeedExplorerCell(BaseModel):
     operation: Optional[str] = None
-    r"""\"get_feed\", \"get_post\", \"get_comments\" """
 
     post_id: Annotated[OptionalNullable[str], pydantic.Field(alias="postId")] = UNSET
 
@@ -37,12 +33,10 @@ class TextqlRPCPublicCellsFeedExplorerCell(BaseModel):
     limit: OptionalNullable[int] = UNSET
 
     result: Optional[str] = None
-    r"""JSON-serialized result"""
 
     channel_id: Annotated[OptionalNullable[str], pydantic.Field(alias="channelId")] = (
         UNSET
     )
-    r"""when set, get results for specific feed channel"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

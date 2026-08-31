@@ -9,11 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsSlackUserRefTypedDict(TypedDict):
+    r"""Reference types for context data"""
+
     user_id: NotRequired[str]
     name: NotRequired[str]
 
 
 class TextqlRPCPublicCellsSlackUserRef(BaseModel):
+    r"""Reference types for context data"""
+
     user_id: Annotated[Optional[str], pydantic.Field(alias="userId")] = None
 
     name: Optional[str] = None

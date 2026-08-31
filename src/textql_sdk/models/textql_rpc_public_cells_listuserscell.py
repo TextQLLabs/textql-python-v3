@@ -21,7 +21,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsListUsersCellTypedDict(TypedDict):
     search_term: NotRequired[str]
     user_type: NotRequired[str]
-    r"""\"all\", \"bots\", or \"humans\" """
     total_count: NotRequired[int]
     sandbox_available: NotRequired[bool]
     error_message: NotRequired[Nullable[str]]
@@ -32,7 +31,6 @@ class TextqlRPCPublicCellsListUsersCell(BaseModel):
     search_term: Annotated[Optional[str], pydantic.Field(alias="searchTerm")] = None
 
     user_type: Annotated[Optional[str], pydantic.Field(alias="userType")] = None
-    r"""\"all\", \"bots\", or \"humans\" """
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
 

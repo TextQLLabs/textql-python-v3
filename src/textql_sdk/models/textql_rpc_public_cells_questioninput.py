@@ -18,16 +18,18 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsQuestionInputTypedDict(TypedDict):
+    r"""EmailAttachment is delivered-attachment metadata surfaced to the frontend"""
+
     kind: NotRequired[TextqlRPCPublicCellsQuestionInputKind]
     label: NotRequired[str]
     explanation: NotRequired[Nullable[str]]
     sensitive: NotRequired[bool]
-    r"""formfield inputs: the value is never shown to the agent"""
     form_path_label: NotRequired[Nullable[str]]
-    r"""pretty destination path, for the user to verify"""
 
 
 class TextqlRPCPublicCellsQuestionInput(BaseModel):
+    r"""EmailAttachment is delivered-attachment metadata surfaced to the frontend"""
+
     kind: Optional[TextqlRPCPublicCellsQuestionInputKind] = None
 
     label: Optional[str] = None
@@ -35,12 +37,10 @@ class TextqlRPCPublicCellsQuestionInput(BaseModel):
     explanation: OptionalNullable[str] = UNSET
 
     sensitive: Optional[bool] = None
-    r"""formfield inputs: the value is never shown to the agent"""
 
     form_path_label: Annotated[
         OptionalNullable[str], pydantic.Field(alias="formPathLabel")
     ] = UNSET
-    r"""pretty destination path, for the user to verify"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

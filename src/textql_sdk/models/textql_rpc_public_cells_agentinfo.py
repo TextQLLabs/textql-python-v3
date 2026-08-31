@@ -19,7 +19,6 @@ class TextqlRPCPublicCellsAgentInfoTypedDict(TypedDict):
     name: NotRequired[str]
     avatar_url: NotRequired[str]
     type: NotRequired[str]
-    r"""\"human\" or \"bot\" """
     email: NotRequired[Nullable[str]]
 
 
@@ -31,7 +30,6 @@ class TextqlRPCPublicCellsAgentInfo(BaseModel):
     avatar_url: Annotated[Optional[str], pydantic.Field(alias="avatarUrl")] = None
 
     type: Optional[str] = None
-    r"""\"human\" or \"bot\" """
 
     email: OptionalNullable[str] = UNSET
 

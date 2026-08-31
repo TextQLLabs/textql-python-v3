@@ -1,5 +1,7 @@
 # TextqlRPCPublicCellsGoogleDriveSearchCell
 
+Simplified playbook info for display in cells
+
 
 ## Fields
 
