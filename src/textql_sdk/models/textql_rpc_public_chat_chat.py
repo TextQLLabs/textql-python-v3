@@ -241,7 +241,7 @@ class TextqlRPCPublicChatChatTypedDict(TypedDict):
     """
     fast_mode: NotRequired[Nullable[bool]]
     r"""fast_mode enables Anthropic's fast inference mode (speed: \"fast\").
-    Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
+    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
     """
     agent_id: NotRequired[Nullable[str]]
     r"""Agent that owns this chat, unset for human-initiated chats."""
@@ -520,7 +520,7 @@ class TextqlRPCPublicChatChat(BaseModel):
         UNSET
     )
     r"""fast_mode enables Anthropic's fast inference mode (speed: \"fast\").
-    Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
+    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
     """
 
     agent_id: Annotated[OptionalNullable[str], pydantic.Field(alias="agentId")] = UNSET

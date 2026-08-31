@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacRejectAccessRequestRequest
 
+Access request management messages
+
 
 ## Fields
 

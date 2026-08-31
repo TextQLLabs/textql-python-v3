@@ -17,7 +17,7 @@
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
 * [invoke_compute_function](#invoke_compute_function) - InvokeAppComputeFunction
 * [list_activity_since](#list_activity_since) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
-* [list_versions](#list_versions) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+* [list_versions](#list_versions) - Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
 * [list](#list) - ListApps
 * [list_my_member_activity](#list_my_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
 * [move_app_to_folder](#move_app_to_folder) - MoveAppToFolder
@@ -28,6 +28,7 @@
 * [set_member_state](#set_member_state) - SetAppMemberState
 * [set_favorite](#set_favorite) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 * [update](#update) - UpdateApp
+* [verify_render](#verify_render) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
 ## heartbeat
 
@@ -584,7 +585,8 @@ with Textql(
 
 ## list_versions
 
-Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+Renders the live artifact in the production sandbox and returns browser diagnostics.
+ This is synchronous so callers can verify an app before sharing its URL.
 
 ### Example Usage
 
@@ -1067,6 +1069,47 @@ with Textql(
 ### Response
 
 **[models.AppServiceUpdateAppResponse](../../models/appserviceupdateappresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## verify_render
+
+Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AppService_VerifyAppRender" method="post" path="/textql.rpc.public.app.AppService/VerifyAppRender" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.apps.verify_render()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AppServiceVerifyAppRenderResponse](../../models/appserviceverifyapprenderresponse.md)**
 
 ### Errors
 

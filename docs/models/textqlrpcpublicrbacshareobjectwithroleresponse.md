@@ -1,6 +1,6 @@
 # TextqlRPCPublicRbacShareObjectWithRoleResponse
 
-Object access management messages
+Which LLM models the caller may run.
 
 
 ## Fields

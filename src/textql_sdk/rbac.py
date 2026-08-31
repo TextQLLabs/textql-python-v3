@@ -444,7 +444,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceAssignRoleToMemberResponse:
-        r"""AssignRoleToMember
+        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+
+        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
 
         :param connect_timeout_ms:
         :param member_id:
@@ -551,7 +553,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceAssignRoleToMemberResponse:
-        r"""AssignRoleToMember
+        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+
+        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
 
         :param connect_timeout_ms:
         :param member_id:
@@ -664,7 +668,10 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateAPIKeyResponse:
-        r"""CreateApiKey
+        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+
+        SCIM group-mapping migration tooling: one-time role<->group conversion,
+        internal only.
 
         :param connect_timeout_ms:
         :param expiry_seconds:
@@ -789,7 +796,10 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateAPIKeyResponse:
-        r"""CreateApiKey
+        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+
+        SCIM group-mapping migration tooling: one-time role<->group conversion,
+        internal only.
 
         :param connect_timeout_ms:
         :param expiry_seconds:
@@ -2895,7 +2905,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetMemberRolesResponse:
-        r"""GetMemberRoles
+        r"""Member role assignment
+
+        Member role assignment
 
         :param connect_timeout_ms:
         :param member_ids:
@@ -2999,7 +3011,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetMemberRolesResponse:
-        r"""GetMemberRoles
+        r"""Member role assignment
+
+        Member role assignment
 
         :param connect_timeout_ms:
         :param member_ids:
@@ -3525,7 +3539,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetRolePermissionsResponse:
-        r"""GetRolePermissions
+        r"""Permission management
+
+        Permission management
 
         :param connect_timeout_ms:
         :param role_id:
@@ -3629,7 +3645,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetRolePermissionsResponse:
-        r"""GetRolePermissions
+        r"""Permission management
+
+        Permission management
 
         :param connect_timeout_ms:
         :param role_id:
@@ -3742,7 +3760,7 @@ class Rbac(BaseSDK):
         :param object_type:
         :param object_id:
         :param member_id:
-        :param role_id:
+        :param role_id: owner, editor, viewer
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3855,7 +3873,7 @@ class Rbac(BaseSDK):
         :param object_type:
         :param object_id:
         :param member_id:
-        :param role_id:
+        :param role_id: owner, editor, viewer
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4432,9 +4450,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceListPermissionsResponse:
-        r"""Permission management
-
-        Permission management
+        r"""ListPermissions
 
         :param body:
         :param connect_timeout_ms:
@@ -4541,9 +4557,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceListPermissionsResponse:
-        r"""Permission management
-
-        Permission management
+        r"""ListPermissions
 
         :param body:
         :param connect_timeout_ms:
@@ -5082,10 +5096,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRejectAccessRequestResponse:
-        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
-
-        SCIM group-mapping migration tooling: one-time role<->group conversion,
-        internal only.
+        r"""RejectAccessRequest
 
         :param connect_timeout_ms:
         :param request_id:
@@ -5192,10 +5203,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRejectAccessRequestResponse:
-        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
-
-        SCIM group-mapping migration tooling: one-time role<->group conversion,
-        internal only.
+        r"""RejectAccessRequest
 
         :param connect_timeout_ms:
         :param request_id:
@@ -5516,9 +5524,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRemoveRoleFromMemberResponse:
-        r"""Member role assignment
-
-        Member role assignment
+        r"""RemoveRoleFromMember
 
         :param connect_timeout_ms:
         :param member_id:
@@ -5625,9 +5631,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRemoveRoleFromMemberResponse:
-        r"""Member role assignment
-
-        Member role assignment
+        r"""RemoveRoleFromMember
 
         :param connect_timeout_ms:
         :param member_id:
@@ -5965,9 +5969,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeAPIKeyResponse:
-        r"""Object sharing and access control
-
-        Object sharing and access control
+        r"""RevokeApiKey
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6071,9 +6073,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeAPIKeyResponse:
-        r"""Object sharing and access control
-
-        Object sharing and access control
+        r"""RevokeApiKey
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6180,7 +6180,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeObjectAccessResponse:
-        r"""RevokeObjectAccess
+        r"""Group management. Internal only.
+
+        Group management. Internal only.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -6293,7 +6295,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeObjectAccessResponse:
-        r"""RevokeObjectAccess
+        r"""Group management. Internal only.
+
+        Group management. Internal only.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -6403,7 +6407,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRotateAPIKeyResponse:
-        r"""RotateApiKey
+        r"""Object sharing and access control
+
+        Object sharing and access control
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6507,7 +6513,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRotateAPIKeyResponse:
-        r"""RotateApiKey
+        r"""Object sharing and access control
+
+        Object sharing and access control
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6613,9 +6621,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceSetRolePermissionsResponse:
-        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
-
-        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+        r"""SetRolePermissions
 
         :param connect_timeout_ms:
         :param role_id:
@@ -6729,9 +6735,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceSetRolePermissionsResponse:
-        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
-
-        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+        r"""SetRolePermissions
 
         :param connect_timeout_ms:
         :param role_id:
@@ -6848,9 +6852,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectResponse:
-        r"""Describe what a key is allowed to do.
+        r"""Get current member roles and permissions
 
-        Describe what a key is allowed to do.
+        Get current member roles and permissions
 
         :param connect_timeout_ms:
         :param object_type:
@@ -7057,9 +7061,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectResponse:
-        r"""Describe what a key is allowed to do.
+        r"""Get current member roles and permissions
 
-        Describe what a key is allowed to do.
+        Get current member roles and permissions
 
         :param connect_timeout_ms:
         :param object_type:
@@ -7266,9 +7270,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectWithRoleResponse:
-        r"""Group management. Internal only.
+        r"""Describe what a key is allowed to do.
 
-        Group management. Internal only.
+        Describe what a key is allowed to do.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -7475,9 +7479,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectWithRoleResponse:
-        r"""Group management. Internal only.
+        r"""Describe what a key is allowed to do.
 
-        Group management. Internal only.
+        Describe what a key is allowed to do.
 
         :param connect_timeout_ms:
         :param object_type:
@@ -8556,9 +8560,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceWhoAmIResponse:
-        r"""Get current member roles and permissions
-
-        Get current member roles and permissions
+        r"""WhoAmI
 
         :param body:
         :param connect_timeout_ms:
@@ -8665,9 +8667,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceWhoAmIResponse:
-        r"""Get current member roles and permissions
-
-        Get current member roles and permissions
+        r"""WhoAmI
 
         :param body:
         :param connect_timeout_ms:

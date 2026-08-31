@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacShareObjectRequest
 
-Which LLM models the caller may run.
-
 
 ## Fields
 

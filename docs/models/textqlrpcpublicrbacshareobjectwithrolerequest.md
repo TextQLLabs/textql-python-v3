@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacShareObjectWithRoleRequest
 
+The credential that authenticated the request.
+
 
 ## Fields
 

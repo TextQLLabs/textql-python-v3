@@ -8,10 +8,14 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectResponseTypedDict(TypedDict):
+    r"""WhoAmI messages"""
+
     success: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacShareObjectResponse(BaseModel):
+    r"""WhoAmI messages"""
+
     success: Optional[bool] = None
 
     @model_serializer(mode="wrap")

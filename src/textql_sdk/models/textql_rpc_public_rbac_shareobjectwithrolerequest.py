@@ -10,6 +10,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict(TypedDict):
+    r"""The credential that authenticated the request."""
+
     object_type: NotRequired[str]
     object_id: NotRequired[str]
     role_id: NotRequired[str]
@@ -109,6 +111,8 @@ class TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleRequest(BaseModel):
+    r"""The credential that authenticated the request."""
+
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None

@@ -39,7 +39,7 @@ class TextqlRPCPublicChatCreateRequestTypedDict(TypedDict):
     """
     fast_mode: NotRequired[Nullable[bool]]
     r"""fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
-    Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
+    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
     """
     max_thinking: NotRequired[Nullable[bool]]
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
@@ -83,7 +83,7 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
         UNSET
     )
     r"""fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
-    Currently supported on Opus 4.6 only. Pricing is 6x standard rates.
+    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
     """
 
     max_thinking: Annotated[

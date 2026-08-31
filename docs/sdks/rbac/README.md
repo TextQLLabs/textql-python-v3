@@ -6,8 +6,8 @@
 
 * [approve_access_request](#approve_access_request) - ApproveAccessRequest
 * [assign_permission_to_role](#assign_permission_to_role) - AssignPermissionToRole
-* [assign_role_to_member](#assign_role_to_member) - AssignRoleToMember
-* [create_api_key](#create_api_key) - CreateApiKey
+* [assign_role_to_member](#assign_role_to_member) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+* [create_api_key](#create_api_key) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
 * [create_personal_api_key](#create_personal_api_key) - CreatePersonalApiKey
 * [create_role](#create_role) - Role management
 * [create_service_account](#create_service_account) - CreateServiceAccount
@@ -17,30 +17,30 @@
 * [generate_share_link](#generate_share_link) - GenerateShareLink
 * [get_current_member_roles_and_permissions](#get_current_member_roles_and_permissions) - GetCurrentMemberRolesAndPermissions
 * [get_embed_user_api_key](#get_embed_user_api_key) - GetEmbedUserApiKey
-* [get_member_roles](#get_member_roles) - GetMemberRoles
+* [get_member_roles](#get_member_roles) - Member role assignment
 * [get_object_access](#get_object_access) - GetObjectAccess
 * [get_role](#get_role) - GetRole
-* [get_role_permissions](#get_role_permissions) - GetRolePermissions
+* [get_role_permissions](#get_role_permissions) - Permission management
 * [has_object_access](#has_object_access) - HasObjectAccess
 * [list_access_requests](#list_access_requests) - ListAccessRequests
 * [list_api_keys](#list_api_keys) - ListApiKeys
-* [list_permissions](#list_permissions) - Permission management
+* [list_permissions](#list_permissions) - ListPermissions
 * [list_roles](#list_roles) - ListRoles
 * [list_service_accounts](#list_service_accounts) - ListServiceAccounts
-* [reject_access_request](#reject_access_request) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+* [reject_access_request](#reject_access_request) - RejectAccessRequest
 * [remove_permission_from_role](#remove_permission_from_role) - RemovePermissionFromRole
-* [remove_role_from_member](#remove_role_from_member) - Member role assignment
+* [remove_role_from_member](#remove_role_from_member) - RemoveRoleFromMember
 * [request_access](#request_access) - RequestAccess
-* [revoke_api_key](#revoke_api_key) - Object sharing and access control
-* [revoke_object_access](#revoke_object_access) - RevokeObjectAccess
-* [rotate_api_key](#rotate_api_key) - RotateApiKey
-* [set_role_permissions](#set_role_permissions) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
-* [share_object](#share_object) - Describe what a key is allowed to do.
-* [share_object_with_role](#share_object_with_role) - Group management. Internal only.
+* [revoke_api_key](#revoke_api_key) - RevokeApiKey
+* [revoke_object_access](#revoke_object_access) - Group management. Internal only.
+* [rotate_api_key](#rotate_api_key) - Object sharing and access control
+* [set_role_permissions](#set_role_permissions) - SetRolePermissions
+* [share_object](#share_object) - Get current member roles and permissions
+* [share_object_with_role](#share_object_with_role) - Describe what a key is allowed to do.
 * [update_object_access](#update_object_access) - UpdateObjectAccess
 * [update_object_visibility](#update_object_visibility) - UpdateObjectVisibility
 * [update_role](#update_role) - UpdateRole
-* [who_am_i](#who_am_i) - Get current member roles and permissions
+* [who_am_i](#who_am_i) - WhoAmI
 
 ## approve_access_request
 
@@ -127,7 +127,7 @@ with Textql(
 
 ## assign_role_to_member
 
-AssignRoleToMember
+Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
 
 ### Example Usage
 
@@ -169,7 +169,8 @@ with Textql(
 
 ## create_api_key
 
-CreateApiKey
+SCIM group-mapping migration tooling: one-time role<->group conversion,
+ internal only.
 
 ### Example Usage
 
@@ -603,7 +604,7 @@ with Textql(
 
 ## get_member_roles
 
-GetMemberRoles
+Member role assignment
 
 ### Example Usage
 
@@ -727,7 +728,7 @@ with Textql(
 
 ## get_role_permissions
 
-GetRolePermissions
+Permission management
 
 ### Example Usage
 
@@ -797,7 +798,7 @@ with Textql(
 | `object_type`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `object_id`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `member_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `role_id`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `role_id`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | owner, editor, viewer                                               |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -903,7 +904,7 @@ with Textql(
 
 ## list_permissions
 
-Permission management
+ListPermissions
 
 ### Example Usage
 
@@ -1028,8 +1029,7 @@ with Textql(
 
 ## reject_access_request
 
-SCIM group-mapping migration tooling: one-time role<->group conversion,
- internal only.
+RejectAccessRequest
 
 ### Example Usage
 
@@ -1113,7 +1113,7 @@ with Textql(
 
 ## remove_role_from_member
 
-Member role assignment
+RemoveRoleFromMember
 
 ### Example Usage
 
@@ -1200,7 +1200,7 @@ with Textql(
 
 ## revoke_api_key
 
-Object sharing and access control
+RevokeApiKey
 
 ### Example Usage
 
@@ -1241,7 +1241,7 @@ with Textql(
 
 ## revoke_object_access
 
-RevokeObjectAccess
+Group management. Internal only.
 
 ### Example Usage
 
@@ -1285,7 +1285,7 @@ with Textql(
 
 ## rotate_api_key
 
-RotateApiKey
+Object sharing and access control
 
 ### Example Usage
 
@@ -1326,7 +1326,7 @@ with Textql(
 
 ## set_role_permissions
 
-Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+SetRolePermissions
 
 ### Example Usage
 
@@ -1369,7 +1369,7 @@ with Textql(
 
 ## share_object
 
-Describe what a key is allowed to do.
+Get current member roles and permissions
 
 ### Example Usage
 
@@ -1416,7 +1416,7 @@ with Textql(
 
 ## share_object_with_role
 
-Group management. Internal only.
+Describe what a key is allowed to do.
 
 ### Example Usage
 
@@ -1597,7 +1597,7 @@ with Textql(
 
 ## who_am_i
 
-Get current member roles and permissions
+WhoAmI
 
 ### Example Usage
 

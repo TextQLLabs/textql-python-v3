@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacMemberRoles
 
+Member role management messages
+
 
 ## Fields
 

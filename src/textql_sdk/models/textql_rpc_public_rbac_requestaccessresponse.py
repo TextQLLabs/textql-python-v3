@@ -11,12 +11,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicRbacRequestAccessResponseTypedDict(TypedDict):
     success: NotRequired[bool]
     request_id: NotRequired[str]
+    r"""owner, editor, viewer"""
 
 
 class TextqlRPCPublicRbacRequestAccessResponse(BaseModel):
     success: Optional[bool] = None
 
     request_id: Annotated[Optional[str], pydantic.Field(alias="requestId")] = None
+    r"""owner, editor, viewer"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -8,13 +8,13 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict(TypedDict):
-    r"""Object access management messages"""
+    r"""Which LLM models the caller may run."""
 
     success: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleResponse(BaseModel):
-    r"""Object access management messages"""
+    r"""Which LLM models the caller may run."""
 
     success: Optional[bool] = None
 
