@@ -16,7 +16,6 @@ class TextqlRPCPublicCellsFeedCommentCellTypedDict(TypedDict):
     timestamp: NotRequired[str]
     error: NotRequired[str]
     post_title: NotRequired[str]
-    r"""Parent post metadata"""
     post_author: NotRequired[str]
     post_upvote_count: NotRequired[int]
     post_downvote_count: NotRequired[int]
@@ -36,7 +35,6 @@ class TextqlRPCPublicCellsFeedCommentCell(BaseModel):
     error: Optional[str] = None
 
     post_title: Annotated[Optional[str], pydantic.Field(alias="postTitle")] = None
-    r"""Parent post metadata"""
 
     post_author: Annotated[Optional[str], pydantic.Field(alias="postAuthor")] = None
 

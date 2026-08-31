@@ -19,33 +19,33 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsListAppsCellTypedDict(TypedDict):
-    r"""create_design_system tool: authors/edits an org Data App design system."""
-
     search_term: NotRequired[str]
-    r"""create | edit"""
     app_id: NotRequired[str]
+    r"""\"sql\" | \"python\" """
     total_count: NotRequired[int]
+    r"""Produced dataframe name, if applicable"""
     error_message: NotRequired[Nullable[str]]
-    r"""in-product viewer route"""
+    r"""SQL only: connector ID; display name resolves client-side"""
     apps: NotRequired[List[TextqlRPCPublicCellsAppInfoTypedDict]]
+    r"""SQL only: referenced tables"""
 
 
 class TextqlRPCPublicCellsListAppsCell(BaseModel):
-    r"""create_design_system tool: authors/edits an org Data App design system."""
-
     search_term: Annotated[Optional[str], pydantic.Field(alias="searchTerm")] = None
-    r"""create | edit"""
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
+    r"""\"sql\" | \"python\" """
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
+    r"""Produced dataframe name, if applicable"""
 
     error_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorMessage")
     ] = UNSET
-    r"""in-product viewer route"""
+    r"""SQL only: connector ID; display name resolves client-side"""
 
     apps: Optional[List[TextqlRPCPublicCellsAppInfo]] = None
+    r"""SQL only: referenced tables"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

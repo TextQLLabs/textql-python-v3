@@ -1,5 +1,7 @@
 # TextqlRPCPublicCellsBashCell
 
+Preview cell reference for report history
+
 
 ## Fields
 

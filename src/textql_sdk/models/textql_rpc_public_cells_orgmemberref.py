@@ -8,12 +8,24 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsOrgMemberRefTypedDict(TypedDict):
+    r"""FormCell is the v2 form editor cell. It only references a form_v5 row by id;
+    the frontend loads the full form via FormService (no chat-cell scanning). The
+    cached fields let the inline chat cell render without a round-trip.
+    """
+
     email: NotRequired[str]
+    r"""list | info | create | edit | view | update | test"""
     name: NotRequired[str]
 
 
 class TextqlRPCPublicCellsOrgMemberRef(BaseModel):
+    r"""FormCell is the v2 form editor cell. It only references a form_v5 row by id;
+    the frontend loads the full form via FormService (no chat-cell scanning). The
+    cached fields let the inline chat cell render without a round-trip.
+    """
+
     email: Optional[str] = None
+    r"""list | info | create | edit | view | update | test"""
 
     name: Optional[str] = None
 

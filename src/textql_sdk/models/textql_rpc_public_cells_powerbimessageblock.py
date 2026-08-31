@@ -11,12 +11,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsPowerBIMessageBlockTypedDict(TypedDict):
     content: NotRequired[str]
     image_base64: NotRequired[str]
+    r"""optional, only present for blocks with images"""
 
 
 class TextqlRPCPublicCellsPowerBIMessageBlock(BaseModel):
     content: Optional[str] = None
 
     image_base64: Annotated[Optional[str], pydantic.Field(alias="imageBase64")] = None
+    r"""optional, only present for blocks with images"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

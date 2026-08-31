@@ -20,9 +20,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicCellsCitationTypedDict(TypedDict):
     id: NotRequired[str]
+    r"""chosen option names"""
     claim: NotRequired[str]
+    r"""free-text entered for the \"Other\" option"""
     source_cell_id: NotRequired[Nullable[str]]
+    r"""value per input (sensitive values blanked in the broadcast)"""
     source_ref: NotRequired[Nullable[str]]
+    r"""per input: was it filled? lets the summary show provided/empty for sensitive inputs without their value"""
     source_locator: NotRequired[Nullable[str]]
     anchor: NotRequired[str]
     quoted_text: NotRequired[Nullable[str]]
@@ -32,16 +36,20 @@ class TextqlRPCPublicCellsCitationTypedDict(TypedDict):
 
 class TextqlRPCPublicCellsCitation(BaseModel):
     id: Optional[str] = None
+    r"""chosen option names"""
 
     claim: Optional[str] = None
+    r"""free-text entered for the \"Other\" option"""
 
     source_cell_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="sourceCellId")
     ] = UNSET
+    r"""value per input (sensitive values blanked in the broadcast)"""
 
     source_ref: Annotated[OptionalNullable[str], pydantic.Field(alias="sourceRef")] = (
         UNSET
     )
+    r"""per input: was it filled? lets the summary show provided/empty for sensitive inputs without their value"""
 
     source_locator: Annotated[
         OptionalNullable[str], pydantic.Field(alias="sourceLocator")

@@ -1,5 +1,7 @@
 # TextqlRPCPublicCellsEditableForm
 
+primary interface for ana to render sandbox assets client side
+
 
 ## Fields
 

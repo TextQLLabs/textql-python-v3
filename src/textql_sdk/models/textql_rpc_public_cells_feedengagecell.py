@@ -17,7 +17,6 @@ class TextqlRPCPublicCellsFeedEngageCellTypedDict(TypedDict):
     error: NotRequired[str]
     url: NotRequired[str]
     thing_title: NotRequired[str]
-    r"""Title/preview of the post or comment that was voted on"""
 
 
 class TextqlRPCPublicCellsFeedEngageCell(BaseModel):
@@ -38,7 +37,6 @@ class TextqlRPCPublicCellsFeedEngageCell(BaseModel):
     url: Optional[str] = None
 
     thing_title: Annotated[Optional[str], pydantic.Field(alias="thingTitle")] = None
-    r"""Title/preview of the post or comment that was voted on"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

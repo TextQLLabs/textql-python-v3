@@ -42,7 +42,9 @@ class TextqlRPCPublicCellsSubagentCellTypedDict(TypedDict):
     subagent_name: NotRequired[str]
     agent_id: NotRequired[Nullable[str]]
     detached: NotRequired[bool]
+    r"""choice / multichoice"""
     child_chat_id: NotRequired[str]
+    r"""adds a free-text \"Other\" option"""
     status: NotRequired[TextqlRPCPublicCellsSubagentRunStatus]
     final_message: NotRequired[str]
     artifacts: NotRequired[List[TextqlRPCPublicCellsFileReferenceTypedDict]]
@@ -62,8 +64,10 @@ class TextqlRPCPublicCellsSubagentCell(BaseModel):
     agent_id: Annotated[OptionalNullable[str], pydantic.Field(alias="agentId")] = UNSET
 
     detached: Optional[bool] = None
+    r"""choice / multichoice"""
 
     child_chat_id: Annotated[Optional[str], pydantic.Field(alias="childChatId")] = None
+    r"""adds a free-text \"Other\" option"""
 
     status: Optional[TextqlRPCPublicCellsSubagentRunStatus] = None
 

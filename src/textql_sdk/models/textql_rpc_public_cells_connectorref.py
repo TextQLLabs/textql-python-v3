@@ -8,16 +8,12 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsConnectorRefTypedDict(TypedDict):
-    r"""Reference types for context data"""
-
     id: NotRequired[int]
     name: NotRequired[str]
     type: NotRequired[str]
 
 
 class TextqlRPCPublicCellsConnectorRef(BaseModel):
-    r"""Reference types for context data"""
-
     id: Optional[int] = None
 
     name: Optional[str] = None

@@ -15,42 +15,46 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsCitationLineageNodeTypedDict(TypedDict):
+    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
+    haltable cell: the agent pauses until the user submits or dismisses inline.
+    On submit the answers go to the agent; on dismiss only the answered count does
+    and the agent waits for the user's next message (the dismissal reason).
+    """
+
     cell_id: NotRequired[str]
     kind: NotRequired[str]
-    r"""\"sql\" | \"python\" """
     dataframe_name: NotRequired[Nullable[str]]
-    r"""Produced dataframe name, if applicable"""
+    r"""prefill (pending) / summary (answered); sensitive values blanked"""
     connector_id: NotRequired[Nullable[int]]
-    r"""SQL only: connector ID; display name resolves client-side"""
     tables: NotRequired[List[str]]
-    r"""SQL only: referenced tables"""
     input_cell_ids: NotRequired[List[str]]
-    r"""upstream cell(s), for graph lineage"""
 
 
 class TextqlRPCPublicCellsCitationLineageNode(BaseModel):
+    r"""QuestionsCell is the agent's \"ask the user structured questions\" tool. It is a
+    haltable cell: the agent pauses until the user submits or dismisses inline.
+    On submit the answers go to the agent; on dismiss only the answered count does
+    and the agent waits for the user's next message (the dismissal reason).
+    """
+
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
 
     kind: Optional[str] = None
-    r"""\"sql\" | \"python\" """
 
     dataframe_name: Annotated[
         OptionalNullable[str], pydantic.Field(alias="dataframeName")
     ] = UNSET
-    r"""Produced dataframe name, if applicable"""
+    r"""prefill (pending) / summary (answered); sensitive values blanked"""
 
     connector_id: Annotated[
         OptionalNullable[int], pydantic.Field(alias="connectorId")
     ] = UNSET
-    r"""SQL only: connector ID; display name resolves client-side"""
 
     tables: Optional[List[str]] = None
-    r"""SQL only: referenced tables"""
 
     input_cell_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="inputCellIds")
     ] = None
-    r"""upstream cell(s), for graph lineage"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

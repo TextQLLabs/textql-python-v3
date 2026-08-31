@@ -18,8 +18,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsReportHistoryInfoTypedDict(TypedDict):
-    r"""Simplified report info for report history cell"""
-
     id: NotRequired[str]
     chat_id: NotRequired[str]
     cell_id: NotRequired[str]
@@ -213,8 +211,6 @@ class TextqlRPCPublicCellsReportHistoryInfoTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsReportHistoryInfo(BaseModel):
-    r"""Simplified report info for report history cell"""
-
     id: Optional[str] = None
 
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None

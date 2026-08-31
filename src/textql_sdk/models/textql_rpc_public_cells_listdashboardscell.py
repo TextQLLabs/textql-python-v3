@@ -21,7 +21,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsListDashboardsCellTypedDict(TypedDict):
     search_term: NotRequired[str]
     dashboard_id: NotRequired[str]
-    r"""Set for single-dashboard lookup"""
     total_count: NotRequired[int]
     sandbox_available: NotRequired[bool]
     error_message: NotRequired[Nullable[str]]
@@ -32,7 +31,6 @@ class TextqlRPCPublicCellsListDashboardsCell(BaseModel):
     search_term: Annotated[Optional[str], pydantic.Field(alias="searchTerm")] = None
 
     dashboard_id: Annotated[Optional[str], pydantic.Field(alias="dashboardId")] = None
-    r"""Set for single-dashboard lookup"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
 

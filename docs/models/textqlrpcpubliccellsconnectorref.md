@@ -1,7 +1,5 @@
 # TextqlRPCPublicCellsConnectorRef
 
-Reference types for context data
-
 
 ## Fields
 

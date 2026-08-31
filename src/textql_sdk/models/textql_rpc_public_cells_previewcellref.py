@@ -15,8 +15,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsPreviewCellRefTypedDict(TypedDict):
-    r"""Preview cell reference for report history"""
-
     target: NotRequired[str]
     preview_type: NotRequired[str]
     name: NotRequired[str]
@@ -24,8 +22,6 @@ class TextqlRPCPublicCellsPreviewCellRefTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsPreviewCellRef(BaseModel):
-    r"""Preview cell reference for report history"""
-
     target: Optional[str] = None
 
     preview_type: Annotated[Optional[str], pydantic.Field(alias="previewType")] = None

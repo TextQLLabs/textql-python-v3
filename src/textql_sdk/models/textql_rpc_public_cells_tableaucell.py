@@ -14,11 +14,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicCellsTableauCellTypedDict(TypedDict):
     dataset_id: NotRequired[str]
+    r"""\"get_feed\", \"get_post\", \"get_comments\" """
     message_blocks: NotRequired[List[TextqlRPCPublicCellsTableauMessageBlockTypedDict]]
 
 
 class TextqlRPCPublicCellsTableauCell(BaseModel):
     dataset_id: Annotated[Optional[str], pydantic.Field(alias="datasetId")] = None
+    r"""\"get_feed\", \"get_post\", \"get_comments\" """
 
     message_blocks: Annotated[
         Optional[List[TextqlRPCPublicCellsTableauMessageBlock]],

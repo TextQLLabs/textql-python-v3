@@ -8,24 +8,12 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsUseSkillCellTypedDict(TypedDict):
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
-
     trigger: NotRequired[str]
     name: NotRequired[str]
     ok: NotRequired[bool]
 
 
 class TextqlRPCPublicCellsUseSkillCell(BaseModel):
-    r"""UseSkillCell is the client projection of a `use_skill` auto-invoke. It
-    deliberately carries no body field: the skill's instructions are LLM-facing
-    prompt scaffolding (see compute/pkg/chat/cells/use_skill.go), never sent to
-    the transcript. The frontend renders provenance only (\"Using skill /trigger\").
-    """
-
     trigger: Optional[str] = None
 
     name: Optional[str] = None

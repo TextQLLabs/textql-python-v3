@@ -11,7 +11,7 @@
 | `comment_url`         | *Optional[str]*       | :heavy_minus_sign:    | N/A                   |
 | `timestamp`           | *Optional[str]*       | :heavy_minus_sign:    | N/A                   |
 | `error`               | *Optional[str]*       | :heavy_minus_sign:    | N/A                   |
-| `post_title`          | *Optional[str]*       | :heavy_minus_sign:    | Parent post metadata  |
+| `post_title`          | *Optional[str]*       | :heavy_minus_sign:    | N/A                   |
 | `post_author`         | *Optional[str]*       | :heavy_minus_sign:    | N/A                   |
 | `post_upvote_count`   | *Optional[int]*       | :heavy_minus_sign:    | N/A                   |
 | `post_downvote_count` | *Optional[int]*       | :heavy_minus_sign:    | N/A                   |

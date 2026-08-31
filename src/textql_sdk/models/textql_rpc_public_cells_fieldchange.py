@@ -9,20 +9,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsFieldChangeTypedDict(TypedDict):
-    r"""Represents a before/after change to a field during an update.
-    Used by both PlaybookEditorCell and FeedCreateCell.
-    """
-
     field_name: NotRequired[str]
     old_value: NotRequired[str]
     new_value: NotRequired[str]
 
 
 class TextqlRPCPublicCellsFieldChange(BaseModel):
-    r"""Represents a before/after change to a field during an update.
-    Used by both PlaybookEditorCell and FeedCreateCell.
-    """
-
     field_name: Annotated[Optional[str], pydantic.Field(alias="fieldName")] = None
 
     old_value: Annotated[Optional[str], pydantic.Field(alias="oldValue")] = None

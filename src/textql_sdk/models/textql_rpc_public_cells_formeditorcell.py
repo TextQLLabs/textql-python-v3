@@ -24,7 +24,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsFormEditorCellTypedDict(TypedDict):
     action: NotRequired[TextqlRPCPublicCellsFormEditorAction]
     form_snapshot: NotRequired[TextqlRPCPublicCellsEditableFormTypedDict]
+    r"""primary interface for ana to render sandbox assets client side"""
     form: NotRequired[TextqlRPCPublicCellsEditableFormTypedDict]
+    r"""primary interface for ana to render sandbox assets client side"""
     form_id: NotRequired[Nullable[str]]
 
 
@@ -34,8 +36,10 @@ class TextqlRPCPublicCellsFormEditorCell(BaseModel):
     form_snapshot: Annotated[
         Optional[TextqlRPCPublicCellsEditableForm], pydantic.Field(alias="formSnapshot")
     ] = None
+    r"""primary interface for ana to render sandbox assets client side"""
 
     form: Optional[TextqlRPCPublicCellsEditableForm] = None
+    r"""primary interface for ana to render sandbox assets client side"""
 
     form_id: Annotated[OptionalNullable[str], pydantic.Field(alias="formId")] = UNSET
 
