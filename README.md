@@ -395,7 +395,6 @@ with Textql(
 * [get_custom_topic_threads](docs/sdks/observability/README.md#get_custom_topic_threads) - GetCustomTopicThreads
 * [get_engagement_spectrum](docs/sdks/observability/README.md#get_engagement_spectrum) - GetEngagementSpectrum
 * [get_member_activity](docs/sdks/observability/README.md#get_member_activity) - GetMemberActivity
-* [get_member_signal_trend](docs/sdks/observability/README.md#get_member_signal_trend) - GetMemberSignalTrend
 * [get_observability_stats](docs/sdks/observability/README.md#get_observability_stats) - GetObservabilityStats
 * [get_thread_warnings](docs/sdks/observability/README.md#get_thread_warnings) - GetThreadWarnings
 * [list_custom_topics](docs/sdks/observability/README.md#list_custom_topics) - ListCustomTopics
