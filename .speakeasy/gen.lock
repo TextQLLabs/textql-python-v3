@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: 46b3828837f9162ae277b161691b0ce8
+  docChecksum: d73f3c1053bc19b9046b21c9481a1817
   docVersion: 1.0.0
   speakeasyVersion: 1.796.2
   generationVersion: 2.933.0
-  releaseVersion: 1.1.14
-  configChecksum: 9ccf3619e6db4c5f6895f827ca598506
+  releaseVersion: 1.1.15
+  configChecksum: c3bb2e3373eb83a8e309a5555ec386fd
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 0ba043ea-a3d8-41b3-b979-bd278e9c3394
-  pristine_commit_hash: 7e66b36252161870171ca37c060517dc01c19c01
-  pristine_tree_hash: f10b5e0686b55312312451c21cebce280755ed8c
+  generation_id: 6d31cd19-503d-47e7-b9f5-9f02f8121278
+  pristine_commit_hash: 65a29f9de3de15d907595b83eb6da96d1c51b1dd
+  pristine_tree_hash: dc04279141e2b91ef244fac154495603e669fadc
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9827,8 +9827,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:4e9c696294df5f7efac452d93d2e00afd93f353b
-    pristine_git_object: 36d42aab854eaf111ae39fab7f389f0df5530f82
+    last_write_checksum: sha1:7e5cbd8e6850f5e1193bcb14d1227cad0280c50d
+    pristine_git_object: bd75fe6f64863f50cfd1fd83416d224146d6492a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9855,8 +9855,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:1587ed40845812706ee399474743cca1f2dbef8b
-    pristine_git_object: 07c74def386fddec957eab26738e0208c311fcb0
+    last_write_checksum: sha1:dff12ee961a29aa2fdc398c10c28f75d4f7d3ed7
+    pristine_git_object: 516b830011741389e62cfdacace8f45f539ea9db
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:865c3c9444ec0da3e0805e7079a5004099ac0dc8
@@ -27667,6 +27667,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes:
-  * `textql.observability.get_member_signal_trend()`: **Removed** (Breaking ⚠️)
