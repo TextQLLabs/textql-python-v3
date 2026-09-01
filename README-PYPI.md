@@ -395,7 +395,6 @@ with Textql(
 * [get_custom_topic_threads](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_custom_topic_threads) - GetCustomTopicThreads
 * [get_engagement_spectrum](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_engagement_spectrum) - GetEngagementSpectrum
 * [get_member_activity](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_member_activity) - GetMemberActivity
-* [get_member_signal_trend](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_member_signal_trend) - GetMemberSignalTrend
 * [get_observability_stats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_observability_stats) - GetObservabilityStats
 * [get_thread_warnings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#get_thread_warnings) - GetThreadWarnings
 * [list_custom_topics](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#list_custom_topics) - ListCustomTopics
