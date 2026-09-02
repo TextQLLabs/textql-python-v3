@@ -1,9 +1,9 @@
-speakeasyVersion: 1.796.2
+speakeasyVersion: 1.796.3
 sources:
     TextQL API:
         sourceNamespace: textql-api
-        sourceRevisionDigest: sha256:5cc78fe672660a11cba342086da7dce83e8819ee68e506624a709ffe970d764c
-        sourceBlobDigest: sha256:6d5165955f4839b7fb026644268f1b17cf6e8459625958714aebe626bf47d8cc
+        sourceRevisionDigest: sha256:8df4475a45c4859dc0e67625bac2516f278a923f50b4f8cc17cdbb5fccf2d5e7
+        sourceBlobDigest: sha256:ff959540fca857fd8b4640212c5e099efd66dd01a8f1c722ee7c53e3fd5942d2
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     textql:
         source: TextQL API
         sourceNamespace: textql-api
-        sourceRevisionDigest: sha256:5cc78fe672660a11cba342086da7dce83e8819ee68e506624a709ffe970d764c
-        sourceBlobDigest: sha256:6d5165955f4839b7fb026644268f1b17cf6e8459625958714aebe626bf47d8cc
+        sourceRevisionDigest: sha256:8df4475a45c4859dc0e67625bac2516f278a923f50b4f8cc17cdbb5fccf2d5e7
+        sourceBlobDigest: sha256:ff959540fca857fd8b4640212c5e099efd66dd01a8f1c722ee7c53e3fd5942d2
         codeSamplesNamespace: textql-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:d221d50c3601366d4f7fce16d32b0b5c0eeed2babc9d50724c8899292f90502f
+        codeSamplesRevisionDigest: sha256:2e741520bde3382e6869eca7bbf1a3c29aa556f5c916d5c8da54dff4b3fcfc73
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
