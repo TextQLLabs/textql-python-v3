@@ -22,6 +22,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_FABLE_5"`
 - `"MODEL_SONNET_5"`
 - `"MODEL_OPUS_5"`
+- `"MODEL_FABLE_5_1"`
 - `"MODEL_GPT_5_6_SOL"`
 - `"MODEL_GEMINI_3_FLASH"`
 - `"MODEL_GEMINI_3_PRO"`

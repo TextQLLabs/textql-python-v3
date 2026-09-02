@@ -2379,7 +2379,7 @@ class Chats(BaseSDK):
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
             Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
-            Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+            Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
         :param model_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2521,7 +2521,7 @@ class Chats(BaseSDK):
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
             Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
-            Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+            Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
         :param model_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

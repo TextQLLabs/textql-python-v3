@@ -43,7 +43,7 @@ class TextqlRPCPublicChatCreateRequestTypedDict(TypedDict):
     """
     max_thinking: NotRequired[Nullable[bool]]
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+    Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
     """
     model_name: NotRequired[Nullable[str]]
 
@@ -90,7 +90,7 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="maxThinking")
     ] = UNSET
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Fable 5, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+    Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
     """
 
     model_name: Annotated[OptionalNullable[str], pydantic.Field(alias="modelName")] = (
