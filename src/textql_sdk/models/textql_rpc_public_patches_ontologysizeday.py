@@ -13,18 +13,35 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
 TotalBytesTypedDict = TypeAliasType("TotalBytesTypedDict", Union[int, str])
+r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+month and day.
+"""
 
 
 TotalBytes = TypeAliasType("TotalBytes", Union[int, str])
+r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+month and day.
+"""
 
 
 class TextqlRPCPublicPatchesOntologySizeDayTypedDict(TypedDict):
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+
     date_: NotRequired[TextqlRPCPublicPatchesDateTypedDict]
     total_bytes: NotRequired[TotalBytesTypedDict]
+    r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+    month and day.
+    """
     file_count: NotRequired[int]
+    r"""Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+    to specify a year by itself or a year and month where the day isn't
+    significant.
+    """
 
 
 class TextqlRPCPublicPatchesOntologySizeDay(BaseModel):
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
+
     date_: Annotated[
         Optional[TextqlRPCPublicPatchesDate], pydantic.Field(alias="date")
     ] = None
@@ -32,8 +49,15 @@ class TextqlRPCPublicPatchesOntologySizeDay(BaseModel):
     total_bytes: Annotated[Optional[TotalBytes], pydantic.Field(alias="totalBytes")] = (
         None
     )
+    r"""Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+    month and day.
+    """
 
     file_count: Annotated[Optional[int], pydantic.Field(alias="fileCount")] = None
+    r"""Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+    to specify a year by itself or a year and month where the day isn't
+    significant.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

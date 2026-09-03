@@ -36,6 +36,7 @@
 * [get_patch_by_number](#get_patch_by_number) - GetPatchByNumber
 * [get_patch_capabilities](#get_patch_capabilities) - PlanConfigMigration reports what the lazy config migration WOULD do to this  org's objects, and writes nothing. Admin-only, internal: it exists so a  release manager can warn the specific orgs a rollout will affect — notably  the objects that will stop running because adoption binds a Runner who can  no longer run them.
 * [get_raw_patch](#get_raw_patch) - GetRawPatch
+* [get_skill](#get_skill) - GetSkill
 * [get_usage_details_for_file](#get_usage_details_for_file) - GetUsageDetailsForFile
 * [list_approval_rules](#list_approval_rules) - ListApprovalRules
 * [list_chats_for_file](#list_chats_for_file) - ListChatsForFile
@@ -659,13 +660,13 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `path`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `upload_key`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `commit_message`                                                    | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                                                                                      | Type                                                                                                                                           | Required                                                                                                                                       | Description                                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                                                           | *Optional[float]*                                                                                                                              | :heavy_minus_sign:                                                                                                                             | N/A                                                                                                                                            |
+| `path`                                                                                                                                         | *Optional[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                             | N/A                                                                                                                                            |
+| `upload_key`                                                                                                                                   | *Optional[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                             | N/A                                                                                                                                            |
+| `commit_message`                                                                                                                               | *OptionalNullable[str]*                                                                                                                        | :heavy_minus_sign:                                                                                                                             | Last frame for this walk. Earlier frames are partial counts; the final<br/> frame always carries the complete total — the walk is never truncated. |
+| `retries`                                                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                               | :heavy_minus_sign:                                                                                                                             | Configuration to override the default retry behavior of the client.                                                                            |
 
 ### Response
 
@@ -1373,7 +1374,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `patch_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Library path of the file that defines the object                    |
+| `patch_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1420,6 +1421,47 @@ with Textql(
 ### Response
 
 **[models.OntologyManagementServiceGetRawPatchResponse](../../models/ontologymanagementservicegetrawpatchresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## get_skill
+
+GetSkill
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="OntologyManagementService_GetSkill" method="post" path="/textql.rpc.public.patches.OntologyManagementService/GetSkill" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.ontology.get_skill()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `trigger`                                                           | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.OntologyManagementServiceGetSkillResponse](../../models/ontologymanagementservicegetskillresponse.md)**
 
 ### Errors
 
@@ -1879,7 +1921,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | path is the config file the finding is attributed to.               |
+| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | git ref of the patch to inspect                                     |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -2465,12 +2507,12 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                             | Type                                                                  | Required                                                              | Description                                                           |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                  | *Optional[float]*                                                     | :heavy_minus_sign:                                                    | N/A                                                                   |
-| `patch_id`                                                            | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | Code owners first, then admins, matching the sidebar's display order. |
-| `expected_git_ref`                                                    | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | N/A                                                                   |
-| `retries`                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)      | :heavy_minus_sign:                                                    | Configuration to override the default retry behavior of the client.   |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `patch_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `expected_git_ref`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
@@ -2635,7 +2677,7 @@ with Textql(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `path`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `golden`                                                            | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `golden`                                                            | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | true = certify, false = retire                                      |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response

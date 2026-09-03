@@ -1334,6 +1334,12 @@ if TYPE_CHECKING:
         OntologyManagementServiceGetRawPatchResponse,
         OntologyManagementServiceGetRawPatchResponseTypedDict,
     )
+    from .ontologymanagementservice_getskillop import (
+        OntologyManagementServiceGetSkillRequest,
+        OntologyManagementServiceGetSkillRequestTypedDict,
+        OntologyManagementServiceGetSkillResponse,
+        OntologyManagementServiceGetSkillResponseTypedDict,
+    )
     from .ontologymanagementservice_getusagedetailsforfileop import (
         OntologyManagementServiceGetUsageDetailsForFileRequest,
         OntologyManagementServiceGetUsageDetailsForFileRequestTypedDict,
@@ -6073,6 +6079,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesGetRawPatchResponse,
         TextqlRPCPublicPatchesGetRawPatchResponseTypedDict,
     )
+    from .textql_rpc_public_patches_getskillrequest import (
+        TextqlRPCPublicPatchesGetSkillRequest,
+        TextqlRPCPublicPatchesGetSkillRequestTypedDict,
+    )
+    from .textql_rpc_public_patches_getskillresponse import (
+        TextqlRPCPublicPatchesGetSkillResponse,
+        TextqlRPCPublicPatchesGetSkillResponseTypedDict,
+    )
     from .textql_rpc_public_patches_getusagedetailsforfilerequest import (
         TextqlRPCPublicPatchesGetUsageDetailsForFileRequest,
         TextqlRPCPublicPatchesGetUsageDetailsForFileRequestTypedDict,
@@ -9156,6 +9170,10 @@ __all__ = [
     "OntologyManagementServiceGetRawPatchRequestTypedDict",
     "OntologyManagementServiceGetRawPatchResponse",
     "OntologyManagementServiceGetRawPatchResponseTypedDict",
+    "OntologyManagementServiceGetSkillRequest",
+    "OntologyManagementServiceGetSkillRequestTypedDict",
+    "OntologyManagementServiceGetSkillResponse",
+    "OntologyManagementServiceGetSkillResponseTypedDict",
     "OntologyManagementServiceGetUsageDetailsForFileRequest",
     "OntologyManagementServiceGetUsageDetailsForFileRequestTypedDict",
     "OntologyManagementServiceGetUsageDetailsForFileResponse",
@@ -11753,6 +11771,10 @@ __all__ = [
     "TextqlRPCPublicPatchesGetRawPatchRequestTypedDict",
     "TextqlRPCPublicPatchesGetRawPatchResponse",
     "TextqlRPCPublicPatchesGetRawPatchResponseTypedDict",
+    "TextqlRPCPublicPatchesGetSkillRequest",
+    "TextqlRPCPublicPatchesGetSkillRequestTypedDict",
+    "TextqlRPCPublicPatchesGetSkillResponse",
+    "TextqlRPCPublicPatchesGetSkillResponseTypedDict",
     "TextqlRPCPublicPatchesGetUsageDetailsForFileRequest",
     "TextqlRPCPublicPatchesGetUsageDetailsForFileRequestTypedDict",
     "TextqlRPCPublicPatchesGetUsageDetailsForFileResponse",
@@ -13662,6 +13684,10 @@ _dynamic_imports: dict[str, str] = {
     "OntologyManagementServiceGetRawPatchRequestTypedDict": ".ontologymanagementservice_getrawpatchop",
     "OntologyManagementServiceGetRawPatchResponse": ".ontologymanagementservice_getrawpatchop",
     "OntologyManagementServiceGetRawPatchResponseTypedDict": ".ontologymanagementservice_getrawpatchop",
+    "OntologyManagementServiceGetSkillRequest": ".ontologymanagementservice_getskillop",
+    "OntologyManagementServiceGetSkillRequestTypedDict": ".ontologymanagementservice_getskillop",
+    "OntologyManagementServiceGetSkillResponse": ".ontologymanagementservice_getskillop",
+    "OntologyManagementServiceGetSkillResponseTypedDict": ".ontologymanagementservice_getskillop",
     "OntologyManagementServiceGetUsageDetailsForFileRequest": ".ontologymanagementservice_getusagedetailsforfileop",
     "OntologyManagementServiceGetUsageDetailsForFileRequestTypedDict": ".ontologymanagementservice_getusagedetailsforfileop",
     "OntologyManagementServiceGetUsageDetailsForFileResponse": ".ontologymanagementservice_getusagedetailsforfileop",
@@ -16513,6 +16539,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesGetRawPatchRequestTypedDict": ".textql_rpc_public_patches_getrawpatchrequest",
     "TextqlRPCPublicPatchesGetRawPatchResponse": ".textql_rpc_public_patches_getrawpatchresponse",
     "TextqlRPCPublicPatchesGetRawPatchResponseTypedDict": ".textql_rpc_public_patches_getrawpatchresponse",
+    "TextqlRPCPublicPatchesGetSkillRequest": ".textql_rpc_public_patches_getskillrequest",
+    "TextqlRPCPublicPatchesGetSkillRequestTypedDict": ".textql_rpc_public_patches_getskillrequest",
+    "TextqlRPCPublicPatchesGetSkillResponse": ".textql_rpc_public_patches_getskillresponse",
+    "TextqlRPCPublicPatchesGetSkillResponseTypedDict": ".textql_rpc_public_patches_getskillresponse",
     "TextqlRPCPublicPatchesGetUsageDetailsForFileRequest": ".textql_rpc_public_patches_getusagedetailsforfilerequest",
     "TextqlRPCPublicPatchesGetUsageDetailsForFileRequestTypedDict": ".textql_rpc_public_patches_getusagedetailsforfilerequest",
     "TextqlRPCPublicPatchesGetUsageDetailsForFileResponse": ".textql_rpc_public_patches_getusagedetailsforfileresponse",

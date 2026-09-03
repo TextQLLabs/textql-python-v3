@@ -14,11 +14,21 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesGetPatchCapabilitiesResponseTypedDict(TypedDict):
     capabilities: NotRequired[TextqlRPCPublicPatchesPatchCapabilitiesTypedDict]
+    r"""PatchCapabilities describes which patch actions the calling member is
+    permitted to perform. This is a read-only mirror of the authority checks in
+    ApprovePatch and DenyPatch; computing it has no side effects and emits no
+    audit log.
+    """
     status: NotRequired[TextqlRPCPublicPatchesPatchStatus]
 
 
 class TextqlRPCPublicPatchesGetPatchCapabilitiesResponse(BaseModel):
     capabilities: Optional[TextqlRPCPublicPatchesPatchCapabilities] = None
+    r"""PatchCapabilities describes which patch actions the calling member is
+    permitted to perform. This is a read-only mirror of the authority checks in
+    ApprovePatch and DenyPatch; computing it has no side effects and emits no
+    audit log.
+    """
 
     status: Optional[TextqlRPCPublicPatchesPatchStatus] = None
 

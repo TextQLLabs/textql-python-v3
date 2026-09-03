@@ -535,7 +535,11 @@ class TextqlRPCPublicChatChat(BaseModel):
     ] = UNSET
 
     max_thinking: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="maxThinking")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="maxThinking",
+        ),
     ] = UNSET
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
     Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.

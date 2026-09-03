@@ -259,8 +259,10 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     hide_api_connectors: NotRequired[Nullable[bool]]
     fast_mode_enabled: NotRequired[Nullable[bool]]
     max_thinking_enabled: NotRequired[Nullable[bool]]
+    configurable_thinking_enabled: NotRequired[Nullable[bool]]
     sandbox_state_retention_days: NotRequired[Nullable[int]]
     sandbox_lease_config_enabled: NotRequired[Nullable[bool]]
+    voice_input_enabled: NotRequired[Nullable[bool]]
     delete_inactive_threads_enabled: NotRequired[Nullable[bool]]
     thread_retention_days: NotRequired[Nullable[int]]
     thread_hard_delete_grace_days: NotRequired[Nullable[int]]
@@ -715,7 +717,15 @@ class TextqlRPCAuthOrganization(BaseModel):
     ] = UNSET
 
     max_thinking_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="maxThinkingEnabled")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="maxThinkingEnabled",
+        ),
+    ] = UNSET
+
+    configurable_thinking_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="configurableThinkingEnabled")
     ] = UNSET
 
     sandbox_state_retention_days: Annotated[
@@ -724,6 +734,10 @@ class TextqlRPCAuthOrganization(BaseModel):
 
     sandbox_lease_config_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="sandboxLeaseConfigEnabled")
+    ] = UNSET
+
+    voice_input_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="voiceInputEnabled")
     ] = UNSET
 
     delete_inactive_threads_enabled: Annotated[
@@ -967,8 +981,10 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "hideApiConnectors",
                 "fastModeEnabled",
                 "maxThinkingEnabled",
+                "configurableThinkingEnabled",
                 "sandboxStateRetentionDays",
                 "sandboxLeaseConfigEnabled",
+                "voiceInputEnabled",
                 "deleteInactiveThreadsEnabled",
                 "threadRetentionDays",
                 "threadHardDeleteGraceDays",
@@ -1043,8 +1059,10 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "hideApiConnectors",
                 "fastModeEnabled",
                 "maxThinkingEnabled",
+                "configurableThinkingEnabled",
                 "sandboxStateRetentionDays",
                 "sandboxLeaseConfigEnabled",
+                "voiceInputEnabled",
                 "deleteInactiveThreadsEnabled",
                 "threadRetentionDays",
                 "threadHardDeleteGraceDays",

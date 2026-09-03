@@ -22,7 +22,6 @@ class TextqlRPCPublicChatArtifactSummaryTypedDict(TypedDict):
     id: NotRequired[str]
     name: NotRequired[str]
     type: NotRequired[TextqlRPCPublicChatArtifactType]
-    r"""Artifact types for drawer items"""
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -125,7 +124,6 @@ class TextqlRPCPublicChatArtifactSummary(BaseModel):
     name: Optional[str] = None
 
     type: Optional[TextqlRPCPublicChatArtifactType] = None
-    r"""Artifact types for drawer items"""
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

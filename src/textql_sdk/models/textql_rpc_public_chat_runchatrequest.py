@@ -40,7 +40,11 @@ class TextqlRPCPublicChatRunChatRequest(BaseModel):
     )
 
     max_thinking: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="maxThinking")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="maxThinking",
+        ),
     ] = UNSET
 
     @model_serializer(mode="wrap")

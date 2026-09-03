@@ -12,6 +12,7 @@ class TextqlRPCPublicCellsFileReferenceTypedDict(TypedDict):
     name: NotRequired[str]
     url: NotRequired[str]
     file_type: NotRequired[str]
+    artifact_id: NotRequired[str]
 
 
 class TextqlRPCPublicCellsFileReference(BaseModel):
@@ -21,9 +22,11 @@ class TextqlRPCPublicCellsFileReference(BaseModel):
 
     file_type: Annotated[Optional[str], pydantic.Field(alias="fileType")] = None
 
+    artifact_id: Annotated[Optional[str], pydantic.Field(alias="artifactId")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["name", "url", "fileType"])
+        optional_fields = set(["name", "url", "fileType", "artifactId"])
         serialized = handler(self)
         m = {}
 

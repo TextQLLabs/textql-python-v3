@@ -15,8 +15,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesConfigureOntologyRemoteRequestTypedDict(TypedDict):
-    r"""Deprecated: use SetOntologyOwnersRequest with an empty entry set."""
-
     remote_url: NotRequired[str]
     auth_type: NotRequired[str]
     token: NotRequired[Nullable[str]]
@@ -33,8 +31,6 @@ class TextqlRPCPublicPatchesConfigureOntologyRemoteRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesConfigureOntologyRemoteRequest(BaseModel):
-    r"""Deprecated: use SetOntologyOwnersRequest with an empty entry set."""
-
     remote_url: Annotated[Optional[str], pydantic.Field(alias="remoteUrl")] = None
 
     auth_type: Annotated[Optional[str], pydantic.Field(alias="authType")] = None

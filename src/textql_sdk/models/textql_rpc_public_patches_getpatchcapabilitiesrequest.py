@@ -9,17 +9,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetPatchCapabilitiesRequestTypedDict(TypedDict):
-    r"""PatchObject is one config object parsed from a patch ref."""
-
     patch_id: NotRequired[str]
-    r"""Library path of the file that defines the object"""
 
 
 class TextqlRPCPublicPatchesGetPatchCapabilitiesRequest(BaseModel):
-    r"""PatchObject is one config object parsed from a patch ref."""
-
     patch_id: Annotated[Optional[str], pydantic.Field(alias="patchId")] = None
-    r"""Library path of the file that defines the object"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

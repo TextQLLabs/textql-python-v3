@@ -10,12 +10,14 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicPatchesSetOntologyFileGoldenRequestTypedDict(TypedDict):
     path: NotRequired[str]
     golden: NotRequired[bool]
+    r"""true = certify, false = retire"""
 
 
 class TextqlRPCPublicPatchesSetOntologyFileGoldenRequest(BaseModel):
     path: Optional[str] = None
 
     golden: Optional[bool] = None
+    r"""true = certify, false = retire"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

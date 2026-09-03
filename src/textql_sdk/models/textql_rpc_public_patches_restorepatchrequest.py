@@ -10,13 +10,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesRestorePatchRequestTypedDict(TypedDict):
     patch_id: NotRequired[str]
-    r"""Code owners first, then admins, matching the sidebar's display order."""
     expected_git_ref: NotRequired[str]
 
 
 class TextqlRPCPublicPatchesRestorePatchRequest(BaseModel):
     patch_id: Annotated[Optional[str], pydantic.Field(alias="patchId")] = None
-    r"""Code owners first, then admins, matching the sidebar's display order."""
 
     expected_git_ref: Annotated[
         Optional[str], pydantic.Field(alias="expectedGitRef")

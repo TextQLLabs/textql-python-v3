@@ -26,11 +26,6 @@ class TextqlRPCPublicPatchesListPatchesResponseTypedDict(TypedDict):
     patches: NotRequired[List[TextqlRPCPublicPatchesPatchTypedDict]]
     next_page_token: NotRequired[Nullable[str]]
     counts: NotRequired[TextqlRPCPublicPatchesPatchStatusCountsTypedDict]
-    r"""PatchCapabilities describes which patch actions the calling member is
-    permitted to perform. This is a read-only mirror of the authority checks in
-    ApprovePatch and DenyPatch; computing it has no side effects and emits no
-    audit log.
-    """
 
 
 class TextqlRPCPublicPatchesListPatchesResponse(BaseModel):
@@ -41,11 +36,6 @@ class TextqlRPCPublicPatchesListPatchesResponse(BaseModel):
     ] = UNSET
 
     counts: Optional[TextqlRPCPublicPatchesPatchStatusCounts] = None
-    r"""PatchCapabilities describes which patch actions the calling member is
-    permitted to perform. This is a read-only mirror of the authority checks in
-    ApprovePatch and DenyPatch; computing it has no side effects and emits no
-    audit log.
-    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

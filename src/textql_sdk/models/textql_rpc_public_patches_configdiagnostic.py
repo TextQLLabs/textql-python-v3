@@ -13,6 +13,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesConfigDiagnosticTypedDict(TypedDict):
     path: NotRequired[str]
+    r"""path is the config file the finding is attributed to."""
     message: NotRequired[str]
     class_: NotRequired[TextqlRPCPublicPatchesConfigDiagnosticClass]
     r"""ConfigDiagnosticClass partitions a finding by who can fix it, so an authoring loop
@@ -22,6 +23,7 @@ class TextqlRPCPublicPatchesConfigDiagnosticTypedDict(TypedDict):
 
 class TextqlRPCPublicPatchesConfigDiagnostic(BaseModel):
     path: Optional[str] = None
+    r"""path is the config file the finding is attributed to."""
 
     message: Optional[str] = None
 
