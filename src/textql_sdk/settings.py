@@ -1378,7 +1378,9 @@ class Settings(BaseSDK):
         hide_api_connectors: Optional[bool] = None,
         fast_mode_enabled: Optional[bool] = None,
         max_thinking_enabled: Optional[bool] = None,
+        configurable_thinking_enabled: Optional[bool] = None,
         clear_default_connector_ids: Optional[bool] = None,
+        voice_input_enabled: Optional[bool] = None,
         default_dashboard_output: Optional[bool] = None,
         default_methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         traces_enabled: Optional[bool] = None,
@@ -1483,7 +1485,19 @@ class Settings(BaseSDK):
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
+        :param configurable_thinking_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param clear_default_connector_ids:
+        :param voice_input_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param default_dashboard_output: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -1583,7 +1597,9 @@ class Settings(BaseSDK):
                 hide_api_connectors=hide_api_connectors,
                 fast_mode_enabled=fast_mode_enabled,
                 max_thinking_enabled=max_thinking_enabled,
+                configurable_thinking_enabled=configurable_thinking_enabled,
                 clear_default_connector_ids=clear_default_connector_ids,
+                voice_input_enabled=voice_input_enabled,
                 default_dashboard_output=default_dashboard_output,
                 default_methodology=default_methodology,
                 traces_enabled=traces_enabled,
@@ -1703,7 +1719,9 @@ class Settings(BaseSDK):
         hide_api_connectors: Optional[bool] = None,
         fast_mode_enabled: Optional[bool] = None,
         max_thinking_enabled: Optional[bool] = None,
+        configurable_thinking_enabled: Optional[bool] = None,
         clear_default_connector_ids: Optional[bool] = None,
+        voice_input_enabled: Optional[bool] = None,
         default_dashboard_output: Optional[bool] = None,
         default_methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         traces_enabled: Optional[bool] = None,
@@ -1808,7 +1826,19 @@ class Settings(BaseSDK):
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
+        :param configurable_thinking_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param clear_default_connector_ids:
+        :param voice_input_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param default_dashboard_output: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -1908,7 +1938,9 @@ class Settings(BaseSDK):
                 hide_api_connectors=hide_api_connectors,
                 fast_mode_enabled=fast_mode_enabled,
                 max_thinking_enabled=max_thinking_enabled,
+                configurable_thinking_enabled=configurable_thinking_enabled,
                 clear_default_connector_ids=clear_default_connector_ids,
+                voice_input_enabled=voice_input_enabled,
                 default_dashboard_output=default_dashboard_output,
                 default_methodology=default_methodology,
                 traces_enabled=traces_enabled,

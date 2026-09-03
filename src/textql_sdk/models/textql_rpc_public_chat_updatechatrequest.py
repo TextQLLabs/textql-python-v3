@@ -52,7 +52,11 @@ class TextqlRPCPublicChatUpdateChatRequest(BaseModel):
     r"""update fast inference mode"""
 
     max_thinking: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="maxThinking")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="maxThinking",
+        ),
     ] = UNSET
     r"""update max thinking mode"""
 

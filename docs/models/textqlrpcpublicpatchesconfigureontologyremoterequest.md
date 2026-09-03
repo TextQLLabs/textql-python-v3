@@ -1,7 +1,5 @@
 # TextqlRPCPublicPatchesConfigureOntologyRemoteRequest
 
-Deprecated: use SetOntologyOwnersRequest with an empty entry set.
-
 
 ## Fields
 

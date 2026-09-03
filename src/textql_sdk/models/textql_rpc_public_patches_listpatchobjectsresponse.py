@@ -12,17 +12,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesListPatchObjectsResponseTypedDict(TypedDict):
-    r"""ListPatchObjectsRequest inspects the config objects at a patch's git ref."""
-
     objects: NotRequired[List[TextqlRPCPublicPatchesPatchObjectTypedDict]]
-    r"""git ref of the patch to inspect"""
 
 
 class TextqlRPCPublicPatchesListPatchObjectsResponse(BaseModel):
-    r"""ListPatchObjectsRequest inspects the config objects at a patch's git ref."""
-
     objects: Optional[List[TextqlRPCPublicPatchesPatchObject]] = None
-    r"""git ref of the patch to inspect"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

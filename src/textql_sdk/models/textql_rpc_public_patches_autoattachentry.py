@@ -11,18 +11,24 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicPatchesAutoAttachEntryTypedDict(TypedDict):
     path: NotRequired[str]
     connector_id: NotRequired[int]
+    r"""deprecated: use connector_ids"""
     api_connector_ids: NotRequired[List[str]]
     role_ids: NotRequired[List[str]]
     connector_ids: NotRequired[List[int]]
+    r"""multiple connectors (OR logic); overrides connector_id when non-empty"""
     match_no_connector: NotRequired[bool]
+    r"""true = only match when no connector is active"""
     match_no_api_connector: NotRequired[bool]
+    r"""true = only match when no API connector is active"""
     match_all: NotRequired[bool]
+    r"""true = always attach regardless of other conditions"""
 
 
 class TextqlRPCPublicPatchesAutoAttachEntry(BaseModel):
     path: Optional[str] = None
 
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
+    r"""deprecated: use connector_ids"""
 
     api_connector_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="apiConnectorIds")
@@ -33,16 +39,20 @@ class TextqlRPCPublicPatchesAutoAttachEntry(BaseModel):
     connector_ids: Annotated[
         Optional[List[int]], pydantic.Field(alias="connectorIds")
     ] = None
+    r"""multiple connectors (OR logic); overrides connector_id when non-empty"""
 
     match_no_connector: Annotated[
         Optional[bool], pydantic.Field(alias="matchNoConnector")
     ] = None
+    r"""true = only match when no connector is active"""
 
     match_no_api_connector: Annotated[
         Optional[bool], pydantic.Field(alias="matchNoApiConnector")
     ] = None
+    r"""true = only match when no API connector is active"""
 
     match_all: Annotated[Optional[bool], pydantic.Field(alias="matchAll")] = None
+    r"""true = always attach regardless of other conditions"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

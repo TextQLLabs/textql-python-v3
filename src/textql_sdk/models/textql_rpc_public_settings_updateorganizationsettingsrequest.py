@@ -121,7 +121,23 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+    configurable_thinking_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
     clear_default_connector_ids: NotRequired[bool]
+    voice_input_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
     default_dashboard_output: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -359,9 +375,31 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     has no plan to be removed.
     """
 
+    configurable_thinking_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="configurableThinkingEnabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
     clear_default_connector_ids: Annotated[
         Optional[bool], pydantic.Field(alias="clearDefaultConnectorIds")
     ] = None
+
+    voice_input_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="voiceInputEnabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
 
     default_dashboard_output: Annotated[
         Optional[bool], pydantic.Field(alias="defaultDashboardOutput")
@@ -486,7 +524,9 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
                 "hideApiConnectors",
                 "fastModeEnabled",
                 "maxThinkingEnabled",
+                "configurableThinkingEnabled",
                 "clearDefaultConnectorIds",
+                "voiceInputEnabled",
                 "defaultDashboardOutput",
                 "defaultMethodology",
                 "tracesEnabled",

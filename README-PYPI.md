@@ -436,6 +436,7 @@ with Textql(
 * [get_patch_by_number](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_patch_by_number) - GetPatchByNumber
 * [get_patch_capabilities](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_patch_capabilities) - PlanConfigMigration reports what the lazy config migration WOULD do to this  org's objects, and writes nothing. Admin-only, internal: it exists so a  release manager can warn the specific orgs a rollout will affect — notably  the objects that will stop running because adoption binds a Runner who can  no longer run them.
 * [get_raw_patch](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_raw_patch) - GetRawPatch
+* [get_skill](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_skill) - GetSkill
 * [get_usage_details_for_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#get_usage_details_for_file) - GetUsageDetailsForFile
 * [list_approval_rules](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_approval_rules) - ListApprovalRules
 * [list_chats_for_file](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontology/README.md#list_chats_for_file) - ListChatsForFile

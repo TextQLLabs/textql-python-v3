@@ -41,7 +41,9 @@ class TextqlRPCPublicPatchesPatchTypedDict(TypedDict):
     git_ref: NotRequired[str]
     revision: NotRequired[int]
     head_at_merge: NotRequired[Nullable[str]]
+    r"""for showing diffs post-merge"""
     reviewer_id: NotRequired[Nullable[str]]
+    r"""for auditing reviews"""
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -229,6 +231,11 @@ class TextqlRPCPublicPatchesPatchTypedDict(TypedDict):
     approval_count: NotRequired[int]
     required_approvals: NotRequired[int]
     capabilities: NotRequired[TextqlRPCPublicPatchesPatchCapabilitiesTypedDict]
+    r"""PatchCapabilities describes which patch actions the calling member is
+    permitted to perform. This is a read-only mirror of the authority checks in
+    ApprovePatch and DenyPatch; computing it has no side effects and emits no
+    audit log.
+    """
     code_owner_status: NotRequired[
         List[TextqlRPCPublicPatchesPatchCodeownerStatusTypedDict]
     ]
@@ -263,10 +270,12 @@ class TextqlRPCPublicPatchesPatch(BaseModel):
     head_at_merge: Annotated[
         OptionalNullable[str], pydantic.Field(alias="headAtMerge")
     ] = UNSET
+    r"""for showing diffs post-merge"""
 
     reviewer_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="reviewerId")
     ] = UNSET
+    r"""for auditing reviews"""
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -469,6 +478,11 @@ class TextqlRPCPublicPatchesPatch(BaseModel):
     ] = None
 
     capabilities: Optional[TextqlRPCPublicPatchesPatchCapabilities] = None
+    r"""PatchCapabilities describes which patch actions the calling member is
+    permitted to perform. This is a read-only mirror of the authority checks in
+    ApprovePatch and DenyPatch; computing it has no side effects and emits no
+    audit log.
+    """
 
     code_owner_status: Annotated[
         Optional[List[TextqlRPCPublicPatchesPatchCodeownerStatus]],

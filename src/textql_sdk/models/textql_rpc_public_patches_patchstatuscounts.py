@@ -9,12 +9,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesPatchStatusCountsTypedDict(TypedDict):
-    r"""PatchCapabilities describes which patch actions the calling member is
-    permitted to perform. This is a read-only mirror of the authority checks in
-    ApprovePatch and DenyPatch; computing it has no side effects and emits no
-    audit log.
-    """
-
     open: NotRequired[int]
     draft_mine: NotRequired[int]
     approved: NotRequired[int]
@@ -23,12 +17,6 @@ class TextqlRPCPublicPatchesPatchStatusCountsTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesPatchStatusCounts(BaseModel):
-    r"""PatchCapabilities describes which patch actions the calling member is
-    permitted to perform. This is a read-only mirror of the authority checks in
-    ApprovePatch and DenyPatch; computing it has no side effects and emits no
-    audit log.
-    """
-
     open: Optional[int] = None
 
     draft_mine: Annotated[Optional[int], pydantic.Field(alias="draftMine")] = None

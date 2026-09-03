@@ -9,6 +9,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesPatchCapabilitiesTypedDict(TypedDict):
+    r"""PatchCapabilities describes which patch actions the calling member is
+    permitted to perform. This is a read-only mirror of the authority checks in
+    ApprovePatch and DenyPatch; computing it has no side effects and emits no
+    audit log.
+    """
+
     can_approve: NotRequired[bool]
     can_deny: NotRequired[bool]
     can_restore: NotRequired[bool]
@@ -16,6 +22,12 @@ class TextqlRPCPublicPatchesPatchCapabilitiesTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesPatchCapabilities(BaseModel):
+    r"""PatchCapabilities describes which patch actions the calling member is
+    permitted to perform. This is a read-only mirror of the authority checks in
+    ApprovePatch and DenyPatch; computing it has no side effects and emits no
+    audit log.
+    """
+
     can_approve: Annotated[Optional[bool], pydantic.Field(alias="canApprove")] = None
 
     can_deny: Annotated[Optional[bool], pydantic.Field(alias="canDeny")] = None

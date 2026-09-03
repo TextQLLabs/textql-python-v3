@@ -15,12 +15,25 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesFinalizeOntologyFileUploadRequestTypedDict(TypedDict):
+    r"""Counts of the entries a caller may see beneath a subtree. Excludes the subtree
+    root itself and reserved names (OWNERS, .gitignore, .DS_Store, .tmp-*), which
+    are bookkeeping rather than Ontology content.
+    """
+
     path: NotRequired[str]
     upload_key: NotRequired[str]
     commit_message: NotRequired[Nullable[str]]
+    r"""Last frame for this walk. Earlier frames are partial counts; the final
+    frame always carries the complete total — the walk is never truncated.
+    """
 
 
 class TextqlRPCPublicPatchesFinalizeOntologyFileUploadRequest(BaseModel):
+    r"""Counts of the entries a caller may see beneath a subtree. Excludes the subtree
+    root itself and reserved names (OWNERS, .gitignore, .DS_Store, .tmp-*), which
+    are bookkeeping rather than Ontology content.
+    """
+
     path: Optional[str] = None
 
     upload_key: Annotated[Optional[str], pydantic.Field(alias="uploadKey")] = None
@@ -28,6 +41,9 @@ class TextqlRPCPublicPatchesFinalizeOntologyFileUploadRequest(BaseModel):
     commit_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="commitMessage")
     ] = UNSET
+    r"""Last frame for this walk. Earlier frames are partial counts; the final
+    frame always carries the complete total — the walk is never truncated.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

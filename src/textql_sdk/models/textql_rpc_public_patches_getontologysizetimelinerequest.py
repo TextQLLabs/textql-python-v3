@@ -10,8 +10,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetOntologySizeTimelineRequestTypedDict(TypedDict):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
-
     observation_period: NotRequired[timedelta]
     r"""A Duration represents a signed, fixed-length span of time represented
     as a count of seconds and fractions of seconds at nanosecond
@@ -75,8 +73,6 @@ class TextqlRPCPublicPatchesGetOntologySizeTimelineRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesGetOntologySizeTimelineRequest(BaseModel):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
-
     observation_period: Annotated[
         Optional[timedelta], pydantic.Field(alias="observationPeriod")
     ] = None
