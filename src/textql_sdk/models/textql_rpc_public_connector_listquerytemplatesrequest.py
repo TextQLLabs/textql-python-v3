@@ -11,22 +11,24 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicConnectorListQueryTemplatesRequestTypedDict(TypedDict):
     connector_id: NotRequired[int]
     limit: NotRequired[int]
+    r"""Display name (e.g., \"Explore Data\")"""
     offset: NotRequired[int]
-    r"""0.0-1.0"""
+    r"""Query text to send (plain text, no formatting)"""
     days: NotRequired[int]
-    r"""milliseconds"""
+    r"""True if requires multiple connectors"""
 
 
 class TextqlRPCPublicConnectorListQueryTemplatesRequest(BaseModel):
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
 
     limit: Optional[int] = None
+    r"""Display name (e.g., \"Explore Data\")"""
 
     offset: Optional[int] = None
-    r"""0.0-1.0"""
+    r"""Query text to send (plain text, no formatting)"""
 
     days: Optional[int] = None
-    r"""milliseconds"""
+    r"""True if requires multiple connectors"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -15,6 +15,10 @@ class TextqlRPCPublicConnectorRedshiftMetadataTypedDict(TypedDict):
     password: NotRequired[str]
     database: NotRequired[str]
     schemas: NotRequired[List[str]]
+    r"""Set on responses: secret_id, role_arn and external_id have been blanked.
+    Echo the ref back with all three still blank on update to keep the stored
+    ones; setting any of them replaces the location and requires secret_id.
+    """
     dialect: NotRequired[str]
     ssl_mode: NotRequired[bool]
     auth_type: NotRequired[str]
@@ -38,6 +42,10 @@ class TextqlRPCPublicConnectorRedshiftMetadata(BaseModel):
     database: Optional[str] = None
 
     schemas: Optional[List[str]] = None
+    r"""Set on responses: secret_id, role_arn and external_id have been blanked.
+    Echo the ref back with all three still blank on update to keep the stored
+    ones; setting any of them replaces the location and requires secret_id.
+    """
 
     dialect: Optional[str] = None
 

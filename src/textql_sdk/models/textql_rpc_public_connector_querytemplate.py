@@ -27,7 +27,9 @@ class TextqlRPCPublicConnectorQueryTemplateTypedDict(TypedDict):
     template_id: NotRequired[str]
     normalized_sql: NotRequired[str]
     tables: NotRequired[List[str]]
+    r"""0.0-1.0"""
     joins: NotRequired[List[TextqlRPCPublicConnectorQueryJoinInfoTypedDict]]
+    r"""milliseconds"""
     event_count: NotRequired[EventCountTypedDict]
     first_seen: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -223,8 +225,10 @@ class TextqlRPCPublicConnectorQueryTemplate(BaseModel):
     )
 
     tables: Optional[List[str]] = None
+    r"""0.0-1.0"""
 
     joins: Optional[List[TextqlRPCPublicConnectorQueryJoinInfo]] = None
+    r"""milliseconds"""
 
     event_count: Annotated[Optional[EventCount], pydantic.Field(alias="eventCount")] = (
         None

@@ -10,12 +10,20 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicConnectorPrimaryKeyMetadataTypedDict(TypedDict):
     columns: NotRequired[List[str]]
     descriptions: NotRequired[List[str]]
+    r"""Optional: If provided, confidential fields will be preserved from the existing connector
+    when the corresponding field in config is empty. This allows testing updates without
+    requiring the user to re-enter credentials.
+    """
 
 
 class TextqlRPCPublicConnectorPrimaryKeyMetadata(BaseModel):
     columns: Optional[List[str]] = None
 
     descriptions: Optional[List[str]] = None
+    r"""Optional: If provided, confidential fields will be preserved from the existing connector
+    when the corresponding field in config is empty. This allows testing updates without
+    requiring the user to re-enter credentials.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

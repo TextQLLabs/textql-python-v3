@@ -1,7 +1,5 @@
 # TextqlRPCPublicConnectorConnectorStatEntryQueryCount
 
-If set, this is a feature word to be styled
-
 
 ## Supported Types
 

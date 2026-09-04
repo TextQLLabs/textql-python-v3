@@ -385,6 +385,8 @@ class TextqlRPCPublicCellsAppInfoTypedDict(TypedDict):
     http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
     ) to obtain a formatter capable of generating timestamps in this format.
     """
+    schedule_enabled: NotRequired[bool]
+    cron_string: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicCellsAppInfo(BaseModel):
@@ -394,7 +396,12 @@ class TextqlRPCPublicCellsAppInfo(BaseModel):
 
     description: OptionalNullable[str] = UNSET
 
-    status: Optional[str] = None
+    status: Annotated[
+        Optional[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+        ),
+    ] = None
 
     creator_id: Annotated[Optional[str], pydantic.Field(alias="creatorId")] = None
 
@@ -770,6 +777,14 @@ class TextqlRPCPublicCellsAppInfo(BaseModel):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
 
+    schedule_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="scheduleEnabled")
+    ] = None
+
+    cron_string: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="cronString")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -783,9 +798,11 @@ class TextqlRPCPublicCellsAppInfo(BaseModel):
                 "updatedAt",
                 "refreshedAt",
                 "publishedAt",
+                "scheduleEnabled",
+                "cronString",
             ]
         )
-        nullable_fields = set(["description"])
+        nullable_fields = set(["description", "cronString"])
         serialized = handler(self)
         m = {}
 

@@ -1767,7 +1767,7 @@ class Connectors(BaseSDK):
         r"""GetConnectorStats
 
         :param connect_timeout_ms:
-        :param days:
+        :param days: PowerBI report IDs
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1871,7 +1871,7 @@ class Connectors(BaseSDK):
         r"""GetConnectorStats
 
         :param connect_timeout_ms:
-        :param days:
+        :param days: PowerBI report IDs
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2865,7 +2865,7 @@ class Connectors(BaseSDK):
         r"""ListConnectorTables
 
         :param connect_timeout_ms:
-        :param connector_id: Apache Arrow IPC format binary data
+        :param connector_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2969,7 +2969,7 @@ class Connectors(BaseSDK):
         r"""ListConnectorTables
 
         :param connect_timeout_ms:
-        :param connector_id: Apache Arrow IPC format binary data
+        :param connector_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3077,9 +3077,9 @@ class Connectors(BaseSDK):
 
         :param connect_timeout_ms:
         :param connector_id:
-        :param limit:
-        :param offset: 0.0-1.0
-        :param days: milliseconds
+        :param limit: Display name (e.g., \"Explore Data\")
+        :param offset: Query text to send (plain text, no formatting)
+        :param days: True if requires multiple connectors
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3190,9 +3190,9 @@ class Connectors(BaseSDK):
 
         :param connect_timeout_ms:
         :param connector_id:
-        :param limit:
-        :param offset: 0.0-1.0
-        :param days: milliseconds
+        :param limit: Display name (e.g., \"Explore Data\")
+        :param offset: Query text to send (plain text, no formatting)
+        :param days: True if requires multiple connectors
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
