@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: c8c3b3adb2d9cccc0061a6ff891aa618
+  docChecksum: 2b4ac595e336019fc15f81f7a6a43b74
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 1.1.19
-  configChecksum: 5d5f40bd49d35059dd254b754a1fbf78
+  releaseVersion: 1.1.20
+  configChecksum: 707de3ec4ed31652eda102bb5eed65d6
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 5403e0c4-b1f2-43b0-b75c-51ac50f3044f
-  pristine_commit_hash: 2130a700bce3e9ebcccb8683c20c0667cfbc9f4a
-  pristine_tree_hash: d7cb4cc7d90930ce44aaaff34e5184d3055d96f9
+  generation_id: 07dbc81f-4f5d-428f-a356-169a542f9c17
+  pristine_commit_hash: b3187cb23809f7d10eb4765a98d3cadf6e121ce3
+  pristine_tree_hash: 9febd14124189618b5fc329b6091c3741797ee54
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9843,8 +9843,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:95e85299e7525b2d8157516c3c855a09e73fcc02
-    pristine_git_object: 21917fc352cf299d34671baaaf93f7ae523bacd7
+    last_write_checksum: sha1:f0b39f5af88a490153d5c72aa11684d9ee1ede1d
+    pristine_git_object: 7d8ee057c4944ee5406a08587257bdbe135b2dd8
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9871,8 +9871,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:20b5d13eeb426abc8bfb999fe11a8a5406ddb499
-    pristine_git_object: cf290a00be9be39d1be513e10f580979cec68d4c
+    last_write_checksum: sha1:ab6cf98dfe4dc0b51168a5c7092404907c69b6ce
+    pristine_git_object: e500920fa8c2a6fba46d0345f18c9c123705fd8f
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:865c3c9444ec0da3e0805e7079a5004099ac0dc8
@@ -27707,15 +27707,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes:
-  * `textql.chats.attach_app()`:  `response.cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.attach_dashboard()`:  `response.cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.attach_dataset()`:  `response.cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.check_streamlit_health()`:  `response.cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.get_history()`:  `response.cells[].union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.query_one_shot()`:  `response.cells[].union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.chats.run()`:  `response.cells[].union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
-  * `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(list_apps_cell).list_apps_cell.apps[]` **Changed**
