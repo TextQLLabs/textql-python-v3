@@ -10,11 +10,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorQueryTemplateCteRefTypedDict(TypedDict):
     template_id: NotRequired[str]
+    r"""0 = all-time"""
     cte_name: NotRequired[str]
 
 
 class TextqlRPCPublicConnectorQueryTemplateCteRef(BaseModel):
     template_id: Annotated[Optional[str], pydantic.Field(alias="templateId")] = None
+    r"""0 = all-time"""
 
     cte_name: Annotated[Optional[str], pydantic.Field(alias="cteName")] = None
 

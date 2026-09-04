@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `days`             | *Optional[int]*    | :heavy_minus_sign: | N/A                |
+| `days`             | *Optional[int]*    | :heavy_minus_sign: | PowerBI report IDs |

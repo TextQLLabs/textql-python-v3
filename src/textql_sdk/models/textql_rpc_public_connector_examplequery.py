@@ -19,8 +19,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorExampleQueryTypedDict(TypedDict):
     id: NotRequired[str]
-    r"""dataset IDs for selected Tableau collections"""
     label: NotRequired[str]
+    r"""If set, only return queries with this feature type"""
     message: NotRequired[str]
     is_multi_source: NotRequired[bool]
     required_connector_ids: NotRequired[List[int]]
@@ -32,9 +32,9 @@ class TextqlRPCPublicConnectorExampleQueryTypedDict(TypedDict):
 
 class TextqlRPCPublicConnectorExampleQuery(BaseModel):
     id: Optional[str] = None
-    r"""dataset IDs for selected Tableau collections"""
 
     label: Optional[str] = None
+    r"""If set, only return queries with this feature type"""
 
     message: Optional[str] = None
 

@@ -13,12 +13,10 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicConnectorGetExampleQueriesResponseTypedDict(TypedDict):
     examples: NotRequired[List[TextqlRPCPublicConnectorExampleQueryTypedDict]]
-    r"""PowerBI report IDs"""
 
 
 class TextqlRPCPublicConnectorGetExampleQueriesResponse(BaseModel):
     examples: Optional[List[TextqlRPCPublicConnectorExampleQuery]] = None
-    r"""PowerBI report IDs"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

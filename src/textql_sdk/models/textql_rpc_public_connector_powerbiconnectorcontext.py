@@ -11,7 +11,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicConnectorPowerBIConnectorContextTypedDict(TypedDict):
     report_ids: NotRequired[List[str]]
     dataset_ids: NotRequired[List[str]]
-    r"""If set, only return queries with this feature type"""
     collection_ids: NotRequired[List[str]]
 
 
@@ -21,7 +20,6 @@ class TextqlRPCPublicConnectorPowerBIConnectorContext(BaseModel):
     dataset_ids: Annotated[Optional[List[str]], pydantic.Field(alias="datasetIds")] = (
         None
     )
-    r"""If set, only return queries with this feature type"""
 
     collection_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="collectionIds")

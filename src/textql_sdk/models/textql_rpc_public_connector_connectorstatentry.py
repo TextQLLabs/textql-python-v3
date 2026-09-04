@@ -12,13 +12,11 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict = TypeAliasType(
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict", Union[int, str]
 )
-r"""If set, this is a feature word to be styled"""
 
 
 TextqlRPCPublicConnectorConnectorStatEntryQueryCount = TypeAliasType(
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCount", Union[int, str]
 )
-r"""If set, this is a feature word to be styled"""
 
 
 AvgQueryTimeMsTypedDict = TypeAliasType("AvgQueryTimeMsTypedDict", Union[int, str])
@@ -28,14 +26,11 @@ AvgQueryTimeMs = TypeAliasType("AvgQueryTimeMs", Union[int, str])
 
 
 class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
-    r"""A segment of an example query message - either plain text or a styled feature word"""
-
     connector_id: NotRequired[int]
-    r"""The text content of this segment"""
+    r"""dataset IDs for selected Tableau collections"""
     query_count: NotRequired[
         TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict
     ]
-    r"""If set, this is a feature word to be styled"""
     error_rate: NotRequired[float]
     avg_query_time_ms: NotRequired[AvgQueryTimeMsTypedDict]
     unique_users: NotRequired[int]
@@ -134,16 +129,13 @@ class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
 
 
 class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
-    r"""A segment of an example query message - either plain text or a styled feature word"""
-
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
-    r"""The text content of this segment"""
+    r"""dataset IDs for selected Tableau collections"""
 
     query_count: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorStatEntryQueryCount],
         pydantic.Field(alias="queryCount"),
     ] = None
-    r"""If set, this is a feature word to be styled"""
 
     error_rate: Annotated[Optional[float], pydantic.Field(alias="errorRate")] = None
 
