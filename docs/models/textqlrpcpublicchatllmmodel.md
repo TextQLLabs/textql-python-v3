@@ -39,5 +39,8 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_QWEN3_7_PLUS"`
 - `"MODEL_KIMI_K3"`
 - `"MODEL_DEEPSEEK_V4_FLASH_0731"`
+- `"MODEL_DEEPSEEK_V4_FLASH_VISION_EXP"`
+- `"MODEL_GLM_5_3_FLASH"`
+- `"MODEL_GLM_5_3"`
 - `"MODEL_MUSE_SPARK_1_1"`
 - `"MODEL_MUSE_SPARK_1_2"`
