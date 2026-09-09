@@ -6,6 +6,7 @@ from .textql_rpc_public_agent_slackagenttrigger import (
     TextqlRPCPublicAgentSlackAgentTriggerTypedDict,
 )
 from .textql_rpc_public_chat_llmmodel import TextqlRPCPublicChatLlmModel
+from .textql_rpc_public_chat_methodology import TextqlRPCPublicChatMethodology
 from .textql_rpc_public_paradigm_paradigmoptions import (
     TextqlRPCPublicParadigmParadigmOptions,
     TextqlRPCPublicParadigmParadigmOptionsTypedDict,
@@ -160,6 +161,7 @@ class TextqlRPCPublicAgentAgentTypedDict(TypedDict):
     feed_enabled: NotRequired[bool]
     subagent_agent_ids: NotRequired[List[str]]
     allow_ad_hoc_subagents: NotRequired[bool]
+    methodology: NotRequired[TextqlRPCPublicChatMethodology]
 
 
 class TextqlRPCPublicAgentAgent(BaseModel):
@@ -383,6 +385,8 @@ class TextqlRPCPublicAgentAgent(BaseModel):
         Optional[bool], pydantic.Field(alias="allowAdHocSubagents")
     ] = None
 
+    methodology: Optional[TextqlRPCPublicChatMethodology] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -422,6 +426,7 @@ class TextqlRPCPublicAgentAgent(BaseModel):
                 "feedEnabled",
                 "subagentAgentIds",
                 "allowAdHocSubagents",
+                "methodology",
             ]
         )
         nullable_fields = set(

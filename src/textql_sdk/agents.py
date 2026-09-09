@@ -47,6 +47,7 @@ class Agents(BaseSDK):
         feed_enabled: OptionalNullable[bool] = UNSET,
         subagent_agent_ids: Optional[Iterable[str]] = None,
         allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
+        methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -81,6 +82,7 @@ class Agents(BaseSDK):
         :param feed_enabled:
         :param subagent_agent_ids:
         :param allow_ad_hoc_subagents:
+        :param methodology:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -144,6 +146,7 @@ class Agents(BaseSDK):
                     subagent_agent_ids, Optional[List[str]]
                 ),
                 allow_ad_hoc_subagents=allow_ad_hoc_subagents,
+                methodology=methodology,
             ),
         )
 
@@ -252,6 +255,7 @@ class Agents(BaseSDK):
         feed_enabled: OptionalNullable[bool] = UNSET,
         subagent_agent_ids: Optional[Iterable[str]] = None,
         allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
+        methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -286,6 +290,7 @@ class Agents(BaseSDK):
         :param feed_enabled:
         :param subagent_agent_ids:
         :param allow_ad_hoc_subagents:
+        :param methodology:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -349,6 +354,7 @@ class Agents(BaseSDK):
                     subagent_agent_ids, Optional[List[str]]
                 ),
                 allow_ad_hoc_subagents=allow_ad_hoc_subagents,
+                methodology=methodology,
             ),
         )
 
@@ -2586,6 +2592,7 @@ class Agents(BaseSDK):
         subagent_agent_ids: Optional[Iterable[str]] = None,
         update_subagents: OptionalNullable[bool] = UNSET,
         allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
+        methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2624,6 +2631,7 @@ class Agents(BaseSDK):
         :param subagent_agent_ids:
         :param update_subagents:
         :param allow_ad_hoc_subagents:
+        :param methodology:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2692,6 +2700,7 @@ class Agents(BaseSDK):
                 ),
                 update_subagents=update_subagents,
                 allow_ad_hoc_subagents=allow_ad_hoc_subagents,
+                methodology=methodology,
             ),
         )
 
@@ -2805,6 +2814,7 @@ class Agents(BaseSDK):
         subagent_agent_ids: Optional[Iterable[str]] = None,
         update_subagents: OptionalNullable[bool] = UNSET,
         allow_ad_hoc_subagents: OptionalNullable[bool] = UNSET,
+        methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2843,6 +2853,7 @@ class Agents(BaseSDK):
         :param subagent_agent_ids:
         :param update_subagents:
         :param allow_ad_hoc_subagents:
+        :param methodology:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2911,6 +2922,7 @@ class Agents(BaseSDK):
                 ),
                 update_subagents=update_subagents,
                 allow_ad_hoc_subagents=allow_ad_hoc_subagents,
+                methodology=methodology,
             ),
         )
 
