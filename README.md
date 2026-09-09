@@ -612,11 +612,17 @@ with Textql(
 
 ### [Secrets](docs/sdks/secrets/README.md)
 
+* [delete_api_access_key](docs/sdks/secrets/README.md#delete_api_access_key) - DeleteApiAccessKey
 * [delete_secret](docs/sdks/secrets/README.md#delete_secret) - DeleteSecret
+* [get_api_access_key](docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
 * [get_members_with_secrets](docs/sdks/secrets/README.md#get_members_with_secrets) - GetMembersWithSecrets
+* [list_api_access_keys](docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
+* [list_api_providers](docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders
 * [list_secrets](docs/sdks/secrets/README.md#list_secrets) - ListSecrets
 * [put_secret](docs/sdks/secrets/README.md#put_secret) - PutSecret
+* [test_api_access_key](docs/sdks/secrets/README.md#test_api_access_key) - TestApiAccessKey
 * [update](docs/sdks/secrets/README.md#update) - UpdateSecret
+* [upsert_api_access_key](docs/sdks/secrets/README.md#upsert_api_access_key) - ---- API Connectors (deprecated) ----
 
 ### [Settings](docs/sdks/settings/README.md)
 

@@ -612,11 +612,17 @@ with Textql(
 
 ### [Secrets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md)
 
+* [delete_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#delete_api_access_key) - DeleteApiAccessKey
 * [delete_secret](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#delete_secret) - DeleteSecret
+* [get_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
 * [get_members_with_secrets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#get_members_with_secrets) - GetMembersWithSecrets
+* [list_api_access_keys](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
+* [list_api_providers](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders
 * [list_secrets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_secrets) - ListSecrets
 * [put_secret](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#put_secret) - PutSecret
+* [test_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#test_api_access_key) - TestApiAccessKey
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#update) - UpdateSecret
+* [upsert_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#upsert_api_access_key) - ---- API Connectors (deprecated) ----
 
 ### [Settings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/settings/README.md)
 
