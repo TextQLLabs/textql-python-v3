@@ -23,14 +23,19 @@ class TextqlRPCPublicCellsEditableFormTypedDict(TypedDict):
 
     form_name: NotRequired[str]
     fields: NotRequired[Dict[str, Nullable[GoogleProtobufValueTypedDict]]]
-    r"""`Struct` represents a structured data value, consisting of fields
-    which map to dynamically typed values. In some languages, `Struct`
-    might be supported by a native representation. For example, in
-    scripting languages like JS a struct is represented as an
-    object. The details of that representation are described together
-    with the proto support for the language.
+    r"""Represents a JSON object.
 
-    The JSON representation for `Struct` is JSON object.
+    An unordered key-value map, intending to perfectly capture the semantics of a
+    JSON object. This enables parsing any arbitrary JSON payload as a message
+    field in ProtoJSON format.
+
+    This follows RFC 8259 guidelines for interoperable JSON: notably this type
+    cannot represent large Int64 values or `NaN`/`Infinity` numbers,
+    since the JSON format generally does not support those values in its number
+    type.
+
+    If you do not intend to parse arbitrary JSON into your message, a custom
+    typed message should be preferred instead of using this type.
     """
     status: NotRequired[TextqlRPCPublicCellsEditableFormStatus]
     id: NotRequired[str]
@@ -45,14 +50,19 @@ class TextqlRPCPublicCellsEditableForm(BaseModel):
     form_name: Annotated[Optional[str], pydantic.Field(alias="formName")] = None
 
     fields: Optional[Dict[str, Nullable[GoogleProtobufValue]]] = None
-    r"""`Struct` represents a structured data value, consisting of fields
-    which map to dynamically typed values. In some languages, `Struct`
-    might be supported by a native representation. For example, in
-    scripting languages like JS a struct is represented as an
-    object. The details of that representation are described together
-    with the proto support for the language.
+    r"""Represents a JSON object.
 
-    The JSON representation for `Struct` is JSON object.
+    An unordered key-value map, intending to perfectly capture the semantics of a
+    JSON object. This enables parsing any arbitrary JSON payload as a message
+    field in ProtoJSON format.
+
+    This follows RFC 8259 guidelines for interoperable JSON: notably this type
+    cannot represent large Int64 values or `NaN`/`Infinity` numbers,
+    since the JSON format generally does not support those values in its number
+    type.
+
+    If you do not intend to parse arbitrary JSON into your message, a custom
+    typed message should be preferred instead of using this type.
     """
 
     status: Optional[TextqlRPCPublicCellsEditableFormStatus] = None
