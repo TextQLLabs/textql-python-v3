@@ -1916,6 +1916,12 @@ if TYPE_CHECKING:
         RBACServiceDeleteServiceAccountResponse,
         RBACServiceDeleteServiceAccountResponseTypedDict,
     )
+    from .rbacservice_exportrolepermissionsop import (
+        RBACServiceExportRolePermissionsRequest,
+        RBACServiceExportRolePermissionsRequestTypedDict,
+        RBACServiceExportRolePermissionsResponse,
+        RBACServiceExportRolePermissionsResponseTypedDict,
+    )
     from .rbacservice_generatesharelinkop import (
         RBACServiceGenerateShareLinkRequest,
         RBACServiceGenerateShareLinkRequestTypedDict,
@@ -7112,6 +7118,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacDeleteServiceAccountResponse,
         TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict,
     )
+    from .textql_rpc_public_rbac_exportrolepermissionsrequest import (
+        TextqlRPCPublicRbacExportRolePermissionsRequest,
+        TextqlRPCPublicRbacExportRolePermissionsRequestTypedDict,
+    )
+    from .textql_rpc_public_rbac_exportrolepermissionsresponse import (
+        TextqlRPCPublicRbacExportRolePermissionsResponse,
+        TextqlRPCPublicRbacExportRolePermissionsResponseTypedDict,
+    )
     from .textql_rpc_public_rbac_generatesharelinkrequest import (
         TextqlRPCPublicRbacGenerateShareLinkRequest,
         TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict,
@@ -9641,6 +9655,10 @@ __all__ = [
     "RBACServiceDeleteServiceAccountRequestTypedDict",
     "RBACServiceDeleteServiceAccountResponse",
     "RBACServiceDeleteServiceAccountResponseTypedDict",
+    "RBACServiceExportRolePermissionsRequest",
+    "RBACServiceExportRolePermissionsRequestTypedDict",
+    "RBACServiceExportRolePermissionsResponse",
+    "RBACServiceExportRolePermissionsResponseTypedDict",
     "RBACServiceGenerateShareLinkRequest",
     "RBACServiceGenerateShareLinkRequestTypedDict",
     "RBACServiceGenerateShareLinkResponse",
@@ -12313,6 +12331,10 @@ __all__ = [
     "TextqlRPCPublicRbacDeleteServiceAccountRequestTypedDict",
     "TextqlRPCPublicRbacDeleteServiceAccountResponse",
     "TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict",
+    "TextqlRPCPublicRbacExportRolePermissionsRequest",
+    "TextqlRPCPublicRbacExportRolePermissionsRequestTypedDict",
+    "TextqlRPCPublicRbacExportRolePermissionsResponse",
+    "TextqlRPCPublicRbacExportRolePermissionsResponseTypedDict",
     "TextqlRPCPublicRbacGenerateShareLinkRequest",
     "TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict",
     "TextqlRPCPublicRbacGenerateShareLinkResponse",
@@ -14126,6 +14148,10 @@ _dynamic_imports: dict[str, str] = {
     "RBACServiceDeleteServiceAccountRequestTypedDict": ".rbacservice_deleteserviceaccountop",
     "RBACServiceDeleteServiceAccountResponse": ".rbacservice_deleteserviceaccountop",
     "RBACServiceDeleteServiceAccountResponseTypedDict": ".rbacservice_deleteserviceaccountop",
+    "RBACServiceExportRolePermissionsRequest": ".rbacservice_exportrolepermissionsop",
+    "RBACServiceExportRolePermissionsRequestTypedDict": ".rbacservice_exportrolepermissionsop",
+    "RBACServiceExportRolePermissionsResponse": ".rbacservice_exportrolepermissionsop",
+    "RBACServiceExportRolePermissionsResponseTypedDict": ".rbacservice_exportrolepermissionsop",
     "RBACServiceGenerateShareLinkRequest": ".rbacservice_generatesharelinkop",
     "RBACServiceGenerateShareLinkRequestTypedDict": ".rbacservice_generatesharelinkop",
     "RBACServiceGenerateShareLinkResponse": ".rbacservice_generatesharelinkop",
@@ -17120,6 +17146,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacDeleteServiceAccountRequestTypedDict": ".textql_rpc_public_rbac_deleteserviceaccountrequest",
     "TextqlRPCPublicRbacDeleteServiceAccountResponse": ".textql_rpc_public_rbac_deleteserviceaccountresponse",
     "TextqlRPCPublicRbacDeleteServiceAccountResponseTypedDict": ".textql_rpc_public_rbac_deleteserviceaccountresponse",
+    "TextqlRPCPublicRbacExportRolePermissionsRequest": ".textql_rpc_public_rbac_exportrolepermissionsrequest",
+    "TextqlRPCPublicRbacExportRolePermissionsRequestTypedDict": ".textql_rpc_public_rbac_exportrolepermissionsrequest",
+    "TextqlRPCPublicRbacExportRolePermissionsResponse": ".textql_rpc_public_rbac_exportrolepermissionsresponse",
+    "TextqlRPCPublicRbacExportRolePermissionsResponseTypedDict": ".textql_rpc_public_rbac_exportrolepermissionsresponse",
     "TextqlRPCPublicRbacGenerateShareLinkRequest": ".textql_rpc_public_rbac_generatesharelinkrequest",
     "TextqlRPCPublicRbacGenerateShareLinkRequestTypedDict": ".textql_rpc_public_rbac_generatesharelinkrequest",
     "TextqlRPCPublicRbacGenerateShareLinkResponse": ".textql_rpc_public_rbac_generatesharelinkresponse",

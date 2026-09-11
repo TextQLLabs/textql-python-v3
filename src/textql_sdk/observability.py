@@ -231,7 +231,9 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceBackfillCustomTopicResponse:
-        r"""BackfillCustomTopic
+        r"""Custom topics
+
+        Custom topics
 
         :param connect_timeout_ms:
         :param topic_id:
@@ -517,7 +519,9 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceBackfillCustomTopicResponse:
-        r"""BackfillCustomTopic
+        r"""Custom topics
+
+        Custom topics
 
         :param connect_timeout_ms:
         :param topic_id:
@@ -1030,9 +1034,7 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceCreateCustomTopicResponse:
-        r"""Custom topics
-
-        Custom topics
+        r"""CreateCustomTopic
 
         :param connect_timeout_ms:
         :param name:
@@ -1145,9 +1147,7 @@ class Observability(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.ObservabilityServiceCreateCustomTopicResponse:
-        r"""Custom topics
-
-        Custom topics
+        r"""CreateCustomTopic
 
         :param connect_timeout_ms:
         :param name:

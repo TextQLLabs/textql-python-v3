@@ -373,9 +373,9 @@ with Textql(
 ### [Observability](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md)
 
 * [activate_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#activate_custom_topic) - ActivateCustomTopic
-* [backfill_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#backfill_custom_topic) - BackfillCustomTopic
+* [backfill_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#backfill_custom_topic) - Custom topics
 * [backfill_thread_warnings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#backfill_thread_warnings) - BackfillThreadWarnings
-* [create_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#create_custom_topic) - Custom topics
+* [create_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#create_custom_topic) - CreateCustomTopic
 * [deactivate_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#deactivate_custom_topic) - DeactivateCustomTopic
 * [delete_custom_topic](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#delete_custom_topic) - DeleteCustomTopic
 * [export_csv](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/observability/README.md#export_csv) - ExportObservabilityCsv
@@ -542,6 +542,7 @@ with Textql(
 * [create_service_account_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#create_service_account_api_key) - CreateServiceAccountApiKey
 * [delete_role](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_role) - DeleteRole
 * [delete_service_account](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#delete_service_account) - DeleteServiceAccount
+* [export_role_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#export_role_permissions) - ExportRolePermissions
 * [generate_share_link](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#generate_share_link) - GenerateShareLink
 * [get_current_member_roles_and_permissions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_current_member_roles_and_permissions) - GetCurrentMemberRolesAndPermissions
 * [get_embed_user_api_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md#get_embed_user_api_key) - GetEmbedUserApiKey
