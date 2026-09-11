@@ -12,10 +12,20 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesFinalizeOntologyFileUploadResponseTypedDict(TypedDict):
+    r"""Counts of the entries a caller may see beneath a subtree. Excludes the subtree
+    root itself and reserved names (OWNERS, .gitignore, .DS_Store, .tmp-*), which
+    are bookkeeping rather than Ontology content.
+    """
+
     file: NotRequired[TextqlRPCPublicPatchesOntologyFileTypedDict]
 
 
 class TextqlRPCPublicPatchesFinalizeOntologyFileUploadResponse(BaseModel):
+    r"""Counts of the entries a caller may see beneath a subtree. Excludes the subtree
+    root itself and reserved names (OWNERS, .gitignore, .DS_Store, .tmp-*), which
+    are bookkeeping rather than Ontology content.
+    """
+
     file: Optional[TextqlRPCPublicPatchesOntologyFile] = None
 
     @model_serializer(mode="wrap")

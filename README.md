@@ -410,15 +410,15 @@ with Textql(
 * [create_approval_rule](docs/sdks/ontology/README.md#create_approval_rule) - CreateApprovalRule
 * [create_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
 * [create_directory](docs/sdks/ontology/README.md#create_directory) - CreateOntologyDirectory
-* [create_file_upload_url](docs/sdks/ontology/README.md#create_file_upload_url) - Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+* [create_file_upload_url](docs/sdks/ontology/README.md#create_file_upload_url) - CreateOntologyFileUploadUrl
 * [delete_approval_rule](docs/sdks/ontology/README.md#delete_approval_rule) - DeleteApprovalRule
 * [delete_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
 * [delete_directory](docs/sdks/ontology/README.md#delete_directory) - DeleteOntologyDirectory
 * [delete_file](docs/sdks/ontology/README.md#delete_file) - DeleteOntologyFile
 * [deny_patch](docs/sdks/ontology/README.md#deny_patch) - DenyPatch
 * [exchange_github_code](docs/sdks/ontology/README.md#exchange_github_code) - ExchangeOntologyGithubCode
-* [finalize_file_upload](docs/sdks/ontology/README.md#finalize_file_upload) - FinalizeOntologyFileUpload
-* [get_codeowner_coverage](docs/sdks/ontology/README.md#get_codeowner_coverage) - GetCodeownerCoverage
+* [finalize_file_upload](docs/sdks/ontology/README.md#finalize_file_upload) - Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+* [get_codeowner_coverage](docs/sdks/ontology/README.md#get_codeowner_coverage) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
 * [get_config_export_capabilities](docs/sdks/ontology/README.md#get_config_export_capabilities) - GetConfigExportCapabilities
 * [get_effective_owners](docs/sdks/ontology/README.md#get_effective_owners) - GetEffectiveOntologyOwners
 * [get_file_usage](docs/sdks/ontology/README.md#get_file_usage) - GetFileUsage
@@ -441,8 +441,8 @@ with Textql(
 * [list_approval_rules](docs/sdks/ontology/README.md#list_approval_rules) - ListApprovalRules
 * [list_chats_for_file](docs/sdks/ontology/README.md#list_chats_for_file) - ListChatsForFile
 * [list_context_patch_auto_approve_rules](docs/sdks/ontology/README.md#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
-* [list_golden_files](docs/sdks/ontology/README.md#list_golden_files) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
-* [list_entries](docs/sdks/ontology/README.md#list_entries) - ListOntologyEntries
+* [list_golden_files](docs/sdks/ontology/README.md#list_golden_files) - Deprecated: use SetOntologyOwners with the complete desired entry set.
+* [list_entries](docs/sdks/ontology/README.md#list_entries) - PlanConfigAccessDerivation lists the config-managed objects of one type whose  access rows the OWNERS derivation would rewrite, and writes nothing. "Would  rewrite" is the engine's own diff: a row inserted or deleted, or a kept row whose  level, expiry, duplicate or public flag would change. An object under a malformed  OWNERS is a failure, not a drift. Admin-only, internal: the derivation rewrites those  rows on its next pass, so an operator cycles the flag on the orgs this names before  deploying it.
 * [list_history](docs/sdks/ontology/README.md#list_history) - ListOntologyHistory
 * [list_imports](docs/sdks/ontology/README.md#list_imports) - ListOntologyImports
 * [list_submodules](docs/sdks/ontology/README.md#list_submodules) - ListOntologySubmodules
@@ -451,21 +451,21 @@ with Textql(
 * [list_patch_reviewers](docs/sdks/ontology/README.md#list_patch_reviewers) - ListPatchReviewers
 * [list_patches](docs/sdks/ontology/README.md#list_patches) - ListPatches
 * [list_skills](docs/sdks/ontology/README.md#list_skills) - ListSkills
-* [plan_merge](docs/sdks/ontology/README.md#plan_merge) - PlanOntologyMerge
+* [plan_merge](docs/sdks/ontology/README.md#plan_merge) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
 * [preview_pull_from_remote](docs/sdks/ontology/README.md#preview_pull_from_remote) - PreviewOntologyPullFromRemote
 * [pull_from_remote](docs/sdks/ontology/README.md#pull_from_remote) - PullOntologyFromRemote
-* [push_to_remote](docs/sdks/ontology/README.md#push_to_remote) - PushOntologyToRemote
+* [push_to_remote](docs/sdks/ontology/README.md#push_to_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [recover](docs/sdks/ontology/README.md#recover) - RecoverOntology
-* [remove_remote](docs/sdks/ontology/README.md#remove_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+* [remove_remote](docs/sdks/ontology/README.md#remove_remote) - RemoveOntologyRemote
 * [remove_submodule](docs/sdks/ontology/README.md#remove_submodule) - RemoveOntologySubmodule
 * [rename_file](docs/sdks/ontology/README.md#rename_file) - RenameOntologyFile
 * [request_patch_review](docs/sdks/ontology/README.md#request_patch_review) - RequestPatchReview
-* [resolve_sync_conflict](docs/sdks/ontology/README.md#resolve_sync_conflict) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+* [resolve_sync_conflict](docs/sdks/ontology/README.md#resolve_sync_conflict) - ResolveOntologySyncConflict
 * [restore_patch](docs/sdks/ontology/README.md#restore_patch) - RestorePatch
 * [revert_patch](docs/sdks/ontology/README.md#revert_patch) - RevertPatch
 * [save_all_objects_as_config](docs/sdks/ontology/README.md#save_all_objects_as_config) - SaveAllObjectsAsConfig
 * [save_object_as_config](docs/sdks/ontology/README.md#save_object_as_config) - SaveObjectAsConfig
-* [set_file_golden](docs/sdks/ontology/README.md#set_file_golden) - Deprecated: use SetOntologyOwners with the complete desired entry set.
+* [set_file_golden](docs/sdks/ontology/README.md#set_file_golden) - SetOntologyFileGolden
 * [set_owners](docs/sdks/ontology/README.md#set_owners) - SetOntologyOwners
 * [trigger_config_drift_reconcile](docs/sdks/ontology/README.md#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile
 * [update_approval_rule](docs/sdks/ontology/README.md#update_approval_rule) - UpdateApprovalRule
@@ -613,16 +613,11 @@ with Textql(
 ### [Secrets](docs/sdks/secrets/README.md)
 
 * [delete_api_access_key](docs/sdks/secrets/README.md#delete_api_access_key) - DeleteApiAccessKey
-* [delete_secret](docs/sdks/secrets/README.md#delete_secret) - DeleteSecret
 * [get_api_access_key](docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
-* [get_members_with_secrets](docs/sdks/secrets/README.md#get_members_with_secrets) - GetMembersWithSecrets
 * [list_api_access_keys](docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders
-* [list_secrets](docs/sdks/secrets/README.md#list_secrets) - ListSecrets
-* [put_secret](docs/sdks/secrets/README.md#put_secret) - PutSecret
-* [test_api_access_key](docs/sdks/secrets/README.md#test_api_access_key) - TestApiAccessKey
-* [update](docs/sdks/secrets/README.md#update) - UpdateSecret
-* [upsert_api_access_key](docs/sdks/secrets/README.md#upsert_api_access_key) - ---- API Connectors (deprecated) ----
+* [test_api_access_key](docs/sdks/secrets/README.md#test_api_access_key) - ---- API Connectors (deprecated) ----
+* [upsert_api_access_key](docs/sdks/secrets/README.md#upsert_api_access_key) - UpsertApiAccessKey
 
 ### [Settings](docs/sdks/settings/README.md)
 

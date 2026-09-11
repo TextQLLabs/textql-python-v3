@@ -14,11 +14,13 @@ TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestSizeBytesTypedDict = (
         Union[int, str],
     )
 )
+r"""when true, reserved files like OWNERS are included"""
 
 
 TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestSizeBytes = TypeAliasType(
     "TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestSizeBytes", Union[int, str]
 )
+r"""when true, reserved files like OWNERS are included"""
 
 
 class TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestTypedDict(TypedDict):
@@ -27,6 +29,7 @@ class TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestTypedDict(TypedDic
     size_bytes: NotRequired[
         TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestSizeBytesTypedDict
     ]
+    r"""when true, reserved files like OWNERS are included"""
 
 
 class TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequest(BaseModel):
@@ -38,6 +41,7 @@ class TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequest(BaseModel):
         Optional[TextqlRPCPublicPatchesCreateOntologyFileUploadURLRequestSizeBytes],
         pydantic.Field(alias="sizeBytes"),
     ] = None
+    r"""when true, reserved files like OWNERS are included"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -299,6 +299,7 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     migration_banner_dismissed: NotRequired[Nullable[bool]]
     config_migrations_enabled: NotRequired[Nullable[bool]]
     sandbox_observability_enabled: NotRequired[Nullable[bool]]
+    r"""agent SMS/texting feature removed; no longer read or written"""
     data_apps_enabled: NotRequired[Nullable[bool]]
     issues_enabled: NotRequired[Nullable[bool]]
     r"""dismiss legacy-context migration banner org-wide"""
@@ -823,7 +824,11 @@ class TextqlRPCAuthOrganization(BaseModel):
     ] = UNSET
 
     sms_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="smsEnabled")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="smsEnabled",
+        ),
     ] = UNSET
     r"""When true, the ANA_INTERNAL (\"TextQL Usage\") connector includes @textql.com
     staff activity in its usage views; when false (default) they are filtered out.
@@ -848,6 +853,7 @@ class TextqlRPCAuthOrganization(BaseModel):
     sandbox_observability_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="sandboxObservabilityEnabled")
     ] = UNSET
+    r"""agent SMS/texting feature removed; no longer read or written"""
 
     data_apps_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="dataAppsEnabled")

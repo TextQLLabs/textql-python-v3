@@ -222,6 +222,7 @@ class TextqlRPCAuthMemberTypedDict(TypedDict):
     is_scim_managed: NotRequired[bool]
     steering: NotRequired[Nullable[bool]]
     phone_number: NotRequired[Nullable[str]]
+    r"""Deprecated: agent SMS/texting feature removed; no longer read or written."""
     phone_verified: NotRequired[Nullable[bool]]
     personal_agent_id: NotRequired[Nullable[str]]
     agent_number: NotRequired[Nullable[str]]
@@ -500,19 +501,36 @@ class TextqlRPCAuthMember(BaseModel):
     steering: OptionalNullable[bool] = UNSET
 
     phone_number: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="phoneNumber")
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="phoneNumber",
+        ),
     ] = UNSET
+    r"""Deprecated: agent SMS/texting feature removed; no longer read or written."""
 
     phone_verified: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="phoneVerified")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="phoneVerified",
+        ),
     ] = UNSET
 
     personal_agent_id: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="personalAgentId")
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="personalAgentId",
+        ),
     ] = UNSET
 
     agent_number: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="agentNumber")
+        OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="agentNumber",
+        ),
     ] = UNSET
 
     default_methodology: Annotated[

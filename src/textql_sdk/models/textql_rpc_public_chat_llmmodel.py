@@ -23,6 +23,7 @@ TextqlRPCPublicChatLlmModel = Union[
         "MODEL_GEMINI_3_5_FLASH",
         "MODEL_GPT_5_6_TERRA",
         "MODEL_GPT_5_6_LUNA",
+        "MODEL_GPT_6_ASTRA",
         "MODEL_DEEPSEEK_3_2",
         "MODEL_GLM_5",
         "MODEL_VLLM",

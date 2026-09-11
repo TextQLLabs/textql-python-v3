@@ -9,11 +9,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetOntologyGithubOAuthURLRequestTypedDict(TypedDict):
+    r"""Deprecated: use SetOntologyOwnersRequest with an empty entry set."""
+
     state: NotRequired[str]
     code_challenge: NotRequired[str]
 
 
 class TextqlRPCPublicPatchesGetOntologyGithubOAuthURLRequest(BaseModel):
+    r"""Deprecated: use SetOntologyOwnersRequest with an empty entry set."""
+
     state: Optional[str] = None
 
     code_challenge: Annotated[Optional[str], pydantic.Field(alias="codeChallenge")] = (

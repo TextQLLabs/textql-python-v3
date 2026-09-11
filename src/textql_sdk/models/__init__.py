@@ -2252,23 +2252,11 @@ if TYPE_CHECKING:
         SecretServiceDeleteAPIAccessKeyResponse,
         SecretServiceDeleteAPIAccessKeyResponseTypedDict,
     )
-    from .secretservice_deletesecretop import (
-        SecretServiceDeleteSecretRequest,
-        SecretServiceDeleteSecretRequestTypedDict,
-        SecretServiceDeleteSecretResponse,
-        SecretServiceDeleteSecretResponseTypedDict,
-    )
     from .secretservice_getapiaccesskeyop import (
         SecretServiceGetAPIAccessKeyRequest,
         SecretServiceGetAPIAccessKeyRequestTypedDict,
         SecretServiceGetAPIAccessKeyResponse,
         SecretServiceGetAPIAccessKeyResponseTypedDict,
-    )
-    from .secretservice_getmemberswithsecretsop import (
-        SecretServiceGetMembersWithSecretsRequest,
-        SecretServiceGetMembersWithSecretsRequestTypedDict,
-        SecretServiceGetMembersWithSecretsResponse,
-        SecretServiceGetMembersWithSecretsResponseTypedDict,
     )
     from .secretservice_listapiaccesskeysop import (
         SecretServiceListAPIAccessKeysRequest,
@@ -2282,29 +2270,11 @@ if TYPE_CHECKING:
         SecretServiceListAPIProvidersResponse,
         SecretServiceListAPIProvidersResponseTypedDict,
     )
-    from .secretservice_listsecretsop import (
-        SecretServiceListSecretsRequest,
-        SecretServiceListSecretsRequestTypedDict,
-        SecretServiceListSecretsResponse,
-        SecretServiceListSecretsResponseTypedDict,
-    )
-    from .secretservice_putsecretop import (
-        SecretServicePutSecretRequest,
-        SecretServicePutSecretRequestTypedDict,
-        SecretServicePutSecretResponse,
-        SecretServicePutSecretResponseTypedDict,
-    )
     from .secretservice_testapiaccesskeyop import (
         SecretServiceTestAPIAccessKeyRequest,
         SecretServiceTestAPIAccessKeyRequestTypedDict,
         SecretServiceTestAPIAccessKeyResponse,
         SecretServiceTestAPIAccessKeyResponseTypedDict,
-    )
-    from .secretservice_updatesecretop import (
-        SecretServiceUpdateSecretRequest,
-        SecretServiceUpdateSecretRequestTypedDict,
-        SecretServiceUpdateSecretResponse,
-        SecretServiceUpdateSecretResponseTypedDict,
     )
     from .secretservice_upsertapiaccesskeyop import (
         SecretServiceUpsertAPIAccessKeyRequest,
@@ -7772,14 +7742,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicSecretDeleteAPIAccessKeyResponse,
         TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict,
     )
-    from .textql_rpc_public_secret_deletesecretrequest import (
-        TextqlRPCPublicSecretDeleteSecretRequest,
-        TextqlRPCPublicSecretDeleteSecretRequestTypedDict,
-    )
-    from .textql_rpc_public_secret_deletesecretresponse import (
-        TextqlRPCPublicSecretDeleteSecretResponse,
-        TextqlRPCPublicSecretDeleteSecretResponseTypedDict,
-    )
     from .textql_rpc_public_secret_envvarfield import (
         TextqlRPCPublicSecretEnvVarField,
         TextqlRPCPublicSecretEnvVarFieldTypedDict,
@@ -7791,14 +7753,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_secret_getapiaccesskeyresponse import (
         TextqlRPCPublicSecretGetAPIAccessKeyResponse,
         TextqlRPCPublicSecretGetAPIAccessKeyResponseTypedDict,
-    )
-    from .textql_rpc_public_secret_getmemberswithsecretsrequest import (
-        TextqlRPCPublicSecretGetMembersWithSecretsRequest,
-        TextqlRPCPublicSecretGetMembersWithSecretsRequestTypedDict,
-    )
-    from .textql_rpc_public_secret_getmemberswithsecretsresponse import (
-        TextqlRPCPublicSecretGetMembersWithSecretsResponse,
-        TextqlRPCPublicSecretGetMembersWithSecretsResponseTypedDict,
     )
     from .textql_rpc_public_secret_httpbasicauth import (
         TextqlRPCPublicSecretHTTPBasicAuth,
@@ -7820,26 +7774,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicSecretListAPIProvidersResponse,
         TextqlRPCPublicSecretListAPIProvidersResponseTypedDict,
     )
-    from .textql_rpc_public_secret_listsecretsrequest import (
-        TextqlRPCPublicSecretListSecretsRequest,
-        TextqlRPCPublicSecretListSecretsRequestTypedDict,
-    )
-    from .textql_rpc_public_secret_listsecretsresponse import (
-        TextqlRPCPublicSecretListSecretsResponse,
-        TextqlRPCPublicSecretListSecretsResponseTypedDict,
-    )
-    from .textql_rpc_public_secret_putsecretrequest import (
-        TextqlRPCPublicSecretPutSecretRequest,
-        TextqlRPCPublicSecretPutSecretRequestTypedDict,
-    )
-    from .textql_rpc_public_secret_putsecretresponse import (
-        TextqlRPCPublicSecretPutSecretResponse,
-        TextqlRPCPublicSecretPutSecretResponseTypedDict,
-    )
-    from .textql_rpc_public_secret_secret import (
-        TextqlRPCPublicSecretSecret,
-        TextqlRPCPublicSecretSecretTypedDict,
-    )
     from .textql_rpc_public_secret_testapiaccesskeyrequest import (
         TextqlRPCPublicSecretTestAPIAccessKeyRequest,
         TextqlRPCPublicSecretTestAPIAccessKeyRequestTypedDict,
@@ -7847,14 +7781,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_secret_testapiaccesskeyresponse import (
         TextqlRPCPublicSecretTestAPIAccessKeyResponse,
         TextqlRPCPublicSecretTestAPIAccessKeyResponseTypedDict,
-    )
-    from .textql_rpc_public_secret_updatesecretrequest import (
-        TextqlRPCPublicSecretUpdateSecretRequest,
-        TextqlRPCPublicSecretUpdateSecretRequestTypedDict,
-    )
-    from .textql_rpc_public_secret_updatesecretresponse import (
-        TextqlRPCPublicSecretUpdateSecretResponse,
-        TextqlRPCPublicSecretUpdateSecretResponseTypedDict,
     )
     from .textql_rpc_public_secret_upsertapiaccesskeyrequest import (
         TextqlRPCPublicSecretUpsertAPIAccessKeyRequest,
@@ -9969,18 +9895,10 @@ __all__ = [
     "SecretServiceDeleteAPIAccessKeyRequestTypedDict",
     "SecretServiceDeleteAPIAccessKeyResponse",
     "SecretServiceDeleteAPIAccessKeyResponseTypedDict",
-    "SecretServiceDeleteSecretRequest",
-    "SecretServiceDeleteSecretRequestTypedDict",
-    "SecretServiceDeleteSecretResponse",
-    "SecretServiceDeleteSecretResponseTypedDict",
     "SecretServiceGetAPIAccessKeyRequest",
     "SecretServiceGetAPIAccessKeyRequestTypedDict",
     "SecretServiceGetAPIAccessKeyResponse",
     "SecretServiceGetAPIAccessKeyResponseTypedDict",
-    "SecretServiceGetMembersWithSecretsRequest",
-    "SecretServiceGetMembersWithSecretsRequestTypedDict",
-    "SecretServiceGetMembersWithSecretsResponse",
-    "SecretServiceGetMembersWithSecretsResponseTypedDict",
     "SecretServiceListAPIAccessKeysRequest",
     "SecretServiceListAPIAccessKeysRequestTypedDict",
     "SecretServiceListAPIAccessKeysResponse",
@@ -9989,22 +9907,10 @@ __all__ = [
     "SecretServiceListAPIProvidersRequestTypedDict",
     "SecretServiceListAPIProvidersResponse",
     "SecretServiceListAPIProvidersResponseTypedDict",
-    "SecretServiceListSecretsRequest",
-    "SecretServiceListSecretsRequestTypedDict",
-    "SecretServiceListSecretsResponse",
-    "SecretServiceListSecretsResponseTypedDict",
-    "SecretServicePutSecretRequest",
-    "SecretServicePutSecretRequestTypedDict",
-    "SecretServicePutSecretResponse",
-    "SecretServicePutSecretResponseTypedDict",
     "SecretServiceTestAPIAccessKeyRequest",
     "SecretServiceTestAPIAccessKeyRequestTypedDict",
     "SecretServiceTestAPIAccessKeyResponse",
     "SecretServiceTestAPIAccessKeyResponseTypedDict",
-    "SecretServiceUpdateSecretRequest",
-    "SecretServiceUpdateSecretRequestTypedDict",
-    "SecretServiceUpdateSecretResponse",
-    "SecretServiceUpdateSecretResponseTypedDict",
     "SecretServiceUpsertAPIAccessKeyRequest",
     "SecretServiceUpsertAPIAccessKeyRequestTypedDict",
     "SecretServiceUpsertAPIAccessKeyResponse",
@@ -12745,20 +12651,12 @@ __all__ = [
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequestTypedDict",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict",
-    "TextqlRPCPublicSecretDeleteSecretRequest",
-    "TextqlRPCPublicSecretDeleteSecretRequestTypedDict",
-    "TextqlRPCPublicSecretDeleteSecretResponse",
-    "TextqlRPCPublicSecretDeleteSecretResponseTypedDict",
     "TextqlRPCPublicSecretEnvVarField",
     "TextqlRPCPublicSecretEnvVarFieldTypedDict",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequest",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequestTypedDict",
     "TextqlRPCPublicSecretGetAPIAccessKeyResponse",
     "TextqlRPCPublicSecretGetAPIAccessKeyResponseTypedDict",
-    "TextqlRPCPublicSecretGetMembersWithSecretsRequest",
-    "TextqlRPCPublicSecretGetMembersWithSecretsRequestTypedDict",
-    "TextqlRPCPublicSecretGetMembersWithSecretsResponse",
-    "TextqlRPCPublicSecretGetMembersWithSecretsResponseTypedDict",
     "TextqlRPCPublicSecretHTTPBasicAuth",
     "TextqlRPCPublicSecretHTTPBasicAuthTypedDict",
     "TextqlRPCPublicSecretListAPIAccessKeysRequest",
@@ -12769,24 +12667,10 @@ __all__ = [
     "TextqlRPCPublicSecretListAPIProvidersRequestTypedDict",
     "TextqlRPCPublicSecretListAPIProvidersResponse",
     "TextqlRPCPublicSecretListAPIProvidersResponseTypedDict",
-    "TextqlRPCPublicSecretListSecretsRequest",
-    "TextqlRPCPublicSecretListSecretsRequestTypedDict",
-    "TextqlRPCPublicSecretListSecretsResponse",
-    "TextqlRPCPublicSecretListSecretsResponseTypedDict",
-    "TextqlRPCPublicSecretPutSecretRequest",
-    "TextqlRPCPublicSecretPutSecretRequestTypedDict",
-    "TextqlRPCPublicSecretPutSecretResponse",
-    "TextqlRPCPublicSecretPutSecretResponseTypedDict",
-    "TextqlRPCPublicSecretSecret",
-    "TextqlRPCPublicSecretSecretTypedDict",
     "TextqlRPCPublicSecretTestAPIAccessKeyRequest",
     "TextqlRPCPublicSecretTestAPIAccessKeyRequestTypedDict",
     "TextqlRPCPublicSecretTestAPIAccessKeyResponse",
     "TextqlRPCPublicSecretTestAPIAccessKeyResponseTypedDict",
-    "TextqlRPCPublicSecretUpdateSecretRequest",
-    "TextqlRPCPublicSecretUpdateSecretRequestTypedDict",
-    "TextqlRPCPublicSecretUpdateSecretResponse",
-    "TextqlRPCPublicSecretUpdateSecretResponseTypedDict",
     "TextqlRPCPublicSecretUpsertAPIAccessKeyRequest",
     "TextqlRPCPublicSecretUpsertAPIAccessKeyRequestTypedDict",
     "TextqlRPCPublicSecretUpsertAPIAccessKeyResponse",
@@ -14466,18 +14350,10 @@ _dynamic_imports: dict[str, str] = {
     "SecretServiceDeleteAPIAccessKeyRequestTypedDict": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyResponse": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyResponseTypedDict": ".secretservice_deleteapiaccesskeyop",
-    "SecretServiceDeleteSecretRequest": ".secretservice_deletesecretop",
-    "SecretServiceDeleteSecretRequestTypedDict": ".secretservice_deletesecretop",
-    "SecretServiceDeleteSecretResponse": ".secretservice_deletesecretop",
-    "SecretServiceDeleteSecretResponseTypedDict": ".secretservice_deletesecretop",
     "SecretServiceGetAPIAccessKeyRequest": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyRequestTypedDict": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyResponse": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyResponseTypedDict": ".secretservice_getapiaccesskeyop",
-    "SecretServiceGetMembersWithSecretsRequest": ".secretservice_getmemberswithsecretsop",
-    "SecretServiceGetMembersWithSecretsRequestTypedDict": ".secretservice_getmemberswithsecretsop",
-    "SecretServiceGetMembersWithSecretsResponse": ".secretservice_getmemberswithsecretsop",
-    "SecretServiceGetMembersWithSecretsResponseTypedDict": ".secretservice_getmemberswithsecretsop",
     "SecretServiceListAPIAccessKeysRequest": ".secretservice_listapiaccesskeysop",
     "SecretServiceListAPIAccessKeysRequestTypedDict": ".secretservice_listapiaccesskeysop",
     "SecretServiceListAPIAccessKeysResponse": ".secretservice_listapiaccesskeysop",
@@ -14486,22 +14362,10 @@ _dynamic_imports: dict[str, str] = {
     "SecretServiceListAPIProvidersRequestTypedDict": ".secretservice_listapiprovidersop",
     "SecretServiceListAPIProvidersResponse": ".secretservice_listapiprovidersop",
     "SecretServiceListAPIProvidersResponseTypedDict": ".secretservice_listapiprovidersop",
-    "SecretServiceListSecretsRequest": ".secretservice_listsecretsop",
-    "SecretServiceListSecretsRequestTypedDict": ".secretservice_listsecretsop",
-    "SecretServiceListSecretsResponse": ".secretservice_listsecretsop",
-    "SecretServiceListSecretsResponseTypedDict": ".secretservice_listsecretsop",
-    "SecretServicePutSecretRequest": ".secretservice_putsecretop",
-    "SecretServicePutSecretRequestTypedDict": ".secretservice_putsecretop",
-    "SecretServicePutSecretResponse": ".secretservice_putsecretop",
-    "SecretServicePutSecretResponseTypedDict": ".secretservice_putsecretop",
     "SecretServiceTestAPIAccessKeyRequest": ".secretservice_testapiaccesskeyop",
     "SecretServiceTestAPIAccessKeyRequestTypedDict": ".secretservice_testapiaccesskeyop",
     "SecretServiceTestAPIAccessKeyResponse": ".secretservice_testapiaccesskeyop",
     "SecretServiceTestAPIAccessKeyResponseTypedDict": ".secretservice_testapiaccesskeyop",
-    "SecretServiceUpdateSecretRequest": ".secretservice_updatesecretop",
-    "SecretServiceUpdateSecretRequestTypedDict": ".secretservice_updatesecretop",
-    "SecretServiceUpdateSecretResponse": ".secretservice_updatesecretop",
-    "SecretServiceUpdateSecretResponseTypedDict": ".secretservice_updatesecretop",
     "SecretServiceUpsertAPIAccessKeyRequest": ".secretservice_upsertapiaccesskeyop",
     "SecretServiceUpsertAPIAccessKeyRequestTypedDict": ".secretservice_upsertapiaccesskeyop",
     "SecretServiceUpsertAPIAccessKeyResponse": ".secretservice_upsertapiaccesskeyop",
@@ -17594,20 +17458,12 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequestTypedDict": ".textql_rpc_public_secret_deleteapiaccesskeyrequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponse": ".textql_rpc_public_secret_deleteapiaccesskeyresponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict": ".textql_rpc_public_secret_deleteapiaccesskeyresponse",
-    "TextqlRPCPublicSecretDeleteSecretRequest": ".textql_rpc_public_secret_deletesecretrequest",
-    "TextqlRPCPublicSecretDeleteSecretRequestTypedDict": ".textql_rpc_public_secret_deletesecretrequest",
-    "TextqlRPCPublicSecretDeleteSecretResponse": ".textql_rpc_public_secret_deletesecretresponse",
-    "TextqlRPCPublicSecretDeleteSecretResponseTypedDict": ".textql_rpc_public_secret_deletesecretresponse",
     "TextqlRPCPublicSecretEnvVarField": ".textql_rpc_public_secret_envvarfield",
     "TextqlRPCPublicSecretEnvVarFieldTypedDict": ".textql_rpc_public_secret_envvarfield",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequest": ".textql_rpc_public_secret_getapiaccesskeyrequest",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequestTypedDict": ".textql_rpc_public_secret_getapiaccesskeyrequest",
     "TextqlRPCPublicSecretGetAPIAccessKeyResponse": ".textql_rpc_public_secret_getapiaccesskeyresponse",
     "TextqlRPCPublicSecretGetAPIAccessKeyResponseTypedDict": ".textql_rpc_public_secret_getapiaccesskeyresponse",
-    "TextqlRPCPublicSecretGetMembersWithSecretsRequest": ".textql_rpc_public_secret_getmemberswithsecretsrequest",
-    "TextqlRPCPublicSecretGetMembersWithSecretsRequestTypedDict": ".textql_rpc_public_secret_getmemberswithsecretsrequest",
-    "TextqlRPCPublicSecretGetMembersWithSecretsResponse": ".textql_rpc_public_secret_getmemberswithsecretsresponse",
-    "TextqlRPCPublicSecretGetMembersWithSecretsResponseTypedDict": ".textql_rpc_public_secret_getmemberswithsecretsresponse",
     "TextqlRPCPublicSecretHTTPBasicAuth": ".textql_rpc_public_secret_httpbasicauth",
     "TextqlRPCPublicSecretHTTPBasicAuthTypedDict": ".textql_rpc_public_secret_httpbasicauth",
     "TextqlRPCPublicSecretListAPIAccessKeysRequest": ".textql_rpc_public_secret_listapiaccesskeysrequest",
@@ -17618,24 +17474,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSecretListAPIProvidersRequestTypedDict": ".textql_rpc_public_secret_listapiprovidersrequest",
     "TextqlRPCPublicSecretListAPIProvidersResponse": ".textql_rpc_public_secret_listapiprovidersresponse",
     "TextqlRPCPublicSecretListAPIProvidersResponseTypedDict": ".textql_rpc_public_secret_listapiprovidersresponse",
-    "TextqlRPCPublicSecretListSecretsRequest": ".textql_rpc_public_secret_listsecretsrequest",
-    "TextqlRPCPublicSecretListSecretsRequestTypedDict": ".textql_rpc_public_secret_listsecretsrequest",
-    "TextqlRPCPublicSecretListSecretsResponse": ".textql_rpc_public_secret_listsecretsresponse",
-    "TextqlRPCPublicSecretListSecretsResponseTypedDict": ".textql_rpc_public_secret_listsecretsresponse",
-    "TextqlRPCPublicSecretPutSecretRequest": ".textql_rpc_public_secret_putsecretrequest",
-    "TextqlRPCPublicSecretPutSecretRequestTypedDict": ".textql_rpc_public_secret_putsecretrequest",
-    "TextqlRPCPublicSecretPutSecretResponse": ".textql_rpc_public_secret_putsecretresponse",
-    "TextqlRPCPublicSecretPutSecretResponseTypedDict": ".textql_rpc_public_secret_putsecretresponse",
-    "TextqlRPCPublicSecretSecret": ".textql_rpc_public_secret_secret",
-    "TextqlRPCPublicSecretSecretTypedDict": ".textql_rpc_public_secret_secret",
     "TextqlRPCPublicSecretTestAPIAccessKeyRequest": ".textql_rpc_public_secret_testapiaccesskeyrequest",
     "TextqlRPCPublicSecretTestAPIAccessKeyRequestTypedDict": ".textql_rpc_public_secret_testapiaccesskeyrequest",
     "TextqlRPCPublicSecretTestAPIAccessKeyResponse": ".textql_rpc_public_secret_testapiaccesskeyresponse",
     "TextqlRPCPublicSecretTestAPIAccessKeyResponseTypedDict": ".textql_rpc_public_secret_testapiaccesskeyresponse",
-    "TextqlRPCPublicSecretUpdateSecretRequest": ".textql_rpc_public_secret_updatesecretrequest",
-    "TextqlRPCPublicSecretUpdateSecretRequestTypedDict": ".textql_rpc_public_secret_updatesecretrequest",
-    "TextqlRPCPublicSecretUpdateSecretResponse": ".textql_rpc_public_secret_updatesecretresponse",
-    "TextqlRPCPublicSecretUpdateSecretResponseTypedDict": ".textql_rpc_public_secret_updatesecretresponse",
     "TextqlRPCPublicSecretUpsertAPIAccessKeyRequest": ".textql_rpc_public_secret_upsertapiaccesskeyrequest",
     "TextqlRPCPublicSecretUpsertAPIAccessKeyRequestTypedDict": ".textql_rpc_public_secret_upsertapiaccesskeyrequest",
     "TextqlRPCPublicSecretUpsertAPIAccessKeyResponse": ".textql_rpc_public_secret_upsertapiaccesskeyresponse",
