@@ -1408,17 +1408,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceCreateOntologyFileUploadURLResponse:
-        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
-
-        Streams how many folders and files a subtree holds, so the UI can report the
-        size of the whole Ontology rather than only the directories it has lazily
-        listed. Counts rise monotonically across frames; the last frame sets
-        `final`. A cache hit emits a single `final` frame with `from_cache` set.
+        r"""CreateOntologyFileUploadUrl
 
         :param connect_timeout_ms:
         :param path:
         :param mime_type:
-        :param size_bytes:
+        :param size_bytes: when true, reserved files like OWNERS are included
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1529,17 +1524,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceCreateOntologyFileUploadURLResponse:
-        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
-
-        Streams how many folders and files a subtree holds, so the UI can report the
-        size of the whole Ontology rather than only the directories it has lazily
-        listed. Counts rise monotonically across frames; the last frame sets
-        `final`. A cache hit emits a single `final` frame with `from_cache` set.
+        r"""CreateOntologyFileUploadUrl
 
         :param connect_timeout_ms:
         :param path:
         :param mime_type:
-        :param size_bytes:
+        :param size_bytes: when true, reserved files like OWNERS are included
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2911,13 +2901,17 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceFinalizeOntologyFileUploadResponse:
-        r"""FinalizeOntologyFileUpload
+        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+
+        Streams how many folders and files a subtree holds, so the UI can report the
+        size of the whole Ontology rather than only the directories it has lazily
+        listed. Counts rise monotonically across frames; the last frame sets
+        `final`. A cache hit emits a single `final` frame with `from_cache` set.
 
         :param connect_timeout_ms:
         :param path:
         :param upload_key:
-        :param commit_message: Last frame for this walk. Earlier frames are partial counts; the final
-            frame always carries the complete total — the walk is never truncated.
+        :param commit_message:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3023,13 +3017,17 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceFinalizeOntologyFileUploadResponse:
-        r"""FinalizeOntologyFileUpload
+        r"""Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
+
+        Streams how many folders and files a subtree holds, so the UI can report the
+        size of the whole Ontology rather than only the directories it has lazily
+        listed. Counts rise monotonically across frames; the last frame sets
+        `final`. A cache hit emits a single `final` frame with `from_cache` set.
 
         :param connect_timeout_ms:
         :param path:
         :param upload_key:
-        :param commit_message: Last frame for this walk. Earlier frames are partial counts; the final
-            frame always carries the complete total — the walk is never truncated.
+        :param commit_message:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3136,7 +3134,10 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetCodeownerCoverageResponse:
-        r"""GetCodeownerCoverage
+        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
+
+        Deprecated: use SetOntologyOwners with the desired entry set. An empty
+        desired set removes every entry and opens the directory.
 
         :param body:
         :param connect_timeout_ms:
@@ -3243,7 +3244,10 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceGetCodeownerCoverageResponse:
-        r"""GetCodeownerCoverage
+        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
+
+        Deprecated: use SetOntologyOwners with the desired entry set. An empty
+        desired set removes every entry and opens the directory.
 
         :param body:
         :param connect_timeout_ms:
@@ -4123,7 +4127,7 @@ class Ontology(BaseSDK):
         r"""GetFileUsageTimeline
 
         :param connect_timeout_ms:
-        :param path_prefix:
+        :param path_prefix: default 7d
         :param observation_period: A Duration represents a signed, fixed-length span of time represented
             as a count of seconds and fractions of seconds at nanosecond
             resolution. It is independent of any calendar and concepts like \"day\"
@@ -4287,7 +4291,7 @@ class Ontology(BaseSDK):
         r"""GetFileUsageTimeline
 
         :param connect_timeout_ms:
-        :param path_prefix:
+        :param path_prefix: default 7d
         :param observation_period: A Duration represents a signed, fixed-length span of time represented
             as a count of seconds and fractions of seconds at nanosecond
             resolution. It is independent of any calendar and concepts like \"day\"
@@ -8229,7 +8233,7 @@ class Ontology(BaseSDK):
             encoded in JSON format as \"3s\", while 3 seconds and 1 nanosecond should
             be expressed in JSON format as \"3.000000001s\", and 3 seconds and 1
             microsecond should be expressed in JSON format as \"3.000001s\".
-        :param limit:
+        :param limit: default 7d
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8396,7 +8400,7 @@ class Ontology(BaseSDK):
             encoded in JSON format as \"3s\", while 3 seconds and 1 nanosecond should
             be expressed in JSON format as \"3.000000001s\", and 3 seconds and 1
             microsecond should be expressed in JSON format as \"3.000001s\".
-        :param limit:
+        :param limit: default 7d
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8720,10 +8724,9 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListGoldenFilesResponse:
-        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
+        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
 
-        Deprecated: use SetOntologyOwners with the desired entry set. An empty
-        desired set removes every entry and opens the directory.
+        Deprecated: use SetOntologyOwners with the complete desired entry set.
 
         :param body:
         :param connect_timeout_ms:
@@ -8830,10 +8833,9 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListGoldenFilesResponse:
-        r"""Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
+        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
 
-        Deprecated: use SetOntologyOwners with the desired entry set. An empty
-        desired set removes every entry and opens the directory.
+        Deprecated: use SetOntologyOwners with the complete desired entry set.
 
         :param body:
         :param connect_timeout_ms:
@@ -8939,7 +8941,15 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListOntologyEntriesResponse:
-        r"""ListOntologyEntries
+        r"""PlanConfigAccessDerivation lists the config-managed objects of one type whose  access rows the OWNERS derivation would rewrite, and writes nothing. \"Would  rewrite\" is the engine's own diff: a row inserted or deleted, or a kept row whose  level, expiry, duplicate or public flag would change. An object under a malformed  OWNERS is a failure, not a drift. Admin-only, internal: the derivation rewrites those  rows on its next pass, so an operator cycles the flag on the orgs this names before  deploying it.
+
+        PlanConfigAccessDerivation lists the config-managed objects of one type whose
+        access rows the OWNERS derivation would rewrite, and writes nothing. \"Would
+        rewrite\" is the engine's own diff: a row inserted or deleted, or a kept row whose
+        level, expiry, duplicate or public flag would change. An object under a malformed
+        OWNERS is a failure, not a drift. Admin-only, internal: the derivation rewrites those
+        rows on its next pass, so an operator cycles the flag on the orgs this names before
+        deploying it.
 
         :param connect_timeout_ms:
         :param path:
@@ -9049,7 +9059,15 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceListOntologyEntriesResponse:
-        r"""ListOntologyEntries
+        r"""PlanConfigAccessDerivation lists the config-managed objects of one type whose  access rows the OWNERS derivation would rewrite, and writes nothing. \"Would  rewrite\" is the engine's own diff: a row inserted or deleted, or a kept row whose  level, expiry, duplicate or public flag would change. An object under a malformed  OWNERS is a failure, not a drift. Admin-only, internal: the derivation rewrites those  rows on its next pass, so an operator cycles the flag on the orgs this names before  deploying it.
+
+        PlanConfigAccessDerivation lists the config-managed objects of one type whose
+        access rows the OWNERS derivation would rewrite, and writes nothing. \"Would
+        rewrite\" is the engine's own diff: a row inserted or deleted, or a kept row whose
+        level, expiry, duplicate or public flag would change. An object under a malformed
+        OWNERS is a failure, not a drift. Admin-only, internal: the derivation rewrites those
+        rows on its next pass, so an operator cycles the flag on the orgs this names before
+        deploying it.
 
         :param connect_timeout_ms:
         :param path:
@@ -10890,7 +10908,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServicePlanOntologyMergeResponse:
-        r"""PlanOntologyMerge
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param body:
         :param connect_timeout_ms:
@@ -10997,7 +11020,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServicePlanOntologyMergeResponse:
-        r"""PlanOntologyMerge
+        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+
+        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
+        caller's org: if the Ontology repo's live HEAD differs from the last
+        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
+        equivalent of waiting for the periodic drift scan.
 
         :param body:
         :param connect_timeout_ms:
@@ -11536,7 +11564,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServicePushOntologyToRemoteResponse:
-        r"""PushOntologyToRemote
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+
+        Lists the skills under the ontology's flat skills/ root that the caller can
+        read (OWNERS-filtered). Returns display metadata only — never instruction
+        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+        omitted unless include_unlisted is set.
 
         :param body:
         :param connect_timeout_ms:
@@ -11641,7 +11674,12 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServicePushOntologyToRemoteResponse:
-        r"""PushOntologyToRemote
+        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+
+        Lists the skills under the ontology's flat skills/ root that the caller can
+        read (OWNERS-filtered). Returns display metadata only — never instruction
+        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
+        omitted unless include_unlisted is set.
 
         :param body:
         :param connect_timeout_ms:
@@ -11950,12 +11988,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceRemoveOntologyRemoteResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
-
-        Lists the skills under the ontology's flat skills/ root that the caller can
-        read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
-        omitted unless include_unlisted is set.
+        r"""RemoveOntologyRemote
 
         :param body:
         :param connect_timeout_ms:
@@ -12060,12 +12093,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceRemoveOntologyRemoteResponse:
-        r"""Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
-
-        Lists the skills under the ontology's flat skills/ root that the caller can
-        read (OWNERS-filtered). Returns display metadata only — never instruction
-        bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are
-        omitted unless include_unlisted is set.
+        r"""RemoveOntologyRemote
 
         :param body:
         :param connect_timeout_ms:
@@ -12806,12 +12834,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceResolveOntologySyncConflictResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""ResolveOntologySyncConflict
 
         :param connect_timeout_ms:
         :param conflict_id:
@@ -12916,12 +12939,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceResolveOntologySyncConflictResponse:
-        r"""TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-
-        TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the
-        caller's org: if the Ontology repo's live HEAD differs from the last
-        reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand
-        equivalent of waiting for the periodic drift scan.
+        r"""ResolveOntologySyncConflict
 
         :param connect_timeout_ms:
         :param conflict_id:
@@ -13866,9 +13884,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceSetOntologyFileGoldenResponse:
-        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
-
-        Deprecated: use SetOntologyOwners with the complete desired entry set.
+        r"""SetOntologyFileGolden
 
         :param connect_timeout_ms:
         :param path:
@@ -13975,9 +13991,7 @@ class Ontology(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.OntologyManagementServiceSetOntologyFileGoldenResponse:
-        r"""Deprecated: use SetOntologyOwners with the complete desired entry set.
-
-        Deprecated: use SetOntologyOwners with the complete desired entry set.
+        r"""SetOntologyFileGolden
 
         :param connect_timeout_ms:
         :param path:

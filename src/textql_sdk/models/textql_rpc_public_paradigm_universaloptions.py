@@ -161,7 +161,13 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
         pydantic.Field(alias="powerbiSelections"),
     ] = None
 
-    sms_mode: Annotated[Optional[bool], pydantic.Field(alias="smsMode")] = None
+    sms_mode: Annotated[
+        Optional[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="smsMode",
+        ),
+    ] = None
 
     api_access_key_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="apiAccessKeyIds")

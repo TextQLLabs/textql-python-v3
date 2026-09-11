@@ -16,11 +16,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesOntologyRemoteTypedDict(TypedDict):
-    r"""Deprecated: use SetOntologyOwnersRequest."""
-
     id: NotRequired[str]
     remote_url: NotRequired[str]
     auth_type: NotRequired[str]
+    r"""Effective permission for principals omitted from entries. Unrestricted
+    paths grant full access; restricted paths leave this unspecified.
+    """
     default_branch: NotRequired[str]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -308,13 +309,14 @@ class TextqlRPCPublicPatchesOntologyRemoteTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesOntologyRemote(BaseModel):
-    r"""Deprecated: use SetOntologyOwnersRequest."""
-
     id: Optional[str] = None
 
     remote_url: Annotated[Optional[str], pydantic.Field(alias="remoteUrl")] = None
 
     auth_type: Annotated[Optional[str], pydantic.Field(alias="authType")] = None
+    r"""Effective permission for principals omitted from entries. Unrestricted
+    paths grant full access; restricted paths leave this unspecified.
+    """
 
     default_branch: Annotated[Optional[str], pydantic.Field(alias="defaultBranch")] = (
         None
