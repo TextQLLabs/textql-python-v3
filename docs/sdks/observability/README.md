@@ -5,9 +5,9 @@
 ### Available Operations
 
 * [activate_custom_topic](#activate_custom_topic) - ActivateCustomTopic
-* [backfill_custom_topic](#backfill_custom_topic) - BackfillCustomTopic
+* [backfill_custom_topic](#backfill_custom_topic) - Custom topics
 * [backfill_thread_warnings](#backfill_thread_warnings) - BackfillThreadWarnings
-* [create_custom_topic](#create_custom_topic) - Custom topics
+* [create_custom_topic](#create_custom_topic) - CreateCustomTopic
 * [deactivate_custom_topic](#deactivate_custom_topic) - DeactivateCustomTopic
 * [delete_custom_topic](#delete_custom_topic) - DeleteCustomTopic
 * [export_csv](#export_csv) - ExportObservabilityCsv
@@ -77,7 +77,7 @@ with Textql(
 
 ## backfill_custom_topic
 
-BackfillCustomTopic
+Custom topics
 
 ### Example Usage
 
@@ -165,7 +165,7 @@ with Textql(
 
 ## create_custom_topic
 
-Custom topics
+CreateCustomTopic
 
 ### Example Usage
 

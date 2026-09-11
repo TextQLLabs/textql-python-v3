@@ -14,6 +14,7 @@
 * [create_service_account_api_key](#create_service_account_api_key) - CreateServiceAccountApiKey
 * [delete_role](#delete_role) - DeleteRole
 * [delete_service_account](#delete_service_account) - DeleteServiceAccount
+* [export_role_permissions](#export_role_permissions) - ExportRolePermissions
 * [generate_share_link](#generate_share_link) - GenerateShareLink
 * [get_current_member_roles_and_permissions](#get_current_member_roles_and_permissions) - GetCurrentMemberRolesAndPermissions
 * [get_embed_user_api_key](#get_embed_user_api_key) - GetEmbedUserApiKey
@@ -471,6 +472,47 @@ with Textql(
 ### Response
 
 **[models.RBACServiceDeleteServiceAccountResponse](../../models/rbacservicedeleteserviceaccountresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## export_role_permissions
+
+ExportRolePermissions
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="RBACService_ExportRolePermissions" method="post" path="/textql.rpc.public.rbac.RBACService/ExportRolePermissions" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.rbac.export_role_permissions(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                                    | [models.TextqlRPCPublicRbacExportRolePermissionsRequest](../../models/textqlrpcpublicrbacexportrolepermissionsrequest.md) | :heavy_check_mark:                                                                                                        | N/A                                                                                                                       |
+| `connect_timeout_ms`                                                                                                      | *Optional[float]*                                                                                                         | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `retries`                                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                          | :heavy_minus_sign:                                                                                                        | Configuration to override the default retry behavior of the client.                                                       |
+
+### Response
+
+**[models.RBACServiceExportRolePermissionsResponse](../../models/rbacserviceexportrolepermissionsresponse.md)**
 
 ### Errors
 
