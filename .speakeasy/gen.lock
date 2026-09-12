@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 1.1.28
-  configChecksum: 525787b76f864eff7b38757aba8a602c
+  releaseVersion: 1.1.29
+  configChecksum: d530a7ff71271a8a41e08489958963f1
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: b339a48b-cf74-4e77-9fa8-e281ec0b2d00
-  pristine_commit_hash: 09b1645e6fac87c681a2afb1fb7a14b732efe962
-  pristine_tree_hash: cebe626c40709c571bef6ea3362ed89bcc6bcd09
+  generation_id: 01e40f86-12bc-48c6-8f43-7f148cba1e0e
+  pristine_commit_hash: 766772c731d38e4efd9cefb1f7dc7345f42f15b8
+  pristine_tree_hash: 6a0c3683aa5488bcddb2c002f6b5700ceaeb48ea
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9899,8 +9899,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:fe4ece7125d9ac6234af00f8dc19160ea32f5881
-    pristine_git_object: dc43c3a48aa8fbcc5632c80f90b785be67a02c97
+    last_write_checksum: sha1:8798ab443a55d51d356fa16a5a155093d76b0737
+    pristine_git_object: 0960a97f786c3b66c1d9de5a3b37c5f6b63b4a3b
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9927,8 +9927,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:a606957c3f8a8eb860636c165ab5f0bcc081c756
-    pristine_git_object: 1e74fd02f8ec5f42174980a5c42efaa2f81209d9
+    last_write_checksum: sha1:e18f1d291809cfe317c8588b9c1b8e05a361f1c2
+    pristine_git_object: 1a1e4a80991ecc93766d12b4d38e847af2672497
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:94f170d130c92cd3e2c61c2993c2e829056f3df7

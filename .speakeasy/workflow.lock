@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:ff5b753f09eb26271a6d1915623f7a2c9b49449a860ee26ea5f7131e53f512be
         sourceBlobDigest: sha256:2c77c342e432f846ac3395975c72938bf4a0a52465502ce20f641565701f72e4
         codeSamplesNamespace: textql-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:28df80afcb4501a9fd18ee1bda8408e28785df651c957c615f979e811914c296
+        codeSamplesRevisionDigest: sha256:5b705c7667c9dce4914f0153cc2b5ad6ef287fc64ec99b89e64fdec82fbecc97
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
