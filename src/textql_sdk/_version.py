@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "textql-sdk"
-__version__: str = "1.1.26"
+__version__: str = "1.1.27"
 __openapi_doc_version__: str = "1.0.0"
 __gen_version__: str = "2.935.1"
-__user_agent__: str = "speakeasy-sdk/python 1.1.26 2.935.1 1.0.0 textql-sdk"
+__user_agent__: str = "speakeasy-sdk/python 1.1.27 2.935.1 1.0.0 textql-sdk"
 
 try:
     if __package__ is not None:
