@@ -276,40 +276,41 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     default_dashboard_output: NotRequired[Nullable[bool]]
     default_methodology: NotRequired[Nullable[int]]
     scim_new_group_default_role_type: NotRequired[Nullable[str]]
+    groups_feature_enabled: NotRequired[Nullable[bool]]
     r"""Mirror of the email_output_enabled feature flag (in feature_flags table,
     not on the organization row). Surfaces in settings UIs alongside the
     org-row toggles.
     """
-    groups_feature_enabled: NotRequired[Nullable[bool]]
     available_providers: NotRequired[List[str]]
     show_textql_usage: NotRequired[Nullable[bool]]
+    traces_enabled: NotRequired[Nullable[bool]]
     r"""Org-wide default response methodology for new chats, as a
     textql.rpc.public.chat.Methodology enum value (int to avoid an import cycle
     with the public package). 0 = UNKNOWN/unset -> ADAPTIVE. Overridable
     per-member (Member.default_methodology) and per-chat.
     """
-    traces_enabled: NotRequired[Nullable[bool]]
     allow_llm_data_retention: NotRequired[Nullable[bool]]
     sox_db_session_metadata_enabled: NotRequired[Nullable[bool]]
     sms_enabled: NotRequired[Nullable[bool]]
+    scim_assign_default_role: NotRequired[Nullable[bool]]
     r"""When true, the ANA_INTERNAL (\"TextQL Usage\") connector includes @textql.com
     staff activity in its usage views; when false (default) they are filtered out.
     """
-    scim_assign_default_role: NotRequired[Nullable[bool]]
     migration_banner_dismissed: NotRequired[Nullable[bool]]
     config_migrations_enabled: NotRequired[Nullable[bool]]
     sandbox_observability_enabled: NotRequired[Nullable[bool]]
-    r"""agent SMS/texting feature removed; no longer read or written"""
     data_apps_enabled: NotRequired[Nullable[bool]]
+    r"""agent SMS/texting feature removed; no longer read or written"""
     issues_enabled: NotRequired[Nullable[bool]]
-    r"""dismiss legacy-context migration banner org-wide"""
     config_objects_enabled: NotRequired[Nullable[bool]]
-    r"""Deprecated: superseded by config_objects_enabled (field 80); no longer populated."""
+    r"""dismiss legacy-context migration banner org-wide"""
     config_objects_playbooks_enabled: NotRequired[Nullable[bool]]
+    r"""Deprecated: superseded by config_objects_enabled (field 80); no longer populated."""
     config_objects_dashboards_enabled: NotRequired[Nullable[bool]]
-    r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
     config_autofix_enabled: NotRequired[Nullable[bool]]
+    r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
     helm_chart_version: NotRequired[Nullable[str]]
+    spend_transparency_enabled: NotRequired[Nullable[bool]]
     r"""config_objects feature_flags row: the umbrella half of the config-management predicate
     (library.ConfigManagedOrg = this flag AND the org already having a Library — the flag
     alone does not make an org config-managed). One switch for every object type and every
@@ -317,18 +318,17 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     reconcile takeover, the lazy row-to-config migration. Supersedes
     config_migrations_enabled (field 74).
     """
-    spend_transparency_enabled: NotRequired[Nullable[bool]]
+    sharing_disabled: NotRequired[Nullable[bool]]
     r"""Deprecated: never populated. config_objects_enabled (field 80) is the umbrella for every
     object type — config management is one-way, so a per-type switch that cannot
     un-migrate an object is either inert or actively harmful (ADR-0040). Retained only
     because proto/api is additive-only.
     """
-    sharing_disabled: NotRequired[Nullable[bool]]
     app_writeback_auto_approve_enabled: NotRequired[Nullable[bool]]
+    subagents_enabled: NotRequired[Nullable[bool]]
     r"""Deprecated: never populated. The autofix sweep no longer has a per-org opt-in — it runs for
     every org with the config-object checks surface on. Retained only because proto/api is additive-only.
     """
-    subagents_enabled: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCAuthOrganization(BaseModel):
@@ -789,14 +789,14 @@ class TextqlRPCAuthOrganization(BaseModel):
     scim_new_group_default_role_type: Annotated[
         OptionalNullable[str], pydantic.Field(alias="scimNewGroupDefaultRoleType")
     ] = UNSET
-    r"""Mirror of the email_output_enabled feature flag (in feature_flags table,
-    not on the organization row). Surfaces in settings UIs alongside the
-    org-row toggles.
-    """
 
     groups_feature_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="groupsFeatureEnabled")
     ] = UNSET
+    r"""Mirror of the email_output_enabled feature flag (in feature_flags table,
+    not on the organization row). Surfaces in settings UIs alongside the
+    org-row toggles.
+    """
 
     available_providers: Annotated[
         Optional[List[str]], pydantic.Field(alias="availableProviders")
@@ -805,15 +805,15 @@ class TextqlRPCAuthOrganization(BaseModel):
     show_textql_usage: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="showTextqlUsage")
     ] = UNSET
+
+    traces_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="tracesEnabled")
+    ] = UNSET
     r"""Org-wide default response methodology for new chats, as a
     textql.rpc.public.chat.Methodology enum value (int to avoid an import cycle
     with the public package). 0 = UNKNOWN/unset -> ADAPTIVE. Overridable
     per-member (Member.default_methodology) and per-chat.
     """
-
-    traces_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="tracesEnabled")
-    ] = UNSET
 
     allow_llm_data_retention: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="allowLlmDataRetention")
@@ -830,13 +830,13 @@ class TextqlRPCAuthOrganization(BaseModel):
             alias="smsEnabled",
         ),
     ] = UNSET
-    r"""When true, the ANA_INTERNAL (\"TextQL Usage\") connector includes @textql.com
-    staff activity in its usage views; when false (default) they are filtered out.
-    """
 
     scim_assign_default_role: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="scimAssignDefaultRole")
     ] = UNSET
+    r"""When true, the ANA_INTERNAL (\"TextQL Usage\") connector includes @textql.com
+    staff activity in its usage views; when false (default) they are filtered out.
+    """
 
     migration_banner_dismissed: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="migrationBannerDismissed")
@@ -853,21 +853,20 @@ class TextqlRPCAuthOrganization(BaseModel):
     sandbox_observability_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="sandboxObservabilityEnabled")
     ] = UNSET
-    r"""agent SMS/texting feature removed; no longer read or written"""
 
     data_apps_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="dataAppsEnabled")
     ] = UNSET
+    r"""agent SMS/texting feature removed; no longer read or written"""
 
     issues_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="issuesEnabled")
     ] = UNSET
-    r"""dismiss legacy-context migration banner org-wide"""
 
     config_objects_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="configObjectsEnabled")
     ] = UNSET
-    r"""Deprecated: superseded by config_objects_enabled (field 80); no longer populated."""
+    r"""dismiss legacy-context migration banner org-wide"""
 
     config_objects_playbooks_enabled: Annotated[
         OptionalNullable[bool],
@@ -876,6 +875,7 @@ class TextqlRPCAuthOrganization(BaseModel):
             alias="configObjectsPlaybooksEnabled",
         ),
     ] = UNSET
+    r"""Deprecated: superseded by config_objects_enabled (field 80); no longer populated."""
 
     config_objects_dashboards_enabled: Annotated[
         OptionalNullable[bool],
@@ -884,7 +884,6 @@ class TextqlRPCAuthOrganization(BaseModel):
             alias="configObjectsDashboardsEnabled",
         ),
     ] = UNSET
-    r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
 
     config_autofix_enabled: Annotated[
         OptionalNullable[bool],
@@ -893,9 +892,14 @@ class TextqlRPCAuthOrganization(BaseModel):
             alias="configAutofixEnabled",
         ),
     ] = UNSET
+    r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
 
     helm_chart_version: Annotated[
         OptionalNullable[str], pydantic.Field(alias="helmChartVersion")
+    ] = UNSET
+
+    spend_transparency_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="spendTransparencyEnabled")
     ] = UNSET
     r"""config_objects feature_flags row: the umbrella half of the config-management predicate
     (library.ConfigManagedOrg = this flag AND the org already having a Library — the flag
@@ -905,8 +909,8 @@ class TextqlRPCAuthOrganization(BaseModel):
     config_migrations_enabled (field 74).
     """
 
-    spend_transparency_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="spendTransparencyEnabled")
+    sharing_disabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="sharingDisabled")
     ] = UNSET
     r"""Deprecated: never populated. config_objects_enabled (field 80) is the umbrella for every
     object type — config management is one-way, so a per-type switch that cannot
@@ -914,20 +918,16 @@ class TextqlRPCAuthOrganization(BaseModel):
     because proto/api is additive-only.
     """
 
-    sharing_disabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="sharingDisabled")
-    ] = UNSET
-
     app_writeback_auto_approve_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="appWritebackAutoApproveEnabled")
     ] = UNSET
-    r"""Deprecated: never populated. The autofix sweep no longer has a per-org opt-in — it runs for
-    every org with the config-object checks surface on. Retained only because proto/api is additive-only.
-    """
 
     subagents_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="subagentsEnabled")
     ] = UNSET
+    r"""Deprecated: never populated. The autofix sweep no longer has a per-org opt-in — it runs for
+    every org with the config-object checks surface on. Retained only because proto/api is additive-only.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
