@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: e45e7245f4383cd3ce41d9928345e73f
+  docChecksum: 40ca436db2e86b35192b175e156c3135
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 1.1.27
-  configChecksum: 58ad719ce55234b65bd4d48bca4c9bdb
+  releaseVersion: 1.1.28
+  configChecksum: 525787b76f864eff7b38757aba8a602c
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 2479a483-3e63-4814-8c7a-ea9cb3d3ac19
-  pristine_commit_hash: 122b6fed2fdff0d491d6cc5dcd2327fdb06f113b
-  pristine_tree_hash: 903bfc093bf48eab12f546226260301d96897cb3
+  generation_id: b339a48b-cf74-4e77-9fa8-e281ec0b2d00
+  pristine_commit_hash: 09b1645e6fac87c681a2afb1fb7a14b732efe962
+  pristine_tree_hash: cebe626c40709c571bef6ea3362ed89bcc6bcd09
 features:
   python:
     additionalDependencies: 1.1.0
@@ -4147,8 +4147,8 @@ trackedFiles:
     pristine_git_object: ce7929b2e94d1a10a02fad7a40e124e0b3b79993
   docs/models/textqlrpcauthorganization.md:
     id: 9cd100fd12d1
-    last_write_checksum: sha1:ca77040af55bbebdb1d371c1ea9a9fa39bb1310a
-    pristine_git_object: a090de9833ae0ddac242e7bd8b6fd7a941b12def
+    last_write_checksum: sha1:24952a7b69f11eb65f00dd8ea013daadb5a9513d
+    pristine_git_object: 98432c67b5c91e2e4145e2b830c28e1872cfc87b
   docs/models/textqlrpcauththeme.md:
     id: c153ce9ddfc8
     last_write_checksum: sha1:9c3534b8fd1a9ffc26ba2429f11906897911d51f
@@ -9899,8 +9899,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:081dd7446d683f343b7c872c78a5582e7a6e91e6
-    pristine_git_object: 54c52f5f61826048f0db9e84f661a267ba6c60a8
+    last_write_checksum: sha1:fe4ece7125d9ac6234af00f8dc19160ea32f5881
+    pristine_git_object: dc43c3a48aa8fbcc5632c80f90b785be67a02c97
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9927,8 +9927,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:74b6bcd1bbbced65322118de67f1638c8061f066
-    pristine_git_object: 7eaf09faa4b4487874ca83bdf7a21f673cfb3ee3
+    last_write_checksum: sha1:a606957c3f8a8eb860636c165ab5f0bcc081c756
+    pristine_git_object: 1e74fd02f8ec5f42174980a5c42efaa2f81209d9
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:94f170d130c92cd3e2c61c2993c2e829056f3df7
@@ -11671,8 +11671,8 @@ trackedFiles:
     pristine_git_object: ff268cd67e9c9547e2e78f492a1b6951ce147397
   src/textql_sdk/models/textql_rpc_auth_organization.py:
     id: 9c2612c7ac65
-    last_write_checksum: sha1:a245b3ddc74454db6a1e1f6ce29e79f1570ca01b
-    pristine_git_object: 50bceccd0af7bebb173129bfff7847916851aaad
+    last_write_checksum: sha1:3b2a7d3eca2e1a6420002dcc9b5b3a8629e50910
+    pristine_git_object: 1d3284f16c631a75a380809d60b17dedaf62a6e0
   src/textql_sdk/models/textql_rpc_auth_theme.py:
     id: d84272c6a772
     last_write_checksum: sha1:5be5b7e34adc57a56a7f3025aea933123e58e378
