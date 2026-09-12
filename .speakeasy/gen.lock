@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 1.1.26
-  configChecksum: 1b10344602bd47d79fb9e4744a9f447f
+  releaseVersion: 1.1.27
+  configChecksum: 58ad719ce55234b65bd4d48bca4c9bdb
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 7efffc60-ca7c-4d5f-a4ee-f5e87e989f1d
-  pristine_commit_hash: 710c1075f603ddea2c46ccd6b3873851d2ab1a58
-  pristine_tree_hash: e7acce46279061dd341e8969e176c68c1d5419d9
+  generation_id: 2479a483-3e63-4814-8c7a-ea9cb3d3ac19
+  pristine_commit_hash: 122b6fed2fdff0d491d6cc5dcd2327fdb06f113b
+  pristine_tree_hash: 903bfc093bf48eab12f546226260301d96897cb3
 features:
   python:
     additionalDependencies: 1.1.0
@@ -9899,8 +9899,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:fc77f698a27afe3ff698bcd003c2af08cc2c42e0
-    pristine_git_object: 67af03ca88d8d0e72a118f14b498c9517a8d4fd6
+    last_write_checksum: sha1:081dd7446d683f343b7c872c78a5582e7a6e91e6
+    pristine_git_object: 54c52f5f61826048f0db9e84f661a267ba6c60a8
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -9927,8 +9927,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:f8f7a1e71eb2a393bb05614be7abffb2209dfeaf
-    pristine_git_object: 2ecfca5a34e826c675e7acf49eb715fe9ec2e42b
+    last_write_checksum: sha1:74b6bcd1bbbced65322118de67f1638c8061f066
+    pristine_git_object: 7eaf09faa4b4487874ca83bdf7a21f673cfb3ee3
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:94f170d130c92cd3e2c61c2993c2e829056f3df7
@@ -27819,4 +27819,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.query_one_shot()`: \n  *  `request.model` **Changed** (Breaking ⚠️)\n  *  `response.cells[].union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.agents.duplicate()`:  `response.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.agents.get_agent()`:  `response.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.agents.list()`:  `response.agents[].llm_model` **Changed** (Breaking ⚠️)\n* `textql.agents.update()`: \n  *  `request.llm_model` **Changed** (Breaking ⚠️)\n  *  `response.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.attach_agent()`:  `response.chat.model` **Changed** (Breaking ⚠️)\n* `textql.chats.attach_app()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.attach_dashboard()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.run()`: \n  *  `request.model` **Changed** (Breaking ⚠️)\n  *  `response.cells[].union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.check_health()`:  `request.model` **Changed** (Breaking ⚠️)\n* `textql.chats.check_streamlit_health()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.create_chat()`: \n  *  `request.model` **Changed** (Breaking ⚠️)\n  *  `response.chat.model` **Changed** (Breaking ⚠️)\n* `textql.chats.duplicate_chat()`: \n  *  `request.model` **Changed** (Breaking ⚠️)\n  *  `response.chat.model` **Changed** (Breaking ⚠️)\n* `textql.chats.get()`:  `response.chat.model` **Changed** (Breaking ⚠️)\n* `textql.chats.get_history()`:  `response.cells[].union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.get_all()`:  `response.chats[].model` **Changed** (Breaking ⚠️)\n* `textql.chats.get_playbook_chats()`:  `response.chats[].model` **Changed** (Breaking ⚠️)\n* `textql.agents.create()`: \n  *  `request.llm_model` **Changed** (Breaking ⚠️)\n  *  `response.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.settings.update()`: \n  *  `request.enabled_models[]` **Changed** (Breaking ⚠️)\n* `textql.chats.attach_dataset()`:  `response.cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.chats.update()`:  `response.chat.model` **Changed** (Breaking ⚠️)\n* `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(feed_create_cell).feed_create_cell.agent.llm_model` **Changed** (Breaking ⚠️)\n* `textql.playbooks.create_playbook()`:  `response.playbook.llm_model` **Changed** (Breaking ⚠️)\n* `textql.playbooks.duplicate()`:  `response.playbook.llm_model` **Changed** (Breaking ⚠️)\n* `textql.playbooks.fetch()`:  `response.playbook.llm_model` **Changed** (Breaking ⚠️)\n* `textql.playbooks.get()`:  `response.playbooks[].llm_model` **Changed** (Breaking ⚠️)\n* `textql.playbooks.update()`: \n  *  `request.llm_model` **Changed** (Breaking ⚠️)\n  *  `response.playbook.llm_model` **Changed** (Breaking ⚠️)\n* `textql.rbac.create_role()`:  `response.role.allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.get_current_member_roles_and_permissions()`:  `response.roles[].allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.get_member_roles()`:  `response.member_roles.Map<textql.rpc.public.rbac.MemberRoles>.roles[].allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.get_role()`:  `response.role.allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.list_roles()`:  `response.roles[].allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.update_role()`: \n  *  `request.allowed_models[]` **Changed** (Breaking ⚠️)\n  *  `response.role.allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.who_am_i()`:  `response.roles[].allowed_models[]` **Changed** (Breaking ⚠️)\n* `textql.settings.update_models()`:  `request.default_model` **Changed** (Breaking ⚠️)\n* `textql.rbac.export_role_permissions()`: **Added**\n"
