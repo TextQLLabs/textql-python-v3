@@ -1,8 +1,5 @@
 # TextqlRPCPublicObserveExportObservabilityCsvRequest
 
-MemberActivity is one member's activity over the window: a daily event-count
- series (oldest→newest, zero-filled) plus rollups for the users table.
-
 
 ## Fields
 

@@ -6,8 +6,8 @@ from typing_extensions import TypedDict
 
 
 class TextqlRPCPublicRbacWhoAmIRequestTypedDict(TypedDict):
-    pass
+    r"""WhoAmI messages"""
 
 
 class TextqlRPCPublicRbacWhoAmIRequest(BaseModel):
-    pass
+    r"""WhoAmI messages"""

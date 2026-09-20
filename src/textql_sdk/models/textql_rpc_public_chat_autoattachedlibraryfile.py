@@ -10,8 +10,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatAutoAttachedLibraryFileTypedDict(TypedDict):
+    r"""A library file injected via org auto-attach (not an explicit read_file/tql pull)."""
+
     path: NotRequired[str]
     pull_count: NotRequired[int]
+    r"""number of turns in this chat that pulled this file"""
     first_pulled_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -197,9 +200,12 @@ class TextqlRPCPublicChatAutoAttachedLibraryFileTypedDict(TypedDict):
 
 
 class TextqlRPCPublicChatAutoAttachedLibraryFile(BaseModel):
+    r"""A library file injected via org auto-attach (not an explicit read_file/tql pull)."""
+
     path: Optional[str] = None
 
     pull_count: Annotated[Optional[int], pydantic.Field(alias="pullCount")] = None
+    r"""number of turns in this chat that pulled this file"""
 
     first_pulled_at: Annotated[
         Optional[datetime], pydantic.Field(alias="firstPulledAt")

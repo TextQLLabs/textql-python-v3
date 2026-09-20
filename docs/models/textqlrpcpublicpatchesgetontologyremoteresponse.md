@@ -1,7 +1,5 @@
 # TextqlRPCPublicPatchesGetOntologyRemoteResponse
 
-Deprecated: use SetOntologyOwnersResponse.
-
 
 ## Fields
 

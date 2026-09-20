@@ -16,14 +16,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppViewerInfoTypedDict(TypedDict):
-    r"""AppServer declares whether the app runs an optional persistent server: a
-    long-lived python process in the app's dedicated worker. Its handlers serve
-    webhook deliveries and server-handled compute functions, and module globals
-    persist between requests (until the worker recycles). The server's source is
-    not stored here — it lives in the app's file tree under `server/`, with
-    `server/main.py` as the entry module (importing sibling `server/*.py` files).
-    """
-
     member_id: NotRequired[str]
     last_viewed: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -122,14 +114,6 @@ class TextqlRPCPublicAppAppViewerInfoTypedDict(TypedDict):
 
 
 class TextqlRPCPublicAppAppViewerInfo(BaseModel):
-    r"""AppServer declares whether the app runs an optional persistent server: a
-    long-lived python process in the app's dedicated worker. Its handlers serve
-    webhook deliveries and server-handled compute functions, and module globals
-    persist between requests (until the worker recycles). The server's source is
-    not stored here — it lives in the app's file tree under `server/`, with
-    `server/main.py` as the entry module (importing sibling `server/*.py` files).
-    """
-
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     last_viewed: Annotated[Optional[datetime], pydantic.Field(alias="lastViewed")] = (

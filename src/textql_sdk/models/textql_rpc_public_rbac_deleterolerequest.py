@@ -9,15 +9,26 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacDeleteRoleRequestTypedDict(TypedDict):
+    role_name: NotRequired[str]
+    r"""Exact, case-sensitive role name, unique within the caller's organization.
+    Supply role_name or role_id.
+    """
     role_id: NotRequired[str]
+    r"""Existing role ID. Prefer role_name; if both are supplied they must match."""
 
 
 class TextqlRPCPublicRbacDeleteRoleRequest(BaseModel):
+    role_name: Annotated[Optional[str], pydantic.Field(alias="roleName")] = None
+    r"""Exact, case-sensitive role name, unique within the caller's organization.
+    Supply role_name or role_id.
+    """
+
     role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None
+    r"""Existing role ID. Prefer role_name; if both are supplied they must match."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["roleId"])
+        optional_fields = set(["roleName", "roleId"])
         serialized = handler(self)
         m = {}
 

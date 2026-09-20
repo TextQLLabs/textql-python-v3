@@ -19,8 +19,11 @@ class TextqlRPCPublicAppListAppsRequestTypedDict(TypedDict):
     limit: NotRequired[int]
     offset: NotRequired[int]
     folder_id: NotRequired[Nullable[str]]
+    r"""Filter by specific folder"""
     uncategorized_only: NotRequired[Nullable[bool]]
+    r"""Only show apps with no folder"""
     shared_with_me: NotRequired[Nullable[bool]]
+    r"""Only apps shared with the caller (not authored by them)"""
 
 
 class TextqlRPCPublicAppListAppsRequest(BaseModel):
@@ -35,14 +38,17 @@ class TextqlRPCPublicAppListAppsRequest(BaseModel):
     folder_id: Annotated[OptionalNullable[str], pydantic.Field(alias="folderId")] = (
         UNSET
     )
+    r"""Filter by specific folder"""
 
     uncategorized_only: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="uncategorizedOnly")
     ] = UNSET
+    r"""Only show apps with no folder"""
 
     shared_with_me: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="sharedWithMe")
     ] = UNSET
+    r"""Only apps shared with the caller (not authored by them)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

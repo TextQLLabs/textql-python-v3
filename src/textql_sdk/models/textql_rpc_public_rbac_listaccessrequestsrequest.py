@@ -17,6 +17,7 @@ class TextqlRPCPublicRbacListAccessRequestsRequestTypedDict(TypedDict):
     object_type: NotRequired[Nullable[str]]
     object_id: NotRequired[Nullable[str]]
     status: NotRequired[Nullable[str]]
+    r"""pending, approved, rejected"""
 
 
 class TextqlRPCPublicRbacListAccessRequestsRequest(BaseModel):
@@ -29,6 +30,7 @@ class TextqlRPCPublicRbacListAccessRequestsRequest(BaseModel):
     )
 
     status: OptionalNullable[str] = UNSET
+    r"""pending, approved, rejected"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

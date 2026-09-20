@@ -20,6 +20,8 @@ class TextqlRPCPublicRbacSharedObjectTypedDict(TypedDict):
     object_id: NotRequired[str]
     access_type: NotRequired[str]
     granted_via: NotRequired[str]
+    role_name: NotRequired[Nullable[str]]
+    r"""Current name of the role receiving access."""
     role_id: NotRequired[Nullable[str]]
     expires_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -123,6 +125,11 @@ class TextqlRPCPublicRbacSharedObject(BaseModel):
     access_type: Annotated[Optional[str], pydantic.Field(alias="accessType")] = None
 
     granted_via: Annotated[Optional[str], pydantic.Field(alias="grantedVia")] = None
+
+    role_name: Annotated[OptionalNullable[str], pydantic.Field(alias="roleName")] = (
+        UNSET
+    )
+    r"""Current name of the role receiving access."""
 
     role_id: Annotated[OptionalNullable[str], pydantic.Field(alias="roleId")] = UNSET
 
@@ -228,12 +235,13 @@ class TextqlRPCPublicRbacSharedObject(BaseModel):
                 "objectId",
                 "accessType",
                 "grantedVia",
+                "roleName",
                 "roleId",
                 "expiresAt",
                 "groupId",
             ]
         )
-        nullable_fields = set(["roleId", "groupId"])
+        nullable_fields = set(["roleName", "roleId", "groupId"])
         serialized = handler(self)
         m = {}
 

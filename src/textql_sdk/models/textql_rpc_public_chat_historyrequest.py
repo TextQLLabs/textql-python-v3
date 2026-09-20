@@ -14,12 +14,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatHistoryRequestTypedDict(TypedDict):
+    r"""order is \"most recent first\" """
+
     chat_id: str
     limit: NotRequired[Nullable[int]]
     skip: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicChatHistoryRequest(BaseModel):
+    r"""order is \"most recent first\" """
+
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     limit: OptionalNullable[int] = UNSET

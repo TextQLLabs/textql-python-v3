@@ -22,7 +22,11 @@ class TextqlRPCPublicRbacObjectAccessTypedDict(TypedDict):
     object_id: NotRequired[str]
     created_by: NotRequired[Nullable[str]]
     is_public: NotRequired[bool]
+    member_email: NotRequired[Nullable[str]]
+    r"""Email of the member receiving access, when available."""
     member_id: NotRequired[Nullable[str]]
+    role_name: NotRequired[Nullable[str]]
+    r"""Current name of the role receiving access."""
     role_id: NotRequired[Nullable[str]]
     access_type: NotRequired[str]
     granted_by: NotRequired[Nullable[str]]
@@ -316,9 +320,19 @@ class TextqlRPCPublicRbacObjectAccess(BaseModel):
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
 
+    member_email: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="memberEmail")
+    ] = UNSET
+    r"""Email of the member receiving access, when available."""
+
     member_id: Annotated[OptionalNullable[str], pydantic.Field(alias="memberId")] = (
         UNSET
     )
+
+    role_name: Annotated[OptionalNullable[str], pydantic.Field(alias="roleName")] = (
+        UNSET
+    )
+    r"""Current name of the role receiving access."""
 
     role_id: Annotated[OptionalNullable[str], pydantic.Field(alias="roleId")] = UNSET
 
@@ -614,7 +628,9 @@ class TextqlRPCPublicRbacObjectAccess(BaseModel):
                 "objectId",
                 "createdBy",
                 "isPublic",
+                "memberEmail",
                 "memberId",
+                "roleName",
                 "roleId",
                 "accessType",
                 "grantedBy",
@@ -623,7 +639,9 @@ class TextqlRPCPublicRbacObjectAccess(BaseModel):
                 "updatedAt",
             ]
         )
-        nullable_fields = set(["createdBy", "memberId", "roleId", "grantedBy"])
+        nullable_fields = set(
+            ["createdBy", "memberEmail", "memberId", "roleName", "roleId", "grantedBy"]
+        )
         serialized = handler(self)
         m = {}
 

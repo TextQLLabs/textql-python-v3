@@ -111,6 +111,7 @@ class TextqlRPCPublicObserveAppBillingStatTypedDict(TypedDict):
     daily_view_counts: NotRequired[List[int]]
     is_published: NotRequired[bool]
     llm_acu: NotRequired[float]
+    r"""ana.ask spend attributed to this app (cost_center \"data_app\"), separate from compute_acu."""
     total_acu: NotRequired[float]
 
 
@@ -230,6 +231,7 @@ class TextqlRPCPublicObserveAppBillingStat(BaseModel):
     is_published: Annotated[Optional[bool], pydantic.Field(alias="isPublished")] = None
 
     llm_acu: Annotated[Optional[float], pydantic.Field(alias="llmAcu")] = None
+    r"""ana.ask spend attributed to this app (cost_center \"data_app\"), separate from compute_acu."""
 
     total_acu: Annotated[Optional[float], pydantic.Field(alias="totalAcu")] = None
 

@@ -15,6 +15,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesDailyFileUsageTypedDict(TypedDict):
     date_: NotRequired[TextqlRPCPublicPatchesDateTypedDict]
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
     average_tokens: NotRequired[int]
     average_query_time: NotRequired[timedelta]
     r"""A Duration represents a signed, fixed-length span of time represented
@@ -87,6 +88,7 @@ class TextqlRPCPublicPatchesDailyFileUsage(BaseModel):
     date_: Annotated[
         Optional[TextqlRPCPublicPatchesDate], pydantic.Field(alias="date")
     ] = None
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
 
     average_tokens: Annotated[Optional[int], pydantic.Field(alias="averageTokens")] = (
         None

@@ -9,18 +9,38 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacRemoveRoleFromMemberRequestTypedDict(TypedDict):
+    member_email: NotRequired[str]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
+    role_name: NotRequired[str]
+    r"""Exact, case-sensitive role name, unique within the caller's organization.
+    Supply role_name or role_id.
+    """
     member_id: NotRequired[str]
     role_id: NotRequired[str]
+    r"""Existing role ID. Prefer role_name; if both are supplied they must match."""
 
 
 class TextqlRPCPublicRbacRemoveRoleFromMemberRequest(BaseModel):
+    member_email: Annotated[Optional[str], pydantic.Field(alias="memberEmail")] = None
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
+
+    role_name: Annotated[Optional[str], pydantic.Field(alias="roleName")] = None
+    r"""Exact, case-sensitive role name, unique within the caller's organization.
+    Supply role_name or role_id.
+    """
+
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None
+    r"""Existing role ID. Prefer role_name; if both are supplied they must match."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["memberId", "roleId"])
+        optional_fields = set(["memberEmail", "roleName", "memberId", "roleId"])
         serialized = handler(self)
         m = {}
 

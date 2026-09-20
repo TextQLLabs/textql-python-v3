@@ -21,10 +21,6 @@ Size = TypeAliasType("Size", Union[int, str])
 
 
 class TextqlRPCPublicCellsGoogleDriveFileTypedDict(TypedDict):
-    r"""Represents a before/after change to a field during an update.
-    Used by both PlaybookEditorCell and FeedCreateCell.
-    """
-
     id: NotRequired[str]
     name: NotRequired[str]
     mime_type: NotRequired[str]
@@ -34,10 +30,6 @@ class TextqlRPCPublicCellsGoogleDriveFileTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsGoogleDriveFile(BaseModel):
-    r"""Represents a before/after change to a field during an update.
-    Used by both PlaybookEditorCell and FeedCreateCell.
-    """
-
     id: Optional[str] = None
 
     name: Optional[str] = None

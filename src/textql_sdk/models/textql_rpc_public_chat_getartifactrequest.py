@@ -7,16 +7,18 @@ from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatGetArtifactRequestTypedDict(TypedDict):
-    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
+    r"""Request full artifact data when item is selected"""
 
     artifact_id: str
+    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
     chat_id: str
 
 
 class TextqlRPCPublicChatGetArtifactRequest(BaseModel):
-    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
+    r"""Request full artifact data when item is selected"""
 
     artifact_id: Annotated[str, pydantic.Field(alias="artifactId")]
+    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
 
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 

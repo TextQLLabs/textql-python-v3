@@ -870,9 +870,7 @@ class Secrets(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SecretServiceTestAPIAccessKeyResponse:
-        r"""---- API Connectors (deprecated) ----
-
-        ---- API Connectors (deprecated) ----
+        r"""TestApiAccessKey
 
         :param connect_timeout_ms:
         :param ref:
@@ -983,9 +981,7 @@ class Secrets(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SecretServiceTestAPIAccessKeyResponse:
-        r"""---- API Connectors (deprecated) ----
-
-        ---- API Connectors (deprecated) ----
+        r"""TestApiAccessKey
 
         :param connect_timeout_ms:
         :param ref:

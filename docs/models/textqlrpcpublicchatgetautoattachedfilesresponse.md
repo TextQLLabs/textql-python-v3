@@ -1,7 +1,5 @@
 # TextqlRPCPublicChatGetAutoAttachedFilesResponse
 
-A library file injected via org auto-attach (not an explicit read_file/tql pull).
-
 
 ## Fields
 

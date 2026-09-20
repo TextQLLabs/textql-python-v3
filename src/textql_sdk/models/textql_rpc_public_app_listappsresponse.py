@@ -13,11 +13,15 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppListAppsResponseTypedDict(TypedDict):
+    r"""List responses omit code (heavyweight); fetch a single app for it."""
+
     apps: NotRequired[List[TextqlRPCPublicAppAppTypedDict]]
     total_count: NotRequired[int]
 
 
 class TextqlRPCPublicAppListAppsResponse(BaseModel):
+    r"""List responses omit code (heavyweight); fetch a single app for it."""
+
     apps: Optional[List[TextqlRPCPublicAppApp]] = None
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None

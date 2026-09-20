@@ -53,6 +53,7 @@ class TextqlRPCPublicCellsOntologyEditorCellTypedDict(TypedDict):
     status: NotRequired[TextqlRPCPublicCellsOntologyEditorStatus]
     list_filter: NotRequired[TextqlRPCPublicCellsOntologyEditorListFilterTypedDict]
     list_count: NotRequired[Nullable[int]]
+    r"""Number of items returned by list operation"""
     list_objects: NotRequired[List[TextqlRPCPublicOntologyOntologyObjectTypedDict]]
     list_attributes: NotRequired[
         List[TextqlRPCPublicOntologyOntologyAttributeTypedDict]
@@ -99,6 +100,7 @@ class TextqlRPCPublicCellsOntologyEditorCell(BaseModel):
     list_count: Annotated[OptionalNullable[int], pydantic.Field(alias="listCount")] = (
         UNSET
     )
+    r"""Number of items returned by list operation"""
 
     list_objects: Annotated[
         Optional[List[TextqlRPCPublicOntologyOntologyObject]],

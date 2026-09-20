@@ -232,9 +232,11 @@ class TrinoMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class TrinoMetadata(BaseModel):
@@ -360,6 +362,7 @@ class TrinoMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -370,6 +373,7 @@ class TrinoMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -515,9 +519,11 @@ class TableauMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class TableauMetadata(BaseModel):
@@ -643,6 +649,7 @@ class TableauMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -653,6 +660,7 @@ class TableauMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -698,9 +706,6 @@ class TableauMetadata(BaseModel):
 
 class SupabaseMetadataTypedDict(TypedDict):
     supabase_metadata: TextqlRPCPublicConnectorSupabaseMetadataTypedDict
-    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
-    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
-    """
     id: NotRequired[int]
     name: NotRequired[str]
     connector_type: NotRequired[TextqlRPCPublicConnectorConnectorType]
@@ -801,9 +806,11 @@ class SupabaseMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class SupabaseMetadata(BaseModel):
@@ -811,9 +818,6 @@ class SupabaseMetadata(BaseModel):
         TextqlRPCPublicConnectorSupabaseMetadata,
         pydantic.Field(alias="supabaseMetadata"),
     ]
-    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
-    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
-    """
 
     id: Optional[int] = None
 
@@ -933,6 +937,7 @@ class SupabaseMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -943,6 +948,7 @@ class SupabaseMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1088,9 +1094,11 @@ class SQLServerMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class SQLServerMetadata(BaseModel):
@@ -1217,6 +1225,7 @@ class SQLServerMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -1227,6 +1236,7 @@ class SQLServerMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1372,9 +1382,11 @@ class SnowflakeMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class SnowflakeMetadata(BaseModel):
@@ -1501,6 +1513,7 @@ class SnowflakeMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -1511,6 +1524,7 @@ class SnowflakeMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1656,9 +1670,11 @@ class SapHanaMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class SapHanaMetadata(BaseModel):
@@ -1784,6 +1800,7 @@ class SapHanaMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -1794,6 +1811,7 @@ class SapHanaMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -1939,9 +1957,11 @@ class RedshiftMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class RedshiftMetadata(BaseModel):
@@ -2068,6 +2088,7 @@ class RedshiftMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -2078,6 +2099,7 @@ class RedshiftMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2223,9 +2245,11 @@ class PowerbiMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class PowerbiMetadata(BaseModel):
@@ -2351,6 +2375,7 @@ class PowerbiMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -2361,6 +2386,7 @@ class PowerbiMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2506,9 +2532,11 @@ class PostgresMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class PostgresMetadata(BaseModel):
@@ -2635,6 +2663,7 @@ class PostgresMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -2645,6 +2674,7 @@ class PostgresMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -2790,9 +2820,11 @@ class OracleMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class OracleMetadata(BaseModel):
@@ -2918,6 +2950,7 @@ class OracleMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -2928,6 +2961,7 @@ class OracleMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3073,9 +3107,11 @@ class MysqlMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class MysqlMetadata(BaseModel):
@@ -3201,6 +3237,7 @@ class MysqlMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -3211,6 +3248,7 @@ class MysqlMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3356,9 +3394,11 @@ class MotherduckMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class MotherduckMetadata(BaseModel):
@@ -3485,6 +3525,7 @@ class MotherduckMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -3495,6 +3536,7 @@ class MotherduckMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3640,9 +3682,11 @@ class MongodbMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class MongodbMetadata(BaseModel):
@@ -3768,6 +3812,7 @@ class MongodbMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -3778,6 +3823,7 @@ class MongodbMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -3923,9 +3969,11 @@ class Microsoft365MetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class Microsoft365Metadata(BaseModel):
@@ -4052,6 +4100,7 @@ class Microsoft365Metadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -4062,6 +4111,7 @@ class Microsoft365Metadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4107,6 +4157,9 @@ class Microsoft365Metadata(BaseModel):
 
 class KdbMetadataTypedDict(TypedDict):
     kdb_metadata: TextqlRPCPublicConnectorKdbMetadataTypedDict
+    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
+    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
+    """
     id: NotRequired[int]
     name: NotRequired[str]
     connector_type: NotRequired[TextqlRPCPublicConnectorConnectorType]
@@ -4207,15 +4260,20 @@ class KdbMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class KdbMetadata(BaseModel):
     kdb_metadata: Annotated[
         TextqlRPCPublicConnectorKdbMetadata, pydantic.Field(alias="kdbMetadata")
     ]
+    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
+    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
+    """
 
     id: Optional[int] = None
 
@@ -4335,6 +4393,7 @@ class KdbMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -4345,6 +4404,7 @@ class KdbMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4490,9 +4550,11 @@ class GoogleMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class GoogleMetadata(BaseModel):
@@ -4618,6 +4680,7 @@ class GoogleMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -4628,6 +4691,7 @@ class GoogleMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -4773,9 +4837,11 @@ class GoogleDriveMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class GoogleDriveMetadata(BaseModel):
@@ -4902,6 +4968,7 @@ class GoogleDriveMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -4912,6 +4979,7 @@ class GoogleDriveMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5057,9 +5125,11 @@ class GoogleCalendarMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class GoogleCalendarMetadata(BaseModel):
@@ -5186,6 +5256,7 @@ class GoogleCalendarMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -5196,6 +5267,7 @@ class GoogleCalendarMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5341,9 +5413,11 @@ class GmailMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class GmailMetadata(BaseModel):
@@ -5469,6 +5543,7 @@ class GmailMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -5479,6 +5554,7 @@ class GmailMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5624,9 +5700,11 @@ class FireboltMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class FireboltMetadata(BaseModel):
@@ -5753,6 +5831,7 @@ class FireboltMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -5763,6 +5842,7 @@ class FireboltMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -5908,9 +5988,11 @@ class ExasolMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class ExasolMetadata(BaseModel):
@@ -6036,6 +6118,7 @@ class ExasolMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -6046,6 +6129,7 @@ class ExasolMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6191,9 +6275,11 @@ class DremioMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class DremioMetadata(BaseModel):
@@ -6319,6 +6405,7 @@ class DremioMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -6329,6 +6416,7 @@ class DremioMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6474,9 +6562,11 @@ class DatabricksMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class DatabricksMetadata(BaseModel):
@@ -6603,6 +6693,7 @@ class DatabricksMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -6613,6 +6704,7 @@ class DatabricksMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -6758,9 +6850,11 @@ class ClickhouseMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class ClickhouseMetadata(BaseModel):
@@ -6887,6 +6981,7 @@ class ClickhouseMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -6897,6 +6992,7 @@ class ClickhouseMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7042,9 +7138,11 @@ class BigqueryMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class BigqueryMetadata(BaseModel):
@@ -7171,6 +7269,7 @@ class BigqueryMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -7181,6 +7280,7 @@ class BigqueryMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7326,9 +7426,11 @@ class AzureSynapseMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class AzureSynapseMetadata(BaseModel):
@@ -7455,6 +7557,7 @@ class AzureSynapseMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -7465,6 +7568,7 @@ class AzureSynapseMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7610,9 +7714,11 @@ class AuroraMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class AuroraMetadata(BaseModel):
@@ -7738,6 +7844,7 @@ class AuroraMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -7748,6 +7855,7 @@ class AuroraMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -7893,9 +8001,11 @@ class AthenaMetadataTypedDict(TypedDict):
     auth_strategy: NotRequired[str]
     authenticated_by_member_id: NotRequired[str]
     member_authenticated: NotRequired[Nullable[bool]]
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
     member_auth_username: NotRequired[Nullable[str]]
     include_db_session_metadata: NotRequired[bool]
     is_public: NotRequired[bool]
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
 
 class AthenaMetadata(BaseModel):
@@ -8021,6 +8131,7 @@ class AthenaMetadata(BaseModel):
     member_authenticated: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="memberAuthenticated")
     ] = UNSET
+    r"""Per-member auth status for the requesting user (only set for per_member_oauth connectors)"""
 
     member_auth_username: Annotated[
         OptionalNullable[str], pydantic.Field(alias="memberAuthUsername")
@@ -8031,6 +8142,7 @@ class AthenaMetadata(BaseModel):
     ] = None
 
     is_public: Annotated[Optional[bool], pydantic.Field(alias="isPublic")] = None
+    r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

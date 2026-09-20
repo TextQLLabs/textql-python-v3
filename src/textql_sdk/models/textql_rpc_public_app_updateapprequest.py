@@ -38,6 +38,7 @@ class TextqlRPCPublicAppUpdateAppRequestTypedDict(TypedDict):
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     replace_data_sources: NotRequired[Nullable[bool]]
     publish: NotRequired[Nullable[bool]]
+    r"""publish is gone (head is live); ignored by the server"""
     staleness_window_seconds: NotRequired[Nullable[int]]
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     replace_compute_functions: NotRequired[Nullable[bool]]
@@ -75,6 +76,7 @@ class TextqlRPCPublicAppUpdateAppRequest(BaseModel):
             deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
         ),
     ] = UNSET
+    r"""publish is gone (head is live); ignored by the server"""
 
     staleness_window_seconds: Annotated[
         OptionalNullable[int], pydantic.Field(alias="stalenessWindowSeconds")

@@ -1,7 +1,5 @@
 # TextqlRPCPublicCellsSlackUserRef
 
-Reference types for context data
-
 
 ## Fields
 

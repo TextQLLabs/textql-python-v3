@@ -15,23 +15,27 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicCellsQuestionAnswerTypedDict(TypedDict):
     selected: NotRequired[List[str]]
+    r"""chosen option names"""
     custom: NotRequired[Nullable[str]]
-    r"""short gray subtitle, max one line"""
+    r"""free-text entered for the \"Other\" option"""
     inputs: NotRequired[List[str]]
-    r"""longer hover tooltip"""
+    r"""value per input (sensitive values blanked in the broadcast)"""
     provided: NotRequired[List[bool]]
+    r"""per input: was it filled? lets the summary show provided/empty for sensitive inputs without their value"""
 
 
 class TextqlRPCPublicCellsQuestionAnswer(BaseModel):
     selected: Optional[List[str]] = None
+    r"""chosen option names"""
 
     custom: OptionalNullable[str] = UNSET
-    r"""short gray subtitle, max one line"""
+    r"""free-text entered for the \"Other\" option"""
 
     inputs: Optional[List[str]] = None
-    r"""longer hover tooltip"""
+    r"""value per input (sensitive values blanked in the broadcast)"""
 
     provided: Optional[List[bool]] = None
+    r"""per input: was it filled? lets the summary show provided/empty for sensitive inputs without their value"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

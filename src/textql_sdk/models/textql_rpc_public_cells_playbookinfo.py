@@ -27,6 +27,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsPlaybookInfoTypedDict(TypedDict):
+    r"""Simplified playbook info for display in cells"""
+
     id: NotRequired[str]
     name: NotRequired[str]
     prompt: NotRequired[str]
@@ -222,6 +224,7 @@ class TextqlRPCPublicCellsPlaybookInfoTypedDict(TypedDict):
     status: NotRequired[TextqlRPCPublicCellsPlaybookStatusLight]
     r"""TODO(joseph): Clean up base enums // messages etc."""
     connector_id: NotRequired[Nullable[int]]
+    r"""Deprecated: use connector_ids instead"""
     paradigm_type: NotRequired[TextqlRPCParadigmParamsParadigmType]
     report_output_style: NotRequired[TextqlRPCPublicCellsPlaybookReportStyleLight]
     r"""Playbook report output style - matches parseReportStyle in playbook_helpers.go
@@ -236,6 +239,8 @@ class TextqlRPCPublicCellsPlaybookInfoTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsPlaybookInfo(BaseModel):
+    r"""Simplified playbook info for display in cells"""
+
     id: Optional[str] = None
 
     name: Optional[str] = None
@@ -456,6 +461,7 @@ class TextqlRPCPublicCellsPlaybookInfo(BaseModel):
             alias="connectorId",
         ),
     ] = UNSET
+    r"""Deprecated: use connector_ids instead"""
 
     paradigm_type: Annotated[
         Optional[TextqlRPCParadigmParamsParadigmType],

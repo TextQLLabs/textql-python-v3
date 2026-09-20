@@ -20,10 +20,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceAppHeartbeatResponse:
-        r"""AppHeartbeat
+        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+
+        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
-        :param app_id: the resolved default after the change; unset when cleared
+        :param app_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -122,10 +124,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceAppHeartbeatResponse:
-        r"""AppHeartbeat
+        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+
+        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
         :param connect_timeout_ms:
-        :param app_id: the resolved default after the change; unset when cleared
+        :param app_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -537,7 +541,7 @@ class Apps(BaseSDK):
         r"""DeleteApp
 
         :param connect_timeout_ms:
-        :param app_id: full replacement for the calling member
+        :param app_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -639,7 +643,7 @@ class Apps(BaseSDK):
         r"""DeleteApp
 
         :param connect_timeout_ms:
-        :param app_id: full replacement for the calling member
+        :param app_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -957,7 +961,7 @@ class Apps(BaseSDK):
         r"""GetApp
 
         :param connect_timeout_ms:
-        :param app_id: signed /asset/apptree viewer URL for the published gallery tree
+        :param app_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1061,7 +1065,7 @@ class Apps(BaseSDK):
         r"""GetApp
 
         :param connect_timeout_ms:
-        :param app_id: signed /asset/apptree viewer URL for the published gallery tree
+        :param app_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1162,9 +1166,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""Replaces the calling member's entire ordering; capped server-side.
+        r"""Read-only table/column list for the app's private DuckDB (app_db).
 
-        Replaces the calling member's entire ordering; capped server-side.
+        Read-only table/column list for the app's private DuckDB (app_db).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1268,9 +1272,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBSchemaResponse:
-        r"""Replaces the calling member's entire ordering; capped server-side.
+        r"""Read-only table/column list for the app's private DuckDB (app_db).
 
-        Replaces the calling member's entire ordering; capped server-side.
+        Read-only table/column list for the app's private DuckDB (app_db).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1376,14 +1380,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""A bounded row preview of one app_db table (SELECT ... LIMIT n).
 
-        View analytics: reads the engagement views recorded on app page load.
+        A bounded row preview of one app_db table (SELECT ... LIMIT n).
 
         :param connect_timeout_ms:
-        :param app_id: normalized relative path, forward slashes, no .. or leading /
+        :param app_id:
         :param table_name:
-        :param limit:
+        :param limit: clamped server-side; 0 uses the default
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1488,14 +1492,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppDBTablePreviewResponse:
-        r"""View analytics: reads the engagement views recorded on app page load.
+        r"""A bounded row preview of one app_db table (SELECT ... LIMIT n).
 
-        View analytics: reads the engagement views recorded on app page load.
+        A bounded row preview of one app_db table (SELECT ... LIMIT n).
 
         :param connect_timeout_ms:
-        :param app_id: normalized relative path, forward slashes, no .. or leading /
+        :param app_id:
         :param table_name:
-        :param limit:
+        :param limit: clamped server-side; 0 uses the default
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1598,9 +1602,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""Per-member notification subscription to an app (\"watch this app\").
+        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
 
-        Per-member notification subscription to an app (\"watch this app\").
+        Per-member app state: one JSON blob per (app, member) so apps remember
+        settings/progress. Member always resolved server-side from auth context;
+        per-member persistence, so viewers with read access can save their own state.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1704,9 +1710,11 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppMemberStateResponse:
-        r"""Per-member notification subscription to an app (\"watch this app\").
+        r"""Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
 
-        Per-member notification subscription to an app (\"watch this app\").
+        Per-member app state: one JSON blob per (app, member) so apps remember
+        settings/progress. Member always resolved server-side from auth context;
+        per-member persistence, so viewers with read access can save their own state.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -1812,14 +1820,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppVersionResponse:
-        r"""Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
-
-        Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+        r"""GetAppVersion
 
         :param connect_timeout_ms:
-        :param app_id: False when the document predates tree publishing and has no runtime to overwrite.
+        :param app_id:
         :param version_number:
-        :param commit_id:
+        :param commit_id: Prefer this git commit SHA when set; else version_number selects a legacy db-backed row.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1924,14 +1930,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppVersionResponse:
-        r"""Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
-
-        Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+        r"""GetAppVersion
 
         :param connect_timeout_ms:
-        :param app_id: False when the document predates tree publishing and has no runtime to overwrite.
+        :param app_id:
         :param version_number:
-        :param commit_id:
+        :param commit_id: Prefer this git commit SHA when set; else version_number selects a legacy db-backed row.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2034,9 +2038,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2140,9 +2144,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceGetAppViewStatsResponse:
-        r"""Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        r"""View analytics: reads the engagement views recorded on app page load.
 
-        Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+        View analytics: reads the engagement views recorded on app page load.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2462,12 +2466,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceInvokeAppComputeFunctionResponse:
-        r"""InvokeAppComputeFunction
+        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+
+        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
         :param connect_timeout_ms:
         :param app_id:
         :param function_name:
-        :param params_json:
+        :param params_json: JSON object, keys map to function kwargs
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2572,12 +2578,14 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceInvokeAppComputeFunctionResponse:
-        r"""InvokeAppComputeFunction
+        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+
+        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
         :param connect_timeout_ms:
         :param app_id:
         :param function_name:
-        :param params_json:
+        :param params_json: JSON object, keys map to function kwargs
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2683,11 +2691,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
 
-        Favorite/unfavorite a library item (app or dashboard) for the calling member.
-        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
-        since the merged library page pins apps and dashboards through one client.
+        Cross-member live activity: rows from every member of the app after a seq,
+        each carrying member_id + display_name (resolved server-side; never email).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2800,11 +2807,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppActivitySinceResponse:
-        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
+        r"""Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
 
-        Favorite/unfavorite a library item (app or dashboard) for the calling member.
-        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
-        since the merged library page pins apps and dashboards through one client.
+        Cross-member live activity: rows from every member of the app after a seq,
+        each carrying member_id + display_name (resolved server-side; never email).
 
         :param connect_timeout_ms:
         :param app_id:
@@ -2904,6 +2910,230 @@ class Apps(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def list_uploads(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        page_size: Optional[int] = None,
+        page_token: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceListAppUploadsResponse:
+        r"""Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+
+        Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param page_size: Default 25, maximum 100.
+        :param page_token:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceListAppUploadsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppListAppUploadsRequest(
+                app_id=app_id,
+                page_size=page_size,
+                page_token=page_token,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/ListAppUploads",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppListAppUploadsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_ListAppUploads",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicAppListAppUploadsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def list_uploads_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        page_size: Optional[int] = None,
+        page_token: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceListAppUploadsResponse:
+        r"""Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+
+        Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param page_size: Default 25, maximum 100.
+        :param page_token:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceListAppUploadsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppListAppUploadsRequest(
+                app_id=app_id,
+                page_size=page_size,
+                page_token=page_token,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/ListAppUploads",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppListAppUploadsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_ListAppUploads",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicAppListAppUploadsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def list_versions(
         self,
         *,
@@ -2916,10 +3146,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppVersionsResponse:
-        r"""Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
+        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
-        Renders the live artifact in the production sandbox and returns browser diagnostics.
-        This is synchronous so callers can verify an app before sharing its URL.
+        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3029,10 +3258,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListAppVersionsResponse:
-        r"""Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
+        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
-        Renders the live artifact in the production sandbox and returns browser diagnostics.
-        This is synchronous so callers can verify an app before sharing its URL.
+        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3151,9 +3379,9 @@ class Apps(BaseSDK):
         :param search_term:
         :param limit:
         :param offset:
-        :param folder_id:
-        :param uncategorized_only:
-        :param shared_with_me:
+        :param folder_id: Filter by specific folder
+        :param uncategorized_only: Only show apps with no folder
+        :param shared_with_me: Only apps shared with the caller (not authored by them)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3270,9 +3498,9 @@ class Apps(BaseSDK):
         :param search_term:
         :param limit:
         :param offset:
-        :param folder_id:
-        :param uncategorized_only:
-        :param shared_with_me:
+        :param folder_id: Filter by specific folder
+        :param uncategorized_only: Only show apps with no folder
+        :param shared_with_me: Only apps shared with the caller (not authored by them)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3380,10 +3608,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-
-        Watcher management: app owners/editors and org admins list the app's
-        subscribers and add/remove members (Upsert/Delete with member_id).
+        r"""ListMyAppMemberActivity
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3493,10 +3718,7 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceListMyAppMemberActivityResponse:
-        r"""Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-
-        Watcher management: app owners/editors and org admins list the app's
-        subscribers and add/remove members (Upsert/Delete with member_id).
+        r"""ListMyAppMemberActivity
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3605,11 +3827,13 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceMoveAppToFolderResponse:
-        r"""MoveAppToFolder
+        r"""Moves an app into a library folder (or to root when folder_id is empty).
+
+        Moves an app into a library folder (or to root when folder_id is empty).
 
         :param connect_timeout_ms:
         :param app_id:
-        :param folder_id:
+        :param folder_id: null/empty = move to root (uncategorized)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3712,11 +3936,13 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceMoveAppToFolderResponse:
-        r"""MoveAppToFolder
+        r"""Moves an app into a library folder (or to root when folder_id is empty).
+
+        Moves an app into a library folder (or to root when folder_id is empty).
 
         :param connect_timeout_ms:
         :param app_id:
-        :param folder_id:
+        :param folder_id: null/empty = move to root (uncategorized)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3819,12 +4045,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
+        r"""Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
 
-        Ordering overlay for the sidebar Bookmarks section: one position list per
-        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
-        Membership truth stays in library_favorite / chat bookmarks; this persists
-        only the drag-and-drop order.
+        Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
+        the app's stream. Presence never touches Postgres and never exposes emails.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -3929,12 +4153,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServicePresenceHeartbeatResponse:
-        r"""Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
+        r"""Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
 
-        Ordering overlay for the sidebar Bookmarks section: one position list per
-        member covering favorites and thread bookmarks ('<kind>:<id>' keys).
-        Membership truth stays in library_favorite / chat bookmarks; this persists
-        only the drag-and-drop order.
+        Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
+        the app's stream. Presence never touches Postgres and never exposes emails.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4042,7 +4264,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""RecordAppMemberActivity
+        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+
+        Append-only per-member activity log. Listing is own rows only; no
+        cross-member reads in this release.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4158,7 +4383,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRecordAppMemberActivityResponse:
-        r"""RecordAppMemberActivity
+        r"""Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+
+        Append-only per-member activity log. Listing is own rows only; no
+        cross-member reads in this release.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4270,9 +4498,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRefreshAppResponse:
-        r"""Moves an app into a library folder (or to root when folder_id is empty).
+        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
-        Moves an app into a library folder (or to root when folder_id is empty).
+        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4376,9 +4604,9 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRefreshAppResponse:
-        r"""Moves an app into a library folder (or to root when folder_id is empty).
+        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
-        Moves an app into a library folder (or to root when folder_id is empty).
+        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -4472,6 +4700,226 @@ class Apps(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def remove_upload(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
+        version: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceRemoveAppUploadResponse:
+        r"""Removes only this viewer's app association, never the dataset itself.
+
+        Removes only this viewer's app association, never the dataset itself.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param dataset_id:
+        :param version:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceRemoveAppUploadRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppRemoveAppUploadRequest(
+                app_id=app_id,
+                dataset_id=dataset_id,
+                version=version,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/RemoveAppUpload",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppRemoveAppUploadRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_RemoveAppUpload",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.GoogleProtobufEmpty, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def remove_upload_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        app_id: Optional[str] = None,
+        dataset_id: Optional[str] = None,
+        version: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.AppServiceRemoveAppUploadResponse:
+        r"""Removes only this viewer's app association, never the dataset itself.
+
+        Removes only this viewer's app association, never the dataset itself.
+
+        :param connect_timeout_ms:
+        :param app_id:
+        :param dataset_id:
+        :param version:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.AppServiceRemoveAppUploadRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicAppRemoveAppUploadRequest(
+                app_id=app_id,
+                dataset_id=dataset_id,
+                version=version,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.app.AppService/RemoveAppUpload",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicAppRemoveAppUploadRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="AppService_RemoveAppUpload",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["AppService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.GoogleProtobufEmpty, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def restore_app_version(
         self,
         *,
@@ -4484,14 +4932,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRestoreAppVersionResponse:
-        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
-
-        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+        r"""RestoreAppVersion
 
         :param connect_timeout_ms:
         :param app_id:
         :param version_number:
-        :param commit_id:
+        :param commit_id: Prefer this git commit SHA when set; else version_number selects a legacy db-backed row.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4596,14 +5042,12 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceRestoreAppVersionResponse:
-        r"""Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
-
-        Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+        r"""RestoreAppVersion
 
         :param connect_timeout_ms:
         :param app_id:
         :param version_number:
-        :param commit_id:
+        :param commit_id: Prefer this git commit SHA when set; else version_number selects a legacy db-backed row.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4922,14 +5366,16 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetFavoriteResponse:
-        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 
-        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+        Favorite/unfavorite a library item (app or dashboard) for the calling member.
+        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+        since the merged library page pins apps and dashboards through one client.
 
         :param connect_timeout_ms:
-        :param primitive_type:
+        :param primitive_type: 'app' | 'dashboard'
         :param primitive_id:
-        :param favorited: \"\" = brand/default accent
+        :param favorited: true = pin, false = unpin (hard delete)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5034,14 +5480,16 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceSetFavoriteResponse:
-        r"""Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+        r"""Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 
-        Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+        Favorite/unfavorite a library item (app or dashboard) for the calling member.
+        Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+        since the merged library page pins apps and dashboards through one client.
 
         :param connect_timeout_ms:
-        :param primitive_type:
+        :param primitive_type: 'app' | 'dashboard'
         :param primitive_id:
-        :param favorited: \"\" = brand/default accent
+        :param favorited: true = pin, false = unpin (hard delete)
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5190,7 +5638,7 @@ class Apps(BaseSDK):
         :param code:
         :param data_sources:
         :param replace_data_sources:
-        :param publish:
+        :param publish: publish is gone (head is live); ignored by the server
         :param staleness_window_seconds:
         :param compute_functions:
         :param replace_compute_functions:
@@ -5375,7 +5823,7 @@ class Apps(BaseSDK):
         :param code:
         :param data_sources:
         :param replace_data_sources:
-        :param publish:
+        :param publish: publish is gone (head is live); ignored by the server
         :param staleness_window_seconds:
         :param compute_functions:
         :param replace_compute_functions:
@@ -5514,9 +5962,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceVerifyAppRenderResponse:
-        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        r"""Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
 
-        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        Renders the live artifact in the production sandbox and returns browser diagnostics.
+        This is synchronous so callers can verify an app before sharing its URL.
 
         :param connect_timeout_ms:
         :param app_id:
@@ -5620,9 +6069,10 @@ class Apps(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AppServiceVerifyAppRenderResponse:
-        r"""Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        r"""Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
 
-        Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+        Renders the live artifact in the production sandbox and returns browser diagnostics.
+        This is synchronous so callers can verify an app before sharing its URL.
 
         :param connect_timeout_ms:
         :param app_id:

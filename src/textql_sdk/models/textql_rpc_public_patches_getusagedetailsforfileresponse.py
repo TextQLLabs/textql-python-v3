@@ -106,6 +106,7 @@ class TextqlRPCPublicPatchesGetUsageDetailsForFileResponseTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     days: NotRequired[List[TextqlRPCPublicPatchesDailyFileUsageTypedDict]]
+    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
 
 class TextqlRPCPublicPatchesGetUsageDetailsForFileResponse(BaseModel):
@@ -202,6 +203,7 @@ class TextqlRPCPublicPatchesGetUsageDetailsForFileResponse(BaseModel):
     """
 
     days: Optional[List[TextqlRPCPublicPatchesDailyFileUsage]] = None
+    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

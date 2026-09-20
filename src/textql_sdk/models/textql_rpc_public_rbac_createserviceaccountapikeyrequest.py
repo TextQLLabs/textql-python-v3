@@ -15,16 +15,45 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequestTypedDict(TypedDict):
+    service_account_email: NotRequired[str]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of service_account_member_id; if both are supplied they must identify the same member.
+    """
+    assumed_role_names: NotRequired[List[str]]
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy assumed_roles IDs and deduplicated. The existing
+    member-role and calling API-key scope restrictions apply to both forms.
+    """
     service_account_member_id: NotRequired[str]
     name: NotRequired[Nullable[str]]
     expiry_seconds: NotRequired[Nullable[int]]
     assumed_roles: NotRequired[List[str]]
+    r"""Bounded by the service account's own roles; org admins get no bypass here.
+    Legacy role IDs. Prefer assumed_role_names.
+    """
     inherit_all_roles: NotRequired[Nullable[bool]]
+    r"""Required when both role lists are empty, so omission cannot mint a wide key."""
     client_id: NotRequired[Nullable[str]]
     full_member_access: NotRequired[bool]
+    r"""Also reach the service account's own items."""
 
 
 class TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(BaseModel):
+    service_account_email: Annotated[
+        Optional[str], pydantic.Field(alias="serviceAccountEmail")
+    ] = None
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of service_account_member_id; if both are supplied they must identify the same member.
+    """
+
+    assumed_role_names: Annotated[
+        Optional[List[str]], pydantic.Field(alias="assumedRoleNames")
+    ] = None
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy assumed_roles IDs and deduplicated. The existing
+    member-role and calling API-key scope restrictions apply to both forms.
+    """
+
     service_account_member_id: Annotated[
         Optional[str], pydantic.Field(alias="serviceAccountMemberId")
     ] = None
@@ -38,10 +67,14 @@ class TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(BaseModel):
     assumed_roles: Annotated[
         Optional[List[str]], pydantic.Field(alias="assumedRoles")
     ] = None
+    r"""Bounded by the service account's own roles; org admins get no bypass here.
+    Legacy role IDs. Prefer assumed_role_names.
+    """
 
     inherit_all_roles: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="inheritAllRoles")
     ] = UNSET
+    r"""Required when both role lists are empty, so omission cannot mint a wide key."""
 
     client_id: Annotated[OptionalNullable[str], pydantic.Field(alias="clientId")] = (
         UNSET
@@ -50,11 +83,14 @@ class TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(BaseModel):
     full_member_access: Annotated[
         Optional[bool], pydantic.Field(alias="fullMemberAccess")
     ] = None
+    r"""Also reach the service account's own items."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "serviceAccountEmail",
+                "assumedRoleNames",
                 "serviceAccountMemberId",
                 "name",
                 "expirySeconds",

@@ -21,31 +21,25 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicCellsListAppsCellTypedDict(TypedDict):
     search_term: NotRequired[str]
     app_id: NotRequired[str]
-    r"""\"sql\" | \"python\" """
+    r"""Set for single-app lookup"""
     total_count: NotRequired[int]
-    r"""Produced dataframe name, if applicable"""
     error_message: NotRequired[Nullable[str]]
-    r"""SQL only: connector ID; display name resolves client-side"""
     apps: NotRequired[List[TextqlRPCPublicCellsAppInfoTypedDict]]
-    r"""SQL only: referenced tables"""
 
 
 class TextqlRPCPublicCellsListAppsCell(BaseModel):
     search_term: Annotated[Optional[str], pydantic.Field(alias="searchTerm")] = None
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
-    r"""\"sql\" | \"python\" """
+    r"""Set for single-app lookup"""
 
     total_count: Annotated[Optional[int], pydantic.Field(alias="totalCount")] = None
-    r"""Produced dataframe name, if applicable"""
 
     error_message: Annotated[
         OptionalNullable[str], pydantic.Field(alias="errorMessage")
     ] = UNSET
-    r"""SQL only: connector ID; display name resolves client-side"""
 
     apps: Optional[List[TextqlRPCPublicCellsAppInfo]] = None
-    r"""SQL only: referenced tables"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

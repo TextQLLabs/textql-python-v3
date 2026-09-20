@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacShareObjectResponse
 
-WhoAmI messages
-
 
 ## Fields
 

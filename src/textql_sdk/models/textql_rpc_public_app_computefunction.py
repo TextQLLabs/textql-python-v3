@@ -23,15 +23,19 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
+    r"""ComputeFunction is a declared server-side function invocable from the app via the bridge.
+    Exactly one of code (python, runs on the app's worker), sql (plain SQL on the app's
+    private DB), tql (inline TQL source), or tql_path (a Context Library .tql) must be set.
+    TQL variants are real TQL (compiled at save time) executed against a connector; sql is
+    the app-state path (:name params bound server-side, reserved :_now / :_uuid).
+    """
+
     name: NotRequired[str]
     description: NotRequired[str]
     params: NotRequired[List[TextqlRPCPublicAppComputeFunctionParamTypedDict]]
     returns: NotRequired[Nullable[str]]
-    r"""Filter by specific folder"""
     code: NotRequired[str]
-    r"""Only show apps with no folder"""
     tql_path: NotRequired[Nullable[str]]
-    r"""Only apps shared with the caller (not authored by them)"""
     tql: NotRequired[Nullable[str]]
     grant: NotRequired[TextqlRPCPublicDashboardGrantTypedDict]
     r"""Grant is an author allowlist gating a data source or compute function. A viewer whose
@@ -41,6 +45,13 @@ class TextqlRPCPublicAppComputeFunctionTypedDict(TypedDict):
 
 
 class TextqlRPCPublicAppComputeFunction(BaseModel):
+    r"""ComputeFunction is a declared server-side function invocable from the app via the bridge.
+    Exactly one of code (python, runs on the app's worker), sql (plain SQL on the app's
+    private DB), tql (inline TQL source), or tql_path (a Context Library .tql) must be set.
+    TQL variants are real TQL (compiled at save time) executed against a connector; sql is
+    the app-state path (:name params bound server-side, reserved :_now / :_uuid).
+    """
+
     name: Optional[str] = None
 
     description: Optional[str] = None
@@ -48,13 +59,10 @@ class TextqlRPCPublicAppComputeFunction(BaseModel):
     params: Optional[List[TextqlRPCPublicAppComputeFunctionParam]] = None
 
     returns: OptionalNullable[str] = UNSET
-    r"""Filter by specific folder"""
 
     code: Optional[str] = None
-    r"""Only show apps with no folder"""
 
     tql_path: Annotated[OptionalNullable[str], pydantic.Field(alias="tqlPath")] = UNSET
-    r"""Only apps shared with the caller (not authored by them)"""
 
     tql: OptionalNullable[str] = UNSET
 

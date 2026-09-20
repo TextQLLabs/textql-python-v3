@@ -20,6 +20,7 @@ class TextqlRPCPublicCellsAppInfoTypedDict(TypedDict):
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     status: NotRequired[str]
+    r"""publish is gone; no longer populated"""
     creator_id: NotRequired[str]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -387,6 +388,7 @@ class TextqlRPCPublicCellsAppInfoTypedDict(TypedDict):
     """
     schedule_enabled: NotRequired[bool]
     cron_string: NotRequired[Nullable[str]]
+    r"""UTC 5-field cron"""
 
 
 class TextqlRPCPublicCellsAppInfo(BaseModel):
@@ -402,6 +404,7 @@ class TextqlRPCPublicCellsAppInfo(BaseModel):
             deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
         ),
     ] = None
+    r"""publish is gone; no longer populated"""
 
     creator_id: Annotated[Optional[str], pydantic.Field(alias="creatorId")] = None
 
@@ -784,6 +787,7 @@ class TextqlRPCPublicCellsAppInfo(BaseModel):
     cron_string: Annotated[
         OptionalNullable[str], pydantic.Field(alias="cronString")
     ] = UNSET
+    r"""UTC 5-field cron"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

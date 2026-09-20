@@ -15,13 +15,36 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacRevokeObjectAccessRequestTypedDict(TypedDict):
+    member_email: NotRequired[Nullable[str]]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
+    role_name: NotRequired[Nullable[str]]
+    r"""Exact, case-sensitive role name in the caller's organization.
+    To target a role, supply role_name or role_id; if both are supplied they must match.
+    """
     object_type: NotRequired[str]
     object_id: NotRequired[str]
     member_id: NotRequired[Nullable[str]]
     role_id: NotRequired[Nullable[str]]
+    r"""Legacy role ID. Prefer role_name."""
 
 
 class TextqlRPCPublicRbacRevokeObjectAccessRequest(BaseModel):
+    member_email: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="memberEmail")
+    ] = UNSET
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
+
+    role_name: Annotated[OptionalNullable[str], pydantic.Field(alias="roleName")] = (
+        UNSET
+    )
+    r"""Exact, case-sensitive role name in the caller's organization.
+    To target a role, supply role_name or role_id; if both are supplied they must match.
+    """
+
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None
@@ -31,11 +54,14 @@ class TextqlRPCPublicRbacRevokeObjectAccessRequest(BaseModel):
     )
 
     role_id: Annotated[OptionalNullable[str], pydantic.Field(alias="roleId")] = UNSET
+    r"""Legacy role ID. Prefer role_name."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["objectType", "objectId", "memberId", "roleId"])
-        nullable_fields = set(["memberId", "roleId"])
+        optional_fields = set(
+            ["memberEmail", "roleName", "objectType", "objectId", "memberId", "roleId"]
+        )
+        nullable_fields = set(["memberEmail", "roleName", "memberId", "roleId"])
         serialized = handler(self)
         m = {}
 

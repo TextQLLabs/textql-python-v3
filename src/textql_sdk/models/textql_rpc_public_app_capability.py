@@ -21,7 +21,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppCapabilityTypedDict(TypedDict):
     type: NotRequired[str]
     name: NotRequired[Nullable[str]]
-    r"""whether the caller may edit this app (HasAppWriteAccess)"""
     connector_id: NotRequired[Nullable[int]]
     statement: NotRequired[Nullable[str]]
     scope: NotRequired[Nullable[str]]
@@ -29,14 +28,15 @@ class TextqlRPCPublicAppCapabilityTypedDict(TypedDict):
     body: NotRequired[Nullable[str]]
     parameters: NotRequired[List[TextqlRPCPublicAppCapabilityParamTypedDict]]
     agent_id: NotRequired[Nullable[str]]
+    r"""ask only; empty = the org's base agent"""
     app_db: NotRequired[Nullable[str]]
+    r"""ask only: 'read' or 'write' lets the asked agent query (or modify) the app's private database; base agent only"""
 
 
 class TextqlRPCPublicAppCapability(BaseModel):
     type: Optional[str] = None
 
     name: OptionalNullable[str] = UNSET
-    r"""whether the caller may edit this app (HasAppWriteAccess)"""
 
     connector_id: Annotated[
         OptionalNullable[int], pydantic.Field(alias="connectorId")
@@ -53,8 +53,10 @@ class TextqlRPCPublicAppCapability(BaseModel):
     parameters: Optional[List[TextqlRPCPublicAppCapabilityParam]] = None
 
     agent_id: Annotated[OptionalNullable[str], pydantic.Field(alias="agentId")] = UNSET
+    r"""ask only; empty = the org's base agent"""
 
     app_db: Annotated[OptionalNullable[str], pydantic.Field(alias="appDb")] = UNSET
+    r"""ask only: 'read' or 'write' lets the asked agent query (or modify) the app's private database; base agent only"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -1,5 +1,7 @@
 # TextqlRPCPublicCellsReportHistoryInfo
 
+Simplified report info for report history cell
+
 
 ## Fields
 

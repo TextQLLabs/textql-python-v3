@@ -1,0 +1,10 @@
+# TextqlRPCPublicRbacCreateRolePermissionsUploadURLResponse
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `upload_url`                                                                             | *Optional[str]*                                                                          | :heavy_minus_sign:                                                                       | PUT the file here, using content_type, then pass file_url to ParseRolePermissionsImport. |
+| `file_url`                                                                               | *Optional[str]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `content_type`                                                                           | *Optional[str]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |

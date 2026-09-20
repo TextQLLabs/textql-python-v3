@@ -4,15 +4,26 @@ from __future__ import annotations
 from .textql_rpc_public_chat_llmmodel import TextqlRPCPublicChatLlmModel
 import pydantic
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacUpdateRoleRequestTypedDict(TypedDict):
-    role_id: NotRequired[str]
+    role_name: NotRequired[str]
+    r"""Exact, case-sensitive role name, unique within the caller's organization.
+    Supply role_name or role_id. For updates, name is the new name.
+    """
     name: NotRequired[str]
     description: NotRequired[str]
+    allowed_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
+    default_model: NotRequired[TextqlRPCPublicChatLlmModel]
     allow_model_choice: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -22,16 +33,34 @@ class TextqlRPCPublicRbacUpdateRoleRequestTypedDict(TypedDict):
     has no plan to be removed.
     """
     clear_allowed_model_ids: NotRequired[bool]
-    allowed_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
-    default_model: NotRequired[TextqlRPCPublicChatLlmModel]
+    r"""Clears allowed_models back to \"all models allowed\". Needed because proto3
+    cannot distinguish an empty repeated field from an absent one.
+    """
+    color: NotRequired[Nullable[str]]
+    r"""Omitted preserves the existing value; empty resets to the default."""
+    icon: NotRequired[Nullable[str]]
+    role_id: NotRequired[str]
+    r"""Existing role ID. Prefer role_name; if both are supplied they must match."""
 
 
 class TextqlRPCPublicRbacUpdateRoleRequest(BaseModel):
-    role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None
+    role_name: Annotated[Optional[str], pydantic.Field(alias="roleName")] = None
+    r"""Exact, case-sensitive role name, unique within the caller's organization.
+    Supply role_name or role_id. For updates, name is the new name.
+    """
 
     name: Optional[str] = None
 
     description: Optional[str] = None
+
+    allowed_models: Annotated[
+        Optional[List[TextqlRPCPublicChatLlmModel]],
+        pydantic.Field(alias="allowedModels"),
+    ] = None
+
+    default_model: Annotated[
+        Optional[TextqlRPCPublicChatLlmModel], pydantic.Field(alias="defaultModel")
+    ] = None
 
     allow_model_choice: Annotated[
         Optional[bool], pydantic.Field(alias="allowModelChoice")
@@ -47,38 +76,52 @@ class TextqlRPCPublicRbacUpdateRoleRequest(BaseModel):
     clear_allowed_model_ids: Annotated[
         Optional[bool], pydantic.Field(alias="clearAllowedModelIds")
     ] = None
+    r"""Clears allowed_models back to \"all models allowed\". Needed because proto3
+    cannot distinguish an empty repeated field from an absent one.
+    """
 
-    allowed_models: Annotated[
-        Optional[List[TextqlRPCPublicChatLlmModel]],
-        pydantic.Field(alias="allowedModels"),
-    ] = None
+    color: OptionalNullable[str] = UNSET
+    r"""Omitted preserves the existing value; empty resets to the default."""
 
-    default_model: Annotated[
-        Optional[TextqlRPCPublicChatLlmModel], pydantic.Field(alias="defaultModel")
-    ] = None
+    icon: OptionalNullable[str] = UNSET
+
+    role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None
+    r"""Existing role ID. Prefer role_name; if both are supplied they must match."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
             [
-                "roleId",
+                "roleName",
                 "name",
                 "description",
-                "allowModelChoice",
-                "clearAllowedModelIds",
                 "allowedModels",
                 "defaultModel",
+                "allowModelChoice",
+                "clearAllowedModelIds",
+                "color",
+                "icon",
+                "roleId",
             ]
         )
+        nullable_fields = set(["color", "icon"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m

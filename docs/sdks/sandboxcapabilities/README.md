@@ -4,12 +4,60 @@
 
 ### Available Operations
 
+* [deliver](#deliver) - Deliver
 * [execute_write](#execute_write) - ExecuteWrite
 * [poll_ask](#poll_ask) - PollAsk
 * [put_asset](#put_asset) - PutAsset
 * [send_notify](#send_notify) - SendNotify
 * [start_ask](#start_ask) - StartAsk
 * [state_op](#state_op) - StateOp
+
+## deliver
+
+Deliver
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SandboxCapabilityService_Deliver" method="post" path="/textql.rpc.public.sandbox_capability.SandboxCapabilityService/Deliver" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.sandbox_capabilities.deliver()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                                      | *Optional[float]*                                                                                                         | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `name`                                                                                                                    | *Optional[str]*                                                                                                           | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `subject`                                                                                                                 | *Optional[str]*                                                                                                           | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `body`                                                                                                                    | *Optional[str]*                                                                                                           | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `routing_json`                                                                                                            | *Optional[str]*                                                                                                           | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `parameters`                                                                                                              | List[[models.TextqlRPCPublicSandboxQuerySandboxQueryParam](../../models/textqlrpcpublicsandboxquerysandboxqueryparam.md)] | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `attachment_urls`                                                                                                         | List[*str*]                                                                                                               | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `recipient_emails`                                                                                                        | List[*str*]                                                                                                               | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `retries`                                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                          | :heavy_minus_sign:                                                                                                        | Configuration to override the default retry behavior of the client.                                                       |
+
+### Response
+
+**[models.SandboxCapabilityServiceDeliverResponse](../../models/sandboxcapabilityservicedeliverresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
 ## execute_write
 

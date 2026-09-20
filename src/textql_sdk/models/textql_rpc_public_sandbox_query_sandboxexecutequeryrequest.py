@@ -9,6 +9,10 @@ from .textql_rpc_public_sandbox_query_librarytqltemplate import (
     TextqlRPCPublicSandboxQueryLibraryTQLTemplate,
     TextqlRPCPublicSandboxQueryLibraryTQLTemplateTypedDict,
 )
+from .textql_rpc_public_sandbox_query_powerbidaxtemplate import (
+    TextqlRPCPublicSandboxQueryPowerBIDaxTemplate,
+    TextqlRPCPublicSandboxQueryPowerBIDaxTemplateTypedDict,
+)
 from .textql_rpc_public_sandbox_query_sandboxqueryparam import (
     TextqlRPCPublicSandboxQuerySandboxQueryParam,
     TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict,
@@ -24,6 +28,60 @@ from typing import List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
+TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows4TypedDict = TypeAliasType(
+    "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows4TypedDict",
+    Union[int, str],
+)
+
+
+TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows4 = TypeAliasType(
+    "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows4", Union[int, str]
+)
+
+
+class TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQueryTypedDict(TypedDict):
+    sql_query: TextqlRPCPublicSandboxQuerySQLQueryTemplateTypedDict
+    source_name: NotRequired[str]
+    connector_id: NotRequired[int]
+    parameters: NotRequired[List[TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict]]
+    max_rows: NotRequired[
+        TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows4TypedDict
+    ]
+
+
+class TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQuery(BaseModel):
+    sql_query: Annotated[
+        TextqlRPCPublicSandboxQuerySQLQueryTemplate, pydantic.Field(alias="sqlQuery")
+    ]
+
+    source_name: Annotated[Optional[str], pydantic.Field(alias="sourceName")] = None
+
+    connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
+
+    parameters: Optional[List[TextqlRPCPublicSandboxQuerySandboxQueryParam]] = None
+
+    max_rows: Annotated[
+        Optional[TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows4],
+        pydantic.Field(alias="maxRows"),
+    ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["sourceName", "connectorId", "parameters", "maxRows"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
 TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows3TypedDict = TypeAliasType(
     "TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows3TypedDict",
     Union[int, str],
@@ -35,8 +93,8 @@ TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestMaxRows3 = TypeAliasType(
 )
 
 
-class TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQueryTypedDict(TypedDict):
-    sql_query: TextqlRPCPublicSandboxQuerySQLQueryTemplateTypedDict
+class PowerbiDaxTypedDict(TypedDict):
+    powerbi_dax: TextqlRPCPublicSandboxQueryPowerBIDaxTemplateTypedDict
     source_name: NotRequired[str]
     connector_id: NotRequired[int]
     parameters: NotRequired[List[TextqlRPCPublicSandboxQuerySandboxQueryParamTypedDict]]
@@ -45,9 +103,10 @@ class TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQueryTypedDict(Typ
     ]
 
 
-class TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQuery(BaseModel):
-    sql_query: Annotated[
-        TextqlRPCPublicSandboxQuerySQLQueryTemplate, pydantic.Field(alias="sqlQuery")
+class PowerbiDax(BaseModel):
+    powerbi_dax: Annotated[
+        TextqlRPCPublicSandboxQueryPowerBIDaxTemplate,
+        pydantic.Field(alias="powerbiDax"),
     ]
 
     source_name: Annotated[Optional[str], pydantic.Field(alias="sourceName")] = None
@@ -194,6 +253,7 @@ TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestTypedDict = TypeAliasType(
     Union[
         AppDbTypedDict,
         TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestLibraryTqlTypedDict,
+        PowerbiDaxTypedDict,
         TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQueryTypedDict,
     ],
 )
@@ -204,6 +264,7 @@ TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequest = TypeAliasType(
     Union[
         AppDb,
         TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestLibraryTql,
+        PowerbiDax,
         TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQuery,
     ],
 )
@@ -211,6 +272,10 @@ TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequest = TypeAliasType(
 
 try:
     TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQuery.model_rebuild()
+except NameError:
+    pass
+try:
+    PowerbiDax.model_rebuild()
 except NameError:
     pass
 try:

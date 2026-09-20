@@ -351,6 +351,7 @@ class TextqlRPCPublicPatchesFileUsageTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     chats_cited: NotRequired[int]
+    r"""chats that pulled this file AND where the agent declared it as a source"""
 
 
 class TextqlRPCPublicPatchesFileUsage(BaseModel):
@@ -712,6 +713,7 @@ class TextqlRPCPublicPatchesFileUsage(BaseModel):
     """
 
     chats_cited: Annotated[Optional[int], pydantic.Field(alias="chatsCited")] = None
+    r"""chats that pulled this file AND where the agent declared it as a source"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

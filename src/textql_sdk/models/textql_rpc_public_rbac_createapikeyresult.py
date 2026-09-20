@@ -13,11 +13,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateAPIKeyResultTypedDict(TypedDict):
+    r"""CreateApiKeyResponse minus its deprecated api_key_hash alias."""
+
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
     api_key_secret: NotRequired[str]
+    r"""Only ever returned here; the server stores a hash and cannot reissue it."""
 
 
 class TextqlRPCPublicRbacCreateAPIKeyResult(BaseModel):
+    r"""CreateApiKeyResponse minus its deprecated api_key_hash alias."""
+
     api_key: Annotated[
         Optional[TextqlRPCPublicRbacAPIKey], pydantic.Field(alias="apiKey")
     ] = None
@@ -25,6 +30,7 @@ class TextqlRPCPublicRbacCreateAPIKeyResult(BaseModel):
     api_key_secret: Annotated[Optional[str], pydantic.Field(alias="apiKeySecret")] = (
         None
     )
+    r"""Only ever returned here; the server stores a hash and cannot reissue it."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

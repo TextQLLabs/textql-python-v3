@@ -7,15 +7,17 @@ from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatApproveOntologyChangeRequestTypedDict(TypedDict):
-    r"""Per-member auth resume"""
+    r"""Ontology change management"""
 
     cell_id: str
+    r"""UUID"""
 
 
 class TextqlRPCPublicChatApproveOntologyChangeRequest(BaseModel):
-    r"""Per-member auth resume"""
+    r"""Ontology change management"""
 
     cell_id: Annotated[str, pydantic.Field(alias="cellId")]
+    r"""UUID"""
 
 
 try:

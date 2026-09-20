@@ -15,18 +15,22 @@ ThreadCount = TypeAliasType("ThreadCount", Union[int, str])
 
 
 class TextqlRPCPublicObserveCustomTopicPersonTypedDict(TypedDict):
+    r"""One owner of a topic's tagged chats, ranked by how many they own."""
+
     member_id: NotRequired[str]
     name: NotRequired[str]
-    r"""'tagged' (default) | 'excluded_manual'"""
+    r"""display name; falls back to the email, then the member id"""
     email: NotRequired[str]
     thread_count: NotRequired[ThreadCountTypedDict]
 
 
 class TextqlRPCPublicObserveCustomTopicPerson(BaseModel):
+    r"""One owner of a topic's tagged chats, ranked by how many they own."""
+
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     name: Optional[str] = None
-    r"""'tagged' (default) | 'excluded_manual'"""
+    r"""display name; falls back to the email, then the member id"""
 
     email: Optional[str] = None
 

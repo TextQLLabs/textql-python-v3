@@ -20,7 +20,6 @@ class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
     id: NotRequired[str]
     member_id: NotRequired[str]
     client_id: NotRequired[str]
-    r"""pending, approved, rejected"""
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -113,7 +112,12 @@ class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     api_key_short: NotRequired[Nullable[str]]
+    assumed_role_names: NotRequired[List[str]]
+    r"""Current names of existing roles this key is scoped to. Renaming a role
+    updates its displayed name without changing the key's stored role scope.
+    """
     assumed_roles: NotRequired[List[str]]
+    r"""Stable role IDs retained for compatibility."""
     name: NotRequired[Nullable[str]]
     expires_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -301,6 +305,10 @@ class TextqlRPCPublicRbacAPIKeyTypedDict(TypedDict):
     owner_display_name: NotRequired[Nullable[str]]
     owner_email: NotRequired[Nullable[str]]
     suppress_superadmin: NotRequired[bool]
+    r"""When true, requests authenticated with this key skip the
+    @textql.com-email superadmin elevation branch. Lets a textql admin
+    preview a role's experience without superadmin permission leakage.
+    """
 
 
 class TextqlRPCPublicRbacAPIKey(BaseModel):
@@ -309,7 +317,6 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     client_id: Annotated[Optional[str], pydantic.Field(alias="clientId")] = None
-    r"""pending, approved, rejected"""
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -407,9 +414,17 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
         OptionalNullable[str], pydantic.Field(alias="apiKeyShort")
     ] = UNSET
 
+    assumed_role_names: Annotated[
+        Optional[List[str]], pydantic.Field(alias="assumedRoleNames")
+    ] = None
+    r"""Current names of existing roles this key is scoped to. Renaming a role
+    updates its displayed name without changing the key's stored role scope.
+    """
+
     assumed_roles: Annotated[
         Optional[List[str]], pydantic.Field(alias="assumedRoles")
     ] = None
+    r"""Stable role IDs retained for compatibility."""
 
     name: OptionalNullable[str] = UNSET
 
@@ -610,6 +625,10 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
     suppress_superadmin: Annotated[
         Optional[bool], pydantic.Field(alias="suppressSuperadmin")
     ] = None
+    r"""When true, requests authenticated with this key skip the
+    @textql.com-email superadmin elevation branch. Lets a textql admin
+    preview a role's experience without superadmin permission leakage.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -620,6 +639,7 @@ class TextqlRPCPublicRbacAPIKey(BaseModel):
                 "clientId",
                 "createdAt",
                 "apiKeyShort",
+                "assumedRoleNames",
                 "assumedRoles",
                 "name",
                 "expiresAt",

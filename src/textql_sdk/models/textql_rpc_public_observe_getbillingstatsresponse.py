@@ -50,7 +50,12 @@ class TextqlRPCPublicObserveGetBillingStatsResponseTypedDict(TypedDict):
     unattributed_app_acu: NotRequired[float]
     total_app_count: NotRequired[int]
     acu_rate_per1000_usd: NotRequired[float]
+    r"""Effective ACU->USD rate for this org, in USD per 1000 ACUs (resolved from
+    the tenant's pricing tier / active override). Multiply any ACU figure by
+    (rate / 1000) to show dollars. 0 means unknown/unpriced (e.g. trial).
+    """
     unattributed_app_llm_acu: NotRequired[float]
+    r"""Portion of unattributed_app_acu that's ana.ask LLM spend rather than compute."""
 
 
 class TextqlRPCPublicObserveGetBillingStatsResponse(BaseModel):
@@ -126,10 +131,15 @@ class TextqlRPCPublicObserveGetBillingStatsResponse(BaseModel):
     acu_rate_per1000_usd: Annotated[
         Optional[float], pydantic.Field(alias="acuRatePer1000Usd")
     ] = None
+    r"""Effective ACU->USD rate for this org, in USD per 1000 ACUs (resolved from
+    the tenant's pricing tier / active override). Multiply any ACU figure by
+    (rate / 1000) to show dollars. 0 means unknown/unpriced (e.g. trial).
+    """
 
     unattributed_app_llm_acu: Annotated[
         Optional[float], pydantic.Field(alias="unattributedAppLlmAcu")
     ] = None
+    r"""Portion of unattributed_app_acu that's ana.ask LLM spend rather than compute."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

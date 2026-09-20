@@ -12,7 +12,9 @@ class TextqlRPCPublicObserveSetTopicTagFeedbackRequestTypedDict(TypedDict):
     topic_id: NotRequired[str]
     chat_id: NotRequired[str]
     excluded: NotRequired[bool]
+    r"""false restores verdict='tagged'"""
     reason: NotRequired[str]
+    r"""optional; fed to the judge as a negative example"""
 
 
 class TextqlRPCPublicObserveSetTopicTagFeedbackRequest(BaseModel):
@@ -21,8 +23,10 @@ class TextqlRPCPublicObserveSetTopicTagFeedbackRequest(BaseModel):
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 
     excluded: Optional[bool] = None
+    r"""false restores verdict='tagged'"""
 
     reason: Optional[str] = None
+    r"""optional; fed to the judge as a negative example"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -5,15 +5,23 @@ from .textql_rpc_public_patches_approvalruleinput import (
     TextqlRPCPublicPatchesApprovalRuleInput,
     TextqlRPCPublicPatchesApprovalRuleInputTypedDict,
 )
+import pydantic
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+)
 from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesUpdateApprovalRuleRequestTypedDict(TypedDict):
     id: NotRequired[str]
     rule: NotRequired[TextqlRPCPublicPatchesApprovalRuleInputTypedDict]
+    expected_version: NotRequired[Nullable[int]]
 
 
 class TextqlRPCPublicPatchesUpdateApprovalRuleRequest(BaseModel):
@@ -21,18 +29,37 @@ class TextqlRPCPublicPatchesUpdateApprovalRuleRequest(BaseModel):
 
     rule: Optional[TextqlRPCPublicPatchesApprovalRuleInput] = None
 
+    expected_version: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="expectedVersion")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["id", "rule"])
+        optional_fields = set(["id", "rule", "expectedVersion"])
+        nullable_fields = set(["expectedVersion"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m
+
+
+try:
+    TextqlRPCPublicPatchesUpdateApprovalRuleRequest.model_rebuild()
+except NameError:
+    pass

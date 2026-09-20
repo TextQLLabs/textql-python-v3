@@ -15,6 +15,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppGetAppResponseTypedDict(TypedDict):
     app: NotRequired[TextqlRPCPublicAppAppTypedDict]
     has_write_permission: NotRequired[bool]
+    r"""whether the caller may edit this app (HasAppWriteAccess)"""
 
 
 class TextqlRPCPublicAppGetAppResponse(BaseModel):
@@ -23,6 +24,7 @@ class TextqlRPCPublicAppGetAppResponse(BaseModel):
     has_write_permission: Annotated[
         Optional[bool], pydantic.Field(alias="hasWritePermission")
     ] = None
+    r"""whether the caller may edit this app (HasAppWriteAccess)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

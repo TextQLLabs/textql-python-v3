@@ -10,8 +10,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesFileChatUsageTypedDict(TypedDict):
+    r"""FileChatUsage is one chat that retrieved a ontology file inside the
+    observation window. Only pulls attributed to a chat are listed — background
+    or sandbox reads carry no chat id and are excluded.
+    """
+
     chat_id: NotRequired[str]
     title: NotRequired[str]
+    r"""empty for untitled chats"""
     last_pulled: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -104,12 +110,19 @@ class TextqlRPCPublicPatchesFileChatUsageTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     used: NotRequired[bool]
+    r"""the chat also ran the file (directly or via imports), not just pulled it"""
 
 
 class TextqlRPCPublicPatchesFileChatUsage(BaseModel):
+    r"""FileChatUsage is one chat that retrieved a ontology file inside the
+    observation window. Only pulls attributed to a chat are listed — background
+    or sandbox reads carry no chat id and are excluded.
+    """
+
     chat_id: Annotated[Optional[str], pydantic.Field(alias="chatId")] = None
 
     title: Optional[str] = None
+    r"""empty for untitled chats"""
 
     last_pulled: Annotated[Optional[datetime], pydantic.Field(alias="lastPulled")] = (
         None
@@ -206,6 +219,7 @@ class TextqlRPCPublicPatchesFileChatUsage(BaseModel):
     """
 
     used: Optional[bool] = None
+    r"""the chat also ran the file (directly or via imports), not just pulled it"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

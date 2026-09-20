@@ -11,7 +11,7 @@ from textql_sdk.types import (
     UNSET,
     UNSET_SENTINEL,
 )
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -114,6 +114,8 @@ class TextqlRPCPublicAuditLogListAuditLogsRequestTypedDict(TypedDict):
     http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
     ) to obtain a formatter capable of generating timestamps in this format.
     """
+    actions: NotRequired[List[str]]
+    include_action_options: NotRequired[bool]
 
 
 class TextqlRPCPublicAuditLogListAuditLogsRequest(BaseModel):
@@ -229,6 +231,12 @@ class TextqlRPCPublicAuditLogListAuditLogsRequest(BaseModel):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
 
+    actions: Optional[List[str]] = None
+
+    include_action_options: Annotated[
+        Optional[bool], pydantic.Field(alias="includeActionOptions")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -241,6 +249,8 @@ class TextqlRPCPublicAuditLogListAuditLogsRequest(BaseModel):
                 "pageSize",
                 "searchTerm",
                 "after",
+                "actions",
+                "includeActionOptions",
             ]
         )
         nullable_fields = set(

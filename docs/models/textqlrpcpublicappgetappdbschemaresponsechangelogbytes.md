@@ -1,6 +1,6 @@
 # TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes
 
-Routing observability: warm | warm_fallback | tql | sql.
+durable Postgres change-log size; the .duckdb cache is derived from this
 
 
 ## Supported Types

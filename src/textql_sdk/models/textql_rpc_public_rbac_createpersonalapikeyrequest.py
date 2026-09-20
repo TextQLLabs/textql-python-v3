@@ -15,16 +15,37 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreatePersonalAPIKeyRequestTypedDict(TypedDict):
+    assumed_role_names: NotRequired[List[str]]
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy assumed_roles IDs and deduplicated. The existing
+    member-role and calling API-key scope restrictions apply to both forms.
+    """
     name: NotRequired[Nullable[str]]
     expiry_seconds: NotRequired[Nullable[int]]
     assumed_roles: NotRequired[List[str]]
+    r"""Bounded by the roles the caller holds.
+    Legacy role IDs. Prefer assumed_role_names.
+    """
     inherit_all_roles: NotRequired[Nullable[bool]]
+    r"""Required when both role lists are empty, so omission cannot mint a wide key."""
     client_id: NotRequired[Nullable[str]]
     full_member_access: NotRequired[bool]
+    r"""Also reach the owner's own items; otherwise the key sees only what the
+    assumed roles can see.
+    """
     suppress_superadmin: NotRequired[bool]
+    r"""Drop @textql.com superadmin elevation. No-op for non-superadmins."""
 
 
 class TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(BaseModel):
+    assumed_role_names: Annotated[
+        Optional[List[str]], pydantic.Field(alias="assumedRoleNames")
+    ] = None
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy assumed_roles IDs and deduplicated. The existing
+    member-role and calling API-key scope restrictions apply to both forms.
+    """
+
     name: OptionalNullable[str] = UNSET
 
     expiry_seconds: Annotated[
@@ -34,10 +55,14 @@ class TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(BaseModel):
     assumed_roles: Annotated[
         Optional[List[str]], pydantic.Field(alias="assumedRoles")
     ] = None
+    r"""Bounded by the roles the caller holds.
+    Legacy role IDs. Prefer assumed_role_names.
+    """
 
     inherit_all_roles: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="inheritAllRoles")
     ] = UNSET
+    r"""Required when both role lists are empty, so omission cannot mint a wide key."""
 
     client_id: Annotated[OptionalNullable[str], pydantic.Field(alias="clientId")] = (
         UNSET
@@ -46,15 +71,20 @@ class TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(BaseModel):
     full_member_access: Annotated[
         Optional[bool], pydantic.Field(alias="fullMemberAccess")
     ] = None
+    r"""Also reach the owner's own items; otherwise the key sees only what the
+    assumed roles can see.
+    """
 
     suppress_superadmin: Annotated[
         Optional[bool], pydantic.Field(alias="suppressSuperadmin")
     ] = None
+    r"""Drop @textql.com superadmin elevation. No-op for non-superadmins."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "assumedRoleNames",
                 "name",
                 "expirySeconds",
                 "assumedRoles",

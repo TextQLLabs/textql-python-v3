@@ -6,8 +6,8 @@ from typing_extensions import TypedDict
 
 
 class TextqlRPCPublicRbacListPermissionsRequestTypedDict(TypedDict):
-    pass
+    r"""Permission management requests/responses"""
 
 
 class TextqlRPCPublicRbacListPermissionsRequest(BaseModel):
-    pass
+    r"""Permission management requests/responses"""

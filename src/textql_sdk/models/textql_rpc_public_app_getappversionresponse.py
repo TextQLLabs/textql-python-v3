@@ -13,10 +13,16 @@ from typing_extensions import NotRequired, TypedDict
 
 class TextqlRPCPublicAppGetAppVersionResponseTypedDict(TypedDict):
     version: NotRequired[TextqlRPCPublicAppAppVersionTypedDict]
+    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
+    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
+    """
 
 
 class TextqlRPCPublicAppGetAppVersionResponse(BaseModel):
     version: Optional[TextqlRPCPublicAppAppVersion] = None
+    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
+    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacWhoAmIRequest
 
+WhoAmI messages
+
 
 ## Fields
 

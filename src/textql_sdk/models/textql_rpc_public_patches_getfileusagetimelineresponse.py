@@ -12,27 +12,13 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineResponseTypedDict(TypedDict):
-    r"""Aggregate ontology-usage health for the window — the roll-ups the Ontology
-    Health hero needs without paging every file to the client. pulled_files,
-    avg_hit_rate, and error_files are Postgres aggregates over the pull/run data;
-    total_files, dead_files, and reclaimable_tokens come from the current git
-    tree diffed against the set of pulled paths (a dead file is one present in
-    the ontology but never pulled in the window).
-    """
-
     days: NotRequired[List[TextqlRPCPublicPatchesDailyFileUsageTypedDict]]
+    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineResponse(BaseModel):
-    r"""Aggregate ontology-usage health for the window — the roll-ups the Ontology
-    Health hero needs without paging every file to the client. pulled_files,
-    avg_hit_rate, and error_files are Postgres aggregates over the pull/run data;
-    total_files, dead_files, and reclaimable_tokens come from the current git
-    tree diffed against the set of pulled paths (a dead file is one present in
-    the ontology but never pulled in the window).
-    """
-
     days: Optional[List[TextqlRPCPublicPatchesDailyFileUsage]] = None
+    r"""one entry per UTC day in the window, oldest first; idle days zero-filled"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

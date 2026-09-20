@@ -12,6 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicRbacUpdateObjectAccessRequestTypedDict(TypedDict):
     access_id: NotRequired[str]
     access_type: NotRequired[str]
+    r"""owner, editor, viewer"""
     expires_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -109,6 +110,7 @@ class TextqlRPCPublicRbacUpdateObjectAccessRequest(BaseModel):
     access_id: Annotated[Optional[str], pydantic.Field(alias="accessId")] = None
 
     access_type: Annotated[Optional[str], pydantic.Field(alias="accessType")] = None
+    r"""owner, editor, viewer"""
 
     expires_at: Annotated[Optional[datetime], pydantic.Field(alias="expiresAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

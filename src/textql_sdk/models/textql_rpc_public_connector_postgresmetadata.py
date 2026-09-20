@@ -18,6 +18,7 @@ class TextqlRPCPublicConnectorPostgresMetadataTypedDict(TypedDict):
     dialect: NotRequired[str]
     ssl_mode: NotRequired[bool]
     ssh_tunnel_enabled: NotRequired[bool]
+    r"""SSH tunnel / bastion host fields"""
     ssh_host: NotRequired[str]
     ssh_port: NotRequired[int]
     ssh_user: NotRequired[str]
@@ -48,6 +49,7 @@ class TextqlRPCPublicConnectorPostgresMetadata(BaseModel):
     ssh_tunnel_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="sshTunnelEnabled")
     ] = None
+    r"""SSH tunnel / bastion host fields"""
 
     ssh_host: Annotated[Optional[str], pydantic.Field(alias="sshHost")] = None
 

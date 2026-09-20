@@ -7,7 +7,7 @@ from textql_sdk._hooks import HookContext
 from textql_sdk.types import OptionalNullable, UNSET
 from textql_sdk.utils import get_security_from_env
 from textql_sdk.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional, Union
+from typing import Iterable, List, Mapping, Optional, Union
 
 
 class AuditLogs(BaseSDK):
@@ -1373,6 +1373,8 @@ class AuditLogs(BaseSDK):
         page_size: OptionalNullable[int] = UNSET,
         search_term: OptionalNullable[str] = UNSET,
         after: Optional[datetime] = None,
+        actions: Optional[Iterable[str]] = None,
+        include_action_options: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1477,6 +1479,8 @@ class AuditLogs(BaseSDK):
             the Joda Time's [`ISODateTimeFormat.dateTime()`](
             http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
             ) to obtain a formatter capable of generating timestamps in this format.
+        :param actions:
+        :param include_action_options:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1503,6 +1507,8 @@ class AuditLogs(BaseSDK):
                 page_size=page_size,
                 search_term=search_term,
                 after=after,
+                actions=utils.unmarshal(actions, Optional[List[str]]),
+                include_action_options=include_action_options,
             ),
         )
 
@@ -1586,6 +1592,8 @@ class AuditLogs(BaseSDK):
         page_size: OptionalNullable[int] = UNSET,
         search_term: OptionalNullable[str] = UNSET,
         after: Optional[datetime] = None,
+        actions: Optional[Iterable[str]] = None,
+        include_action_options: Optional[bool] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1690,6 +1698,8 @@ class AuditLogs(BaseSDK):
             the Joda Time's [`ISODateTimeFormat.dateTime()`](
             http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
             ) to obtain a formatter capable of generating timestamps in this format.
+        :param actions:
+        :param include_action_options:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1716,6 +1726,8 @@ class AuditLogs(BaseSDK):
                 page_size=page_size,
                 search_term=search_term,
                 after=after,
+                actions=utils.unmarshal(actions, Optional[List[str]]),
+                include_action_options=include_action_options,
             ),
         )
 

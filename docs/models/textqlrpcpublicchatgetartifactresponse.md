@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### `models.Dashboard`
+### `models.TextqlRPCPublicChatGetArtifactResponseDashboard`
 
 ```python
-value: models.Dashboard = /* values here */
+value: models.TextqlRPCPublicChatGetArtifactResponseDashboard = /* values here */
 ```
 
 ### `models.TextqlRPCPublicChatGetArtifactResponseFile`

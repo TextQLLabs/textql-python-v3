@@ -12,14 +12,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateRoleResponseTypedDict(TypedDict):
-    r"""Role management requests/responses"""
-
     role: NotRequired[TextqlRPCPublicRbacRoleTypedDict]
 
 
 class TextqlRPCPublicRbacCreateRoleResponse(BaseModel):
-    r"""Role management requests/responses"""
-
     role: Optional[TextqlRPCPublicRbacRole] = None
 
     @model_serializer(mode="wrap")

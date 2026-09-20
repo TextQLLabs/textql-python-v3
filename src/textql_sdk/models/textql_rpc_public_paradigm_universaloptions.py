@@ -41,6 +41,7 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
     feed_engage_enabled: NotRequired[bool]
     streamlit_enabled: NotRequired[bool]
     compaction_disabled: NotRequired[bool]
+    r"""compaction enabled by default"""
     gmail_enabled: NotRequired[bool]
     chat_history_search_enabled: NotRequired[bool]
     google_calendar_enabled: NotRequired[bool]
@@ -49,10 +50,20 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
         List[TextqlRPCPowerbiSelectionPowerBISelectionTypedDict]
     ]
     sms_mode: NotRequired[bool]
+    r"""agent SMS/texting feature removed; no longer read"""
     api_access_key_ids: NotRequired[List[str]]
     feed_enabled: NotRequired[Nullable[bool]]
+    r"""Feed participation for agent chats. Unset for non-agent chats (org flag
+    governs, unchanged). When false, feed-interaction tools + feed persona
+    prompt are dropped even in a feed-enabled org.
+    """
     file_generation_disabled: NotRequired[bool]
+    r"""Suppresses file generation, default false = files enabled"""
     read_file_enabled: NotRequired[bool]
+    r"""Context-library file reads. Only the evaluation paradigm reads this today,
+    so that an eval can test the agent without context access; every other
+    paradigm gates read_file on the org's ContextV3 flag alone.
+    """
 
 
 class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
@@ -139,6 +150,7 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
     compaction_disabled: Annotated[
         Optional[bool], pydantic.Field(alias="compactionDisabled")
     ] = None
+    r"""compaction enabled by default"""
 
     gmail_enabled: Annotated[Optional[bool], pydantic.Field(alias="gmailEnabled")] = (
         None
@@ -168,6 +180,7 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
             alias="smsMode",
         ),
     ] = None
+    r"""agent SMS/texting feature removed; no longer read"""
 
     api_access_key_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="apiAccessKeyIds")
@@ -176,14 +189,23 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
     feed_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="feedEnabled")
     ] = UNSET
+    r"""Feed participation for agent chats. Unset for non-agent chats (org flag
+    governs, unchanged). When false, feed-interaction tools + feed persona
+    prompt are dropped even in a feed-enabled org.
+    """
 
     file_generation_disabled: Annotated[
         Optional[bool], pydantic.Field(alias="fileGenerationDisabled")
     ] = None
+    r"""Suppresses file generation, default false = files enabled"""
 
     read_file_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="readFileEnabled")
     ] = None
+    r"""Context-library file reads. Only the evaluation paradigm reads this today,
+    so that an eval can test the agent without context access; every other
+    paradigm gates read_file on the org's ContextV3 flag alone.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

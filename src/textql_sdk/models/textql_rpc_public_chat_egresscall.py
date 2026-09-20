@@ -40,6 +40,8 @@ TextqlRPCPublicChatEgressCallResponseBytes = TypeAliasType(
 
 
 class TextqlRPCPublicChatEgressCallTypedDict(TypedDict):
+    r"""EgressCall is a single outbound HTTP(S) request a chat's sandbox made,"""
+
     id: NotRequired[str]
     method: NotRequired[str]
     scheme: NotRequired[str]
@@ -47,10 +49,12 @@ class TextqlRPCPublicChatEgressCallTypedDict(TypedDict):
     path: NotRequired[str]
     status_code: NotRequired[int]
     outcome: NotRequired[str]
+    r"""ok | denied | error"""
     duration_ms: NotRequired[TextqlRPCPublicChatEgressCallDurationMsTypedDict]
     request_bytes: NotRequired[TextqlRPCPublicChatEgressCallRequestBytesTypedDict]
     response_bytes: NotRequired[TextqlRPCPublicChatEgressCallResponseBytesTypedDict]
     api_access_key_id: NotRequired[str]
+    r"""connector attribution, empty old secret"""
     occurred_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -143,10 +147,14 @@ class TextqlRPCPublicChatEgressCallTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     cell_id: NotRequired[str]
+    r"""chat cell that made the request, empty if unknown"""
     interpretation: NotRequired[str]
+    r"""abstractive \"what this call did\", empty if unavailable"""
 
 
 class TextqlRPCPublicChatEgressCall(BaseModel):
+    r"""EgressCall is a single outbound HTTP(S) request a chat's sandbox made,"""
+
     id: Optional[str] = None
 
     method: Optional[str] = None
@@ -160,6 +168,7 @@ class TextqlRPCPublicChatEgressCall(BaseModel):
     status_code: Annotated[Optional[int], pydantic.Field(alias="statusCode")] = None
 
     outcome: Optional[str] = None
+    r"""ok | denied | error"""
 
     duration_ms: Annotated[
         Optional[TextqlRPCPublicChatEgressCallDurationMs],
@@ -179,6 +188,7 @@ class TextqlRPCPublicChatEgressCall(BaseModel):
     api_access_key_id: Annotated[
         Optional[str], pydantic.Field(alias="apiAccessKeyId")
     ] = None
+    r"""connector attribution, empty old secret"""
 
     occurred_at: Annotated[Optional[datetime], pydantic.Field(alias="occurredAt")] = (
         None
@@ -275,8 +285,10 @@ class TextqlRPCPublicChatEgressCall(BaseModel):
     """
 
     cell_id: Annotated[Optional[str], pydantic.Field(alias="cellId")] = None
+    r"""chat cell that made the request, empty if unknown"""
 
     interpretation: Optional[str] = None
+    r"""abstractive \"what this call did\", empty if unavailable"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

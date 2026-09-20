@@ -7,14 +7,10 @@ from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatUnbookmarkChatRequestTypedDict(TypedDict):
-    r"""Simplified query response for external API users"""
-
     chat_id: str
 
 
 class TextqlRPCPublicChatUnbookmarkChatRequest(BaseModel):
-    r"""Simplified query response for external API users"""
-
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
 
