@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: c4f22dfd32ee1859f1da92256d7347d7
+  docChecksum: 8b533e0d25870106f60abc314213c2f4
   docVersion: 1.0.0
   speakeasyVersion: 1.798.0
   generationVersion: 2.938.0
-  releaseVersion: 1.1.30
-  configChecksum: 8766635392cf31c490407b69caff9f22
+  releaseVersion: 1.1.31
+  configChecksum: 2fcb5ba064a26edea6245d893ce00f14
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 93d5ebda-1942-446e-8e52-8e16fc3ade32
-  pristine_commit_hash: a279b005cb3392f382f1e2fa85e749c4c54f8010
-  pristine_tree_hash: eb1b81a76ff19e4d9ddfa1a02aa5db9031f317de
+  generation_id: 53ea5f96-4ac0-4942-a319-88243b9c1aa1
+  pristine_commit_hash: ad2e3bd9f44fadef8ab2fba4683789262c1b298b
+  pristine_tree_hash: 154b70e4989a9230b62d42d18d432a12760f1598
 features:
   python:
     additionalDependencies: 1.1.0
@@ -10243,8 +10243,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:0048e57e7e94fdbf53d2e1f85d874bdd88317df5
-    pristine_git_object: bc9a78b7e54aa7317f3103762d15ca8bb21eb9d1
+    last_write_checksum: sha1:23471e3608fefe04db688f1e9078c6225d97249a
+    pristine_git_object: 881b69055218ebe7ba2474be7bb1e8448f610f91
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -10271,8 +10271,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:7efdd2fd83e8edb20b7833b14dcf31a1782dcedb
-    pristine_git_object: 2cba3fad455966aaacda21b15c7cd6edb9d3c5d9
+    last_write_checksum: sha1:561dc954c2c6f011d621a774f5bb67c9f3f5221f
+    pristine_git_object: 726453623f43a90c2b69caceefcc8e331b22266e
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:1060e715fa620b53bea0513649eda965460e904d
@@ -28439,4 +28439,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.rbac.assign_permission_to_role()`:  `request` **Changed** (Breaking ⚠️)\n* `textql.rbac.who_am_i()`:  `response` **Changed** (Breaking ⚠️)\n* `textql.rbac.set_role_permissions()`:  `request` **Changed** (Breaking ⚠️)\n* `textql.rbac.remove_permission_from_role()`:  `request` **Changed** (Breaking ⚠️)\n* `textql.rbac.list_permissions()`:  `response.permissions[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.get_role_permissions()`: \n  *  `request.role_name` **Added**\n  *  `response.permissions[]` **Changed** (Breaking ⚠️)\n* `textql.rbac.get_current_member_roles_and_permissions()`:  `response` **Changed** (Breaking ⚠️)\n* `textql.rbac.create_role()`: \n  *  `request` **Changed**\n  *  `response.role` **Changed**\n* `textql.rbac.delete_service_account()`:  `request.member_email` **Added**\n* `textql.connectors.create()`: \n  *  `request.config.union(snowflake).snowflake.schemas` **Added**\n* `textql.connectors.duplicate_connector()`:  `response.connector.union(snowflake_metadata).snowflake_metadata.schemas` **Added**\n* `textql.connectors.get()`:  `response.connector.union(snowflake_metadata).snowflake_metadata.schemas` **Added**\n* `textql.connectors.get_connectors()`:  `response.connectors[].union(snowflake_metadata).snowflake_metadata.schemas` **Added**\n* `textql.connectors.test()`: \n  *  `request.config.union(snowflake).snowflake.schemas` **Added**\n* `textql.connectors.update()`: \n  *  `request.config.union(snowflake).snowflake.schemas` **Added**\n  *  `response.connector.union(snowflake_metadata).snowflake_metadata.schemas` **Added**\n* `textql.ontology.create_approval_rule()`:  `response.rule.version` **Added**\n* `textql.ontology.list_approval_rules()`:  `response.rules[].version` **Added**\n* `textql.ontology.update_approval_rule()`: \n  *  `request.expected_version` **Added**\n  *  `response.rule.version` **Added**\n* `textql.rbac.export_role_permissions()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.assign_role_to_member()`:  `request` **Changed**\n* `textql.rbac.create_api_key()`: \n  *  `request` **Changed**\n  *  `response.api_key.assumed_role_names` **Added**\n* `textql.rbac.create_personal_api_key()`: \n  *  `request.assumed_role_names` **Added**\n  *  `response.api_key.assumed_role_names` **Added**\n* `textql.apps.list_uploads()`: **Added**\n* `textql.rbac.create_service_account()`:  `request` **Changed**\n* `textql.rbac.create_service_account_api_key()`: \n  *  `request` **Changed**\n  *  `response.api_key.assumed_role_names` **Added**\n* `textql.rbac.delete_role()`:  `request.role_name` **Added**\n* `textql.audit_logs.list()`: \n  *  `request` **Changed**\n  *  `response.action_options` **Added**\n* `textql.sandbox_capabilities.deliver()`: **Added**\n* `textql.rbac.get_embed_user_api_key()`:  `request.member_email` **Added**\n* `textql.rbac.get_member_roles()`: \n  *  `request.member_emails` **Added**\n  *  `response` **Changed**\n* `textql.rbac.get_object_access()`:  `response.access_entries[]` **Changed**\n* `textql.rbac.get_role()`: \n  *  `request.role_name` **Added**\n  *  `response.role` **Changed**\n* `textql.rbac.parse_role_import()`: **Added**\n* `textql.rbac.has_object_access()`:  `request` **Changed**\n* `textql.rbac.list_api_keys()`: \n  *  `request.service_account_email` **Added**\n  *  `response.api_keys[].assumed_role_names` **Added**\n* `textql.rbac.import_roles()`: **Added**\n* `textql.rbac.list_roles()`:  `response.roles[]` **Changed**\n* `textql.rbac.export_roles()`: **Added**\n* `textql.rbac.remove_role_from_member()`:  `request` **Changed**\n* `textql.rbac.revoke_object_access()`:  `request` **Changed**\n* `textql.rbac.rotate_api_key()`:  `response.api_key.assumed_role_names` **Added**\n* `textql.rbac.create_import_upload()`: **Added**\n* `textql.rbac.share_object()`:  `request.member_email` **Added**\n* `textql.rbac.share_object_with_role()`:  `request.role_name` **Added**\n* `textql.rbac.update_role()`: \n  *  `request` **Changed**\n  *  `response.role` **Changed**\n* `textql.apps.remove_upload()`: **Added**\n* `textql.sandbox.execute_query()`: \n  *  `request.body.union(powerbi_dax)` **Added**\n"
