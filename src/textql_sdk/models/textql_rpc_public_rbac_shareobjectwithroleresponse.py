@@ -8,14 +8,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleResponseTypedDict(TypedDict):
-    r"""Which LLM models the caller may run."""
-
     success: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleResponse(BaseModel):
-    r"""Which LLM models the caller may run."""
-
     success: Optional[bool] = None
 
     @model_serializer(mode="wrap")

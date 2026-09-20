@@ -9,15 +9,24 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacGetEmbedUserAPIKeyRequestTypedDict(TypedDict):
+    member_email: NotRequired[str]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
     member_id: NotRequired[str]
 
 
 class TextqlRPCPublicRbacGetEmbedUserAPIKeyRequest(BaseModel):
+    member_email: Annotated[Optional[str], pydantic.Field(alias="memberEmail")] = None
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
+
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["memberId"])
+        optional_fields = set(["memberEmail", "memberId"])
         serialized = handler(self)
         m = {}
 

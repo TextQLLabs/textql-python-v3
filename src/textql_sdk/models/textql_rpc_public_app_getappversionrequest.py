@@ -16,14 +16,13 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppGetAppVersionRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
-    r"""False when the document predates tree publishing and has no runtime to overwrite."""
     version_number: NotRequired[int]
     commit_id: NotRequired[Nullable[str]]
+    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
 
 
 class TextqlRPCPublicAppGetAppVersionRequest(BaseModel):
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
-    r"""False when the document predates tree publishing and has no runtime to overwrite."""
 
     version_number: Annotated[Optional[int], pydantic.Field(alias="versionNumber")] = (
         None
@@ -32,6 +31,7 @@ class TextqlRPCPublicAppGetAppVersionRequest(BaseModel):
     commit_id: Annotated[OptionalNullable[str], pydantic.Field(alias="commitId")] = (
         UNSET
     )
+    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

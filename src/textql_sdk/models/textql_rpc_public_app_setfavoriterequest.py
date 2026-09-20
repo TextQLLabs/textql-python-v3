@@ -9,29 +9,23 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppSetFavoriteRequestTypedDict(TypedDict):
-    r"""A named Data App design system: the file tree is the source of truth, the
-    token fields mirror theme.json (\"\" = brand/default). All fields server-owned.
-    """
-
     primitive_type: NotRequired[str]
+    r"""'app' | 'dashboard'"""
     primitive_id: NotRequired[str]
     favorited: NotRequired[bool]
-    r"""\"\" = brand/default accent"""
+    r"""true = pin, false = unpin (hard delete)"""
 
 
 class TextqlRPCPublicAppSetFavoriteRequest(BaseModel):
-    r"""A named Data App design system: the file tree is the source of truth, the
-    token fields mirror theme.json (\"\" = brand/default). All fields server-owned.
-    """
-
     primitive_type: Annotated[Optional[str], pydantic.Field(alias="primitiveType")] = (
         None
     )
+    r"""'app' | 'dashboard'"""
 
     primitive_id: Annotated[Optional[str], pydantic.Field(alias="primitiveId")] = None
 
     favorited: Optional[bool] = None
-    r"""\"\" = brand/default accent"""
+    r"""true = pin, false = unpin (hard delete)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

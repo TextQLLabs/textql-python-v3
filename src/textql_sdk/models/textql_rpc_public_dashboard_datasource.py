@@ -39,7 +39,7 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 class TextqlRPCPublicDashboardDataSourceSQLQueryTypedDict(TypedDict):
     sql_query: TextqlRPCPublicDashboardSQLQuerySourceTypedDict
     type: NotRequired[str]
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
@@ -56,7 +56,7 @@ class TextqlRPCPublicDashboardDataSourceSQLQuery(BaseModel):
     ]
 
     type: Optional[str] = None
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
 
     name: Optional[str] = None
 
@@ -89,7 +89,7 @@ class TextqlRPCPublicDashboardDataSourceSQLQuery(BaseModel):
 class PythonCodeTypedDict(TypedDict):
     python_code: TextqlRPCPublicDashboardPythonCodeSourceTypedDict
     type: NotRequired[str]
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
@@ -106,7 +106,7 @@ class PythonCode(BaseModel):
     ]
 
     type: Optional[str] = None
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
 
     name: Optional[str] = None
 
@@ -139,7 +139,7 @@ class PythonCode(BaseModel):
 class OntologySQLTypedDict(TypedDict):
     ontology_sql: TextqlRPCPublicDashboardOntologySQLSourceTypedDict
     type: NotRequired[str]
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
@@ -156,7 +156,7 @@ class OntologySQL(BaseModel):
     ]
 
     type: Optional[str] = None
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
 
     name: Optional[str] = None
 
@@ -193,7 +193,7 @@ class TextqlRPCPublicDashboardDataSourceLibraryTqlTypedDict(TypedDict):
     parameter values are JSON-encoded in `params_json` (e.g. {\"region\":\"EU\"}).
     """
     type: NotRequired[str]
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
@@ -214,7 +214,7 @@ class TextqlRPCPublicDashboardDataSourceLibraryTql(BaseModel):
     """
 
     type: Optional[str] = None
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
 
     name: Optional[str] = None
 
@@ -247,7 +247,7 @@ class TextqlRPCPublicDashboardDataSourceLibraryTql(BaseModel):
 class TextqlRPCPublicDashboardDataSourceFileTypedDict(TypedDict):
     file: TextqlRPCPublicDashboardFileSourceTypedDict
     type: NotRequired[str]
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
     name: NotRequired[str]
     parameters: NotRequired[List[TextqlRPCPublicDashboardQueryParameterTypedDict]]
     r"""Parameters for live parameterized queries (sql_query type only)"""
@@ -262,7 +262,7 @@ class TextqlRPCPublicDashboardDataSourceFile(BaseModel):
     file: TextqlRPCPublicDashboardFileSource
 
     type: Optional[str] = None
-    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", or \"library_tql\" """
+    r"""\"sql_query\", \"file\", \"python_code\", \"ontology_sql\", \"library_tql\", or \"powerbi_dax\" """
 
     name: Optional[str] = None
 

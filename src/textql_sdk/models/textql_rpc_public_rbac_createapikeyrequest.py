@@ -15,17 +15,69 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateAPIKeyRequestTypedDict(TypedDict):
+    target_member_email: NotRequired[Nullable[str]]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of target_member_id; if both are supplied they must identify the same member.
+    """
+    assumed_role_names: NotRequired[List[str]]
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy assumed_roles IDs and deduplicated. The existing
+    member-role and calling API-key scope restrictions apply to both forms.
+    """
     expiry_seconds: NotRequired[Nullable[int]]
     assumed_roles: NotRequired[List[str]]
+    r"""Role IDs (UUIDs) to scope the new API key to. The service validates that
+    each ID exists in the caller's org. Non-admin callers may only specify
+    roles they already hold; assumed-role API key callers may only specify
+    a subset of their current assumed roles.
+    Legacy role IDs. Prefer assumed_role_names.
+    """
     inherit_all_roles: NotRequired[Nullable[bool]]
+    r"""When true, the API key inherits all of the creating member's roles
+    (no assumed-role scoping). Callers must set this explicitly when
+    both role lists are empty; otherwise the request is rejected to prevent
+    accidentally creating over-privileged keys.
+    """
     name: NotRequired[Nullable[str]]
+    r"""Optional display name for the API key."""
     target_member_id: NotRequired[Nullable[str]]
+    r"""Optional owner override for the new API key.
+    If unset, the API key is created for the calling member.
+    If set, the API key is created for this member ID (target principal):
+    service-account targets require the caller to hold organization:write;
+    human targets require api_access_key:delegate, and the key is bounded
+    by the target member's roles with superadmin elevation always
+    suppressed.
+    """
     client_id: NotRequired[Nullable[str]]
+    r"""Optional client metadata stored on the API key as client_id.
+    Prefer a JSON object string when using structured client attributes.
+    """
     suppress_superadmin: NotRequired[bool]
+    r"""When true, requests authenticated with this key skip the
+    @textql.com-email superadmin elevation branch. Only meaningful
+    when paired with assumed_roles so a textql admin can preview a
+    role's experience without superadmin permissions bleeding through.
+    """
     full_member_access: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
+    target_member_email: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="targetMemberEmail")
+    ] = UNSET
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of target_member_id; if both are supplied they must identify the same member.
+    """
+
+    assumed_role_names: Annotated[
+        Optional[List[str]], pydantic.Field(alias="assumedRoleNames")
+    ] = None
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy assumed_roles IDs and deduplicated. The existing
+    member-role and calling API-key scope restrictions apply to both forms.
+    """
+
     expiry_seconds: Annotated[
         OptionalNullable[int], pydantic.Field(alias="expirySeconds")
     ] = UNSET
@@ -33,24 +85,52 @@ class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
     assumed_roles: Annotated[
         Optional[List[str]], pydantic.Field(alias="assumedRoles")
     ] = None
+    r"""Role IDs (UUIDs) to scope the new API key to. The service validates that
+    each ID exists in the caller's org. Non-admin callers may only specify
+    roles they already hold; assumed-role API key callers may only specify
+    a subset of their current assumed roles.
+    Legacy role IDs. Prefer assumed_role_names.
+    """
 
     inherit_all_roles: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="inheritAllRoles")
     ] = UNSET
+    r"""When true, the API key inherits all of the creating member's roles
+    (no assumed-role scoping). Callers must set this explicitly when
+    both role lists are empty; otherwise the request is rejected to prevent
+    accidentally creating over-privileged keys.
+    """
 
     name: OptionalNullable[str] = UNSET
+    r"""Optional display name for the API key."""
 
     target_member_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="targetMemberId")
     ] = UNSET
+    r"""Optional owner override for the new API key.
+    If unset, the API key is created for the calling member.
+    If set, the API key is created for this member ID (target principal):
+    service-account targets require the caller to hold organization:write;
+    human targets require api_access_key:delegate, and the key is bounded
+    by the target member's roles with superadmin elevation always
+    suppressed.
+    """
 
     client_id: Annotated[OptionalNullable[str], pydantic.Field(alias="clientId")] = (
         UNSET
     )
+    r"""Optional client metadata stored on the API key as client_id.
+    Prefer a JSON object string when using structured client attributes.
+    """
 
     suppress_superadmin: Annotated[
         Optional[bool], pydantic.Field(alias="suppressSuperadmin")
     ] = None
+    r"""When true, requests authenticated with this key skip the
+    @textql.com-email superadmin elevation branch. Only meaningful
+    when paired with assumed_roles so a textql admin can preview a
+    role's experience without superadmin permissions bleeding through.
+    """
 
     full_member_access: Annotated[
         Optional[bool], pydantic.Field(alias="fullMemberAccess")
@@ -60,6 +140,8 @@ class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "targetMemberEmail",
+                "assumedRoleNames",
                 "expirySeconds",
                 "assumedRoles",
                 "inheritAllRoles",
@@ -71,7 +153,14 @@ class TextqlRPCPublicRbacCreateAPIKeyRequest(BaseModel):
             ]
         )
         nullable_fields = set(
-            ["expirySeconds", "inheritAllRoles", "name", "targetMemberId", "clientId"]
+            [
+                "targetMemberEmail",
+                "expirySeconds",
+                "inheritAllRoles",
+                "name",
+                "targetMemberId",
+                "clientId",
+            ]
         )
         serialized = handler(self)
         m = {}

@@ -32,6 +32,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
+    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
+    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
+    """
+
     id: NotRequired[str]
     app_id: NotRequired[str]
     version_number: NotRequired[int]
@@ -138,9 +142,14 @@ class TextqlRPCPublicAppAppVersionTypedDict(TypedDict):
     """
     publisher: NotRequired[TextqlRPCIdentityMemberPreviewTypedDict]
     commit_id: NotRequired[Nullable[str]]
+    r"""Durable git handle when the version is backed by library history; version_number stays for FE compat."""
 
 
 class TextqlRPCPublicAppAppVersion(BaseModel):
+    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
+    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
+    """
+
     id: Optional[str] = None
 
     app_id: Annotated[Optional[str], pydantic.Field(alias="appId")] = None
@@ -278,6 +287,7 @@ class TextqlRPCPublicAppAppVersion(BaseModel):
     commit_id: Annotated[OptionalNullable[str], pydantic.Field(alias="commitId")] = (
         UNSET
     )
+    r"""Durable git handle when the version is backed by library history; version_number stays for FE compat."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

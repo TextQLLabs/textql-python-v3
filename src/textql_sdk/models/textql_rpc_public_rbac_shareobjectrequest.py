@@ -10,10 +10,17 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectRequestTypedDict(TypedDict):
+    r"""Object access management messages"""
+
+    member_email: NotRequired[str]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
     object_type: NotRequired[str]
     object_id: NotRequired[str]
     member_id: NotRequired[str]
     access_type: NotRequired[str]
+    r"""owner, editor, viewer"""
     expires_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -109,6 +116,13 @@ class TextqlRPCPublicRbacShareObjectRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacShareObjectRequest(BaseModel):
+    r"""Object access management messages"""
+
+    member_email: Annotated[Optional[str], pydantic.Field(alias="memberEmail")] = None
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of member_id; if both are supplied they must identify the same member.
+    """
+
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None
@@ -116,6 +130,7 @@ class TextqlRPCPublicRbacShareObjectRequest(BaseModel):
     member_id: Annotated[Optional[str], pydantic.Field(alias="memberId")] = None
 
     access_type: Annotated[Optional[str], pydantic.Field(alias="accessType")] = None
+    r"""owner, editor, viewer"""
 
     expires_at: Annotated[Optional[datetime], pydantic.Field(alias="expiresAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -215,6 +230,7 @@ class TextqlRPCPublicRbacShareObjectRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "memberEmail",
                 "objectType",
                 "objectId",
                 "memberId",

@@ -3,7 +3,7 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `chat_id`          | *str*              | :heavy_check_mark: | N/A                |
-| `dataset_id`       | *str*              | :heavy_check_mark: | N/A                |
+| Field               | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `chat_id`           | *str*               | :heavy_check_mark:  | N/A                 |
+| `dataset_id`        | *str*               | :heavy_check_mark:  | uses latest version |

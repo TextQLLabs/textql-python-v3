@@ -1,5 +1,7 @@
 # TextqlRPCPublicChatQueryOneShotRequest
 
+Simplified query request for external API users
+
 
 ## Fields
 

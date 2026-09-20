@@ -15,22 +15,17 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicAppVerifyAppRenderResponseTypedDict(TypedDict):
-    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
-    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
-    """
-
     ready: NotRequired[bool]
+    r"""true only when rendering succeeded, produced a screenshot, and logged no browser errors/warnings"""
     screenshot_url: NotRequired[Nullable[str]]
     console_errors: NotRequired[List[str]]
     render_error: NotRequired[Nullable[str]]
+    r"""renderer/infrastructure failure; browser diagnostics stay in console_errors"""
 
 
 class TextqlRPCPublicAppVerifyAppRenderResponse(BaseModel):
-    r"""Version history entry. Git-backed apps derive one per library commit (published_by/at
-    carry the commit author/time); legacy rows are pre-existing publish-era snapshots.
-    """
-
     ready: Optional[bool] = None
+    r"""true only when rendering succeeded, produced a screenshot, and logged no browser errors/warnings"""
 
     screenshot_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="screenshotUrl")
@@ -43,6 +38,7 @@ class TextqlRPCPublicAppVerifyAppRenderResponse(BaseModel):
     render_error: Annotated[
         OptionalNullable[str], pydantic.Field(alias="renderError")
     ] = UNSET
+    r"""renderer/infrastructure failure; browser diagnostics stay in console_errors"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

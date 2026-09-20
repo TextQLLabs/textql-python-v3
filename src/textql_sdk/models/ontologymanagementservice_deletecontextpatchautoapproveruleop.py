@@ -36,10 +36,10 @@ class OntologyManagementServiceDeleteContextPatchAutoApproveRuleRequest(BaseMode
     ]
 
     connect_protocol_version: Annotated[
-        Annotated[float, AfterValidator(validate_const(1))],
+        Annotated[float, AfterValidator(validate_const(1.0))],
         pydantic.Field(alias="Connect-Protocol-Version"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = 1
+    ] = 1.0
 
     connect_timeout_ms: Annotated[
         Optional[float],

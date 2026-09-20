@@ -17,10 +17,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacRoleTypedDict(TypedDict):
+    name: NotRequired[str]
+    r"""Unique within this organization; use as role_name when reading or updating."""
+    description: NotRequired[str]
     id: NotRequired[str]
     org_id: NotRequired[str]
-    name: NotRequired[str]
-    description: NotRequired[str]
     is_system: NotRequired[bool]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -208,16 +209,19 @@ class TextqlRPCPublicRbacRoleTypedDict(TypedDict):
     default_model: NotRequired[TextqlRPCPublicChatLlmModel]
     allow_model_choice: NotRequired[Nullable[bool]]
     is_scim_managed: NotRequired[bool]
+    color: NotRequired[str]
+    icon: NotRequired[str]
 
 
 class TextqlRPCPublicRbacRole(BaseModel):
+    name: Optional[str] = None
+    r"""Unique within this organization; use as role_name when reading or updating."""
+
+    description: Optional[str] = None
+
     id: Optional[str] = None
 
     org_id: Annotated[Optional[str], pydantic.Field(alias="orgId")] = None
-
-    name: Optional[str] = None
-
-    description: Optional[str] = None
 
     is_system: Annotated[Optional[bool], pydantic.Field(alias="isSystem")] = None
 
@@ -422,14 +426,18 @@ class TextqlRPCPublicRbacRole(BaseModel):
         Optional[bool], pydantic.Field(alias="isScimManaged")
     ] = None
 
+    color: Optional[str] = None
+
+    icon: Optional[str] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
             [
-                "id",
-                "orgId",
                 "name",
                 "description",
+                "id",
+                "orgId",
                 "isSystem",
                 "createdAt",
                 "updatedAt",
@@ -437,6 +445,8 @@ class TextqlRPCPublicRbacRole(BaseModel):
                 "defaultModel",
                 "allowModelChoice",
                 "isScimManaged",
+                "color",
+                "icon",
             ]
         )
         nullable_fields = set(["allowModelChoice"])

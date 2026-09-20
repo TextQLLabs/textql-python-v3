@@ -3,6 +3,7 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `role_id`          | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `role_name`                                                                                             | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | Exact, case-sensitive role name, unique within the caller's organization.<br/> Supply role_name or role_id. |
+| `role_id`                                                                                               | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | Existing role ID. Prefer role_name; if both are supplied they must match.                               |

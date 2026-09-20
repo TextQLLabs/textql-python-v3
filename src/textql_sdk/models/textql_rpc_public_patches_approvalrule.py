@@ -197,6 +197,7 @@ class TextqlRPCPublicPatchesApprovalRuleTypedDict(TypedDict):
     http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
     ) to obtain a formatter capable of generating timestamps in this format.
     """
+    version: NotRequired[int]
 
 
 class TextqlRPCPublicPatchesApprovalRule(BaseModel):
@@ -398,6 +399,8 @@ class TextqlRPCPublicPatchesApprovalRule(BaseModel):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
 
+    version: Optional[int] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -409,6 +412,7 @@ class TextqlRPCPublicPatchesApprovalRule(BaseModel):
                 "enabled",
                 "createdAt",
                 "updatedAt",
+                "version",
             ]
         )
         serialized = handler(self)

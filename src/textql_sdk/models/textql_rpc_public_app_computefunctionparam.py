@@ -16,6 +16,7 @@ from typing_extensions import NotRequired, TypedDict
 class TextqlRPCPublicAppComputeFunctionParamTypedDict(TypedDict):
     name: NotRequired[str]
     type: NotRequired[str]
+    r"""string | number | boolean | object | array"""
     description: NotRequired[Nullable[str]]
 
 
@@ -23,6 +24,7 @@ class TextqlRPCPublicAppComputeFunctionParam(BaseModel):
     name: Optional[str] = None
 
     type: Optional[str] = None
+    r"""string | number | boolean | object | array"""
 
     description: OptionalNullable[str] = UNSET
 

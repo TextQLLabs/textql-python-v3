@@ -16,6 +16,9 @@ class TextqlRPCPublicRbacCreateAPIKeyResponseTypedDict(TypedDict):
     api_key: NotRequired[TextqlRPCPublicRbacAPIKeyTypedDict]
     api_key_secret: NotRequired[str]
     api_key_hash: NotRequired[str]
+    r"""Deprecated compatibility alias for api_key_secret. This field contains
+    the same one-time bearer credential; it is not the hash stored at rest.
+    """
 
 
 class TextqlRPCPublicRbacCreateAPIKeyResponse(BaseModel):
@@ -34,6 +37,9 @@ class TextqlRPCPublicRbacCreateAPIKeyResponse(BaseModel):
             alias="apiKeyHash",
         ),
     ] = None
+    r"""Deprecated compatibility alias for api_key_secret. This field contains
+    the same one-time bearer credential; it is not the hash stored at rest.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

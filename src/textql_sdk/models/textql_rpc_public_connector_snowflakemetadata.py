@@ -4,7 +4,7 @@ from __future__ import annotations
 import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import BaseModel, UNSET_SENTINEL
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -14,21 +14,26 @@ class TextqlRPCPublicConnectorSnowflakeMetadataTypedDict(TypedDict):
     private_key: NotRequired[str]
     private_key_passphrase: NotRequired[str]
     role: NotRequired[str]
-    r"""default database to query"""
     schema_: NotRequired[str]
-    r"""authSource (e.g. \"admin\"); defaults to database when empty"""
+    r"""Legacy single schema; used when schemas is empty."""
     locator: NotRequired[str]
     database: NotRequired[str]
-    r"""mongodb+srv connection (Atlas) — host is the cluster DNS name"""
     warehouse: NotRequired[str]
     oauth_access_token: NotRequired[str]
+    r"""OAuth fields (used when auth_type = OAUTH)"""
     oauth_refresh_token: NotRequired[str]
     oauth_client_id: NotRequired[str]
     oauth_client_secret: NotRequired[str]
     enable_sso_auth: NotRequired[bool]
+    r"""SSO per-member auth (used when auth_strategy = PER_MEMBER_OAUTH) pass IdP token directly to Snowflake External OAuth"""
     token_exchange_endpoint: NotRequired[str]
+    r"""IdP token exchange URL (RFC 8693)"""
     token_exchange_audience: NotRequired[str]
+    r"""target audience for exchanged token"""
     token_exchange_scope: NotRequired[str]
+    r"""scope for exchanged token"""
+    schemas: NotRequired[List[str]]
+    r"""Allowed discovery schemas; first is the query default."""
 
 
 class TextqlRPCPublicConnectorSnowflakeMetadata(BaseModel):
@@ -43,21 +48,20 @@ class TextqlRPCPublicConnectorSnowflakeMetadata(BaseModel):
     ] = None
 
     role: Optional[str] = None
-    r"""default database to query"""
 
     schema_: Annotated[Optional[str], pydantic.Field(alias="schema")] = None
-    r"""authSource (e.g. \"admin\"); defaults to database when empty"""
+    r"""Legacy single schema; used when schemas is empty."""
 
     locator: Optional[str] = None
 
     database: Optional[str] = None
-    r"""mongodb+srv connection (Atlas) — host is the cluster DNS name"""
 
     warehouse: Optional[str] = None
 
     oauth_access_token: Annotated[
         Optional[str], pydantic.Field(alias="oauthAccessToken")
     ] = None
+    r"""OAuth fields (used when auth_type = OAUTH)"""
 
     oauth_refresh_token: Annotated[
         Optional[str], pydantic.Field(alias="oauthRefreshToken")
@@ -74,18 +78,25 @@ class TextqlRPCPublicConnectorSnowflakeMetadata(BaseModel):
     enable_sso_auth: Annotated[
         Optional[bool], pydantic.Field(alias="enableSsoAuth")
     ] = None
+    r"""SSO per-member auth (used when auth_strategy = PER_MEMBER_OAUTH) pass IdP token directly to Snowflake External OAuth"""
 
     token_exchange_endpoint: Annotated[
         Optional[str], pydantic.Field(alias="tokenExchangeEndpoint")
     ] = None
+    r"""IdP token exchange URL (RFC 8693)"""
 
     token_exchange_audience: Annotated[
         Optional[str], pydantic.Field(alias="tokenExchangeAudience")
     ] = None
+    r"""target audience for exchanged token"""
 
     token_exchange_scope: Annotated[
         Optional[str], pydantic.Field(alias="tokenExchangeScope")
     ] = None
+    r"""scope for exchanged token"""
+
+    schemas: Optional[List[str]] = None
+    r"""Allowed discovery schemas; first is the query default."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -108,6 +119,7 @@ class TextqlRPCPublicConnectorSnowflakeMetadata(BaseModel):
                 "tokenExchangeEndpoint",
                 "tokenExchangeAudience",
                 "tokenExchangeScope",
+                "schemas",
             ]
         )
         serialized = handler(self)

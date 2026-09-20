@@ -1,5 +1,7 @@
 # TextqlRPCPublicChatArtifactType
 
+Artifact types for drawer items
+
 ## Example Usage
 
 ```python

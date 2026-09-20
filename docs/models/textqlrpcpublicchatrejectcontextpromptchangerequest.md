@@ -1,7 +1,5 @@
 # TextqlRPCPublicChatRejectContextPromptChangeRequest
 
-context prompt change management
-
 
 ## Fields
 

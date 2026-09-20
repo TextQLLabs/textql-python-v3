@@ -5,5 +5,5 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `chat_id`          | *str*              | :heavy_check_mark: | UUID               |
+| `chat_id`          | *str*              | :heavy_check_mark: | N/A                |
 | `cell_id`          | *str*              | :heavy_check_mark: | N/A                |

@@ -25,7 +25,9 @@ class TextqlRPCPublicChatCheckStreamlitHealthResponseTypedDict(TypedDict):
     status: NotRequired[TextqlRPCPublicChatStreamlitHealthStatus]
     cell: NotRequired[TextqlRPCPublicChatCellTypedDict]
     embed_url: NotRequired[Nullable[str]]
+    r"""Dynamic URL from state manager"""
     streamlit_url: NotRequired[Nullable[str]]
+    r"""Raw workerId:port format"""
 
 
 class TextqlRPCPublicChatCheckStreamlitHealthResponse(BaseModel):
@@ -36,10 +38,12 @@ class TextqlRPCPublicChatCheckStreamlitHealthResponse(BaseModel):
     embed_url: Annotated[OptionalNullable[str], pydantic.Field(alias="embedUrl")] = (
         UNSET
     )
+    r"""Dynamic URL from state manager"""
 
     streamlit_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="streamlitUrl")
     ] = UNSET
+    r"""Raw workerId:port format"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

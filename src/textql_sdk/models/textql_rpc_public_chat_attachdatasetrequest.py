@@ -9,12 +9,14 @@ from typing_extensions import Annotated, TypedDict
 class TextqlRPCPublicChatAttachDatasetRequestTypedDict(TypedDict):
     chat_id: str
     dataset_id: str
+    r"""uses latest version"""
 
 
 class TextqlRPCPublicChatAttachDatasetRequest(BaseModel):
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
     dataset_id: Annotated[str, pydantic.Field(alias="datasetId")]
+    r"""uses latest version"""
 
 
 try:

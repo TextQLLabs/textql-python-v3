@@ -10,13 +10,19 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicConnectorMessageSegmentTypedDict(TypedDict):
+    r"""A segment of an example query message - either plain text or a styled feature word"""
+
     content: NotRequired[str]
+    r"""The text content of this segment"""
     feature_type: NotRequired[TextqlRPCPublicConnectorFeatureType]
     r"""Feature types for nudge queries - identifies which feature a query promotes"""
 
 
 class TextqlRPCPublicConnectorMessageSegment(BaseModel):
+    r"""A segment of an example query message - either plain text or a styled feature word"""
+
     content: Optional[str] = None
+    r"""The text content of this segment"""
 
     feature_type: Annotated[
         Optional[TextqlRPCPublicConnectorFeatureType],

@@ -44,14 +44,19 @@ class TextqlRPCParadigmParamsParadigmParamsTypedDict(TypedDict):
     google_calendar_enabled: NotRequired[bool]
     parallel_tools_enabled: NotRequired[bool]
     email_output_enabled: NotRequired[bool]
+    r"""Per-chat/agent options: registers the EmailCell tool (default off, opt-in).
+    Org tool_restrictions: allows the Email tool org-wide (default on).
+    """
     questions_tool_enabled: NotRequired[bool]
+    r"""Org-level toggle for the questions tool (the agent's \"ask the user
+    structured questions\" cell). Gated additionally by the form-editor master
+    switch; there is no per-member toggle. Default off.
+    """
     powerbi_selections: NotRequired[
         List[TextqlRPCPowerbiSelectionPowerBISelectionTypedDict]
     ]
     dataset_id: NotRequired[Nullable[str]]
-    r"""Per-chat/agent options: registers the EmailCell tool (default off, opt-in).
-    Org tool_restrictions: allows the Email tool org-wide (default on).
-    """
+    r"""Tableau collection UUID"""
 
 
 class TextqlRPCParadigmParamsParadigmParams(BaseModel):
@@ -154,10 +159,17 @@ class TextqlRPCParadigmParamsParadigmParams(BaseModel):
     email_output_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="emailOutputEnabled")
     ] = None
+    r"""Per-chat/agent options: registers the EmailCell tool (default off, opt-in).
+    Org tool_restrictions: allows the Email tool org-wide (default on).
+    """
 
     questions_tool_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="questionsToolEnabled")
     ] = None
+    r"""Org-level toggle for the questions tool (the agent's \"ask the user
+    structured questions\" cell). Gated additionally by the form-editor master
+    switch; there is no per-member toggle. Default off.
+    """
 
     powerbi_selections: Annotated[
         Optional[List[TextqlRPCPowerbiSelectionPowerBISelection]],
@@ -167,9 +179,7 @@ class TextqlRPCParadigmParamsParadigmParams(BaseModel):
     dataset_id: Annotated[OptionalNullable[str], pydantic.Field(alias="datasetId")] = (
         UNSET
     )
-    r"""Per-chat/agent options: registers the EmailCell tool (default off, opt-in).
-    Org tool_restrictions: allows the Email tool org-wide (default on).
-    """
+    r"""Tableau collection UUID"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

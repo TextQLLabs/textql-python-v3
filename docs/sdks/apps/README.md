@@ -4,35 +4,37 @@
 
 ### Available Operations
 
-* [heartbeat](#heartbeat) - AppHeartbeat
+* [heartbeat](#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [create_app](#create_app) - CreateApp
 * [delete_app](#delete_app) - DeleteApp
 * [duplicate](#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](#get) - GetApp
-* [get_db_schema](#get_db_schema) - Replaces the calling member's entire ordering; capped server-side.
-* [get_db_table_preview](#get_db_table_preview) - View analytics: reads the engagement views recorded on app page load.
-* [get_member_state](#get_member_state) - Per-member notification subscription to an app ("watch this app").
-* [get_app_version](#get_app_version) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
-* [get_app_view_stats](#get_app_view_stats) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+* [get_db_schema](#get_db_schema) - Read-only table/column list for the app's private DuckDB (app_db).
+* [get_db_table_preview](#get_db_table_preview) - A bounded row preview of one app_db table (SELECT ... LIMIT n).
+* [get_member_state](#get_member_state) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [get_app_version](#get_app_version) - GetAppVersion
+* [get_app_view_stats](#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
 * [get_members_with_apps](#get_members_with_apps) - GetMembersWithApps
-* [invoke_compute_function](#invoke_compute_function) - InvokeAppComputeFunction
-* [list_activity_since](#list_activity_since) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
-* [list_versions](#list_versions) - Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
+* [invoke_compute_function](#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+* [list_activity_since](#list_activity_since) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+* [list_uploads](#list_uploads) - Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+* [list_versions](#list_versions) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 * [list](#list) - ListApps
-* [list_my_member_activity](#list_my_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-* [move_app_to_folder](#move_app_to_folder) - MoveAppToFolder
-* [presence_heartbeat](#presence_heartbeat) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
-* [record_member_activity](#record_member_activity) - RecordAppMemberActivity
-* [refresh](#refresh) - Moves an app into a library folder (or to root when folder_id is empty).
-* [restore_app_version](#restore_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+* [list_my_member_activity](#list_my_member_activity) - ListMyAppMemberActivity
+* [move_app_to_folder](#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
+* [presence_heartbeat](#presence_heartbeat) - Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+* [record_member_activity](#record_member_activity) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [refresh](#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+* [remove_upload](#remove_upload) - Removes only this viewer's app association, never the dataset itself.
+* [restore_app_version](#restore_app_version) - RestoreAppVersion
 * [set_member_state](#set_member_state) - SetAppMemberState
-* [set_favorite](#set_favorite) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+* [set_favorite](#set_favorite) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 * [update](#update) - UpdateApp
-* [verify_render](#verify_render) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+* [verify_render](#verify_render) - Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
 
 ## heartbeat
 
-AppHeartbeat
+Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 
 ### Example Usage
 
@@ -58,7 +60,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | the resolved default after the change; unset when cleared           |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -147,7 +149,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | full replacement for the calling member                             |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -231,7 +233,7 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | signed /asset/apptree viewer URL for the published gallery tree     |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -246,7 +248,7 @@ with Textql(
 
 ## get_db_schema
 
-Replaces the calling member's entire ordering; capped server-side.
+Read-only table/column list for the app's private DuckDB (app_db).
 
 ### Example Usage
 
@@ -287,7 +289,7 @@ with Textql(
 
 ## get_db_table_preview
 
-View analytics: reads the engagement views recorded on app page load.
+A bounded row preview of one app_db table (SELECT ... LIMIT n).
 
 ### Example Usage
 
@@ -313,9 +315,9 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | normalized relative path, forward slashes, no .. or leading /       |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `table_name`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | clamped server-side; 0 uses the default                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -330,7 +332,9 @@ with Textql(
 
 ## get_member_state
 
-Per-member notification subscription to an app ("watch this app").
+Per-member app state: one JSON blob per (app, member) so apps remember
+ settings/progress. Member always resolved server-side from auth context;
+ per-member persistence, so viewers with read access can save their own state.
 
 ### Example Usage
 
@@ -371,7 +375,7 @@ with Textql(
 
 ## get_app_version
 
-Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
+GetAppVersion
 
 ### Example Usage
 
@@ -394,13 +398,13 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                              | *Optional[float]*                                                                 | :heavy_minus_sign:                                                                | N/A                                                                               |
-| `app_id`                                                                          | *Optional[str]*                                                                   | :heavy_minus_sign:                                                                | False when the document predates tree publishing and has no runtime to overwrite. |
-| `version_number`                                                                  | *Optional[int]*                                                                   | :heavy_minus_sign:                                                                | N/A                                                                               |
-| `commit_id`                                                                       | *OptionalNullable[str]*                                                           | :heavy_minus_sign:                                                                | N/A                                                                               |
-| `retries`                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                  | :heavy_minus_sign:                                                                | Configuration to override the default retry behavior of the client.               |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                     | *Optional[float]*                                                                        | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `app_id`                                                                                 | *Optional[str]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `version_number`                                                                         | *Optional[int]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `commit_id`                                                                              | *OptionalNullable[str]*                                                                  | :heavy_minus_sign:                                                                       | Prefer this git commit SHA when set; else version_number selects a legacy db-backed row. |
+| `retries`                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
 
 ### Response
 
@@ -414,7 +418,7 @@ with Textql(
 
 ## get_app_view_stats
 
-Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+View analytics: reads the engagement views recorded on app page load.
 
 ### Example Usage
 
@@ -496,7 +500,7 @@ with Textql(
 
 ## invoke_compute_function
 
-InvokeAppComputeFunction
+Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
 
 ### Example Usage
 
@@ -524,7 +528,7 @@ with Textql(
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `function_name`                                                     | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `params_json`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `params_json`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | JSON object, keys map to function kwargs                            |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -539,9 +543,8 @@ with Textql(
 
 ## list_activity_since
 
-Favorite/unfavorite a library item (app or dashboard) for the calling member.
- Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
- since the merged library page pins apps and dashboards through one client.
+Cross-member live activity: rows from every member of the app after a seq,
+ each carrying member_id + display_name (resolved server-side; never email).
 
 ### Example Usage
 
@@ -583,10 +586,52 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list_uploads
+
+Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AppService_ListAppUploads" method="post" path="/textql.rpc.public.app.AppService/ListAppUploads" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.apps.list_uploads()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `page_size`                                                         | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | Default 25, maximum 100.                                            |
+| `page_token`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AppServiceListAppUploadsResponse](../../models/appservicelistappuploadsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## list_versions
 
-Renders the live artifact in the production sandbox and returns browser diagnostics.
- This is synchronous so callers can verify an app before sharing its URL.
+Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 
 ### Example Usage
 
@@ -658,9 +703,9 @@ with Textql(
 | `search_term`                                                       | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `offset`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `uncategorized_only`                                                | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `shared_with_me`                                                    | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Filter by specific folder                                           |
+| `uncategorized_only`                                                | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Only show apps with no folder                                       |
+| `shared_with_me`                                                    | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Only apps shared with the caller (not authored by them)             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -675,8 +720,7 @@ with Textql(
 
 ## list_my_member_activity
 
-Watcher management: app owners/editors and org admins list the app's
- subscribers and add/remove members (Upsert/Delete with member_id).
+ListMyAppMemberActivity
 
 ### Example Usage
 
@@ -719,7 +763,7 @@ with Textql(
 
 ## move_app_to_folder
 
-MoveAppToFolder
+Moves an app into a library folder (or to root when folder_id is empty).
 
 ### Example Usage
 
@@ -746,7 +790,7 @@ with Textql(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `folder_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | null/empty = move to root (uncategorized)                           |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -761,10 +805,8 @@ with Textql(
 
 ## presence_heartbeat
 
-Ordering overlay for the sidebar Bookmarks section: one position list per
- member covering favorites and thread bookmarks ('<kind>:<id>' keys).
- Membership truth stays in library_favorite / chat bookmarks; this persists
- only the drag-and-drop order.
+Presence heartbeat: sets a short-TTL Valkey key for the member and nudges
+ the app's stream. Presence never touches Postgres and never exposes emails.
 
 ### Example Usage
 
@@ -806,7 +848,8 @@ with Textql(
 
 ## record_member_activity
 
-RecordAppMemberActivity
+Append-only per-member activity log. Listing is own rows only; no
+ cross-member reads in this release.
 
 ### Example Usage
 
@@ -851,7 +894,7 @@ with Textql(
 
 ## refresh
 
-Moves an app into a library folder (or to root when folder_id is empty).
+Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
 
 ### Example Usage
 
@@ -890,9 +933,52 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## remove_upload
+
+Removes only this viewer's app association, never the dataset itself.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="AppService_RemoveAppUpload" method="post" path="/textql.rpc.public.app.AppService/RemoveAppUpload" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.apps.remove_upload()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `dataset_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `version`                                                           | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.AppServiceRemoveAppUploadResponse](../../models/appserviceremoveappuploadresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## restore_app_version
 
-Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+RestoreAppVersion
 
 ### Example Usage
 
@@ -915,13 +1001,13 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `app_id`                                                            | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `version_number`                                                    | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `commit_id`                                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                     | *Optional[float]*                                                                        | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `app_id`                                                                                 | *Optional[str]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `version_number`                                                                         | *Optional[int]*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `commit_id`                                                                              | *OptionalNullable[str]*                                                                  | :heavy_minus_sign:                                                                       | Prefer this git commit SHA when set; else version_number selects a legacy db-backed row. |
+| `retries`                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
 
 ### Response
 
@@ -977,7 +1063,9 @@ with Textql(
 
 ## set_favorite
 
-Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+Favorite/unfavorite a library item (app or dashboard) for the calling member.
+ Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives
+ since the merged library page pins apps and dashboards through one client.
 
 ### Example Usage
 
@@ -1003,9 +1091,9 @@ with Textql(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `primitive_type`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `primitive_type`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | 'app' \| 'dashboard'                                                |
 | `primitive_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `favorited`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | "" = brand/default accent                                           |
+| `favorited`                                                         | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | true = pin, false = unpin (hard delete)                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -1043,28 +1131,28 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                                                               | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                                                                    | *Optional[float]*                                                                                                       | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `app_id`                                                                                                                | *Optional[str]*                                                                                                         | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `name`                                                                                                                  | *OptionalNullable[str]*                                                                                                 | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `description`                                                                                                           | *OptionalNullable[str]*                                                                                                 | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `code`                                                                                                                  | *OptionalNullable[str]*                                                                                                 | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `data_sources`                                                                                                          | List[[models.TextqlRPCPublicDashboardDataSource](../../models/textqlrpcpublicdashboarddatasource.md)]                   | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `replace_data_sources`                                                                                                  | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `publish`                                                                                                               | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible. |
-| `staleness_window_seconds`                                                                                              | *OptionalNullable[int]*                                                                                                 | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `compute_functions`                                                                                                     | List[[models.TextqlRPCPublicAppComputeFunction](../../models/textqlrpcpublicappcomputefunction.md)]                     | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `replace_compute_functions`                                                                                             | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `files`                                                                                                                 | List[[models.TextqlRPCPublicAppAppFile](../../models/textqlrpcpublicappappfile.md)]                                     | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `replace_files`                                                                                                         | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `schedule_enabled`                                                                                                      | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `cron_string`                                                                                                           | *OptionalNullable[str]*                                                                                                 | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `capabilities`                                                                                                          | List[[models.TextqlRPCPublicAppCapability](../../models/textqlrpcpublicappcapability.md)]                               | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `replace_capabilities`                                                                                                  | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `app_db_setup`                                                                                                          | List[*str*]                                                                                                             | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `replace_app_db_setup`                                                                                                  | *OptionalNullable[bool]*                                                                                                | :heavy_minus_sign:                                                                                                      | N/A                                                                                                                     |
-| `retries`                                                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                        | :heavy_minus_sign:                                                                                                      | Configuration to override the default retry behavior of the client.                                                     |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `connect_timeout_ms`                                                                                                                                                           | *Optional[float]*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `app_id`                                                                                                                                                                       | *Optional[str]*                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `name`                                                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `description`                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `code`                                                                                                                                                                         | *OptionalNullable[str]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `data_sources`                                                                                                                                                                 | List[[models.TextqlRPCPublicDashboardDataSource](../../models/textqlrpcpublicdashboarddatasource.md)]                                                                          | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `replace_data_sources`                                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `publish`                                                                                                                                                                      | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | : warning: ** DEPRECATED **: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>publish is gone (head is live); ignored by the server |
+| `staleness_window_seconds`                                                                                                                                                     | *OptionalNullable[int]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `compute_functions`                                                                                                                                                            | List[[models.TextqlRPCPublicAppComputeFunction](../../models/textqlrpcpublicappcomputefunction.md)]                                                                            | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `replace_compute_functions`                                                                                                                                                    | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `files`                                                                                                                                                                        | List[[models.TextqlRPCPublicAppAppFile](../../models/textqlrpcpublicappappfile.md)]                                                                                            | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `replace_files`                                                                                                                                                                | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `schedule_enabled`                                                                                                                                                             | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `cron_string`                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `capabilities`                                                                                                                                                                 | List[[models.TextqlRPCPublicAppCapability](../../models/textqlrpcpublicappcapability.md)]                                                                                      | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `replace_capabilities`                                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `app_db_setup`                                                                                                                                                                 | List[*str*]                                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `replace_app_db_setup`                                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                             | N/A                                                                                                                                                                            |
+| `retries`                                                                                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                               | :heavy_minus_sign:                                                                                                                                                             | Configuration to override the default retry behavior of the client.                                                                                                            |
 
 ### Response
 
@@ -1078,7 +1166,8 @@ with Textql(
 
 ## verify_render
 
-Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+Renders the live artifact in the production sandbox and returns browser diagnostics.
+ This is synchronous so callers can verify an app before sharing its URL.
 
 ### Example Usage
 

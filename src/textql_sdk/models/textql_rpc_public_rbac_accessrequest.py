@@ -22,9 +22,11 @@ class TextqlRPCPublicRbacAccessRequestTypedDict(TypedDict):
     object_id: NotRequired[str]
     member_id: NotRequired[str]
     requested_access_type: NotRequired[str]
+    r"""owner, editor, viewer"""
     justification: NotRequired[str]
     request_message: NotRequired[Nullable[str]]
     status: NotRequired[str]
+    r"""pending, approved, rejected"""
     reviewed_by: NotRequired[Nullable[str]]
     rejection_reason: NotRequired[Nullable[str]]
     created_at: NotRequired[datetime]
@@ -225,6 +227,7 @@ class TextqlRPCPublicRbacAccessRequest(BaseModel):
     requested_access_type: Annotated[
         Optional[str], pydantic.Field(alias="requestedAccessType")
     ] = None
+    r"""owner, editor, viewer"""
 
     justification: Optional[str] = None
 
@@ -233,6 +236,7 @@ class TextqlRPCPublicRbacAccessRequest(BaseModel):
     ] = UNSET
 
     status: Optional[str] = None
+    r"""pending, approved, rejected"""
 
     reviewed_by: Annotated[
         OptionalNullable[str], pydantic.Field(alias="reviewedBy")

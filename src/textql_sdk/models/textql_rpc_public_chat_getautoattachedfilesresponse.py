@@ -12,14 +12,10 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetAutoAttachedFilesResponseTypedDict(TypedDict):
-    r"""A library file injected via org auto-attach (not an explicit read_file/tql pull)."""
-
     files: NotRequired[List[TextqlRPCPublicChatAutoAttachedLibraryFileTypedDict]]
 
 
 class TextqlRPCPublicChatGetAutoAttachedFilesResponse(BaseModel):
-    r"""A library file injected via org auto-attach (not an explicit read_file/tql pull)."""
-
     files: Optional[List[TextqlRPCPublicChatAutoAttachedLibraryFile]] = None
 
     @model_serializer(mode="wrap")

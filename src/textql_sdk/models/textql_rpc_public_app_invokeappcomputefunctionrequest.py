@@ -12,6 +12,7 @@ class TextqlRPCPublicAppInvokeAppComputeFunctionRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
     function_name: NotRequired[str]
     params_json: NotRequired[str]
+    r"""JSON object, keys map to function kwargs"""
 
 
 class TextqlRPCPublicAppInvokeAppComputeFunctionRequest(BaseModel):
@@ -20,6 +21,7 @@ class TextqlRPCPublicAppInvokeAppComputeFunctionRequest(BaseModel):
     function_name: Annotated[Optional[str], pydantic.Field(alias="functionName")] = None
 
     params_json: Annotated[Optional[str], pydantic.Field(alias="paramsJson")] = None
+    r"""JSON object, keys map to function kwargs"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -15,13 +15,29 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateServiceAccountRequestTypedDict(TypedDict):
+    owner_member_email: NotRequired[Nullable[str]]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of owner_member_id; if both are supplied they must identify the same member.
+    """
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     owner_member_id: NotRequired[Nullable[str]]
+    role_names: NotRequired[List[str]]
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy role_ids and deduplicated; bounded by caller authority.
+    """
     role_ids: NotRequired[List[str]]
+    r"""Legacy role IDs. Prefer role_names."""
 
 
 class TextqlRPCPublicRbacCreateServiceAccountRequest(BaseModel):
+    owner_member_email: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="ownerMemberEmail")
+    ] = UNSET
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of owner_member_id; if both are supplied they must identify the same member.
+    """
+
     name: Optional[str] = None
 
     description: OptionalNullable[str] = UNSET
@@ -30,12 +46,27 @@ class TextqlRPCPublicRbacCreateServiceAccountRequest(BaseModel):
         OptionalNullable[str], pydantic.Field(alias="ownerMemberId")
     ] = UNSET
 
+    role_names: Annotated[Optional[List[str]], pydantic.Field(alias="roleNames")] = None
+    r"""Exact, case-sensitive role names in the caller's organization.
+    Merged with legacy role_ids and deduplicated; bounded by caller authority.
+    """
+
     role_ids: Annotated[Optional[List[str]], pydantic.Field(alias="roleIds")] = None
+    r"""Legacy role IDs. Prefer role_names."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["name", "description", "ownerMemberId", "roleIds"])
-        nullable_fields = set(["description", "ownerMemberId"])
+        optional_fields = set(
+            [
+                "ownerMemberEmail",
+                "name",
+                "description",
+                "ownerMemberId",
+                "roleNames",
+                "roleIds",
+            ]
+        )
+        nullable_fields = set(["ownerMemberEmail", "description", "ownerMemberId"])
         serialized = handler(self)
         m = {}
 

@@ -8,12 +8,10 @@ from typing_extensions import Annotated, TypedDict
 
 class TextqlRPCPublicChatGetChatRequestTypedDict(TypedDict):
     chat_id: str
-    r"""whether to return only the user's chats or all of the org's chats"""
 
 
 class TextqlRPCPublicChatGetChatRequest(BaseModel):
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
-    r"""whether to return only the user's chats or all of the org's chats"""
 
 
 try:

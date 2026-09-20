@@ -1,5 +1,7 @@
 # TextqlRPCPublicRbacCreateRoleRequest
 
+Role management requests/responses
+
 
 ## Fields
 
@@ -7,3 +9,5 @@
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `name`             | *Optional[str]*    | :heavy_minus_sign: | N/A                |
 | `description`      | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `color`            | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| `icon`             | *Optional[str]*    | :heavy_minus_sign: | N/A                |

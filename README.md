@@ -194,8 +194,8 @@ with Textql(
 * [delete](docs/sdks/agents/README.md#delete) - DeleteAgent
 * [duplicate](docs/sdks/agents/README.md#duplicate) - DuplicateAgent
 * [get_agent](docs/sdks/agents/README.md#get_agent) - GetAgent
-* [get_db_schema](docs/sdks/agents/README.md#get_db_schema) - GetAgentDBSchema
-* [get_db_table_preview](docs/sdks/agents/README.md#get_db_table_preview) - GetAgentDBTablePreview
+* [get_db_schema](docs/sdks/agents/README.md#get_db_schema) - Read-only table/column list for the agent's private DuckDB memory (agent_db).
+* [get_db_table_preview](docs/sdks/agents/README.md#get_db_table_preview) - A bounded row preview of one agent_db table (SELECT ... LIMIT n).
 * [get_run](docs/sdks/agents/README.md#get_run) - GetAgentRun
 * [list_runs](docs/sdks/agents/README.md#list_runs) - ListAgentRuns
 * [list](docs/sdks/agents/README.md#list) - ListAgents
@@ -206,31 +206,33 @@ with Textql(
 
 ### [Apps](docs/sdks/apps/README.md)
 
-* [heartbeat](docs/sdks/apps/README.md#heartbeat) - AppHeartbeat
+* [heartbeat](docs/sdks/apps/README.md#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
 * [create_app](docs/sdks/apps/README.md#create_app) - CreateApp
 * [delete_app](docs/sdks/apps/README.md#delete_app) - DeleteApp
 * [duplicate](docs/sdks/apps/README.md#duplicate) - Duplicates an app the caller can view into a new app they own,  named "Copy of <name>". Copies code/files/data sources/compute functions/  schedule; never carries over the source's data snapshot.
 * [get](docs/sdks/apps/README.md#get) - GetApp
-* [get_db_schema](docs/sdks/apps/README.md#get_db_schema) - Replaces the calling member's entire ordering; capped server-side.
-* [get_db_table_preview](docs/sdks/apps/README.md#get_db_table_preview) - View analytics: reads the engagement views recorded on app page load.
-* [get_member_state](docs/sdks/apps/README.md#get_member_state) - Per-member notification subscription to an app ("watch this app").
-* [get_app_version](docs/sdks/apps/README.md#get_app_version) - Overwrites the published tree's pinned _runtime/ana-1.js with the platform's current copy so host-driven affordances (comment hit-testing) work on older documents; never touches authored content or data. repinned=false for legacy pre-tree documents.
-* [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
+* [get_db_schema](docs/sdks/apps/README.md#get_db_schema) - Read-only table/column list for the app's private DuckDB (app_db).
+* [get_db_table_preview](docs/sdks/apps/README.md#get_db_table_preview) - A bounded row preview of one app_db table (SELECT ... LIMIT n).
+* [get_member_state](docs/sdks/apps/README.md#get_member_state) - Per-member app state: one JSON blob per (app, member) so apps remember  settings/progress. Member always resolved server-side from auth context;  per-member persistence, so viewers with read access can save their own state.
+* [get_app_version](docs/sdks/apps/README.md#get_app_version) - GetAppVersion
+* [get_app_view_stats](docs/sdks/apps/README.md#get_app_view_stats) - View analytics: reads the engagement views recorded on app page load.
 * [get_members_with_apps](docs/sdks/apps/README.md#get_members_with_apps) - GetMembersWithApps
-* [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - InvokeAppComputeFunction
-* [list_activity_since](docs/sdks/apps/README.md#list_activity_since) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
-* [list_versions](docs/sdks/apps/README.md#list_versions) - Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
+* [invoke_compute_function](docs/sdks/apps/README.md#invoke_compute_function) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+* [list_activity_since](docs/sdks/apps/README.md#list_activity_since) - Cross-member live activity: rows from every member of the app after a seq,  each carrying member_id + display_name (resolved server-side; never email).
+* [list_uploads](docs/sdks/apps/README.md#list_uploads) - Lists the invoking viewer's uploads for this app. May recover legacy Library pointers on first use.
+* [list_versions](docs/sdks/apps/README.md#list_versions) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
 * [list](docs/sdks/apps/README.md#list) - ListApps
-* [list_my_member_activity](docs/sdks/apps/README.md#list_my_member_activity) - Watcher management: app owners/editors and org admins list the app's  subscribers and add/remove members (Upsert/Delete with member_id).
-* [move_app_to_folder](docs/sdks/apps/README.md#move_app_to_folder) - MoveAppToFolder
-* [presence_heartbeat](docs/sdks/apps/README.md#presence_heartbeat) - Ordering overlay for the sidebar Bookmarks section: one position list per  member covering favorites and thread bookmarks ('<kind>:<id>' keys).  Membership truth stays in library_favorite / chat bookmarks; this persists  only the drag-and-drop order.
-* [record_member_activity](docs/sdks/apps/README.md#record_member_activity) - RecordAppMemberActivity
-* [refresh](docs/sdks/apps/README.md#refresh) - Moves an app into a library folder (or to root when folder_id is empty).
-* [restore_app_version](docs/sdks/apps/README.md#restore_app_version) - Version history: git-backed, one version per save (plus legacy publish-era snapshots); authors can list and restore.
+* [list_my_member_activity](docs/sdks/apps/README.md#list_my_member_activity) - ListMyAppMemberActivity
+* [move_app_to_folder](docs/sdks/apps/README.md#move_app_to_folder) - Moves an app into a library folder (or to root when folder_id is empty).
+* [presence_heartbeat](docs/sdks/apps/README.md#presence_heartbeat) - Presence heartbeat: sets a short-TTL Valkey key for the member and nudges  the app's stream. Presence never touches Postgres and never exposes emails.
+* [record_member_activity](docs/sdks/apps/README.md#record_member_activity) - Append-only per-member activity log. Listing is own rows only; no  cross-member reads in this release.
+* [refresh](docs/sdks/apps/README.md#refresh) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+* [remove_upload](docs/sdks/apps/README.md#remove_upload) - Removes only this viewer's app association, never the dataset itself.
+* [restore_app_version](docs/sdks/apps/README.md#restore_app_version) - RestoreAppVersion
 * [set_member_state](docs/sdks/apps/README.md#set_member_state) - SetAppMemberState
-* [set_favorite](docs/sdks/apps/README.md#set_favorite) - Executes a declared compute function on a pooled sandbox worker; gated, org-scoped, rate-limited.
+* [set_favorite](docs/sdks/apps/README.md#set_favorite) - Favorite/unfavorite a library item (app or dashboard) for the calling member.  Per-member, per-org; favorited=false hard-deletes the row. Covers both primitives  since the merged library page pins apps and dashboards through one client.
 * [update](docs/sdks/apps/README.md#update) - UpdateApp
-* [verify_render](docs/sdks/apps/README.md#verify_render) - Re-fetches data sources, rebuilds the document with a fresh snapshot, re-uploads.
+* [verify_render](docs/sdks/apps/README.md#verify_render) - Renders the live artifact in the production sandbox and returns browser diagnostics.  This is synchronous so callers can verify an app before sharing its URL.
 
 ### [AuditLogs](docs/sdks/auditlogs/README.md)
 
@@ -253,38 +255,38 @@ with Textql(
 * [attach_agent](docs/sdks/chats/README.md#attach_agent) - AttachAgentToChat
 * [attach_app](docs/sdks/chats/README.md#attach_app) - AttachApp
 * [attach_dashboard](docs/sdks/chats/README.md#attach_dashboard) - AttachDashboard
-* [attach_dataset](docs/sdks/chats/README.md#attach_dataset) - RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
-* [bookmark](docs/sdks/chats/README.md#bookmark) - BookmarkChat
+* [attach_dataset](docs/sdks/chats/README.md#attach_dataset) - AttachDataset
+* [bookmark](docs/sdks/chats/README.md#bookmark) - Bookmark management
 * [cancel_stream](docs/sdks/chats/README.md#cancel_stream) - CancelStream
 * [check_permissions](docs/sdks/chats/README.md#check_permissions) - CheckChatPermissions
 * [check_health](docs/sdks/chats/README.md#check_health) - CheckHealth
 * [check_streamlit_health](docs/sdks/chats/README.md#check_streamlit_health) - CheckStreamlitHealth
 * [create_chat](docs/sdks/chats/README.md#create_chat) - CreateChat
 * [delete](docs/sdks/chats/README.md#delete) - DeleteChat
-* [dismiss_questions](docs/sdks/chats/README.md#dismiss_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
+* [dismiss_questions](docs/sdks/chats/README.md#dismiss_questions) - DismissQuestions
 * [duplicate_chat](docs/sdks/chats/README.md#duplicate_chat) - DuplicateChat
 * [get_api_answer](docs/sdks/chats/README.md#get_api_answer) - GetAPIChatAnswer
-* [get_artifact](docs/sdks/chats/README.md#get_artifact) - GetArtifact
+* [get_artifact](docs/sdks/chats/README.md#get_artifact) - Full artifact data (lazy load when selected)
 * [get_auto_attached_files](docs/sdks/chats/README.md#get_auto_attached_files) - GetAutoAttachedFiles
 * [get](docs/sdks/chats/README.md#get) - GetChat
-* [get_artifacts_summary](docs/sdks/chats/README.md#get_artifacts_summary) - GetChatArtifactsSummary
+* [get_artifacts_summary](docs/sdks/chats/README.md#get_artifacts_summary) - Artifact summaries for drawer (lightweight, for listing)
 * [get_chat_execution_timing](docs/sdks/chats/README.md#get_chat_execution_timing) - GetChatExecutionTiming
 * [get_history](docs/sdks/chats/README.md#get_history) - GetChatHistory
 * [get_all](docs/sdks/chats/README.md#get_all) - GetChats
-* [get_completion_parameters](docs/sdks/chats/README.md#get_completion_parameters) - List distinct chat creators the user can access
+* [get_completion_parameters](docs/sdks/chats/README.md#get_completion_parameters) - GetCompletionParameters
 * [get_completion_parameters_batch](docs/sdks/chats/README.md#get_completion_parameters_batch) - GetCompletionParametersBatch
 * [get_llm_usage](docs/sdks/chats/README.md#get_llm_usage) - GetLlmUsage
-* [get_members_with_chats](docs/sdks/chats/README.md#get_members_with_chats) - GetMembersWithChats
+* [get_members_with_chats](docs/sdks/chats/README.md#get_members_with_chats) - List distinct chat creators the user can access
 * [get_playbook_chats](docs/sdks/chats/README.md#get_playbook_chats) - GetPlaybookChats
 * [poll_events](docs/sdks/chats/README.md#poll_events) - PollChatEvents
-* [query_one_shot](docs/sdks/chats/README.md#query_one_shot) - QueryOneShot
-* [rate_cell](docs/sdks/chats/README.md#rate_cell) - RateChatCell
+* [query_one_shot](docs/sdks/chats/README.md#query_one_shot) - External API users
+* [rate_cell](docs/sdks/chats/README.md#rate_cell) - RateChatCell appends a row to cell_rating for every click; thumbs-down also upserts a user_thumbs_down thread_warning.
 * [reject_context_prompt_change](docs/sdks/chats/README.md#reject_context_prompt_change) - RejectContextPromptChange
-* [reject_ontology_change](docs/sdks/chats/README.md#reject_ontology_change) - Resolve a halted ask_approval form cell. Submit runs the form's submission  and continues the agent with the outcome; Reject discards it (passive, no  run); Dismiss treats it as a change request (no run, next message says what  to change). All three set the cell's outcome, like the other approve/deny cells.
+* [reject_ontology_change](docs/sdks/chats/README.md#reject_ontology_change) - RejectOntologyChange
 * [run](docs/sdks/chats/README.md#run) - RunChat
 * [send](docs/sdks/chats/README.md#send) - SendMessage
 * [submit_context_prompt_change](docs/sdks/chats/README.md#submit_context_prompt_change) - SubmitContextPromptChange
-* [submit_questions](docs/sdks/chats/README.md#submit_questions) - SubmitQuestions
+* [submit_questions](docs/sdks/chats/README.md#submit_questions) - Resolve a halted questions cell. Submit hands the answers to the agent and  resumes it; Dismiss hands over only the answered count and does NOT resume  (the user's next message becomes the dismissal reason).
 * [unbookmark](docs/sdks/chats/README.md#unbookmark) - UnbookmarkChat
 * [update](docs/sdks/chats/README.md#update) - UpdateChat
 
@@ -352,15 +354,15 @@ with Textql(
 * [process_upload_presign_url](docs/sdks/datasets/README.md#process_upload_presign_url) - ProcessUploadPresignUrl
 * [update_dataset](docs/sdks/datasets/README.md#update_dataset) - Update dataset metadata
 
-### [Mcp](docs/sdks/mcp/README.md)
+### [Mcp](docs/sdks/mcpsdk/README.md)
 
-* [clear_o_auth_token](docs/sdks/mcp/README.md#clear_o_auth_token) - ClearOAuthToken
-* [delete](docs/sdks/mcp/README.md#delete) - DeleteMCPServer
-* [get_servers](docs/sdks/mcp/README.md#get_servers) - GetMCPServers
-* [handle_o_auth_callback](docs/sdks/mcp/README.md#handle_o_auth_callback) - HandleOAuthCallback
-* [initiate_o_auth_flow](docs/sdks/mcp/README.md#initiate_o_auth_flow) - InitiateOAuthFlow
-* [toggle_server](docs/sdks/mcp/README.md#toggle_server) - ToggleMCPServer
-* [upsert_mcp_servers](docs/sdks/mcp/README.md#upsert_mcp_servers) - UpsertMCPServers
+* [clear_o_auth_token](docs/sdks/mcpsdk/README.md#clear_o_auth_token) - ClearOAuthToken
+* [delete](docs/sdks/mcpsdk/README.md#delete) - DeleteMCPServer
+* [get_servers](docs/sdks/mcpsdk/README.md#get_servers) - GetMCPServers
+* [handle_o_auth_callback](docs/sdks/mcpsdk/README.md#handle_o_auth_callback) - HandleOAuthCallback
+* [initiate_o_auth_flow](docs/sdks/mcpsdk/README.md#initiate_o_auth_flow) - InitiateOAuthFlow
+* [toggle_server](docs/sdks/mcpsdk/README.md#toggle_server) - ToggleMCPServer
+* [upsert_mcp_servers](docs/sdks/mcpsdk/README.md#upsert_mcp_servers) - UpsertMCPServers
 
 ### [MetricsExports](docs/sdks/metricsexports/README.md)
 
@@ -370,110 +372,110 @@ with Textql(
 * [test_connection](docs/sdks/metricsexports/README.md#test_connection) - TestMetricsExportConnection
 * [trigger_push](docs/sdks/metricsexports/README.md#trigger_push) - TriggerMetricsPush
 
-### [Observability](docs/sdks/observability/README.md)
+### [Observability](docs/sdks/observabilitysdk/README.md)
 
-* [activate_custom_topic](docs/sdks/observability/README.md#activate_custom_topic) - ActivateCustomTopic
-* [backfill_custom_topic](docs/sdks/observability/README.md#backfill_custom_topic) - Custom topics
-* [backfill_thread_warnings](docs/sdks/observability/README.md#backfill_thread_warnings) - BackfillThreadWarnings
-* [create_custom_topic](docs/sdks/observability/README.md#create_custom_topic) - CreateCustomTopic
-* [deactivate_custom_topic](docs/sdks/observability/README.md#deactivate_custom_topic) - DeactivateCustomTopic
-* [delete_custom_topic](docs/sdks/observability/README.md#delete_custom_topic) - DeleteCustomTopic
-* [export_csv](docs/sdks/observability/README.md#export_csv) - ExportObservabilityCsv
-* [fix_check_record](docs/sdks/observability/README.md#fix_check_record) - FixCheckRecord
-* [fix_warning](docs/sdks/observability/README.md#fix_warning) - FixWarning
-* [get_access_method_stats](docs/sdks/observability/README.md#get_access_method_stats) - GetAccessMethodStats
-* [get_active_people_stats](docs/sdks/observability/README.md#get_active_people_stats) - GetActivePeopleStats
-* [get_active_people_trend](docs/sdks/observability/README.md#get_active_people_trend) - GetActivePeopleTrend
-* [get_backfill_preview](docs/sdks/observability/README.md#get_backfill_preview) - GetBackfillPreview
-* [get_backfill_status](docs/sdks/observability/README.md#get_backfill_status) - GetBackfillStatus
-* [get_billing_stats](docs/sdks/observability/README.md#get_billing_stats) - GetBillingStats
-* [get_chat_source_stats](docs/sdks/observability/README.md#get_chat_source_stats) - GetChatSourceStats
-* [get_chat_topics](docs/sdks/observability/README.md#get_chat_topics) - GetChatTopics
-* [get_check_record_fix](docs/sdks/observability/README.md#get_check_record_fix) - GetCheckRecordFix
-* [get_custom_topic](docs/sdks/observability/README.md#get_custom_topic) - GetCustomTopic
-* [get_custom_topic_people](docs/sdks/observability/README.md#get_custom_topic_people) - GetCustomTopicPeople
-* [get_custom_topic_threads](docs/sdks/observability/README.md#get_custom_topic_threads) - GetCustomTopicThreads
-* [get_engagement_spectrum](docs/sdks/observability/README.md#get_engagement_spectrum) - GetEngagementSpectrum
-* [get_member_activity](docs/sdks/observability/README.md#get_member_activity) - GetMemberActivity
-* [get_observability_stats](docs/sdks/observability/README.md#get_observability_stats) - GetObservabilityStats
-* [get_thread_warnings](docs/sdks/observability/README.md#get_thread_warnings) - GetThreadWarnings
-* [list_custom_topics](docs/sdks/observability/README.md#list_custom_topics) - ListCustomTopics
-* [refine_draft](docs/sdks/observability/README.md#refine_draft) - RefineTopicDraft
-* [set_topic_tag_feedback](docs/sdks/observability/README.md#set_topic_tag_feedback) - SetTopicTagFeedback
-* [update_custom_topic](docs/sdks/observability/README.md#update_custom_topic) - UpdateCustomTopic
+* [activate_custom_topic](docs/sdks/observabilitysdk/README.md#activate_custom_topic) - ActivateCustomTopic
+* [backfill_custom_topic](docs/sdks/observabilitysdk/README.md#backfill_custom_topic) - BackfillCustomTopic
+* [backfill_thread_warnings](docs/sdks/observabilitysdk/README.md#backfill_thread_warnings) - BackfillThreadWarnings
+* [create_custom_topic](docs/sdks/observabilitysdk/README.md#create_custom_topic) - CreateCustomTopic
+* [deactivate_custom_topic](docs/sdks/observabilitysdk/README.md#deactivate_custom_topic) - DeactivateCustomTopic
+* [delete_custom_topic](docs/sdks/observabilitysdk/README.md#delete_custom_topic) - DeleteCustomTopic
+* [export_csv](docs/sdks/observabilitysdk/README.md#export_csv) - ExportObservabilityCsv
+* [fix_check_record](docs/sdks/observabilitysdk/README.md#fix_check_record) - FixCheckRecord
+* [fix_warning](docs/sdks/observabilitysdk/README.md#fix_warning) - FixWarning
+* [get_access_method_stats](docs/sdks/observabilitysdk/README.md#get_access_method_stats) - GetAccessMethodStats
+* [get_active_people_stats](docs/sdks/observabilitysdk/README.md#get_active_people_stats) - GetActivePeopleStats
+* [get_active_people_trend](docs/sdks/observabilitysdk/README.md#get_active_people_trend) - GetActivePeopleTrend
+* [get_backfill_preview](docs/sdks/observabilitysdk/README.md#get_backfill_preview) - GetBackfillPreview
+* [get_backfill_status](docs/sdks/observabilitysdk/README.md#get_backfill_status) - GetBackfillStatus
+* [get_billing_stats](docs/sdks/observabilitysdk/README.md#get_billing_stats) - GetBillingStats
+* [get_chat_source_stats](docs/sdks/observabilitysdk/README.md#get_chat_source_stats) - GetChatSourceStats
+* [get_chat_topics](docs/sdks/observabilitysdk/README.md#get_chat_topics) - GetChatTopics
+* [get_check_record_fix](docs/sdks/observabilitysdk/README.md#get_check_record_fix) - GetCheckRecordFix
+* [get_custom_topic](docs/sdks/observabilitysdk/README.md#get_custom_topic) - GetCustomTopic
+* [get_custom_topic_people](docs/sdks/observabilitysdk/README.md#get_custom_topic_people) - GetCustomTopicPeople
+* [get_custom_topic_threads](docs/sdks/observabilitysdk/README.md#get_custom_topic_threads) - GetCustomTopicThreads
+* [get_engagement_spectrum](docs/sdks/observabilitysdk/README.md#get_engagement_spectrum) - GetEngagementSpectrum
+* [get_member_activity](docs/sdks/observabilitysdk/README.md#get_member_activity) - GetMemberActivity
+* [get_observability_stats](docs/sdks/observabilitysdk/README.md#get_observability_stats) - GetObservabilityStats
+* [get_thread_warnings](docs/sdks/observabilitysdk/README.md#get_thread_warnings) - GetThreadWarnings
+* [list_custom_topics](docs/sdks/observabilitysdk/README.md#list_custom_topics) - ListCustomTopics
+* [refine_draft](docs/sdks/observabilitysdk/README.md#refine_draft) - Custom topics
+* [set_topic_tag_feedback](docs/sdks/observabilitysdk/README.md#set_topic_tag_feedback) - SetTopicTagFeedback
+* [update_custom_topic](docs/sdks/observabilitysdk/README.md#update_custom_topic) - UpdateCustomTopic
 
-### [Ontology](docs/sdks/ontology/README.md)
+### [Ontology](docs/sdks/ontologysdk/README.md)
 
-* [add_submodule](docs/sdks/ontology/README.md#add_submodule) - AddOntologySubmodule
-* [approve_patch](docs/sdks/ontology/README.md#approve_patch) - ApprovePatch
-* [configure_remote](docs/sdks/ontology/README.md#configure_remote) - ConfigureOntologyRemote
-* [create_approval_rule](docs/sdks/ontology/README.md#create_approval_rule) - CreateApprovalRule
-* [create_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
-* [create_directory](docs/sdks/ontology/README.md#create_directory) - CreateOntologyDirectory
-* [create_file_upload_url](docs/sdks/ontology/README.md#create_file_upload_url) - CreateOntologyFileUploadUrl
-* [delete_approval_rule](docs/sdks/ontology/README.md#delete_approval_rule) - DeleteApprovalRule
-* [delete_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
-* [delete_directory](docs/sdks/ontology/README.md#delete_directory) - DeleteOntologyDirectory
-* [delete_file](docs/sdks/ontology/README.md#delete_file) - DeleteOntologyFile
-* [deny_patch](docs/sdks/ontology/README.md#deny_patch) - DenyPatch
-* [exchange_github_code](docs/sdks/ontology/README.md#exchange_github_code) - ExchangeOntologyGithubCode
-* [finalize_file_upload](docs/sdks/ontology/README.md#finalize_file_upload) - Streams how many folders and files a subtree holds, so the UI can report the  size of the whole Ontology rather than only the directories it has lazily  listed. Counts rise monotonically across frames; the last frame sets  `final`. A cache hit emits a single `final` frame with `from_cache` set.
-* [get_codeowner_coverage](docs/sdks/ontology/README.md#get_codeowner_coverage) - Deprecated: use SetOntologyOwners with the desired entry set. An empty  desired set removes every entry and opens the directory.
-* [get_config_export_capabilities](docs/sdks/ontology/README.md#get_config_export_capabilities) - GetConfigExportCapabilities
-* [get_effective_owners](docs/sdks/ontology/README.md#get_effective_owners) - GetEffectiveOntologyOwners
-* [get_file_usage](docs/sdks/ontology/README.md#get_file_usage) - GetFileUsage
-* [get_file_usage_timeline](docs/sdks/ontology/README.md#get_file_usage_timeline) - GetFileUsageTimeline
-* [get_ana_config](docs/sdks/ontology/README.md#get_ana_config) - GetOntologyAnaConfig
-* [get_file](docs/sdks/ontology/README.md#get_file) - GetOntologyFile
-* [get_github_o_auth_url](docs/sdks/ontology/README.md#get_github_o_auth_url) - GetOntologyGithubOAuthURL
-* [get_history_file_diff](docs/sdks/ontology/README.md#get_history_file_diff) - GetOntologyHistoryFileDiff
-* [get_owners](docs/sdks/ontology/README.md#get_owners) - GetOntologyOwners
-* [get_remote](docs/sdks/ontology/README.md#get_remote) - GetOntologyRemote
-* [get_size_timeline](docs/sdks/ontology/README.md#get_size_timeline) - GetOntologySizeTimeline
-* [get_sync_conflicts](docs/sdks/ontology/README.md#get_sync_conflicts) - GetOntologySyncConflicts
-* [get_usage_summary](docs/sdks/ontology/README.md#get_usage_summary) - GetOntologyUsageSummary
-* [get_patch](docs/sdks/ontology/README.md#get_patch) - GetPatch
-* [get_patch_by_number](docs/sdks/ontology/README.md#get_patch_by_number) - GetPatchByNumber
-* [get_patch_capabilities](docs/sdks/ontology/README.md#get_patch_capabilities) - PlanConfigMigration reports what the lazy config migration WOULD do to this  org's objects, and writes nothing. Admin-only, internal: it exists so a  release manager can warn the specific orgs a rollout will affect — notably  the objects that will stop running because adoption binds a Runner who can  no longer run them.
-* [get_raw_patch](docs/sdks/ontology/README.md#get_raw_patch) - GetRawPatch
-* [get_skill](docs/sdks/ontology/README.md#get_skill) - GetSkill
-* [get_usage_details_for_file](docs/sdks/ontology/README.md#get_usage_details_for_file) - GetUsageDetailsForFile
-* [list_approval_rules](docs/sdks/ontology/README.md#list_approval_rules) - ListApprovalRules
-* [list_chats_for_file](docs/sdks/ontology/README.md#list_chats_for_file) - ListChatsForFile
-* [list_context_patch_auto_approve_rules](docs/sdks/ontology/README.md#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
-* [list_golden_files](docs/sdks/ontology/README.md#list_golden_files) - Deprecated: use SetOntologyOwners with the complete desired entry set.
-* [list_entries](docs/sdks/ontology/README.md#list_entries) - PlanConfigAccessDerivation lists the config-managed objects of one type whose  access rows the OWNERS derivation would rewrite, and writes nothing. "Would  rewrite" is the engine's own diff: a row inserted or deleted, or a kept row whose  level, expiry, duplicate or public flag would change. An object under a malformed  OWNERS is a failure, not a drift. Admin-only, internal: the derivation rewrites those  rows on its next pass, so an operator cycles the flag on the orgs this names before  deploying it.
-* [list_history](docs/sdks/ontology/README.md#list_history) - ListOntologyHistory
-* [list_imports](docs/sdks/ontology/README.md#list_imports) - ListOntologyImports
-* [list_submodules](docs/sdks/ontology/README.md#list_submodules) - ListOntologySubmodules
-* [list_sync_runs](docs/sdks/ontology/README.md#list_sync_runs) - ListOntologySyncRuns
-* [list_patch_objects](docs/sdks/ontology/README.md#list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
-* [list_patch_reviewers](docs/sdks/ontology/README.md#list_patch_reviewers) - ListPatchReviewers
-* [list_patches](docs/sdks/ontology/README.md#list_patches) - ListPatches
-* [list_skills](docs/sdks/ontology/README.md#list_skills) - ListSkills
-* [plan_merge](docs/sdks/ontology/README.md#plan_merge) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
-* [preview_pull_from_remote](docs/sdks/ontology/README.md#preview_pull_from_remote) - PreviewOntologyPullFromRemote
-* [pull_from_remote](docs/sdks/ontology/README.md#pull_from_remote) - PullOntologyFromRemote
-* [push_to_remote](docs/sdks/ontology/README.md#push_to_remote) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
-* [recover](docs/sdks/ontology/README.md#recover) - RecoverOntology
-* [remove_remote](docs/sdks/ontology/README.md#remove_remote) - RemoveOntologyRemote
-* [remove_submodule](docs/sdks/ontology/README.md#remove_submodule) - RemoveOntologySubmodule
-* [rename_file](docs/sdks/ontology/README.md#rename_file) - RenameOntologyFile
-* [request_patch_review](docs/sdks/ontology/README.md#request_patch_review) - RequestPatchReview
-* [resolve_sync_conflict](docs/sdks/ontology/README.md#resolve_sync_conflict) - ResolveOntologySyncConflict
-* [restore_patch](docs/sdks/ontology/README.md#restore_patch) - RestorePatch
-* [revert_patch](docs/sdks/ontology/README.md#revert_patch) - RevertPatch
-* [save_all_objects_as_config](docs/sdks/ontology/README.md#save_all_objects_as_config) - SaveAllObjectsAsConfig
-* [save_object_as_config](docs/sdks/ontology/README.md#save_object_as_config) - SaveObjectAsConfig
-* [set_file_golden](docs/sdks/ontology/README.md#set_file_golden) - SetOntologyFileGolden
-* [set_owners](docs/sdks/ontology/README.md#set_owners) - SetOntologyOwners
-* [trigger_config_drift_reconcile](docs/sdks/ontology/README.md#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile
-* [update_approval_rule](docs/sdks/ontology/README.md#update_approval_rule) - UpdateApprovalRule
-* [update_context_patch_auto_approve_rule](docs/sdks/ontology/README.md#update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
-* [update_sync_config](docs/sdks/ontology/README.md#update_sync_config) - UpdateOntologySyncConfig
-* [upsert_ana_config](docs/sdks/ontology/README.md#upsert_ana_config) - UpsertOntologyAnaConfig
-* [upsert_file](docs/sdks/ontology/README.md#upsert_file) - UpsertOntologyFile
-* [validate_config](docs/sdks/ontology/README.md#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
+* [add_submodule](docs/sdks/ontologysdk/README.md#add_submodule) - AddOntologySubmodule
+* [approve_patch](docs/sdks/ontologysdk/README.md#approve_patch) - ApprovePatch
+* [configure_remote](docs/sdks/ontologysdk/README.md#configure_remote) - ConfigureOntologyRemote
+* [create_approval_rule](docs/sdks/ontologysdk/README.md#create_approval_rule) - CreateApprovalRule
+* [create_context_patch_auto_approve_rule](docs/sdks/ontologysdk/README.md#create_context_patch_auto_approve_rule) - CreateContextPatchAutoApproveRule
+* [create_directory](docs/sdks/ontologysdk/README.md#create_directory) - CreateOntologyDirectory
+* [create_file_upload_url](docs/sdks/ontologysdk/README.md#create_file_upload_url) - CreateOntologyFileUploadUrl
+* [delete_approval_rule](docs/sdks/ontologysdk/README.md#delete_approval_rule) - DeleteApprovalRule
+* [delete_context_patch_auto_approve_rule](docs/sdks/ontologysdk/README.md#delete_context_patch_auto_approve_rule) - DeleteContextPatchAutoApproveRule
+* [delete_directory](docs/sdks/ontologysdk/README.md#delete_directory) - DeleteOntologyDirectory
+* [delete_file](docs/sdks/ontologysdk/README.md#delete_file) - DeleteOntologyFile
+* [deny_patch](docs/sdks/ontologysdk/README.md#deny_patch) - DenyPatch
+* [exchange_github_code](docs/sdks/ontologysdk/README.md#exchange_github_code) - ExchangeOntologyGithubCode
+* [finalize_file_upload](docs/sdks/ontologysdk/README.md#finalize_file_upload) - FinalizeOntologyFileUpload
+* [get_codeowner_coverage](docs/sdks/ontologysdk/README.md#get_codeowner_coverage) - GetCodeownerCoverage
+* [get_config_export_capabilities](docs/sdks/ontologysdk/README.md#get_config_export_capabilities) - GetConfigExportCapabilities
+* [get_effective_owners](docs/sdks/ontologysdk/README.md#get_effective_owners) - GetEffectiveOntologyOwners
+* [get_file_usage](docs/sdks/ontologysdk/README.md#get_file_usage) - GetFileUsage
+* [get_file_usage_timeline](docs/sdks/ontologysdk/README.md#get_file_usage_timeline) - GetFileUsageTimeline
+* [get_ana_config](docs/sdks/ontologysdk/README.md#get_ana_config) - GetOntologyAnaConfig
+* [get_file](docs/sdks/ontologysdk/README.md#get_file) - GetOntologyFile
+* [get_github_o_auth_url](docs/sdks/ontologysdk/README.md#get_github_o_auth_url) - GetOntologyGithubOAuthURL
+* [get_history_file_diff](docs/sdks/ontologysdk/README.md#get_history_file_diff) - GetOntologyHistoryFileDiff
+* [get_owners](docs/sdks/ontologysdk/README.md#get_owners) - GetOntologyOwners
+* [get_remote](docs/sdks/ontologysdk/README.md#get_remote) - GetOntologyRemote
+* [get_size_timeline](docs/sdks/ontologysdk/README.md#get_size_timeline) - GetOntologySizeTimeline
+* [get_sync_conflicts](docs/sdks/ontologysdk/README.md#get_sync_conflicts) - GetOntologySyncConflicts
+* [get_usage_summary](docs/sdks/ontologysdk/README.md#get_usage_summary) - GetOntologyUsageSummary
+* [get_patch](docs/sdks/ontologysdk/README.md#get_patch) - GetPatch
+* [get_patch_by_number](docs/sdks/ontologysdk/README.md#get_patch_by_number) - GetPatchByNumber
+* [get_patch_capabilities](docs/sdks/ontologysdk/README.md#get_patch_capabilities) - GetPatchCapabilities
+* [get_raw_patch](docs/sdks/ontologysdk/README.md#get_raw_patch) - GetRawPatch
+* [get_skill](docs/sdks/ontologysdk/README.md#get_skill) - GetSkill
+* [get_usage_details_for_file](docs/sdks/ontologysdk/README.md#get_usage_details_for_file) - GetUsageDetailsForFile
+* [list_approval_rules](docs/sdks/ontologysdk/README.md#list_approval_rules) - ListApprovalRules
+* [list_chats_for_file](docs/sdks/ontologysdk/README.md#list_chats_for_file) - ListChatsForFile
+* [list_context_patch_auto_approve_rules](docs/sdks/ontologysdk/README.md#list_context_patch_auto_approve_rules) - ListContextPatchAutoApproveRules
+* [list_golden_files](docs/sdks/ontologysdk/README.md#list_golden_files) - ListGoldenFiles
+* [list_entries](docs/sdks/ontologysdk/README.md#list_entries) - ListOntologyEntries
+* [list_history](docs/sdks/ontologysdk/README.md#list_history) - ListOntologyHistory
+* [list_imports](docs/sdks/ontologysdk/README.md#list_imports) - ListOntologyImports
+* [list_submodules](docs/sdks/ontologysdk/README.md#list_submodules) - ListOntologySubmodules
+* [list_sync_runs](docs/sdks/ontologysdk/README.md#list_sync_runs) - ListOntologySyncRuns
+* [list_patch_objects](docs/sdks/ontologysdk/README.md#list_patch_objects) - ListPatchObjects parses the config objects present at a patch's git ref and  returns each object's Library path, resolved display name, and granular type  (e.g. "playbook", "dashboard/streamlit", "dashboard/dash"). Parse-only: it  reuses the snapshot-at-ref + parse steps the preview path performs before  spawning — no sandbox spawn, no run_as authorization, no persistence. The  frontend uses the dashboard subtype to decide previewability (streamlit/dash).
+* [list_patch_reviewers](docs/sdks/ontologysdk/README.md#list_patch_reviewers) - ListPatchReviewers
+* [list_patches](docs/sdks/ontologysdk/README.md#list_patches) - ListPatches
+* [list_skills](docs/sdks/ontologysdk/README.md#list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
+* [plan_merge](docs/sdks/ontologysdk/README.md#plan_merge) - PlanOntologyMerge
+* [preview_pull_from_remote](docs/sdks/ontologysdk/README.md#preview_pull_from_remote) - PreviewOntologyPullFromRemote
+* [pull_from_remote](docs/sdks/ontologysdk/README.md#pull_from_remote) - PullOntologyFromRemote
+* [push_to_remote](docs/sdks/ontologysdk/README.md#push_to_remote) - PushOntologyToRemote
+* [recover](docs/sdks/ontologysdk/README.md#recover) - RecoverOntology
+* [remove_remote](docs/sdks/ontologysdk/README.md#remove_remote) - RemoveOntologyRemote
+* [remove_submodule](docs/sdks/ontologysdk/README.md#remove_submodule) - RemoveOntologySubmodule
+* [rename_file](docs/sdks/ontologysdk/README.md#rename_file) - RenameOntologyFile
+* [request_patch_review](docs/sdks/ontologysdk/README.md#request_patch_review) - RequestPatchReview
+* [resolve_sync_conflict](docs/sdks/ontologysdk/README.md#resolve_sync_conflict) - ResolveOntologySyncConflict
+* [restore_patch](docs/sdks/ontologysdk/README.md#restore_patch) - RestorePatch
+* [revert_patch](docs/sdks/ontologysdk/README.md#revert_patch) - RevertPatch
+* [save_all_objects_as_config](docs/sdks/ontologysdk/README.md#save_all_objects_as_config) - SaveAllObjectsAsConfig
+* [save_object_as_config](docs/sdks/ontologysdk/README.md#save_object_as_config) - SaveObjectAsConfig
+* [set_file_golden](docs/sdks/ontologysdk/README.md#set_file_golden) - SetOntologyFileGolden
+* [set_owners](docs/sdks/ontologysdk/README.md#set_owners) - SetOntologyOwners
+* [trigger_config_drift_reconcile](docs/sdks/ontologysdk/README.md#trigger_config_drift_reconcile) - TriggerConfigDriftReconcile forces an immediate config-sync catch-up for the  caller's org: if the Ontology repo's live HEAD differs from the last  reconciled commit, it enqueues a reconcile (otherwise no-op). The on-demand  equivalent of waiting for the periodic drift scan.
+* [update_approval_rule](docs/sdks/ontologysdk/README.md#update_approval_rule) - UpdateApprovalRule
+* [update_context_patch_auto_approve_rule](docs/sdks/ontologysdk/README.md#update_context_patch_auto_approve_rule) - UpdateContextPatchAutoApproveRule
+* [update_sync_config](docs/sdks/ontologysdk/README.md#update_sync_config) - UpdateOntologySyncConfig
+* [upsert_ana_config](docs/sdks/ontologysdk/README.md#upsert_ana_config) - UpsertOntologyAnaConfig
+* [upsert_file](docs/sdks/ontologysdk/README.md#upsert_file) - UpsertOntologyFile
+* [validate_config](docs/sdks/ontologysdk/README.md#validate_config) - Read-only functional validation of a proposed config: parse + dependency  resolution/reachability, no authorization and no persistence. "ok" means  functionally valid, not "guaranteed to merge" — the merge gate re-checks  authorization at approve time.
 
 ### [Playbooks](docs/sdks/playbooks/README.md)
 
@@ -534,52 +536,55 @@ with Textql(
 
 * [approve_access_request](docs/sdks/rbac/README.md#approve_access_request) - ApproveAccessRequest
 * [assign_permission_to_role](docs/sdks/rbac/README.md#assign_permission_to_role) - AssignPermissionToRole
-* [assign_role_to_member](docs/sdks/rbac/README.md#assign_role_to_member) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
-* [create_api_key](docs/sdks/rbac/README.md#create_api_key) - SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
-* [create_personal_api_key](docs/sdks/rbac/README.md#create_personal_api_key) - CreatePersonalApiKey
+* [assign_role_to_member](docs/sdks/rbac/README.md#assign_role_to_member) - Member role assignment
+* [create_api_key](docs/sdks/rbac/README.md#create_api_key) - API Key management
+* [create_personal_api_key](docs/sdks/rbac/README.md#create_personal_api_key) - Create an API key owned by the calling member. Requires no permission.
 * [create_role](docs/sdks/rbac/README.md#create_role) - Role management
-* [create_service_account](docs/sdks/rbac/README.md#create_service_account) - CreateServiceAccount
-* [create_service_account_api_key](docs/sdks/rbac/README.md#create_service_account_api_key) - CreateServiceAccountApiKey
+* [create_import_upload](docs/sdks/rbac/README.md#create_import_upload) - CreateRolePermissionsUploadUrl
+* [create_service_account](docs/sdks/rbac/README.md#create_service_account) - Service account management
+* [create_service_account_api_key](docs/sdks/rbac/README.md#create_service_account_api_key) - Create an API key owned by a service account. Requires organization:write.
 * [delete_role](docs/sdks/rbac/README.md#delete_role) - DeleteRole
 * [delete_service_account](docs/sdks/rbac/README.md#delete_service_account) - DeleteServiceAccount
-* [export_role_permissions](docs/sdks/rbac/README.md#export_role_permissions) - ExportRolePermissions
+* [export_roles](docs/sdks/rbac/README.md#export_roles) - ExportRolePermissions
 * [generate_share_link](docs/sdks/rbac/README.md#generate_share_link) - GenerateShareLink
-* [get_current_member_roles_and_permissions](docs/sdks/rbac/README.md#get_current_member_roles_and_permissions) - GetCurrentMemberRolesAndPermissions
+* [get_current_member_roles_and_permissions](docs/sdks/rbac/README.md#get_current_member_roles_and_permissions) - Get current member roles and permissions
 * [get_embed_user_api_key](docs/sdks/rbac/README.md#get_embed_user_api_key) - GetEmbedUserApiKey
-* [get_member_roles](docs/sdks/rbac/README.md#get_member_roles) - Member role assignment
+* [get_member_roles](docs/sdks/rbac/README.md#get_member_roles) - GetMemberRoles
 * [get_object_access](docs/sdks/rbac/README.md#get_object_access) - GetObjectAccess
 * [get_role](docs/sdks/rbac/README.md#get_role) - GetRole
-* [get_role_permissions](docs/sdks/rbac/README.md#get_role_permissions) - Permission management
+* [get_role_permissions](docs/sdks/rbac/README.md#get_role_permissions) - GetRolePermissions
 * [has_object_access](docs/sdks/rbac/README.md#has_object_access) - HasObjectAccess
+* [import_roles](docs/sdks/rbac/README.md#import_roles) - ImportRolePermissions
 * [list_access_requests](docs/sdks/rbac/README.md#list_access_requests) - ListAccessRequests
 * [list_api_keys](docs/sdks/rbac/README.md#list_api_keys) - ListApiKeys
-* [list_permissions](docs/sdks/rbac/README.md#list_permissions) - ListPermissions
+* [list_permissions](docs/sdks/rbac/README.md#list_permissions) - Permission management
 * [list_roles](docs/sdks/rbac/README.md#list_roles) - ListRoles
 * [list_service_accounts](docs/sdks/rbac/README.md#list_service_accounts) - ListServiceAccounts
+* [parse_role_import](docs/sdks/rbac/README.md#parse_role_import) - Parse a CSV or XLSX file into an editable draft without creating roles.  Unknown names and values are preserved for correction; import validates them.
 * [reject_access_request](docs/sdks/rbac/README.md#reject_access_request) - RejectAccessRequest
 * [remove_permission_from_role](docs/sdks/rbac/README.md#remove_permission_from_role) - RemovePermissionFromRole
 * [remove_role_from_member](docs/sdks/rbac/README.md#remove_role_from_member) - RemoveRoleFromMember
-* [request_access](docs/sdks/rbac/README.md#request_access) - RequestAccess
+* [request_access](docs/sdks/rbac/README.md#request_access) - Access request management
 * [revoke_api_key](docs/sdks/rbac/README.md#revoke_api_key) - RevokeApiKey
-* [revoke_object_access](docs/sdks/rbac/README.md#revoke_object_access) - Group management. Internal only.
-* [rotate_api_key](docs/sdks/rbac/README.md#rotate_api_key) - Object sharing and access control
-* [set_role_permissions](docs/sdks/rbac/README.md#set_role_permissions) - SetRolePermissions
-* [share_object](docs/sdks/rbac/README.md#share_object) - Get current member roles and permissions
-* [share_object_with_role](docs/sdks/rbac/README.md#share_object_with_role) - Describe what a key is allowed to do.
+* [revoke_object_access](docs/sdks/rbac/README.md#revoke_object_access) - RevokeObjectAccess
+* [rotate_api_key](docs/sdks/rbac/README.md#rotate_api_key) - RotateApiKey
+* [set_role_permissions](docs/sdks/rbac/README.md#set_role_permissions) - Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+* [share_object](docs/sdks/rbac/README.md#share_object) - Object sharing and access control
+* [share_object_with_role](docs/sdks/rbac/README.md#share_object_with_role) - ShareObjectWithRole
 * [update_object_access](docs/sdks/rbac/README.md#update_object_access) - UpdateObjectAccess
 * [update_object_visibility](docs/sdks/rbac/README.md#update_object_visibility) - UpdateObjectVisibility
 * [update_role](docs/sdks/rbac/README.md#update_role) - UpdateRole
-* [who_am_i](docs/sdks/rbac/README.md#who_am_i) - WhoAmI
+* [who_am_i](docs/sdks/rbac/README.md#who_am_i) - Describe what a key is allowed to do.
 
-### [Sandbox](docs/sdks/sandbox/README.md)
+### [Sandbox](docs/sdks/sandboxsdk/README.md)
 
-* [create](docs/sdks/sandbox/README.md#create) - CreateSandbox
-* [exec](docs/sdks/sandbox/README.md#exec) - Exec
-* [execute_code](docs/sdks/sandbox/README.md#execute_code) - ExecuteCode
-* [get_tool_availability](docs/sdks/sandbox/README.md#get_tool_availability) - GetToolAvailability
-* [load_connector_data](docs/sdks/sandbox/README.md#load_connector_data) - LoadConnectorData
-* [execute_bash](docs/sdks/sandbox/README.md#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
-* [execute_query](docs/sdks/sandbox/README.md#execute_query) - ExecuteQuery
+* [create](docs/sdks/sandboxsdk/README.md#create) - CreateSandbox
+* [exec](docs/sdks/sandboxsdk/README.md#exec) - Exec
+* [execute_code](docs/sdks/sandboxsdk/README.md#execute_code) - ExecuteCode
+* [get_tool_availability](docs/sdks/sandboxsdk/README.md#get_tool_availability) - GetToolAvailability
+* [load_connector_data](docs/sdks/sandboxsdk/README.md#load_connector_data) - LoadConnectorData
+* [execute_bash](docs/sdks/sandboxsdk/README.md#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
+* [execute_query](docs/sdks/sandboxsdk/README.md#execute_query) - ExecuteQuery
 
 ### [SandboxAdmin](docs/sdks/sandboxadmin/README.md)
 
@@ -595,6 +600,7 @@ with Textql(
 
 ### [SandboxCapabilities](docs/sdks/sandboxcapabilities/README.md)
 
+* [deliver](docs/sdks/sandboxcapabilities/README.md#deliver) - Deliver
 * [execute_write](docs/sdks/sandboxcapabilities/README.md#execute_write) - ExecuteWrite
 * [poll_ask](docs/sdks/sandboxcapabilities/README.md#poll_ask) - PollAsk
 * [put_asset](docs/sdks/sandboxcapabilities/README.md#put_asset) - PutAsset
@@ -602,14 +608,14 @@ with Textql(
 * [start_ask](docs/sdks/sandboxcapabilities/README.md#start_ask) - StartAsk
 * [state_op](docs/sdks/sandboxcapabilities/README.md#state_op) - StateOp
 
-### [Scim](docs/sdks/scim/README.md)
+### [Scim](docs/sdks/scimsdk/README.md)
 
-* [create_o_auth_client](docs/sdks/scim/README.md#create_o_auth_client) - CreateScimOAuthClient
-* [create_scim_token](docs/sdks/scim/README.md#create_scim_token) - CreateScimToken
-* [list_scim_o_auth_clients](docs/sdks/scim/README.md#list_scim_o_auth_clients) - ListScimOAuthClients
-* [list](docs/sdks/scim/README.md#list) - ListScimTokens
-* [revoke_o_auth_client](docs/sdks/scim/README.md#revoke_o_auth_client) - RevokeScimOAuthClient
-* [revoke_scim_token](docs/sdks/scim/README.md#revoke_scim_token) - RevokeScimToken
+* [create_o_auth_client](docs/sdks/scimsdk/README.md#create_o_auth_client) - CreateScimOAuthClient
+* [create_scim_token](docs/sdks/scimsdk/README.md#create_scim_token) - CreateScimToken
+* [list_scim_o_auth_clients](docs/sdks/scimsdk/README.md#list_scim_o_auth_clients) - ListScimOAuthClients
+* [list](docs/sdks/scimsdk/README.md#list) - ListScimTokens
+* [revoke_o_auth_client](docs/sdks/scimsdk/README.md#revoke_o_auth_client) - RevokeScimOAuthClient
+* [revoke_scim_token](docs/sdks/scimsdk/README.md#revoke_scim_token) - RevokeScimToken
 
 ### [Secrets](docs/sdks/secrets/README.md)
 
@@ -617,7 +623,7 @@ with Textql(
 * [get_api_access_key](docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
 * [list_api_access_keys](docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders
-* [test_api_access_key](docs/sdks/secrets/README.md#test_api_access_key) - ---- API Connectors (deprecated) ----
+* [test_api_access_key](docs/sdks/secrets/README.md#test_api_access_key) - TestApiAccessKey
 * [upsert_api_access_key](docs/sdks/secrets/README.md#upsert_api_access_key) - UpsertApiAccessKey
 
 ### [Settings](docs/sdks/settings/README.md)

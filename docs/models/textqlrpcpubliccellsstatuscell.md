@@ -1,5 +1,7 @@
 # TextqlRPCPublicCellsStatusCell
 
+Deprecated: use tool_summary on Cell instead.
+
 
 ## Fields
 

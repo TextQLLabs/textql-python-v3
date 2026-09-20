@@ -7,14 +7,10 @@ from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatGetAPIChatAnswerRequestTypedDict(TypedDict):
-    r"""order is \"most recent first\" """
-
     chat_id: str
 
 
 class TextqlRPCPublicChatGetAPIChatAnswerRequest(BaseModel):
-    r"""order is \"most recent first\" """
-
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
 

@@ -26,3 +26,4 @@ TextqlRPCPublicChatArtifactType = Union[
     ],
     UnrecognizedStr,
 ]
+r"""Artifact types for drawer items"""

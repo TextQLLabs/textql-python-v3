@@ -8,13 +8,11 @@ from typing_extensions import Annotated, TypedDict
 
 class TextqlRPCPublicChatGetCompletionParametersRequestTypedDict(TypedDict):
     chat_id: str
-    r"""UUID"""
     cell_id: str
 
 
 class TextqlRPCPublicChatGetCompletionParametersRequest(BaseModel):
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
-    r"""UUID"""
 
     cell_id: Annotated[str, pydantic.Field(alias="cellId")]
 

@@ -18,6 +18,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacListAPIKeysRequestTypedDict(TypedDict):
+    service_account_email: NotRequired[Nullable[str]]
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of service_account_member_id; if both are supplied they must identify the same member.
+    """
     scope: NotRequired[TextqlRPCPublicRbacAPIKeyScope]
     service_account_member_id: NotRequired[Nullable[str]]
     include_revoked: NotRequired[Nullable[bool]]
@@ -30,6 +34,13 @@ class TextqlRPCPublicRbacListAPIKeysRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacListAPIKeysRequest(BaseModel):
+    service_account_email: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="serviceAccountEmail")
+    ] = UNSET
+    r"""Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Use instead of service_account_member_id; if both are supplied they must identify the same member.
+    """
+
     scope: Optional[TextqlRPCPublicRbacAPIKeyScope] = None
 
     service_account_member_id: Annotated[
@@ -66,6 +77,7 @@ class TextqlRPCPublicRbacListAPIKeysRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "serviceAccountEmail",
                 "scope",
                 "serviceAccountMemberId",
                 "includeRevoked",
@@ -78,6 +90,7 @@ class TextqlRPCPublicRbacListAPIKeysRequest(BaseModel):
         )
         nullable_fields = set(
             [
+                "serviceAccountEmail",
                 "serviceAccountMemberId",
                 "includeRevoked",
                 "searchTerm",

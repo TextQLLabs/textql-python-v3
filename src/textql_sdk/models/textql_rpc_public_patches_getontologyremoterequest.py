@@ -6,8 +6,8 @@ from typing_extensions import TypedDict
 
 
 class TextqlRPCPublicPatchesGetOntologyRemoteRequestTypedDict(TypedDict):
-    r"""Deprecated: use SetOntologyOwnersRequest."""
+    pass
 
 
 class TextqlRPCPublicPatchesGetOntologyRemoteRequest(BaseModel):
-    r"""Deprecated: use SetOntologyOwnersRequest."""
+    pass

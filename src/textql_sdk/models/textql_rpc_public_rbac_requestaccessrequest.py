@@ -15,14 +15,19 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacRequestAccessRequestTypedDict(TypedDict):
+    r"""Access request management messages"""
+
     object_type: NotRequired[str]
     object_id: NotRequired[str]
     requested_access_type: NotRequired[str]
+    r"""owner, editor, viewer"""
     justification: NotRequired[str]
     request_message: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicRbacRequestAccessRequest(BaseModel):
+    r"""Access request management messages"""
+
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None
@@ -30,6 +35,7 @@ class TextqlRPCPublicRbacRequestAccessRequest(BaseModel):
     requested_access_type: Annotated[
         Optional[str], pydantic.Field(alias="requestedAccessType")
     ] = None
+    r"""owner, editor, viewer"""
 
     justification: Optional[str] = None
 

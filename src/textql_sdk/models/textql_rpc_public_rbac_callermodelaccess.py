@@ -10,12 +10,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCallerModelAccessTypedDict(TypedDict):
+    r"""Which LLM models the caller may run."""
+
     allowed_models: NotRequired[List[TextqlRPCPublicChatLlmModel]]
     default_model: NotRequired[TextqlRPCPublicChatLlmModel]
     restricted: NotRequired[bool]
 
 
 class TextqlRPCPublicRbacCallerModelAccess(BaseModel):
+    r"""Which LLM models the caller may run."""
+
     allowed_models: Annotated[
         Optional[List[TextqlRPCPublicChatLlmModel]],
         pydantic.Field(alias="allowedModels"),

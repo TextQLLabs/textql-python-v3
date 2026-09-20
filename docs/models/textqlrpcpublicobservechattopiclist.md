@@ -1,8 +1,5 @@
 # TextqlRPCPublicObserveChatTopicList
 
-Chat → topics decoration (which live topics tag each chat), mirroring the
- GetThreadWarnings batch shape.
-
 
 ## Fields
 

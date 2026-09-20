@@ -10,12 +10,16 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict(TypedDict):
-    r"""The credential that authenticated the request."""
-
+    role_name: NotRequired[str]
+    r"""Exact, case-sensitive role name in the caller's organization.
+    Supply role_name or role_id; if both are supplied they must match.
+    """
     object_type: NotRequired[str]
     object_id: NotRequired[str]
     role_id: NotRequired[str]
+    r"""Legacy role ID. Prefer role_name."""
     access_type: NotRequired[str]
+    r"""owner, editor, viewer"""
     expires_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -111,15 +115,20 @@ class TextqlRPCPublicRbacShareObjectWithRoleRequestTypedDict(TypedDict):
 
 
 class TextqlRPCPublicRbacShareObjectWithRoleRequest(BaseModel):
-    r"""The credential that authenticated the request."""
+    role_name: Annotated[Optional[str], pydantic.Field(alias="roleName")] = None
+    r"""Exact, case-sensitive role name in the caller's organization.
+    Supply role_name or role_id; if both are supplied they must match.
+    """
 
     object_type: Annotated[Optional[str], pydantic.Field(alias="objectType")] = None
 
     object_id: Annotated[Optional[str], pydantic.Field(alias="objectId")] = None
 
     role_id: Annotated[Optional[str], pydantic.Field(alias="roleId")] = None
+    r"""Legacy role ID. Prefer role_name."""
 
     access_type: Annotated[Optional[str], pydantic.Field(alias="accessType")] = None
+    r"""owner, editor, viewer"""
 
     expires_at: Annotated[Optional[datetime], pydantic.Field(alias="expiresAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -218,7 +227,15 @@ class TextqlRPCPublicRbacShareObjectWithRoleRequest(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["objectType", "objectId", "roleId", "accessType", "expiresAt", "isPublic"]
+            [
+                "roleName",
+                "objectType",
+                "objectId",
+                "roleId",
+                "accessType",
+                "expiresAt",
+                "isPublic",
+            ]
         )
         serialized = handler(self)
         m = {}

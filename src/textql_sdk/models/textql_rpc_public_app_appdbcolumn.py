@@ -10,25 +10,21 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicAppAppDBColumnTypedDict(TypedDict):
     name: NotRequired[str]
-    r"""running | stopped | error"""
     type: NotRequired[str]
-    r"""import/exec failure of the author module"""
+    r"""DuckDB type name, e.g. \"VARCHAR\", \"BIGINT\" """
     nullable: NotRequired[bool]
     primary_key: NotRequired[bool]
-    r"""tail of the server process log, redacted"""
 
 
 class TextqlRPCPublicAppAppDBColumn(BaseModel):
     name: Optional[str] = None
-    r"""running | stopped | error"""
 
     type: Optional[str] = None
-    r"""import/exec failure of the author module"""
+    r"""DuckDB type name, e.g. \"VARCHAR\", \"BIGINT\" """
 
     nullable: Optional[bool] = None
 
     primary_key: Annotated[Optional[bool], pydantic.Field(alias="primaryKey")] = None
-    r"""tail of the server process log, redacted"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

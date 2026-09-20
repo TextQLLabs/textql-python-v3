@@ -197,9 +197,6 @@ class TextqlRPCPublicConnectorConnectorConfigTableau(BaseModel):
 
 class SupabaseTypedDict(TypedDict):
     supabase: TextqlRPCPublicConnectorSupabaseMetadataTypedDict
-    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
-    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
-    """
     connector_type: NotRequired[TextqlRPCPublicConnectorConnectorType]
     name: NotRequired[str]
     auth_strategy: NotRequired[str]
@@ -207,9 +204,6 @@ class SupabaseTypedDict(TypedDict):
 
 class Supabase(BaseModel):
     supabase: TextqlRPCPublicConnectorSupabaseMetadata
-    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
-    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
-    """
 
     connector_type: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorType],
@@ -639,6 +633,9 @@ class Microsoft365(BaseModel):
 
 class KdbTypedDict(TypedDict):
     kdb: TextqlRPCPublicConnectorKdbMetadataTypedDict
+    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
+    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
+    """
     connector_type: NotRequired[TextqlRPCPublicConnectorConnectorType]
     name: NotRequired[str]
     auth_strategy: NotRequired[str]
@@ -646,6 +643,9 @@ class KdbTypedDict(TypedDict):
 
 class Kdb(BaseModel):
     kdb: TextqlRPCPublicConnectorKdbMetadata
+    r"""KdbMetadata configures a kdb+ (kx/q) connector. kdb+ speaks its own binary IPC
+    protocol (not SQL), so queries are qSQL strings; see pkg/connectors/kdbipc.
+    """
 
     connector_type: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorType],

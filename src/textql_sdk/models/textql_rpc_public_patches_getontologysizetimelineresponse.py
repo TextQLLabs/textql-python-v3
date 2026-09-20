@@ -12,20 +12,16 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetOntologySizeTimelineResponseTypedDict(TypedDict):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
-
     days: NotRequired[List[TextqlRPCPublicPatchesOntologySizeDayTypedDict]]
-    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-    a year.
+    r"""one entry per UTC day, oldest first; days before the repo's first commit
+    are omitted, and days without commits carry the previous day's tree
     """
 
 
 class TextqlRPCPublicPatchesGetOntologySizeTimelineResponse(BaseModel):
-    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
-
     days: Optional[List[TextqlRPCPublicPatchesOntologySizeDay]] = None
-    r"""Year of the date. Must be from 1 to 9999, or 0 to specify a date without
-    a year.
+    r"""one entry per UTC day, oldest first; days before the repo's first commit
+    are omitted, and days without commits carry the previous day's tree
     """
 
     @model_serializer(mode="wrap")

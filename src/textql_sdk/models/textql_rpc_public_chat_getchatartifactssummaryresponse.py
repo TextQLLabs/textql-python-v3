@@ -12,17 +12,13 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatGetChatArtifactsSummaryResponseTypedDict(TypedDict):
-    r"""Lightweight summary for drawer item list (minimal data transfer)"""
-
     artifacts: NotRequired[List[TextqlRPCPublicChatArtifactSummaryTypedDict]]
-    r"""cell_id or unique identifier"""
+    r"""Flat list, sorted by created_at DESC"""
 
 
 class TextqlRPCPublicChatGetChatArtifactsSummaryResponse(BaseModel):
-    r"""Lightweight summary for drawer item list (minimal data transfer)"""
-
     artifacts: Optional[List[TextqlRPCPublicChatArtifactSummary]] = None
-    r"""cell_id or unique identifier"""
+    r"""Flat list, sorted by created_at DESC"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

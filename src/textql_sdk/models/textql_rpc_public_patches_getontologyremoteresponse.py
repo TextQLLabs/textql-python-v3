@@ -19,8 +19,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesGetOntologyRemoteResponseTypedDict(TypedDict):
-    r"""Deprecated: use SetOntologyOwnersResponse."""
-
     remote: NotRequired[TextqlRPCPublicPatchesOntologyRemoteTypedDict]
     hosted_github_app_available: NotRequired[bool]
     hosted_github_app_slug: NotRequired[Nullable[str]]
@@ -28,8 +26,6 @@ class TextqlRPCPublicPatchesGetOntologyRemoteResponseTypedDict(TypedDict):
 
 
 class TextqlRPCPublicPatchesGetOntologyRemoteResponse(BaseModel):
-    r"""Deprecated: use SetOntologyOwnersResponse."""
-
     remote: Optional[TextqlRPCPublicPatchesOntologyRemote] = None
 
     hosted_github_app_available: Annotated[

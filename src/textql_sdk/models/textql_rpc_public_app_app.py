@@ -34,30 +34,43 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicAppAppTypedDict(TypedDict):
     id: NotRequired[str]
     org_id: NotRequired[str]
-    r"""the COMPLETE tree; files omitted here are deleted"""
     creator_id: NotRequired[str]
     name: NotRequired[str]
     description: NotRequired[Nullable[str]]
     code: NotRequired[str]
+    r"""Agent-authored single-file HTML source (pre data-injection)."""
     data_sources: NotRequired[List[TextqlRPCPublicDashboardDataSourceTypedDict]]
     html_url: NotRequired[Nullable[str]]
+    r"""built artifact: CSP + data snapshot injected"""
     screenshot_url: NotRequired[Nullable[str]]
     console_errors: NotRequired[List[str]]
+    r"""browser console errors/warnings from the last render (diagnostic)"""
     chat_id: NotRequired[Nullable[str]]
+    r"""originating builder chat"""
     published_html_url: NotRequired[Nullable[str]]
+    r"""publish is gone (head is live); no longer populated"""
     has_unpublished_changes: NotRequired[bool]
+    r"""publish is gone; always false"""
     staleness_window_seconds: NotRequired[Nullable[int]]
+    r"""auto-refresh timeout; null = org default"""
     compute_functions: NotRequired[List[TextqlRPCPublicAppComputeFunctionTypedDict]]
     files: NotRequired[List[TextqlRPCPublicAppAppFileTypedDict]]
     schedule_enabled: NotRequired[bool]
     cron_string: NotRequired[Nullable[str]]
+    r"""UTC 5-field cron"""
     folder_id: NotRequired[Nullable[str]]
+    r"""library_folders.id, null/empty = uncategorized"""
     is_favorited: NotRequired[bool]
+    r"""per-caller pin state (enriched, not stored on the app)"""
     capabilities: NotRequired[List[TextqlRPCPublicAppCapabilityTypedDict]]
     app_db_setup: NotRequired[List[str]]
+    r"""ordered append-only setup statements for the app's private DB"""
     member_features_enabled: NotRequired[bool]
+    r"""per-app kill switch for state/activity RPCs; ops-controlled for now (no product writer)"""
     uses_member_features: NotRequired[bool]
+    r"""no longer populated; kept for wire compat"""
     viewer_grants: NotRequired[List[str]]
+    r"""Per-caller callable subset of gated source/function names (cosmetic tab-hiding; server is the real gate). Enriched at read, not stored."""
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
     calendar, encoded as a count of seconds and fractions of seconds at
@@ -428,7 +441,6 @@ class TextqlRPCPublicAppApp(BaseModel):
     id: Optional[str] = None
 
     org_id: Annotated[Optional[str], pydantic.Field(alias="orgId")] = None
-    r"""the COMPLETE tree; files omitted here are deleted"""
 
     creator_id: Annotated[Optional[str], pydantic.Field(alias="creatorId")] = None
 
@@ -437,6 +449,7 @@ class TextqlRPCPublicAppApp(BaseModel):
     description: OptionalNullable[str] = UNSET
 
     code: Optional[str] = None
+    r"""Agent-authored single-file HTML source (pre data-injection)."""
 
     data_sources: Annotated[
         Optional[List[TextqlRPCPublicDashboardDataSource]],
@@ -444,6 +457,7 @@ class TextqlRPCPublicAppApp(BaseModel):
     ] = None
 
     html_url: Annotated[OptionalNullable[str], pydantic.Field(alias="htmlUrl")] = UNSET
+    r"""built artifact: CSP + data snapshot injected"""
 
     screenshot_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="screenshotUrl")
@@ -452,8 +466,10 @@ class TextqlRPCPublicAppApp(BaseModel):
     console_errors: Annotated[
         Optional[List[str]], pydantic.Field(alias="consoleErrors")
     ] = None
+    r"""browser console errors/warnings from the last render (diagnostic)"""
 
     chat_id: Annotated[OptionalNullable[str], pydantic.Field(alias="chatId")] = UNSET
+    r"""originating builder chat"""
 
     published_html_url: Annotated[
         OptionalNullable[str],
@@ -462,6 +478,7 @@ class TextqlRPCPublicAppApp(BaseModel):
             alias="publishedHtmlUrl",
         ),
     ] = UNSET
+    r"""publish is gone (head is live); no longer populated"""
 
     has_unpublished_changes: Annotated[
         Optional[bool],
@@ -470,10 +487,12 @@ class TextqlRPCPublicAppApp(BaseModel):
             alias="hasUnpublishedChanges",
         ),
     ] = None
+    r"""publish is gone; always false"""
 
     staleness_window_seconds: Annotated[
         OptionalNullable[int], pydantic.Field(alias="stalenessWindowSeconds")
     ] = UNSET
+    r"""auto-refresh timeout; null = org default"""
 
     compute_functions: Annotated[
         Optional[List[TextqlRPCPublicAppComputeFunction]],
@@ -489,22 +508,27 @@ class TextqlRPCPublicAppApp(BaseModel):
     cron_string: Annotated[
         OptionalNullable[str], pydantic.Field(alias="cronString")
     ] = UNSET
+    r"""UTC 5-field cron"""
 
     folder_id: Annotated[OptionalNullable[str], pydantic.Field(alias="folderId")] = (
         UNSET
     )
+    r"""library_folders.id, null/empty = uncategorized"""
 
     is_favorited: Annotated[Optional[bool], pydantic.Field(alias="isFavorited")] = None
+    r"""per-caller pin state (enriched, not stored on the app)"""
 
     capabilities: Optional[List[TextqlRPCPublicAppCapability]] = None
 
     app_db_setup: Annotated[Optional[List[str]], pydantic.Field(alias="appDbSetup")] = (
         None
     )
+    r"""ordered append-only setup statements for the app's private DB"""
 
     member_features_enabled: Annotated[
         Optional[bool], pydantic.Field(alias="memberFeaturesEnabled")
     ] = None
+    r"""per-app kill switch for state/activity RPCs; ops-controlled for now (no product writer)"""
 
     uses_member_features: Annotated[
         Optional[bool],
@@ -513,10 +537,12 @@ class TextqlRPCPublicAppApp(BaseModel):
             alias="usesMemberFeatures",
         ),
     ] = None
+    r"""no longer populated; kept for wire compat"""
 
     viewer_grants: Annotated[
         Optional[List[str]], pydantic.Field(alias="viewerGrants")
     ] = None
+    r"""Per-caller callable subset of gated source/function names (cosmetic tab-hiding; server is the real gate). Enriched at read, not stored."""
 
     created_at: Annotated[Optional[datetime], pydantic.Field(alias="createdAt")] = None
     r"""A Timestamp represents a point in time independent of any time zone or local

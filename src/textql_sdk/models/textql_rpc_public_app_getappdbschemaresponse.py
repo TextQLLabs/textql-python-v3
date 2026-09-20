@@ -15,13 +15,13 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict = TypeAliasType(
     "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict", Union[int, str]
 )
-r"""Routing observability: warm | warm_fallback | tql | sql."""
+r"""durable Postgres change-log size; the .duckdb cache is derived from this"""
 
 
 TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes = TypeAliasType(
     "TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes", Union[int, str]
 )
-r"""Routing observability: warm | warm_fallback | tql | sql."""
+r"""durable Postgres change-log size; the .duckdb cache is derived from this"""
 
 
 class TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict(TypedDict):
@@ -29,7 +29,7 @@ class TextqlRPCPublicAppGetAppDBSchemaResponseTypedDict(TypedDict):
     change_log_bytes: NotRequired[
         TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytesTypedDict
     ]
-    r"""Routing observability: warm | warm_fallback | tql | sql."""
+    r"""durable Postgres change-log size; the .duckdb cache is derived from this"""
 
 
 class TextqlRPCPublicAppGetAppDBSchemaResponse(BaseModel):
@@ -39,7 +39,7 @@ class TextqlRPCPublicAppGetAppDBSchemaResponse(BaseModel):
         Optional[TextqlRPCPublicAppGetAppDBSchemaResponseChangeLogBytes],
         pydantic.Field(alias="changeLogBytes"),
     ] = None
-    r"""Routing observability: warm | warm_fallback | tql | sql."""
+    r"""durable Postgres change-log size; the .duckdb cache is derived from this"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

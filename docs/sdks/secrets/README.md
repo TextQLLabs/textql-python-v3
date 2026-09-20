@@ -8,7 +8,7 @@
 * [get_api_access_key](#get_api_access_key) - GetApiAccessKey
 * [list_api_access_keys](#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](#list_api_providers) - ListApiProviders
-* [test_api_access_key](#test_api_access_key) - ---- API Connectors (deprecated) ----
+* [test_api_access_key](#test_api_access_key) - TestApiAccessKey
 * [upsert_api_access_key](#upsert_api_access_key) - UpsertApiAccessKey
 
 ## delete_api_access_key
@@ -177,7 +177,7 @@ with Textql(
 
 ## test_api_access_key
 
----- API Connectors (deprecated) ----
+TestApiAccessKey
 
 ### Example Usage
 

@@ -9,20 +9,20 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicChatFileArtifactDataTypedDict(TypedDict):
-    r"""Request full artifact data when item is selected"""
+    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
 
     url: NotRequired[str]
-    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
     type: NotRequired[TextqlRPCPublicChatArtifactType]
+    r"""Artifact types for drawer items"""
 
 
 class TextqlRPCPublicChatFileArtifactData(BaseModel):
-    r"""Request full artifact data when item is selected"""
+    r"""File-based artifacts (images, PDFs, CSVs, HTML, text files)"""
 
     url: Optional[str] = None
-    r"""Cell ID or composite \"cellId:type:url\" for multi-artifact cells"""
 
     type: Optional[TextqlRPCPublicChatArtifactType] = None
+    r"""Artifact types for drawer items"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -18,6 +18,7 @@ class TextqlRPCPublicAppRestoreAppVersionRequestTypedDict(TypedDict):
     app_id: NotRequired[str]
     version_number: NotRequired[int]
     commit_id: NotRequired[Nullable[str]]
+    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
 
 
 class TextqlRPCPublicAppRestoreAppVersionRequest(BaseModel):
@@ -30,6 +31,7 @@ class TextqlRPCPublicAppRestoreAppVersionRequest(BaseModel):
     commit_id: Annotated[OptionalNullable[str], pydantic.Field(alias="commitId")] = (
         UNSET
     )
+    r"""Prefer this git commit SHA when set; else version_number selects a legacy db-backed row."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

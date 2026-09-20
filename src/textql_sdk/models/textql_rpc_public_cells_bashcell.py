@@ -9,8 +9,6 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicCellsBashCellTypedDict(TypedDict):
-    r"""Preview cell reference for report history"""
-
     script: NotRequired[str]
     stdout: NotRequired[str]
     stderr: NotRequired[str]
@@ -18,8 +16,6 @@ class TextqlRPCPublicCellsBashCellTypedDict(TypedDict):
 
 
 class TextqlRPCPublicCellsBashCell(BaseModel):
-    r"""Preview cell reference for report history"""
-
     script: Optional[str] = None
 
     stdout: Optional[str] = None

@@ -8,18 +8,28 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCreateRoleRequestTypedDict(TypedDict):
+    r"""Role management requests/responses"""
+
     name: NotRequired[str]
     description: NotRequired[str]
+    color: NotRequired[str]
+    icon: NotRequired[str]
 
 
 class TextqlRPCPublicRbacCreateRoleRequest(BaseModel):
+    r"""Role management requests/responses"""
+
     name: Optional[str] = None
 
     description: Optional[str] = None
 
+    color: Optional[str] = None
+
+    icon: Optional[str] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["name", "description"])
+        optional_fields = set(["name", "description", "color", "icon"])
         serialized = handler(self)
         m = {}
 

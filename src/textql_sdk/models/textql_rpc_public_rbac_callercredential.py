@@ -17,6 +17,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacCallerCredentialTypedDict(TypedDict):
+    r"""The credential that authenticated the request."""
+
     auth_method: NotRequired[str]
     api_key_id: NotRequired[Nullable[str]]
     api_key_name: NotRequired[Nullable[str]]
@@ -113,12 +115,16 @@ class TextqlRPCPublicRbacCallerCredentialTypedDict(TypedDict):
     ) to obtain a formatter capable of generating timestamps in this format.
     """
     status: NotRequired[TextqlRPCPublicRbacAPIKeyStatus]
+    assumed_role_names: NotRequired[List[str]]
+    r"""Current names of existing roles in the credential's scope."""
     assumed_role_ids: NotRequired[List[str]]
     client_id: NotRequired[Nullable[str]]
     scopes: NotRequired[List[str]]
 
 
 class TextqlRPCPublicRbacCallerCredential(BaseModel):
+    r"""The credential that authenticated the request."""
+
     auth_method: Annotated[Optional[str], pydantic.Field(alias="authMethod")] = None
 
     api_key_id: Annotated[OptionalNullable[str], pydantic.Field(alias="apiKeyId")] = (
@@ -227,6 +233,11 @@ class TextqlRPCPublicRbacCallerCredential(BaseModel):
 
     status: Optional[TextqlRPCPublicRbacAPIKeyStatus] = None
 
+    assumed_role_names: Annotated[
+        Optional[List[str]], pydantic.Field(alias="assumedRoleNames")
+    ] = None
+    r"""Current names of existing roles in the credential's scope."""
+
     assumed_role_ids: Annotated[
         Optional[List[str]], pydantic.Field(alias="assumedRoleIds")
     ] = None
@@ -247,6 +258,7 @@ class TextqlRPCPublicRbacCallerCredential(BaseModel):
                 "apiKeyShort",
                 "expiresAt",
                 "status",
+                "assumedRoleNames",
                 "assumedRoleIds",
                 "clientId",
                 "scopes",

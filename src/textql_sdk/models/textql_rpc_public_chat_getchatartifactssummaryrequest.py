@@ -7,10 +7,14 @@ from typing_extensions import Annotated, TypedDict
 
 
 class TextqlRPCPublicChatGetChatArtifactsSummaryRequestTypedDict(TypedDict):
+    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
+
     chat_id: str
 
 
 class TextqlRPCPublicChatGetChatArtifactsSummaryRequest(BaseModel):
+    r"""Request all artifact summaries for a chat (for drawer dropdown)"""
+
     chat_id: Annotated[str, pydantic.Field(alias="chatId")]
 
 

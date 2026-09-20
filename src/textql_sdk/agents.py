@@ -1056,7 +1056,9 @@ class Agents(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AgentServiceGetAgentDBSchemaResponse:
-        r"""GetAgentDBSchema
+        r"""Read-only table/column list for the agent's private DuckDB memory (agent_db).
+
+        Read-only table/column list for the agent's private DuckDB memory (agent_db).
 
         :param connect_timeout_ms:
         :param agent_id:
@@ -1160,7 +1162,9 @@ class Agents(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AgentServiceGetAgentDBSchemaResponse:
-        r"""GetAgentDBSchema
+        r"""Read-only table/column list for the agent's private DuckDB memory (agent_db).
+
+        Read-only table/column list for the agent's private DuckDB memory (agent_db).
 
         :param connect_timeout_ms:
         :param agent_id:
@@ -1266,7 +1270,9 @@ class Agents(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AgentServiceGetAgentDBTablePreviewResponse:
-        r"""GetAgentDBTablePreview
+        r"""A bounded row preview of one agent_db table (SELECT ... LIMIT n).
+
+        A bounded row preview of one agent_db table (SELECT ... LIMIT n).
 
         :param connect_timeout_ms:
         :param agent_id:
@@ -1376,7 +1382,9 @@ class Agents(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.AgentServiceGetAgentDBTablePreviewResponse:
-        r"""GetAgentDBTablePreview
+        r"""A bounded row preview of one agent_db table (SELECT ... LIMIT n).
+
+        A bounded row preview of one agent_db table (SELECT ... LIMIT n).
 
         :param connect_timeout_ms:
         :param agent_id:

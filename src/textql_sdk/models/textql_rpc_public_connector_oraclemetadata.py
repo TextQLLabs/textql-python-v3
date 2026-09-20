@@ -20,8 +20,10 @@ class TextqlRPCPublicConnectorOracleMetadataTypedDict(TypedDict):
     sid: NotRequired[str]
     connect_string: NotRequired[str]
     wallet_zip: NotRequired[str]
+    r"""Oracle Wallet fields"""
     wallet_password: NotRequired[str]
     tns_alias: NotRequired[str]
+    r"""Optional - auto-detected from tnsnames.ora if not provided"""
 
 
 class TextqlRPCPublicConnectorOracleMetadata(BaseModel):
@@ -50,12 +52,14 @@ class TextqlRPCPublicConnectorOracleMetadata(BaseModel):
     )
 
     wallet_zip: Annotated[Optional[str], pydantic.Field(alias="walletZip")] = None
+    r"""Oracle Wallet fields"""
 
     wallet_password: Annotated[
         Optional[str], pydantic.Field(alias="walletPassword")
     ] = None
 
     tns_alias: Annotated[Optional[str], pydantic.Field(alias="tnsAlias")] = None
+    r"""Optional - auto-detected from tnsnames.ora if not provided"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

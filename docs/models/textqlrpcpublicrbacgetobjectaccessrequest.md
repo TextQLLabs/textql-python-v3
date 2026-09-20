@@ -1,7 +1,5 @@
 # TextqlRPCPublicRbacGetObjectAccessRequest
 
-Object access management messages
-
 
 ## Fields
 

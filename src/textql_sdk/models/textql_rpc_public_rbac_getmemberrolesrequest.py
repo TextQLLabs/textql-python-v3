@@ -9,15 +9,26 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacGetMemberRolesRequestTypedDict(TypedDict):
+    member_emails: NotRequired[List[str]]
+    r"""Emails within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Merged with member_ids and deduplicated. Unknown emails are rejected.
+    """
     member_ids: NotRequired[List[str]]
 
 
 class TextqlRPCPublicRbacGetMemberRolesRequest(BaseModel):
+    member_emails: Annotated[
+        Optional[List[str]], pydantic.Field(alias="memberEmails")
+    ] = None
+    r"""Emails within the caller's organization; case-insensitive, with outer whitespace ignored.
+    Merged with member_ids and deduplicated. Unknown emails are rejected.
+    """
+
     member_ids: Annotated[Optional[List[str]], pydantic.Field(alias="memberIds")] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["memberIds"])
+        optional_fields = set(["memberEmails", "memberIds"])
         serialized = handler(self)
         m = {}
 

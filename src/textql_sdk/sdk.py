@@ -22,17 +22,17 @@ if TYPE_CHECKING:
     from textql_sdk.connectors import Connectors
     from textql_sdk.dashboards import Dashboards
     from textql_sdk.datasets import Datasets
-    from textql_sdk.mcp import Mcp
+    from textql_sdk.mcp_sdk import McpSDK
     from textql_sdk.metricsexports import MetricsExports
-    from textql_sdk.observability import Observability
-    from textql_sdk.ontology import Ontology
+    from textql_sdk.observability_sdk import ObservabilitySDK
+    from textql_sdk.ontology_sdk import OntologySDK
     from textql_sdk.playbooks import Playbooks
     from textql_sdk.powerbi_sdk import PowerbiSDK
     from textql_sdk.rbac import Rbac
-    from textql_sdk.sandbox import Sandbox
+    from textql_sdk.sandbox_sdk import SandboxSDK
     from textql_sdk.sandboxadmin import SandboxAdmin
     from textql_sdk.sandboxcapabilities import SandboxCapabilities
-    from textql_sdk.scim import Scim
+    from textql_sdk.scim_sdk import ScimSDK
     from textql_sdk.secrets import Secrets
     from textql_sdk.settings import Settings
     from textql_sdk.slack import Slack
@@ -53,17 +53,17 @@ class Textql(BaseSDK):
     connectors: "Connectors"
     dashboards: "Dashboards"
     datasets: "Datasets"
-    mcp: "Mcp"
+    mcp: "McpSDK"
     metrics_exports: "MetricsExports"
-    observability: "Observability"
-    ontology: "Ontology"
+    observability: "ObservabilitySDK"
+    ontology: "OntologySDK"
     playbooks: "Playbooks"
     powerbi: "PowerbiSDK"
     rbac: "Rbac"
     sandbox_admin: "SandboxAdmin"
     sandbox_capabilities: "SandboxCapabilities"
-    sandbox: "Sandbox"
-    scim: "Scim"
+    sandbox: "SandboxSDK"
+    scim: "ScimSDK"
     secrets: "Secrets"
     settings: "Settings"
     slack: "Slack"
@@ -77,10 +77,10 @@ class Textql(BaseSDK):
         "connectors": ("textql_sdk.connectors", "Connectors"),
         "dashboards": ("textql_sdk.dashboards", "Dashboards"),
         "datasets": ("textql_sdk.datasets", "Datasets"),
-        "mcp": ("textql_sdk.mcp", "Mcp"),
+        "mcp": ("textql_sdk.mcp_sdk", "McpSDK"),
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
-        "observability": ("textql_sdk.observability", "Observability"),
-        "ontology": ("textql_sdk.ontology", "Ontology"),
+        "observability": ("textql_sdk.observability_sdk", "ObservabilitySDK"),
+        "ontology": ("textql_sdk.ontology_sdk", "OntologySDK"),
         "playbooks": ("textql_sdk.playbooks", "Playbooks"),
         "powerbi": ("textql_sdk.powerbi_sdk", "PowerbiSDK"),
         "rbac": ("textql_sdk.rbac", "Rbac"),
@@ -89,8 +89,8 @@ class Textql(BaseSDK):
             "textql_sdk.sandboxcapabilities",
             "SandboxCapabilities",
         ),
-        "sandbox": ("textql_sdk.sandbox", "Sandbox"),
-        "scim": ("textql_sdk.scim", "Scim"),
+        "sandbox": ("textql_sdk.sandbox_sdk", "SandboxSDK"),
+        "scim": ("textql_sdk.scim_sdk", "ScimSDK"),
         "secrets": ("textql_sdk.secrets", "Secrets"),
         "settings": ("textql_sdk.settings", "Settings"),
         "slack": ("textql_sdk.slack", "Slack"),

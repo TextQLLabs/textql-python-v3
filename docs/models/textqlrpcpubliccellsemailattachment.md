@@ -1,5 +1,7 @@
 # TextqlRPCPublicCellsEmailAttachment
 
+EmailAttachment is delivered-attachment metadata surfaced to the frontend
+
 
 ## Fields
 

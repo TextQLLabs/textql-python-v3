@@ -19,6 +19,7 @@ class TextqlRPCPublicChatRateChatCellRequestTypedDict(TypedDict):
     cell_id: str
     rating: TextqlRPCPublicChatCellRating
     reason: NotRequired[Nullable[str]]
+    r"""free-text \"why\" captured from the rating modal"""
 
 
 class TextqlRPCPublicChatRateChatCellRequest(BaseModel):
@@ -29,6 +30,7 @@ class TextqlRPCPublicChatRateChatCellRequest(BaseModel):
     rating: TextqlRPCPublicChatCellRating
 
     reason: OptionalNullable[str] = UNSET
+    r"""free-text \"why\" captured from the rating modal"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

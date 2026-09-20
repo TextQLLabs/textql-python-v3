@@ -18,11 +18,9 @@ InputTokens = TypeAliasType("InputTokens", Union[int, str])
 CacheCreationInputTokensTypedDict = TypeAliasType(
     "CacheCreationInputTokensTypedDict", Union[int, str]
 )
-r"""if true, runs actual execution tests (expensive)"""
 
 
 CacheCreationInputTokens = TypeAliasType("CacheCreationInputTokens", Union[int, str])
-r"""if true, runs actual execution tests (expensive)"""
 
 
 CacheReadInputTokensTypedDict = TypeAliasType(
@@ -42,7 +40,6 @@ OutputTokens = TypeAliasType("OutputTokens", Union[int, str])
 class TextqlRPCPublicChatLlmUsageTypedDict(TypedDict):
     input_tokens: NotRequired[InputTokensTypedDict]
     cache_creation_input_tokens: NotRequired[CacheCreationInputTokensTypedDict]
-    r"""if true, runs actual execution tests (expensive)"""
     cache_read_input_tokens: NotRequired[CacheReadInputTokensTypedDict]
     output_tokens: NotRequired[OutputTokensTypedDict]
     model_name: NotRequired[str]
@@ -148,7 +145,6 @@ class TextqlRPCPublicChatLlmUsage(BaseModel):
         Optional[CacheCreationInputTokens],
         pydantic.Field(alias="cacheCreationInputTokens"),
     ] = None
-    r"""if true, runs actual execution tests (expensive)"""
 
     cache_read_input_tokens: Annotated[
         Optional[CacheReadInputTokens], pydantic.Field(alias="cacheReadInputTokens")

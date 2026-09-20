@@ -223,8 +223,14 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
+        permission: Optional[
+            Union[
+                models.TextqlRPCPublicRbacPermissionSpec,
+                models.TextqlRPCPublicRbacPermissionSpecTypedDict,
+            ]
+        ] = None,
         role_id: Optional[str] = None,
-        permission_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -233,8 +239,10 @@ class Rbac(BaseSDK):
         r"""AssignPermissionToRole
 
         :param connect_timeout_ms:
-        :param role_id:
-        :param permission_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param permission: A single RBAC permission. Select a resource and one of its supported actions.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -253,8 +261,11 @@ class Rbac(BaseSDK):
         request = models.RBACServiceAssignPermissionToRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacAssignPermissionToRoleRequest(
+                role_name=role_name,
+                permission=utils.get_pydantic_model(
+                    permission, Optional[models.TextqlRPCPublicRbacPermissionSpec]
+                ),
                 role_id=role_id,
-                permission_id=permission_id,
             ),
         )
 
@@ -330,8 +341,14 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
+        permission: Optional[
+            Union[
+                models.TextqlRPCPublicRbacPermissionSpec,
+                models.TextqlRPCPublicRbacPermissionSpecTypedDict,
+            ]
+        ] = None,
         role_id: Optional[str] = None,
-        permission_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -340,8 +357,10 @@ class Rbac(BaseSDK):
         r"""AssignPermissionToRole
 
         :param connect_timeout_ms:
-        :param role_id:
-        :param permission_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param permission: A single RBAC permission. Select a resource and one of its supported actions.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -360,8 +379,11 @@ class Rbac(BaseSDK):
         request = models.RBACServiceAssignPermissionToRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacAssignPermissionToRoleRequest(
+                role_name=role_name,
+                permission=utils.get_pydantic_model(
+                    permission, Optional[models.TextqlRPCPublicRbacPermissionSpec]
+                ),
                 role_id=role_id,
-                permission_id=permission_id,
             ),
         )
 
@@ -437,6 +459,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
+        role_name: Optional[str] = None,
         member_id: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -444,13 +468,17 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceAssignRoleToMemberResponse:
-        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+        r"""Member role assignment
 
-        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+        Member role assignment
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
         :param member_id:
-        :param role_id:
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -469,6 +497,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceAssignRoleToMemberRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacAssignRoleToMemberRequest(
+                member_email=member_email,
+                role_name=role_name,
                 member_id=member_id,
                 role_id=role_id,
             ),
@@ -546,6 +576,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
+        role_name: Optional[str] = None,
         member_id: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -553,13 +585,17 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceAssignRoleToMemberResponse:
-        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+        r"""Member role assignment
 
-        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+        Member role assignment
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
         :param member_id:
-        :param role_id:
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -578,6 +614,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceAssignRoleToMemberRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacAssignRoleToMemberRequest(
+                member_email=member_email,
+                role_name=role_name,
                 member_id=member_id,
                 role_id=role_id,
             ),
@@ -655,6 +693,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        target_member_email: OptionalNullable[str] = UNSET,
+        assumed_role_names: Optional[Iterable[str]] = None,
         expiry_seconds: OptionalNullable[int] = UNSET,
         assumed_roles: Optional[Iterable[str]] = None,
         inherit_all_roles: OptionalNullable[bool] = UNSET,
@@ -668,19 +708,40 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateAPIKeyResponse:
-        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+        r"""API Key management
 
-        SCIM group-mapping migration tooling: one-time role<->group conversion,
-        internal only.
+        API Key management
 
         :param connect_timeout_ms:
+        :param target_member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of target_member_id; if both are supplied they must identify the same member.
+        :param assumed_role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy assumed_roles IDs and deduplicated. The existing
+            member-role and calling API-key scope restrictions apply to both forms.
         :param expiry_seconds:
-        :param assumed_roles:
-        :param inherit_all_roles:
-        :param name:
-        :param target_member_id:
-        :param client_id:
-        :param suppress_superadmin:
+        :param assumed_roles: Role IDs (UUIDs) to scope the new API key to. The service validates that
+            each ID exists in the caller's org. Non-admin callers may only specify
+            roles they already hold; assumed-role API key callers may only specify
+            a subset of their current assumed roles.
+            Legacy role IDs. Prefer assumed_role_names.
+        :param inherit_all_roles: When true, the API key inherits all of the creating member's roles
+            (no assumed-role scoping). Callers must set this explicitly when
+            both role lists are empty; otherwise the request is rejected to prevent
+            accidentally creating over-privileged keys.
+        :param name: Optional display name for the API key.
+        :param target_member_id: Optional owner override for the new API key.
+            If unset, the API key is created for the calling member.
+            If set, the API key is created for this member ID (target principal):
+            service-account targets require the caller to hold organization:write;
+            human targets require api_access_key:delegate, and the key is bounded
+            by the target member's roles with superadmin elevation always
+            suppressed.
+        :param client_id: Optional client metadata stored on the API key as client_id.
+            Prefer a JSON object string when using structured client attributes.
+        :param suppress_superadmin: When true, requests authenticated with this key skip the
+            @textql.com-email superadmin elevation branch. Only meaningful
+            when paired with assumed_roles so a textql admin can preview a
+            role's experience without superadmin permissions bleeding through.
         :param full_member_access:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -700,6 +761,10 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreateAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreateAPIKeyRequest(
+                target_member_email=target_member_email,
+                assumed_role_names=utils.unmarshal(
+                    assumed_role_names, Optional[List[str]]
+                ),
                 expiry_seconds=expiry_seconds,
                 assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
                 inherit_all_roles=inherit_all_roles,
@@ -783,6 +848,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        target_member_email: OptionalNullable[str] = UNSET,
+        assumed_role_names: Optional[Iterable[str]] = None,
         expiry_seconds: OptionalNullable[int] = UNSET,
         assumed_roles: Optional[Iterable[str]] = None,
         inherit_all_roles: OptionalNullable[bool] = UNSET,
@@ -796,19 +863,40 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateAPIKeyResponse:
-        r"""SCIM group-mapping migration tooling: one-time role<->group conversion,  internal only.
+        r"""API Key management
 
-        SCIM group-mapping migration tooling: one-time role<->group conversion,
-        internal only.
+        API Key management
 
         :param connect_timeout_ms:
+        :param target_member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of target_member_id; if both are supplied they must identify the same member.
+        :param assumed_role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy assumed_roles IDs and deduplicated. The existing
+            member-role and calling API-key scope restrictions apply to both forms.
         :param expiry_seconds:
-        :param assumed_roles:
-        :param inherit_all_roles:
-        :param name:
-        :param target_member_id:
-        :param client_id:
-        :param suppress_superadmin:
+        :param assumed_roles: Role IDs (UUIDs) to scope the new API key to. The service validates that
+            each ID exists in the caller's org. Non-admin callers may only specify
+            roles they already hold; assumed-role API key callers may only specify
+            a subset of their current assumed roles.
+            Legacy role IDs. Prefer assumed_role_names.
+        :param inherit_all_roles: When true, the API key inherits all of the creating member's roles
+            (no assumed-role scoping). Callers must set this explicitly when
+            both role lists are empty; otherwise the request is rejected to prevent
+            accidentally creating over-privileged keys.
+        :param name: Optional display name for the API key.
+        :param target_member_id: Optional owner override for the new API key.
+            If unset, the API key is created for the calling member.
+            If set, the API key is created for this member ID (target principal):
+            service-account targets require the caller to hold organization:write;
+            human targets require api_access_key:delegate, and the key is bounded
+            by the target member's roles with superadmin elevation always
+            suppressed.
+        :param client_id: Optional client metadata stored on the API key as client_id.
+            Prefer a JSON object string when using structured client attributes.
+        :param suppress_superadmin: When true, requests authenticated with this key skip the
+            @textql.com-email superadmin elevation branch. Only meaningful
+            when paired with assumed_roles so a textql admin can preview a
+            role's experience without superadmin permissions bleeding through.
         :param full_member_access:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -828,6 +916,10 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreateAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreateAPIKeyRequest(
+                target_member_email=target_member_email,
+                assumed_role_names=utils.unmarshal(
+                    assumed_role_names, Optional[List[str]]
+                ),
                 expiry_seconds=expiry_seconds,
                 assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
                 inherit_all_roles=inherit_all_roles,
@@ -911,6 +1003,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        assumed_role_names: Optional[Iterable[str]] = None,
         name: OptionalNullable[str] = UNSET,
         expiry_seconds: OptionalNullable[int] = UNSET,
         assumed_roles: Optional[Iterable[str]] = None,
@@ -923,16 +1016,23 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreatePersonalAPIKeyResponse:
-        r"""CreatePersonalApiKey
+        r"""Create an API key owned by the calling member. Requires no permission.
+
+        Create an API key owned by the calling member. Requires no permission.
 
         :param connect_timeout_ms:
+        :param assumed_role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy assumed_roles IDs and deduplicated. The existing
+            member-role and calling API-key scope restrictions apply to both forms.
         :param name:
         :param expiry_seconds:
-        :param assumed_roles:
-        :param inherit_all_roles:
+        :param assumed_roles: Bounded by the roles the caller holds.
+            Legacy role IDs. Prefer assumed_role_names.
+        :param inherit_all_roles: Required when both role lists are empty, so omission cannot mint a wide key.
         :param client_id:
-        :param full_member_access:
-        :param suppress_superadmin:
+        :param full_member_access: Also reach the owner's own items; otherwise the key sees only what the
+            assumed roles can see.
+        :param suppress_superadmin: Drop @textql.com superadmin elevation. No-op for non-superadmins.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -951,6 +1051,9 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreatePersonalAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(
+                assumed_role_names=utils.unmarshal(
+                    assumed_role_names, Optional[List[str]]
+                ),
                 name=name,
                 expiry_seconds=expiry_seconds,
                 assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
@@ -1033,6 +1136,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        assumed_role_names: Optional[Iterable[str]] = None,
         name: OptionalNullable[str] = UNSET,
         expiry_seconds: OptionalNullable[int] = UNSET,
         assumed_roles: Optional[Iterable[str]] = None,
@@ -1045,16 +1149,23 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreatePersonalAPIKeyResponse:
-        r"""CreatePersonalApiKey
+        r"""Create an API key owned by the calling member. Requires no permission.
+
+        Create an API key owned by the calling member. Requires no permission.
 
         :param connect_timeout_ms:
+        :param assumed_role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy assumed_roles IDs and deduplicated. The existing
+            member-role and calling API-key scope restrictions apply to both forms.
         :param name:
         :param expiry_seconds:
-        :param assumed_roles:
-        :param inherit_all_roles:
+        :param assumed_roles: Bounded by the roles the caller holds.
+            Legacy role IDs. Prefer assumed_role_names.
+        :param inherit_all_roles: Required when both role lists are empty, so omission cannot mint a wide key.
         :param client_id:
-        :param full_member_access:
-        :param suppress_superadmin:
+        :param full_member_access: Also reach the owner's own items; otherwise the key sees only what the
+            assumed roles can see.
+        :param suppress_superadmin: Drop @textql.com superadmin elevation. No-op for non-superadmins.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1073,6 +1184,9 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreatePersonalAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreatePersonalAPIKeyRequest(
+                assumed_role_names=utils.unmarshal(
+                    assumed_role_names, Optional[List[str]]
+                ),
                 name=name,
                 expiry_seconds=expiry_seconds,
                 assumed_roles=utils.unmarshal(assumed_roles, Optional[List[str]]),
@@ -1157,6 +1271,8 @@ class Rbac(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         name: Optional[str] = None,
         description: Optional[str] = None,
+        color: Optional[str] = None,
+        icon: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1169,6 +1285,8 @@ class Rbac(BaseSDK):
         :param connect_timeout_ms:
         :param name:
         :param description:
+        :param color:
+        :param icon:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1189,6 +1307,8 @@ class Rbac(BaseSDK):
             body=models.TextqlRPCPublicRbacCreateRoleRequest(
                 name=name,
                 description=description,
+                color=color,
+                icon=icon,
             ),
         )
 
@@ -1266,6 +1386,8 @@ class Rbac(BaseSDK):
         connect_timeout_ms: Optional[float] = None,
         name: Optional[str] = None,
         description: Optional[str] = None,
+        color: Optional[str] = None,
+        icon: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1278,6 +1400,8 @@ class Rbac(BaseSDK):
         :param connect_timeout_ms:
         :param name:
         :param description:
+        :param color:
+        :param icon:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1298,6 +1422,8 @@ class Rbac(BaseSDK):
             body=models.TextqlRPCPublicRbacCreateRoleRequest(
                 name=name,
                 description=description,
+                color=color,
+                icon=icon,
             ),
         )
 
@@ -1369,26 +1495,250 @@ class Rbac(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def create_import_upload(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        file_name: Optional[str] = None,
+        size_bytes: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceCreateRolePermissionsUploadURLResponse:
+        r"""CreateRolePermissionsUploadUrl
+
+        :param connect_timeout_ms:
+        :param file_name:
+        :param size_bytes:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceCreateRolePermissionsUploadURLRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacCreateRolePermissionsUploadURLRequest(
+                file_name=file_name,
+                size_bytes=size_bytes,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/CreateRolePermissionsUploadUrl",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacCreateRolePermissionsUploadURLRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_CreateRolePermissionsUploadUrl",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacCreateRolePermissionsUploadURLResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def create_import_upload_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        file_name: Optional[str] = None,
+        size_bytes: Optional[int] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceCreateRolePermissionsUploadURLResponse:
+        r"""CreateRolePermissionsUploadUrl
+
+        :param connect_timeout_ms:
+        :param file_name:
+        :param size_bytes:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceCreateRolePermissionsUploadURLRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacCreateRolePermissionsUploadURLRequest(
+                file_name=file_name,
+                size_bytes=size_bytes,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/CreateRolePermissionsUploadUrl",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacCreateRolePermissionsUploadURLRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_CreateRolePermissionsUploadUrl",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacCreateRolePermissionsUploadURLResponse,
+                http_res,
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def create_service_account(
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        owner_member_email: OptionalNullable[str] = UNSET,
         name: Optional[str] = None,
         description: OptionalNullable[str] = UNSET,
         owner_member_id: OptionalNullable[str] = UNSET,
+        role_names: Optional[Iterable[str]] = None,
         role_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateServiceAccountResponse:
-        r"""CreateServiceAccount
+        r"""Service account management
+
+        Service account management
 
         :param connect_timeout_ms:
+        :param owner_member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of owner_member_id; if both are supplied they must identify the same member.
         :param name:
         :param description:
         :param owner_member_id:
-        :param role_ids:
+        :param role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy role_ids and deduplicated; bounded by caller authority.
+        :param role_ids: Legacy role IDs. Prefer role_names.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1407,9 +1757,11 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreateServiceAccountRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreateServiceAccountRequest(
+                owner_member_email=owner_member_email,
                 name=name,
                 description=description,
                 owner_member_id=owner_member_id,
+                role_names=utils.unmarshal(role_names, Optional[List[str]]),
                 role_ids=utils.unmarshal(role_ids, Optional[List[str]]),
             ),
         )
@@ -1486,22 +1838,30 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        owner_member_email: OptionalNullable[str] = UNSET,
         name: Optional[str] = None,
         description: OptionalNullable[str] = UNSET,
         owner_member_id: OptionalNullable[str] = UNSET,
+        role_names: Optional[Iterable[str]] = None,
         role_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateServiceAccountResponse:
-        r"""CreateServiceAccount
+        r"""Service account management
+
+        Service account management
 
         :param connect_timeout_ms:
+        :param owner_member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of owner_member_id; if both are supplied they must identify the same member.
         :param name:
         :param description:
         :param owner_member_id:
-        :param role_ids:
+        :param role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy role_ids and deduplicated; bounded by caller authority.
+        :param role_ids: Legacy role IDs. Prefer role_names.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1520,9 +1880,11 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreateServiceAccountRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreateServiceAccountRequest(
+                owner_member_email=owner_member_email,
                 name=name,
                 description=description,
                 owner_member_id=owner_member_id,
+                role_names=utils.unmarshal(role_names, Optional[List[str]]),
                 role_ids=utils.unmarshal(role_ids, Optional[List[str]]),
             ),
         )
@@ -1599,6 +1961,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        service_account_email: Optional[str] = None,
+        assumed_role_names: Optional[Iterable[str]] = None,
         service_account_member_id: Optional[str] = None,
         name: OptionalNullable[str] = UNSET,
         expiry_seconds: OptionalNullable[int] = UNSET,
@@ -1611,16 +1975,24 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateServiceAccountAPIKeyResponse:
-        r"""CreateServiceAccountApiKey
+        r"""Create an API key owned by a service account. Requires organization:write.
+
+        Create an API key owned by a service account. Requires organization:write.
 
         :param connect_timeout_ms:
+        :param service_account_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of service_account_member_id; if both are supplied they must identify the same member.
+        :param assumed_role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy assumed_roles IDs and deduplicated. The existing
+            member-role and calling API-key scope restrictions apply to both forms.
         :param service_account_member_id:
         :param name:
         :param expiry_seconds:
-        :param assumed_roles:
-        :param inherit_all_roles:
+        :param assumed_roles: Bounded by the service account's own roles; org admins get no bypass here.
+            Legacy role IDs. Prefer assumed_role_names.
+        :param inherit_all_roles: Required when both role lists are empty, so omission cannot mint a wide key.
         :param client_id:
-        :param full_member_access:
+        :param full_member_access: Also reach the service account's own items.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1639,6 +2011,10 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreateServiceAccountAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(
+                service_account_email=service_account_email,
+                assumed_role_names=utils.unmarshal(
+                    assumed_role_names, Optional[List[str]]
+                ),
                 service_account_member_id=service_account_member_id,
                 name=name,
                 expiry_seconds=expiry_seconds,
@@ -1721,6 +2097,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        service_account_email: Optional[str] = None,
+        assumed_role_names: Optional[Iterable[str]] = None,
         service_account_member_id: Optional[str] = None,
         name: OptionalNullable[str] = UNSET,
         expiry_seconds: OptionalNullable[int] = UNSET,
@@ -1733,16 +2111,24 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceCreateServiceAccountAPIKeyResponse:
-        r"""CreateServiceAccountApiKey
+        r"""Create an API key owned by a service account. Requires organization:write.
+
+        Create an API key owned by a service account. Requires organization:write.
 
         :param connect_timeout_ms:
+        :param service_account_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of service_account_member_id; if both are supplied they must identify the same member.
+        :param assumed_role_names: Exact, case-sensitive role names in the caller's organization.
+            Merged with legacy assumed_roles IDs and deduplicated. The existing
+            member-role and calling API-key scope restrictions apply to both forms.
         :param service_account_member_id:
         :param name:
         :param expiry_seconds:
-        :param assumed_roles:
-        :param inherit_all_roles:
+        :param assumed_roles: Bounded by the service account's own roles; org admins get no bypass here.
+            Legacy role IDs. Prefer assumed_role_names.
+        :param inherit_all_roles: Required when both role lists are empty, so omission cannot mint a wide key.
         :param client_id:
-        :param full_member_access:
+        :param full_member_access: Also reach the service account's own items.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1761,6 +2147,10 @@ class Rbac(BaseSDK):
         request = models.RBACServiceCreateServiceAccountAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacCreateServiceAccountAPIKeyRequest(
+                service_account_email=service_account_email,
+                assumed_role_names=utils.unmarshal(
+                    assumed_role_names, Optional[List[str]]
+                ),
                 service_account_member_id=service_account_member_id,
                 name=name,
                 expiry_seconds=expiry_seconds,
@@ -1843,6 +2233,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1852,7 +2243,9 @@ class Rbac(BaseSDK):
         r"""DeleteRole
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1871,6 +2264,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceDeleteRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacDeleteRoleRequest(
+                role_name=role_name,
                 role_id=role_id,
             ),
         )
@@ -1947,6 +2341,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1956,7 +2351,9 @@ class Rbac(BaseSDK):
         r"""DeleteRole
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1975,6 +2372,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceDeleteRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacDeleteRoleRequest(
+                role_name=role_name,
                 role_id=role_id,
             ),
         )
@@ -2051,6 +2449,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
         member_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2060,6 +2459,8 @@ class Rbac(BaseSDK):
         r"""DeleteServiceAccount
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
         :param member_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2079,6 +2480,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceDeleteServiceAccountRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacDeleteServiceAccountRequest(
+                member_email=member_email,
                 member_id=member_id,
             ),
         )
@@ -2155,6 +2557,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
         member_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2164,6 +2567,8 @@ class Rbac(BaseSDK):
         r"""DeleteServiceAccount
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
         :param member_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2183,6 +2588,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceDeleteServiceAccountRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacDeleteServiceAccountRequest(
+                member_email=member_email,
                 member_id=member_id,
             ),
         )
@@ -2255,14 +2661,11 @@ class Rbac(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    def export_role_permissions(
+    def export_roles(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicRbacExportRolePermissionsRequest,
-            models.TextqlRPCPublicRbacExportRolePermissionsRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        format_: Optional[models.TextqlRPCPublicRbacRolePermissionsExportFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2270,8 +2673,8 @@ class Rbac(BaseSDK):
     ) -> models.RBACServiceExportRolePermissionsResponse:
         r"""ExportRolePermissions
 
-        :param body:
         :param connect_timeout_ms:
+        :param format_:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2289,8 +2692,8 @@ class Rbac(BaseSDK):
 
         request = models.RBACServiceExportRolePermissionsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicRbacExportRolePermissionsRequest
+            body=models.TextqlRPCPublicRbacExportRolePermissionsRequest(
+                format_=format_,
             ),
         )
 
@@ -2362,14 +2765,11 @@ class Rbac(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
-    async def export_role_permissions_async(
+    async def export_roles_async(
         self,
         *,
-        body: Union[
-            models.TextqlRPCPublicRbacExportRolePermissionsRequest,
-            models.TextqlRPCPublicRbacExportRolePermissionsRequestTypedDict,
-        ],
         connect_timeout_ms: Optional[float] = None,
+        format_: Optional[models.TextqlRPCPublicRbacRolePermissionsExportFormat] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2377,8 +2777,8 @@ class Rbac(BaseSDK):
     ) -> models.RBACServiceExportRolePermissionsResponse:
         r"""ExportRolePermissions
 
-        :param body:
         :param connect_timeout_ms:
+        :param format_:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2396,8 +2796,8 @@ class Rbac(BaseSDK):
 
         request = models.RBACServiceExportRolePermissionsRequest(
             connect_timeout_ms=connect_timeout_ms,
-            body=utils.get_pydantic_model(
-                body, models.TextqlRPCPublicRbacExportRolePermissionsRequest
+            body=models.TextqlRPCPublicRbacExportRolePermissionsRequest(
+                format_=format_,
             ),
         )
 
@@ -2696,7 +3096,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetCurrentMemberRolesAndPermissionsResponse:
-        r"""GetCurrentMemberRolesAndPermissions
+        r"""Get current member roles and permissions
+
+        Get current member roles and permissions
 
         :param body:
         :param connect_timeout_ms:
@@ -2805,7 +3207,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetCurrentMemberRolesAndPermissionsResponse:
-        r"""GetCurrentMemberRolesAndPermissions
+        r"""Get current member roles and permissions
+
+        Get current member roles and permissions
 
         :param body:
         :param connect_timeout_ms:
@@ -2905,6 +3309,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
         member_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2914,6 +3319,8 @@ class Rbac(BaseSDK):
         r"""GetEmbedUserApiKey
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
         :param member_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2933,6 +3340,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetEmbedUserAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetEmbedUserAPIKeyRequest(
+                member_email=member_email,
                 member_id=member_id,
             ),
         )
@@ -3009,6 +3417,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
         member_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -3018,6 +3427,8 @@ class Rbac(BaseSDK):
         r"""GetEmbedUserApiKey
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
         :param member_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3037,6 +3448,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetEmbedUserAPIKeyRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetEmbedUserAPIKeyRequest(
+                member_email=member_email,
                 member_id=member_id,
             ),
         )
@@ -3113,17 +3525,18 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_emails: Optional[Iterable[str]] = None,
         member_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetMemberRolesResponse:
-        r"""Member role assignment
-
-        Member role assignment
+        r"""GetMemberRoles
 
         :param connect_timeout_ms:
+        :param member_emails: Emails within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Merged with member_ids and deduplicated. Unknown emails are rejected.
         :param member_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3143,6 +3556,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetMemberRolesRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetMemberRolesRequest(
+                member_emails=utils.unmarshal(member_emails, Optional[List[str]]),
                 member_ids=utils.unmarshal(member_ids, Optional[List[str]]),
             ),
         )
@@ -3219,17 +3633,18 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_emails: Optional[Iterable[str]] = None,
         member_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetMemberRolesResponse:
-        r"""Member role assignment
-
-        Member role assignment
+        r"""GetMemberRoles
 
         :param connect_timeout_ms:
+        :param member_emails: Emails within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Merged with member_ids and deduplicated. Unknown emails are rejected.
         :param member_ids:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3249,6 +3664,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetMemberRolesRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetMemberRolesRequest(
+                member_emails=utils.unmarshal(member_emails, Optional[List[str]]),
                 member_ids=utils.unmarshal(member_ids, Optional[List[str]]),
             ),
         )
@@ -3539,6 +3955,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -3548,7 +3965,9 @@ class Rbac(BaseSDK):
         r"""GetRole
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3567,6 +3986,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetRoleRequest(
+                role_name=role_name,
                 role_id=role_id,
             ),
         )
@@ -3643,6 +4063,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -3652,7 +4073,9 @@ class Rbac(BaseSDK):
         r"""GetRole
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3671,6 +4094,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetRoleRequest(
+                role_name=role_name,
                 role_id=role_id,
             ),
         )
@@ -3747,18 +4171,19 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetRolePermissionsResponse:
-        r"""Permission management
-
-        Permission management
+        r"""GetRolePermissions
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3777,6 +4202,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetRolePermissionsRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetRolePermissionsRequest(
+                role_name=role_name,
                 role_id=role_id,
             ),
         )
@@ -3853,18 +4279,19 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceGetRolePermissionsResponse:
-        r"""Permission management
-
-        Permission management
+        r"""GetRolePermissions
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3883,6 +4310,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceGetRolePermissionsRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacGetRolePermissionsRequest(
+                role_name=role_name,
                 role_id=role_id,
             ),
         )
@@ -3959,6 +4387,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: OptionalNullable[str] = UNSET,
+        role_name: OptionalNullable[str] = UNSET,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         member_id: OptionalNullable[str] = UNSET,
@@ -3971,10 +4401,14 @@ class Rbac(BaseSDK):
         r"""HasObjectAccess
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name in the caller's organization.
+            To target a role, supply role_name or role_id; if both are supplied they must match.
         :param object_type:
         :param object_id:
         :param member_id:
-        :param role_id: owner, editor, viewer
+        :param role_id: Legacy role ID. Prefer role_name.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3993,6 +4427,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceHasObjectAccessRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacHasObjectAccessRequest(
+                member_email=member_email,
+                role_name=role_name,
                 object_type=object_type,
                 object_id=object_id,
                 member_id=member_id,
@@ -4072,6 +4508,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: OptionalNullable[str] = UNSET,
+        role_name: OptionalNullable[str] = UNSET,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         member_id: OptionalNullable[str] = UNSET,
@@ -4084,10 +4522,14 @@ class Rbac(BaseSDK):
         r"""HasObjectAccess
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name in the caller's organization.
+            To target a role, supply role_name or role_id; if both are supplied they must match.
         :param object_type:
         :param object_id:
         :param member_id:
-        :param role_id: owner, editor, viewer
+        :param role_id: Legacy role ID. Prefer role_name.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4106,6 +4548,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceHasObjectAccessRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacHasObjectAccessRequest(
+                member_email=member_email,
+                role_name=role_name,
                 object_type=object_type,
                 object_id=object_id,
                 member_id=member_id,
@@ -4181,6 +4625,238 @@ class Rbac(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def import_roles(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        data: Optional[str] = None,
+        draft: Optional[
+            Union[
+                models.TextqlRPCPublicRbacRolePermissionsImportDraft,
+                models.TextqlRPCPublicRbacRolePermissionsImportDraftTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceImportRolePermissionsResponse:
+        r"""ImportRolePermissions
+
+        :param connect_timeout_ms:
+        :param data: Legacy CSV input. Prefer draft to approve an edited parsing response.
+            Supply exactly one of data or draft. All values are validated before creation.
+        :param draft:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceImportRolePermissionsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacImportRolePermissionsRequest(
+                data=data,
+                draft=utils.get_pydantic_model(
+                    draft,
+                    Optional[models.TextqlRPCPublicRbacRolePermissionsImportDraft],
+                ),
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/ImportRolePermissions",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacImportRolePermissionsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_ImportRolePermissions",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacImportRolePermissionsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def import_roles_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        data: Optional[str] = None,
+        draft: Optional[
+            Union[
+                models.TextqlRPCPublicRbacRolePermissionsImportDraft,
+                models.TextqlRPCPublicRbacRolePermissionsImportDraftTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceImportRolePermissionsResponse:
+        r"""ImportRolePermissions
+
+        :param connect_timeout_ms:
+        :param data: Legacy CSV input. Prefer draft to approve an edited parsing response.
+            Supply exactly one of data or draft. All values are validated before creation.
+        :param draft:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceImportRolePermissionsRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacImportRolePermissionsRequest(
+                data=data,
+                draft=utils.get_pydantic_model(
+                    draft,
+                    Optional[models.TextqlRPCPublicRbacRolePermissionsImportDraft],
+                ),
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/ImportRolePermissions",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacImportRolePermissionsRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_ImportRolePermissions",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacImportRolePermissionsResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def list_access_requests(
         self,
         *,
@@ -4198,7 +4874,7 @@ class Rbac(BaseSDK):
         :param connect_timeout_ms:
         :param object_type:
         :param object_id:
-        :param status:
+        :param status: pending, approved, rejected
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4308,7 +4984,7 @@ class Rbac(BaseSDK):
         :param connect_timeout_ms:
         :param object_type:
         :param object_id:
-        :param status:
+        :param status: pending, approved, rejected
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -4405,6 +5081,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        service_account_email: OptionalNullable[str] = UNSET,
         scope: Optional[models.TextqlRPCPublicRbacAPIKeyScope] = None,
         service_account_member_id: OptionalNullable[str] = UNSET,
         include_revoked: OptionalNullable[bool] = UNSET,
@@ -4421,6 +5098,8 @@ class Rbac(BaseSDK):
         r"""ListApiKeys
 
         :param connect_timeout_ms:
+        :param service_account_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of service_account_member_id; if both are supplied they must identify the same member.
         :param scope:
         :param service_account_member_id:
         :param include_revoked:
@@ -4447,6 +5126,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceListAPIKeysRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacListAPIKeysRequest(
+                service_account_email=service_account_email,
                 scope=scope,
                 service_account_member_id=service_account_member_id,
                 include_revoked=include_revoked,
@@ -4530,6 +5210,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        service_account_email: OptionalNullable[str] = UNSET,
         scope: Optional[models.TextqlRPCPublicRbacAPIKeyScope] = None,
         service_account_member_id: OptionalNullable[str] = UNSET,
         include_revoked: OptionalNullable[bool] = UNSET,
@@ -4546,6 +5227,8 @@ class Rbac(BaseSDK):
         r"""ListApiKeys
 
         :param connect_timeout_ms:
+        :param service_account_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of service_account_member_id; if both are supplied they must identify the same member.
         :param scope:
         :param service_account_member_id:
         :param include_revoked:
@@ -4572,6 +5255,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceListAPIKeysRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacListAPIKeysRequest(
+                service_account_email=service_account_email,
                 scope=scope,
                 service_account_member_id=service_account_member_id,
                 include_revoked=include_revoked,
@@ -4664,7 +5348,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceListPermissionsResponse:
-        r"""ListPermissions
+        r"""Permission management
+
+        Permission management
 
         :param body:
         :param connect_timeout_ms:
@@ -4771,7 +5457,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceListPermissionsResponse:
-        r"""ListPermissions
+        r"""Permission management
+
+        Permission management
 
         :param body:
         :param connect_timeout_ms:
@@ -5299,6 +5987,220 @@ class Rbac(BaseSDK):
 
         raise errors.TextqlDefaultError("Unexpected response received", http_res)
 
+    def parse_role_import(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        file_url: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceParseRolePermissionsImportResponse:
+        r"""Parse a CSV or XLSX file into an editable draft without creating roles.  Unknown names and values are preserved for correction; import validates them.
+
+        Parse a CSV or XLSX file into an editable draft without creating roles.
+        Unknown names and values are preserved for correction; import validates them.
+
+        :param connect_timeout_ms:
+        :param file_url: Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceParseRolePermissionsImportRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacParseRolePermissionsImportRequest(
+                file_url=file_url,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/ParseRolePermissionsImport",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacParseRolePermissionsImportRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_ParseRolePermissionsImport",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacParseRolePermissionsImportResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
+    async def parse_role_import_async(
+        self,
+        *,
+        connect_timeout_ms: Optional[float] = None,
+        file_url: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RBACServiceParseRolePermissionsImportResponse:
+        r"""Parse a CSV or XLSX file into an editable draft without creating roles.  Unknown names and values are preserved for correction; import validates them.
+
+        Parse a CSV or XLSX file into an editable draft without creating roles.
+        Unknown names and values are preserved for correction; import validates them.
+
+        :param connect_timeout_ms:
+        :param file_url: Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.RBACServiceParseRolePermissionsImportRequest(
+            connect_timeout_ms=connect_timeout_ms,
+            body=models.TextqlRPCPublicRbacParseRolePermissionsImportRequest(
+                file_url=file_url,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/textql.rpc.public.rbac.RBACService/ParseRolePermissionsImport",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.body,
+                False,
+                False,
+                "json",
+                models.TextqlRPCPublicRbacParseRolePermissionsImportRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="RBACService_ParseRolePermissionsImport",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["RBACService"],
+                extensions=None,
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(
+                models.TextqlRPCPublicRbacParseRolePermissionsImportResponse, http_res
+            )
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.TextqlDefaultError(
+                "API error occurred", http_res, http_res_text
+            )
+        if utils.match_response(http_res, "default", "application/json"):
+            return unmarshal_json_response(models.ConnectError, http_res)
+
+        raise errors.TextqlDefaultError("Unexpected response received", http_res)
+
     def reject_access_request(
         self,
         *,
@@ -5517,8 +6419,14 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
+        permission: Optional[
+            Union[
+                models.TextqlRPCPublicRbacPermissionSpec,
+                models.TextqlRPCPublicRbacPermissionSpecTypedDict,
+            ]
+        ] = None,
         role_id: Optional[str] = None,
-        permission_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -5527,8 +6435,10 @@ class Rbac(BaseSDK):
         r"""RemovePermissionFromRole
 
         :param connect_timeout_ms:
-        :param role_id:
-        :param permission_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param permission: A single RBAC permission. Select a resource and one of its supported actions.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5547,8 +6457,11 @@ class Rbac(BaseSDK):
         request = models.RBACServiceRemovePermissionFromRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacRemovePermissionFromRoleRequest(
+                role_name=role_name,
+                permission=utils.get_pydantic_model(
+                    permission, Optional[models.TextqlRPCPublicRbacPermissionSpec]
+                ),
                 role_id=role_id,
-                permission_id=permission_id,
             ),
         )
 
@@ -5624,8 +6537,14 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
+        permission: Optional[
+            Union[
+                models.TextqlRPCPublicRbacPermissionSpec,
+                models.TextqlRPCPublicRbacPermissionSpecTypedDict,
+            ]
+        ] = None,
         role_id: Optional[str] = None,
-        permission_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -5634,8 +6553,10 @@ class Rbac(BaseSDK):
         r"""RemovePermissionFromRole
 
         :param connect_timeout_ms:
-        :param role_id:
-        :param permission_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param permission: A single RBAC permission. Select a resource and one of its supported actions.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5654,8 +6575,11 @@ class Rbac(BaseSDK):
         request = models.RBACServiceRemovePermissionFromRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacRemovePermissionFromRoleRequest(
+                role_name=role_name,
+                permission=utils.get_pydantic_model(
+                    permission, Optional[models.TextqlRPCPublicRbacPermissionSpec]
+                ),
                 role_id=role_id,
-                permission_id=permission_id,
             ),
         )
 
@@ -5731,6 +6655,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
+        role_name: Optional[str] = None,
         member_id: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -5741,8 +6667,12 @@ class Rbac(BaseSDK):
         r"""RemoveRoleFromMember
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
         :param member_id:
-        :param role_id:
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5761,6 +6691,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceRemoveRoleFromMemberRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacRemoveRoleFromMemberRequest(
+                member_email=member_email,
+                role_name=role_name,
                 member_id=member_id,
                 role_id=role_id,
             ),
@@ -5838,6 +6770,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
+        role_name: Optional[str] = None,
         member_id: Optional[str] = None,
         role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -5848,8 +6782,12 @@ class Rbac(BaseSDK):
         r"""RemoveRoleFromMember
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
         :param member_id:
-        :param role_id:
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -5868,6 +6806,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceRemoveRoleFromMemberRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacRemoveRoleFromMemberRequest(
+                member_email=member_email,
+                role_name=role_name,
                 member_id=member_id,
                 role_id=role_id,
             ),
@@ -5955,12 +6895,14 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRequestAccessResponse:
-        r"""RequestAccess
+        r"""Access request management
+
+        Access request management
 
         :param connect_timeout_ms:
         :param object_type:
         :param object_id:
-        :param requested_access_type:
+        :param requested_access_type: owner, editor, viewer
         :param justification:
         :param request_message:
         :param retries: Override the default retry configuration for this method
@@ -6071,12 +7013,14 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRequestAccessResponse:
-        r"""RequestAccess
+        r"""Access request management
+
+        Access request management
 
         :param connect_timeout_ms:
         :param object_type:
         :param object_id:
-        :param requested_access_type:
+        :param requested_access_type: owner, editor, viewer
         :param justification:
         :param request_message:
         :param retries: Override the default retry configuration for this method
@@ -6385,6 +7329,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: OptionalNullable[str] = UNSET,
+        role_name: OptionalNullable[str] = UNSET,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         member_id: OptionalNullable[str] = UNSET,
@@ -6394,15 +7340,17 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeObjectAccessResponse:
-        r"""Group management. Internal only.
-
-        Group management. Internal only.
+        r"""RevokeObjectAccess
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name in the caller's organization.
+            To target a role, supply role_name or role_id; if both are supplied they must match.
         :param object_type:
         :param object_id:
         :param member_id:
-        :param role_id:
+        :param role_id: Legacy role ID. Prefer role_name.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6421,6 +7369,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceRevokeObjectAccessRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacRevokeObjectAccessRequest(
+                member_email=member_email,
+                role_name=role_name,
                 object_type=object_type,
                 object_id=object_id,
                 member_id=member_id,
@@ -6500,6 +7450,8 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: OptionalNullable[str] = UNSET,
+        role_name: OptionalNullable[str] = UNSET,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         member_id: OptionalNullable[str] = UNSET,
@@ -6509,15 +7461,17 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRevokeObjectAccessResponse:
-        r"""Group management. Internal only.
-
-        Group management. Internal only.
+        r"""RevokeObjectAccess
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
+        :param role_name: Exact, case-sensitive role name in the caller's organization.
+            To target a role, supply role_name or role_id; if both are supplied they must match.
         :param object_type:
         :param object_id:
         :param member_id:
-        :param role_id:
+        :param role_id: Legacy role ID. Prefer role_name.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6536,6 +7490,8 @@ class Rbac(BaseSDK):
         request = models.RBACServiceRevokeObjectAccessRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacRevokeObjectAccessRequest(
+                member_email=member_email,
+                role_name=role_name,
                 object_type=object_type,
                 object_id=object_id,
                 member_id=member_id,
@@ -6621,9 +7577,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRotateAPIKeyResponse:
-        r"""Object sharing and access control
-
-        Object sharing and access control
+        r"""RotateApiKey
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6727,9 +7681,7 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceRotateAPIKeyResponse:
-        r"""Object sharing and access control
-
-        Object sharing and access control
+        r"""RotateApiKey
 
         :param connect_timeout_ms:
         :param api_key_id:
@@ -6827,20 +7779,36 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
+        add_permissions: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicRbacPermissionSpec],
+                Iterable[models.TextqlRPCPublicRbacPermissionSpecTypedDict],
+            ]
+        ] = None,
+        remove_permissions: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicRbacPermissionSpec],
+                Iterable[models.TextqlRPCPublicRbacPermissionSpecTypedDict],
+            ]
+        ] = None,
         role_id: Optional[str] = None,
-        add_permission_ids: Optional[Iterable[str]] = None,
-        remove_permission_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceSetRolePermissionsResponse:
-        r"""SetRolePermissions
+        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+
+        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
 
         :param connect_timeout_ms:
-        :param role_id:
-        :param add_permission_ids:
-        :param remove_permission_ids:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param add_permissions: Permissions to add. Duplicates are ignored; a permission cannot be both
+            added and removed in the same request.
+        :param remove_permissions: Permissions to remove.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6859,13 +7827,16 @@ class Rbac(BaseSDK):
         request = models.RBACServiceSetRolePermissionsRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacSetRolePermissionsRequest(
+                role_name=role_name,
+                add_permissions=utils.get_pydantic_model(
+                    add_permissions,
+                    Optional[List[models.TextqlRPCPublicRbacPermissionSpec]],
+                ),
+                remove_permissions=utils.get_pydantic_model(
+                    remove_permissions,
+                    Optional[List[models.TextqlRPCPublicRbacPermissionSpec]],
+                ),
                 role_id=role_id,
-                add_permission_ids=utils.unmarshal(
-                    add_permission_ids, Optional[List[str]]
-                ),
-                remove_permission_ids=utils.unmarshal(
-                    remove_permission_ids, Optional[List[str]]
-                ),
             ),
         )
 
@@ -6941,20 +7912,36 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
+        add_permissions: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicRbacPermissionSpec],
+                Iterable[models.TextqlRPCPublicRbacPermissionSpecTypedDict],
+            ]
+        ] = None,
+        remove_permissions: Optional[
+            Union[
+                Iterable[models.TextqlRPCPublicRbacPermissionSpec],
+                Iterable[models.TextqlRPCPublicRbacPermissionSpecTypedDict],
+            ]
+        ] = None,
         role_id: Optional[str] = None,
-        add_permission_ids: Optional[Iterable[str]] = None,
-        remove_permission_ids: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceSetRolePermissionsResponse:
-        r"""SetRolePermissions
+        r"""Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
+
+        Bulk add/remove permissions on a role in one call, producing a single audit entry for the whole edit.
 
         :param connect_timeout_ms:
-        :param role_id:
-        :param add_permission_ids:
-        :param remove_permission_ids:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id.
+        :param add_permissions: Permissions to add. Duplicates are ignored; a permission cannot be both
+            added and removed in the same request.
+        :param remove_permissions: Permissions to remove.
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6973,13 +7960,16 @@ class Rbac(BaseSDK):
         request = models.RBACServiceSetRolePermissionsRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacSetRolePermissionsRequest(
+                role_name=role_name,
+                add_permissions=utils.get_pydantic_model(
+                    add_permissions,
+                    Optional[List[models.TextqlRPCPublicRbacPermissionSpec]],
+                ),
+                remove_permissions=utils.get_pydantic_model(
+                    remove_permissions,
+                    Optional[List[models.TextqlRPCPublicRbacPermissionSpec]],
+                ),
                 role_id=role_id,
-                add_permission_ids=utils.unmarshal(
-                    add_permission_ids, Optional[List[str]]
-                ),
-                remove_permission_ids=utils.unmarshal(
-                    remove_permission_ids, Optional[List[str]]
-                ),
             ),
         )
 
@@ -7055,6 +8045,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         member_id: Optional[str] = None,
@@ -7066,15 +8057,17 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectResponse:
-        r"""Get current member roles and permissions
+        r"""Object sharing and access control
 
-        Get current member roles and permissions
+        Object sharing and access control
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
         :param object_type:
         :param object_id:
         :param member_id:
-        :param access_type:
+        :param access_type: owner, editor, viewer
         :param expires_at: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -7183,6 +8176,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceShareObjectRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacShareObjectRequest(
+                member_email=member_email,
                 object_type=object_type,
                 object_id=object_id,
                 member_id=member_id,
@@ -7264,6 +8258,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        member_email: Optional[str] = None,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         member_id: Optional[str] = None,
@@ -7275,15 +8270,17 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectResponse:
-        r"""Get current member roles and permissions
+        r"""Object sharing and access control
 
-        Get current member roles and permissions
+        Object sharing and access control
 
         :param connect_timeout_ms:
+        :param member_email: Email within the caller's organization; case-insensitive, with outer whitespace ignored.
+            Use instead of member_id; if both are supplied they must identify the same member.
         :param object_type:
         :param object_id:
         :param member_id:
-        :param access_type:
+        :param access_type: owner, editor, viewer
         :param expires_at: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -7392,6 +8389,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceShareObjectRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacShareObjectRequest(
+                member_email=member_email,
                 object_type=object_type,
                 object_id=object_id,
                 member_id=member_id,
@@ -7473,6 +8471,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         role_id: Optional[str] = None,
@@ -7484,15 +8483,15 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectWithRoleResponse:
-        r"""Describe what a key is allowed to do.
-
-        Describe what a key is allowed to do.
+        r"""ShareObjectWithRole
 
         :param connect_timeout_ms:
+        :param role_name: Exact, case-sensitive role name in the caller's organization.
+            Supply role_name or role_id; if both are supplied they must match.
         :param object_type:
         :param object_id:
-        :param role_id:
-        :param access_type:
+        :param role_id: Legacy role ID. Prefer role_name.
+        :param access_type: owner, editor, viewer
         :param expires_at: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -7601,6 +8600,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceShareObjectWithRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacShareObjectWithRoleRequest(
+                role_name=role_name,
                 object_type=object_type,
                 object_id=object_id,
                 role_id=role_id,
@@ -7682,6 +8682,7 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
+        role_name: Optional[str] = None,
         object_type: Optional[str] = None,
         object_id: Optional[str] = None,
         role_id: Optional[str] = None,
@@ -7693,15 +8694,15 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceShareObjectWithRoleResponse:
-        r"""Describe what a key is allowed to do.
-
-        Describe what a key is allowed to do.
+        r"""ShareObjectWithRole
 
         :param connect_timeout_ms:
+        :param role_name: Exact, case-sensitive role name in the caller's organization.
+            Supply role_name or role_id; if both are supplied they must match.
         :param object_type:
         :param object_id:
-        :param role_id:
-        :param access_type:
+        :param role_id: Legacy role ID. Prefer role_name.
+        :param access_type: owner, editor, viewer
         :param expires_at: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -7810,6 +8811,7 @@ class Rbac(BaseSDK):
         request = models.RBACServiceShareObjectWithRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacShareObjectWithRoleRequest(
+                role_name=role_name,
                 object_type=object_type,
                 object_id=object_id,
                 role_id=role_id,
@@ -7903,7 +8905,7 @@ class Rbac(BaseSDK):
 
         :param connect_timeout_ms:
         :param access_id:
-        :param access_type:
+        :param access_type: owner, editor, viewer
         :param expires_at: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -8101,7 +9103,7 @@ class Rbac(BaseSDK):
 
         :param connect_timeout_ms:
         :param access_id:
-        :param access_type:
+        :param access_type: owner, editor, viewer
         :param expires_at: A Timestamp represents a point in time independent of any time zone or local
             calendar, encoded as a count of seconds and fractions of seconds at
             nanosecond resolution. The count is relative to an epoch at UTC midnight on
@@ -8507,13 +9509,16 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        role_id: Optional[str] = None,
+        role_name: Optional[str] = None,
         name: Optional[str] = None,
         description: Optional[str] = None,
-        allow_model_choice: Optional[bool] = None,
-        clear_allowed_model_ids: Optional[bool] = None,
         allowed_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
         default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        allow_model_choice: Optional[bool] = None,
+        clear_allowed_model_ids: Optional[bool] = None,
+        color: OptionalNullable[str] = UNSET,
+        icon: OptionalNullable[str] = UNSET,
+        role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8522,18 +9527,23 @@ class Rbac(BaseSDK):
         r"""UpdateRole
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id. For updates, name is the new name.
         :param name:
         :param description:
+        :param allowed_models:
+        :param default_model:
         :param allow_model_choice: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
-        :param clear_allowed_model_ids:
-        :param allowed_models:
-        :param default_model:
+        :param clear_allowed_model_ids: Clears allowed_models back to \"all models allowed\". Needed because proto3
+            cannot distinguish an empty repeated field from an absent one.
+        :param color: Omitted preserves the existing value; empty resets to the default.
+        :param icon:
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8552,15 +9562,18 @@ class Rbac(BaseSDK):
         request = models.RBACServiceUpdateRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacUpdateRoleRequest(
-                role_id=role_id,
+                role_name=role_name,
                 name=name,
                 description=description,
-                allow_model_choice=allow_model_choice,
-                clear_allowed_model_ids=clear_allowed_model_ids,
                 allowed_models=utils.unmarshal(
                     allowed_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
                 ),
                 default_model=default_model,
+                allow_model_choice=allow_model_choice,
+                clear_allowed_model_ids=clear_allowed_model_ids,
+                color=color,
+                icon=icon,
+                role_id=role_id,
             ),
         )
 
@@ -8636,13 +9649,16 @@ class Rbac(BaseSDK):
         self,
         *,
         connect_timeout_ms: Optional[float] = None,
-        role_id: Optional[str] = None,
+        role_name: Optional[str] = None,
         name: Optional[str] = None,
         description: Optional[str] = None,
-        allow_model_choice: Optional[bool] = None,
-        clear_allowed_model_ids: Optional[bool] = None,
         allowed_models: Optional[Iterable[models.TextqlRPCPublicChatLlmModel]] = None,
         default_model: Optional[models.TextqlRPCPublicChatLlmModel] = None,
+        allow_model_choice: Optional[bool] = None,
+        clear_allowed_model_ids: Optional[bool] = None,
+        color: OptionalNullable[str] = UNSET,
+        icon: OptionalNullable[str] = UNSET,
+        role_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -8651,18 +9667,23 @@ class Rbac(BaseSDK):
         r"""UpdateRole
 
         :param connect_timeout_ms:
-        :param role_id:
+        :param role_name: Exact, case-sensitive role name, unique within the caller's organization.
+            Supply role_name or role_id. For updates, name is the new name.
         :param name:
         :param description:
+        :param allowed_models:
+        :param default_model:
         :param allow_model_choice: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
-        :param clear_allowed_model_ids:
-        :param allowed_models:
-        :param default_model:
+        :param clear_allowed_model_ids: Clears allowed_models back to \"all models allowed\". Needed because proto3
+            cannot distinguish an empty repeated field from an absent one.
+        :param color: Omitted preserves the existing value; empty resets to the default.
+        :param icon:
+        :param role_id: Existing role ID. Prefer role_name; if both are supplied they must match.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -8681,15 +9702,18 @@ class Rbac(BaseSDK):
         request = models.RBACServiceUpdateRoleRequest(
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacUpdateRoleRequest(
-                role_id=role_id,
+                role_name=role_name,
                 name=name,
                 description=description,
-                allow_model_choice=allow_model_choice,
-                clear_allowed_model_ids=clear_allowed_model_ids,
                 allowed_models=utils.unmarshal(
                     allowed_models, Optional[List[models.TextqlRPCPublicChatLlmModel]]
                 ),
                 default_model=default_model,
+                allow_model_choice=allow_model_choice,
+                clear_allowed_model_ids=clear_allowed_model_ids,
+                color=color,
+                icon=icon,
+                role_id=role_id,
             ),
         )
 
@@ -8774,7 +9798,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceWhoAmIResponse:
-        r"""WhoAmI
+        r"""Describe what a key is allowed to do.
+
+        Describe what a key is allowed to do.
 
         :param body:
         :param connect_timeout_ms:
@@ -8881,7 +9907,9 @@ class Rbac(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.RBACServiceWhoAmIResponse:
-        r"""WhoAmI
+        r"""Describe what a key is allowed to do.
+
+        Describe what a key is allowed to do.
 
         :param body:
         :param connect_timeout_ms:

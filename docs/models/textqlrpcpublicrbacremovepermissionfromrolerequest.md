@@ -3,7 +3,8 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `role_id`          | *Optional[str]*    | :heavy_minus_sign: | N/A                |
-| `permission_id`    | *Optional[str]*    | :heavy_minus_sign: | N/A                |
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `role_name`                                                                                             | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | Exact, case-sensitive role name, unique within the caller's organization.<br/> Supply role_name or role_id. |
+| `permission`                                                                                            | [Optional[models.TextqlRPCPublicRbacPermissionSpec]](../models/textqlrpcpublicrbacpermissionspec.md)    | :heavy_minus_sign:                                                                                      | A single RBAC permission. Select a resource and one of its supported actions.                           |
+| `role_id`                                                                                               | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | Existing role ID. Prefer role_name; if both are supplied they must match.                               |

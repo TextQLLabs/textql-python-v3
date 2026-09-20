@@ -17,7 +17,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicPatchesGetFileUsageTimelineRequestTypedDict(TypedDict):
     path_prefix: NotRequired[Nullable[str]]
-    r"""default 7d"""
+    r"""Restrict to files under this prefix; the whole ontology when unset."""
     observation_period: NotRequired[timedelta]
     r"""A Duration represents a signed, fixed-length span of time represented
     as a count of seconds and fractions of seconds at nanosecond
@@ -84,7 +84,7 @@ class TextqlRPCPublicPatchesGetFileUsageTimelineRequest(BaseModel):
     path_prefix: Annotated[
         OptionalNullable[str], pydantic.Field(alias="pathPrefix")
     ] = UNSET
-    r"""default 7d"""
+    r"""Restrict to files under this prefix; the whole ontology when unset."""
 
     observation_period: Annotated[
         Optional[timedelta], pydantic.Field(alias="observationPeriod")

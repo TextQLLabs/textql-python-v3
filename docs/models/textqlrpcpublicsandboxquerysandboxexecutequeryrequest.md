@@ -15,6 +15,12 @@ value: models.AppDb = /* values here */
 value: models.TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestLibraryTql = /* values here */
 ```
 
+### `models.PowerbiDax`
+
+```python
+value: models.PowerbiDax = /* values here */
+```
+
 ### `models.TextqlRPCPublicSandboxQuerySandboxExecuteQueryRequestSQLQuery`
 
 ```python

@@ -19,15 +19,25 @@ TotalBytes = TypeAliasType("TotalBytes", Union[int, str])
 
 
 class TextqlRPCPublicPatchesOntologySizeDayTypedDict(TypedDict):
+    r"""OntologySizeDay is the ontology's total content size as of the end of one UTC
+    day, sampled from git history (the last commit on or before that day).
+    """
+
     date_: NotRequired[TextqlRPCPublicPatchesDateTypedDict]
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
     total_bytes: NotRequired[TotalBytesTypedDict]
     file_count: NotRequired[int]
 
 
 class TextqlRPCPublicPatchesOntologySizeDay(BaseModel):
+    r"""OntologySizeDay is the ontology's total content size as of the end of one UTC
+    day, sampled from git history (the last commit on or before that day).
+    """
+
     date_: Annotated[
         Optional[TextqlRPCPublicPatchesDate], pydantic.Field(alias="date")
     ] = None
+    r"""copied from google.type.Date; not available in buf's google/protobuf/*"""
 
     total_bytes: Annotated[Optional[TotalBytes], pydantic.Field(alias="totalBytes")] = (
         None

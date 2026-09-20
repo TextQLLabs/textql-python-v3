@@ -11,6 +11,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicChatChatMessageTypedDict(TypedDict):
     role: NotRequired[str]
+    r"""\"user\" or \"assistant\" """
     content: NotRequired[str]
     created_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -107,6 +108,7 @@ class TextqlRPCPublicChatChatMessageTypedDict(TypedDict):
 
 class TextqlRPCPublicChatChatMessage(BaseModel):
     role: Optional[str] = None
+    r"""\"user\" or \"assistant\" """
 
     content: Optional[str] = None
 

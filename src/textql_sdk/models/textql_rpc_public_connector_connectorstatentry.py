@@ -20,19 +20,22 @@ TextqlRPCPublicConnectorConnectorStatEntryQueryCount = TypeAliasType(
 
 
 AvgQueryTimeMsTypedDict = TypeAliasType("AvgQueryTimeMsTypedDict", Union[int, str])
+r"""milliseconds"""
 
 
 AvgQueryTimeMs = TypeAliasType("AvgQueryTimeMs", Union[int, str])
+r"""milliseconds"""
 
 
 class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
     connector_id: NotRequired[int]
-    r"""dataset IDs for selected Tableau collections"""
     query_count: NotRequired[
         TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict
     ]
     error_rate: NotRequired[float]
+    r"""0.0-1.0"""
     avg_query_time_ms: NotRequired[AvgQueryTimeMsTypedDict]
+    r"""milliseconds"""
     unique_users: NotRequired[int]
     last_queried_at: NotRequired[datetime]
     r"""A Timestamp represents a point in time independent of any time zone or local
@@ -130,7 +133,6 @@ class TextqlRPCPublicConnectorConnectorStatEntryTypedDict(TypedDict):
 
 class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
     connector_id: Annotated[Optional[int], pydantic.Field(alias="connectorId")] = None
-    r"""dataset IDs for selected Tableau collections"""
 
     query_count: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorStatEntryQueryCount],
@@ -138,10 +140,12 @@ class TextqlRPCPublicConnectorConnectorStatEntry(BaseModel):
     ] = None
 
     error_rate: Annotated[Optional[float], pydantic.Field(alias="errorRate")] = None
+    r"""0.0-1.0"""
 
     avg_query_time_ms: Annotated[
         Optional[AvgQueryTimeMs], pydantic.Field(alias="avgQueryTimeMs")
     ] = None
+    r"""milliseconds"""
 
     unique_users: Annotated[Optional[int], pydantic.Field(alias="uniqueUsers")] = None
 

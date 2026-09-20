@@ -15,9 +15,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicObserveRefineTopicDraftResponseTypedDict(TypedDict):
     name: NotRequired[str]
     covers: NotRequired[str]
-    r"""example questions users ask"""
     excludes: NotRequired[str]
-    r"""\"should NOT be tagged\" phrases"""
     vague: NotRequired[bool]
     quality_hint: NotRequired[str]
     similar_topics: NotRequired[List[TextqlRPCPublicObserveSimilarTopicTypedDict]]
@@ -27,10 +25,8 @@ class TextqlRPCPublicObserveRefineTopicDraftResponse(BaseModel):
     name: Optional[str] = None
 
     covers: Optional[str] = None
-    r"""example questions users ask"""
 
     excludes: Optional[str] = None
-    r"""\"should NOT be tagged\" phrases"""
 
     vague: Optional[bool] = None
 

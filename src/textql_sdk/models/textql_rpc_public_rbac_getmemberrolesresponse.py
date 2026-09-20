@@ -13,18 +13,30 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicRbacGetMemberRolesResponseTypedDict(TypedDict):
+    member_roles_by_email: NotRequired[
+        Dict[str, TextqlRPCPublicRbacMemberRolesTypedDict]
+    ]
+    r"""Roles keyed by lowercase email, for members whose email is available."""
     member_roles: NotRequired[Dict[str, TextqlRPCPublicRbacMemberRolesTypedDict]]
+    r"""Stable member-ID keys retained for compatibility."""
 
 
 class TextqlRPCPublicRbacGetMemberRolesResponse(BaseModel):
+    member_roles_by_email: Annotated[
+        Optional[Dict[str, TextqlRPCPublicRbacMemberRoles]],
+        pydantic.Field(alias="memberRolesByEmail"),
+    ] = None
+    r"""Roles keyed by lowercase email, for members whose email is available."""
+
     member_roles: Annotated[
         Optional[Dict[str, TextqlRPCPublicRbacMemberRoles]],
         pydantic.Field(alias="memberRoles"),
     ] = None
+    r"""Stable member-ID keys retained for compatibility."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["memberRoles"])
+        optional_fields = set(["memberRolesByEmail", "memberRoles"])
         serialized = handler(self)
         m = {}
 
