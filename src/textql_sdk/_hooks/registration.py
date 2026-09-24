@@ -2,6 +2,7 @@ import os
 
 import httpx
 
+from .._version import __version__
 from ..sdkconfiguration import SDKConfiguration
 from .types import BeforeRequestContext, BeforeRequestHook, Hooks, SDKInitHook
 
@@ -30,6 +31,14 @@ class _ServerURLFromEnvHook(SDKInitHook):
         return config
 
 
+class _SDKOriginHook(BeforeRequestHook):
+    def before_request(
+        self, hook_ctx: BeforeRequestContext, request: httpx.Request
+    ) -> httpx.Request:
+        request.headers["X-TextQL-SDK"] = f"python/{__version__}"
+        return request
+
+
 class _RPCPublicPrefixHook(BeforeRequestHook):
     """Connect RPCs are mounted under ``/rpc/public`` on the host, but the
     generated operations build paths like ``/textql.rpc.public.<svc>/<method>``
@@ -52,4 +61,5 @@ def init_hooks(hooks: Hooks):
     with an instance of a hook that implements that specific Hook interface
     Hooks are registered per SDK instance, and are valid for the lifetime of the SDK instance"""
     hooks.register_sdk_init_hook(_ServerURLFromEnvHook())
+    hooks.register_before_request_hook(_SDKOriginHook())
     hooks.register_before_request_hook(_RPCPublicPrefixHook())

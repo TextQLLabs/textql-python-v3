@@ -49,6 +49,7 @@ from pyqwest import SyncClient as SyncHTTPClient
 
 from .sdk import Textql
 from ._hooks.registration import server_url_from_env
+from ._version import __version__
 from .sdkconfiguration import SERVERS
 from ._connect.public.agent_connect import AgentServiceClient, AgentServiceClientSync
 from ._connect.public.apps_connect import AppServiceClient, AppServiceClientSync
@@ -105,6 +106,7 @@ class _ApiKeyInterceptor:
 
     async def on_start(self, ctx: RequestContext) -> None:
         ctx.request_headers()["tql_api_key"] = self._api_key
+        ctx.request_headers()["X-TextQL-SDK"] = f"python/{__version__}"
 
     # pylint: disable=unused-argument
     # Parameter names must match MetadataInterceptor exactly: the protocol does
@@ -125,6 +127,7 @@ class _ApiKeyInterceptorSync:
 
     def on_start_sync(self, ctx: RequestContext) -> None:
         ctx.request_headers()["tql_api_key"] = self._api_key
+        ctx.request_headers()["X-TextQL-SDK"] = f"python/{__version__}"
 
     # pylint: disable=unused-argument
     # See _ApiKeyInterceptor.on_end -- names are load-bearing for the protocol.
