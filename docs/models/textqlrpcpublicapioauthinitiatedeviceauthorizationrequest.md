@@ -1,0 +1,8 @@
+# TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ref`                                                                                                | [Optional[models.TextqlRPCPublicSecretAPIAccessRef]](../models/textqlrpcpublicsecretapiaccessref.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

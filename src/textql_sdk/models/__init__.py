@@ -107,6 +107,66 @@ if TYPE_CHECKING:
         AgentServiceUploadAgentAvatarResponse,
         AgentServiceUploadAgentAvatarResponseTypedDict,
     )
+    from .apioauthservice_exchangeapioauthclientcredentialsop import (
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsRequest,
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsRequestTypedDict,
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsResponse,
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsResponseTypedDict,
+    )
+    from .apioauthservice_exchangeapioauthcodeop import (
+        APIOAuthServiceExchangeAPIOAuthCodeRequest,
+        APIOAuthServiceExchangeAPIOAuthCodeRequestTypedDict,
+        APIOAuthServiceExchangeAPIOAuthCodeResponse,
+        APIOAuthServiceExchangeAPIOAuthCodeResponseTypedDict,
+    )
+    from .apioauthservice_exchangeapioauthjwtbearerop import (
+        APIOAuthServiceExchangeAPIOAuthJwtBearerRequest,
+        APIOAuthServiceExchangeAPIOAuthJwtBearerRequestTypedDict,
+        APIOAuthServiceExchangeAPIOAuthJwtBearerResponse,
+        APIOAuthServiceExchangeAPIOAuthJwtBearerResponseTypedDict,
+    )
+    from .apioauthservice_getapioauthconfigop import (
+        APIOAuthServiceGetAPIOAuthConfigRequest,
+        APIOAuthServiceGetAPIOAuthConfigRequestTypedDict,
+        APIOAuthServiceGetAPIOAuthConfigResponse,
+        APIOAuthServiceGetAPIOAuthConfigResponseTypedDict,
+    )
+    from .apioauthservice_getapioauthstatusop import (
+        APIOAuthServiceGetAPIOAuthStatusRequest,
+        APIOAuthServiceGetAPIOAuthStatusRequestTypedDict,
+        APIOAuthServiceGetAPIOAuthStatusResponse,
+        APIOAuthServiceGetAPIOAuthStatusResponseTypedDict,
+    )
+    from .apioauthservice_getapioauthurlop import (
+        APIOAuthServiceGetAPIOAuthURLRequest,
+        APIOAuthServiceGetAPIOAuthURLRequestTypedDict,
+        APIOAuthServiceGetAPIOAuthURLResponse,
+        APIOAuthServiceGetAPIOAuthURLResponseTypedDict,
+    )
+    from .apioauthservice_initiatedeviceauthorizationop import (
+        APIOAuthServiceInitiateDeviceAuthorizationRequest,
+        APIOAuthServiceInitiateDeviceAuthorizationRequestTypedDict,
+        APIOAuthServiceInitiateDeviceAuthorizationResponse,
+        APIOAuthServiceInitiateDeviceAuthorizationResponseTypedDict,
+    )
+    from .apioauthservice_polldevicecodetokenop import (
+        APIOAuthServicePollDeviceCodeTokenRequest,
+        APIOAuthServicePollDeviceCodeTokenRequestTypedDict,
+        APIOAuthServicePollDeviceCodeTokenResponse,
+        APIOAuthServicePollDeviceCodeTokenResponseTypedDict,
+    )
+    from .apioauthservice_revokeapioauthtokenop import (
+        APIOAuthServiceRevokeAPIOAuthTokenRequest,
+        APIOAuthServiceRevokeAPIOAuthTokenRequestTypedDict,
+        APIOAuthServiceRevokeAPIOAuthTokenResponse,
+        APIOAuthServiceRevokeAPIOAuthTokenResponseTypedDict,
+    )
+    from .apioauthservice_upsertapioauthconfigop import (
+        APIOAuthServiceUpsertAPIOAuthConfigRequest,
+        APIOAuthServiceUpsertAPIOAuthConfigRequestTypedDict,
+        APIOAuthServiceUpsertAPIOAuthConfigResponse,
+        APIOAuthServiceUpsertAPIOAuthConfigResponseTypedDict,
+    )
     from .appservice_appheartbeatop import (
         AppServiceAppHeartbeatRequest,
         AppServiceAppHeartbeatRequestTypedDict,
@@ -2288,11 +2348,23 @@ if TYPE_CHECKING:
         ScimServiceRevokeScimTokenResponse,
         ScimServiceRevokeScimTokenResponseTypedDict,
     )
+    from .secretservice_createapirevisionop import (
+        SecretServiceCreateAPIRevisionRequest,
+        SecretServiceCreateAPIRevisionRequestTypedDict,
+        SecretServiceCreateAPIRevisionResponse,
+        SecretServiceCreateAPIRevisionResponseTypedDict,
+    )
     from .secretservice_deleteapiaccesskeyop import (
         SecretServiceDeleteAPIAccessKeyRequest,
         SecretServiceDeleteAPIAccessKeyRequestTypedDict,
         SecretServiceDeleteAPIAccessKeyResponse,
         SecretServiceDeleteAPIAccessKeyResponseTypedDict,
+    )
+    from .secretservice_deleteapirevisionop import (
+        SecretServiceDeleteAPIRevisionRequest,
+        SecretServiceDeleteAPIRevisionRequestTypedDict,
+        SecretServiceDeleteAPIRevisionResponse,
+        SecretServiceDeleteAPIRevisionResponseTypedDict,
     )
     from .secretservice_getapiaccesskeyop import (
         SecretServiceGetAPIAccessKeyRequest,
@@ -2717,6 +2789,82 @@ if TYPE_CHECKING:
     from .textql_rpc_public_agent_uploadagentavatarresponse import (
         TextqlRPCPublicAgentUploadAgentAvatarResponse,
         TextqlRPCPublicAgentUploadAgentAvatarResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_apioauthconfig import (
+        TextqlRPCPublicAPIOauthAPIOAuthConfig,
+        TextqlRPCPublicAPIOauthAPIOAuthConfigTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthclientcredentialsrequest import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequest,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthcoderequest import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequest,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthcoderesponse import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponse,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthjwtbearerrequest import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequest,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthconfigrequest import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthconfigresponse import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponse,
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthstatusrequest import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthstatusresponse import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse,
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthurlrequest import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthurlresponse import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLResponse,
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_initiatedeviceauthorizationrequest import (
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest,
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_initiatedeviceauthorizationresponse import (
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponse,
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_polldevicecodetokenrequest import (
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequest,
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_polldevicecodetokenresponse import (
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponse,
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_revokeapioauthtokenrequest import (
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequest,
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_revokeapioauthtokenresponse import (
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponse,
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_upsertapioauthconfigrequest import (
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequest,
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_upsertapioauthconfigresponse import (
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponse,
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponseTypedDict,
     )
     from .textql_rpc_public_app_app import (
         TextqlRPCPublicAppApp,
@@ -7351,6 +7499,9 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacMemberRoles,
         TextqlRPCPublicRbacMemberRolesTypedDict,
     )
+    from .textql_rpc_public_rbac_memorypermissionaction import (
+        TextqlRPCPublicRbacMemoryPermissionAction,
+    )
     from .textql_rpc_public_rbac_objectaccess import (
         TextqlRPCPublicRbacObjectAccess,
         TextqlRPCPublicRbacObjectAccessTypedDict,
@@ -7408,6 +7559,8 @@ if TYPE_CHECKING:
         McpTypedDict,
         Member,
         MemberTypedDict,
+        Memory,
+        MemoryTypedDict,
         Observability,
         ObservabilityTypedDict,
         Ontology,
@@ -7987,12 +8140,21 @@ if TYPE_CHECKING:
         TextqlRPCPublicSecretAPIAccessRef,
         TextqlRPCPublicSecretAPIAccessRefTypedDict,
     )
+    from .textql_rpc_public_secret_apiauthtype import TextqlRPCPublicSecretAPIAuthType
     from .textql_rpc_public_secret_apiprovider import (
         TextqlRPCPublicSecretAPIProvider,
         TextqlRPCPublicSecretAPIProviderTypedDict,
     )
     from .textql_rpc_public_secret_bodycontenttype import (
         TextqlRPCPublicSecretBodyContentType,
+    )
+    from .textql_rpc_public_secret_createapirevisionrequest import (
+        TextqlRPCPublicSecretCreateAPIRevisionRequest,
+        TextqlRPCPublicSecretCreateAPIRevisionRequestTypedDict,
+    )
+    from .textql_rpc_public_secret_createapirevisionresponse import (
+        TextqlRPCPublicSecretCreateAPIRevisionResponse,
+        TextqlRPCPublicSecretCreateAPIRevisionResponseTypedDict,
     )
     from .textql_rpc_public_secret_deleteapiaccesskeyrequest import (
         TextqlRPCPublicSecretDeleteAPIAccessKeyRequest,
@@ -8001,6 +8163,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_secret_deleteapiaccesskeyresponse import (
         TextqlRPCPublicSecretDeleteAPIAccessKeyResponse,
         TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict,
+    )
+    from .textql_rpc_public_secret_deleteapirevisionrequest import (
+        TextqlRPCPublicSecretDeleteAPIRevisionRequest,
+        TextqlRPCPublicSecretDeleteAPIRevisionRequestTypedDict,
+    )
+    from .textql_rpc_public_secret_deleteapirevisionresponse import (
+        TextqlRPCPublicSecretDeleteAPIRevisionResponse,
+        TextqlRPCPublicSecretDeleteAPIRevisionResponseTypedDict,
     )
     from .textql_rpc_public_secret_envvarfield import (
         TextqlRPCPublicSecretEnvVarField,
@@ -8089,6 +8259,10 @@ if TYPE_CHECKING:
     from .textql_rpc_public_settings_listorganizationmembersresponse import (
         TextqlRPCPublicSettingsListOrganizationMembersResponse,
         TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict,
+    )
+    from .textql_rpc_public_settings_organizationmodelsettings import (
+        TextqlRPCPublicSettingsOrganizationModelSettings,
+        TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict,
     )
     from .textql_rpc_public_settings_updateorganizationmodelsettingsrequest import (
         TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest,
@@ -8340,6 +8514,46 @@ TextqlRPCPublicReportsCardBlock1.model_rebuild()
 __all__ = [
     "APIAccessKey",
     "APIAccessKeyTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequest",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequestTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponse",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponseTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequest",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequestTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponse",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponseTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequest",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequestTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponse",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponseTypedDict",
+    "APIOAuthServiceGetAPIOAuthConfigRequest",
+    "APIOAuthServiceGetAPIOAuthConfigRequestTypedDict",
+    "APIOAuthServiceGetAPIOAuthConfigResponse",
+    "APIOAuthServiceGetAPIOAuthConfigResponseTypedDict",
+    "APIOAuthServiceGetAPIOAuthStatusRequest",
+    "APIOAuthServiceGetAPIOAuthStatusRequestTypedDict",
+    "APIOAuthServiceGetAPIOAuthStatusResponse",
+    "APIOAuthServiceGetAPIOAuthStatusResponseTypedDict",
+    "APIOAuthServiceGetAPIOAuthURLRequest",
+    "APIOAuthServiceGetAPIOAuthURLRequestTypedDict",
+    "APIOAuthServiceGetAPIOAuthURLResponse",
+    "APIOAuthServiceGetAPIOAuthURLResponseTypedDict",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequest",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequestTypedDict",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponse",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponseTypedDict",
+    "APIOAuthServicePollDeviceCodeTokenRequest",
+    "APIOAuthServicePollDeviceCodeTokenRequestTypedDict",
+    "APIOAuthServicePollDeviceCodeTokenResponse",
+    "APIOAuthServicePollDeviceCodeTokenResponseTypedDict",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequest",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequestTypedDict",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponse",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponseTypedDict",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequest",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequestTypedDict",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponse",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponseTypedDict",
     "AccessKey",
     "AccessKeyTypedDict",
     "Additions",
@@ -9195,6 +9409,8 @@ __all__ = [
     "MdCellTypedDict",
     "Member",
     "MemberTypedDict",
+    "Memory",
+    "MemoryTypedDict",
     "MemoryUsage",
     "MemoryUsageTypedDict",
     "MetricsCell",
@@ -10228,10 +10444,18 @@ __all__ = [
     "ScimServiceRevokeScimTokenResponseTypedDict",
     "ScimTypedDict",
     "Secret",
+    "SecretServiceCreateAPIRevisionRequest",
+    "SecretServiceCreateAPIRevisionRequestTypedDict",
+    "SecretServiceCreateAPIRevisionResponse",
+    "SecretServiceCreateAPIRevisionResponseTypedDict",
     "SecretServiceDeleteAPIAccessKeyRequest",
     "SecretServiceDeleteAPIAccessKeyRequestTypedDict",
     "SecretServiceDeleteAPIAccessKeyResponse",
     "SecretServiceDeleteAPIAccessKeyResponseTypedDict",
+    "SecretServiceDeleteAPIRevisionRequest",
+    "SecretServiceDeleteAPIRevisionRequestTypedDict",
+    "SecretServiceDeleteAPIRevisionResponse",
+    "SecretServiceDeleteAPIRevisionResponseTypedDict",
     "SecretServiceGetAPIAccessKeyRequest",
     "SecretServiceGetAPIAccessKeyRequestTypedDict",
     "SecretServiceGetAPIAccessKeyResponse",
@@ -10461,6 +10685,44 @@ __all__ = [
     "TextqlRPCParadigmParamsParadigmType",
     "TextqlRPCPowerbiSelectionPowerBISelection",
     "TextqlRPCPowerbiSelectionPowerBISelectionTypedDict",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfig",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfigTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequestTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequestTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponse",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponseTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponseTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponseTypedDict",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequestTypedDict",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponse",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponseTypedDict",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequest",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequestTypedDict",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponse",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponseTypedDict",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequest",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequestTypedDict",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponse",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponseTypedDict",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequest",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequestTypedDict",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponse",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponseTypedDict",
     "TextqlRPCPublicAgentAgent",
     "TextqlRPCPublicAgentAgentDBColumn",
     "TextqlRPCPublicAgentAgentDBColumnTypedDict",
@@ -12744,6 +13006,7 @@ __all__ = [
     "TextqlRPCPublicRbacMemberPermissionAction",
     "TextqlRPCPublicRbacMemberRoles",
     "TextqlRPCPublicRbacMemberRolesTypedDict",
+    "TextqlRPCPublicRbacMemoryPermissionAction",
     "TextqlRPCPublicRbacObjectAccess",
     "TextqlRPCPublicRbacObjectAccessTypedDict",
     "TextqlRPCPublicRbacObservabilityPermissionAction",
@@ -13054,13 +13317,22 @@ __all__ = [
     "TextqlRPCPublicSecretAPIAccessKeyTypedDict",
     "TextqlRPCPublicSecretAPIAccessRef",
     "TextqlRPCPublicSecretAPIAccessRefTypedDict",
+    "TextqlRPCPublicSecretAPIAuthType",
     "TextqlRPCPublicSecretAPIProvider",
     "TextqlRPCPublicSecretAPIProviderTypedDict",
     "TextqlRPCPublicSecretBodyContentType",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequest",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequestTypedDict",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponse",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponseTypedDict",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequestTypedDict",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequest",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequestTypedDict",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponse",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponseTypedDict",
     "TextqlRPCPublicSecretEnvVarField",
     "TextqlRPCPublicSecretEnvVarFieldTypedDict",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequest",
@@ -13105,6 +13377,8 @@ __all__ = [
     "TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict",
     "TextqlRPCPublicSettingsListOrganizationMembersResponse",
     "TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict",
+    "TextqlRPCPublicSettingsOrganizationModelSettings",
+    "TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequestTypedDict",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse",
@@ -13327,6 +13601,46 @@ _dynamic_imports: dict[str, str] = {
     "AgentServiceUploadAgentAvatarRequestTypedDict": ".agentservice_uploadagentavatarop",
     "AgentServiceUploadAgentAvatarResponse": ".agentservice_uploadagentavatarop",
     "AgentServiceUploadAgentAvatarResponseTypedDict": ".agentservice_uploadagentavatarop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequest": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequestTypedDict": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponse": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponseTypedDict": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequest": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequestTypedDict": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponse": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponseTypedDict": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequest": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequestTypedDict": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponse": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponseTypedDict": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceGetAPIOAuthConfigRequest": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthConfigRequestTypedDict": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthConfigResponse": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthConfigResponseTypedDict": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthStatusRequest": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthStatusRequestTypedDict": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthStatusResponse": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthStatusResponseTypedDict": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthURLRequest": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceGetAPIOAuthURLRequestTypedDict": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceGetAPIOAuthURLResponse": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceGetAPIOAuthURLResponseTypedDict": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequest": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequestTypedDict": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponse": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponseTypedDict": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServicePollDeviceCodeTokenRequest": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServicePollDeviceCodeTokenRequestTypedDict": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServicePollDeviceCodeTokenResponse": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServicePollDeviceCodeTokenResponseTypedDict": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequest": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequestTypedDict": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponse": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponseTypedDict": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequest": ".apioauthservice_upsertapioauthconfigop",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequestTypedDict": ".apioauthservice_upsertapioauthconfigop",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponse": ".apioauthservice_upsertapioauthconfigop",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponseTypedDict": ".apioauthservice_upsertapioauthconfigop",
     "AppServiceAppHeartbeatRequest": ".appservice_appheartbeatop",
     "AppServiceAppHeartbeatRequestTypedDict": ".appservice_appheartbeatop",
     "AppServiceAppHeartbeatResponse": ".appservice_appheartbeatop",
@@ -14786,10 +15100,18 @@ _dynamic_imports: dict[str, str] = {
     "ScimServiceRevokeScimTokenRequestTypedDict": ".scimservice_revokescimtokenop",
     "ScimServiceRevokeScimTokenResponse": ".scimservice_revokescimtokenop",
     "ScimServiceRevokeScimTokenResponseTypedDict": ".scimservice_revokescimtokenop",
+    "SecretServiceCreateAPIRevisionRequest": ".secretservice_createapirevisionop",
+    "SecretServiceCreateAPIRevisionRequestTypedDict": ".secretservice_createapirevisionop",
+    "SecretServiceCreateAPIRevisionResponse": ".secretservice_createapirevisionop",
+    "SecretServiceCreateAPIRevisionResponseTypedDict": ".secretservice_createapirevisionop",
     "SecretServiceDeleteAPIAccessKeyRequest": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyRequestTypedDict": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyResponse": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyResponseTypedDict": ".secretservice_deleteapiaccesskeyop",
+    "SecretServiceDeleteAPIRevisionRequest": ".secretservice_deleteapirevisionop",
+    "SecretServiceDeleteAPIRevisionRequestTypedDict": ".secretservice_deleteapirevisionop",
+    "SecretServiceDeleteAPIRevisionResponse": ".secretservice_deleteapirevisionop",
+    "SecretServiceDeleteAPIRevisionResponseTypedDict": ".secretservice_deleteapirevisionop",
     "SecretServiceGetAPIAccessKeyRequest": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyRequestTypedDict": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyResponse": ".secretservice_getapiaccesskeyop",
@@ -15050,6 +15372,44 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAgentUploadAgentAvatarRequestTypedDict": ".textql_rpc_public_agent_uploadagentavatarrequest",
     "TextqlRPCPublicAgentUploadAgentAvatarResponse": ".textql_rpc_public_agent_uploadagentavatarresponse",
     "TextqlRPCPublicAgentUploadAgentAvatarResponseTypedDict": ".textql_rpc_public_agent_uploadagentavatarresponse",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfig": ".textql_rpc_public_api_oauth_apioauthconfig",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfigTypedDict": ".textql_rpc_public_api_oauth_apioauthconfig",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequest": ".textql_rpc_public_api_oauth_exchangeapioauthclientcredentialsrequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequestTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthclientcredentialsrequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequest": ".textql_rpc_public_api_oauth_exchangeapioauthcoderequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequestTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthcoderequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponse": ".textql_rpc_public_api_oauth_exchangeapioauthcoderesponse",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponseTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthcoderesponse",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequest": ".textql_rpc_public_api_oauth_exchangeapioauthjwtbearerrequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequestTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthjwtbearerrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequest": ".textql_rpc_public_api_oauth_getapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequestTypedDict": ".textql_rpc_public_api_oauth_getapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponse": ".textql_rpc_public_api_oauth_getapioauthconfigresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponseTypedDict": ".textql_rpc_public_api_oauth_getapioauthconfigresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest": ".textql_rpc_public_api_oauth_getapioauthstatusrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict": ".textql_rpc_public_api_oauth_getapioauthstatusrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse": ".textql_rpc_public_api_oauth_getapioauthstatusresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict": ".textql_rpc_public_api_oauth_getapioauthstatusresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequest": ".textql_rpc_public_api_oauth_getapioauthurlrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequestTypedDict": ".textql_rpc_public_api_oauth_getapioauthurlrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponse": ".textql_rpc_public_api_oauth_getapioauthurlresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponseTypedDict": ".textql_rpc_public_api_oauth_getapioauthurlresponse",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationrequest",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequestTypedDict": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationrequest",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponse": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationresponse",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponseTypedDict": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationresponse",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequest": ".textql_rpc_public_api_oauth_polldevicecodetokenrequest",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequestTypedDict": ".textql_rpc_public_api_oauth_polldevicecodetokenrequest",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponse": ".textql_rpc_public_api_oauth_polldevicecodetokenresponse",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponseTypedDict": ".textql_rpc_public_api_oauth_polldevicecodetokenresponse",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequest": ".textql_rpc_public_api_oauth_revokeapioauthtokenrequest",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequestTypedDict": ".textql_rpc_public_api_oauth_revokeapioauthtokenrequest",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponse": ".textql_rpc_public_api_oauth_revokeapioauthtokenresponse",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponseTypedDict": ".textql_rpc_public_api_oauth_revokeapioauthtokenresponse",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequest": ".textql_rpc_public_api_oauth_upsertapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequestTypedDict": ".textql_rpc_public_api_oauth_upsertapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponse": ".textql_rpc_public_api_oauth_upsertapioauthconfigresponse",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponseTypedDict": ".textql_rpc_public_api_oauth_upsertapioauthconfigresponse",
     "TextqlRPCPublicAppApp": ".textql_rpc_public_app_app",
     "TextqlRPCPublicAppAppTypedDict": ".textql_rpc_public_app_app",
     "TextqlRPCPublicAppAppActivityRecord": ".textql_rpc_public_app_appactivityrecord",
@@ -17651,6 +18011,7 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacMemberPermissionAction": ".textql_rpc_public_rbac_memberpermissionaction",
     "TextqlRPCPublicRbacMemberRoles": ".textql_rpc_public_rbac_memberroles",
     "TextqlRPCPublicRbacMemberRolesTypedDict": ".textql_rpc_public_rbac_memberroles",
+    "TextqlRPCPublicRbacMemoryPermissionAction": ".textql_rpc_public_rbac_memorypermissionaction",
     "TextqlRPCPublicRbacObjectAccess": ".textql_rpc_public_rbac_objectaccess",
     "TextqlRPCPublicRbacObjectAccessTypedDict": ".textql_rpc_public_rbac_objectaccess",
     "TextqlRPCPublicRbacObservabilityPermissionAction": ".textql_rpc_public_rbac_observabilitypermissionaction",
@@ -17691,6 +18052,8 @@ _dynamic_imports: dict[str, str] = {
     "McpTypedDict": ".textql_rpc_public_rbac_permissionspec",
     "Member": ".textql_rpc_public_rbac_permissionspec",
     "MemberTypedDict": ".textql_rpc_public_rbac_permissionspec",
+    "Memory": ".textql_rpc_public_rbac_permissionspec",
+    "MemoryTypedDict": ".textql_rpc_public_rbac_permissionspec",
     "Observability": ".textql_rpc_public_rbac_permissionspec",
     "ObservabilityTypedDict": ".textql_rpc_public_rbac_permissionspec",
     "Ontology": ".textql_rpc_public_rbac_permissionspec",
@@ -18015,13 +18378,22 @@ _dynamic_imports: dict[str, str] = {
     "RevisionTypedDict": ".textql_rpc_public_secret_apiaccessref",
     "TextqlRPCPublicSecretAPIAccessRef": ".textql_rpc_public_secret_apiaccessref",
     "TextqlRPCPublicSecretAPIAccessRefTypedDict": ".textql_rpc_public_secret_apiaccessref",
+    "TextqlRPCPublicSecretAPIAuthType": ".textql_rpc_public_secret_apiauthtype",
     "TextqlRPCPublicSecretAPIProvider": ".textql_rpc_public_secret_apiprovider",
     "TextqlRPCPublicSecretAPIProviderTypedDict": ".textql_rpc_public_secret_apiprovider",
     "TextqlRPCPublicSecretBodyContentType": ".textql_rpc_public_secret_bodycontenttype",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequest": ".textql_rpc_public_secret_createapirevisionrequest",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequestTypedDict": ".textql_rpc_public_secret_createapirevisionrequest",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponse": ".textql_rpc_public_secret_createapirevisionresponse",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponseTypedDict": ".textql_rpc_public_secret_createapirevisionresponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequest": ".textql_rpc_public_secret_deleteapiaccesskeyrequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequestTypedDict": ".textql_rpc_public_secret_deleteapiaccesskeyrequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponse": ".textql_rpc_public_secret_deleteapiaccesskeyresponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict": ".textql_rpc_public_secret_deleteapiaccesskeyresponse",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequest": ".textql_rpc_public_secret_deleteapirevisionrequest",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequestTypedDict": ".textql_rpc_public_secret_deleteapirevisionrequest",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponse": ".textql_rpc_public_secret_deleteapirevisionresponse",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponseTypedDict": ".textql_rpc_public_secret_deleteapirevisionresponse",
     "TextqlRPCPublicSecretEnvVarField": ".textql_rpc_public_secret_envvarfield",
     "TextqlRPCPublicSecretEnvVarFieldTypedDict": ".textql_rpc_public_secret_envvarfield",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequest": ".textql_rpc_public_secret_getapiaccesskeyrequest",
@@ -18066,6 +18438,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict": ".textql_rpc_public_settings_listorganizationmembersrequest",
     "TextqlRPCPublicSettingsListOrganizationMembersResponse": ".textql_rpc_public_settings_listorganizationmembersresponse",
     "TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict": ".textql_rpc_public_settings_listorganizationmembersresponse",
+    "TextqlRPCPublicSettingsOrganizationModelSettings": ".textql_rpc_public_settings_organizationmodelsettings",
+    "TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict": ".textql_rpc_public_settings_organizationmodelsettings",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest": ".textql_rpc_public_settings_updateorganizationmodelsettingsrequest",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequestTypedDict": ".textql_rpc_public_settings_updateorganizationmodelsettingsrequest",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse": ".textql_rpc_public_settings_updateorganizationmodelsettingsresponse",

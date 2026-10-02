@@ -228,10 +228,7 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     logo_url: NotRequired[Nullable[str]]
     brand_name: NotRequired[Nullable[str]]
     paradigm_params: NotRequired[TextqlRPCParadigmParamsParadigmParamsTypedDict]
-    default_llm_model: NotRequired[Nullable[int]]
     preferred_provider: NotRequired[Nullable[str]]
-    system_default_model: NotRequired[Nullable[int]]
-    r"""Model MODEL_DEFAULT resolves to for this org; SYSTEM_DEFAULT_MODEL env var can override it."""
     tool_restrictions: NotRequired[TextqlRPCParadigmParamsParadigmParamsTypedDict]
     console_access: NotRequired[Nullable[bool]]
     default_connector_ids: NotRequired[List[int]]
@@ -247,8 +244,6 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     context_v3_enabled: NotRequired[Nullable[bool]]
     bash_enabled: NotRequired[Nullable[bool]]
     default_routing_enabled: NotRequired[Nullable[bool]]
-    enabled_model_ids: NotRequired[List[int]]
-    restricted_model_ids: NotRequired[List[int]]
     restricted_families: NotRequired[List[str]]
     discoverable: NotRequired[Nullable[bool]]
     observability_enabled: NotRequired[Nullable[bool]]
@@ -261,6 +256,7 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     max_thinking_enabled: NotRequired[Nullable[bool]]
     configurable_thinking_enabled: NotRequired[Nullable[bool]]
     sandbox_state_retention_days: NotRequired[Nullable[int]]
+    pipeline_log_retention_days: NotRequired[Nullable[int]]
     sandbox_lease_config_enabled: NotRequired[Nullable[bool]]
     voice_input_enabled: NotRequired[Nullable[bool]]
     delete_inactive_threads_enabled: NotRequired[Nullable[bool]]
@@ -326,8 +322,8 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     """
     helm_chart_version: NotRequired[Nullable[str]]
     spend_transparency_enabled: NotRequired[Nullable[bool]]
-    r"""Org-level opt-in: show dollar costs alongside ACU figures across the product.
-    Which figures a given viewer sees is enforced separately, per-RPC.
+    r"""Deprecated: never populated. Dollar figures were removed from the product; usage is
+    reported in ACUs only. Retained only because proto/api is additive-only.
     """
     sharing_disabled: NotRequired[Nullable[bool]]
     app_writeback_auto_approve_enabled: NotRequired[Nullable[bool]]
@@ -605,18 +601,9 @@ class TextqlRPCAuthOrganization(BaseModel):
         pydantic.Field(alias="paradigmParams"),
     ] = None
 
-    default_llm_model: Annotated[
-        OptionalNullable[int], pydantic.Field(alias="defaultLlmModel")
-    ] = UNSET
-
     preferred_provider: Annotated[
         OptionalNullable[str], pydantic.Field(alias="preferredProvider")
     ] = UNSET
-
-    system_default_model: Annotated[
-        OptionalNullable[int], pydantic.Field(alias="systemDefaultModel")
-    ] = UNSET
-    r"""Model MODEL_DEFAULT resolves to for this org; SYSTEM_DEFAULT_MODEL env var can override it."""
 
     tool_restrictions: Annotated[
         Optional[TextqlRPCParadigmParamsParadigmParams],
@@ -679,14 +666,6 @@ class TextqlRPCAuthOrganization(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="defaultRoutingEnabled")
     ] = UNSET
 
-    enabled_model_ids: Annotated[
-        Optional[List[int]], pydantic.Field(alias="enabledModelIds")
-    ] = None
-
-    restricted_model_ids: Annotated[
-        Optional[List[int]], pydantic.Field(alias="restrictedModelIds")
-    ] = None
-
     restricted_families: Annotated[
         Optional[List[str]], pydantic.Field(alias="restrictedFamilies")
     ] = None
@@ -735,6 +714,10 @@ class TextqlRPCAuthOrganization(BaseModel):
 
     sandbox_state_retention_days: Annotated[
         OptionalNullable[int], pydantic.Field(alias="sandboxStateRetentionDays")
+    ] = UNSET
+
+    pipeline_log_retention_days: Annotated[
+        OptionalNullable[int], pydantic.Field(alias="pipelineLogRetentionDays")
     ] = UNSET
 
     sandbox_lease_config_enabled: Annotated[
@@ -918,10 +901,14 @@ class TextqlRPCAuthOrganization(BaseModel):
     ] = UNSET
 
     spend_transparency_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="spendTransparencyEnabled")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="spendTransparencyEnabled",
+        ),
     ] = UNSET
-    r"""Org-level opt-in: show dollar costs alongside ACU figures across the product.
-    Which figures a given viewer sees is enforced separately, per-RPC.
+    r"""Deprecated: never populated. Dollar figures were removed from the product; usage is
+    reported in ACUs only. Retained only because proto/api is additive-only.
     """
 
     sharing_disabled: Annotated[
@@ -965,9 +952,7 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "logoUrl",
                 "brandName",
                 "paradigmParams",
-                "defaultLlmModel",
                 "preferredProvider",
-                "systemDefaultModel",
                 "toolRestrictions",
                 "consoleAccess",
                 "defaultConnectorIds",
@@ -983,8 +968,6 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "contextV3Enabled",
                 "bashEnabled",
                 "defaultRoutingEnabled",
-                "enabledModelIds",
-                "restrictedModelIds",
                 "restrictedFamilies",
                 "discoverable",
                 "observabilityEnabled",
@@ -997,6 +980,7 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "maxThinkingEnabled",
                 "configurableThinkingEnabled",
                 "sandboxStateRetentionDays",
+                "pipelineLogRetentionDays",
                 "sandboxLeaseConfigEnabled",
                 "voiceInputEnabled",
                 "deleteInactiveThreadsEnabled",
@@ -1048,9 +1032,7 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "emailPollingEnabled",
                 "logoUrl",
                 "brandName",
-                "defaultLlmModel",
                 "preferredProvider",
-                "systemDefaultModel",
                 "consoleAccess",
                 "hideToolCells",
                 "disableEmojis",
@@ -1075,6 +1057,7 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "maxThinkingEnabled",
                 "configurableThinkingEnabled",
                 "sandboxStateRetentionDays",
+                "pipelineLogRetentionDays",
                 "sandboxLeaseConfigEnabled",
                 "voiceInputEnabled",
                 "deleteInactiveThreadsEnabled",

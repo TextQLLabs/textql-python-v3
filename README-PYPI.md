@@ -204,6 +204,19 @@ with Textql(
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agents/README.md#update) - UpdateAgent
 * [upload_agent_avatar](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agents/README.md#upload_agent_avatar) - UploadAgentAvatar
 
+### [ApiOAuth](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md)
+
+* [exchange_client_credentials](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#exchange_client_credentials) - ExchangeApiOAuthClientCredentials
+* [exchange_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#exchange_code) - ExchangeApiOAuthCode
+* [exchange_jwt_bearer](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#exchange_jwt_bearer) - ExchangeApiOAuthJwtBearer
+* [get_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#get_config) - GetApiOAuthConfig
+* [get_status](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#get_status) - GetApiOAuthStatus
+* [get_url](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#get_url) - GetApiOAuthURL
+* [initiate_device_authorization](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#initiate_device_authorization) - InitiateDeviceAuthorization
+* [poll_device_code_token](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#poll_device_code_token) - PollDeviceCodeToken
+* [revoke_token](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#revoke_token) - RevokeApiOAuthToken
+* [upsert_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#upsert_config) - Shared OAuth app configuration. Requires connector write permission.
+
 ### [Apps](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md)
 
 * [heartbeat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
@@ -619,7 +632,9 @@ with Textql(
 
 ### [Secrets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md)
 
+* [create_api_revision](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#create_api_revision) - API connector drafts let clients configure and test credentials before saving.
 * [delete_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#delete_api_access_key) - DeleteApiAccessKey
+* [delete_api_revision](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#delete_api_revision) - DeleteApiRevision
 * [get_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
 * [list_api_access_keys](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders

@@ -22,9 +22,7 @@ class TextqlRPCPublicSandboxAdminListSandboxSpendResponseTypedDict(TypedDict):
     total_acus: NotRequired[float]
     r"""Sum of acus across all returned intervals."""
     acu_rate_per1000_usd: NotRequired[float]
-    r"""Effective ACU->USD rate for this org, in USD per 1000 ACUs (resolved from
-    the tenant's pricing tier / active override). 0 means unknown/unpriced.
-    """
+    r"""Deprecated: never populated. Dollar figures were removed from the product."""
 
 
 class TextqlRPCPublicSandboxAdminListSandboxSpendResponse(BaseModel):
@@ -40,11 +38,13 @@ class TextqlRPCPublicSandboxAdminListSandboxSpendResponse(BaseModel):
     r"""Sum of acus across all returned intervals."""
 
     acu_rate_per1000_usd: Annotated[
-        Optional[float], pydantic.Field(alias="acuRatePer1000Usd")
+        Optional[float],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="acuRatePer1000Usd",
+        ),
     ] = None
-    r"""Effective ACU->USD rate for this org, in USD per 1000 ACUs (resolved from
-    the tenant's pricing tier / active override). 0 means unknown/unpriced.
-    """
+    r"""Deprecated: never populated. Dollar figures were removed from the product."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

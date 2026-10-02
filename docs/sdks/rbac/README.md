@@ -1206,6 +1206,7 @@ with Textql(
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | `connect_timeout_ms`                                                      | *Optional[float]*                                                         | :heavy_minus_sign:                                                        | N/A                                                                       |
 | `file_url`                                                                | *Optional[str]*                                                           | :heavy_minus_sign:                                                        | Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles. |
+| `file_key`                                                                | *Optional[str]*                                                           | :heavy_minus_sign:                                                        | N/A                                                                       |
 | `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
 
 ### Response

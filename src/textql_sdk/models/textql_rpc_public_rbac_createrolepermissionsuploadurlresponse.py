@@ -10,22 +10,25 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TextqlRPCPublicRbacCreateRolePermissionsUploadURLResponseTypedDict(TypedDict):
     upload_url: NotRequired[str]
-    r"""PUT the file here, using content_type, then pass file_url to ParseRolePermissionsImport."""
+    r"""PUT the file here, using content_type, then pass file_key to ParseRolePermissionsImport."""
     file_url: NotRequired[str]
     content_type: NotRequired[str]
+    file_key: NotRequired[str]
 
 
 class TextqlRPCPublicRbacCreateRolePermissionsUploadURLResponse(BaseModel):
     upload_url: Annotated[Optional[str], pydantic.Field(alias="uploadUrl")] = None
-    r"""PUT the file here, using content_type, then pass file_url to ParseRolePermissionsImport."""
+    r"""PUT the file here, using content_type, then pass file_key to ParseRolePermissionsImport."""
 
     file_url: Annotated[Optional[str], pydantic.Field(alias="fileUrl")] = None
 
     content_type: Annotated[Optional[str], pydantic.Field(alias="contentType")] = None
 
+    file_key: Annotated[Optional[str], pydantic.Field(alias="fileKey")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["uploadUrl", "fileUrl", "contentType"])
+        optional_fields = set(["uploadUrl", "fileUrl", "contentType", "fileKey"])
         serialized = handler(self)
         m = {}
 

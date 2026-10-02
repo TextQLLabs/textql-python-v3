@@ -5,6 +5,7 @@ from .textql_rpc_public_secret_apiaccessref import (
     TextqlRPCPublicSecretAPIAccessRef,
     TextqlRPCPublicSecretAPIAccessRefTypedDict,
 )
+from .textql_rpc_public_secret_apiauthtype import TextqlRPCPublicSecretAPIAuthType
 from .textql_rpc_public_secret_bodycontenttype import (
     TextqlRPCPublicSecretBodyContentType,
 )
@@ -122,12 +123,19 @@ class TextqlRPCPublicSecretUpsertAPIAccessKeyRequestTypedDict(TypedDict):
     auth_value: NotRequired[str]
     auth_value_extra: NotRequired[str]
     auth_type: NotRequired[str]
+    r"""Deprecated: use auth_type_enum. Accepted when auth_type_enum is unspecified."""
     http_basic_auth: NotRequired[TextqlRPCPublicSecretHTTPBasicAuthTypedDict]
     body: NotRequired[Dict[str, str]]
     content_type: NotRequired[TextqlRPCPublicSecretBodyContentType]
     test_url: NotRequired[str]
     name: NotRequired[str]
     test_method: NotRequired[str]
+    auth_type_enum: NotRequired[TextqlRPCPublicSecretAPIAuthType]
+    r"""Authentication mode for an API connector. Provider templates have a separate
+    auth_type describing how their credentials are entered (e.g. basic_auth).
+    OAUTH_U2M shares one OAuth account among members with connector access;
+    OAUTH_PER_MEMBER requires each member to connect their own account.
+    """
 
 
 class TextqlRPCPublicSecretUpsertAPIAccessKeyRequest(BaseModel):
@@ -245,7 +253,14 @@ class TextqlRPCPublicSecretUpsertAPIAccessKeyRequest(BaseModel):
         Optional[str], pydantic.Field(alias="authValueExtra")
     ] = None
 
-    auth_type: Annotated[Optional[str], pydantic.Field(alias="authType")] = None
+    auth_type: Annotated[
+        Optional[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="authType",
+        ),
+    ] = None
+    r"""Deprecated: use auth_type_enum. Accepted when auth_type_enum is unspecified."""
 
     http_basic_auth: Annotated[
         Optional[TextqlRPCPublicSecretHTTPBasicAuth],
@@ -264,6 +279,15 @@ class TextqlRPCPublicSecretUpsertAPIAccessKeyRequest(BaseModel):
     name: Optional[str] = None
 
     test_method: Annotated[Optional[str], pydantic.Field(alias="testMethod")] = None
+
+    auth_type_enum: Annotated[
+        Optional[TextqlRPCPublicSecretAPIAuthType], pydantic.Field(alias="authTypeEnum")
+    ] = None
+    r"""Authentication mode for an API connector. Provider templates have a separate
+    auth_type describing how their credentials are entered (e.g. basic_auth).
+    OAUTH_U2M shares one OAuth account among members with connector access;
+    OAUTH_PER_MEMBER requires each member to connect their own account.
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -286,6 +310,7 @@ class TextqlRPCPublicSecretUpsertAPIAccessKeyRequest(BaseModel):
                 "testUrl",
                 "name",
                 "testMethod",
+                "authTypeEnum",
             ]
         )
         serialized = handler(self)

@@ -5992,6 +5992,7 @@ class Rbac(BaseSDK):
         *,
         connect_timeout_ms: Optional[float] = None,
         file_url: Optional[str] = None,
+        file_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -6004,6 +6005,7 @@ class Rbac(BaseSDK):
 
         :param connect_timeout_ms:
         :param file_url: Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles.
+        :param file_key:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6023,6 +6025,7 @@ class Rbac(BaseSDK):
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacParseRolePermissionsImportRequest(
                 file_url=file_url,
+                file_key=file_key,
             ),
         )
 
@@ -6099,6 +6102,7 @@ class Rbac(BaseSDK):
         *,
         connect_timeout_ms: Optional[float] = None,
         file_url: Optional[str] = None,
+        file_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -6111,6 +6115,7 @@ class Rbac(BaseSDK):
 
         :param connect_timeout_ms:
         :param file_url: Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles.
+        :param file_key:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -6130,6 +6135,7 @@ class Rbac(BaseSDK):
             connect_timeout_ms=connect_timeout_ms,
             body=models.TextqlRPCPublicRbacParseRolePermissionsImportRequest(
                 file_url=file_url,
+                file_key=file_key,
             ),
         )
 
