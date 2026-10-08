@@ -196,3 +196,20 @@ class TestNoResponseError:
         # same exception when there are no registered after_error hooks).
         with pytest.raises(httpx.ConnectError):
             bundle.sdk.agents.get_agent(agent_id="a1")
+
+
+class TestConnectProtocolVersionHeader:
+    def test_sent_as_1_not_1_0(self, make_sdk):
+        bundle = make_sdk(lambda req: json_response(200, {"chats": []}))
+
+        bundle.sdk.chats.get_all(limit=1)
+
+        assert bundle.transport.last_request.headers["Connect-Protocol-Version"] == "1"
+
+    @pytest.mark.asyncio
+    async def test_sent_as_1_on_async_calls(self, make_sdk):
+        bundle = make_sdk(lambda req: json_response(200, {"chats": []}))
+
+        await bundle.sdk.chats.get_all_async(limit=1)
+
+        assert bundle.transport.last_request.headers["Connect-Protocol-Version"] == "1"
