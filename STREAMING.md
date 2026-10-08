@@ -5,7 +5,8 @@ shape in the OpenAPI spec, so they are not part of the Speakeasy-generated SDK
 surface. This package bridges them with [Connect-RPC](https://connectrpc.com)
 via `textql_sdk.streaming` — a hand-written module that talks the Connect
 protocol directly to the same gateway, authenticated with the same
-`tql_api_key`.
+`tql_api_key`, or with the OAuth tokens of an SDK built by
+`textql_sdk.oauth.from_tokens` (see [OAUTH.md](OAUTH.md)).
 
 > Prefer `watch_chat` for anything long-lived — it carries run lifecycle events
 > (`run_started`, `run_complete`, `run_error`) and heartbeats; `stream_chat` is

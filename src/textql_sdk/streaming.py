@@ -4,7 +4,8 @@ The TextQL API exposes several server-streaming RPCs that have no HTTP/JSON
 shape in the OpenAPI spec, so they are not part of the Speakeasy-generated SDK
 surface. This module bridges them with Connect-RPC (https://connectrpc.com),
 talking the Connect protocol directly to the same gateway, authenticated with
-the same ``tql_api_key`` header.
+the same ``tql_api_key`` header, or with ``Authorization: Bearer`` when the SDK
+was built with :func:`textql_sdk.oauth.from_tokens`.
 
 Configure the server and API key once on the :class:`~textql_sdk.Textql` SDK;
 streaming inherits both -- you never pass a server URL or think about the
@@ -35,10 +36,12 @@ For any other service under :mod:`textql_sdk._connect`, use
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional, Tuple, TypeVar
+from typing import Optional, Tuple, TypeVar, Union
 from urllib.parse import urlparse
 
 from connectrpc.client import ConnectClient, ConnectClientSync
+from connectrpc.code import Code
+from connectrpc.errors import ConnectError
 from connectrpc.request import RequestContext
 
 # The Connect transport is pyqwest, not httpx. Imported under the same aliases
@@ -49,6 +52,7 @@ from pyqwest import SyncClient as SyncHTTPClient
 
 from .sdk import Textql
 from ._hooks.registration import server_url_from_env
+from .oauth import TokenManager, token_manager_of
 from .sdkconfiguration import SERVERS
 from ._connect.public.agent_connect import AgentServiceClient, AgentServiceClientSync
 from ._connect.public.apps_connect import AppServiceClient, AppServiceClientSync
@@ -76,25 +80,36 @@ def _rpc_base_url(server_url: str) -> str:
     return f"{url.scheme}://{url.netloc}{path}"
 
 
+_Credential = Union[str, TokenManager]
+
+
 def _resolve(
-    sdk: Optional[Textql], api_key: Optional[str], server_url: Optional[str]
-) -> Tuple[str, str]:
-    """Resolve (base address, api_key), preferring explicit args, then a
-    configured SDK, then ``TEXTQL_SERVER_URL``, then the generated default."""
+    sdk: Optional[Textql],
+    api_key: Optional[str],
+    server_url: Optional[str],
+    tokens: Optional[TokenManager] = None,
+) -> Tuple[str, _Credential]:
+    """Resolve (base address, credential), preferring explicit args, then a
+    configured SDK, then ``TEXTQL_SERVER_URL``, then the generated default.
+    The credential is an api key or a :class:`TokenManager`."""
+    credential: Optional[_Credential] = tokens or api_key
     if sdk is not None:
         config = sdk.sdk_configuration
         if server_url is None:
             server_url = config.get_server_details()[0]
-        if api_key is None:
+        if credential is None:
+            credential = token_manager_of(sdk)
+        if credential is None:
             security = config.security() if callable(config.security) else config.security
-            api_key = security.api_key if security is not None else None
+            credential = security.api_key if security is not None else None
     if server_url is None:
         server_url = server_url_from_env() or SERVERS[0]
-    if not api_key:
+    if not credential:
         raise ValueError(
-            "no api_key available: pass api_key=... or an sdk configured with one"
+            "no credentials available: pass api_key=..., tokens=..., or an sdk "
+            "configured with either"
         )
-    return _rpc_base_url(server_url), api_key
+    return _rpc_base_url(server_url), credential
 
 
 class _ApiKeyInterceptor:
@@ -134,11 +149,71 @@ class _ApiKeyInterceptorSync:
         return None
 
 
+class _TokenInterceptor:
+    """Async metadata interceptor that attaches ``Authorization: Bearer``.
+
+    A stream cannot be replayed after a 401, so an ``unauthenticated`` error
+    refreshes the token for the next call and still surfaces to the caller."""
+
+    def __init__(self, manager: TokenManager) -> None:
+        self._manager = manager
+
+    async def on_start(self, ctx: RequestContext) -> str:
+        token = await self._manager.access_token_async()
+        ctx.request_headers()["authorization"] = f"Bearer {token}"
+        return token
+
+    # pylint: disable=unused-argument
+    # See _ApiKeyInterceptor.on_end -- names are load-bearing for the protocol.
+    async def on_end(
+        self, token: str, ctx: RequestContext, error: Optional[Exception]
+    ) -> None:
+        if _unauthenticated(error):
+            await self._manager.access_token_async(stale=token)
+
+
+class _TokenInterceptorSync:
+    """Sync counterpart to :class:`_TokenInterceptor`."""
+
+    def __init__(self, manager: TokenManager) -> None:
+        self._manager = manager
+
+    def on_start_sync(self, ctx: RequestContext) -> str:
+        token = self._manager.access_token()
+        ctx.request_headers()["authorization"] = f"Bearer {token}"
+        return token
+
+    # pylint: disable=unused-argument
+    # See _ApiKeyInterceptor.on_end -- names are load-bearing for the protocol.
+    def on_end_sync(
+        self, token: str, ctx: RequestContext, error: Optional[Exception]
+    ) -> None:
+        if _unauthenticated(error):
+            self._manager.access_token(stale=token)
+
+
+def _unauthenticated(error: Optional[Exception]) -> bool:
+    return isinstance(error, ConnectError) and error.code == Code.UNAUTHENTICATED
+
+
+def _interceptor(credential: _Credential):
+    if isinstance(credential, TokenManager):
+        return _TokenInterceptor(credential)
+    return _ApiKeyInterceptor(credential)
+
+
+def _interceptor_sync(credential: _Credential):
+    if isinstance(credential, TokenManager):
+        return _TokenInterceptorSync(credential)
+    return _ApiKeyInterceptorSync(credential)
+
+
 def create_connect_client(
     service_client: type[_AsyncClientT],
     sdk: Optional[Textql] = None,
     *,
     api_key: Optional[str] = None,
+    tokens: Optional[TokenManager] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
     http_client: Optional[HTTPClient] = None,
@@ -156,10 +231,10 @@ def create_connect_client(
     ``http_client`` accepts a ``pyqwest.Client`` for custom TLS -- see
     :func:`create_streaming_client`.
     """
-    address, key = _resolve(sdk, api_key, server_url)
+    address, credential = _resolve(sdk, api_key, server_url, tokens)
     return service_client(
         address,
-        interceptors=[_ApiKeyInterceptor(key)],
+        interceptors=[_interceptor(credential)],
         timeout_ms=timeout_ms,
         http_client=http_client,
     )
@@ -170,16 +245,17 @@ def create_connect_client_sync(
     sdk: Optional[Textql] = None,
     *,
     api_key: Optional[str] = None,
+    tokens: Optional[TokenManager] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
     http_client: Optional[SyncHTTPClient] = None,
 ) -> _SyncClientT:
     """Sync counterpart to :func:`create_connect_client` -- pass a generated
     ``*ServiceClientSync`` class."""
-    address, key = _resolve(sdk, api_key, server_url)
+    address, credential = _resolve(sdk, api_key, server_url, tokens)
     return service_client(
         address,
-        interceptors=[_ApiKeyInterceptorSync(key)],
+        interceptors=[_interceptor_sync(credential)],
         timeout_ms=timeout_ms,
         http_client=http_client,
     )
@@ -213,6 +289,7 @@ def create_streaming_client(
     sdk: Optional[Textql] = None,
     *,
     api_key: Optional[str] = None,
+    tokens: Optional[TokenManager] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
     http_client: Optional[HTTPClient] = None,
@@ -220,8 +297,10 @@ def create_streaming_client(
     """Streaming bridge over Connect-RPC for the server-streaming endpoints that
     have no HTTP/JSON shape in the OpenAPI spec.
 
-    Pass a configured :class:`~textql_sdk.Textql` to inherit its server and API
-    key, or pass ``api_key`` directly.
+    Pass a configured :class:`~textql_sdk.Textql` to inherit its server and
+    credentials (an API key, or the token pair from
+    :func:`textql_sdk.oauth.from_tokens`), or pass ``api_key`` or ``tokens``
+    directly.
 
     Server-streaming methods: ``chats.watch_chat``, ``chats.stream_chat``,
     ``agents.stream_agent_status``, ``apps.stream_app_activity``,
@@ -244,8 +323,8 @@ def create_streaming_client(
     Leave it as ``None`` to use the shared default transport, which already
     trusts the system store.
     """
-    address, key = _resolve(sdk, api_key, server_url)
-    interceptor = _ApiKeyInterceptor(key)
+    address, credential = _resolve(sdk, api_key, server_url, tokens)
+    interceptor = _interceptor(credential)
 
     def build(service_client: type[_AsyncClientT]) -> _AsyncClientT:
         return service_client(
@@ -268,6 +347,7 @@ def create_streaming_client_sync(
     sdk: Optional[Textql] = None,
     *,
     api_key: Optional[str] = None,
+    tokens: Optional[TokenManager] = None,
     server_url: Optional[str] = None,
     timeout_ms: Optional[int] = None,
     http_client: Optional[SyncHTTPClient] = None,
@@ -275,8 +355,8 @@ def create_streaming_client_sync(
     """Sync counterpart to :func:`create_streaming_client`. Streaming methods
     return plain iterators (usable in a ``for`` loop). ``http_client`` takes a
     ``pyqwest.SyncClient``."""
-    address, key = _resolve(sdk, api_key, server_url)
-    interceptor = _ApiKeyInterceptorSync(key)
+    address, credential = _resolve(sdk, api_key, server_url, tokens)
+    interceptor = _interceptor_sync(credential)
 
     def build(service_client: type[_SyncClientT]) -> _SyncClientT:
         return service_client(
