@@ -47,9 +47,24 @@ class _RPCPublicPrefixHook(BeforeRequestHook):
         return request
 
 
+class _ConnectProtocolVersionHook(BeforeRequestHook):
+    """The spec this SDK was generated from types ``Connect-Protocol-Version``
+    as a number, so the generated models send ``1.0``. connect-go accepts only
+    ``1`` and answers 400 on every unary call. Harmless once the spec types the
+    header as the string ``"1"`` and the SDK is regenerated."""
+
+    def before_request(
+        self, hook_ctx: BeforeRequestContext, request: httpx.Request
+    ) -> httpx.Request:
+        if request.headers.get("Connect-Protocol-Version") == "1.0":
+            request.headers["Connect-Protocol-Version"] = "1"
+        return request
+
+
 def init_hooks(hooks: Hooks):
     """Add hooks by calling hooks.register{sdk_init/before_request/after_success/after_error}Hook
     with an instance of a hook that implements that specific Hook interface
     Hooks are registered per SDK instance, and are valid for the lifetime of the SDK instance"""
     hooks.register_sdk_init_hook(_ServerURLFromEnvHook())
     hooks.register_before_request_hook(_RPCPublicPrefixHook())
+    hooks.register_before_request_hook(_ConnectProtocolVersionHook())
