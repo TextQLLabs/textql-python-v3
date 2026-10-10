@@ -64,6 +64,8 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
     so that an eval can test the agent without context access; every other
     paradigm gates read_file on the org's ContextV3 flag alone.
     """
+    ontology_actions_enabled: NotRequired[bool]
+    ontology_actions_auto_approve_enabled: NotRequired[bool]
 
 
 class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
@@ -207,6 +209,14 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
     paradigm gates read_file on the org's ContextV3 flag alone.
     """
 
+    ontology_actions_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="ontologyActionsEnabled")
+    ] = None
+
+    ontology_actions_auto_approve_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="ontologyActionsAutoApproveEnabled")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -243,6 +253,8 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
                 "feedEnabled",
                 "fileGenerationDisabled",
                 "readFileEnabled",
+                "ontologyActionsEnabled",
+                "ontologyActionsAutoApproveEnabled",
             ]
         )
         nullable_fields = set(["datasetId", "feedEnabled"])

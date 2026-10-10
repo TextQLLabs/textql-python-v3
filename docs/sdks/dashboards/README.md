@@ -19,7 +19,6 @@
 * [list_versions](#list_versions) - Version history
 * [list](#list) - ListDashboards
 * [move_to_folder](#move_to_folder) - MoveDashboardToFolder
-* [preview_config](#preview_config) - Config-managed dashboards: render a `.dashboard` straight from a patch ref before  it merges (ADR-0022). Runs as the file's run_as, gated on the previewer being  authorized for it; persists nothing.
 * [publish](#publish) - Publishing workflow
 * [regenerate_screenshot](#regenerate_screenshot) - Screenshot management
 * [restore_dashboard_version](#restore_dashboard_version) - RestoreDashboardVersion
@@ -661,50 +660,6 @@ with Textql(
 ### Response
 
 **[models.DashboardServiceMoveDashboardToFolderResponse](../../models/dashboardservicemovedashboardtofolderresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
-## preview_config
-
-Config-managed dashboards: render a `.dashboard` straight from a patch ref before
- it merges (ADR-0022). Runs as the file's run_as, gated on the previewer being
- authorized for it; persists nothing.
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="DashboardService_PreviewConfigDashboard" method="post" path="/textql.rpc.public.dashboard.DashboardService/PreviewConfigDashboard" -->
-```python
-import os
-from textql_sdk import Textql
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
-) as textql:
-
-    res = textql.dashboards.preview_config()
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `patch_ref`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | git ref of the patch to preview from                                |
-| `dashboard_path`                                                    | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Library path of the .dashboard file                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.DashboardServicePreviewConfigDashboardResponse](../../models/dashboardservicepreviewconfigdashboardresponse.md)**
 
 ### Errors
 

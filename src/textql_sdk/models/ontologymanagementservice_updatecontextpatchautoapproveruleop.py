@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
+from .connect_protocol_version import ConnectProtocolVersion
 from .textql_rpc_public_patches_updatecontextpatchautoapproverulerequest import (
     TextqlRPCPublicPatchesUpdateContextPatchAutoApproveRuleRequest,
     TextqlRPCPublicPatchesUpdateContextPatchAutoApproveRuleRequestTypedDict,
@@ -28,7 +29,8 @@ class OntologyManagementServiceUpdateContextPatchAutoApproveRuleRequestTypedDict
     TypedDict
 ):
     body: TextqlRPCPublicPatchesUpdateContextPatchAutoApproveRuleRequestTypedDict
-    connect_protocol_version: float
+    connect_protocol_version: ConnectProtocolVersion
+    r"""Define the version of the Connect protocol"""
     connect_timeout_ms: NotRequired[float]
 
 
@@ -39,10 +41,11 @@ class OntologyManagementServiceUpdateContextPatchAutoApproveRuleRequest(BaseMode
     ]
 
     connect_protocol_version: Annotated[
-        Annotated[float, AfterValidator(validate_const(1.0))],
+        Annotated[ConnectProtocolVersion, AfterValidator(validate_const("1"))],
         pydantic.Field(alias="Connect-Protocol-Version"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = 1.0
+    ] = "1"
+    r"""Define the version of the Connect protocol"""
 
     connect_timeout_ms: Annotated[
         Optional[float],

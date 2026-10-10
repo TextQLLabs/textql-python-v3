@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
+from .connect_protocol_version import ConnectProtocolVersion
 from .textql_rpc_public_audit_log_triggers3exportrequest import (
     TextqlRPCPublicAuditLogTriggerS3ExportRequest,
     TextqlRPCPublicAuditLogTriggerS3ExportRequestTypedDict,
@@ -26,7 +27,8 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 class AuditLogServiceTriggerS3ExportRequestTypedDict(TypedDict):
     body: TextqlRPCPublicAuditLogTriggerS3ExportRequestTypedDict
-    connect_protocol_version: float
+    connect_protocol_version: ConnectProtocolVersion
+    r"""Define the version of the Connect protocol"""
     connect_timeout_ms: NotRequired[float]
 
 
@@ -37,10 +39,11 @@ class AuditLogServiceTriggerS3ExportRequest(BaseModel):
     ]
 
     connect_protocol_version: Annotated[
-        Annotated[float, AfterValidator(validate_const(1.0))],
+        Annotated[ConnectProtocolVersion, AfterValidator(validate_const("1"))],
         pydantic.Field(alias="Connect-Protocol-Version"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = 1.0
+    ] = "1"
+    r"""Define the version of the Connect protocol"""
 
     connect_timeout_ms: Annotated[
         Optional[float],

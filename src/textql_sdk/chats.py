@@ -2377,9 +2377,9 @@ class Chats(BaseSDK):
         :param vllm_model_id: vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.
             Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
-            Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
+            Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
-            Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+            Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol.
         :param model_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2519,9 +2519,9 @@ class Chats(BaseSDK):
         :param vllm_model_id: vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.
             Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
-            Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
+            Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
-            Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+            Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol.
         :param model_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

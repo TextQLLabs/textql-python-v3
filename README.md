@@ -204,6 +204,19 @@ with Textql(
 * [update](docs/sdks/agents/README.md#update) - UpdateAgent
 * [upload_agent_avatar](docs/sdks/agents/README.md#upload_agent_avatar) - UploadAgentAvatar
 
+### [ApiOAuth](docs/sdks/apioauth/README.md)
+
+* [exchange_client_credentials](docs/sdks/apioauth/README.md#exchange_client_credentials) - ExchangeApiOAuthClientCredentials
+* [exchange_code](docs/sdks/apioauth/README.md#exchange_code) - ExchangeApiOAuthCode
+* [exchange_jwt_bearer](docs/sdks/apioauth/README.md#exchange_jwt_bearer) - ExchangeApiOAuthJwtBearer
+* [get_config](docs/sdks/apioauth/README.md#get_config) - GetApiOAuthConfig
+* [get_status](docs/sdks/apioauth/README.md#get_status) - GetApiOAuthStatus
+* [get_url](docs/sdks/apioauth/README.md#get_url) - GetApiOAuthURL
+* [initiate_device_authorization](docs/sdks/apioauth/README.md#initiate_device_authorization) - InitiateDeviceAuthorization
+* [poll_device_code_token](docs/sdks/apioauth/README.md#poll_device_code_token) - PollDeviceCodeToken
+* [revoke_token](docs/sdks/apioauth/README.md#revoke_token) - RevokeApiOAuthToken
+* [upsert_config](docs/sdks/apioauth/README.md#upsert_config) - Shared OAuth app configuration. Requires connector write permission.
+
 ### [Apps](docs/sdks/apps/README.md)
 
 * [heartbeat](docs/sdks/apps/README.md#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
@@ -327,7 +340,6 @@ with Textql(
 * [list_versions](docs/sdks/dashboards/README.md#list_versions) - Version history
 * [list](docs/sdks/dashboards/README.md#list) - ListDashboards
 * [move_to_folder](docs/sdks/dashboards/README.md#move_to_folder) - MoveDashboardToFolder
-* [preview_config](docs/sdks/dashboards/README.md#preview_config) - Config-managed dashboards: render a `.dashboard` straight from a patch ref before  it merges (ADR-0022). Runs as the file's run_as, gated on the previewer being  authorized for it; persists nothing.
 * [publish](docs/sdks/dashboards/README.md#publish) - Publishing workflow
 * [regenerate_screenshot](docs/sdks/dashboards/README.md#regenerate_screenshot) - Screenshot management
 * [restore_dashboard_version](docs/sdks/dashboards/README.md#restore_dashboard_version) - RestoreDashboardVersion
@@ -619,7 +631,9 @@ with Textql(
 
 ### [Secrets](docs/sdks/secrets/README.md)
 
+* [create_api_revision](docs/sdks/secrets/README.md#create_api_revision) - API connector drafts let clients configure and test credentials before saving.
 * [delete_api_access_key](docs/sdks/secrets/README.md#delete_api_access_key) - DeleteApiAccessKey
+* [delete_api_revision](docs/sdks/secrets/README.md#delete_api_revision) - DeleteApiRevision
 * [get_api_access_key](docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
 * [list_api_access_keys](docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders

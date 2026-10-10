@@ -16,6 +16,7 @@ import weakref
 
 if TYPE_CHECKING:
     from textql_sdk.agents import Agents
+    from textql_sdk.apioauth import APIOAuth
     from textql_sdk.apps import Apps
     from textql_sdk.auditlogs import AuditLogs
     from textql_sdk.chats import Chats
@@ -47,6 +48,7 @@ class Textql(BaseSDK):
     """
 
     agents: "Agents"
+    api_o_auth: "APIOAuth"
     apps: "Apps"
     audit_logs: "AuditLogs"
     chats: "Chats"
@@ -71,6 +73,7 @@ class Textql(BaseSDK):
     teams: "Teams"
     _sub_sdk_map = {
         "agents": ("textql_sdk.agents", "Agents"),
+        "api_o_auth": ("textql_sdk.apioauth", "APIOAuth"),
         "apps": ("textql_sdk.apps", "Apps"),
         "audit_logs": ("textql_sdk.auditlogs", "AuditLogs"),
         "chats": ("textql_sdk.chats", "Chats"),

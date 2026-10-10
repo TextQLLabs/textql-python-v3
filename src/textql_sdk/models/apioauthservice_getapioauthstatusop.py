@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 from .connect_error import ConnectError, ConnectErrorTypedDict
-from .textql_rpc_public_dashboard_previewconfigdashboardrequest import (
-    TextqlRPCPublicDashboardPreviewConfigDashboardRequest,
-    TextqlRPCPublicDashboardPreviewConfigDashboardRequestTypedDict,
+from .connect_protocol_version import ConnectProtocolVersion
+from .textql_rpc_public_api_oauth_getapioauthstatusrequest import (
+    TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest,
+    TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict,
 )
-from .textql_rpc_public_dashboard_previewconfigdashboardresponse import (
-    TextqlRPCPublicDashboardPreviewConfigDashboardResponse,
-    TextqlRPCPublicDashboardPreviewConfigDashboardResponseTypedDict,
+from .textql_rpc_public_api_oauth_getapioauthstatusresponse import (
+    TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse,
+    TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict,
 )
 import pydantic
 from pydantic import model_serializer
@@ -24,23 +25,25 @@ from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-class DashboardServicePreviewConfigDashboardRequestTypedDict(TypedDict):
-    body: TextqlRPCPublicDashboardPreviewConfigDashboardRequestTypedDict
-    connect_protocol_version: float
+class APIOAuthServiceGetAPIOAuthStatusRequestTypedDict(TypedDict):
+    body: TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict
+    connect_protocol_version: ConnectProtocolVersion
+    r"""Define the version of the Connect protocol"""
     connect_timeout_ms: NotRequired[float]
 
 
-class DashboardServicePreviewConfigDashboardRequest(BaseModel):
+class APIOAuthServiceGetAPIOAuthStatusRequest(BaseModel):
     body: Annotated[
-        TextqlRPCPublicDashboardPreviewConfigDashboardRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
 
     connect_protocol_version: Annotated[
-        Annotated[float, AfterValidator(validate_const(1.0))],
+        Annotated[ConnectProtocolVersion, AfterValidator(validate_const("1"))],
         pydantic.Field(alias="Connect-Protocol-Version"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = 1.0
+    ] = "1"
+    r"""Define the version of the Connect protocol"""
 
     connect_timeout_ms: Annotated[
         Optional[float],
@@ -65,22 +68,21 @@ class DashboardServicePreviewConfigDashboardRequest(BaseModel):
         return m
 
 
-DashboardServicePreviewConfigDashboardResponseTypedDict = TypeAliasType(
-    "DashboardServicePreviewConfigDashboardResponseTypedDict",
+APIOAuthServiceGetAPIOAuthStatusResponseTypedDict = TypeAliasType(
+    "APIOAuthServiceGetAPIOAuthStatusResponseTypedDict",
     Union[
-        TextqlRPCPublicDashboardPreviewConfigDashboardResponseTypedDict,
-        ConnectErrorTypedDict,
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict, ConnectErrorTypedDict
     ],
 )
 
 
-DashboardServicePreviewConfigDashboardResponse = TypeAliasType(
-    "DashboardServicePreviewConfigDashboardResponse",
-    Union[TextqlRPCPublicDashboardPreviewConfigDashboardResponse, ConnectError],
+APIOAuthServiceGetAPIOAuthStatusResponse = TypeAliasType(
+    "APIOAuthServiceGetAPIOAuthStatusResponse",
+    Union[TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse, ConnectError],
 )
 
 
 try:
-    DashboardServicePreviewConfigDashboardRequest.model_rebuild()
+    APIOAuthServiceGetAPIOAuthStatusRequest.model_rebuild()
 except NameError:
     pass

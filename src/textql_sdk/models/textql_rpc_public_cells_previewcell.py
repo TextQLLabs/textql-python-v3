@@ -24,6 +24,8 @@ class TextqlRPCPublicCellsPreviewCellTypedDict(TypedDict):
     url: NotRequired[Nullable[str]]
     content: NotRequired[Nullable[str]]
     error: NotRequired[Nullable[str]]
+    artifact_id: NotRequired[Nullable[str]]
+    r"""Set instead of url for artifact cells: the client resolves the file with the viewer's own access, so shared history never carries a bearer link to a draft."""
 
 
 class TextqlRPCPublicCellsPreviewCell(BaseModel):
@@ -42,12 +44,17 @@ class TextqlRPCPublicCellsPreviewCell(BaseModel):
 
     error: OptionalNullable[str] = UNSET
 
+    artifact_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="artifactId")
+    ] = UNSET
+    r"""Set instead of url for artifact cells: the client resolves the file with the viewer's own access, so shared history never carries a bearer link to a draft."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["target", "previewType", "name", "url", "content", "error"]
+            ["target", "previewType", "name", "url", "content", "error", "artifactId"]
         )
-        nullable_fields = set(["url", "content", "error"])
+        nullable_fields = set(["url", "content", "error", "artifactId"])
         serialized = handler(self)
         m = {}
 
