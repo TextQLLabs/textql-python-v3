@@ -18,6 +18,7 @@ class TextqlRPCPublicPatchesUpsertOntologyFileRequestTypedDict(TypedDict):
     path: NotRequired[str]
     content: NotRequired[str]
     commit_message: NotRequired[Nullable[str]]
+    base_content_hash: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicPatchesUpsertOntologyFileRequest(BaseModel):
@@ -29,10 +30,14 @@ class TextqlRPCPublicPatchesUpsertOntologyFileRequest(BaseModel):
         OptionalNullable[str], pydantic.Field(alias="commitMessage")
     ] = UNSET
 
+    base_content_hash: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="baseContentHash")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["path", "content", "commitMessage"])
-        nullable_fields = set(["commitMessage"])
+        optional_fields = set(["path", "content", "commitMessage", "baseContentHash"])
+        nullable_fields = set(["commitMessage", "baseContentHash"])
         serialized = handler(self)
         m = {}
 

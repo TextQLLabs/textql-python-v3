@@ -16,12 +16,14 @@ import weakref
 
 if TYPE_CHECKING:
     from textql_sdk.agents import Agents
+    from textql_sdk.apioauth import APIOAuth
     from textql_sdk.apps import Apps
     from textql_sdk.auditlogs import AuditLogs
     from textql_sdk.chats import Chats
     from textql_sdk.connectors import Connectors
     from textql_sdk.dashboards import Dashboards
     from textql_sdk.datasets import Datasets
+    from textql_sdk.harnesses import Harnesses
     from textql_sdk.mcp_sdk import McpSDK
     from textql_sdk.metricsexports import MetricsExports
     from textql_sdk.observability_sdk import ObservabilitySDK
@@ -47,12 +49,14 @@ class Textql(BaseSDK):
     """
 
     agents: "Agents"
+    api_o_auth: "APIOAuth"
     apps: "Apps"
     audit_logs: "AuditLogs"
     chats: "Chats"
     connectors: "Connectors"
     dashboards: "Dashboards"
     datasets: "Datasets"
+    harnesses: "Harnesses"
     mcp: "McpSDK"
     metrics_exports: "MetricsExports"
     observability: "ObservabilitySDK"
@@ -71,12 +75,14 @@ class Textql(BaseSDK):
     teams: "Teams"
     _sub_sdk_map = {
         "agents": ("textql_sdk.agents", "Agents"),
+        "api_o_auth": ("textql_sdk.apioauth", "APIOAuth"),
         "apps": ("textql_sdk.apps", "Apps"),
         "audit_logs": ("textql_sdk.auditlogs", "AuditLogs"),
         "chats": ("textql_sdk.chats", "Chats"),
         "connectors": ("textql_sdk.connectors", "Connectors"),
         "dashboards": ("textql_sdk.dashboards", "Dashboards"),
         "datasets": ("textql_sdk.datasets", "Datasets"),
+        "harnesses": ("textql_sdk.harnesses", "Harnesses"),
         "mcp": ("textql_sdk.mcp_sdk", "McpSDK"),
         "metrics_exports": ("textql_sdk.metricsexports", "MetricsExports"),
         "observability": ("textql_sdk.observability_sdk", "ObservabilitySDK"),

@@ -1,0 +1,9 @@
+# TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequest
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `group_id`                                                                                                       | *Optional[str]*                                                                                                  | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `config`                                                                                                         | [Optional[models.TextqlRPCPublicConnectorConnectorConfig]](../models/textqlrpcpublicconnectorconnectorconfig.md) | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

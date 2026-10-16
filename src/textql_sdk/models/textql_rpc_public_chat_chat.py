@@ -241,7 +241,7 @@ class TextqlRPCPublicChatChatTypedDict(TypedDict):
     """
     fast_mode: NotRequired[Nullable[bool]]
     r"""fast_mode enables Anthropic's fast inference mode (speed: \"fast\").
-    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
+    Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
     """
     agent_id: NotRequired[Nullable[str]]
     r"""Agent that owns this chat, unset for human-initiated chats."""
@@ -249,9 +249,11 @@ class TextqlRPCPublicChatChatTypedDict(TypedDict):
     agent_profile_image_url: NotRequired[Nullable[str]]
     max_thinking: NotRequired[Nullable[bool]]
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol.
     Thinking tokens bill as output tokens.
     """
+    harness: NotRequired[Nullable[str]]
+    harness_endpoint_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatChat(BaseModel):
@@ -520,7 +522,7 @@ class TextqlRPCPublicChatChat(BaseModel):
         UNSET
     )
     r"""fast_mode enables Anthropic's fast inference mode (speed: \"fast\").
-    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
+    Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
     """
 
     agent_id: Annotated[OptionalNullable[str], pydantic.Field(alias="agentId")] = UNSET
@@ -542,9 +544,15 @@ class TextqlRPCPublicChatChat(BaseModel):
         ),
     ] = UNSET
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol.
     Thinking tokens bill as output tokens.
     """
+
+    harness: OptionalNullable[str] = UNSET
+
+    harness_endpoint_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="harnessEndpointId")
+    ] = UNSET
 
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
@@ -578,6 +586,8 @@ class TextqlRPCPublicChatChat(BaseModel):
                 "agentName",
                 "agentProfileImageUrl",
                 "maxThinking",
+                "harness",
+                "harnessEndpointId",
             ]
         )
         nullable_fields = set(
@@ -601,6 +611,8 @@ class TextqlRPCPublicChatChat(BaseModel):
                 "agentName",
                 "agentProfileImageUrl",
                 "maxThinking",
+                "harness",
+                "harnessEndpointId",
             ]
         )
         serialized = handler(self)

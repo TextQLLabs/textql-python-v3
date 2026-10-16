@@ -1,0 +1,9 @@
+# TextqlRPCPublicConnectorListConnectorGroupsResponse
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `groups`                                                                                                   | List[[models.TextqlRPCPublicConnectorConnectorGroup](../models/textqlrpcpublicconnectorconnectorgroup.md)] | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `addable_connector_ids`                                                                                    | List[*int*]                                                                                                | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |

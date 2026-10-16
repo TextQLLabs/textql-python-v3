@@ -46,6 +46,9 @@ from .textql_rpc_public_rbac_mcppermissionaction import (
 from .textql_rpc_public_rbac_memberpermissionaction import (
     TextqlRPCPublicRbacMemberPermissionAction,
 )
+from .textql_rpc_public_rbac_memorypermissionaction import (
+    TextqlRPCPublicRbacMemoryPermissionAction,
+)
 from .textql_rpc_public_rbac_observabilitypermissionaction import (
     TextqlRPCPublicRbacObservabilityPermissionAction,
 )
@@ -185,6 +188,14 @@ class ObservabilityTypedDict(TypedDict):
 
 class Observability(BaseModel):
     observability: TextqlRPCPublicRbacObservabilityPermissionAction
+
+
+class MemoryTypedDict(TypedDict):
+    memory: TextqlRPCPublicRbacMemoryPermissionAction
+
+
+class Memory(BaseModel):
+    memory: TextqlRPCPublicRbacMemoryPermissionAction
 
 
 class MemberTypedDict(TypedDict):
@@ -336,6 +347,7 @@ TextqlRPCPublicRbacPermissionSpecTypedDict = TypeAliasType(
         GroupTypedDict,
         McpTypedDict,
         MemberTypedDict,
+        MemoryTypedDict,
         ObservabilityTypedDict,
         OntologyTypedDict,
         OrganizationTypedDict,
@@ -371,6 +383,7 @@ TextqlRPCPublicRbacPermissionSpec = TypeAliasType(
         Group,
         Mcp,
         Member,
+        Memory,
         Observability,
         Ontology,
         Organization,

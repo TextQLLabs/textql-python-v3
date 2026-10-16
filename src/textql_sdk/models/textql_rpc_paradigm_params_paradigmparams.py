@@ -49,14 +49,16 @@ class TextqlRPCParadigmParamsParadigmParamsTypedDict(TypedDict):
     """
     questions_tool_enabled: NotRequired[bool]
     r"""Org-level toggle for the questions tool (the agent's \"ask the user
-    structured questions\" cell). Gated additionally by the form-editor master
-    switch; there is no per-member toggle. Default off.
+    structured questions\" cell). There is no per-member toggle.
     """
     powerbi_selections: NotRequired[
         List[TextqlRPCPowerbiSelectionPowerBISelectionTypedDict]
     ]
     dataset_id: NotRequired[Nullable[str]]
     r"""Tableau collection UUID"""
+    ontology_actions_enabled: NotRequired[bool]
+    ontology_actions_auto_approve_enabled: NotRequired[bool]
+    decide_enabled: NotRequired[bool]
 
 
 class TextqlRPCParadigmParamsParadigmParams(BaseModel):
@@ -167,8 +169,7 @@ class TextqlRPCParadigmParamsParadigmParams(BaseModel):
         Optional[bool], pydantic.Field(alias="questionsToolEnabled")
     ] = None
     r"""Org-level toggle for the questions tool (the agent's \"ask the user
-    structured questions\" cell). Gated additionally by the form-editor master
-    switch; there is no per-member toggle. Default off.
+    structured questions\" cell). There is no per-member toggle.
     """
 
     powerbi_selections: Annotated[
@@ -180,6 +181,18 @@ class TextqlRPCParadigmParamsParadigmParams(BaseModel):
         UNSET
     )
     r"""Tableau collection UUID"""
+
+    ontology_actions_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="ontologyActionsEnabled")
+    ] = None
+
+    ontology_actions_auto_approve_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="ontologyActionsAutoApproveEnabled")
+    ] = None
+
+    decide_enabled: Annotated[Optional[bool], pydantic.Field(alias="decideEnabled")] = (
+        None
+    )
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -213,6 +226,9 @@ class TextqlRPCParadigmParamsParadigmParams(BaseModel):
                 "questionsToolEnabled",
                 "powerbiSelections",
                 "datasetId",
+                "ontologyActionsEnabled",
+                "ontologyActionsAutoApproveEnabled",
+                "decideEnabled",
             ]
         )
         nullable_fields = set(["datasetId"])

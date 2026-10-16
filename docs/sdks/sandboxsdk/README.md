@@ -5,10 +5,12 @@
 ### Available Operations
 
 * [create](#create) - CreateSandbox
+* [diff_ontology_changes](#diff_ontology_changes) - DiffOntologyChanges
 * [exec](#exec) - Exec
 * [execute_code](#execute_code) - ExecuteCode
 * [get_tool_availability](#get_tool_availability) - GetToolAvailability
 * [load_connector_data](#load_connector_data) - LoadConnectorData
+* [propose_ontology_changes](#propose_ontology_changes) - ProposeOntologyChanges
 * [execute_bash](#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
 * [execute_query](#execute_query) - ExecuteQuery
 
@@ -46,6 +48,47 @@ with Textql(
 ### Response
 
 **[models.SandboxExecServiceCreateSandboxResponse](../../models/sandboxexecservicecreatesandboxresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## diff_ontology_changes
+
+DiffOntologyChanges
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SandboxExecService_DiffOntologyChanges" method="post" path="/textql.rpc.public.sandbox_exec.SandboxExecService/DiffOntologyChanges" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.sandbox.diff_ontology_changes()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `sandbox_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SandboxExecServiceDiffOntologyChangesResponse](../../models/sandboxexecservicediffontologychangesresponse.md)**
 
 ### Errors
 
@@ -220,6 +263,51 @@ with Textql(
 ### Response
 
 **[models.SandboxExecServiceLoadConnectorDataResponse](../../models/sandboxexecserviceloadconnectordataresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## propose_ontology_changes
+
+ProposeOntologyChanges
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="SandboxExecService_ProposeOntologyChanges" method="post" path="/textql.rpc.public.sandbox_exec.SandboxExecService/ProposeOntologyChanges" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.sandbox.propose_ontology_changes()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `sandbox_id`                                                        | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `title`                                                             | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `description`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `draft`                                                             | *Optional[bool]*                                                    | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `patch_number`                                                      | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.SandboxExecServiceProposeOntologyChangesResponse](../../models/sandboxexecserviceproposeontologychangesresponse.md)**
 
 ### Errors
 
