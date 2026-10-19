@@ -5,24 +5,37 @@ from .textql_rpc_auth_organization import (
     TextqlRPCAuthOrganization,
     TextqlRPCAuthOrganizationTypedDict,
 )
+from .textql_rpc_public_settings_organizationmodelsettings import (
+    TextqlRPCPublicSettingsOrganizationModelSettings,
+    TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict,
+)
+import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponseTypedDict(
     TypedDict
 ):
     organization: NotRequired[TextqlRPCAuthOrganizationTypedDict]
+    model_settings: NotRequired[
+        TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict
+    ]
 
 
 class TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse(BaseModel):
     organization: Optional[TextqlRPCAuthOrganization] = None
 
+    model_settings: Annotated[
+        Optional[TextqlRPCPublicSettingsOrganizationModelSettings],
+        pydantic.Field(alias="modelSettings"),
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["organization"])
+        optional_fields = set(["organization", "modelSettings"])
         serialized = handler(self)
         m = {}
 
@@ -35,3 +48,9 @@ class TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse.model_rebuild()
+except NameError:
+    pass

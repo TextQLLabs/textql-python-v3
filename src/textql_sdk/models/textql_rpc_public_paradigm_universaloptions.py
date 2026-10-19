@@ -64,6 +64,12 @@ class TextqlRPCPublicParadigmUniversalOptionsTypedDict(TypedDict):
     so that an eval can test the agent without context access; every other
     paradigm gates read_file on the org's ContextV3 flag alone.
     """
+    ontology_actions_enabled: NotRequired[bool]
+    ontology_actions_auto_approve_enabled: NotRequired[bool]
+    feed_explorer_selected: NotRequired[Nullable[bool]]
+    feed_post_selected: NotRequired[Nullable[bool]]
+    feed_comment_selected: NotRequired[Nullable[bool]]
+    feed_engage_selected: NotRequired[Nullable[bool]]
 
 
 class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
@@ -207,6 +213,30 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
     paradigm gates read_file on the org's ContextV3 flag alone.
     """
 
+    ontology_actions_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="ontologyActionsEnabled")
+    ] = None
+
+    ontology_actions_auto_approve_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="ontologyActionsAutoApproveEnabled")
+    ] = None
+
+    feed_explorer_selected: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedExplorerSelected")
+    ] = UNSET
+
+    feed_post_selected: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedPostSelected")
+    ] = UNSET
+
+    feed_comment_selected: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedCommentSelected")
+    ] = UNSET
+
+    feed_engage_selected: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="feedEngageSelected")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -243,9 +273,24 @@ class TextqlRPCPublicParadigmUniversalOptions(BaseModel):
                 "feedEnabled",
                 "fileGenerationDisabled",
                 "readFileEnabled",
+                "ontologyActionsEnabled",
+                "ontologyActionsAutoApproveEnabled",
+                "feedExplorerSelected",
+                "feedPostSelected",
+                "feedCommentSelected",
+                "feedEngageSelected",
             ]
         )
-        nullable_fields = set(["datasetId", "feedEnabled"])
+        nullable_fields = set(
+            [
+                "datasetId",
+                "feedEnabled",
+                "feedExplorerSelected",
+                "feedPostSelected",
+                "feedCommentSelected",
+                "feedEngageSelected",
+            ]
+        )
         serialized = handler(self)
         m = {}
 

@@ -11,15 +11,18 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TextqlRPCPublicRbacParseRolePermissionsImportRequestTypedDict(TypedDict):
     file_url: NotRequired[str]
     r"""Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles."""
+    file_key: NotRequired[str]
 
 
 class TextqlRPCPublicRbacParseRolePermissionsImportRequest(BaseModel):
     file_url: Annotated[Optional[str], pydantic.Field(alias="fileUrl")] = None
     r"""Presigned download URL for a CSV or XLSX file, up to 1 MiB and 100 roles."""
 
+    file_key: Annotated[Optional[str], pydantic.Field(alias="fileKey")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["fileUrl"])
+        optional_fields = set(["fileUrl", "fileKey"])
         serialized = handler(self)
         m = {}
 

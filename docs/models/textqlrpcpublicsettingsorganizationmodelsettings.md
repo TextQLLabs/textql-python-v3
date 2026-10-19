@@ -1,0 +1,11 @@
+# TextqlRPCPublicSettingsOrganizationModelSettings
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `default_model`                                                                          | [Optional[models.TextqlRPCPublicChatLlmModel]](../models/textqlrpcpublicchatllmmodel.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `enabled_models`                                                                         | List[[models.TextqlRPCPublicChatLlmModel](../models/textqlrpcpublicchatllmmodel.md)]     | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `restricted_models`                                                                      | List[[models.TextqlRPCPublicChatLlmModel](../models/textqlrpcpublicchatllmmodel.md)]     | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `system_default_model`                                                                   | [Optional[models.TextqlRPCPublicChatLlmModel]](../models/textqlrpcpublicchatllmmodel.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |

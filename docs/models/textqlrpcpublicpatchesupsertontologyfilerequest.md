@@ -8,3 +8,4 @@
 | `path`                  | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |
 | `content`               | *Optional[str]*         | :heavy_minus_sign:      | N/A                     |
 | `commit_message`        | *OptionalNullable[str]* | :heavy_minus_sign:      | N/A                     |
+| `base_content_hash`     | *OptionalNullable[str]* | :heavy_minus_sign:      | N/A                     |

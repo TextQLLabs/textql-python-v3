@@ -15452,6 +15452,7 @@ class OntologySDK(BaseSDK):
         path: Optional[str] = None,
         content: Optional[str] = None,
         commit_message: OptionalNullable[str] = UNSET,
+        base_content_hash: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -15463,6 +15464,7 @@ class OntologySDK(BaseSDK):
         :param path:
         :param content:
         :param commit_message:
+        :param base_content_hash:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -15484,6 +15486,7 @@ class OntologySDK(BaseSDK):
                 path=path,
                 content=content,
                 commit_message=commit_message,
+                base_content_hash=base_content_hash,
             ),
         )
 
@@ -15562,6 +15565,7 @@ class OntologySDK(BaseSDK):
         path: Optional[str] = None,
         content: Optional[str] = None,
         commit_message: OptionalNullable[str] = UNSET,
+        base_content_hash: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -15573,6 +15577,7 @@ class OntologySDK(BaseSDK):
         :param path:
         :param content:
         :param commit_message:
+        :param base_content_hash:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -15594,6 +15599,7 @@ class OntologySDK(BaseSDK):
                 path=path,
                 content=content,
                 commit_message=commit_message,
+                base_content_hash=base_content_hash,
             ),
         )
 

@@ -204,6 +204,19 @@ with Textql(
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agents/README.md#update) - UpdateAgent
 * [upload_agent_avatar](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/agents/README.md#upload_agent_avatar) - UploadAgentAvatar
 
+### [ApiOAuth](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md)
+
+* [exchange_client_credentials](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#exchange_client_credentials) - ExchangeApiOAuthClientCredentials
+* [exchange_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#exchange_code) - ExchangeApiOAuthCode
+* [exchange_jwt_bearer](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#exchange_jwt_bearer) - ExchangeApiOAuthJwtBearer
+* [get_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#get_config) - GetApiOAuthConfig
+* [get_status](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#get_status) - GetApiOAuthStatus
+* [get_url](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#get_url) - GetApiOAuthURL
+* [initiate_device_authorization](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#initiate_device_authorization) - InitiateDeviceAuthorization
+* [poll_device_code_token](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#poll_device_code_token) - PollDeviceCodeToken
+* [revoke_token](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#revoke_token) - RevokeApiOAuthToken
+* [upsert_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apioauth/README.md#upsert_config) - Shared OAuth app configuration. Requires connector write permission.
+
 ### [Apps](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md)
 
 * [heartbeat](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/apps/README.md#heartbeat) - Keeps the viewed app's compute worker alive; first view spawns and pre-warms it (dashboard viewer-TTL parity).
@@ -293,7 +306,9 @@ with Textql(
 ### [Connectors](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md)
 
 * [create](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#create) - CreateConnector
+* [create_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#create_connector_group) - CreateConnectorGroup
 * [delete](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#delete) - DeleteConnector
+* [delete_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#delete_connector_group) - DeleteConnectorGroup
 * [duplicate_connector](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#duplicate_connector) - DuplicateConnector
 * [execute_query](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#execute_query) - ExecuteQuery
 * [get](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get) - GetConnector
@@ -305,10 +320,15 @@ with Textql(
 * [get_connectors](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_connectors) - GetConnectors
 * [get_example_queries](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_example_queries) - GetExampleQueries
 * [get_table_preview](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_table_preview) - GetTablePreview
+* [list_connector_groups](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_connector_groups) - ListConnectorGroups
 * [list_tables](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_tables) - ListConnectorTables
 * [list_query_templates](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_query_templates) - ListQueryTemplates
+* [share_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#share_connector_group) - ShareConnectorGroup
 * [test](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#test) - TestConnector
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update) - UpdateConnector
+* [update_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group) - UpdateConnectorGroup
+* [update_connector_group_members](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group_members) - UpdateConnectorGroupMembers
+* [update_connector_group_settings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group_settings) - UpdateConnectorGroupSettings
 
 ### [Dashboards](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md)
 
@@ -327,7 +347,6 @@ with Textql(
 * [list_versions](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#list_versions) - Version history
 * [list](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#list) - ListDashboards
 * [move_to_folder](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#move_to_folder) - MoveDashboardToFolder
-* [preview_config](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#preview_config) - Config-managed dashboards: render a `.dashboard` straight from a patch ref before  it merges (ADR-0022). Runs as the file's run_as, gated on the previewer being  authorized for it; persists nothing.
 * [publish](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#publish) - Publishing workflow
 * [regenerate_screenshot](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#regenerate_screenshot) - Screenshot management
 * [restore_dashboard_version](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/dashboards/README.md#restore_dashboard_version) - RestoreDashboardVersion
@@ -353,6 +372,10 @@ with Textql(
 * [get_folders](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#get_folders) - for AR: CreateFolderACL, UpdateFolderACL, DeleteFolderACL
 * [process_upload_presign_url](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#process_upload_presign_url) - ProcessUploadPresignUrl
 * [update_dataset](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#update_dataset) - Update dataset metadata
+
+### [Harnesses](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/harnesses/README.md)
+
+* [list](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/harnesses/README.md#list) - ListHarnesses
 
 ### [Mcp](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/mcpsdk/README.md)
 
@@ -579,10 +602,12 @@ with Textql(
 ### [Sandbox](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md)
 
 * [create](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#create) - CreateSandbox
+* [diff_ontology_changes](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#diff_ontology_changes) - DiffOntologyChanges
 * [exec](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#exec) - Exec
 * [execute_code](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#execute_code) - ExecuteCode
 * [get_tool_availability](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#get_tool_availability) - GetToolAvailability
 * [load_connector_data](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#load_connector_data) - LoadConnectorData
+* [propose_ontology_changes](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#propose_ontology_changes) - ProposeOntologyChanges
 * [execute_bash](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#execute_bash) - Runs in the caller's own worker; no connector/source scoping.
 * [execute_query](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/sandboxsdk/README.md#execute_query) - ExecuteQuery
 
@@ -619,7 +644,9 @@ with Textql(
 
 ### [Secrets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md)
 
+* [create_api_revision](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#create_api_revision) - API connector drafts let clients configure and test credentials before saving.
 * [delete_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#delete_api_access_key) - DeleteApiAccessKey
+* [delete_api_revision](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#delete_api_revision) - DeleteApiRevision
 * [get_api_access_key](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#get_api_access_key) - GetApiAccessKey
 * [list_api_access_keys](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_api_access_keys) - ListApiAccessKeys
 * [list_api_providers](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/secrets/README.md#list_api_providers) - ListApiProviders

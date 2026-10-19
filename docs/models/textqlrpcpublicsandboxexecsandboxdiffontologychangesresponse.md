@@ -1,0 +1,10 @@
+# TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponse
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `has_changes`                                                                                | *Optional[bool]*                                                                             | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `diffs`                                                                                      | List[[models.TextqlRPCPublicPatchesPatchDiff](../models/textqlrpcpublicpatchespatchdiff.md)] | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `raw_diff`                                                                                   | *Optional[str]*                                                                              | :heavy_minus_sign:                                                                           | N/A                                                                                          |

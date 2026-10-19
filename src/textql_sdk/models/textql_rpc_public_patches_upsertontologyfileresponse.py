@@ -5,22 +5,26 @@ from .textql_rpc_public_patches_ontologyfile import (
     TextqlRPCPublicPatchesOntologyFile,
     TextqlRPCPublicPatchesOntologyFileTypedDict,
 )
+import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicPatchesUpsertOntologyFileResponseTypedDict(TypedDict):
     file: NotRequired[TextqlRPCPublicPatchesOntologyFileTypedDict]
+    content_hash: NotRequired[str]
 
 
 class TextqlRPCPublicPatchesUpsertOntologyFileResponse(BaseModel):
     file: Optional[TextqlRPCPublicPatchesOntologyFile] = None
 
+    content_hash: Annotated[Optional[str], pydantic.Field(alias="contentHash")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["file"])
+        optional_fields = set(["file", "contentHash"])
         serialized = handler(self)
         m = {}
 
@@ -33,3 +37,9 @@ class TextqlRPCPublicPatchesUpsertOntologyFileResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TextqlRPCPublicPatchesUpsertOntologyFileResponse.model_rebuild()
+except NameError:
+    pass
