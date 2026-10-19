@@ -5,7 +5,9 @@
 ### Available Operations
 
 * [create](#create) - CreateConnector
+* [create_connector_group](#create_connector_group) - CreateConnectorGroup
 * [delete](#delete) - DeleteConnector
+* [delete_connector_group](#delete_connector_group) - DeleteConnectorGroup
 * [duplicate_connector](#duplicate_connector) - DuplicateConnector
 * [execute_query](#execute_query) - ExecuteQuery
 * [get](#get) - GetConnector
@@ -17,10 +19,15 @@
 * [get_connectors](#get_connectors) - GetConnectors
 * [get_example_queries](#get_example_queries) - GetExampleQueries
 * [get_table_preview](#get_table_preview) - GetTablePreview
+* [list_connector_groups](#list_connector_groups) - ListConnectorGroups
 * [list_tables](#list_tables) - ListConnectorTables
 * [list_query_templates](#list_query_templates) - ListQueryTemplates
+* [share_connector_group](#share_connector_group) - ShareConnectorGroup
 * [test](#test) - TestConnector
 * [update](#update) - UpdateConnector
+* [update_connector_group](#update_connector_group) - UpdateConnectorGroup
+* [update_connector_group_members](#update_connector_group_members) - UpdateConnectorGroupMembers
+* [update_connector_group_settings](#update_connector_group_settings) - UpdateConnectorGroupSettings
 
 ## create
 
@@ -66,6 +73,49 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## create_connector_group
+
+CreateConnectorGroup
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_CreateConnectorGroup" method="post" path="/textql.rpc.public.connector.ConnectorService/CreateConnectorGroup" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.create_connector_group()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `description`                                                       | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `connector_ids`                                                     | List[*int*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceCreateConnectorGroupResponse](../../models/connectorservicecreateconnectorgroupresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## delete
 
 DeleteConnector
@@ -100,6 +150,47 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceDeleteConnectorResponse](../../models/connectorservicedeleteconnectorresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## delete_connector_group
+
+DeleteConnectorGroup
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_DeleteConnectorGroup" method="post" path="/textql.rpc.public.connector.ConnectorService/DeleteConnectorGroup" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.delete_connector_group()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `group_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceDeleteConnectorGroupResponse](../../models/connectorservicedeleteconnectorgroupresponse.md)**
 
 ### Errors
 
@@ -569,6 +660,47 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list_connector_groups
+
+ListConnectorGroups
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_ListConnectorGroups" method="post" path="/textql.rpc.public.connector.ConnectorService/ListConnectorGroups" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.list_connector_groups(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                                          | [models.TextqlRPCPublicConnectorListConnectorGroupsRequest](../../models/textqlrpcpublicconnectorlistconnectorgroupsrequest.md) | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             |
+| `connect_timeout_ms`                                                                                                            | *Optional[float]*                                                                                                               | :heavy_minus_sign:                                                                                                              | N/A                                                                                                                             |
+| `retries`                                                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                | :heavy_minus_sign:                                                                                                              | Configuration to override the default retry behavior of the client.                                                             |
+
+### Response
+
+**[models.ConnectorServiceListConnectorGroupsResponse](../../models/connectorservicelistconnectorgroupsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## list_tables
 
 ListConnectorTables
@@ -647,6 +779,48 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceListQueryTemplatesResponse](../../models/connectorservicelistquerytemplatesresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## share_connector_group
+
+ShareConnectorGroup
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_ShareConnectorGroup" method="post" path="/textql.rpc.public.connector.ConnectorService/ShareConnectorGroup" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.share_connector_group()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                 | Type                                                                                                                      | Required                                                                                                                  | Description                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                                      | *Optional[float]*                                                                                                         | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `group_id`                                                                                                                | *Optional[str]*                                                                                                           | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `grants`                                                                                                                  | List[[models.TextqlRPCPublicConnectorConnectorAccessGrant](../../models/textqlrpcpublicconnectorconnectoraccessgrant.md)] | :heavy_minus_sign:                                                                                                        | N/A                                                                                                                       |
+| `retries`                                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                          | :heavy_minus_sign:                                                                                                        | Configuration to override the default retry behavior of the client.                                                       |
+
+### Response
+
+**[models.ConnectorServiceShareConnectorGroupResponse](../../models/connectorserviceshareconnectorgroupresponse.md)**
 
 ### Errors
 
@@ -733,6 +907,134 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceUpdateConnectorResponse](../../models/connectorserviceupdateconnectorresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_connector_group
+
+UpdateConnectorGroup
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_UpdateConnectorGroup" method="post" path="/textql.rpc.public.connector.ConnectorService/UpdateConnectorGroup" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.update_connector_group()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `group_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `name`                                                              | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `description`                                                       | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceUpdateConnectorGroupResponse](../../models/connectorserviceupdateconnectorgroupresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_connector_group_members
+
+UpdateConnectorGroupMembers
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_UpdateConnectorGroupMembers" method="post" path="/textql.rpc.public.connector.ConnectorService/UpdateConnectorGroupMembers" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.update_connector_group_members()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `group_id`                                                          | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `add_connector_ids`                                                 | List[*int*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `remove_connector_ids`                                              | List[*int*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceUpdateConnectorGroupMembersResponse](../../models/connectorserviceupdateconnectorgroupmembersresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_connector_group_settings
+
+UpdateConnectorGroupSettings
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_UpdateConnectorGroupSettings" method="post" path="/textql.rpc.public.connector.ConnectorService/UpdateConnectorGroupSettings" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.update_connector_group_settings()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                           | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                                                                | *Optional[float]*                                                                                                   | :heavy_minus_sign:                                                                                                  | N/A                                                                                                                 |
+| `group_id`                                                                                                          | *Optional[str]*                                                                                                     | :heavy_minus_sign:                                                                                                  | N/A                                                                                                                 |
+| `config`                                                                                                            | [Optional[models.TextqlRPCPublicConnectorConnectorConfig]](../../models/textqlrpcpublicconnectorconnectorconfig.md) | :heavy_minus_sign:                                                                                                  | N/A                                                                                                                 |
+| `retries`                                                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                    | :heavy_minus_sign:                                                                                                  | Configuration to override the default retry behavior of the client.                                                 |
+
+### Response
+
+**[models.ConnectorServiceUpdateConnectorGroupSettingsResponse](../../models/connectorserviceupdateconnectorgroupsettingsresponse.md)**
 
 ### Errors
 

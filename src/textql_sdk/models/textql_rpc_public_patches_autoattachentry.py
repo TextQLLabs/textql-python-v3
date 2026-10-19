@@ -22,6 +22,7 @@ class TextqlRPCPublicPatchesAutoAttachEntryTypedDict(TypedDict):
     r"""true = only match when no API connector is active"""
     match_all: NotRequired[bool]
     r"""true = always attach regardless of other conditions"""
+    oauth_client_ids: NotRequired[List[str]]
 
 
 class TextqlRPCPublicPatchesAutoAttachEntry(BaseModel):
@@ -54,6 +55,10 @@ class TextqlRPCPublicPatchesAutoAttachEntry(BaseModel):
     match_all: Annotated[Optional[bool], pydantic.Field(alias="matchAll")] = None
     r"""true = always attach regardless of other conditions"""
 
+    oauth_client_ids: Annotated[
+        Optional[List[str]], pydantic.Field(alias="oauthClientIds")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -66,6 +71,7 @@ class TextqlRPCPublicPatchesAutoAttachEntry(BaseModel):
                 "matchNoConnector",
                 "matchNoApiConnector",
                 "matchAll",
+                "oauthClientIds",
             ]
         )
         serialized = handler(self)

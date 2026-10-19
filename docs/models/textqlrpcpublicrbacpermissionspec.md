@@ -95,6 +95,12 @@ value: models.Mcp = /* values here */
 value: models.Member = /* values here */
 ```
 
+### `models.Memory`
+
+```python
+value: models.Memory = /* values here */
+```
+
 ### `models.Observability`
 
 ```python

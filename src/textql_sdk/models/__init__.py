@@ -107,6 +107,66 @@ if TYPE_CHECKING:
         AgentServiceUploadAgentAvatarResponse,
         AgentServiceUploadAgentAvatarResponseTypedDict,
     )
+    from .apioauthservice_exchangeapioauthclientcredentialsop import (
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsRequest,
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsRequestTypedDict,
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsResponse,
+        APIOAuthServiceExchangeAPIOAuthClientCredentialsResponseTypedDict,
+    )
+    from .apioauthservice_exchangeapioauthcodeop import (
+        APIOAuthServiceExchangeAPIOAuthCodeRequest,
+        APIOAuthServiceExchangeAPIOAuthCodeRequestTypedDict,
+        APIOAuthServiceExchangeAPIOAuthCodeResponse,
+        APIOAuthServiceExchangeAPIOAuthCodeResponseTypedDict,
+    )
+    from .apioauthservice_exchangeapioauthjwtbearerop import (
+        APIOAuthServiceExchangeAPIOAuthJwtBearerRequest,
+        APIOAuthServiceExchangeAPIOAuthJwtBearerRequestTypedDict,
+        APIOAuthServiceExchangeAPIOAuthJwtBearerResponse,
+        APIOAuthServiceExchangeAPIOAuthJwtBearerResponseTypedDict,
+    )
+    from .apioauthservice_getapioauthconfigop import (
+        APIOAuthServiceGetAPIOAuthConfigRequest,
+        APIOAuthServiceGetAPIOAuthConfigRequestTypedDict,
+        APIOAuthServiceGetAPIOAuthConfigResponse,
+        APIOAuthServiceGetAPIOAuthConfigResponseTypedDict,
+    )
+    from .apioauthservice_getapioauthstatusop import (
+        APIOAuthServiceGetAPIOAuthStatusRequest,
+        APIOAuthServiceGetAPIOAuthStatusRequestTypedDict,
+        APIOAuthServiceGetAPIOAuthStatusResponse,
+        APIOAuthServiceGetAPIOAuthStatusResponseTypedDict,
+    )
+    from .apioauthservice_getapioauthurlop import (
+        APIOAuthServiceGetAPIOAuthURLRequest,
+        APIOAuthServiceGetAPIOAuthURLRequestTypedDict,
+        APIOAuthServiceGetAPIOAuthURLResponse,
+        APIOAuthServiceGetAPIOAuthURLResponseTypedDict,
+    )
+    from .apioauthservice_initiatedeviceauthorizationop import (
+        APIOAuthServiceInitiateDeviceAuthorizationRequest,
+        APIOAuthServiceInitiateDeviceAuthorizationRequestTypedDict,
+        APIOAuthServiceInitiateDeviceAuthorizationResponse,
+        APIOAuthServiceInitiateDeviceAuthorizationResponseTypedDict,
+    )
+    from .apioauthservice_polldevicecodetokenop import (
+        APIOAuthServicePollDeviceCodeTokenRequest,
+        APIOAuthServicePollDeviceCodeTokenRequestTypedDict,
+        APIOAuthServicePollDeviceCodeTokenResponse,
+        APIOAuthServicePollDeviceCodeTokenResponseTypedDict,
+    )
+    from .apioauthservice_revokeapioauthtokenop import (
+        APIOAuthServiceRevokeAPIOAuthTokenRequest,
+        APIOAuthServiceRevokeAPIOAuthTokenRequestTypedDict,
+        APIOAuthServiceRevokeAPIOAuthTokenResponse,
+        APIOAuthServiceRevokeAPIOAuthTokenResponseTypedDict,
+    )
+    from .apioauthservice_upsertapioauthconfigop import (
+        APIOAuthServiceUpsertAPIOAuthConfigRequest,
+        APIOAuthServiceUpsertAPIOAuthConfigRequestTypedDict,
+        APIOAuthServiceUpsertAPIOAuthConfigResponse,
+        APIOAuthServiceUpsertAPIOAuthConfigResponseTypedDict,
+    )
     from .appservice_appheartbeatop import (
         AppServiceAppHeartbeatRequest,
         AppServiceAppHeartbeatRequestTypedDict,
@@ -576,11 +636,24 @@ if TYPE_CHECKING:
         Debug,
         DebugTypedDict,
     )
+    from .connect_protocol_version import ConnectProtocolVersion
+    from .connectorservice_createconnectorgroupop import (
+        ConnectorServiceCreateConnectorGroupRequest,
+        ConnectorServiceCreateConnectorGroupRequestTypedDict,
+        ConnectorServiceCreateConnectorGroupResponse,
+        ConnectorServiceCreateConnectorGroupResponseTypedDict,
+    )
     from .connectorservice_createconnectorop import (
         ConnectorServiceCreateConnectorRequest,
         ConnectorServiceCreateConnectorRequestTypedDict,
         ConnectorServiceCreateConnectorResponse,
         ConnectorServiceCreateConnectorResponseTypedDict,
+    )
+    from .connectorservice_deleteconnectorgroupop import (
+        ConnectorServiceDeleteConnectorGroupRequest,
+        ConnectorServiceDeleteConnectorGroupRequestTypedDict,
+        ConnectorServiceDeleteConnectorGroupResponse,
+        ConnectorServiceDeleteConnectorGroupResponseTypedDict,
     )
     from .connectorservice_deleteconnectorop import (
         ConnectorServiceDeleteConnectorRequest,
@@ -654,6 +727,12 @@ if TYPE_CHECKING:
         ConnectorServiceGetTablePreviewResponse,
         ConnectorServiceGetTablePreviewResponseTypedDict,
     )
+    from .connectorservice_listconnectorgroupsop import (
+        ConnectorServiceListConnectorGroupsRequest,
+        ConnectorServiceListConnectorGroupsRequestTypedDict,
+        ConnectorServiceListConnectorGroupsResponse,
+        ConnectorServiceListConnectorGroupsResponseTypedDict,
+    )
     from .connectorservice_listconnectortablesop import (
         ConnectorServiceListConnectorTablesRequest,
         ConnectorServiceListConnectorTablesRequestTypedDict,
@@ -666,11 +745,35 @@ if TYPE_CHECKING:
         ConnectorServiceListQueryTemplatesResponse,
         ConnectorServiceListQueryTemplatesResponseTypedDict,
     )
+    from .connectorservice_shareconnectorgroupop import (
+        ConnectorServiceShareConnectorGroupRequest,
+        ConnectorServiceShareConnectorGroupRequestTypedDict,
+        ConnectorServiceShareConnectorGroupResponse,
+        ConnectorServiceShareConnectorGroupResponseTypedDict,
+    )
     from .connectorservice_testconnectorop import (
         ConnectorServiceTestConnectorRequest,
         ConnectorServiceTestConnectorRequestTypedDict,
         ConnectorServiceTestConnectorResponse,
         ConnectorServiceTestConnectorResponseTypedDict,
+    )
+    from .connectorservice_updateconnectorgroupmembersop import (
+        ConnectorServiceUpdateConnectorGroupMembersRequest,
+        ConnectorServiceUpdateConnectorGroupMembersRequestTypedDict,
+        ConnectorServiceUpdateConnectorGroupMembersResponse,
+        ConnectorServiceUpdateConnectorGroupMembersResponseTypedDict,
+    )
+    from .connectorservice_updateconnectorgroupop import (
+        ConnectorServiceUpdateConnectorGroupRequest,
+        ConnectorServiceUpdateConnectorGroupRequestTypedDict,
+        ConnectorServiceUpdateConnectorGroupResponse,
+        ConnectorServiceUpdateConnectorGroupResponseTypedDict,
+    )
+    from .connectorservice_updateconnectorgroupsettingsop import (
+        ConnectorServiceUpdateConnectorGroupSettingsRequest,
+        ConnectorServiceUpdateConnectorGroupSettingsRequestTypedDict,
+        ConnectorServiceUpdateConnectorGroupSettingsResponse,
+        ConnectorServiceUpdateConnectorGroupSettingsResponseTypedDict,
     )
     from .connectorservice_updateconnectorop import (
         ConnectorServiceUpdateConnectorRequest,
@@ -767,12 +870,6 @@ if TYPE_CHECKING:
         DashboardServiceMoveDashboardToFolderRequestTypedDict,
         DashboardServiceMoveDashboardToFolderResponse,
         DashboardServiceMoveDashboardToFolderResponseTypedDict,
-    )
-    from .dashboardservice_previewconfigdashboardop import (
-        DashboardServicePreviewConfigDashboardRequest,
-        DashboardServicePreviewConfigDashboardRequestTypedDict,
-        DashboardServicePreviewConfigDashboardResponse,
-        DashboardServicePreviewConfigDashboardResponseTypedDict,
     )
     from .dashboardservice_publishdashboardop import (
         DashboardServicePublishDashboardRequest,
@@ -908,6 +1005,12 @@ if TYPE_CHECKING:
     )
     from .google_protobuf_empty import GoogleProtobufEmpty, GoogleProtobufEmptyTypedDict
     from .google_protobuf_value import GoogleProtobufValue, GoogleProtobufValueTypedDict
+    from .harnessservice_listharnessesop import (
+        HarnessServiceListHarnessesRequest,
+        HarnessServiceListHarnessesRequestTypedDict,
+        HarnessServiceListHarnessesResponse,
+        HarnessServiceListHarnessesResponseTypedDict,
+    )
     from .mcpservice_clearoauthtokenop import (
         MCPServiceClearOAuthTokenRequest,
         MCPServiceClearOAuthTokenRequestTypedDict,
@@ -2216,6 +2319,12 @@ if TYPE_CHECKING:
         SandboxExecServiceCreateSandboxResponse,
         SandboxExecServiceCreateSandboxResponseTypedDict,
     )
+    from .sandboxexecservice_diffontologychangesop import (
+        SandboxExecServiceDiffOntologyChangesRequest,
+        SandboxExecServiceDiffOntologyChangesRequestTypedDict,
+        SandboxExecServiceDiffOntologyChangesResponse,
+        SandboxExecServiceDiffOntologyChangesResponseTypedDict,
+    )
     from .sandboxexecservice_execop import (
         SandboxExecServiceExecRequest,
         SandboxExecServiceExecRequestTypedDict,
@@ -2239,6 +2348,12 @@ if TYPE_CHECKING:
         SandboxExecServiceLoadConnectorDataRequestTypedDict,
         SandboxExecServiceLoadConnectorDataResponse,
         SandboxExecServiceLoadConnectorDataResponseTypedDict,
+    )
+    from .sandboxexecservice_proposeontologychangesop import (
+        SandboxExecServiceProposeOntologyChangesRequest,
+        SandboxExecServiceProposeOntologyChangesRequestTypedDict,
+        SandboxExecServiceProposeOntologyChangesResponse,
+        SandboxExecServiceProposeOntologyChangesResponseTypedDict,
     )
     from .sandboxqueryservice_executebashop import (
         SandboxQueryServiceExecuteBashRequest,
@@ -2288,11 +2403,23 @@ if TYPE_CHECKING:
         ScimServiceRevokeScimTokenResponse,
         ScimServiceRevokeScimTokenResponseTypedDict,
     )
+    from .secretservice_createapirevisionop import (
+        SecretServiceCreateAPIRevisionRequest,
+        SecretServiceCreateAPIRevisionRequestTypedDict,
+        SecretServiceCreateAPIRevisionResponse,
+        SecretServiceCreateAPIRevisionResponseTypedDict,
+    )
     from .secretservice_deleteapiaccesskeyop import (
         SecretServiceDeleteAPIAccessKeyRequest,
         SecretServiceDeleteAPIAccessKeyRequestTypedDict,
         SecretServiceDeleteAPIAccessKeyResponse,
         SecretServiceDeleteAPIAccessKeyResponseTypedDict,
+    )
+    from .secretservice_deleteapirevisionop import (
+        SecretServiceDeleteAPIRevisionRequest,
+        SecretServiceDeleteAPIRevisionRequestTypedDict,
+        SecretServiceDeleteAPIRevisionResponse,
+        SecretServiceDeleteAPIRevisionResponseTypedDict,
     )
     from .secretservice_getapiaccesskeyop import (
         SecretServiceGetAPIAccessKeyRequest,
@@ -2717,6 +2844,82 @@ if TYPE_CHECKING:
     from .textql_rpc_public_agent_uploadagentavatarresponse import (
         TextqlRPCPublicAgentUploadAgentAvatarResponse,
         TextqlRPCPublicAgentUploadAgentAvatarResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_apioauthconfig import (
+        TextqlRPCPublicAPIOauthAPIOAuthConfig,
+        TextqlRPCPublicAPIOauthAPIOAuthConfigTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthclientcredentialsrequest import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequest,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthcoderequest import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequest,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthcoderesponse import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponse,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_exchangeapioauthjwtbearerrequest import (
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequest,
+        TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthconfigrequest import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthconfigresponse import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponse,
+        TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthstatusrequest import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthstatusresponse import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse,
+        TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthurlrequest import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLRequest,
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_getapioauthurlresponse import (
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLResponse,
+        TextqlRPCPublicAPIOauthGetAPIOAuthURLResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_initiatedeviceauthorizationrequest import (
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest,
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_initiatedeviceauthorizationresponse import (
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponse,
+        TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_polldevicecodetokenrequest import (
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequest,
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_polldevicecodetokenresponse import (
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponse,
+        TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_revokeapioauthtokenrequest import (
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequest,
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_revokeapioauthtokenresponse import (
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponse,
+        TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponseTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_upsertapioauthconfigrequest import (
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequest,
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequestTypedDict,
+    )
+    from .textql_rpc_public_api_oauth_upsertapioauthconfigresponse import (
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponse,
+        TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponseTypedDict,
     )
     from .textql_rpc_public_app_app import (
         TextqlRPCPublicAppApp,
@@ -3501,6 +3704,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicCellsTableauMessageBlock,
         TextqlRPCPublicCellsTableauMessageBlockTypedDict,
     )
+    from .textql_rpc_public_cells_tableaumetadatacell import (
+        TextqlRPCPublicCellsTableauMetadataCell,
+        TextqlRPCPublicCellsTableauMetadataCellTypedDict,
+    )
     from .textql_rpc_public_cells_tableausearchfieldscell import (
         TextqlRPCPublicCellsTableauSearchFieldsCell,
         TextqlRPCPublicCellsTableauSearchFieldsCellTypedDict,
@@ -3716,6 +3923,8 @@ if TYPE_CHECKING:
         SummaryCellTypedDict,
         TableauCell,
         TableauCellTypedDict,
+        TableauMetadataCell,
+        TableauMetadataCellTypedDict,
         TableauSQLCell,
         TableauSQLCellTypedDict,
         TableauSearchFieldsCell,
@@ -3836,6 +4045,8 @@ if TYPE_CHECKING:
         TextqlRPCPublicChatCellDurationMs59TypedDict,
         TextqlRPCPublicChatCellDurationMs5TypedDict,
         TextqlRPCPublicChatCellDurationMs6,
+        TextqlRPCPublicChatCellDurationMs60,
+        TextqlRPCPublicChatCellDurationMs60TypedDict,
         TextqlRPCPublicChatCellDurationMs6TypedDict,
         TextqlRPCPublicChatCellDurationMs7,
         TextqlRPCPublicChatCellDurationMs7TypedDict,
@@ -4480,6 +4691,14 @@ if TYPE_CHECKING:
         TotalDashboards,
         TotalDashboardsTypedDict,
     )
+    from .textql_rpc_public_connector_connectorgroup import (
+        TextqlRPCPublicConnectorConnectorGroup,
+        TextqlRPCPublicConnectorConnectorGroupTypedDict,
+    )
+    from .textql_rpc_public_connector_connectorgroupconnectorresult import (
+        TextqlRPCPublicConnectorConnectorGroupConnectorResult,
+        TextqlRPCPublicConnectorConnectorGroupConnectorResultTypedDict,
+    )
     from .textql_rpc_public_connector_connectorstatentry import (
         AvgQueryTimeMs,
         AvgQueryTimeMsTypedDict,
@@ -4494,6 +4713,14 @@ if TYPE_CHECKING:
     )
     from .textql_rpc_public_connector_connectortype import (
         TextqlRPCPublicConnectorConnectorType,
+    )
+    from .textql_rpc_public_connector_createconnectorgrouprequest import (
+        TextqlRPCPublicConnectorCreateConnectorGroupRequest,
+        TextqlRPCPublicConnectorCreateConnectorGroupRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_createconnectorgroupresponse import (
+        TextqlRPCPublicConnectorCreateConnectorGroupResponse,
+        TextqlRPCPublicConnectorCreateConnectorGroupResponseTypedDict,
     )
     from .textql_rpc_public_connector_createconnectorrequest import (
         TextqlRPCPublicConnectorCreateConnectorRequest,
@@ -4540,6 +4767,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_connector_databricksmetadata_databricksauth_personalaccesstoken import (
         TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthPersonalAccessToken,
         TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthPersonalAccessTokenTypedDict,
+    )
+    from .textql_rpc_public_connector_deleteconnectorgrouprequest import (
+        TextqlRPCPublicConnectorDeleteConnectorGroupRequest,
+        TextqlRPCPublicConnectorDeleteConnectorGroupRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_deleteconnectorgroupresponse import (
+        TextqlRPCPublicConnectorDeleteConnectorGroupResponse,
+        TextqlRPCPublicConnectorDeleteConnectorGroupResponseTypedDict,
     )
     from .textql_rpc_public_connector_deleteconnectorrequest import (
         TextqlRPCPublicConnectorDeleteConnectorRequest,
@@ -4680,6 +4915,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicConnectorKdbMetadata,
         TextqlRPCPublicConnectorKdbMetadataTypedDict,
     )
+    from .textql_rpc_public_connector_listconnectorgroupsrequest import (
+        TextqlRPCPublicConnectorListConnectorGroupsRequest,
+        TextqlRPCPublicConnectorListConnectorGroupsRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_listconnectorgroupsresponse import (
+        TextqlRPCPublicConnectorListConnectorGroupsResponse,
+        TextqlRPCPublicConnectorListConnectorGroupsResponseTypedDict,
+    )
     from .textql_rpc_public_connector_listconnectortablesrequest import (
         TextqlRPCPublicConnectorListConnectorTablesRequest,
         TextqlRPCPublicConnectorListConnectorTablesRequestTypedDict,
@@ -4764,6 +5007,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicConnectorSAPHanaMetadata,
         TextqlRPCPublicConnectorSAPHanaMetadataTypedDict,
     )
+    from .textql_rpc_public_connector_shareconnectorgrouprequest import (
+        TextqlRPCPublicConnectorShareConnectorGroupRequest,
+        TextqlRPCPublicConnectorShareConnectorGroupRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_shareconnectorgroupresponse import (
+        TextqlRPCPublicConnectorShareConnectorGroupResponse,
+        TextqlRPCPublicConnectorShareConnectorGroupResponseTypedDict,
+    )
     from .textql_rpc_public_connector_snowflakemetadata import (
         TextqlRPCPublicConnectorSnowflakeMetadata,
         TextqlRPCPublicConnectorSnowflakeMetadataTypedDict,
@@ -4803,6 +5054,30 @@ if TYPE_CHECKING:
     from .textql_rpc_public_connector_trinometadata import (
         TextqlRPCPublicConnectorTrinoMetadata,
         TextqlRPCPublicConnectorTrinoMetadataTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupmembersrequest import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequest,
+        TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupmembersresponse import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponse,
+        TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponseTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgrouprequest import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupRequest,
+        TextqlRPCPublicConnectorUpdateConnectorGroupRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupresponse import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupResponse,
+        TextqlRPCPublicConnectorUpdateConnectorGroupResponseTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupsettingsrequest import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequest,
+        TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupsettingsresponse import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupSettingsResponse,
+        TextqlRPCPublicConnectorUpdateConnectorGroupSettingsResponseTypedDict,
     )
     from .textql_rpc_public_connector_updateconnectorrequest import (
         TextqlRPCPublicConnectorUpdateConnectorRequest,
@@ -4993,14 +5268,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_dashboard_ontologysqlsource import (
         TextqlRPCPublicDashboardOntologySQLSource,
         TextqlRPCPublicDashboardOntologySQLSourceTypedDict,
-    )
-    from .textql_rpc_public_dashboard_previewconfigdashboardrequest import (
-        TextqlRPCPublicDashboardPreviewConfigDashboardRequest,
-        TextqlRPCPublicDashboardPreviewConfigDashboardRequestTypedDict,
-    )
-    from .textql_rpc_public_dashboard_previewconfigdashboardresponse import (
-        TextqlRPCPublicDashboardPreviewConfigDashboardResponse,
-        TextqlRPCPublicDashboardPreviewConfigDashboardResponseTypedDict,
     )
     from .textql_rpc_public_dashboard_publishdashboardrequest import (
         TextqlRPCPublicDashboardPublishDashboardRequest,
@@ -5342,6 +5609,26 @@ if TYPE_CHECKING:
     from .textql_rpc_public_dataset_updatedatasetresponse import (
         TextqlRPCPublicDatasetUpdateDatasetResponse,
         TextqlRPCPublicDatasetUpdateDatasetResponseTypedDict,
+    )
+    from .textql_rpc_public_harness_harnessendpoint import (
+        TextqlRPCPublicHarnessHarnessEndpoint,
+        TextqlRPCPublicHarnessHarnessEndpointTypedDict,
+    )
+    from .textql_rpc_public_harness_harnessinfo import (
+        TextqlRPCPublicHarnessHarnessInfo,
+        TextqlRPCPublicHarnessHarnessInfoTypedDict,
+    )
+    from .textql_rpc_public_harness_harnessviewer import (
+        TextqlRPCPublicHarnessHarnessViewer,
+        TextqlRPCPublicHarnessHarnessViewerTypedDict,
+    )
+    from .textql_rpc_public_harness_listharnessesrequest import (
+        TextqlRPCPublicHarnessListHarnessesRequest,
+        TextqlRPCPublicHarnessListHarnessesRequestTypedDict,
+    )
+    from .textql_rpc_public_harness_listharnessesresponse import (
+        TextqlRPCPublicHarnessListHarnessesResponse,
+        TextqlRPCPublicHarnessListHarnessesResponseTypedDict,
     )
     from .textql_rpc_public_mcp_clearoauthtokenrequest import (
         TextqlRPCPublicMcpClearOAuthTokenRequest,
@@ -7351,6 +7638,9 @@ if TYPE_CHECKING:
         TextqlRPCPublicRbacMemberRoles,
         TextqlRPCPublicRbacMemberRolesTypedDict,
     )
+    from .textql_rpc_public_rbac_memorypermissionaction import (
+        TextqlRPCPublicRbacMemoryPermissionAction,
+    )
     from .textql_rpc_public_rbac_objectaccess import (
         TextqlRPCPublicRbacObjectAccess,
         TextqlRPCPublicRbacObjectAccessTypedDict,
@@ -7408,6 +7698,8 @@ if TYPE_CHECKING:
         McpTypedDict,
         Member,
         MemberTypedDict,
+        Memory,
+        MemoryTypedDict,
         Observability,
         ObservabilityTypedDict,
         Ontology,
@@ -7829,6 +8121,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicSandboxExecSandboxDataFrameOutput,
         TextqlRPCPublicSandboxExecSandboxDataFrameOutputTypedDict,
     )
+    from .textql_rpc_public_sandbox_exec_sandboxdiffontologychangesrequest import (
+        TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesRequest,
+        TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxdiffontologychangesresponse import (
+        TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponse,
+        TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponseTypedDict,
+    )
     from .textql_rpc_public_sandbox_exec_sandboxexecrequest import (
         TextqlRPCPublicSandboxExecSandboxExecRequest,
         TextqlRPCPublicSandboxExecSandboxExecRequestTypedDict,
@@ -7862,6 +8162,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRows,
         TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRowsTypedDict,
         TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxproposeontologychangesrequest import (
+        TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesRequest,
+        TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesRequestTypedDict,
+    )
+    from .textql_rpc_public_sandbox_exec_sandboxproposeontologychangesresponse import (
+        TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesResponse,
+        TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesResponseTypedDict,
     )
     from .textql_rpc_public_sandbox_exec_toolavailability import (
         TextqlRPCPublicSandboxExecToolAvailability,
@@ -7987,12 +8295,21 @@ if TYPE_CHECKING:
         TextqlRPCPublicSecretAPIAccessRef,
         TextqlRPCPublicSecretAPIAccessRefTypedDict,
     )
+    from .textql_rpc_public_secret_apiauthtype import TextqlRPCPublicSecretAPIAuthType
     from .textql_rpc_public_secret_apiprovider import (
         TextqlRPCPublicSecretAPIProvider,
         TextqlRPCPublicSecretAPIProviderTypedDict,
     )
     from .textql_rpc_public_secret_bodycontenttype import (
         TextqlRPCPublicSecretBodyContentType,
+    )
+    from .textql_rpc_public_secret_createapirevisionrequest import (
+        TextqlRPCPublicSecretCreateAPIRevisionRequest,
+        TextqlRPCPublicSecretCreateAPIRevisionRequestTypedDict,
+    )
+    from .textql_rpc_public_secret_createapirevisionresponse import (
+        TextqlRPCPublicSecretCreateAPIRevisionResponse,
+        TextqlRPCPublicSecretCreateAPIRevisionResponseTypedDict,
     )
     from .textql_rpc_public_secret_deleteapiaccesskeyrequest import (
         TextqlRPCPublicSecretDeleteAPIAccessKeyRequest,
@@ -8001,6 +8318,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_secret_deleteapiaccesskeyresponse import (
         TextqlRPCPublicSecretDeleteAPIAccessKeyResponse,
         TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict,
+    )
+    from .textql_rpc_public_secret_deleteapirevisionrequest import (
+        TextqlRPCPublicSecretDeleteAPIRevisionRequest,
+        TextqlRPCPublicSecretDeleteAPIRevisionRequestTypedDict,
+    )
+    from .textql_rpc_public_secret_deleteapirevisionresponse import (
+        TextqlRPCPublicSecretDeleteAPIRevisionResponse,
+        TextqlRPCPublicSecretDeleteAPIRevisionResponseTypedDict,
     )
     from .textql_rpc_public_secret_envvarfield import (
         TextqlRPCPublicSecretEnvVarField,
@@ -8089,6 +8414,10 @@ if TYPE_CHECKING:
     from .textql_rpc_public_settings_listorganizationmembersresponse import (
         TextqlRPCPublicSettingsListOrganizationMembersResponse,
         TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict,
+    )
+    from .textql_rpc_public_settings_organizationmodelsettings import (
+        TextqlRPCPublicSettingsOrganizationModelSettings,
+        TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict,
     )
     from .textql_rpc_public_settings_updateorganizationmodelsettingsrequest import (
         TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest,
@@ -8340,6 +8669,46 @@ TextqlRPCPublicReportsCardBlock1.model_rebuild()
 __all__ = [
     "APIAccessKey",
     "APIAccessKeyTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequest",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequestTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponse",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponseTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequest",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequestTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponse",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponseTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequest",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequestTypedDict",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponse",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponseTypedDict",
+    "APIOAuthServiceGetAPIOAuthConfigRequest",
+    "APIOAuthServiceGetAPIOAuthConfigRequestTypedDict",
+    "APIOAuthServiceGetAPIOAuthConfigResponse",
+    "APIOAuthServiceGetAPIOAuthConfigResponseTypedDict",
+    "APIOAuthServiceGetAPIOAuthStatusRequest",
+    "APIOAuthServiceGetAPIOAuthStatusRequestTypedDict",
+    "APIOAuthServiceGetAPIOAuthStatusResponse",
+    "APIOAuthServiceGetAPIOAuthStatusResponseTypedDict",
+    "APIOAuthServiceGetAPIOAuthURLRequest",
+    "APIOAuthServiceGetAPIOAuthURLRequestTypedDict",
+    "APIOAuthServiceGetAPIOAuthURLResponse",
+    "APIOAuthServiceGetAPIOAuthURLResponseTypedDict",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequest",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequestTypedDict",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponse",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponseTypedDict",
+    "APIOAuthServicePollDeviceCodeTokenRequest",
+    "APIOAuthServicePollDeviceCodeTokenRequestTypedDict",
+    "APIOAuthServicePollDeviceCodeTokenResponse",
+    "APIOAuthServicePollDeviceCodeTokenResponseTypedDict",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequest",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequestTypedDict",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponse",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponseTypedDict",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequest",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequestTypedDict",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponse",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponseTypedDict",
     "AccessKey",
     "AccessKeyTypedDict",
     "Additions",
@@ -8779,11 +9148,20 @@ __all__ = [
     "ConnectErrorDetailsAny",
     "ConnectErrorDetailsAnyTypedDict",
     "ConnectErrorTypedDict",
+    "ConnectProtocolVersion",
     "Connector",
+    "ConnectorServiceCreateConnectorGroupRequest",
+    "ConnectorServiceCreateConnectorGroupRequestTypedDict",
+    "ConnectorServiceCreateConnectorGroupResponse",
+    "ConnectorServiceCreateConnectorGroupResponseTypedDict",
     "ConnectorServiceCreateConnectorRequest",
     "ConnectorServiceCreateConnectorRequestTypedDict",
     "ConnectorServiceCreateConnectorResponse",
     "ConnectorServiceCreateConnectorResponseTypedDict",
+    "ConnectorServiceDeleteConnectorGroupRequest",
+    "ConnectorServiceDeleteConnectorGroupRequestTypedDict",
+    "ConnectorServiceDeleteConnectorGroupResponse",
+    "ConnectorServiceDeleteConnectorGroupResponseTypedDict",
     "ConnectorServiceDeleteConnectorRequest",
     "ConnectorServiceDeleteConnectorRequestTypedDict",
     "ConnectorServiceDeleteConnectorResponse",
@@ -8832,6 +9210,10 @@ __all__ = [
     "ConnectorServiceGetTablePreviewRequestTypedDict",
     "ConnectorServiceGetTablePreviewResponse",
     "ConnectorServiceGetTablePreviewResponseTypedDict",
+    "ConnectorServiceListConnectorGroupsRequest",
+    "ConnectorServiceListConnectorGroupsRequestTypedDict",
+    "ConnectorServiceListConnectorGroupsResponse",
+    "ConnectorServiceListConnectorGroupsResponseTypedDict",
     "ConnectorServiceListConnectorTablesRequest",
     "ConnectorServiceListConnectorTablesRequestTypedDict",
     "ConnectorServiceListConnectorTablesResponse",
@@ -8840,10 +9222,26 @@ __all__ = [
     "ConnectorServiceListQueryTemplatesRequestTypedDict",
     "ConnectorServiceListQueryTemplatesResponse",
     "ConnectorServiceListQueryTemplatesResponseTypedDict",
+    "ConnectorServiceShareConnectorGroupRequest",
+    "ConnectorServiceShareConnectorGroupRequestTypedDict",
+    "ConnectorServiceShareConnectorGroupResponse",
+    "ConnectorServiceShareConnectorGroupResponseTypedDict",
     "ConnectorServiceTestConnectorRequest",
     "ConnectorServiceTestConnectorRequestTypedDict",
     "ConnectorServiceTestConnectorResponse",
     "ConnectorServiceTestConnectorResponseTypedDict",
+    "ConnectorServiceUpdateConnectorGroupMembersRequest",
+    "ConnectorServiceUpdateConnectorGroupMembersRequestTypedDict",
+    "ConnectorServiceUpdateConnectorGroupMembersResponse",
+    "ConnectorServiceUpdateConnectorGroupMembersResponseTypedDict",
+    "ConnectorServiceUpdateConnectorGroupRequest",
+    "ConnectorServiceUpdateConnectorGroupRequestTypedDict",
+    "ConnectorServiceUpdateConnectorGroupResponse",
+    "ConnectorServiceUpdateConnectorGroupResponseTypedDict",
+    "ConnectorServiceUpdateConnectorGroupSettingsRequest",
+    "ConnectorServiceUpdateConnectorGroupSettingsRequestTypedDict",
+    "ConnectorServiceUpdateConnectorGroupSettingsResponse",
+    "ConnectorServiceUpdateConnectorGroupSettingsResponseTypedDict",
     "ConnectorServiceUpdateConnectorRequest",
     "ConnectorServiceUpdateConnectorRequestTypedDict",
     "ConnectorServiceUpdateConnectorResponse",
@@ -8921,10 +9319,6 @@ __all__ = [
     "DashboardServiceMoveDashboardToFolderRequestTypedDict",
     "DashboardServiceMoveDashboardToFolderResponse",
     "DashboardServiceMoveDashboardToFolderResponseTypedDict",
-    "DashboardServicePreviewConfigDashboardRequest",
-    "DashboardServicePreviewConfigDashboardRequestTypedDict",
-    "DashboardServicePreviewConfigDashboardResponse",
-    "DashboardServicePreviewConfigDashboardResponseTypedDict",
     "DashboardServicePublishDashboardRequest",
     "DashboardServicePublishDashboardRequestTypedDict",
     "DashboardServicePublishDashboardResponse",
@@ -9115,6 +9509,10 @@ __all__ = [
     "HTTPConfigTypedDict",
     "HandoffPending",
     "HandoffPendingTypedDict",
+    "HarnessServiceListHarnessesRequest",
+    "HarnessServiceListHarnessesRequestTypedDict",
+    "HarnessServiceListHarnessesResponse",
+    "HarnessServiceListHarnessesResponseTypedDict",
     "Heartbeat",
     "HeartbeatTypedDict",
     "Hero",
@@ -9195,6 +9593,8 @@ __all__ = [
     "MdCellTypedDict",
     "Member",
     "MemberTypedDict",
+    "Memory",
+    "MemoryTypedDict",
     "MemoryUsage",
     "MemoryUsageTypedDict",
     "MetricsCell",
@@ -10172,6 +10572,10 @@ __all__ = [
     "SandboxExecServiceCreateSandboxRequestTypedDict",
     "SandboxExecServiceCreateSandboxResponse",
     "SandboxExecServiceCreateSandboxResponseTypedDict",
+    "SandboxExecServiceDiffOntologyChangesRequest",
+    "SandboxExecServiceDiffOntologyChangesRequestTypedDict",
+    "SandboxExecServiceDiffOntologyChangesResponse",
+    "SandboxExecServiceDiffOntologyChangesResponseTypedDict",
     "SandboxExecServiceExecRequest",
     "SandboxExecServiceExecRequestTypedDict",
     "SandboxExecServiceExecResponse",
@@ -10188,6 +10592,10 @@ __all__ = [
     "SandboxExecServiceLoadConnectorDataRequestTypedDict",
     "SandboxExecServiceLoadConnectorDataResponse",
     "SandboxExecServiceLoadConnectorDataResponseTypedDict",
+    "SandboxExecServiceProposeOntologyChangesRequest",
+    "SandboxExecServiceProposeOntologyChangesRequestTypedDict",
+    "SandboxExecServiceProposeOntologyChangesResponse",
+    "SandboxExecServiceProposeOntologyChangesResponseTypedDict",
     "SandboxQueryServiceExecuteBashRequest",
     "SandboxQueryServiceExecuteBashRequestTypedDict",
     "SandboxQueryServiceExecuteBashResponse",
@@ -10228,10 +10636,18 @@ __all__ = [
     "ScimServiceRevokeScimTokenResponseTypedDict",
     "ScimTypedDict",
     "Secret",
+    "SecretServiceCreateAPIRevisionRequest",
+    "SecretServiceCreateAPIRevisionRequestTypedDict",
+    "SecretServiceCreateAPIRevisionResponse",
+    "SecretServiceCreateAPIRevisionResponseTypedDict",
     "SecretServiceDeleteAPIAccessKeyRequest",
     "SecretServiceDeleteAPIAccessKeyRequestTypedDict",
     "SecretServiceDeleteAPIAccessKeyResponse",
     "SecretServiceDeleteAPIAccessKeyResponseTypedDict",
+    "SecretServiceDeleteAPIRevisionRequest",
+    "SecretServiceDeleteAPIRevisionRequestTypedDict",
+    "SecretServiceDeleteAPIRevisionResponse",
+    "SecretServiceDeleteAPIRevisionResponseTypedDict",
     "SecretServiceGetAPIAccessKeyRequest",
     "SecretServiceGetAPIAccessKeyRequestTypedDict",
     "SecretServiceGetAPIAccessKeyResponse",
@@ -10348,6 +10764,8 @@ __all__ = [
     "TableauData",
     "TableauDataTypedDict",
     "TableauMetadata",
+    "TableauMetadataCell",
+    "TableauMetadataCellTypedDict",
     "TableauMetadataTypedDict",
     "TableauSQLCell",
     "TableauSQLCellTypedDict",
@@ -10461,6 +10879,44 @@ __all__ = [
     "TextqlRPCParadigmParamsParadigmType",
     "TextqlRPCPowerbiSelectionPowerBISelection",
     "TextqlRPCPowerbiSelectionPowerBISelectionTypedDict",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfig",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfigTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequestTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequestTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponse",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponseTypedDict",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponseTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequestTypedDict",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponseTypedDict",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequestTypedDict",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponse",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponseTypedDict",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequest",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequestTypedDict",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponse",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponseTypedDict",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequest",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequestTypedDict",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponse",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponseTypedDict",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequest",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequestTypedDict",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponse",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponseTypedDict",
     "TextqlRPCPublicAgentAgent",
     "TextqlRPCPublicAgentAgentDBColumn",
     "TextqlRPCPublicAgentAgentDBColumnTypedDict",
@@ -10930,6 +11386,8 @@ __all__ = [
     "TextqlRPCPublicCellsTableauCellTypedDict",
     "TextqlRPCPublicCellsTableauMessageBlock",
     "TextqlRPCPublicCellsTableauMessageBlockTypedDict",
+    "TextqlRPCPublicCellsTableauMetadataCell",
+    "TextqlRPCPublicCellsTableauMetadataCellTypedDict",
     "TextqlRPCPublicCellsTableauSQLCell",
     "TextqlRPCPublicCellsTableauSQLCellTypedDict",
     "TextqlRPCPublicCellsTableauSearchFieldsCell",
@@ -11100,6 +11558,8 @@ __all__ = [
     "TextqlRPCPublicChatCellDurationMs59TypedDict",
     "TextqlRPCPublicChatCellDurationMs5TypedDict",
     "TextqlRPCPublicChatCellDurationMs6",
+    "TextqlRPCPublicChatCellDurationMs60",
+    "TextqlRPCPublicChatCellDurationMs60TypedDict",
     "TextqlRPCPublicChatCellDurationMs6TypedDict",
     "TextqlRPCPublicChatCellDurationMs7",
     "TextqlRPCPublicChatCellDurationMs7TypedDict",
@@ -11358,6 +11818,10 @@ __all__ = [
     "TextqlRPCPublicConnectorConnectorDashboardStatsActiveUsersTypedDict",
     "TextqlRPCPublicConnectorConnectorDashboardStatsTypedDict",
     "TextqlRPCPublicConnectorConnectorDashboardTypedDict",
+    "TextqlRPCPublicConnectorConnectorGroup",
+    "TextqlRPCPublicConnectorConnectorGroupConnectorResult",
+    "TextqlRPCPublicConnectorConnectorGroupConnectorResultTypedDict",
+    "TextqlRPCPublicConnectorConnectorGroupTypedDict",
     "TextqlRPCPublicConnectorConnectorStatEntry",
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCount",
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCountTypedDict",
@@ -11366,6 +11830,10 @@ __all__ = [
     "TextqlRPCPublicConnectorConnectorTableTypedDict",
     "TextqlRPCPublicConnectorConnectorType",
     "TextqlRPCPublicConnectorConnectorTypedDict",
+    "TextqlRPCPublicConnectorCreateConnectorGroupRequest",
+    "TextqlRPCPublicConnectorCreateConnectorGroupRequestTypedDict",
+    "TextqlRPCPublicConnectorCreateConnectorGroupResponse",
+    "TextqlRPCPublicConnectorCreateConnectorGroupResponseTypedDict",
     "TextqlRPCPublicConnectorCreateConnectorRequest",
     "TextqlRPCPublicConnectorCreateConnectorRequestTypedDict",
     "TextqlRPCPublicConnectorCreateConnectorResponse",
@@ -11386,6 +11854,10 @@ __all__ = [
     "TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthPersonalAccessTokenTypedDict",
     "TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthTypedDict",
     "TextqlRPCPublicConnectorDatabricksMetadataTypedDict",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupRequest",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupRequestTypedDict",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupResponse",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupResponseTypedDict",
     "TextqlRPCPublicConnectorDeleteConnectorRequest",
     "TextqlRPCPublicConnectorDeleteConnectorRequestTypedDict",
     "TextqlRPCPublicConnectorDeleteConnectorResponse",
@@ -11453,6 +11925,10 @@ __all__ = [
     "TextqlRPCPublicConnectorGoogleMetadataTypedDict",
     "TextqlRPCPublicConnectorKdbMetadata",
     "TextqlRPCPublicConnectorKdbMetadataTypedDict",
+    "TextqlRPCPublicConnectorListConnectorGroupsRequest",
+    "TextqlRPCPublicConnectorListConnectorGroupsRequestTypedDict",
+    "TextqlRPCPublicConnectorListConnectorGroupsResponse",
+    "TextqlRPCPublicConnectorListConnectorGroupsResponseTypedDict",
     "TextqlRPCPublicConnectorListConnectorTablesRequest",
     "TextqlRPCPublicConnectorListConnectorTablesRequestTypedDict",
     "TextqlRPCPublicConnectorListConnectorTablesResponse",
@@ -11497,6 +11973,10 @@ __all__ = [
     "TextqlRPCPublicConnectorSAPHanaMetadataTypedDict",
     "TextqlRPCPublicConnectorSQLServerMetadata",
     "TextqlRPCPublicConnectorSQLServerMetadataTypedDict",
+    "TextqlRPCPublicConnectorShareConnectorGroupRequest",
+    "TextqlRPCPublicConnectorShareConnectorGroupRequestTypedDict",
+    "TextqlRPCPublicConnectorShareConnectorGroupResponse",
+    "TextqlRPCPublicConnectorShareConnectorGroupResponseTypedDict",
     "TextqlRPCPublicConnectorSnowflakeMetadata",
     "TextqlRPCPublicConnectorSnowflakeMetadataTypedDict",
     "TextqlRPCPublicConnectorSupabaseMetadata",
@@ -11515,6 +11995,18 @@ __all__ = [
     "TextqlRPCPublicConnectorTopUserTypedDict",
     "TextqlRPCPublicConnectorTrinoMetadata",
     "TextqlRPCPublicConnectorTrinoMetadataTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequestTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponseTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupRequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupRequestTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupResponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupResponseTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequestTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsResponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsResponseTypedDict",
     "TextqlRPCPublicConnectorUpdateConnectorRequest",
     "TextqlRPCPublicConnectorUpdateConnectorRequestTypedDict",
     "TextqlRPCPublicConnectorUpdateConnectorResponse",
@@ -11609,10 +12101,6 @@ __all__ = [
     "TextqlRPCPublicDashboardMoveDashboardToFolderResponseTypedDict",
     "TextqlRPCPublicDashboardOntologySQLSource",
     "TextqlRPCPublicDashboardOntologySQLSourceTypedDict",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardRequest",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardRequestTypedDict",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardResponse",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardResponseTypedDict",
     "TextqlRPCPublicDashboardPublishDashboardRequest",
     "TextqlRPCPublicDashboardPublishDashboardRequestTypedDict",
     "TextqlRPCPublicDashboardPublishDashboardResponse",
@@ -11772,6 +12260,16 @@ __all__ = [
     "TextqlRPCPublicDatasetUpdateDatasetRequestTypedDict",
     "TextqlRPCPublicDatasetUpdateDatasetResponse",
     "TextqlRPCPublicDatasetUpdateDatasetResponseTypedDict",
+    "TextqlRPCPublicHarnessHarnessEndpoint",
+    "TextqlRPCPublicHarnessHarnessEndpointTypedDict",
+    "TextqlRPCPublicHarnessHarnessInfo",
+    "TextqlRPCPublicHarnessHarnessInfoTypedDict",
+    "TextqlRPCPublicHarnessHarnessViewer",
+    "TextqlRPCPublicHarnessHarnessViewerTypedDict",
+    "TextqlRPCPublicHarnessListHarnessesRequest",
+    "TextqlRPCPublicHarnessListHarnessesRequestTypedDict",
+    "TextqlRPCPublicHarnessListHarnessesResponse",
+    "TextqlRPCPublicHarnessListHarnessesResponseTypedDict",
     "TextqlRPCPublicMCPDeleteMCPServerRequest",
     "TextqlRPCPublicMCPDeleteMCPServerRequestTypedDict",
     "TextqlRPCPublicMCPDeleteMCPServerResponse",
@@ -12744,6 +13242,7 @@ __all__ = [
     "TextqlRPCPublicRbacMemberPermissionAction",
     "TextqlRPCPublicRbacMemberRoles",
     "TextqlRPCPublicRbacMemberRolesTypedDict",
+    "TextqlRPCPublicRbacMemoryPermissionAction",
     "TextqlRPCPublicRbacObjectAccess",
     "TextqlRPCPublicRbacObjectAccessTypedDict",
     "TextqlRPCPublicRbacObservabilityPermissionAction",
@@ -12968,6 +13467,10 @@ __all__ = [
     "TextqlRPCPublicSandboxExecGetToolAvailabilityResponseTypedDict",
     "TextqlRPCPublicSandboxExecSandboxDataFrameOutput",
     "TextqlRPCPublicSandboxExecSandboxDataFrameOutputTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesRequest",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesRequestTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponse",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponseTypedDict",
     "TextqlRPCPublicSandboxExecSandboxExecRequest",
     "TextqlRPCPublicSandboxExecSandboxExecRequestTypedDict",
     "TextqlRPCPublicSandboxExecSandboxExecResponse",
@@ -12988,6 +13491,10 @@ __all__ = [
     "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRows",
     "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRowsTypedDict",
     "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesRequest",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesRequestTypedDict",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesResponse",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesResponseTypedDict",
     "TextqlRPCPublicSandboxExecToolAvailability",
     "TextqlRPCPublicSandboxExecToolAvailabilityTypedDict",
     "TextqlRPCPublicSandboxQueryAppDBTemplate",
@@ -13054,13 +13561,22 @@ __all__ = [
     "TextqlRPCPublicSecretAPIAccessKeyTypedDict",
     "TextqlRPCPublicSecretAPIAccessRef",
     "TextqlRPCPublicSecretAPIAccessRefTypedDict",
+    "TextqlRPCPublicSecretAPIAuthType",
     "TextqlRPCPublicSecretAPIProvider",
     "TextqlRPCPublicSecretAPIProviderTypedDict",
     "TextqlRPCPublicSecretBodyContentType",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequest",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequestTypedDict",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponse",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponseTypedDict",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequestTypedDict",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequest",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequestTypedDict",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponse",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponseTypedDict",
     "TextqlRPCPublicSecretEnvVarField",
     "TextqlRPCPublicSecretEnvVarFieldTypedDict",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequest",
@@ -13105,6 +13621,8 @@ __all__ = [
     "TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict",
     "TextqlRPCPublicSettingsListOrganizationMembersResponse",
     "TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict",
+    "TextqlRPCPublicSettingsOrganizationModelSettings",
+    "TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequestTypedDict",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse",
@@ -13327,6 +13845,46 @@ _dynamic_imports: dict[str, str] = {
     "AgentServiceUploadAgentAvatarRequestTypedDict": ".agentservice_uploadagentavatarop",
     "AgentServiceUploadAgentAvatarResponse": ".agentservice_uploadagentavatarop",
     "AgentServiceUploadAgentAvatarResponseTypedDict": ".agentservice_uploadagentavatarop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequest": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsRequestTypedDict": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponse": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthClientCredentialsResponseTypedDict": ".apioauthservice_exchangeapioauthclientcredentialsop",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequest": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthCodeRequestTypedDict": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponse": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthCodeResponseTypedDict": ".apioauthservice_exchangeapioauthcodeop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequest": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerRequestTypedDict": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponse": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceExchangeAPIOAuthJwtBearerResponseTypedDict": ".apioauthservice_exchangeapioauthjwtbearerop",
+    "APIOAuthServiceGetAPIOAuthConfigRequest": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthConfigRequestTypedDict": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthConfigResponse": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthConfigResponseTypedDict": ".apioauthservice_getapioauthconfigop",
+    "APIOAuthServiceGetAPIOAuthStatusRequest": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthStatusRequestTypedDict": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthStatusResponse": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthStatusResponseTypedDict": ".apioauthservice_getapioauthstatusop",
+    "APIOAuthServiceGetAPIOAuthURLRequest": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceGetAPIOAuthURLRequestTypedDict": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceGetAPIOAuthURLResponse": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceGetAPIOAuthURLResponseTypedDict": ".apioauthservice_getapioauthurlop",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequest": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServiceInitiateDeviceAuthorizationRequestTypedDict": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponse": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServiceInitiateDeviceAuthorizationResponseTypedDict": ".apioauthservice_initiatedeviceauthorizationop",
+    "APIOAuthServicePollDeviceCodeTokenRequest": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServicePollDeviceCodeTokenRequestTypedDict": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServicePollDeviceCodeTokenResponse": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServicePollDeviceCodeTokenResponseTypedDict": ".apioauthservice_polldevicecodetokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequest": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenRequestTypedDict": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponse": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceRevokeAPIOAuthTokenResponseTypedDict": ".apioauthservice_revokeapioauthtokenop",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequest": ".apioauthservice_upsertapioauthconfigop",
+    "APIOAuthServiceUpsertAPIOAuthConfigRequestTypedDict": ".apioauthservice_upsertapioauthconfigop",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponse": ".apioauthservice_upsertapioauthconfigop",
+    "APIOAuthServiceUpsertAPIOAuthConfigResponseTypedDict": ".apioauthservice_upsertapioauthconfigop",
     "AppServiceAppHeartbeatRequest": ".appservice_appheartbeatop",
     "AppServiceAppHeartbeatRequestTypedDict": ".appservice_appheartbeatop",
     "AppServiceAppHeartbeatResponse": ".appservice_appheartbeatop",
@@ -13642,10 +14200,19 @@ _dynamic_imports: dict[str, str] = {
     "ConnectErrorDetailsAnyTypedDict": ".connect_error_details_any",
     "Debug": ".connect_error_details_any",
     "DebugTypedDict": ".connect_error_details_any",
+    "ConnectProtocolVersion": ".connect_protocol_version",
+    "ConnectorServiceCreateConnectorGroupRequest": ".connectorservice_createconnectorgroupop",
+    "ConnectorServiceCreateConnectorGroupRequestTypedDict": ".connectorservice_createconnectorgroupop",
+    "ConnectorServiceCreateConnectorGroupResponse": ".connectorservice_createconnectorgroupop",
+    "ConnectorServiceCreateConnectorGroupResponseTypedDict": ".connectorservice_createconnectorgroupop",
     "ConnectorServiceCreateConnectorRequest": ".connectorservice_createconnectorop",
     "ConnectorServiceCreateConnectorRequestTypedDict": ".connectorservice_createconnectorop",
     "ConnectorServiceCreateConnectorResponse": ".connectorservice_createconnectorop",
     "ConnectorServiceCreateConnectorResponseTypedDict": ".connectorservice_createconnectorop",
+    "ConnectorServiceDeleteConnectorGroupRequest": ".connectorservice_deleteconnectorgroupop",
+    "ConnectorServiceDeleteConnectorGroupRequestTypedDict": ".connectorservice_deleteconnectorgroupop",
+    "ConnectorServiceDeleteConnectorGroupResponse": ".connectorservice_deleteconnectorgroupop",
+    "ConnectorServiceDeleteConnectorGroupResponseTypedDict": ".connectorservice_deleteconnectorgroupop",
     "ConnectorServiceDeleteConnectorRequest": ".connectorservice_deleteconnectorop",
     "ConnectorServiceDeleteConnectorRequestTypedDict": ".connectorservice_deleteconnectorop",
     "ConnectorServiceDeleteConnectorResponse": ".connectorservice_deleteconnectorop",
@@ -13694,6 +14261,10 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceGetTablePreviewRequestTypedDict": ".connectorservice_gettablepreviewop",
     "ConnectorServiceGetTablePreviewResponse": ".connectorservice_gettablepreviewop",
     "ConnectorServiceGetTablePreviewResponseTypedDict": ".connectorservice_gettablepreviewop",
+    "ConnectorServiceListConnectorGroupsRequest": ".connectorservice_listconnectorgroupsop",
+    "ConnectorServiceListConnectorGroupsRequestTypedDict": ".connectorservice_listconnectorgroupsop",
+    "ConnectorServiceListConnectorGroupsResponse": ".connectorservice_listconnectorgroupsop",
+    "ConnectorServiceListConnectorGroupsResponseTypedDict": ".connectorservice_listconnectorgroupsop",
     "ConnectorServiceListConnectorTablesRequest": ".connectorservice_listconnectortablesop",
     "ConnectorServiceListConnectorTablesRequestTypedDict": ".connectorservice_listconnectortablesop",
     "ConnectorServiceListConnectorTablesResponse": ".connectorservice_listconnectortablesop",
@@ -13702,10 +14273,26 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceListQueryTemplatesRequestTypedDict": ".connectorservice_listquerytemplatesop",
     "ConnectorServiceListQueryTemplatesResponse": ".connectorservice_listquerytemplatesop",
     "ConnectorServiceListQueryTemplatesResponseTypedDict": ".connectorservice_listquerytemplatesop",
+    "ConnectorServiceShareConnectorGroupRequest": ".connectorservice_shareconnectorgroupop",
+    "ConnectorServiceShareConnectorGroupRequestTypedDict": ".connectorservice_shareconnectorgroupop",
+    "ConnectorServiceShareConnectorGroupResponse": ".connectorservice_shareconnectorgroupop",
+    "ConnectorServiceShareConnectorGroupResponseTypedDict": ".connectorservice_shareconnectorgroupop",
     "ConnectorServiceTestConnectorRequest": ".connectorservice_testconnectorop",
     "ConnectorServiceTestConnectorRequestTypedDict": ".connectorservice_testconnectorop",
     "ConnectorServiceTestConnectorResponse": ".connectorservice_testconnectorop",
     "ConnectorServiceTestConnectorResponseTypedDict": ".connectorservice_testconnectorop",
+    "ConnectorServiceUpdateConnectorGroupMembersRequest": ".connectorservice_updateconnectorgroupmembersop",
+    "ConnectorServiceUpdateConnectorGroupMembersRequestTypedDict": ".connectorservice_updateconnectorgroupmembersop",
+    "ConnectorServiceUpdateConnectorGroupMembersResponse": ".connectorservice_updateconnectorgroupmembersop",
+    "ConnectorServiceUpdateConnectorGroupMembersResponseTypedDict": ".connectorservice_updateconnectorgroupmembersop",
+    "ConnectorServiceUpdateConnectorGroupRequest": ".connectorservice_updateconnectorgroupop",
+    "ConnectorServiceUpdateConnectorGroupRequestTypedDict": ".connectorservice_updateconnectorgroupop",
+    "ConnectorServiceUpdateConnectorGroupResponse": ".connectorservice_updateconnectorgroupop",
+    "ConnectorServiceUpdateConnectorGroupResponseTypedDict": ".connectorservice_updateconnectorgroupop",
+    "ConnectorServiceUpdateConnectorGroupSettingsRequest": ".connectorservice_updateconnectorgroupsettingsop",
+    "ConnectorServiceUpdateConnectorGroupSettingsRequestTypedDict": ".connectorservice_updateconnectorgroupsettingsop",
+    "ConnectorServiceUpdateConnectorGroupSettingsResponse": ".connectorservice_updateconnectorgroupsettingsop",
+    "ConnectorServiceUpdateConnectorGroupSettingsResponseTypedDict": ".connectorservice_updateconnectorgroupsettingsop",
     "ConnectorServiceUpdateConnectorRequest": ".connectorservice_updateconnectorop",
     "ConnectorServiceUpdateConnectorRequestTypedDict": ".connectorservice_updateconnectorop",
     "ConnectorServiceUpdateConnectorResponse": ".connectorservice_updateconnectorop",
@@ -13770,10 +14357,6 @@ _dynamic_imports: dict[str, str] = {
     "DashboardServiceMoveDashboardToFolderRequestTypedDict": ".dashboardservice_movedashboardtofolderop",
     "DashboardServiceMoveDashboardToFolderResponse": ".dashboardservice_movedashboardtofolderop",
     "DashboardServiceMoveDashboardToFolderResponseTypedDict": ".dashboardservice_movedashboardtofolderop",
-    "DashboardServicePreviewConfigDashboardRequest": ".dashboardservice_previewconfigdashboardop",
-    "DashboardServicePreviewConfigDashboardRequestTypedDict": ".dashboardservice_previewconfigdashboardop",
-    "DashboardServicePreviewConfigDashboardResponse": ".dashboardservice_previewconfigdashboardop",
-    "DashboardServicePreviewConfigDashboardResponseTypedDict": ".dashboardservice_previewconfigdashboardop",
     "DashboardServicePublishDashboardRequest": ".dashboardservice_publishdashboardop",
     "DashboardServicePublishDashboardRequestTypedDict": ".dashboardservice_publishdashboardop",
     "DashboardServicePublishDashboardResponse": ".dashboardservice_publishdashboardop",
@@ -13866,6 +14449,10 @@ _dynamic_imports: dict[str, str] = {
     "GoogleProtobufEmptyTypedDict": ".google_protobuf_empty",
     "GoogleProtobufValue": ".google_protobuf_value",
     "GoogleProtobufValueTypedDict": ".google_protobuf_value",
+    "HarnessServiceListHarnessesRequest": ".harnessservice_listharnessesop",
+    "HarnessServiceListHarnessesRequestTypedDict": ".harnessservice_listharnessesop",
+    "HarnessServiceListHarnessesResponse": ".harnessservice_listharnessesop",
+    "HarnessServiceListHarnessesResponseTypedDict": ".harnessservice_listharnessesop",
     "MCPServiceClearOAuthTokenRequest": ".mcpservice_clearoauthtokenop",
     "MCPServiceClearOAuthTokenRequestTypedDict": ".mcpservice_clearoauthtokenop",
     "MCPServiceClearOAuthTokenResponse": ".mcpservice_clearoauthtokenop",
@@ -14738,6 +15325,10 @@ _dynamic_imports: dict[str, str] = {
     "SandboxExecServiceCreateSandboxRequestTypedDict": ".sandboxexecservice_createsandboxop",
     "SandboxExecServiceCreateSandboxResponse": ".sandboxexecservice_createsandboxop",
     "SandboxExecServiceCreateSandboxResponseTypedDict": ".sandboxexecservice_createsandboxop",
+    "SandboxExecServiceDiffOntologyChangesRequest": ".sandboxexecservice_diffontologychangesop",
+    "SandboxExecServiceDiffOntologyChangesRequestTypedDict": ".sandboxexecservice_diffontologychangesop",
+    "SandboxExecServiceDiffOntologyChangesResponse": ".sandboxexecservice_diffontologychangesop",
+    "SandboxExecServiceDiffOntologyChangesResponseTypedDict": ".sandboxexecservice_diffontologychangesop",
     "SandboxExecServiceExecRequest": ".sandboxexecservice_execop",
     "SandboxExecServiceExecRequestTypedDict": ".sandboxexecservice_execop",
     "SandboxExecServiceExecResponse": ".sandboxexecservice_execop",
@@ -14754,6 +15345,10 @@ _dynamic_imports: dict[str, str] = {
     "SandboxExecServiceLoadConnectorDataRequestTypedDict": ".sandboxexecservice_loadconnectordataop",
     "SandboxExecServiceLoadConnectorDataResponse": ".sandboxexecservice_loadconnectordataop",
     "SandboxExecServiceLoadConnectorDataResponseTypedDict": ".sandboxexecservice_loadconnectordataop",
+    "SandboxExecServiceProposeOntologyChangesRequest": ".sandboxexecservice_proposeontologychangesop",
+    "SandboxExecServiceProposeOntologyChangesRequestTypedDict": ".sandboxexecservice_proposeontologychangesop",
+    "SandboxExecServiceProposeOntologyChangesResponse": ".sandboxexecservice_proposeontologychangesop",
+    "SandboxExecServiceProposeOntologyChangesResponseTypedDict": ".sandboxexecservice_proposeontologychangesop",
     "SandboxQueryServiceExecuteBashRequest": ".sandboxqueryservice_executebashop",
     "SandboxQueryServiceExecuteBashRequestTypedDict": ".sandboxqueryservice_executebashop",
     "SandboxQueryServiceExecuteBashResponse": ".sandboxqueryservice_executebashop",
@@ -14786,10 +15381,18 @@ _dynamic_imports: dict[str, str] = {
     "ScimServiceRevokeScimTokenRequestTypedDict": ".scimservice_revokescimtokenop",
     "ScimServiceRevokeScimTokenResponse": ".scimservice_revokescimtokenop",
     "ScimServiceRevokeScimTokenResponseTypedDict": ".scimservice_revokescimtokenop",
+    "SecretServiceCreateAPIRevisionRequest": ".secretservice_createapirevisionop",
+    "SecretServiceCreateAPIRevisionRequestTypedDict": ".secretservice_createapirevisionop",
+    "SecretServiceCreateAPIRevisionResponse": ".secretservice_createapirevisionop",
+    "SecretServiceCreateAPIRevisionResponseTypedDict": ".secretservice_createapirevisionop",
     "SecretServiceDeleteAPIAccessKeyRequest": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyRequestTypedDict": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyResponse": ".secretservice_deleteapiaccesskeyop",
     "SecretServiceDeleteAPIAccessKeyResponseTypedDict": ".secretservice_deleteapiaccesskeyop",
+    "SecretServiceDeleteAPIRevisionRequest": ".secretservice_deleteapirevisionop",
+    "SecretServiceDeleteAPIRevisionRequestTypedDict": ".secretservice_deleteapirevisionop",
+    "SecretServiceDeleteAPIRevisionResponse": ".secretservice_deleteapirevisionop",
+    "SecretServiceDeleteAPIRevisionResponseTypedDict": ".secretservice_deleteapirevisionop",
     "SecretServiceGetAPIAccessKeyRequest": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyRequestTypedDict": ".secretservice_getapiaccesskeyop",
     "SecretServiceGetAPIAccessKeyResponse": ".secretservice_getapiaccesskeyop",
@@ -15050,6 +15653,44 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicAgentUploadAgentAvatarRequestTypedDict": ".textql_rpc_public_agent_uploadagentavatarrequest",
     "TextqlRPCPublicAgentUploadAgentAvatarResponse": ".textql_rpc_public_agent_uploadagentavatarresponse",
     "TextqlRPCPublicAgentUploadAgentAvatarResponseTypedDict": ".textql_rpc_public_agent_uploadagentavatarresponse",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfig": ".textql_rpc_public_api_oauth_apioauthconfig",
+    "TextqlRPCPublicAPIOauthAPIOAuthConfigTypedDict": ".textql_rpc_public_api_oauth_apioauthconfig",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequest": ".textql_rpc_public_api_oauth_exchangeapioauthclientcredentialsrequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthClientCredentialsRequestTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthclientcredentialsrequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequest": ".textql_rpc_public_api_oauth_exchangeapioauthcoderequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeRequestTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthcoderequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponse": ".textql_rpc_public_api_oauth_exchangeapioauthcoderesponse",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthCodeResponseTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthcoderesponse",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequest": ".textql_rpc_public_api_oauth_exchangeapioauthjwtbearerrequest",
+    "TextqlRPCPublicAPIOauthExchangeAPIOAuthJwtBearerRequestTypedDict": ".textql_rpc_public_api_oauth_exchangeapioauthjwtbearerrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequest": ".textql_rpc_public_api_oauth_getapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigRequestTypedDict": ".textql_rpc_public_api_oauth_getapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponse": ".textql_rpc_public_api_oauth_getapioauthconfigresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthConfigResponseTypedDict": ".textql_rpc_public_api_oauth_getapioauthconfigresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequest": ".textql_rpc_public_api_oauth_getapioauthstatusrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusRequestTypedDict": ".textql_rpc_public_api_oauth_getapioauthstatusrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponse": ".textql_rpc_public_api_oauth_getapioauthstatusresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthStatusResponseTypedDict": ".textql_rpc_public_api_oauth_getapioauthstatusresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequest": ".textql_rpc_public_api_oauth_getapioauthurlrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLRequestTypedDict": ".textql_rpc_public_api_oauth_getapioauthurlrequest",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponse": ".textql_rpc_public_api_oauth_getapioauthurlresponse",
+    "TextqlRPCPublicAPIOauthGetAPIOAuthURLResponseTypedDict": ".textql_rpc_public_api_oauth_getapioauthurlresponse",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequest": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationrequest",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationRequestTypedDict": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationrequest",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponse": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationresponse",
+    "TextqlRPCPublicAPIOauthInitiateDeviceAuthorizationResponseTypedDict": ".textql_rpc_public_api_oauth_initiatedeviceauthorizationresponse",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequest": ".textql_rpc_public_api_oauth_polldevicecodetokenrequest",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenRequestTypedDict": ".textql_rpc_public_api_oauth_polldevicecodetokenrequest",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponse": ".textql_rpc_public_api_oauth_polldevicecodetokenresponse",
+    "TextqlRPCPublicAPIOauthPollDeviceCodeTokenResponseTypedDict": ".textql_rpc_public_api_oauth_polldevicecodetokenresponse",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequest": ".textql_rpc_public_api_oauth_revokeapioauthtokenrequest",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenRequestTypedDict": ".textql_rpc_public_api_oauth_revokeapioauthtokenrequest",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponse": ".textql_rpc_public_api_oauth_revokeapioauthtokenresponse",
+    "TextqlRPCPublicAPIOauthRevokeAPIOAuthTokenResponseTypedDict": ".textql_rpc_public_api_oauth_revokeapioauthtokenresponse",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequest": ".textql_rpc_public_api_oauth_upsertapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigRequestTypedDict": ".textql_rpc_public_api_oauth_upsertapioauthconfigrequest",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponse": ".textql_rpc_public_api_oauth_upsertapioauthconfigresponse",
+    "TextqlRPCPublicAPIOauthUpsertAPIOAuthConfigResponseTypedDict": ".textql_rpc_public_api_oauth_upsertapioauthconfigresponse",
     "TextqlRPCPublicAppApp": ".textql_rpc_public_app_app",
     "TextqlRPCPublicAppAppTypedDict": ".textql_rpc_public_app_app",
     "TextqlRPCPublicAppAppActivityRecord": ".textql_rpc_public_app_appactivityrecord",
@@ -15449,6 +16090,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicCellsTableauCellTypedDict": ".textql_rpc_public_cells_tableaucell",
     "TextqlRPCPublicCellsTableauMessageBlock": ".textql_rpc_public_cells_tableaumessageblock",
     "TextqlRPCPublicCellsTableauMessageBlockTypedDict": ".textql_rpc_public_cells_tableaumessageblock",
+    "TextqlRPCPublicCellsTableauMetadataCell": ".textql_rpc_public_cells_tableaumetadatacell",
+    "TextqlRPCPublicCellsTableauMetadataCellTypedDict": ".textql_rpc_public_cells_tableaumetadatacell",
     "TextqlRPCPublicCellsTableauSearchFieldsCell": ".textql_rpc_public_cells_tableausearchfieldscell",
     "TextqlRPCPublicCellsTableauSearchFieldsCellTypedDict": ".textql_rpc_public_cells_tableausearchfieldscell",
     "TextqlRPCPublicCellsTableauSQLCell": ".textql_rpc_public_cells_tableausqlcell",
@@ -15611,6 +16254,8 @@ _dynamic_imports: dict[str, str] = {
     "SummaryCellTypedDict": ".textql_rpc_public_chat_cell",
     "TableauCell": ".textql_rpc_public_chat_cell",
     "TableauCellTypedDict": ".textql_rpc_public_chat_cell",
+    "TableauMetadataCell": ".textql_rpc_public_chat_cell",
+    "TableauMetadataCellTypedDict": ".textql_rpc_public_chat_cell",
     "TableauSQLCell": ".textql_rpc_public_chat_cell",
     "TableauSQLCellTypedDict": ".textql_rpc_public_chat_cell",
     "TableauSearchFieldsCell": ".textql_rpc_public_chat_cell",
@@ -15731,6 +16376,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicChatCellDurationMs59TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs5TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs6": ".textql_rpc_public_chat_cell",
+    "TextqlRPCPublicChatCellDurationMs60": ".textql_rpc_public_chat_cell",
+    "TextqlRPCPublicChatCellDurationMs60TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs6TypedDict": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs7": ".textql_rpc_public_chat_cell",
     "TextqlRPCPublicChatCellDurationMs7TypedDict": ".textql_rpc_public_chat_cell",
@@ -16166,6 +16813,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorConnectorDashboardStatsTypedDict": ".textql_rpc_public_connector_connectordashboardstats",
     "TotalDashboards": ".textql_rpc_public_connector_connectordashboardstats",
     "TotalDashboardsTypedDict": ".textql_rpc_public_connector_connectordashboardstats",
+    "TextqlRPCPublicConnectorConnectorGroup": ".textql_rpc_public_connector_connectorgroup",
+    "TextqlRPCPublicConnectorConnectorGroupTypedDict": ".textql_rpc_public_connector_connectorgroup",
+    "TextqlRPCPublicConnectorConnectorGroupConnectorResult": ".textql_rpc_public_connector_connectorgroupconnectorresult",
+    "TextqlRPCPublicConnectorConnectorGroupConnectorResultTypedDict": ".textql_rpc_public_connector_connectorgroupconnectorresult",
     "AvgQueryTimeMs": ".textql_rpc_public_connector_connectorstatentry",
     "AvgQueryTimeMsTypedDict": ".textql_rpc_public_connector_connectorstatentry",
     "TextqlRPCPublicConnectorConnectorStatEntry": ".textql_rpc_public_connector_connectorstatentry",
@@ -16175,6 +16826,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorConnectorTable": ".textql_rpc_public_connector_connectortable",
     "TextqlRPCPublicConnectorConnectorTableTypedDict": ".textql_rpc_public_connector_connectortable",
     "TextqlRPCPublicConnectorConnectorType": ".textql_rpc_public_connector_connectortype",
+    "TextqlRPCPublicConnectorCreateConnectorGroupRequest": ".textql_rpc_public_connector_createconnectorgrouprequest",
+    "TextqlRPCPublicConnectorCreateConnectorGroupRequestTypedDict": ".textql_rpc_public_connector_createconnectorgrouprequest",
+    "TextqlRPCPublicConnectorCreateConnectorGroupResponse": ".textql_rpc_public_connector_createconnectorgroupresponse",
+    "TextqlRPCPublicConnectorCreateConnectorGroupResponseTypedDict": ".textql_rpc_public_connector_createconnectorgroupresponse",
     "TextqlRPCPublicConnectorCreateConnectorRequest": ".textql_rpc_public_connector_createconnectorrequest",
     "TextqlRPCPublicConnectorCreateConnectorRequestTypedDict": ".textql_rpc_public_connector_createconnectorrequest",
     "TextqlRPCPublicConnectorCreateConnectorResponse": ".textql_rpc_public_connector_createconnectorresponse",
@@ -16203,6 +16858,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthOAuthU2MTypedDict": ".textql_rpc_public_connector_databricksmetadata_databricksauth_oauthu2m",
     "TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthPersonalAccessToken": ".textql_rpc_public_connector_databricksmetadata_databricksauth_personalaccesstoken",
     "TextqlRPCPublicConnectorDatabricksMetadataDatabricksAuthPersonalAccessTokenTypedDict": ".textql_rpc_public_connector_databricksmetadata_databricksauth_personalaccesstoken",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupRequest": ".textql_rpc_public_connector_deleteconnectorgrouprequest",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupRequestTypedDict": ".textql_rpc_public_connector_deleteconnectorgrouprequest",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupResponse": ".textql_rpc_public_connector_deleteconnectorgroupresponse",
+    "TextqlRPCPublicConnectorDeleteConnectorGroupResponseTypedDict": ".textql_rpc_public_connector_deleteconnectorgroupresponse",
     "TextqlRPCPublicConnectorDeleteConnectorRequest": ".textql_rpc_public_connector_deleteconnectorrequest",
     "TextqlRPCPublicConnectorDeleteConnectorRequestTypedDict": ".textql_rpc_public_connector_deleteconnectorrequest",
     "TextqlRPCPublicConnectorDeleteConnectorResponse": ".textql_rpc_public_connector_deleteconnectorresponse",
@@ -16274,6 +16933,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorGoogleMetadataTypedDict": ".textql_rpc_public_connector_googlemetadata",
     "TextqlRPCPublicConnectorKdbMetadata": ".textql_rpc_public_connector_kdbmetadata",
     "TextqlRPCPublicConnectorKdbMetadataTypedDict": ".textql_rpc_public_connector_kdbmetadata",
+    "TextqlRPCPublicConnectorListConnectorGroupsRequest": ".textql_rpc_public_connector_listconnectorgroupsrequest",
+    "TextqlRPCPublicConnectorListConnectorGroupsRequestTypedDict": ".textql_rpc_public_connector_listconnectorgroupsrequest",
+    "TextqlRPCPublicConnectorListConnectorGroupsResponse": ".textql_rpc_public_connector_listconnectorgroupsresponse",
+    "TextqlRPCPublicConnectorListConnectorGroupsResponseTypedDict": ".textql_rpc_public_connector_listconnectorgroupsresponse",
     "TextqlRPCPublicConnectorListConnectorTablesRequest": ".textql_rpc_public_connector_listconnectortablesrequest",
     "TextqlRPCPublicConnectorListConnectorTablesRequestTypedDict": ".textql_rpc_public_connector_listconnectortablesrequest",
     "TextqlRPCPublicConnectorListConnectorTablesResponse": ".textql_rpc_public_connector_listconnectortablesresponse",
@@ -16318,6 +16981,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorRedshiftMetadataTypedDict": ".textql_rpc_public_connector_redshiftmetadata",
     "TextqlRPCPublicConnectorSAPHanaMetadata": ".textql_rpc_public_connector_saphanametadata",
     "TextqlRPCPublicConnectorSAPHanaMetadataTypedDict": ".textql_rpc_public_connector_saphanametadata",
+    "TextqlRPCPublicConnectorShareConnectorGroupRequest": ".textql_rpc_public_connector_shareconnectorgrouprequest",
+    "TextqlRPCPublicConnectorShareConnectorGroupRequestTypedDict": ".textql_rpc_public_connector_shareconnectorgrouprequest",
+    "TextqlRPCPublicConnectorShareConnectorGroupResponse": ".textql_rpc_public_connector_shareconnectorgroupresponse",
+    "TextqlRPCPublicConnectorShareConnectorGroupResponseTypedDict": ".textql_rpc_public_connector_shareconnectorgroupresponse",
     "TextqlRPCPublicConnectorSnowflakeMetadata": ".textql_rpc_public_connector_snowflakemetadata",
     "TextqlRPCPublicConnectorSnowflakeMetadataTypedDict": ".textql_rpc_public_connector_snowflakemetadata",
     "TextqlRPCPublicConnectorSQLServerMetadata": ".textql_rpc_public_connector_sqlservermetadata",
@@ -16340,6 +17007,18 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorTopUserTypedDict": ".textql_rpc_public_connector_topuser",
     "TextqlRPCPublicConnectorTrinoMetadata": ".textql_rpc_public_connector_trinometadata",
     "TextqlRPCPublicConnectorTrinoMetadataTypedDict": ".textql_rpc_public_connector_trinometadata",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequest": ".textql_rpc_public_connector_updateconnectorgroupmembersrequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequestTypedDict": ".textql_rpc_public_connector_updateconnectorgroupmembersrequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponse": ".textql_rpc_public_connector_updateconnectorgroupmembersresponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponseTypedDict": ".textql_rpc_public_connector_updateconnectorgroupmembersresponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupRequest": ".textql_rpc_public_connector_updateconnectorgrouprequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupRequestTypedDict": ".textql_rpc_public_connector_updateconnectorgrouprequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupResponse": ".textql_rpc_public_connector_updateconnectorgroupresponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupResponseTypedDict": ".textql_rpc_public_connector_updateconnectorgroupresponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequest": ".textql_rpc_public_connector_updateconnectorgroupsettingsrequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsRequestTypedDict": ".textql_rpc_public_connector_updateconnectorgroupsettingsrequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsResponse": ".textql_rpc_public_connector_updateconnectorgroupsettingsresponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupSettingsResponseTypedDict": ".textql_rpc_public_connector_updateconnectorgroupsettingsresponse",
     "TextqlRPCPublicConnectorUpdateConnectorRequest": ".textql_rpc_public_connector_updateconnectorrequest",
     "TextqlRPCPublicConnectorUpdateConnectorRequestTypedDict": ".textql_rpc_public_connector_updateconnectorrequest",
     "TextqlRPCPublicConnectorUpdateConnectorResponse": ".textql_rpc_public_connector_updateconnectorresponse",
@@ -16438,10 +17117,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicDashboardMoveDashboardToFolderResponseTypedDict": ".textql_rpc_public_dashboard_movedashboardtofolderresponse",
     "TextqlRPCPublicDashboardOntologySQLSource": ".textql_rpc_public_dashboard_ontologysqlsource",
     "TextqlRPCPublicDashboardOntologySQLSourceTypedDict": ".textql_rpc_public_dashboard_ontologysqlsource",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardRequest": ".textql_rpc_public_dashboard_previewconfigdashboardrequest",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardRequestTypedDict": ".textql_rpc_public_dashboard_previewconfigdashboardrequest",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardResponse": ".textql_rpc_public_dashboard_previewconfigdashboardresponse",
-    "TextqlRPCPublicDashboardPreviewConfigDashboardResponseTypedDict": ".textql_rpc_public_dashboard_previewconfigdashboardresponse",
     "TextqlRPCPublicDashboardPublishDashboardRequest": ".textql_rpc_public_dashboard_publishdashboardrequest",
     "TextqlRPCPublicDashboardPublishDashboardRequestTypedDict": ".textql_rpc_public_dashboard_publishdashboardrequest",
     "TextqlRPCPublicDashboardPublishDashboardResponse": ".textql_rpc_public_dashboard_publishdashboardresponse",
@@ -16635,6 +17310,16 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicDatasetUpdateDatasetRequestTypedDict": ".textql_rpc_public_dataset_updatedatasetrequest",
     "TextqlRPCPublicDatasetUpdateDatasetResponse": ".textql_rpc_public_dataset_updatedatasetresponse",
     "TextqlRPCPublicDatasetUpdateDatasetResponseTypedDict": ".textql_rpc_public_dataset_updatedatasetresponse",
+    "TextqlRPCPublicHarnessHarnessEndpoint": ".textql_rpc_public_harness_harnessendpoint",
+    "TextqlRPCPublicHarnessHarnessEndpointTypedDict": ".textql_rpc_public_harness_harnessendpoint",
+    "TextqlRPCPublicHarnessHarnessInfo": ".textql_rpc_public_harness_harnessinfo",
+    "TextqlRPCPublicHarnessHarnessInfoTypedDict": ".textql_rpc_public_harness_harnessinfo",
+    "TextqlRPCPublicHarnessHarnessViewer": ".textql_rpc_public_harness_harnessviewer",
+    "TextqlRPCPublicHarnessHarnessViewerTypedDict": ".textql_rpc_public_harness_harnessviewer",
+    "TextqlRPCPublicHarnessListHarnessesRequest": ".textql_rpc_public_harness_listharnessesrequest",
+    "TextqlRPCPublicHarnessListHarnessesRequestTypedDict": ".textql_rpc_public_harness_listharnessesrequest",
+    "TextqlRPCPublicHarnessListHarnessesResponse": ".textql_rpc_public_harness_listharnessesresponse",
+    "TextqlRPCPublicHarnessListHarnessesResponseTypedDict": ".textql_rpc_public_harness_listharnessesresponse",
     "TextqlRPCPublicMcpClearOAuthTokenRequest": ".textql_rpc_public_mcp_clearoauthtokenrequest",
     "TextqlRPCPublicMcpClearOAuthTokenRequestTypedDict": ".textql_rpc_public_mcp_clearoauthtokenrequest",
     "TextqlRPCPublicMcpClearOAuthTokenResponse": ".textql_rpc_public_mcp_clearoauthtokenresponse",
@@ -17651,6 +18336,7 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicRbacMemberPermissionAction": ".textql_rpc_public_rbac_memberpermissionaction",
     "TextqlRPCPublicRbacMemberRoles": ".textql_rpc_public_rbac_memberroles",
     "TextqlRPCPublicRbacMemberRolesTypedDict": ".textql_rpc_public_rbac_memberroles",
+    "TextqlRPCPublicRbacMemoryPermissionAction": ".textql_rpc_public_rbac_memorypermissionaction",
     "TextqlRPCPublicRbacObjectAccess": ".textql_rpc_public_rbac_objectaccess",
     "TextqlRPCPublicRbacObjectAccessTypedDict": ".textql_rpc_public_rbac_objectaccess",
     "TextqlRPCPublicRbacObservabilityPermissionAction": ".textql_rpc_public_rbac_observabilitypermissionaction",
@@ -17691,6 +18377,8 @@ _dynamic_imports: dict[str, str] = {
     "McpTypedDict": ".textql_rpc_public_rbac_permissionspec",
     "Member": ".textql_rpc_public_rbac_permissionspec",
     "MemberTypedDict": ".textql_rpc_public_rbac_permissionspec",
+    "Memory": ".textql_rpc_public_rbac_permissionspec",
+    "MemoryTypedDict": ".textql_rpc_public_rbac_permissionspec",
     "Observability": ".textql_rpc_public_rbac_permissionspec",
     "ObservabilityTypedDict": ".textql_rpc_public_rbac_permissionspec",
     "Ontology": ".textql_rpc_public_rbac_permissionspec",
@@ -17923,6 +18611,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxExecGetToolAvailabilityResponseTypedDict": ".textql_rpc_public_sandbox_exec_gettoolavailabilityresponse",
     "TextqlRPCPublicSandboxExecSandboxDataFrameOutput": ".textql_rpc_public_sandbox_exec_sandboxdataframeoutput",
     "TextqlRPCPublicSandboxExecSandboxDataFrameOutputTypedDict": ".textql_rpc_public_sandbox_exec_sandboxdataframeoutput",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesRequest": ".textql_rpc_public_sandbox_exec_sandboxdiffontologychangesrequest",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesRequestTypedDict": ".textql_rpc_public_sandbox_exec_sandboxdiffontologychangesrequest",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponse": ".textql_rpc_public_sandbox_exec_sandboxdiffontologychangesresponse",
+    "TextqlRPCPublicSandboxExecSandboxDiffOntologyChangesResponseTypedDict": ".textql_rpc_public_sandbox_exec_sandboxdiffontologychangesresponse",
     "TextqlRPCPublicSandboxExecSandboxExecRequest": ".textql_rpc_public_sandbox_exec_sandboxexecrequest",
     "TextqlRPCPublicSandboxExecSandboxExecRequestTypedDict": ".textql_rpc_public_sandbox_exec_sandboxexecrequest",
     "TextqlRPCPublicSandboxExecSandboxExecResponse": ".textql_rpc_public_sandbox_exec_sandboxexecresponse",
@@ -17943,6 +18635,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRows": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
     "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseNumRowsTypedDict": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
     "TextqlRPCPublicSandboxExecSandboxLoadConnectorDataResponseTypedDict": ".textql_rpc_public_sandbox_exec_sandboxloadconnectordataresponse",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesRequest": ".textql_rpc_public_sandbox_exec_sandboxproposeontologychangesrequest",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesRequestTypedDict": ".textql_rpc_public_sandbox_exec_sandboxproposeontologychangesrequest",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesResponse": ".textql_rpc_public_sandbox_exec_sandboxproposeontologychangesresponse",
+    "TextqlRPCPublicSandboxExecSandboxProposeOntologyChangesResponseTypedDict": ".textql_rpc_public_sandbox_exec_sandboxproposeontologychangesresponse",
     "TextqlRPCPublicSandboxExecToolAvailability": ".textql_rpc_public_sandbox_exec_toolavailability",
     "TextqlRPCPublicSandboxExecToolAvailabilityTypedDict": ".textql_rpc_public_sandbox_exec_toolavailability",
     "TextqlRPCPublicSandboxQueryAppDBTemplate": ".textql_rpc_public_sandbox_query_appdbtemplate",
@@ -18015,13 +18711,22 @@ _dynamic_imports: dict[str, str] = {
     "RevisionTypedDict": ".textql_rpc_public_secret_apiaccessref",
     "TextqlRPCPublicSecretAPIAccessRef": ".textql_rpc_public_secret_apiaccessref",
     "TextqlRPCPublicSecretAPIAccessRefTypedDict": ".textql_rpc_public_secret_apiaccessref",
+    "TextqlRPCPublicSecretAPIAuthType": ".textql_rpc_public_secret_apiauthtype",
     "TextqlRPCPublicSecretAPIProvider": ".textql_rpc_public_secret_apiprovider",
     "TextqlRPCPublicSecretAPIProviderTypedDict": ".textql_rpc_public_secret_apiprovider",
     "TextqlRPCPublicSecretBodyContentType": ".textql_rpc_public_secret_bodycontenttype",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequest": ".textql_rpc_public_secret_createapirevisionrequest",
+    "TextqlRPCPublicSecretCreateAPIRevisionRequestTypedDict": ".textql_rpc_public_secret_createapirevisionrequest",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponse": ".textql_rpc_public_secret_createapirevisionresponse",
+    "TextqlRPCPublicSecretCreateAPIRevisionResponseTypedDict": ".textql_rpc_public_secret_createapirevisionresponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequest": ".textql_rpc_public_secret_deleteapiaccesskeyrequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyRequestTypedDict": ".textql_rpc_public_secret_deleteapiaccesskeyrequest",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponse": ".textql_rpc_public_secret_deleteapiaccesskeyresponse",
     "TextqlRPCPublicSecretDeleteAPIAccessKeyResponseTypedDict": ".textql_rpc_public_secret_deleteapiaccesskeyresponse",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequest": ".textql_rpc_public_secret_deleteapirevisionrequest",
+    "TextqlRPCPublicSecretDeleteAPIRevisionRequestTypedDict": ".textql_rpc_public_secret_deleteapirevisionrequest",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponse": ".textql_rpc_public_secret_deleteapirevisionresponse",
+    "TextqlRPCPublicSecretDeleteAPIRevisionResponseTypedDict": ".textql_rpc_public_secret_deleteapirevisionresponse",
     "TextqlRPCPublicSecretEnvVarField": ".textql_rpc_public_secret_envvarfield",
     "TextqlRPCPublicSecretEnvVarFieldTypedDict": ".textql_rpc_public_secret_envvarfield",
     "TextqlRPCPublicSecretGetAPIAccessKeyRequest": ".textql_rpc_public_secret_getapiaccesskeyrequest",
@@ -18066,6 +18771,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicSettingsListOrganizationMembersRequestTypedDict": ".textql_rpc_public_settings_listorganizationmembersrequest",
     "TextqlRPCPublicSettingsListOrganizationMembersResponse": ".textql_rpc_public_settings_listorganizationmembersresponse",
     "TextqlRPCPublicSettingsListOrganizationMembersResponseTypedDict": ".textql_rpc_public_settings_listorganizationmembersresponse",
+    "TextqlRPCPublicSettingsOrganizationModelSettings": ".textql_rpc_public_settings_organizationmodelsettings",
+    "TextqlRPCPublicSettingsOrganizationModelSettingsTypedDict": ".textql_rpc_public_settings_organizationmodelsettings",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequest": ".textql_rpc_public_settings_updateorganizationmodelsettingsrequest",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsRequestTypedDict": ".textql_rpc_public_settings_updateorganizationmodelsettingsrequest",
     "TextqlRPCPublicSettingsUpdateOrganizationModelSettingsResponse": ".textql_rpc_public_settings_updateorganizationmodelsettingsresponse",

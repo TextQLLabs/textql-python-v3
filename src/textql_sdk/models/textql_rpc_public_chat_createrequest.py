@@ -39,13 +39,15 @@ class TextqlRPCPublicChatCreateRequestTypedDict(TypedDict):
     """
     fast_mode: NotRequired[Nullable[bool]]
     r"""fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
-    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
+    Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
     """
     max_thinking: NotRequired[Nullable[bool]]
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol.
     """
     model_name: NotRequired[Nullable[str]]
+    harness: NotRequired[Nullable[str]]
+    harness_endpoint_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatCreateRequest(BaseModel):
@@ -83,7 +85,7 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
         UNSET
     )
     r"""fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
-    Supported on Opus 5 and Opus 4.8. Pricing is 2x standard rates.
+    Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
     """
 
     max_thinking: Annotated[
@@ -94,12 +96,18 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
         ),
     ] = UNSET
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, and GPT 5.6 Sol/Terra/Luna.
+    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol.
     """
 
     model_name: Annotated[OptionalNullable[str], pydantic.Field(alias="modelName")] = (
         UNSET
     )
+
+    harness: OptionalNullable[str] = UNSET
+
+    harness_endpoint_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="harnessEndpointId")
+    ] = UNSET
 
     @model_serializer(mode="wrap")
     def _serialize_model(self, handler):
@@ -115,6 +123,8 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
                 "fastMode",
                 "maxThinking",
                 "modelName",
+                "harness",
+                "harnessEndpointId",
             ]
         )
         nullable_fields = set(
@@ -127,6 +137,8 @@ class TextqlRPCPublicChatCreateRequest(BaseModel):
                 "fastMode",
                 "maxThinking",
                 "modelName",
+                "harness",
+                "harnessEndpointId",
             ]
         )
         serialized = handler(self)

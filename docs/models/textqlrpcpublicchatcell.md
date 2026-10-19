@@ -315,6 +315,12 @@ value: models.SummaryCell = /* values here */
 value: models.TableauCell = /* values here */
 ```
 
+### `models.TableauMetadataCell`
+
+```python
+value: models.TableauMetadataCell = /* values here */
+```
+
 ### `models.TableauSearchFieldsCell`
 
 ```python
