@@ -45,6 +45,11 @@ from .sdkconfiguration import SERVERS
 
 _REFRESH_MARGIN_SECONDS = 60
 
+TOKEN_EXCHANGE_GRANT = "urn:ietf:params:oauth:grant-type:token-exchange"
+ID_TOKEN_TYPE = "urn:ietf:params:oauth:token-type:id_token"
+ACCESS_TOKEN_TYPE = "urn:ietf:params:oauth:token-type:access_token"
+JWT_TOKEN_TYPE = "urn:ietf:params:oauth:token-type:jwt"
+
 
 @dataclass(frozen=True)
 class OAuthTokens:
@@ -55,7 +60,7 @@ class OAuthTokens:
 
 
 class OAuthRefreshError(Exception):
-    """``/oauth/token`` refused a refresh or code exchange."""
+    """``/oauth/token`` refused a refresh, code exchange or token exchange."""
 
     def __init__(
         self, status_code: int, error: str, description: Optional[str] = None
@@ -181,6 +186,37 @@ def exchange_code(
     )
 
 
+def exchange_token(
+    subject_token: str,
+    *,
+    org_id: str,
+    subject_token_type: str = ID_TOKEN_TYPE,
+    scopes: Optional[Iterable[str]] = None,
+    server_url: Optional[str] = None,
+    token_url: Optional[str] = None,
+    http_client: Optional[httpx.Client] = None,
+    timeout: float = 30.0,
+) -> OAuthTokens:
+    """Exchange a token from the org's identity provider (an Okta ID token, say)
+    for a TextQL access token for the member it identifies (RFC 8693).
+
+    The org must trust the token's issuer and audience for token exchange, and
+    the member must have signed in to TextQL through that provider once. No
+    refresh token is issued, and the access token never outlives
+    ``subject_token``: exchange a fresh one instead, or pass a ``renew``
+    callback to :class:`TokenManager`.
+    """
+    data = {
+        "grant_type": TOKEN_EXCHANGE_GRANT,
+        "org_id": org_id,
+        "subject_token": subject_token,
+        "subject_token_type": subject_token_type,
+    }
+    if scopes:
+        data["scope"] = " ".join(scopes)
+    return _post_token(token_url or _token_url(server_url), data, http_client, timeout)
+
+
 class TokenManager:
     """Holds an OAuth token pair and refreshes it against ``/oauth/token``.
 
@@ -202,8 +238,11 @@ class TokenManager:
         token_url: Optional[str] = None,
         timeout: float = 30.0,
         http_client: Optional[httpx.Client] = None,
+        renew: Optional[Callable[[], OAuthTokens]] = None,
     ) -> None:
-        if refresh_token and not client_id:
+        """``renew`` replaces the refresh-token grant: it is called for new
+        tokens instead, e.g. to run :func:`exchange_token` again."""
+        if refresh_token and not client_id and renew is None:
             raise ValueError("client_id is required to refresh tokens")
         if expires_at is None and expires_in is not None:
             expires_at = time.time() + expires_in
@@ -214,11 +253,16 @@ class TokenManager:
         self._token_url = token_url or _token_url(server_url)
         self._timeout = timeout
         self._http = http_client
+        self._renew = renew
         self._lock = threading.Lock()
 
     @property
     def tokens(self) -> OAuthTokens:
         return self._tokens
+
+    @property
+    def can_refresh(self) -> bool:
+        return self._renew is not None or bool(self._tokens.refresh_token)
 
     def access_token(self, stale: Optional[str] = None) -> str:
         """A usable access token, refreshing first when the current one is near
@@ -229,9 +273,12 @@ class TokenManager:
             # Another caller may have refreshed while this one waited.
             if self._usable(stale):
                 return self._tokens.access_token
-            if not self._tokens.refresh_token:
+            if self._renew is not None:
+                self._tokens = self._renew()
+            elif self._tokens.refresh_token:
+                self._tokens = self._refresh(self._tokens.refresh_token)
+            else:
                 return self._tokens.access_token
-            self._tokens = self._refresh(self._tokens.refresh_token)
             if self._on_tokens is not None:
                 self._on_tokens(self._tokens)
             return self._tokens.access_token
@@ -274,7 +321,7 @@ class TokenAuth(httpx.Auth):
         token = self.manager.access_token()
         _authorize(request, token)
         response = yield request
-        if response.status_code == 401 and self.manager.tokens.refresh_token:
+        if response.status_code == 401 and self.manager.can_refresh:
             _authorize(request, self.manager.access_token(stale=token))
             yield request
 
@@ -282,7 +329,7 @@ class TokenAuth(httpx.Auth):
         token = await self.manager.access_token_async()
         _authorize(request, token)
         response = yield request
-        if response.status_code == 401 and self.manager.tokens.refresh_token:
+        if response.status_code == 401 and self.manager.can_refresh:
             _authorize(request, await self.manager.access_token_async(stale=token))
             yield request
 
@@ -347,13 +394,17 @@ def from_tokens(
 
 
 __all__ = [
+    "ACCESS_TOKEN_TYPE",
     "AuthorizationRequest",
+    "ID_TOKEN_TYPE",
+    "JWT_TOKEN_TYPE",
     "OAuthRefreshError",
     "OAuthTokens",
     "TokenAuth",
     "TokenManager",
     "authorization_url",
     "exchange_code",
+    "exchange_token",
     "from_tokens",
     "token_manager_of",
 ]

@@ -113,9 +113,32 @@ way, or takes one directly with `tokens=manager`. Each call reads the current
 token. A stream cannot be replayed after a 401, so the `unauthenticated` error
 still reaches the caller, and the token is refreshed before the next call.
 
+## Exchanging identity provider tokens
+
+If your tool already signs users in with the same identity provider as TextQL
+(Okta, say), skip the TextQL login: exchange the user's ID token for a TextQL
+access token. An admin turns on token exchange for that provider under
+**Settings > Security > Authentication** and lists the audiences it accepts. The provider's own
+TextQL client ID is never accepted, so use your tool's client ID. Each user
+must have signed in to TextQL through that provider once.
+
+```python
+from textql_sdk.oauth import TokenManager, exchange_token, from_tokens
+
+def renew():
+    return exchange_token(fresh_id_token(), org_id=ORG_ID)
+
+manager = TokenManager(**vars(renew()), renew=renew)
+sdk = from_tokens(manager=manager)
+```
+
+No refresh token is issued, and the access token expires no later than the ID
+token it came from. `renew` is called whenever the manager would refresh, so
+hand it a current ID token (refresh it with your provider first if needed).
+
 ## Errors
 
-A failed refresh raises `OAuthRefreshError` with the HTTP `status_code` and the
+A failed refresh or exchange raises `OAuthRefreshError` with the HTTP `status_code` and the
 OAuth `error` (`invalid_grant` for an expired, revoked or already used refresh
 token, `invalid_client` for bad client credentials). The user has to sign in
 again to get a new pair.
