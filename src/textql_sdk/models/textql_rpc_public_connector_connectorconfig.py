@@ -112,6 +112,10 @@ from .textql_rpc_public_connector_tableaumetadata import (
     TextqlRPCPublicConnectorTableauMetadata,
     TextqlRPCPublicConnectorTableauMetadataTypedDict,
 )
+from .textql_rpc_public_connector_teradatametadata import (
+    TextqlRPCPublicConnectorTeradataMetadata,
+    TextqlRPCPublicConnectorTeradataMetadataTypedDict,
+)
 from .textql_rpc_public_connector_trinometadata import (
     TextqlRPCPublicConnectorTrinoMetadata,
     TextqlRPCPublicConnectorTrinoMetadataTypedDict,
@@ -132,6 +136,42 @@ class TrinoTypedDict(TypedDict):
 
 class Trino(BaseModel):
     trino: TextqlRPCPublicConnectorTrinoMetadata
+
+    connector_type: Annotated[
+        Optional[TextqlRPCPublicConnectorConnectorType],
+        pydantic.Field(alias="connectorType"),
+    ] = None
+
+    name: Optional[str] = None
+
+    auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["connectorType", "name", "authStrategy"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+class TeradataTypedDict(TypedDict):
+    teradata: TextqlRPCPublicConnectorTeradataMetadataTypedDict
+    connector_type: NotRequired[TextqlRPCPublicConnectorConnectorType]
+    name: NotRequired[str]
+    auth_strategy: NotRequired[str]
+
+
+class Teradata(BaseModel):
+    teradata: TextqlRPCPublicConnectorTeradataMetadata
 
     connector_type: Annotated[
         Optional[TextqlRPCPublicConnectorConnectorType],
@@ -1179,6 +1219,7 @@ TextqlRPCPublicConnectorConnectorConfigTypedDict = TypeAliasType(
         SQLServerTypedDict,
         SupabaseTypedDict,
         TextqlRPCPublicConnectorConnectorConfigTableauTypedDict,
+        TeradataTypedDict,
         TrinoTypedDict,
     ],
 )
@@ -1214,6 +1255,7 @@ TextqlRPCPublicConnectorConnectorConfig = TypeAliasType(
         SQLServer,
         Supabase,
         TextqlRPCPublicConnectorConnectorConfigTableau,
+        Teradata,
         Trino,
     ],
 )
@@ -1221,6 +1263,10 @@ TextqlRPCPublicConnectorConnectorConfig = TypeAliasType(
 
 try:
     Trino.model_rebuild()
+except NameError:
+    pass
+try:
+    Teradata.model_rebuild()
 except NameError:
     pass
 try:

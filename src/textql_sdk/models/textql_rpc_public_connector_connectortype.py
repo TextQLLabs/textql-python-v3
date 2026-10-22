@@ -38,6 +38,7 @@ TextqlRPCPublicConnectorConnectorType = Union[
         "KDB",
         "MONGODB",
         "ANA_BILLING",
+        "TERADATA",
     ],
     UnrecognizedStr,
 ]

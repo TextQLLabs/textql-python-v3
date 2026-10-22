@@ -138,6 +138,14 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequestTypedDict(TypedDic
     Not recommended for use in new APIs, but still useful for legacy APIs and
     has no plan to be removed.
     """
+    harnesses_enabled: NotRequired[bool]
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
     default_dashboard_output: NotRequired[bool]
     r"""Wrapper message for `bool`.
 
@@ -401,6 +409,17 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
     has no plan to be removed.
     """
 
+    harnesses_enabled: Annotated[
+        Optional[bool], pydantic.Field(alias="harnessesEnabled")
+    ] = None
+    r"""Wrapper message for `bool`.
+
+    The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+    Not recommended for use in new APIs, but still useful for legacy APIs and
+    has no plan to be removed.
+    """
+
     default_dashboard_output: Annotated[
         Optional[bool], pydantic.Field(alias="defaultDashboardOutput")
     ] = None
@@ -527,6 +546,7 @@ class TextqlRPCPublicSettingsUpdateOrganizationSettingsRequest(BaseModel):
                 "configurableThinkingEnabled",
                 "clearDefaultConnectorIds",
                 "voiceInputEnabled",
+                "harnessesEnabled",
                 "defaultDashboardOutput",
                 "defaultMethodology",
                 "tracesEnabled",

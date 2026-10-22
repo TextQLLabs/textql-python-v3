@@ -549,3 +549,13 @@ Based on:
 - [python v1.1.31] .
 ### Releases
 - [PyPI v1.1.31] https://pypi.org/project/textql-sdk/1.1.31 - .
+
+## 2026-10-22 22:44:38
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.803.1 (2.950.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v1.1.32] .
+### Releases
+- [PyPI v1.1.32] https://pypi.org/project/textql-sdk/1.1.32 - .

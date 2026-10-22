@@ -165,6 +165,12 @@ value: models.SupabaseMetadata = /* values here */
 value: models.TableauMetadata = /* values here */
 ```
 
+### `models.TeradataMetadata`
+
+```python
+value: models.TeradataMetadata = /* values here */
+```
+
 ### `models.TrinoMetadata`
 
 ```python
