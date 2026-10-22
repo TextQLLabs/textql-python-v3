@@ -6,10 +6,12 @@
 
 * [create](#create) - CreateConnector
 * [create_connector_group](#create_connector_group) - CreateConnectorGroup
+* [create_teradata_driver_upload_url](#create_teradata_driver_upload_url) - CreateTeradataDriverUploadUrl
 * [delete](#delete) - DeleteConnector
 * [delete_connector_group](#delete_connector_group) - DeleteConnectorGroup
 * [duplicate_connector](#duplicate_connector) - DuplicateConnector
 * [execute_query](#execute_query) - ExecuteQuery
+* [finalize_teradata_driver_upload](#finalize_teradata_driver_upload) - FinalizeTeradataDriverUpload
 * [get](#get) - GetConnector
 * [get_connector_cell_durations](#get_connector_cell_durations) - GetConnectorCellDurations
 * [get_chats](#get_chats) - GetConnectorChats
@@ -19,13 +21,16 @@
 * [get_connectors](#get_connectors) - GetConnectors
 * [get_example_queries](#get_example_queries) - GetExampleQueries
 * [get_table_preview](#get_table_preview) - GetTablePreview
+* [list_connector_group_grants](#list_connector_group_grants) - ListConnectorGroupGrants
 * [list_connector_groups](#list_connector_groups) - ListConnectorGroups
 * [list_tables](#list_tables) - ListConnectorTables
 * [list_query_templates](#list_query_templates) - ListQueryTemplates
+* [revoke_connector_group_grant](#revoke_connector_group_grant) - RevokeConnectorGroupGrant
 * [share_connector_group](#share_connector_group) - ShareConnectorGroup
 * [test](#test) - TestConnector
 * [update](#update) - UpdateConnector
 * [update_connector_group](#update_connector_group) - UpdateConnectorGroup
+* [update_connector_group_grant](#update_connector_group_grant) - UpdateConnectorGroupGrant
 * [update_connector_group_members](#update_connector_group_members) - UpdateConnectorGroupMembers
 * [update_connector_group_settings](#update_connector_group_settings) - UpdateConnectorGroupSettings
 
@@ -109,6 +114,47 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceCreateConnectorGroupResponse](../../models/connectorservicecreateconnectorgroupresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## create_teradata_driver_upload_url
+
+CreateTeradataDriverUploadUrl
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_CreateTeradataDriverUploadUrl" method="post" path="/textql.rpc.public.connector.ConnectorService/CreateTeradataDriverUploadUrl" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.create_teradata_driver_upload_url(body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                           | Type                                                                                                                                                | Required                                                                                                                                            | Description                                                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `body`                                                                                                                                              | [models.TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequest](../../models/textqlrpcpublicconnectorcreateteradatadriveruploadurlrequest.md) | :heavy_check_mark:                                                                                                                                  | N/A                                                                                                                                                 |
+| `connect_timeout_ms`                                                                                                                                | *Optional[float]*                                                                                                                                   | :heavy_minus_sign:                                                                                                                                  | N/A                                                                                                                                                 |
+| `retries`                                                                                                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                    | :heavy_minus_sign:                                                                                                                                  | Configuration to override the default retry behavior of the client.                                                                                 |
+
+### Response
+
+**[models.ConnectorServiceCreateTeradataDriverUploadURLResponse](../../models/connectorservicecreateteradatadriveruploadurlresponse.md)**
 
 ### Errors
 
@@ -275,6 +321,47 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceExecuteQueryResponse](../../models/connectorserviceexecutequeryresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## finalize_teradata_driver_upload
+
+FinalizeTeradataDriverUpload
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_FinalizeTeradataDriverUpload" method="post" path="/textql.rpc.public.connector.ConnectorService/FinalizeTeradataDriverUpload" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.finalize_teradata_driver_upload()
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `upload_id`                                                         | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceFinalizeTeradataDriverUploadResponse](../../models/connectorservicefinalizeteradatadriveruploadresponse.md)**
 
 ### Errors
 
@@ -660,6 +747,47 @@ with Textql(
 | ------------------------- | ------------------------- | ------------------------- |
 | errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
 
+## list_connector_group_grants
+
+ListConnectorGroupGrants
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_ListConnectorGroupGrants" method="post" path="/textql.rpc.public.connector.ConnectorService/ListConnectorGroupGrants" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.list_connector_group_grants(group_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `group_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceListConnectorGroupGrantsResponse](../../models/connectorservicelistconnectorgroupgrantsresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
 ## list_connector_groups
 
 ListConnectorGroups
@@ -779,6 +907,48 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceListQueryTemplatesResponse](../../models/connectorservicelistquerytemplatesresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## revoke_connector_group_grant
+
+RevokeConnectorGroupGrant
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_RevokeConnectorGroupGrant" method="post" path="/textql.rpc.public.connector.ConnectorService/RevokeConnectorGroupGrant" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.revoke_connector_group_grant(group_id="<id>", grant_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `group_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `grant_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceRevokeConnectorGroupGrantResponse](../../models/connectorservicerevokeconnectorgroupgrantresponse.md)**
 
 ### Errors
 
@@ -950,6 +1120,49 @@ with Textql(
 ### Response
 
 **[models.ConnectorServiceUpdateConnectorGroupResponse](../../models/connectorserviceupdateconnectorgroupresponse.md)**
+
+### Errors
+
+| Error Type                | Status Code               | Content Type              |
+| ------------------------- | ------------------------- | ------------------------- |
+| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
+
+## update_connector_group_grant
+
+UpdateConnectorGroupGrant
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="ConnectorService_UpdateConnectorGroupGrant" method="post" path="/textql.rpc.public.connector.ConnectorService/UpdateConnectorGroupGrant" -->
+```python
+import os
+from textql_sdk import Textql
+
+
+with Textql(
+    api_key=os.getenv("TEXTQL_API_KEY", ""),
+) as textql:
+
+    res = textql.connectors.update_connector_group_grant(group_id="<id>", grant_id="<id>", access_type="<value>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `group_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `grant_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `access_type`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `connect_timeout_ms`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.ConnectorServiceUpdateConnectorGroupGrantResponse](../../models/connectorserviceupdateconnectorgroupgrantresponse.md)**
 
 ### Errors
 

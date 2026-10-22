@@ -165,6 +165,12 @@ value: models.Supabase = /* values here */
 value: models.TextqlRPCPublicConnectorConnectorConfigTableau = /* values here */
 ```
 
+### `models.Teradata`
+
+```python
+value: models.Teradata = /* values here */
+```
+
 ### `models.Trino`
 
 ```python

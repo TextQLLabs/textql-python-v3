@@ -259,6 +259,7 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     pipeline_log_retention_days: NotRequired[Nullable[int]]
     sandbox_lease_config_enabled: NotRequired[Nullable[bool]]
     voice_input_enabled: NotRequired[Nullable[bool]]
+    harnesses_enabled: NotRequired[Nullable[bool]]
     delete_inactive_threads_enabled: NotRequired[Nullable[bool]]
     thread_retention_days: NotRequired[Nullable[int]]
     thread_hard_delete_grace_days: NotRequired[Nullable[int]]
@@ -310,10 +311,8 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     config_migrations_enabled (field 74).
     """
     config_objects_playbooks_enabled: NotRequired[Nullable[bool]]
-    r"""Deprecated: never populated. config_objects_enabled (field 80) is the umbrella for every
-    object type — config management is one-way, so a per-type switch that cannot
-    un-migrate an object is either inert or actively harmful (ADR-0040). Retained only
-    because proto/api is additive-only.
+    r"""Deprecated: never populated. config_objects_enabled (field 80) is the one switch for
+    every object type. Retained only because proto/api is additive-only.
     """
     config_objects_dashboards_enabled: NotRequired[Nullable[bool]]
     config_autofix_enabled: NotRequired[Nullable[bool]]
@@ -728,6 +727,10 @@ class TextqlRPCAuthOrganization(BaseModel):
         OptionalNullable[bool], pydantic.Field(alias="voiceInputEnabled")
     ] = UNSET
 
+    harnesses_enabled: Annotated[
+        OptionalNullable[bool], pydantic.Field(alias="harnessesEnabled")
+    ] = UNSET
+
     delete_inactive_threads_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="deleteInactiveThreadsEnabled")
     ] = UNSET
@@ -871,10 +874,8 @@ class TextqlRPCAuthOrganization(BaseModel):
             alias="configObjectsPlaybooksEnabled",
         ),
     ] = UNSET
-    r"""Deprecated: never populated. config_objects_enabled (field 80) is the umbrella for every
-    object type — config management is one-way, so a per-type switch that cannot
-    un-migrate an object is either inert or actively harmful (ADR-0040). Retained only
-    because proto/api is additive-only.
+    r"""Deprecated: never populated. config_objects_enabled (field 80) is the one switch for
+    every object type. Retained only because proto/api is additive-only.
     """
 
     config_objects_dashboards_enabled: Annotated[
@@ -983,6 +984,7 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "pipelineLogRetentionDays",
                 "sandboxLeaseConfigEnabled",
                 "voiceInputEnabled",
+                "harnessesEnabled",
                 "deleteInactiveThreadsEnabled",
                 "threadRetentionDays",
                 "threadHardDeleteGraceDays",
@@ -1060,6 +1062,7 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "pipelineLogRetentionDays",
                 "sandboxLeaseConfigEnabled",
                 "voiceInputEnabled",
+                "harnessesEnabled",
                 "deleteInactiveThreadsEnabled",
                 "threadRetentionDays",
                 "threadHardDeleteGraceDays",

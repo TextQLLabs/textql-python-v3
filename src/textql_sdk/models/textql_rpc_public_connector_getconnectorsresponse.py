@@ -5,22 +5,41 @@ from .textql_rpc_public_connector_connector import (
     TextqlRPCPublicConnectorConnector,
     TextqlRPCPublicConnectorConnectorTypedDict,
 )
+from .textql_rpc_public_connector_connectortype import (
+    TextqlRPCPublicConnectorConnectorType,
+)
+import pydantic
 from pydantic import model_serializer
 from textql_sdk.types import BaseModel, UNSET_SENTINEL
 from typing import List, Optional
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class TextqlRPCPublicConnectorGetConnectorsResponseTypedDict(TypedDict):
     connectors: NotRequired[List[TextqlRPCPublicConnectorConnectorTypedDict]]
+    unavailable_connector_types: NotRequired[
+        List[TextqlRPCPublicConnectorConnectorType]
+    ]
+    teradata_upload_required: NotRequired[bool]
 
 
 class TextqlRPCPublicConnectorGetConnectorsResponse(BaseModel):
     connectors: Optional[List[TextqlRPCPublicConnectorConnector]] = None
 
+    unavailable_connector_types: Annotated[
+        Optional[List[TextqlRPCPublicConnectorConnectorType]],
+        pydantic.Field(alias="unavailableConnectorTypes"),
+    ] = None
+
+    teradata_upload_required: Annotated[
+        Optional[bool], pydantic.Field(alias="teradataUploadRequired")
+    ] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["connectors"])
+        optional_fields = set(
+            ["connectors", "unavailableConnectorTypes", "teradataUploadRequired"]
+        )
         serialized = handler(self)
         m = {}
 
@@ -33,3 +52,9 @@ class TextqlRPCPublicConnectorGetConnectorsResponse(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TextqlRPCPublicConnectorGetConnectorsResponse.model_rebuild()
+except NameError:
+    pass

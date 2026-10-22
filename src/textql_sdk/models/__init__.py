@@ -649,6 +649,12 @@ if TYPE_CHECKING:
         ConnectorServiceCreateConnectorResponse,
         ConnectorServiceCreateConnectorResponseTypedDict,
     )
+    from .connectorservice_createteradatadriveruploadurlop import (
+        ConnectorServiceCreateTeradataDriverUploadURLRequest,
+        ConnectorServiceCreateTeradataDriverUploadURLRequestTypedDict,
+        ConnectorServiceCreateTeradataDriverUploadURLResponse,
+        ConnectorServiceCreateTeradataDriverUploadURLResponseTypedDict,
+    )
     from .connectorservice_deleteconnectorgroupop import (
         ConnectorServiceDeleteConnectorGroupRequest,
         ConnectorServiceDeleteConnectorGroupRequestTypedDict,
@@ -672,6 +678,12 @@ if TYPE_CHECKING:
         ConnectorServiceExecuteQueryRequestTypedDict,
         ConnectorServiceExecuteQueryResponse,
         ConnectorServiceExecuteQueryResponseTypedDict,
+    )
+    from .connectorservice_finalizeteradatadriveruploadop import (
+        ConnectorServiceFinalizeTeradataDriverUploadRequest,
+        ConnectorServiceFinalizeTeradataDriverUploadRequestTypedDict,
+        ConnectorServiceFinalizeTeradataDriverUploadResponse,
+        ConnectorServiceFinalizeTeradataDriverUploadResponseTypedDict,
     )
     from .connectorservice_getconnectorcelldurationsop import (
         ConnectorServiceGetConnectorCellDurationsRequest,
@@ -727,6 +739,12 @@ if TYPE_CHECKING:
         ConnectorServiceGetTablePreviewResponse,
         ConnectorServiceGetTablePreviewResponseTypedDict,
     )
+    from .connectorservice_listconnectorgroupgrantsop import (
+        ConnectorServiceListConnectorGroupGrantsRequest,
+        ConnectorServiceListConnectorGroupGrantsRequestTypedDict,
+        ConnectorServiceListConnectorGroupGrantsResponse,
+        ConnectorServiceListConnectorGroupGrantsResponseTypedDict,
+    )
     from .connectorservice_listconnectorgroupsop import (
         ConnectorServiceListConnectorGroupsRequest,
         ConnectorServiceListConnectorGroupsRequestTypedDict,
@@ -745,6 +763,12 @@ if TYPE_CHECKING:
         ConnectorServiceListQueryTemplatesResponse,
         ConnectorServiceListQueryTemplatesResponseTypedDict,
     )
+    from .connectorservice_revokeconnectorgroupgrantop import (
+        ConnectorServiceRevokeConnectorGroupGrantRequest,
+        ConnectorServiceRevokeConnectorGroupGrantRequestTypedDict,
+        ConnectorServiceRevokeConnectorGroupGrantResponse,
+        ConnectorServiceRevokeConnectorGroupGrantResponseTypedDict,
+    )
     from .connectorservice_shareconnectorgroupop import (
         ConnectorServiceShareConnectorGroupRequest,
         ConnectorServiceShareConnectorGroupRequestTypedDict,
@@ -756,6 +780,12 @@ if TYPE_CHECKING:
         ConnectorServiceTestConnectorRequestTypedDict,
         ConnectorServiceTestConnectorResponse,
         ConnectorServiceTestConnectorResponseTypedDict,
+    )
+    from .connectorservice_updateconnectorgroupgrantop import (
+        ConnectorServiceUpdateConnectorGroupGrantRequest,
+        ConnectorServiceUpdateConnectorGroupGrantRequestTypedDict,
+        ConnectorServiceUpdateConnectorGroupGrantResponse,
+        ConnectorServiceUpdateConnectorGroupGrantResponseTypedDict,
     )
     from .connectorservice_updateconnectorgroupmembersop import (
         ConnectorServiceUpdateConnectorGroupMembersRequest,
@@ -4564,6 +4594,8 @@ if TYPE_CHECKING:
         SupabaseMetadataTypedDict,
         TableauMetadata,
         TableauMetadataTypedDict,
+        TeradataMetadata,
+        TeradataMetadataTypedDict,
         TextqlRPCPublicConnectorConnector,
         TextqlRPCPublicConnectorConnectorTypedDict,
         TrinoMetadata,
@@ -4654,6 +4686,8 @@ if TYPE_CHECKING:
         SnowflakeTypedDict,
         Supabase,
         SupabaseTypedDict,
+        Teradata,
+        TeradataTypedDict,
         TextqlRPCPublicConnectorConnectorConfig,
         TextqlRPCPublicConnectorConnectorConfigPowerbi,
         TextqlRPCPublicConnectorConnectorConfigPowerbiTypedDict,
@@ -4699,6 +4733,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicConnectorConnectorGroupConnectorResult,
         TextqlRPCPublicConnectorConnectorGroupConnectorResultTypedDict,
     )
+    from .textql_rpc_public_connector_connectorgroupgrant import (
+        TextqlRPCPublicConnectorConnectorGroupGrant,
+        TextqlRPCPublicConnectorConnectorGroupGrantTypedDict,
+    )
     from .textql_rpc_public_connector_connectorstatentry import (
         AvgQueryTimeMs,
         AvgQueryTimeMsTypedDict,
@@ -4729,6 +4767,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_connector_createconnectorresponse import (
         TextqlRPCPublicConnectorCreateConnectorResponse,
         TextqlRPCPublicConnectorCreateConnectorResponseTypedDict,
+    )
+    from .textql_rpc_public_connector_createteradatadriveruploadurlrequest import (
+        TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequest,
+        TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_createteradatadriveruploadurlresponse import (
+        TextqlRPCPublicConnectorCreateTeradataDriverUploadURLResponse,
+        TextqlRPCPublicConnectorCreateTeradataDriverUploadURLResponseTypedDict,
     )
     from .textql_rpc_public_connector_dailyduration import (
         TextqlRPCPublicConnectorDailyDuration,
@@ -4814,6 +4860,14 @@ if TYPE_CHECKING:
     )
     from .textql_rpc_public_connector_featuretype import (
         TextqlRPCPublicConnectorFeatureType,
+    )
+    from .textql_rpc_public_connector_finalizeteradatadriveruploadrequest import (
+        TextqlRPCPublicConnectorFinalizeTeradataDriverUploadRequest,
+        TextqlRPCPublicConnectorFinalizeTeradataDriverUploadRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_finalizeteradatadriveruploadresponse import (
+        TextqlRPCPublicConnectorFinalizeTeradataDriverUploadResponse,
+        TextqlRPCPublicConnectorFinalizeTeradataDriverUploadResponseTypedDict,
     )
     from .textql_rpc_public_connector_fireboltmetadata import (
         TextqlRPCPublicConnectorFireboltMetadata,
@@ -4915,6 +4969,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicConnectorKdbMetadata,
         TextqlRPCPublicConnectorKdbMetadataTypedDict,
     )
+    from .textql_rpc_public_connector_listconnectorgroupgrantsrequest import (
+        TextqlRPCPublicConnectorListConnectorGroupGrantsRequest,
+        TextqlRPCPublicConnectorListConnectorGroupGrantsRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_listconnectorgroupgrantsresponse import (
+        TextqlRPCPublicConnectorListConnectorGroupGrantsResponse,
+        TextqlRPCPublicConnectorListConnectorGroupGrantsResponseTypedDict,
+    )
     from .textql_rpc_public_connector_listconnectorgroupsrequest import (
         TextqlRPCPublicConnectorListConnectorGroupsRequest,
         TextqlRPCPublicConnectorListConnectorGroupsRequestTypedDict,
@@ -5003,6 +5065,14 @@ if TYPE_CHECKING:
         TextqlRPCPublicConnectorRedshiftMetadata,
         TextqlRPCPublicConnectorRedshiftMetadataTypedDict,
     )
+    from .textql_rpc_public_connector_revokeconnectorgroupgrantrequest import (
+        TextqlRPCPublicConnectorRevokeConnectorGroupGrantRequest,
+        TextqlRPCPublicConnectorRevokeConnectorGroupGrantRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_revokeconnectorgroupgrantresponse import (
+        TextqlRPCPublicConnectorRevokeConnectorGroupGrantResponse,
+        TextqlRPCPublicConnectorRevokeConnectorGroupGrantResponseTypedDict,
+    )
     from .textql_rpc_public_connector_saphanametadata import (
         TextqlRPCPublicConnectorSAPHanaMetadata,
         TextqlRPCPublicConnectorSAPHanaMetadataTypedDict,
@@ -5035,6 +5105,10 @@ if TYPE_CHECKING:
         TextqlRPCPublicConnectorTableauMetadata,
         TextqlRPCPublicConnectorTableauMetadataTypedDict,
     )
+    from .textql_rpc_public_connector_teradatametadata import (
+        TextqlRPCPublicConnectorTeradataMetadata,
+        TextqlRPCPublicConnectorTeradataMetadataTypedDict,
+    )
     from .textql_rpc_public_connector_testconnectorrequest import (
         TextqlRPCPublicConnectorTestConnectorRequest,
         TextqlRPCPublicConnectorTestConnectorRequestTypedDict,
@@ -5054,6 +5128,14 @@ if TYPE_CHECKING:
     from .textql_rpc_public_connector_trinometadata import (
         TextqlRPCPublicConnectorTrinoMetadata,
         TextqlRPCPublicConnectorTrinoMetadataTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupgrantrequest import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupGrantRequest,
+        TextqlRPCPublicConnectorUpdateConnectorGroupGrantRequestTypedDict,
+    )
+    from .textql_rpc_public_connector_updateconnectorgroupgrantresponse import (
+        TextqlRPCPublicConnectorUpdateConnectorGroupGrantResponse,
+        TextqlRPCPublicConnectorUpdateConnectorGroupGrantResponseTypedDict,
     )
     from .textql_rpc_public_connector_updateconnectorgroupmembersrequest import (
         TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequest,
@@ -9158,6 +9240,10 @@ __all__ = [
     "ConnectorServiceCreateConnectorRequestTypedDict",
     "ConnectorServiceCreateConnectorResponse",
     "ConnectorServiceCreateConnectorResponseTypedDict",
+    "ConnectorServiceCreateTeradataDriverUploadURLRequest",
+    "ConnectorServiceCreateTeradataDriverUploadURLRequestTypedDict",
+    "ConnectorServiceCreateTeradataDriverUploadURLResponse",
+    "ConnectorServiceCreateTeradataDriverUploadURLResponseTypedDict",
     "ConnectorServiceDeleteConnectorGroupRequest",
     "ConnectorServiceDeleteConnectorGroupRequestTypedDict",
     "ConnectorServiceDeleteConnectorGroupResponse",
@@ -9174,6 +9260,10 @@ __all__ = [
     "ConnectorServiceExecuteQueryRequestTypedDict",
     "ConnectorServiceExecuteQueryResponse",
     "ConnectorServiceExecuteQueryResponseTypedDict",
+    "ConnectorServiceFinalizeTeradataDriverUploadRequest",
+    "ConnectorServiceFinalizeTeradataDriverUploadRequestTypedDict",
+    "ConnectorServiceFinalizeTeradataDriverUploadResponse",
+    "ConnectorServiceFinalizeTeradataDriverUploadResponseTypedDict",
     "ConnectorServiceGetConnectorCellDurationsRequest",
     "ConnectorServiceGetConnectorCellDurationsRequestTypedDict",
     "ConnectorServiceGetConnectorCellDurationsResponse",
@@ -9210,6 +9300,10 @@ __all__ = [
     "ConnectorServiceGetTablePreviewRequestTypedDict",
     "ConnectorServiceGetTablePreviewResponse",
     "ConnectorServiceGetTablePreviewResponseTypedDict",
+    "ConnectorServiceListConnectorGroupGrantsRequest",
+    "ConnectorServiceListConnectorGroupGrantsRequestTypedDict",
+    "ConnectorServiceListConnectorGroupGrantsResponse",
+    "ConnectorServiceListConnectorGroupGrantsResponseTypedDict",
     "ConnectorServiceListConnectorGroupsRequest",
     "ConnectorServiceListConnectorGroupsRequestTypedDict",
     "ConnectorServiceListConnectorGroupsResponse",
@@ -9222,6 +9316,10 @@ __all__ = [
     "ConnectorServiceListQueryTemplatesRequestTypedDict",
     "ConnectorServiceListQueryTemplatesResponse",
     "ConnectorServiceListQueryTemplatesResponseTypedDict",
+    "ConnectorServiceRevokeConnectorGroupGrantRequest",
+    "ConnectorServiceRevokeConnectorGroupGrantRequestTypedDict",
+    "ConnectorServiceRevokeConnectorGroupGrantResponse",
+    "ConnectorServiceRevokeConnectorGroupGrantResponseTypedDict",
     "ConnectorServiceShareConnectorGroupRequest",
     "ConnectorServiceShareConnectorGroupRequestTypedDict",
     "ConnectorServiceShareConnectorGroupResponse",
@@ -9230,6 +9328,10 @@ __all__ = [
     "ConnectorServiceTestConnectorRequestTypedDict",
     "ConnectorServiceTestConnectorResponse",
     "ConnectorServiceTestConnectorResponseTypedDict",
+    "ConnectorServiceUpdateConnectorGroupGrantRequest",
+    "ConnectorServiceUpdateConnectorGroupGrantRequestTypedDict",
+    "ConnectorServiceUpdateConnectorGroupGrantResponse",
+    "ConnectorServiceUpdateConnectorGroupGrantResponseTypedDict",
     "ConnectorServiceUpdateConnectorGroupMembersRequest",
     "ConnectorServiceUpdateConnectorGroupMembersRequestTypedDict",
     "ConnectorServiceUpdateConnectorGroupMembersResponse",
@@ -10861,6 +10963,10 @@ __all__ = [
     "TeamsServiceSyncWorkspaceRequestTypedDict",
     "TeamsServiceSyncWorkspaceResponse",
     "TeamsServiceSyncWorkspaceResponseTypedDict",
+    "Teradata",
+    "TeradataMetadata",
+    "TeradataMetadataTypedDict",
+    "TeradataTypedDict",
     "Text",
     "TextCell",
     "TextCellTypedDict",
@@ -11821,6 +11927,8 @@ __all__ = [
     "TextqlRPCPublicConnectorConnectorGroup",
     "TextqlRPCPublicConnectorConnectorGroupConnectorResult",
     "TextqlRPCPublicConnectorConnectorGroupConnectorResultTypedDict",
+    "TextqlRPCPublicConnectorConnectorGroupGrant",
+    "TextqlRPCPublicConnectorConnectorGroupGrantTypedDict",
     "TextqlRPCPublicConnectorConnectorGroupTypedDict",
     "TextqlRPCPublicConnectorConnectorStatEntry",
     "TextqlRPCPublicConnectorConnectorStatEntryQueryCount",
@@ -11838,6 +11946,10 @@ __all__ = [
     "TextqlRPCPublicConnectorCreateConnectorRequestTypedDict",
     "TextqlRPCPublicConnectorCreateConnectorResponse",
     "TextqlRPCPublicConnectorCreateConnectorResponseTypedDict",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequest",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequestTypedDict",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLResponse",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLResponseTypedDict",
     "TextqlRPCPublicConnectorDailyDuration",
     "TextqlRPCPublicConnectorDailyDurationTotalMs",
     "TextqlRPCPublicConnectorDailyDurationTotalMsTypedDict",
@@ -11877,6 +11989,10 @@ __all__ = [
     "TextqlRPCPublicConnectorExecuteQueryResponse",
     "TextqlRPCPublicConnectorExecuteQueryResponseTypedDict",
     "TextqlRPCPublicConnectorFeatureType",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadRequest",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadRequestTypedDict",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadResponse",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadResponseTypedDict",
     "TextqlRPCPublicConnectorFireboltMetadata",
     "TextqlRPCPublicConnectorFireboltMetadataTypedDict",
     "TextqlRPCPublicConnectorGetConnectorCellDurationsRequest",
@@ -11925,6 +12041,10 @@ __all__ = [
     "TextqlRPCPublicConnectorGoogleMetadataTypedDict",
     "TextqlRPCPublicConnectorKdbMetadata",
     "TextqlRPCPublicConnectorKdbMetadataTypedDict",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsRequest",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsRequestTypedDict",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsResponse",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsResponseTypedDict",
     "TextqlRPCPublicConnectorListConnectorGroupsRequest",
     "TextqlRPCPublicConnectorListConnectorGroupsRequestTypedDict",
     "TextqlRPCPublicConnectorListConnectorGroupsResponse",
@@ -11969,6 +12089,10 @@ __all__ = [
     "TextqlRPCPublicConnectorQueryTemplateTypedDict",
     "TextqlRPCPublicConnectorRedshiftMetadata",
     "TextqlRPCPublicConnectorRedshiftMetadataTypedDict",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantRequest",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantRequestTypedDict",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantResponse",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantResponseTypedDict",
     "TextqlRPCPublicConnectorSAPHanaMetadata",
     "TextqlRPCPublicConnectorSAPHanaMetadataTypedDict",
     "TextqlRPCPublicConnectorSQLServerMetadata",
@@ -11985,6 +12109,8 @@ __all__ = [
     "TextqlRPCPublicConnectorTableauConnectorContextTypedDict",
     "TextqlRPCPublicConnectorTableauMetadata",
     "TextqlRPCPublicConnectorTableauMetadataTypedDict",
+    "TextqlRPCPublicConnectorTeradataMetadata",
+    "TextqlRPCPublicConnectorTeradataMetadataTypedDict",
     "TextqlRPCPublicConnectorTestConnectorRequest",
     "TextqlRPCPublicConnectorTestConnectorRequestTypedDict",
     "TextqlRPCPublicConnectorTestConnectorResponse",
@@ -11995,6 +12121,10 @@ __all__ = [
     "TextqlRPCPublicConnectorTopUserTypedDict",
     "TextqlRPCPublicConnectorTrinoMetadata",
     "TextqlRPCPublicConnectorTrinoMetadataTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantRequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantRequestTypedDict",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantResponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantResponseTypedDict",
     "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequest",
     "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequestTypedDict",
     "TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponse",
@@ -14209,6 +14339,10 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceCreateConnectorRequestTypedDict": ".connectorservice_createconnectorop",
     "ConnectorServiceCreateConnectorResponse": ".connectorservice_createconnectorop",
     "ConnectorServiceCreateConnectorResponseTypedDict": ".connectorservice_createconnectorop",
+    "ConnectorServiceCreateTeradataDriverUploadURLRequest": ".connectorservice_createteradatadriveruploadurlop",
+    "ConnectorServiceCreateTeradataDriverUploadURLRequestTypedDict": ".connectorservice_createteradatadriveruploadurlop",
+    "ConnectorServiceCreateTeradataDriverUploadURLResponse": ".connectorservice_createteradatadriveruploadurlop",
+    "ConnectorServiceCreateTeradataDriverUploadURLResponseTypedDict": ".connectorservice_createteradatadriveruploadurlop",
     "ConnectorServiceDeleteConnectorGroupRequest": ".connectorservice_deleteconnectorgroupop",
     "ConnectorServiceDeleteConnectorGroupRequestTypedDict": ".connectorservice_deleteconnectorgroupop",
     "ConnectorServiceDeleteConnectorGroupResponse": ".connectorservice_deleteconnectorgroupop",
@@ -14225,6 +14359,10 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceExecuteQueryRequestTypedDict": ".connectorservice_executequeryop",
     "ConnectorServiceExecuteQueryResponse": ".connectorservice_executequeryop",
     "ConnectorServiceExecuteQueryResponseTypedDict": ".connectorservice_executequeryop",
+    "ConnectorServiceFinalizeTeradataDriverUploadRequest": ".connectorservice_finalizeteradatadriveruploadop",
+    "ConnectorServiceFinalizeTeradataDriverUploadRequestTypedDict": ".connectorservice_finalizeteradatadriveruploadop",
+    "ConnectorServiceFinalizeTeradataDriverUploadResponse": ".connectorservice_finalizeteradatadriveruploadop",
+    "ConnectorServiceFinalizeTeradataDriverUploadResponseTypedDict": ".connectorservice_finalizeteradatadriveruploadop",
     "ConnectorServiceGetConnectorCellDurationsRequest": ".connectorservice_getconnectorcelldurationsop",
     "ConnectorServiceGetConnectorCellDurationsRequestTypedDict": ".connectorservice_getconnectorcelldurationsop",
     "ConnectorServiceGetConnectorCellDurationsResponse": ".connectorservice_getconnectorcelldurationsop",
@@ -14261,6 +14399,10 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceGetTablePreviewRequestTypedDict": ".connectorservice_gettablepreviewop",
     "ConnectorServiceGetTablePreviewResponse": ".connectorservice_gettablepreviewop",
     "ConnectorServiceGetTablePreviewResponseTypedDict": ".connectorservice_gettablepreviewop",
+    "ConnectorServiceListConnectorGroupGrantsRequest": ".connectorservice_listconnectorgroupgrantsop",
+    "ConnectorServiceListConnectorGroupGrantsRequestTypedDict": ".connectorservice_listconnectorgroupgrantsop",
+    "ConnectorServiceListConnectorGroupGrantsResponse": ".connectorservice_listconnectorgroupgrantsop",
+    "ConnectorServiceListConnectorGroupGrantsResponseTypedDict": ".connectorservice_listconnectorgroupgrantsop",
     "ConnectorServiceListConnectorGroupsRequest": ".connectorservice_listconnectorgroupsop",
     "ConnectorServiceListConnectorGroupsRequestTypedDict": ".connectorservice_listconnectorgroupsop",
     "ConnectorServiceListConnectorGroupsResponse": ".connectorservice_listconnectorgroupsop",
@@ -14273,6 +14415,10 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceListQueryTemplatesRequestTypedDict": ".connectorservice_listquerytemplatesop",
     "ConnectorServiceListQueryTemplatesResponse": ".connectorservice_listquerytemplatesop",
     "ConnectorServiceListQueryTemplatesResponseTypedDict": ".connectorservice_listquerytemplatesop",
+    "ConnectorServiceRevokeConnectorGroupGrantRequest": ".connectorservice_revokeconnectorgroupgrantop",
+    "ConnectorServiceRevokeConnectorGroupGrantRequestTypedDict": ".connectorservice_revokeconnectorgroupgrantop",
+    "ConnectorServiceRevokeConnectorGroupGrantResponse": ".connectorservice_revokeconnectorgroupgrantop",
+    "ConnectorServiceRevokeConnectorGroupGrantResponseTypedDict": ".connectorservice_revokeconnectorgroupgrantop",
     "ConnectorServiceShareConnectorGroupRequest": ".connectorservice_shareconnectorgroupop",
     "ConnectorServiceShareConnectorGroupRequestTypedDict": ".connectorservice_shareconnectorgroupop",
     "ConnectorServiceShareConnectorGroupResponse": ".connectorservice_shareconnectorgroupop",
@@ -14281,6 +14427,10 @@ _dynamic_imports: dict[str, str] = {
     "ConnectorServiceTestConnectorRequestTypedDict": ".connectorservice_testconnectorop",
     "ConnectorServiceTestConnectorResponse": ".connectorservice_testconnectorop",
     "ConnectorServiceTestConnectorResponseTypedDict": ".connectorservice_testconnectorop",
+    "ConnectorServiceUpdateConnectorGroupGrantRequest": ".connectorservice_updateconnectorgroupgrantop",
+    "ConnectorServiceUpdateConnectorGroupGrantRequestTypedDict": ".connectorservice_updateconnectorgroupgrantop",
+    "ConnectorServiceUpdateConnectorGroupGrantResponse": ".connectorservice_updateconnectorgroupgrantop",
+    "ConnectorServiceUpdateConnectorGroupGrantResponseTypedDict": ".connectorservice_updateconnectorgroupgrantop",
     "ConnectorServiceUpdateConnectorGroupMembersRequest": ".connectorservice_updateconnectorgroupmembersop",
     "ConnectorServiceUpdateConnectorGroupMembersRequestTypedDict": ".connectorservice_updateconnectorgroupmembersop",
     "ConnectorServiceUpdateConnectorGroupMembersResponse": ".connectorservice_updateconnectorgroupmembersop",
@@ -16705,6 +16855,8 @@ _dynamic_imports: dict[str, str] = {
     "SupabaseMetadataTypedDict": ".textql_rpc_public_connector_connector",
     "TableauMetadata": ".textql_rpc_public_connector_connector",
     "TableauMetadataTypedDict": ".textql_rpc_public_connector_connector",
+    "TeradataMetadata": ".textql_rpc_public_connector_connector",
+    "TeradataMetadataTypedDict": ".textql_rpc_public_connector_connector",
     "TextqlRPCPublicConnectorConnector": ".textql_rpc_public_connector_connector",
     "TextqlRPCPublicConnectorConnectorTypedDict": ".textql_rpc_public_connector_connector",
     "TrinoMetadata": ".textql_rpc_public_connector_connector",
@@ -16783,6 +16935,8 @@ _dynamic_imports: dict[str, str] = {
     "SnowflakeTypedDict": ".textql_rpc_public_connector_connectorconfig",
     "Supabase": ".textql_rpc_public_connector_connectorconfig",
     "SupabaseTypedDict": ".textql_rpc_public_connector_connectorconfig",
+    "Teradata": ".textql_rpc_public_connector_connectorconfig",
+    "TeradataTypedDict": ".textql_rpc_public_connector_connectorconfig",
     "TextqlRPCPublicConnectorConnectorConfig": ".textql_rpc_public_connector_connectorconfig",
     "TextqlRPCPublicConnectorConnectorConfigPowerbi": ".textql_rpc_public_connector_connectorconfig",
     "TextqlRPCPublicConnectorConnectorConfigPowerbiTypedDict": ".textql_rpc_public_connector_connectorconfig",
@@ -16817,6 +16971,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorConnectorGroupTypedDict": ".textql_rpc_public_connector_connectorgroup",
     "TextqlRPCPublicConnectorConnectorGroupConnectorResult": ".textql_rpc_public_connector_connectorgroupconnectorresult",
     "TextqlRPCPublicConnectorConnectorGroupConnectorResultTypedDict": ".textql_rpc_public_connector_connectorgroupconnectorresult",
+    "TextqlRPCPublicConnectorConnectorGroupGrant": ".textql_rpc_public_connector_connectorgroupgrant",
+    "TextqlRPCPublicConnectorConnectorGroupGrantTypedDict": ".textql_rpc_public_connector_connectorgroupgrant",
     "AvgQueryTimeMs": ".textql_rpc_public_connector_connectorstatentry",
     "AvgQueryTimeMsTypedDict": ".textql_rpc_public_connector_connectorstatentry",
     "TextqlRPCPublicConnectorConnectorStatEntry": ".textql_rpc_public_connector_connectorstatentry",
@@ -16834,6 +16990,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorCreateConnectorRequestTypedDict": ".textql_rpc_public_connector_createconnectorrequest",
     "TextqlRPCPublicConnectorCreateConnectorResponse": ".textql_rpc_public_connector_createconnectorresponse",
     "TextqlRPCPublicConnectorCreateConnectorResponseTypedDict": ".textql_rpc_public_connector_createconnectorresponse",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequest": ".textql_rpc_public_connector_createteradatadriveruploadurlrequest",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLRequestTypedDict": ".textql_rpc_public_connector_createteradatadriveruploadurlrequest",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLResponse": ".textql_rpc_public_connector_createteradatadriveruploadurlresponse",
+    "TextqlRPCPublicConnectorCreateTeradataDriverUploadURLResponseTypedDict": ".textql_rpc_public_connector_createteradatadriveruploadurlresponse",
     "TextqlRPCPublicConnectorDailyDuration": ".textql_rpc_public_connector_dailyduration",
     "TextqlRPCPublicConnectorDailyDurationTotalMs": ".textql_rpc_public_connector_dailyduration",
     "TextqlRPCPublicConnectorDailyDurationTotalMsTypedDict": ".textql_rpc_public_connector_dailyduration",
@@ -16881,6 +17041,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorExecuteQueryResponse": ".textql_rpc_public_connector_executequeryresponse",
     "TextqlRPCPublicConnectorExecuteQueryResponseTypedDict": ".textql_rpc_public_connector_executequeryresponse",
     "TextqlRPCPublicConnectorFeatureType": ".textql_rpc_public_connector_featuretype",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadRequest": ".textql_rpc_public_connector_finalizeteradatadriveruploadrequest",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadRequestTypedDict": ".textql_rpc_public_connector_finalizeteradatadriveruploadrequest",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadResponse": ".textql_rpc_public_connector_finalizeteradatadriveruploadresponse",
+    "TextqlRPCPublicConnectorFinalizeTeradataDriverUploadResponseTypedDict": ".textql_rpc_public_connector_finalizeteradatadriveruploadresponse",
     "TextqlRPCPublicConnectorFireboltMetadata": ".textql_rpc_public_connector_fireboltmetadata",
     "TextqlRPCPublicConnectorFireboltMetadataTypedDict": ".textql_rpc_public_connector_fireboltmetadata",
     "TextqlRPCPublicConnectorGetConnectorCellDurationsRequest": ".textql_rpc_public_connector_getconnectorcelldurationsrequest",
@@ -16933,6 +17097,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorGoogleMetadataTypedDict": ".textql_rpc_public_connector_googlemetadata",
     "TextqlRPCPublicConnectorKdbMetadata": ".textql_rpc_public_connector_kdbmetadata",
     "TextqlRPCPublicConnectorKdbMetadataTypedDict": ".textql_rpc_public_connector_kdbmetadata",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsRequest": ".textql_rpc_public_connector_listconnectorgroupgrantsrequest",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsRequestTypedDict": ".textql_rpc_public_connector_listconnectorgroupgrantsrequest",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsResponse": ".textql_rpc_public_connector_listconnectorgroupgrantsresponse",
+    "TextqlRPCPublicConnectorListConnectorGroupGrantsResponseTypedDict": ".textql_rpc_public_connector_listconnectorgroupgrantsresponse",
     "TextqlRPCPublicConnectorListConnectorGroupsRequest": ".textql_rpc_public_connector_listconnectorgroupsrequest",
     "TextqlRPCPublicConnectorListConnectorGroupsRequestTypedDict": ".textql_rpc_public_connector_listconnectorgroupsrequest",
     "TextqlRPCPublicConnectorListConnectorGroupsResponse": ".textql_rpc_public_connector_listconnectorgroupsresponse",
@@ -16979,6 +17147,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorQueryTemplateCteRefTypedDict": ".textql_rpc_public_connector_querytemplatecteref",
     "TextqlRPCPublicConnectorRedshiftMetadata": ".textql_rpc_public_connector_redshiftmetadata",
     "TextqlRPCPublicConnectorRedshiftMetadataTypedDict": ".textql_rpc_public_connector_redshiftmetadata",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantRequest": ".textql_rpc_public_connector_revokeconnectorgroupgrantrequest",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantRequestTypedDict": ".textql_rpc_public_connector_revokeconnectorgroupgrantrequest",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantResponse": ".textql_rpc_public_connector_revokeconnectorgroupgrantresponse",
+    "TextqlRPCPublicConnectorRevokeConnectorGroupGrantResponseTypedDict": ".textql_rpc_public_connector_revokeconnectorgroupgrantresponse",
     "TextqlRPCPublicConnectorSAPHanaMetadata": ".textql_rpc_public_connector_saphanametadata",
     "TextqlRPCPublicConnectorSAPHanaMetadataTypedDict": ".textql_rpc_public_connector_saphanametadata",
     "TextqlRPCPublicConnectorShareConnectorGroupRequest": ".textql_rpc_public_connector_shareconnectorgrouprequest",
@@ -16995,6 +17167,8 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorTableauConnectorContextTypedDict": ".textql_rpc_public_connector_tableauconnectorcontext",
     "TextqlRPCPublicConnectorTableauMetadata": ".textql_rpc_public_connector_tableaumetadata",
     "TextqlRPCPublicConnectorTableauMetadataTypedDict": ".textql_rpc_public_connector_tableaumetadata",
+    "TextqlRPCPublicConnectorTeradataMetadata": ".textql_rpc_public_connector_teradatametadata",
+    "TextqlRPCPublicConnectorTeradataMetadataTypedDict": ".textql_rpc_public_connector_teradatametadata",
     "TextqlRPCPublicConnectorTestConnectorRequest": ".textql_rpc_public_connector_testconnectorrequest",
     "TextqlRPCPublicConnectorTestConnectorRequestTypedDict": ".textql_rpc_public_connector_testconnectorrequest",
     "TextqlRPCPublicConnectorTestConnectorResponse": ".textql_rpc_public_connector_testconnectorresponse",
@@ -17007,6 +17181,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicConnectorTopUserTypedDict": ".textql_rpc_public_connector_topuser",
     "TextqlRPCPublicConnectorTrinoMetadata": ".textql_rpc_public_connector_trinometadata",
     "TextqlRPCPublicConnectorTrinoMetadataTypedDict": ".textql_rpc_public_connector_trinometadata",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantRequest": ".textql_rpc_public_connector_updateconnectorgroupgrantrequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantRequestTypedDict": ".textql_rpc_public_connector_updateconnectorgroupgrantrequest",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantResponse": ".textql_rpc_public_connector_updateconnectorgroupgrantresponse",
+    "TextqlRPCPublicConnectorUpdateConnectorGroupGrantResponseTypedDict": ".textql_rpc_public_connector_updateconnectorgroupgrantresponse",
     "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequest": ".textql_rpc_public_connector_updateconnectorgroupmembersrequest",
     "TextqlRPCPublicConnectorUpdateConnectorGroupMembersRequestTypedDict": ".textql_rpc_public_connector_updateconnectorgroupmembersrequest",
     "TextqlRPCPublicConnectorUpdateConnectorGroupMembersResponse": ".textql_rpc_public_connector_updateconnectorgroupmembersresponse",

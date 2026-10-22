@@ -307,10 +307,12 @@ with Textql(
 
 * [create](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#create) - CreateConnector
 * [create_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#create_connector_group) - CreateConnectorGroup
+* [create_teradata_driver_upload_url](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#create_teradata_driver_upload_url) - CreateTeradataDriverUploadUrl
 * [delete](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#delete) - DeleteConnector
 * [delete_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#delete_connector_group) - DeleteConnectorGroup
 * [duplicate_connector](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#duplicate_connector) - DuplicateConnector
 * [execute_query](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#execute_query) - ExecuteQuery
+* [finalize_teradata_driver_upload](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#finalize_teradata_driver_upload) - FinalizeTeradataDriverUpload
 * [get](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get) - GetConnector
 * [get_connector_cell_durations](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_connector_cell_durations) - GetConnectorCellDurations
 * [get_chats](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_chats) - GetConnectorChats
@@ -320,13 +322,16 @@ with Textql(
 * [get_connectors](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_connectors) - GetConnectors
 * [get_example_queries](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_example_queries) - GetExampleQueries
 * [get_table_preview](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#get_table_preview) - GetTablePreview
+* [list_connector_group_grants](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_connector_group_grants) - ListConnectorGroupGrants
 * [list_connector_groups](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_connector_groups) - ListConnectorGroups
 * [list_tables](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_tables) - ListConnectorTables
 * [list_query_templates](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#list_query_templates) - ListQueryTemplates
+* [revoke_connector_group_grant](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#revoke_connector_group_grant) - RevokeConnectorGroupGrant
 * [share_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#share_connector_group) - ShareConnectorGroup
 * [test](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#test) - TestConnector
 * [update](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update) - UpdateConnector
 * [update_connector_group](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group) - UpdateConnectorGroup
+* [update_connector_group_grant](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group_grant) - UpdateConnectorGroupGrant
 * [update_connector_group_members](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group_members) - UpdateConnectorGroupMembers
 * [update_connector_group_settings](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/connectors/README.md#update_connector_group_settings) - UpdateConnectorGroupSettings
 

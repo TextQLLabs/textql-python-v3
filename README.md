@@ -307,10 +307,12 @@ with Textql(
 
 * [create](docs/sdks/connectors/README.md#create) - CreateConnector
 * [create_connector_group](docs/sdks/connectors/README.md#create_connector_group) - CreateConnectorGroup
+* [create_teradata_driver_upload_url](docs/sdks/connectors/README.md#create_teradata_driver_upload_url) - CreateTeradataDriverUploadUrl
 * [delete](docs/sdks/connectors/README.md#delete) - DeleteConnector
 * [delete_connector_group](docs/sdks/connectors/README.md#delete_connector_group) - DeleteConnectorGroup
 * [duplicate_connector](docs/sdks/connectors/README.md#duplicate_connector) - DuplicateConnector
 * [execute_query](docs/sdks/connectors/README.md#execute_query) - ExecuteQuery
+* [finalize_teradata_driver_upload](docs/sdks/connectors/README.md#finalize_teradata_driver_upload) - FinalizeTeradataDriverUpload
 * [get](docs/sdks/connectors/README.md#get) - GetConnector
 * [get_connector_cell_durations](docs/sdks/connectors/README.md#get_connector_cell_durations) - GetConnectorCellDurations
 * [get_chats](docs/sdks/connectors/README.md#get_chats) - GetConnectorChats
@@ -320,13 +322,16 @@ with Textql(
 * [get_connectors](docs/sdks/connectors/README.md#get_connectors) - GetConnectors
 * [get_example_queries](docs/sdks/connectors/README.md#get_example_queries) - GetExampleQueries
 * [get_table_preview](docs/sdks/connectors/README.md#get_table_preview) - GetTablePreview
+* [list_connector_group_grants](docs/sdks/connectors/README.md#list_connector_group_grants) - ListConnectorGroupGrants
 * [list_connector_groups](docs/sdks/connectors/README.md#list_connector_groups) - ListConnectorGroups
 * [list_tables](docs/sdks/connectors/README.md#list_tables) - ListConnectorTables
 * [list_query_templates](docs/sdks/connectors/README.md#list_query_templates) - ListQueryTemplates
+* [revoke_connector_group_grant](docs/sdks/connectors/README.md#revoke_connector_group_grant) - RevokeConnectorGroupGrant
 * [share_connector_group](docs/sdks/connectors/README.md#share_connector_group) - ShareConnectorGroup
 * [test](docs/sdks/connectors/README.md#test) - TestConnector
 * [update](docs/sdks/connectors/README.md#update) - UpdateConnector
 * [update_connector_group](docs/sdks/connectors/README.md#update_connector_group) - UpdateConnectorGroup
+* [update_connector_group_grant](docs/sdks/connectors/README.md#update_connector_group_grant) - UpdateConnectorGroupGrant
 * [update_connector_group_members](docs/sdks/connectors/README.md#update_connector_group_members) - UpdateConnectorGroupMembers
 * [update_connector_group_settings](docs/sdks/connectors/README.md#update_connector_group_settings) - UpdateConnectorGroupSettings
 

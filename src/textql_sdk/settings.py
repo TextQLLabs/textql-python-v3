@@ -1381,6 +1381,7 @@ class Settings(BaseSDK):
         configurable_thinking_enabled: Optional[bool] = None,
         clear_default_connector_ids: Optional[bool] = None,
         voice_input_enabled: Optional[bool] = None,
+        harnesses_enabled: Optional[bool] = None,
         default_dashboard_output: Optional[bool] = None,
         default_methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         traces_enabled: Optional[bool] = None,
@@ -1498,6 +1499,12 @@ class Settings(BaseSDK):
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
+        :param harnesses_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param default_dashboard_output: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -1600,6 +1607,7 @@ class Settings(BaseSDK):
                 configurable_thinking_enabled=configurable_thinking_enabled,
                 clear_default_connector_ids=clear_default_connector_ids,
                 voice_input_enabled=voice_input_enabled,
+                harnesses_enabled=harnesses_enabled,
                 default_dashboard_output=default_dashboard_output,
                 default_methodology=default_methodology,
                 traces_enabled=traces_enabled,
@@ -1722,6 +1730,7 @@ class Settings(BaseSDK):
         configurable_thinking_enabled: Optional[bool] = None,
         clear_default_connector_ids: Optional[bool] = None,
         voice_input_enabled: Optional[bool] = None,
+        harnesses_enabled: Optional[bool] = None,
         default_dashboard_output: Optional[bool] = None,
         default_methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         traces_enabled: Optional[bool] = None,
@@ -1839,6 +1848,12 @@ class Settings(BaseSDK):
 
             Not recommended for use in new APIs, but still useful for legacy APIs and
             has no plan to be removed.
+        :param harnesses_enabled: Wrapper message for `bool`.
+
+            The JSON representation for `BoolValue` is JSON `true` and `false`.
+
+            Not recommended for use in new APIs, but still useful for legacy APIs and
+            has no plan to be removed.
         :param default_dashboard_output: Wrapper message for `bool`.
 
             The JSON representation for `BoolValue` is JSON `true` and `false`.
@@ -1941,6 +1956,7 @@ class Settings(BaseSDK):
                 configurable_thinking_enabled=configurable_thinking_enabled,
                 clear_default_connector_ids=clear_default_connector_ids,
                 voice_input_enabled=voice_input_enabled,
+                harnesses_enabled=harnesses_enabled,
                 default_dashboard_output=default_dashboard_output,
                 default_methodology=default_methodology,
                 traces_enabled=traces_enabled,
