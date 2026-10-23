@@ -3,23 +3,23 @@ id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
   docChecksum: 7c624e6a558f88615b9e81896d3e466b
   docVersion: 1.0.0
-  speakeasyVersion: 1.803.1
-  generationVersion: 2.950.2
-  releaseVersion: 1.1.32
-  configChecksum: 27633f061d019d59febb53fe2120c945
+  speakeasyVersion: 1.803.2
+  generationVersion: 2.950.13
+  releaseVersion: 1.1.33
+  configChecksum: e48d29b110a20252399fa50a4c24a871
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: acdc4ad1-0af8-4a48-9e75-a3b82b93b3e1
-  pristine_commit_hash: cea42c3998389ea3ecc680ec2fa2d954a293e3a0
-  pristine_tree_hash: 4a40b94fac9a25179ff80cc7adaae66166eeea49
+  generation_id: 183795e8-8dca-4ccc-9e11-32719045a417
+  pristine_commit_hash: 6a13b45d7460656634fc7edc5fe591bbab824362
+  pristine_tree_hash: ede530dc4e93101669c47d9402f130f8a770e700
 features:
   python:
     additionalDependencies: 1.1.0
     additionalProperties: 1.0.2
     constsAndDefaults: 1.0.8
-    core: 6.1.4
+    core: 6.1.5
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -10731,8 +10731,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:abcc4c61bcf53d4311bca0cc136ecfcfd1b4b296
-    pristine_git_object: db1bc449b38790ad855dba239c75c78949ae9629
+    last_write_checksum: sha1:9e800d163d155cf3f00f65b586249ef81db3293f
+    pristine_git_object: 5a78b55e78726109598d778a293972e42d655024
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -10759,8 +10759,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:b5dfebdd9d216693408059bf133e792c70df6fad
-    pristine_git_object: 12f7914111d229b4bcfb04b38b3a7e08e938f7a2
+    last_write_checksum: sha1:965f029c8b76bdf104b44e7151f5d3deb887404a
+    pristine_git_object: e59abc6b0c0a3a9bb3ee38118a70aa89a16bd6b8
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:1060e715fa620b53bea0513649eda965460e904d
@@ -29591,4 +29591,3 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `textql.connectors.duplicate_connector()`:  `response.connector` **Changed** (Breaking ⚠️)\n* `textql.connectors.update()`: \n  *  `request.config` **Changed**\n  *  `response.connector` **Changed** (Breaking ⚠️)\n* `textql.connectors.get_connectors()`:  `response` **Changed** (Breaking ⚠️)\n* `textql.connectors.get()`:  `response.connector` **Changed** (Breaking ⚠️)\n* `textql.chats.attach_dashboard()`:  `response.cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.connectors.revoke_connector_group_grant()`: **Added**\n* `textql.connectors.create_teradata_driver_upload_url()`: **Added**\n* `textql.chats.attach_dataset()`:  `response.cell.union(sql_cell).sql_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.chats.check_streamlit_health()`:  `response.cell.union(sql_cell).sql_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.chats.get_history()`:  `response.cells[].union(sql_cell).sql_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.chats.poll_events()`:  `response.events[].union(cell).cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.chats.query_one_shot()`:  `response.cells[].union(sql_cell).sql_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.chats.run()`:  `response.cells[].union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.connectors.create()`: \n  *  `request.config` **Changed**\n  *  `response.connector_type.enum(teradata)` **Added**\n* `textql.connectors.update_connector_group_grant()`: **Added**\n* `textql.chats.attach_app()`:  `response.cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.connectors.list_connector_group_grants()`: **Added**\n* `textql.connectors.test()`:  `request.config` **Changed**\n* `textql.connectors.finalize_teradata_driver_upload()`: **Added**\n* `textql.connectors.update_connector_group_settings()`:  `request.config` **Changed**\n* `textql.observability.get_check_record_fix()`:  `response.fix_patch_cell.union(ontology_query_cell).ontology_query_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.observability.get_thread_warnings()`:  `response.warnings_by_chat.Map<textql.rpc.public.observe.ThreadWarningList>.warnings[].fix_patch_cell.union(sql_cell).sql_cell.auth_connector_type.enum(teradata)` **Added**\n* `textql.settings.get()`:  `response.organization.harnesses_enabled` **Added**\n* `textql.settings.update_models()`:  `response.organization.harnesses_enabled` **Added**\n* `textql.settings.update()`: \n  *  `request.harnesses_enabled` **Added**\n  *  `response.organization.harnesses_enabled` **Added**\n"
