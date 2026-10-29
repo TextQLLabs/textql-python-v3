@@ -31,7 +31,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.create()
@@ -95,7 +95,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.delete()
@@ -136,7 +136,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.duplicate()
@@ -177,7 +177,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.get_agent()
@@ -218,7 +218,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.get_db_schema()
@@ -259,7 +259,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.get_db_table_preview()
@@ -302,7 +302,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.get_run()
@@ -343,7 +343,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.list_runs()
@@ -388,7 +388,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.list()
@@ -431,7 +431,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.reset_agent_avatar()
@@ -472,7 +472,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.trigger_agent()
@@ -513,7 +513,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.update()
@@ -582,7 +582,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.upload_agent_avatar()

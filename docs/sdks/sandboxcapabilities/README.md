@@ -25,7 +25,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.deliver()
@@ -72,7 +72,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.execute_write()
@@ -117,7 +117,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.poll_ask()
@@ -162,7 +162,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.put_asset()
@@ -205,7 +205,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.send_notify()
@@ -249,7 +249,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.start_ask()
@@ -294,7 +294,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_capabilities.state_op()

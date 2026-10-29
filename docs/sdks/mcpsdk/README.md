@@ -25,7 +25,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.clear_o_auth_token()
@@ -66,7 +66,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.delete()
@@ -107,7 +107,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.get_servers(body={})
@@ -148,7 +148,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.handle_o_auth_callback()
@@ -191,7 +191,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.initiate_o_auth_flow()
@@ -232,7 +232,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.toggle_server()
@@ -274,7 +274,7 @@ from textql_sdk.utils import parse_datetime
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.mcp.upsert_mcp_servers(mcp_servers=[

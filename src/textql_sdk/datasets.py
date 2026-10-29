@@ -795,7 +795,7 @@ class Datasets(BaseSDK):
         uploads
 
         :param connect_timeout_ms:
-        :param type: never change the names or numbers of existing dataset types!
+        :param type_: never change the names or numbers of existing dataset types!
         :param file_name:
         :param folder_path: if this dataset lives in a folder
         :param ephemeral:
@@ -913,7 +913,7 @@ class Datasets(BaseSDK):
         uploads
 
         :param connect_timeout_ms:
-        :param type: never change the names or numbers of existing dataset types!
+        :param type_: never change the names or numbers of existing dataset types!
         :param file_name:
         :param folder_path: if this dataset lives in a folder
         :param ephemeral:

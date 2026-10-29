@@ -122,7 +122,12 @@ from .textql_rpc_public_connector_trinometadata import (
 )
 import pydantic
 from pydantic import model_serializer
-from textql_sdk.types import BaseModel, UNSET_SENTINEL
+from textql_sdk.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
 from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
@@ -147,13 +152,19 @@ class Trino(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -183,13 +194,19 @@ class Teradata(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -219,13 +236,19 @@ class TextqlRPCPublicConnectorConnectorConfigTableau(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -255,13 +278,19 @@ class Supabase(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -293,13 +322,19 @@ class SQLServer(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -329,13 +364,19 @@ class Snowflake(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -367,13 +408,19 @@ class SapHana(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -403,13 +450,19 @@ class Redshift(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -439,13 +492,19 @@ class TextqlRPCPublicConnectorConnectorConfigPowerbi(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -475,13 +534,19 @@ class Postgres(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -511,13 +576,19 @@ class Oracle(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -547,13 +618,19 @@ class Mysql(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -583,13 +660,19 @@ class Motherduck(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -619,13 +702,19 @@ class Mongodb(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -655,13 +744,19 @@ class Microsoft365(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -697,13 +792,19 @@ class Kdb(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -735,13 +836,19 @@ class GoogleDrive(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -774,13 +881,19 @@ class GoogleCalendar(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -810,13 +923,19 @@ class Google(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -846,13 +965,19 @@ class Gmail(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -882,13 +1007,19 @@ class Firebolt(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -918,13 +1049,19 @@ class Exasol(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -954,13 +1091,19 @@ class Dremio(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -990,13 +1133,19 @@ class Databricks(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1026,13 +1175,19 @@ class Clickhouse(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1062,13 +1217,19 @@ class Bigquery(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1101,13 +1262,19 @@ class AzureSynapse(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1137,13 +1304,19 @@ class Aurora(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1173,13 +1346,19 @@ class Athena(BaseModel):
     auth_strategy: Annotated[Optional[str], pydantic.Field(alias="authStrategy")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["connectorType", "name", "authStrategy"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

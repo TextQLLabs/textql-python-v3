@@ -129,6 +129,8 @@ from textql_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
@@ -380,6 +382,9 @@ class TrinoMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -399,11 +404,14 @@ class TrinoMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -668,6 +676,9 @@ class TeradataMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -687,11 +698,14 @@ class TeradataMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -955,6 +969,9 @@ class TableauMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -974,11 +991,14 @@ class TableauMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1243,6 +1263,9 @@ class SupabaseMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1262,11 +1285,14 @@ class SupabaseMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1531,6 +1557,9 @@ class SQLServerMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1550,11 +1579,14 @@ class SQLServerMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1819,6 +1851,9 @@ class SnowflakeMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1838,11 +1873,14 @@ class SnowflakeMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2106,6 +2144,9 @@ class SapHanaMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2125,11 +2166,14 @@ class SapHanaMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2394,6 +2438,9 @@ class RedshiftMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2413,11 +2460,14 @@ class RedshiftMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2681,6 +2731,9 @@ class PowerbiMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2700,11 +2753,14 @@ class PowerbiMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2969,6 +3025,9 @@ class PostgresMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2988,11 +3047,14 @@ class PostgresMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -3256,6 +3318,9 @@ class OracleMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -3275,11 +3340,14 @@ class OracleMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -3543,6 +3611,9 @@ class MysqlMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -3562,11 +3633,14 @@ class MysqlMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -3831,6 +3905,9 @@ class MotherduckMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -3850,11 +3927,14 @@ class MotherduckMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4118,6 +4198,9 @@ class MongodbMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4137,11 +4220,14 @@ class MongodbMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4406,6 +4492,9 @@ class Microsoft365Metadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4425,11 +4514,14 @@ class Microsoft365Metadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4699,6 +4791,9 @@ class KdbMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4718,11 +4813,14 @@ class KdbMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4986,6 +5084,9 @@ class GoogleMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5005,11 +5106,14 @@ class GoogleMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -5274,6 +5378,9 @@ class GoogleDriveMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5293,11 +5400,14 @@ class GoogleDriveMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -5562,6 +5672,9 @@ class GoogleCalendarMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5581,11 +5694,14 @@ class GoogleCalendarMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -5849,6 +5965,9 @@ class GmailMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5868,11 +5987,14 @@ class GmailMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6137,6 +6259,9 @@ class FireboltMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6156,11 +6281,14 @@ class FireboltMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6424,6 +6552,9 @@ class ExasolMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6443,11 +6574,14 @@ class ExasolMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6711,6 +6845,9 @@ class DremioMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6730,11 +6867,14 @@ class DremioMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6999,6 +7139,9 @@ class DatabricksMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7018,11 +7161,14 @@ class DatabricksMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -7287,6 +7433,9 @@ class ClickhouseMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7306,11 +7455,14 @@ class ClickhouseMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -7575,6 +7727,9 @@ class BigqueryMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7594,11 +7749,14 @@ class BigqueryMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -7863,6 +8021,9 @@ class AzureSynapseMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7882,11 +8043,14 @@ class AzureSynapseMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -8150,6 +8314,9 @@ class AuroraMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -8169,11 +8336,14 @@ class AuroraMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -8437,6 +8607,9 @@ class AthenaMetadata(BaseModel):
     r"""Org-visible (db.ConnectorIsPublic): a public access row, or no access rows."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -8456,11 +8629,14 @@ class AthenaMetadata(BaseModel):
             ]
         )
         nullable_fields = set(["memberAuthenticated", "memberAuthUsername"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

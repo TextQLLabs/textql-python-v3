@@ -57,7 +57,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.attach_dashboard()
@@ -99,7 +99,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.attach_dataset()
@@ -141,7 +141,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.cancel_template_execution()
@@ -183,7 +183,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.create_playbook(body={})
@@ -224,7 +224,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.deactivate()
@@ -265,7 +265,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.delete()
@@ -306,7 +306,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.demo_playbook()
@@ -350,7 +350,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.deploy()
@@ -391,7 +391,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.duplicate()
@@ -432,7 +432,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.favorite_report()
@@ -474,7 +474,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_active_subscribed_count(body={})
@@ -515,7 +515,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_chat_reports_summary()
@@ -556,7 +556,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_members_with(body={})
@@ -597,7 +597,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.fetch()
@@ -640,7 +640,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_batch_run()
@@ -681,7 +681,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_playbook_lineage()
@@ -722,7 +722,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_reports()
@@ -768,7 +768,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_playbook_reports_batch()
@@ -812,7 +812,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get()
@@ -866,7 +866,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_playbooks_previews()
@@ -908,7 +908,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_report_by_id()
@@ -950,7 +950,7 @@ from textql_sdk.utils import parse_datetime
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.get_reports_with_filters(filters={
@@ -994,7 +994,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.list_slack_channel_context_playbooks(body={})
@@ -1035,7 +1035,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.list_all_teams_channel_context_playbooks(body={})
@@ -1076,7 +1076,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.list_batch_runs()
@@ -1119,7 +1119,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.list_slack_channels_for_context()
@@ -1160,7 +1160,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.list_teams_channels_for_context_playbook()
@@ -1201,7 +1201,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.mark_report_as_read()
@@ -1242,7 +1242,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.preview_slack_report()
@@ -1286,7 +1286,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.remove_dashboard()
@@ -1328,7 +1328,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.remove_dataset()
@@ -1370,7 +1370,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.run()
@@ -1415,7 +1415,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.set_slack_channel_context_playbook()
@@ -1457,7 +1457,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.set_teams_channel_context()
@@ -1499,7 +1499,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.subscribe()
@@ -1541,7 +1541,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.unset_slack_channel_context_playbook()
@@ -1582,7 +1582,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.unset_teams_channel_context()
@@ -1623,7 +1623,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.unsubscribe()
@@ -1664,7 +1664,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.playbooks.update()

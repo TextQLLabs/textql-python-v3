@@ -27,7 +27,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.get_sandbox()
@@ -69,7 +69,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.list_sandbox_egress()
@@ -111,7 +111,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.list_executions()
@@ -155,7 +155,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.list_sandbox_files()
@@ -199,7 +199,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.list_sandbox_spend()
@@ -240,7 +240,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.list()
@@ -283,7 +283,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.read_file()
@@ -327,7 +327,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.restart_sandbox()
@@ -368,7 +368,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.sandbox_admin.stop()

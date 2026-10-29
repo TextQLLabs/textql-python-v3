@@ -57,7 +57,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.approve_context_prompt_change(cell_id="<id>", edited_context="<value>")
@@ -99,7 +99,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.approve_ontology_change(cell_id="<id>")
@@ -140,7 +140,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.attach_agent(chat_id="<id>", agent_id="<id>")
@@ -182,7 +182,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.attach_app(chat_id="<id>", app_id="<id>")
@@ -224,7 +224,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.attach_dashboard(chat_id="<id>", dashboard_id="<id>")
@@ -266,7 +266,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.attach_dataset(chat_id="<id>", dataset_id="<id>")
@@ -308,7 +308,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.bookmark(chat_id="<id>")
@@ -349,7 +349,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.cancel_stream(chat_id="<id>")
@@ -390,7 +390,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.check_permissions(chat_id="<id>")
@@ -431,7 +431,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.check_health()
@@ -473,7 +473,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.check_streamlit_health(chat_id="<id>", cell_id="<id>")
@@ -515,7 +515,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.create_chat(paradigm={})
@@ -527,23 +527,23 @@ with Textql(
 
 ### Parameters
 
-| Parameter                                                                                                                                                                                                                                                                                                                                          | Type                                                                                                                                                                                                                                                                                                                                               | Required                                                                                                                                                                                                                                                                                                                                           | Description                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `paradigm`                                                                                                                                                                                                                                                                                                                                         | [models.TextqlRPCPublicParadigmParadigm](../../models/textqlrpcpublicparadigmparadigm.md)                                                                                                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                 | ChatParadigm includes paradigm options                                                                                                                                                                                                                                                                                                             |
-| `connect_timeout_ms`                                                                                                                                                                                                                                                                                                                               | *Optional[float]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                |
-| `model`                                                                                                                                                                                                                                                                                                                                            | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md)                                                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                |
-| `message`                                                                                                                                                                                                                                                                                                                                          | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | optionally pre-fill first message                                                                                                                                                                                                                                                                                                                  |
-| `playbook_id`                                                                                                                                                                                                                                                                                                                                      | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | optionally associate with a playbook                                                                                                                                                                                                                                                                                                               |
-| `research`                                                                                                                                                                                                                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | whether to enable report mode for this chat                                                                                                                                                                                                                                                                                                        |
-| `dashboard_mode`                                                                                                                                                                                                                                                                                                                                   | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | whether to enable dashboard mode for this chat                                                                                                                                                                                                                                                                                                     |
-| `methodology`                                                                                                                                                                                                                                                                                                                                      | [Optional[models.TextqlRPCPublicChatMethodology]](../../models/textqlrpcpublicchatmethodology.md)                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                |
-| `vllm_model_id`                                                                                                                                                                                                                                                                                                                                    | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.<br/> Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.                                                                                                                                                                                             |
-| `fast_mode`                                                                                                                                                                                                                                                                                                                                        | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | fast_mode enables Anthropic's fast inference (speed: "fast") for this chat.<br/> Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.                                                                                                                                                                                        |
-| `max_thinking`                                                                                                                                                                                                                                                                                                                                     | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>max_thinking runs extended thinking at max effort with visible reasoning.<br/> Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol. |
-| `model_name`                                                                                                                                                                                                                                                                                                                                       | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                |
-| `harness`                                                                                                                                                                                                                                                                                                                                          | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                |
-| `harness_endpoint_id`                                                                                                                                                                                                                                                                                                                              | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                            | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | N/A                                                                                                                                                                                                                                                                                                                                                |
-| `retries`                                                                                                                                                                                                                                                                                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                                                                                                                                                                                                                                |
+| Parameter                                                                                                                                                                                                                                                                                                                                                | Type                                                                                                                                                                                                                                                                                                                                                     | Required                                                                                                                                                                                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `paradigm`                                                                                                                                                                                                                                                                                                                                               | [models.TextqlRPCPublicParadigmParadigm](../../models/textqlrpcpublicparadigmparadigm.md)                                                                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                       | ChatParadigm includes paradigm options                                                                                                                                                                                                                                                                                                                   |
+| `connect_timeout_ms`                                                                                                                                                                                                                                                                                                                                     | *Optional[float]*                                                                                                                                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                      |
+| `model`                                                                                                                                                                                                                                                                                                                                                  | [Optional[models.TextqlRPCPublicChatLlmModel]](../../models/textqlrpcpublicchatllmmodel.md)                                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                      |
+| `message`                                                                                                                                                                                                                                                                                                                                                | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | optionally pre-fill first message                                                                                                                                                                                                                                                                                                                        |
+| `playbook_id`                                                                                                                                                                                                                                                                                                                                            | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | optionally associate with a playbook                                                                                                                                                                                                                                                                                                                     |
+| `research`                                                                                                                                                                                                                                                                                                                                               | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | whether to enable report mode for this chat                                                                                                                                                                                                                                                                                                              |
+| `dashboard_mode`                                                                                                                                                                                                                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | whether to enable dashboard mode for this chat                                                                                                                                                                                                                                                                                                           |
+| `methodology`                                                                                                                                                                                                                                                                                                                                            | [Optional[models.TextqlRPCPublicChatMethodology]](../../models/textqlrpcpublicchatmethodology.md)                                                                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                      |
+| `vllm_model_id`                                                                                                                                                                                                                                                                                                                                          | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | vllm_model_id is the model identifier forwarded to the org's vLLM endpoint.<br/> Only valid when model == MODEL_VLLM. Requires @textql.com superadmin.                                                                                                                                                                                                   |
+| `fast_mode`                                                                                                                                                                                                                                                                                                                                              | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | fast_mode enables Anthropic's fast inference (speed: "fast") for this chat.<br/> Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.                                                                                                                                                                                              |
+| `max_thinking`                                                                                                                                                                                                                                                                                                                                           | *OptionalNullable[bool]*                                                                                                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.<br/><br/>max_thinking runs extended thinking at max effort with visible reasoning.<br/> Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra. |
+| `model_name`                                                                                                                                                                                                                                                                                                                                             | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                      |
+| `harness`                                                                                                                                                                                                                                                                                                                                                | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                      |
+| `harness_endpoint_id`                                                                                                                                                                                                                                                                                                                                    | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | N/A                                                                                                                                                                                                                                                                                                                                                      |
+| `retries`                                                                                                                                                                                                                                                                                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                                                                                                                                                                                                                                      |
 
 ### Response
 
@@ -568,7 +568,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.delete(chat_id="<id>")
@@ -609,7 +609,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.dismiss_questions(cell_id="<id>")
@@ -651,7 +651,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.duplicate_chat(chat_id="<id>")
@@ -699,7 +699,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_api_answer(chat_id="<id>")
@@ -740,7 +740,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_artifact(artifact_id="<id>", chat_id="<id>")
@@ -782,7 +782,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_auto_attached_files(chat_id="<id>")
@@ -823,7 +823,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get(chat_id="<id>")
@@ -864,7 +864,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_artifacts_summary(chat_id="<id>")
@@ -905,7 +905,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_chat_execution_timing(chat_id="<id>")
@@ -946,7 +946,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_history(chat_id="<id>")
@@ -990,7 +990,7 @@ from textql_sdk.utils import parse_datetime
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_all(created_after=parse_datetime("2023-01-15T01:30:15.01Z"), created_before=parse_datetime("2023-01-15T01:30:15.01Z"))
@@ -1051,7 +1051,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_completion_parameters(chat_id="<id>", cell_id="<id>")
@@ -1093,7 +1093,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_completion_parameters_batch(chat_id="<id>")
@@ -1135,7 +1135,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_llm_usage(chat_id="<id>")
@@ -1177,7 +1177,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_members_with_chats(body={})
@@ -1218,7 +1218,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.get_playbook_chats(playbook_id="<id>")
@@ -1261,7 +1261,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.poll_events(chat_id="<id>")
@@ -1304,7 +1304,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.query_one_shot(question="<value>", paradigm={})
@@ -1348,7 +1348,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.rate_cell(chat_id="<id>", cell_id="<id>", rating="CELL_RATING_UP")
@@ -1392,7 +1392,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.reject_context_prompt_change(cell_id="<id>")
@@ -1433,7 +1433,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.reject_ontology_change(cell_id="<id>")
@@ -1474,7 +1474,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.run(chat_id="<id>")
@@ -1520,7 +1520,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.send(chat_id="<id>", message="<value>")
@@ -1565,7 +1565,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.submit_context_prompt_change(cell_id="<id>", edited_context="<value>")
@@ -1609,7 +1609,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.submit_questions(cell_id="<id>")
@@ -1651,7 +1651,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.unbookmark(chat_id="<id>")
@@ -1692,7 +1692,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.chats.update(chat_id="<id>")

@@ -3612,7 +3612,7 @@ class Apps(BaseSDK):
 
         :param connect_timeout_ms:
         :param app_id:
-        :param type:
+        :param type_:
         :param limit: server clamps to 200; <=0 means default
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -3722,7 +3722,7 @@ class Apps(BaseSDK):
 
         :param connect_timeout_ms:
         :param app_id:
-        :param type:
+        :param type_:
         :param limit: server clamps to 200; <=0 means default
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -4271,7 +4271,7 @@ class Apps(BaseSDK):
 
         :param connect_timeout_ms:
         :param app_id:
-        :param type:
+        :param type_:
         :param scope:
         :param payload_json: JSON object, usage payload authored by the app
         :param idem_key: duplicate key returns the existing row, not an error
@@ -4390,7 +4390,7 @@ class Apps(BaseSDK):
 
         :param connect_timeout_ms:
         :param app_id:
-        :param type:
+        :param type_:
         :param scope:
         :param payload_json: JSON object, usage payload authored by the app
         :param idem_key: duplicate key returns the existing row, not an error

@@ -243,7 +243,7 @@ class Dashboards(BaseSDK):
         :param name:
         :param description:
         :param code:
-        :param type:
+        :param type_:
         :param html_url:
         :param chat_id:
         :param cell_id:
@@ -370,7 +370,7 @@ class Dashboards(BaseSDK):
         :param name:
         :param description:
         :param code:
-        :param type:
+        :param type_:
         :param html_url:
         :param chat_id:
         :param cell_id:
@@ -4424,7 +4424,7 @@ class Dashboards(BaseSDK):
         :param name:
         :param description:
         :param code:
-        :param type:
+        :param type_:
         :param html_url:
         :param data_sources:
         :param retries: Override the default retry configuration for this method
@@ -4554,7 +4554,7 @@ class Dashboards(BaseSDK):
         :param name:
         :param description:
         :param code:
-        :param type:
+        :param type_:
         :param html_url:
         :param data_sources:
         :param retries: Override the default retry configuration for this method

@@ -1581,6 +1581,12 @@ if TYPE_CHECKING:
         OntologyManagementServicePreviewOntologyPullFromRemoteResponse,
         OntologyManagementServicePreviewOntologyPullFromRemoteResponseTypedDict,
     )
+    from .ontologymanagementservice_proposeontologychangeop import (
+        OntologyManagementServiceProposeOntologyChangeRequest,
+        OntologyManagementServiceProposeOntologyChangeRequestTypedDict,
+        OntologyManagementServiceProposeOntologyChangeResponse,
+        OntologyManagementServiceProposeOntologyChangeResponseTypedDict,
+    )
     from .ontologymanagementservice_pullontologyfromremoteop import (
         OntologyManagementServicePullOntologyFromRemoteRequest,
         OntologyManagementServicePullOntologyFromRemoteRequestTypedDict,
@@ -6799,6 +6805,18 @@ if TYPE_CHECKING:
         TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteResponse,
         TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteResponseTypedDict,
     )
+    from .textql_rpc_public_patches_proposedontologyfile import (
+        TextqlRPCPublicPatchesProposedOntologyFile,
+        TextqlRPCPublicPatchesProposedOntologyFileTypedDict,
+    )
+    from .textql_rpc_public_patches_proposeontologychangerequest import (
+        TextqlRPCPublicPatchesProposeOntologyChangeRequest,
+        TextqlRPCPublicPatchesProposeOntologyChangeRequestTypedDict,
+    )
+    from .textql_rpc_public_patches_proposeontologychangeresponse import (
+        TextqlRPCPublicPatchesProposeOntologyChangeResponse,
+        TextqlRPCPublicPatchesProposeOntologyChangeResponseTypedDict,
+    )
     from .textql_rpc_public_patches_pullontologyfromremoterequest import (
         TextqlRPCPublicPatchesPullOntologyFromRemoteRequest,
         TextqlRPCPublicPatchesPullOntologyFromRemoteRequestTypedDict,
@@ -10072,6 +10090,10 @@ __all__ = [
     "OntologyManagementServicePreviewOntologyPullFromRemoteRequestTypedDict",
     "OntologyManagementServicePreviewOntologyPullFromRemoteResponse",
     "OntologyManagementServicePreviewOntologyPullFromRemoteResponseTypedDict",
+    "OntologyManagementServiceProposeOntologyChangeRequest",
+    "OntologyManagementServiceProposeOntologyChangeRequestTypedDict",
+    "OntologyManagementServiceProposeOntologyChangeResponse",
+    "OntologyManagementServiceProposeOntologyChangeResponseTypedDict",
     "OntologyManagementServicePullOntologyFromRemoteRequest",
     "OntologyManagementServicePullOntologyFromRemoteRequestTypedDict",
     "OntologyManagementServicePullOntologyFromRemoteResponse",
@@ -12921,6 +12943,12 @@ __all__ = [
     "TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteRequestTypedDict",
     "TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteResponse",
     "TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteResponseTypedDict",
+    "TextqlRPCPublicPatchesProposeOntologyChangeRequest",
+    "TextqlRPCPublicPatchesProposeOntologyChangeRequestTypedDict",
+    "TextqlRPCPublicPatchesProposeOntologyChangeResponse",
+    "TextqlRPCPublicPatchesProposeOntologyChangeResponseTypedDict",
+    "TextqlRPCPublicPatchesProposedOntologyFile",
+    "TextqlRPCPublicPatchesProposedOntologyFileTypedDict",
     "TextqlRPCPublicPatchesPullOntologyFromRemoteRequest",
     "TextqlRPCPublicPatchesPullOntologyFromRemoteRequestTypedDict",
     "TextqlRPCPublicPatchesPushOntologyToRemoteRequest",
@@ -14963,6 +14991,10 @@ _dynamic_imports: dict[str, str] = {
     "OntologyManagementServicePreviewOntologyPullFromRemoteRequestTypedDict": ".ontologymanagementservice_previewontologypullfromremoteop",
     "OntologyManagementServicePreviewOntologyPullFromRemoteResponse": ".ontologymanagementservice_previewontologypullfromremoteop",
     "OntologyManagementServicePreviewOntologyPullFromRemoteResponseTypedDict": ".ontologymanagementservice_previewontologypullfromremoteop",
+    "OntologyManagementServiceProposeOntologyChangeRequest": ".ontologymanagementservice_proposeontologychangeop",
+    "OntologyManagementServiceProposeOntologyChangeRequestTypedDict": ".ontologymanagementservice_proposeontologychangeop",
+    "OntologyManagementServiceProposeOntologyChangeResponse": ".ontologymanagementservice_proposeontologychangeop",
+    "OntologyManagementServiceProposeOntologyChangeResponseTypedDict": ".ontologymanagementservice_proposeontologychangeop",
     "OntologyManagementServicePullOntologyFromRemoteRequest": ".ontologymanagementservice_pullontologyfromremoteop",
     "OntologyManagementServicePullOntologyFromRemoteRequestTypedDict": ".ontologymanagementservice_pullontologyfromremoteop",
     "OntologyManagementServicePullOntologyFromRemoteResponse": ".ontologymanagementservice_pullontologyfromremoteop",
@@ -18063,6 +18095,12 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteRequestTypedDict": ".textql_rpc_public_patches_previewontologypullfromremoterequest",
     "TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteResponse": ".textql_rpc_public_patches_previewontologypullfromremoteresponse",
     "TextqlRPCPublicPatchesPreviewOntologyPullFromRemoteResponseTypedDict": ".textql_rpc_public_patches_previewontologypullfromremoteresponse",
+    "TextqlRPCPublicPatchesProposedOntologyFile": ".textql_rpc_public_patches_proposedontologyfile",
+    "TextqlRPCPublicPatchesProposedOntologyFileTypedDict": ".textql_rpc_public_patches_proposedontologyfile",
+    "TextqlRPCPublicPatchesProposeOntologyChangeRequest": ".textql_rpc_public_patches_proposeontologychangerequest",
+    "TextqlRPCPublicPatchesProposeOntologyChangeRequestTypedDict": ".textql_rpc_public_patches_proposeontologychangerequest",
+    "TextqlRPCPublicPatchesProposeOntologyChangeResponse": ".textql_rpc_public_patches_proposeontologychangeresponse",
+    "TextqlRPCPublicPatchesProposeOntologyChangeResponseTypedDict": ".textql_rpc_public_patches_proposeontologychangeresponse",
     "TextqlRPCPublicPatchesPullOntologyFromRemoteRequest": ".textql_rpc_public_patches_pullontologyfromremoterequest",
     "TextqlRPCPublicPatchesPullOntologyFromRemoteRequestTypedDict": ".textql_rpc_public_patches_pullontologyfromremoterequest",
     "TextqlRPCPublicPatchesPushOntologyToRemoteRequest": ".textql_rpc_public_patches_pushontologytoremoterequest",
