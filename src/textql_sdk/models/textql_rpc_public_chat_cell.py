@@ -251,6 +251,8 @@ from textql_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
@@ -507,6 +509,9 @@ class WsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -525,11 +530,14 @@ class WsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -808,6 +816,9 @@ class UseSkillCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -826,11 +837,14 @@ class UseSkillCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1099,6 +1113,9 @@ class ThinkingCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1117,11 +1134,14 @@ class ThinkingCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1388,6 +1408,9 @@ class TextCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1406,11 +1429,14 @@ class TextCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1679,6 +1705,9 @@ class TabularFileCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1697,11 +1726,14 @@ class TabularFileCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1970,6 +2002,9 @@ class TableauSQLCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1988,11 +2023,14 @@ class TableauSQLCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2262,6 +2300,9 @@ class TableauSearchFieldsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2280,11 +2321,14 @@ class TableauSearchFieldsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2554,6 +2598,9 @@ class TableauMetadataCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2572,11 +2619,14 @@ class TableauMetadataCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -2845,6 +2895,9 @@ class TableauCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -2863,11 +2916,14 @@ class TableauCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -3136,6 +3192,9 @@ class SummaryCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -3154,11 +3213,14 @@ class SummaryCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -3427,6 +3489,9 @@ class SubagentCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -3445,11 +3510,14 @@ class SubagentCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -3718,6 +3786,9 @@ class StreamlitCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -3736,11 +3807,14 @@ class StreamlitCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4011,6 +4085,9 @@ class StatusCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4029,11 +4106,14 @@ class StatusCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4300,6 +4380,9 @@ class SQLCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4318,11 +4401,14 @@ class SQLCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4591,6 +4677,9 @@ class ReportHistoryCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4609,11 +4698,14 @@ class ReportHistoryCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -4882,6 +4974,9 @@ class ReportCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -4900,11 +4995,14 @@ class ReportCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -5183,6 +5281,9 @@ class QuestionsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5201,11 +5302,14 @@ class QuestionsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -5472,6 +5576,9 @@ class PyCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5490,11 +5597,14 @@ class PyCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -5765,6 +5875,9 @@ class PreviewCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -5783,11 +5896,14 @@ class PreviewCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6056,6 +6172,9 @@ class PowerbiDaxCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6074,11 +6193,14 @@ class PowerbiDaxCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6347,6 +6469,9 @@ class PowerbiCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6365,11 +6490,14 @@ class PowerbiCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6639,6 +6767,9 @@ class PlaybookEditorCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6657,11 +6788,14 @@ class PlaybookEditorCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -6930,6 +7064,9 @@ class PatchCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -6948,11 +7085,14 @@ class PatchCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -7222,6 +7362,9 @@ class OntologySearchMetricsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7240,11 +7383,14 @@ class OntologySearchMetricsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -7513,6 +7659,9 @@ class OntologyQueryCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7531,11 +7680,14 @@ class OntologyQueryCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -7805,6 +7957,9 @@ class OntologyOpenObjectCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -7823,11 +7978,14 @@ class OntologyOpenObjectCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -8097,6 +8255,9 @@ class OntologyEditorCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -8115,11 +8276,14 @@ class OntologyEditorCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -8391,6 +8555,9 @@ class Microsoft365EmailSearchCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -8409,11 +8576,14 @@ class Microsoft365EmailSearchCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -8685,6 +8855,9 @@ class Microsoft365EmailContentCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -8703,11 +8876,14 @@ class Microsoft365EmailContentCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -8977,6 +9153,9 @@ class Microsoft365CalendarCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -8995,11 +9174,14 @@ class Microsoft365CalendarCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -9268,6 +9450,9 @@ class MetricsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -9286,11 +9471,14 @@ class MetricsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -9557,6 +9745,9 @@ class MdCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -9575,11 +9766,14 @@ class MdCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -9848,6 +10042,9 @@ class McpToolCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -9866,11 +10063,14 @@ class McpToolCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -10139,6 +10339,9 @@ class ListUsersCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -10157,11 +10360,14 @@ class ListUsersCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -10431,6 +10637,9 @@ class ListDashboardsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -10449,11 +10658,14 @@ class ListDashboardsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -10722,6 +10934,9 @@ class ListAppsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -10740,11 +10955,14 @@ class ListAppsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -11014,6 +11232,9 @@ class LinkedinSearchCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -11032,11 +11253,14 @@ class LinkedinSearchCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -11305,6 +11529,9 @@ class JavascriptCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -11323,11 +11550,14 @@ class JavascriptCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -11596,6 +11826,9 @@ class ImageCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -11614,11 +11847,14 @@ class ImageCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -11888,6 +12124,9 @@ class GoogleDriveSearchCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -11906,11 +12145,14 @@ class GoogleDriveSearchCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -12180,6 +12422,9 @@ class GoogleDriveContentCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -12198,11 +12443,14 @@ class GoogleDriveContentCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -12472,6 +12720,9 @@ class GoogleCalendarSearchCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -12490,11 +12741,14 @@ class GoogleCalendarSearchCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -12764,6 +13018,9 @@ class GmailEmailSearchCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -12782,11 +13039,14 @@ class GmailEmailSearchCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -13056,6 +13316,9 @@ class GmailEmailContentCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -13074,11 +13337,14 @@ class GmailEmailContentCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -13347,6 +13613,9 @@ class FormEditorCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -13365,11 +13634,14 @@ class FormEditorCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -13644,6 +13916,9 @@ class FormCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -13662,11 +13937,14 @@ class FormCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -13935,6 +14213,9 @@ class FeedPostCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -13953,11 +14234,14 @@ class FeedPostCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -14226,6 +14510,9 @@ class FeedExplorerCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -14244,11 +14531,14 @@ class FeedExplorerCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -14517,6 +14807,9 @@ class FeedEngageCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -14535,11 +14828,14 @@ class FeedEngageCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -14808,6 +15104,9 @@ class FeedCreateCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -14826,11 +15125,14 @@ class FeedCreateCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -15099,6 +15401,9 @@ class FeedCommentCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -15117,11 +15422,14 @@ class FeedCommentCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -15400,6 +15708,9 @@ class EmailCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -15418,11 +15729,14 @@ class EmailCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -15691,6 +16005,9 @@ class DocumentCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -15709,11 +16026,14 @@ class DocumentCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -15982,6 +16302,9 @@ class DashboardCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -16000,11 +16323,14 @@ class DashboardCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -16274,6 +16600,9 @@ class ContextPromptEditorCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -16292,11 +16621,14 @@ class ContextPromptEditorCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -16573,6 +16905,9 @@ class ConnectorsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -16591,11 +16926,14 @@ class ConnectorsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -16864,6 +17202,9 @@ class CompactionCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -16882,11 +17223,14 @@ class CompactionCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -17153,6 +17497,9 @@ class BashCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -17171,11 +17518,14 @@ class BashCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -17444,6 +17794,9 @@ class AppCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -17462,11 +17815,14 @@ class AppCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -17733,6 +18089,9 @@ class AnsCell(BaseModel):
     r"""cells_v5.duration_ms — wall-clock this cell took"""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -17751,11 +18110,14 @@ class AnsCell(BaseModel):
         nullable_fields = set(
             ["toolCallId", "execError", "senderMemberId", "toolSummary", "durationMs"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

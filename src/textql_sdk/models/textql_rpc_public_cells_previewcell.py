@@ -9,6 +9,8 @@ from textql_sdk.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
 )
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -50,16 +52,22 @@ class TextqlRPCPublicCellsPreviewCell(BaseModel):
     r"""Set instead of url for artifact cells: the client resolves the file with the viewer's own access, so shared history never carries a bearer link to a draft."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["target", "previewType", "name", "url", "content", "error", "artifactId"]
         )
         nullable_fields = set(["url", "content", "error", "artifactId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

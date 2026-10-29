@@ -119,7 +119,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.create()
@@ -141,7 +141,7 @@ from textql_sdk import Textql
 async def main():
 
     async with Textql(
-        api_key=os.getenv("TEXTQL_API_KEY", ""),
+        api_key=os.getenv("TEXTQL_API_KEY"),
     ) as textql:
 
         res = await textql.agents.create_async()
@@ -171,7 +171,7 @@ from textql_sdk import Textql
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.create()
@@ -483,6 +483,7 @@ with Textql(
 * [list_skills](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#list_skills) - Lists the skills under the ontology's flat skills/ root that the caller can  read (OWNERS-filtered). Returns display metadata only — never instruction  bodies — feeding the chat composer's `/` autocomplete. Unlisted skills are  omitted unless include_unlisted is set.
 * [plan_merge](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#plan_merge) - PlanOntologyMerge
 * [preview_pull_from_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#preview_pull_from_remote) - PreviewOntologyPullFromRemote
+* [propose_change](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#propose_change) - ProposeOntologyChange
 * [pull_from_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#pull_from_remote) - PullOntologyFromRemote
 * [push_to_remote](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#push_to_remote) - PushOntologyToRemote
 * [recover](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/ontologysdk/README.md#recover) - RecoverOntology
@@ -722,7 +723,7 @@ from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.create(,
@@ -742,7 +743,7 @@ from textql_sdk.utils import BackoffStrategy, RetryConfig
 
 with Textql(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.create()
@@ -773,7 +774,7 @@ from textql_sdk import Textql, errors
 
 
 with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
     res = None
     try:
@@ -827,7 +828,7 @@ from textql_sdk import Textql
 
 with Textql(
     server_url="https://app.textql.com/rpc/public",
-    api_key=os.getenv("TEXTQL_API_KEY", ""),
+    api_key=os.getenv("TEXTQL_API_KEY"),
 ) as textql:
 
     res = textql.agents.create()
@@ -946,18 +947,20 @@ from textql_sdk import Textql
 def main():
 
     with Textql(
-        api_key=os.getenv("TEXTQL_API_KEY", ""),
+        api_key=os.getenv("TEXTQL_API_KEY"),
     ) as textql:
         # Rest of application here...
+        pass
 
 
 # Or when using async:
 async def amain():
 
     async with Textql(
-        api_key=os.getenv("TEXTQL_API_KEY", ""),
+        api_key=os.getenv("TEXTQL_API_KEY"),
     ) as textql:
         # Rest of application here...
+        pass
 ```
 <!-- End Resource Management [resource-management] -->
 

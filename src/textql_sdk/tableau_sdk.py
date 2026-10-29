@@ -2400,7 +2400,7 @@ class TableauSDK(BaseSDK):
 
         :param connect_timeout_ms:
         :param connector_id:
-        :param server_url:
+        :param server_url_:
         :param site_name:
         :param pat_name:
         :param pat_secret:
@@ -2518,7 +2518,7 @@ class TableauSDK(BaseSDK):
 
         :param connect_timeout_ms:
         :param connector_id:
-        :param server_url:
+        :param server_url_:
         :param site_name:
         :param pat_name:
         :param pat_secret:
