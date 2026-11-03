@@ -190,18 +190,18 @@ def exchange_token(
     subject_token: str,
     *,
     org_id: str,
-    subject_token_type: str = ID_TOKEN_TYPE,
+    subject_token_type: str = ACCESS_TOKEN_TYPE,
     scopes: Optional[Iterable[str]] = None,
     server_url: Optional[str] = None,
     token_url: Optional[str] = None,
     http_client: Optional[httpx.Client] = None,
     timeout: float = 30.0,
 ) -> OAuthTokens:
-    """Exchange a token from the org's identity provider (an Okta ID token, say)
-    for a TextQL access token for the member it identifies (RFC 8693).
+    """Exchange an access token from the org's identity provider for a TextQL
+    access token for the member it identifies (RFC 8693).
 
     The org must trust the token's issuer and audience for token exchange, and
-    the member must have signed in to TextQL through that provider once. No
+    the identity must match an existing member of the org. No
     refresh token is issued, and the access token never outlives
     ``subject_token``: exchange a fresh one instead, or pass a ``renew``
     callback to :class:`TokenManager`.
