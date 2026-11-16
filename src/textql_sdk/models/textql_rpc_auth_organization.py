@@ -223,7 +223,6 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     org_meta: NotRequired[Nullable[str]]
     inject_whole_ontology_disable_search: NotRequired[Nullable[bool]]
     warning: NotRequired[Nullable[str]]
-    public_preview: NotRequired[bool]
     chat_v5_cutover: NotRequired[bool]
     default_paradigm_mode: NotRequired[TextqlRPCParadigmParamsParadigmType]
     secrets_enabled: NotRequired[bool]
@@ -305,6 +304,9 @@ class TextqlRPCAuthOrganizationTypedDict(TypedDict):
     data_apps_enabled: NotRequired[Nullable[bool]]
     r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
     issues_enabled: NotRequired[Nullable[bool]]
+    r"""Deprecated: never populated. Every org with observability_enabled gets the new Observability
+    experience. Retained only because proto/api is additive-only.
+    """
     config_objects_enabled: NotRequired[Nullable[bool]]
     r"""config_objects feature_flags row: the umbrella half of the config-management predicate
     (library.ConfigManagedOrg = this flag AND the org already having a Library — the flag
@@ -570,10 +572,6 @@ class TextqlRPCAuthOrganization(BaseModel):
     ] = UNSET
 
     warning: OptionalNullable[str] = UNSET
-
-    public_preview: Annotated[Optional[bool], pydantic.Field(alias="publicPreview")] = (
-        None
-    )
 
     chat_v5_cutover: Annotated[
         Optional[bool], pydantic.Field(alias="chatV5Cutover")
@@ -856,8 +854,15 @@ class TextqlRPCAuthOrganization(BaseModel):
     r"""Internal gate for the data apps feature (apps resource + html generative dashboards)."""
 
     issues_enabled: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="issuesEnabled")
+        OptionalNullable[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="issuesEnabled",
+        ),
     ] = UNSET
+    r"""Deprecated: never populated. Every org with observability_enabled gets the new Observability
+    experience. Retained only because proto/api is additive-only.
+    """
 
     config_objects_enabled: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="configObjectsEnabled")
@@ -951,7 +956,6 @@ class TextqlRPCAuthOrganization(BaseModel):
                 "orgMeta",
                 "injectWholeOntologyDisableSearch",
                 "warning",
-                "publicPreview",
                 "chatV5Cutover",
                 "defaultParadigmMode",
                 "secretsEnabled",

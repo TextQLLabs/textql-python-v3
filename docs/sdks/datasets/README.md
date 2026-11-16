@@ -5,7 +5,6 @@
 ### Available Operations
 
 * [create_folder](#create_folder) - CreateFolder
-* [create_power_bi_dataset](#create_power_bi_dataset) - CreatePowerBIDataset
 * [create_tableau_dataset](#create_tableau_dataset) - Create Tableau dataset from views/datasources
 * [create_upload_presign_url](#create_upload_presign_url) - uploads
 * [delete](#delete) - Delete a dataset (soft delete)
@@ -54,62 +53,6 @@ with Textql(
 ### Response
 
 **[models.DatasetServiceCreateFolderResponse](../../models/datasetservicecreatefolderresponse.md)**
-
-### Errors
-
-| Error Type                | Status Code               | Content Type              |
-| ------------------------- | ------------------------- | ------------------------- |
-| errors.TextqlDefaultError | 4XX, 5XX                  | \*/\*                     |
-
-## create_power_bi_dataset
-
-CreatePowerBIDataset
-
-### Example Usage
-
-<!-- UsageSnippet language="python" operationID="DatasetService_CreatePowerBIDataset" method="post" path="/textql.rpc.public.dataset.DatasetService/CreatePowerBIDataset" -->
-```python
-import os
-from textql_sdk import Textql
-from textql_sdk.utils import parse_datetime
-
-
-with Textql(
-    api_key=os.getenv("TEXTQL_API_KEY"),
-) as textql:
-
-    res = textql.datasets.create_power_bi_dataset(reports=[
-        {
-            "created_date": parse_datetime("2023-01-15T01:30:15.01Z"),
-        },
-    ], datasets=[
-        {
-            "created_date": parse_datetime("2023-01-15T01:30:15.01Z"),
-        },
-    ])
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `connect_timeout_ms`                                                                                      | *Optional[float]*                                                                                         | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `connector_id`                                                                                            | *Optional[int]*                                                                                           | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `name`                                                                                                    | *Optional[str]*                                                                                           | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `folder_path`                                                                                             | List[*str*]                                                                                               | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `workspace_id`                                                                                            | *Optional[str]*                                                                                           | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `workspace_name`                                                                                          | *Optional[str]*                                                                                           | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `reports`                                                                                                 | List[[models.TextqlRPCPublicPowerbiPowerBIReport](../../models/textqlrpcpublicpowerbipowerbireport.md)]   | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `datasets`                                                                                                | List[[models.TextqlRPCPublicPowerbiPowerBIDataset](../../models/textqlrpcpublicpowerbipowerbidataset.md)] | :heavy_minus_sign:                                                                                        | N/A                                                                                                       |
-| `retries`                                                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                          | :heavy_minus_sign:                                                                                        | Configuration to override the default retry behavior of the client.                                       |
-
-### Response
-
-**[models.DatasetServiceCreatePowerBIDatasetResponse](../../models/datasetservicecreatepowerbidatasetresponse.md)**
 
 ### Errors
 
