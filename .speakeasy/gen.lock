@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 140336b3-3873-4a19-9c47-b02749d85f10
 management:
-  docChecksum: b3786bc5db4f6330624427e41043eac7
+  docChecksum: 1984304a2b6c85f9207dbfcc9cebcac4
   docVersion: 1.0.0
-  speakeasyVersion: 1.806.0
-  generationVersion: 2.956.1
-  releaseVersion: 1.1.36
-  configChecksum: c423bb038d31e892726f3d0ce15c2591
+  speakeasyVersion: 1.809.0
+  generationVersion: 2.961.1
+  releaseVersion: 1.1.37
+  configChecksum: bd23895a2eace840dc94b3f2b3a78841
   repoURL: https://github.com/TextQLLabs/textql-python-v3.git
   installationURL: https://github.com/TextQLLabs/textql-python-v3.git
   published: true
 persistentEdits:
-  generation_id: 991e5027-8c68-40e0-8660-bdab31df9a51
-  pristine_commit_hash: ab06ae94024a889643a54bbc631fe926153688b9
-  pristine_tree_hash: 91e6c9643de6cdd099301035687eadfadb45d232
+  generation_id: 56907c78-6abf-4481-8870-e956e589433e
+  pristine_commit_hash: 9e10588a0c8efbd1512a2058765cdb19d60d72fc
+  pristine_tree_hash: b7e4b18d860ac017edc01f8b9b66f20308a0ddfc
 features:
   python:
     additionalDependencies: 1.1.0
     additionalProperties: 1.0.2
     constsAndDefaults: 1.0.8
-    core: 6.1.13
+    core: 6.1.15
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -39,7 +39,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.1.2
     sdkHooks: 1.3.0
-    unions: 3.1.15
+    unions: 3.1.16
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -1509,14 +1509,6 @@ trackedFiles:
     id: 0cb830f5c24e
     last_write_checksum: sha1:608a872bfbc684c72edcadfa0a7f140abb3f5b2a
     pristine_git_object: 2ae12041ea1ce18869c343ec83c4acd20cb64549
-  docs/models/datasetservicecreatepowerbidatasetrequest.md:
-    id: a5993a962ec9
-    last_write_checksum: sha1:f04dd0eed07488836b56fed4a02239b4a898c844
-    pristine_git_object: 1770fe840a54dfaa73e56eb5c626af37658fcf24
-  docs/models/datasetservicecreatepowerbidatasetresponse.md:
-    id: c317104b0421
-    last_write_checksum: sha1:8f341fa9b3c1aa5c2ceec9db41ff09e965d1d1e2
-    pristine_git_object: 74f2aeb60c4cb09f566271a5f5803abf2e9c51f4
   docs/models/datasetservicecreatetableaudatasetrequest.md:
     id: 6ee65072236f
     last_write_checksum: sha1:a663ea5e97b06ead3739dd811361328da0e3e8e4
@@ -3357,14 +3349,6 @@ trackedFiles:
     id: e2f693637b9d
     last_write_checksum: sha1:8aee5414d0ad29b1180afefb9f8695e9ffbd28f6
     pristine_git_object: a9daf47a4c18df86bff15ad54fc97060be389c70
-  docs/models/powerbiservicesyncpowerbiitemsrequest.md:
-    id: 761a7e096259
-    last_write_checksum: sha1:cbc1bbcb121e8bca48d2c362577778ee4a429bdf
-    pristine_git_object: c05a7131c277de4b4e86be7840d25cbee3a8e56e
-  docs/models/powerbiservicesyncpowerbiitemsresponse.md:
-    id: 2c5eb32fc972
-    last_write_checksum: sha1:c0b006098eb666fde4b9fb5039676e4360a47daf
-    pristine_git_object: ce7df4e1b8f166fca0173df4a8d252cee2c2a76c
   docs/models/powerbiservicetestpowerbiconnectionrequest.md:
     id: 0d04c8474b7a
     last_write_checksum: sha1:73d0be5c22abff8c767d08a2b2a5f64160021b9d
@@ -3373,14 +3357,6 @@ trackedFiles:
     id: 63d4fa110f49
     last_write_checksum: sha1:0d121b0c3d02c8da069aa760cd5a19e8ee0d7bba
     pristine_git_object: 3a8c9574b7de04e1c423c8ad347859f9aa339d39
-  docs/models/powerbiserviceunsyncpowerbiitemsrequest.md:
-    id: c5eef6d44b26
-    last_write_checksum: sha1:534a49f7c2efc69eda06622115fb56494060a78c
-    pristine_git_object: 6b2e2b7b96a2ce9d1f69ac45eea5da3afa493f8c
-  docs/models/powerbiserviceunsyncpowerbiitemsresponse.md:
-    id: c3e601c554fa
-    last_write_checksum: sha1:78cafedd6a1e42a9324499c58578226d5a6b82c0
-    pristine_git_object: 15bf0dfbcead6412627e3a8d1022eb9b41c99217
   docs/models/previewcell.md:
     id: 73820136656b
     last_write_checksum: sha1:f4e2d212d33271ff5dc21f0d2daf1619e8df4a57
@@ -4531,8 +4507,8 @@ trackedFiles:
     pristine_git_object: 6798efb89dbe27dbcfc8e7bdec3f02646b1fcbcd
   docs/models/textqlrpcauthorganization.md:
     id: 9cd100fd12d1
-    last_write_checksum: sha1:8b6af8341fa8affa6641fe69270d6d64af2532ff
-    pristine_git_object: 1eab15dc341852548f5a87dbfe9cb88c02f631f8
+    last_write_checksum: sha1:378a06d97eba2f403f5c5f3f936b589b49142c9d
+    pristine_git_object: f86ebc79beaec74162972fe36ef9d0975811b042
   docs/models/textqlrpcauththeme.md:
     id: c153ce9ddfc8
     last_write_checksum: sha1:9c3534b8fd1a9ffc26ba2429f11906897911d51f
@@ -7293,14 +7269,6 @@ trackedFiles:
     id: 72ed6a7f19b8
     last_write_checksum: sha1:372bc68a3e63aec949b4e5e35eeaffdf667af51c
     pristine_git_object: f9b29da31e88c38e5fb14de79a363f9adbd1c970
-  docs/models/textqlrpcpublicdatasetcreatepowerbidatasetrequest.md:
-    id: cb4197bcce8f
-    last_write_checksum: sha1:9be0107fc1106baac85f00aa5a63eeff02c739a0
-    pristine_git_object: 8a87e00a96d6c79d412e6050c1eabcd1a0a13856
-  docs/models/textqlrpcpublicdatasetcreatepowerbidatasetresponse.md:
-    id: eea42ec4a8bf
-    last_write_checksum: sha1:4fc9664c301f6acf59ac4cb724e11af76b280162
-    pristine_git_object: ab122ea7a82f9c74e3c90ecc6e9fab0d3ef4d349
   docs/models/textqlrpcpublicdatasetcreatetableaudatasetrequest.md:
     id: a85420db66fe
     last_write_checksum: sha1:e942aa151386e834c310731548dbf49a5e244755
@@ -9185,14 +9153,6 @@ trackedFiles:
     id: ec8fa5bcd394
     last_write_checksum: sha1:cc28489baac84362197f2e9ca93aee505b987ead
     pristine_git_object: 33bf4fee23e04552ff94d36a426433bbaccc1f96
-  docs/models/textqlrpcpublicpowerbisyncpowerbiitemsrequest.md:
-    id: 67cfe7caac4e
-    last_write_checksum: sha1:5117df1bbeb5e043c467e24164a57a6cdcb4cd3a
-    pristine_git_object: 0205899152ec0ac1000747399c28567f2171f457
-  docs/models/textqlrpcpublicpowerbisyncpowerbiitemsresponse.md:
-    id: 5ce107162306
-    last_write_checksum: sha1:544ca3b95b1739e5143fbca1248fe40d5e122d18
-    pristine_git_object: 0de174a931d30db08b33d9cd4d07142ee3e5de5b
   docs/models/textqlrpcpublicpowerbitestpowerbiconnectionrequest.md:
     id: f8bdd21b5ffc
     last_write_checksum: sha1:4815b1391d6ed4f087cf22e4fb9c0dc36d467118
@@ -9201,14 +9161,6 @@ trackedFiles:
     id: 988d9194d795
     last_write_checksum: sha1:f9a1c63b275abb86e69d7c09581ebff8662fab55
     pristine_git_object: 84449005ff2d17dd964bd7a9d9026d40c9025da6
-  docs/models/textqlrpcpublicpowerbiunsyncpowerbiitemsrequest.md:
-    id: ca3a53807645
-    last_write_checksum: sha1:6bf3f7d271e454f9e1fca4677018c75e1714107d
-    pristine_git_object: 579d6da6bd691d948453a2d87659fdde3bcab5a8
-  docs/models/textqlrpcpublicpowerbiunsyncpowerbiitemsresponse.md:
-    id: cdeca08ccda7
-    last_write_checksum: sha1:bb13fbacb002723df04ae6a69f9e400f7524572d
-    pristine_git_object: e93a8c18f739e1e574485f0fd3daea6b0d7895c8
   docs/models/textqlrpcpublicrbacaccessrequest.md:
     id: 382cf4df2428
     last_write_checksum: sha1:d9bed26264712f97223cbf43be15da99fe5783c2
@@ -9287,8 +9239,8 @@ trackedFiles:
     pristine_git_object: ecfcd8ffe1b4df8c27ed57c687a65e461ef2af0e
   docs/models/textqlrpcpublicrbaccontextpermissionaction.md:
     id: cdfbecbfe3c7
-    last_write_checksum: sha1:f9d99cddf4f2ddf69410caaa7be7c0519012040e
-    pristine_git_object: 13fe7fd93d6f9fe685b6333150962edc91df5c44
+    last_write_checksum: sha1:19a3124d794f5a3a364e6c9e2d9019b7dbc661a5
+    pristine_git_object: e28d421577e05d13432616b6c5651e9d32f71d49
   docs/models/textqlrpcpublicrbaccontextpolicypermissionaction.md:
     id: a343efa66476
     last_write_checksum: sha1:6baeef07a20fb3f133c8aa4990e2ffb112835731
@@ -10671,8 +10623,8 @@ trackedFiles:
     pristine_git_object: aacd40b7eb7712da760929f0e68d4b4f0b16e8f8
   docs/sdks/datasets/README.md:
     id: deb5d90f4faf
-    last_write_checksum: sha1:30b3379dea5eead46582caf356f65fbfdeac39ac
-    pristine_git_object: 2edd19f4ef675726f50d827465b5d9207db03ccd
+    last_write_checksum: sha1:875d107530259e6c6de15b069a688a3ab62ba650
+    pristine_git_object: 6c73cae078beac4c369b91c4cf21e56ae8ec80cf
   docs/sdks/harnesses/README.md:
     id: 8358634e3595
     last_write_checksum: sha1:a2ada6fbfa7a17582110293f8230a60e5d38c990
@@ -10699,8 +10651,8 @@ trackedFiles:
     pristine_git_object: 78a1e47d068a808c4f27f6f0f0bd5278b2ab0d62
   docs/sdks/powerbisdk/README.md:
     id: 1c210dc6051d
-    last_write_checksum: sha1:5af7a92d14a07b2383645b6f7e498c9a6717a667
-    pristine_git_object: cb9388da168365ba96f46956c018cc1d09f7aa91
+    last_write_checksum: sha1:7dc106505cddd330d09c3b2c20f7911a8923d96f
+    pristine_git_object: 023ddc45deabf8104343228278faf3b2feb4ec77
   docs/sdks/rbac/README.md:
     id: e80ec65410f2
     last_write_checksum: sha1:deda392b8672824e60fc86e2edc5811e1e762f3c
@@ -10751,8 +10703,8 @@ trackedFiles:
     pristine_git_object: d45dd3dfed8f57c8dde47774f645a4eb9575ba90
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:7ff7296173981c50ba34821a8ae315172828b6c1
-    pristine_git_object: d3edd09290632b08633a32456b514cdd6658f556
+    last_write_checksum: sha1:df408367381a264a7d5045901013d5405898e36b
+    pristine_git_object: 697e20c18d16770b85902157b7a9f778176cd837
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:d5a0f1ce09f7b890340fdb6f26345fce7dc9a70d
@@ -10779,8 +10731,8 @@ trackedFiles:
     pristine_git_object: a9e63d694ae036ae9a43efc262dd124a2e1062e7
   src/textql_sdk/_version.py:
     id: "226928447e58"
-    last_write_checksum: sha1:2a1c454e42fdfb453816bdf1b513ed3ef2d7511d
-    pristine_git_object: 7b04b754f0d6e77b963b2b1df497cdc482bc7cfc
+    last_write_checksum: sha1:ebbc4641827f7b2aa70cb434ec29f2f9aa805610
+    pristine_git_object: 227620e330e7958ad877943fa685c04f4edcfeb9
   src/textql_sdk/agents.py:
     id: 4ff492529583
     last_write_checksum: sha1:1060e715fa620b53bea0513649eda965460e904d
@@ -10815,8 +10767,8 @@ trackedFiles:
     pristine_git_object: 6bcbafea157e5acc4c0095e366d1445d6433d9ff
   src/textql_sdk/datasets.py:
     id: c8deebc09633
-    last_write_checksum: sha1:93fb54065a23c1f2e4ebbec43c212fb73e48e8d9
-    pristine_git_object: 06171946ee5d97c802895303f78f86faf8657934
+    last_write_checksum: sha1:f8ed13a369c48dfb5d08ee3dacb0a671005523d7
+    pristine_git_object: 860c15a50258cdd08bb62f1f177542532f82de9f
   src/textql_sdk/errors/__init__.py:
     id: 8e95a462d039
     last_write_checksum: sha1:7a5ced4dbd78fda5a54c671150813772245543aa
@@ -10855,8 +10807,8 @@ trackedFiles:
     pristine_git_object: f5227a747725a68f1c9b6ebffe42ac0d2436f77f
   src/textql_sdk/models/__init__.py:
     id: c8cef98ef3e7
-    last_write_checksum: sha1:6682336735352491c71fa751204f082353b7a966
-    pristine_git_object: 914fc8478a7f63705301fc82cb1d37c426552ce8
+    last_write_checksum: sha1:c337be8f8ae2cb51d11f726fc2388ce15999cf91
+    pristine_git_object: fb0cac9c42101dad67e4fbbb61e7e62d155c3358
   src/textql_sdk/models/agentservice_createagentop.py:
     id: c31d4c4b52ae
     last_write_checksum: sha1:24b2c45a4cabd15ca9b7386929cb580260970e5e
@@ -11481,10 +11433,6 @@ trackedFiles:
     id: db77b39cc269
     last_write_checksum: sha1:6e01fb385b03155274ae4581666129eac01543ac
     pristine_git_object: 837ad51c4fe457971fc5185ad350eae8b9b06feb
-  src/textql_sdk/models/datasetservice_createpowerbidatasetop.py:
-    id: 75aefa8f9d33
-    last_write_checksum: sha1:6084f15c1220873a7b9eef81d4f573b1efc06a47
-    pristine_git_object: 9ecf3103641db020cae99538adb58d35033658e0
   src/textql_sdk/models/datasetservice_createtableaudatasetop.py:
     id: 6df760f8345c
     last_write_checksum: sha1:49d09c0a9dfd76bfe23745683a9444747813172a
@@ -12177,18 +12125,10 @@ trackedFiles:
     id: 445dec48896d
     last_write_checksum: sha1:10782e6b1a22745b5c241ffc44a06ebb66899ea0
     pristine_git_object: 016f4cc65c7e184be73b94061a72621fa70c5363
-  src/textql_sdk/models/powerbiservice_syncpowerbiitemsop.py:
-    id: b626dd74cc0f
-    last_write_checksum: sha1:84fc47e022ad19067510c93f4669eb494a556c96
-    pristine_git_object: 6548d1d08a790d6ef3e4272dcb3cae140155b9a1
   src/textql_sdk/models/powerbiservice_testpowerbiconnectionop.py:
     id: 25cf205dd9da
     last_write_checksum: sha1:4dbb4d01de57779f4e79cfcc852bd9408ed41eb9
     pristine_git_object: 58462bb5fcdbe2c2c89ab00091a569bdb48514d2
-  src/textql_sdk/models/powerbiservice_unsyncpowerbiitemsop.py:
-    id: 0a0cb74c169b
-    last_write_checksum: sha1:85ec3511077a4f4347e8c3d38379faf014a84ccc
-    pristine_git_object: b5f12620cb1505ef273dd294ac70e490e737b910
   src/textql_sdk/models/rbacservice_approveaccessrequestop.py:
     id: b0b1952aaeab
     last_write_checksum: sha1:cf01343f4be6b1b542a0d161ff54cd0eb20bf55b
@@ -12667,8 +12607,8 @@ trackedFiles:
     pristine_git_object: f73a6eb033c7146528113a579ddf9d760a6577d3
   src/textql_sdk/models/textql_rpc_auth_organization.py:
     id: 9c2612c7ac65
-    last_write_checksum: sha1:3ec7f103d9765c39852d15fefb3d9c7e29149a7f
-    pristine_git_object: 813cee5cc09e6eb1cb9350da886ceafb2d6c7057
+    last_write_checksum: sha1:3a30419474093a2dbd7790c509172efdf37f9475
+    pristine_git_object: 034b135462087b5bb6c129120598900fd983d790
   src/textql_sdk/models/textql_rpc_auth_theme.py:
     id: d84272c6a772
     last_write_checksum: sha1:f8e8fe510249cf494f34d31feac02247ef5910c6
@@ -14993,14 +14933,6 @@ trackedFiles:
     id: 4d968ff5eb5e
     last_write_checksum: sha1:fd015c62f85063d5839dfd89e88a8bc92397a40c
     pristine_git_object: ea376887d5fd78d566238f38c1e10fa778300cab
-  src/textql_sdk/models/textql_rpc_public_dataset_createpowerbidatasetrequest.py:
-    id: d6445dac3659
-    last_write_checksum: sha1:72b044d451dd9b205cd4a0d64f889812706a7e42
-    pristine_git_object: ac59d63b7df0e8b59ff548ff0fb73a32197f595f
-  src/textql_sdk/models/textql_rpc_public_dataset_createpowerbidatasetresponse.py:
-    id: 4537d15bce8b
-    last_write_checksum: sha1:a62eee0ee1fa0890060b082aaa5ee74c5ba0a3f7
-    pristine_git_object: 159160859edc757d9350d1876fd95ecbb08e0d45
   src/textql_sdk/models/textql_rpc_public_dataset_createtableaudatasetrequest.py:
     id: 27493e4277c7
     last_write_checksum: sha1:90d62a80fb0fd246d9f8917adca188887216d8b3
@@ -16861,14 +16793,6 @@ trackedFiles:
     id: fff12faaf76d
     last_write_checksum: sha1:837cfc0581d83b6309f6b467ced8a6aa55c82af5
     pristine_git_object: 30568e67690fd4ce11db33ede2b5b448aa773496
-  src/textql_sdk/models/textql_rpc_public_powerbi_syncpowerbiitemsrequest.py:
-    id: 5d4b95f7d919
-    last_write_checksum: sha1:762506defc96d2c1e34dae8f7f25f58a243115e3
-    pristine_git_object: 2aec4c36888aa9b7cff356034dcf0bea51b0a0f3
-  src/textql_sdk/models/textql_rpc_public_powerbi_syncpowerbiitemsresponse.py:
-    id: 8d505a92623b
-    last_write_checksum: sha1:9ce99d347158c6201a3f9a19cc74fc7afdd3d4ac
-    pristine_git_object: bab5f14eb640db7edcb5de12317211862d94f838
   src/textql_sdk/models/textql_rpc_public_powerbi_testpowerbiconnectionrequest.py:
     id: aa382fdf9765
     last_write_checksum: sha1:8cdcad2d67060c984fe2a09f5d7588cf1acbd978
@@ -16877,14 +16801,6 @@ trackedFiles:
     id: d0871b9ce6aa
     last_write_checksum: sha1:32579a90cc859ef505eef151f9ca30b4264b64df
     pristine_git_object: 8280bdf3266b6bf7a3225429fdadb3a9ee75dd28
-  src/textql_sdk/models/textql_rpc_public_powerbi_unsyncpowerbiitemsrequest.py:
-    id: ebabcb846c95
-    last_write_checksum: sha1:326427764449c4eba776e405d6044c236a12c4fc
-    pristine_git_object: 5d369bf784f33d61826a0fc1a2b74223ea6dc3de
-  src/textql_sdk/models/textql_rpc_public_powerbi_unsyncpowerbiitemsresponse.py:
-    id: d8eba2b96594
-    last_write_checksum: sha1:110c6cd7b005bfd676c398f38611009e846df30d
-    pristine_git_object: 3f1fca755b3dcb3cc2100baa5625ef76e86a5d05
   src/textql_sdk/models/textql_rpc_public_rbac_accessrequest.py:
     id: 8d8fd564cfcd
     last_write_checksum: sha1:f40720d9dca3f1107cc4a0e9ea7704e7e3de2b9e
@@ -16963,8 +16879,8 @@ trackedFiles:
     pristine_git_object: 041a8eb335d8e426658fc40e7ed68272e9c1f701
   src/textql_sdk/models/textql_rpc_public_rbac_contextpermissionaction.py:
     id: 3f2c40d5a7f4
-    last_write_checksum: sha1:6ea0dd0be8a40e3a261b035de39748e2542549a3
-    pristine_git_object: 990b46271340b625a49ca0bf13331db6139b3cd9
+    last_write_checksum: sha1:c6ce616a4a0c154209bb63fc945b1983ac662a22
+    pristine_git_object: 04d4d18cf953d6d5a76bc4a45a7316eb5ee8f762
   src/textql_sdk/models/textql_rpc_public_rbac_contextpolicypermissionaction.py:
     id: 6f54725554ea
     last_write_checksum: sha1:bd88be23f856a739dfbb433868aaa92970896ccb
@@ -18135,8 +18051,8 @@ trackedFiles:
     pristine_git_object: c9b16d6d7f6ed1a178e14787aa1a193561b0d9a4
   src/textql_sdk/powerbi_sdk.py:
     id: 6fc4551fc803
-    last_write_checksum: sha1:cb7f40d39052db61faf87aeaa6d1ba0378c3f897
-    pristine_git_object: afbd1a51fb3e6d78c9bf1e870fd78e00ab0317f7
+    last_write_checksum: sha1:84ce7d54b11570f0a94ef51447c29f21b4e8fcf1
+    pristine_git_object: c89f8bfa3fadc104e79af9f25ed4da9f5f0e659e
   src/textql_sdk/py.typed:
     id: c935a9db8c10
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
@@ -18195,8 +18111,8 @@ trackedFiles:
     pristine_git_object: 3a43a78ab719ec504ec95c050c984c843407d366
   src/textql_sdk/types/base64fileinput.py:
     id: e680752a2c2a
-    last_write_checksum: sha1:1522687ae3398374c35710cad993a6e82b5ab99d
-    pristine_git_object: 862566fe2b1db830276b390e136e65090e5963d2
+    last_write_checksum: sha1:94a99b9b1b7ab6d3fd8fb2e52385a50b4a2ff333
+    pristine_git_object: de42346d429a62ce8d39b04be6ee568c9d37e619
   src/textql_sdk/types/basemodel.py:
     id: 391c2ba2233b
     last_write_checksum: sha1:99c644208e340c4974b94bbe6d52019c80fedb97
@@ -18207,8 +18123,8 @@ trackedFiles:
     pristine_git_object: e115709b0c3b707de93b00ecf707f85fb1abf1d1
   src/textql_sdk/utils/annotations.py:
     id: efd9e2b6b70c
-    last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
-    pristine_git_object: 12e0aa4f1151bb52474cc02e88397329b90703f6
+    last_write_checksum: sha1:2dd01678125b08184a96e28bb4f3692381bf04cc
+    pristine_git_object: 3af322f22ea3253fd1b6cdbb889af11c8b20dc3f
   src/textql_sdk/utils/datetimes.py:
     id: 448be99faf3d
     last_write_checksum: sha1:8d08dfebf00458efa19e0c19455eddcc9f14b8ca
@@ -18235,8 +18151,8 @@ trackedFiles:
     pristine_git_object: 37864cbbbc40d1a47112bbfdd3ba79568fc8818a
   src/textql_sdk/utils/logger.py:
     id: c014169b91c4
-    last_write_checksum: sha1:a4f9398690e2db571766cf373ba613d21f81c376
-    pristine_git_object: 76a8427db11f89073cd203ed03cbbc8e518f5ca4
+    last_write_checksum: sha1:d407f850051717ebf3a066c062749f4881f6e77e
+    pristine_git_object: 719d8fb1d1a79ec68ce21c52385f929487502362
   src/textql_sdk/utils/metadata.py:
     id: aa629c154199
     last_write_checksum: sha1:e703e5cbb5255144aacf86898d1420529afaaff8
@@ -29639,3 +29555,4 @@ examples:
         default:
           application/json: {"code": "not_found"}
 examplesVersion: 1.0.2
+releaseNotes: "## Python SDK Changes:\n* `textql.settings.get()`:  `response.organization` **Changed** (Breaking ⚠️)\n* `textql.settings.update()`:  `response.organization` **Changed** (Breaking ⚠️)\n* `textql.settings.update_models()`:  `response.organization` **Changed** (Breaking ⚠️)\n* `textql.rbac.list_permissions()`:  `response.permissions[].spec.union(context).context.enum(context_action_view)` **Added**\n* `textql.rbac.get_current_member_roles_and_permissions()`:  `response.permissions[].spec.union(context).context.enum(context_action_view)` **Added**\n* `textql.rbac.get_role_permissions()`:  `response.permissions[].spec.union(context).context.enum(context_action_view)` **Added**\n* `textql.datasets.create_power_bi_dataset()`: **Removed** (Breaking ⚠️)\n* `textql.rbac.remove_permission_from_role()`: \n  *  `request.permission.union(context).context.enum(context_action_view)` **Added**\n* `textql.rbac.set_role_permissions()`: \n  *  `request.add_permissions[].union(context).context.enum(context_action_view)` **Added**\n* `textql.rbac.who_am_i()`:  `response.permissions[].spec.union(context).context.enum(context_action_view)` **Added**\n* `textql.rbac.assign_permission_to_role()`: \n  *  `request.permission.union(context).context.enum(context_action_view)` **Added**\n* `textql.powerbi.unsync_items()`: **Removed** (Breaking ⚠️)\n* `textql.powerbi.sync_power_bi_items()`: **Removed** (Breaking ⚠️)\n"

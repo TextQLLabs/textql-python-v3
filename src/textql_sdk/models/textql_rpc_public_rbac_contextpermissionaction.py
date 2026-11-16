@@ -12,6 +12,7 @@ TextqlRPCPublicRbacContextPermissionAction = Union[
         "CONTEXT_ACTION_READ_PRIVATE",
         "CONTEXT_ACTION_WRITE",
         "CONTEXT_ACTION_WRITE_PRIVATE",
+        "CONTEXT_ACTION_VIEW",
     ],
     UnrecognizedStr,
 ]

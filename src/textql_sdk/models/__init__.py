@@ -955,12 +955,6 @@ if TYPE_CHECKING:
         DatasetServiceCreateFolderResponse,
         DatasetServiceCreateFolderResponseTypedDict,
     )
-    from .datasetservice_createpowerbidatasetop import (
-        DatasetServiceCreatePowerBIDatasetRequest,
-        DatasetServiceCreatePowerBIDatasetRequestTypedDict,
-        DatasetServiceCreatePowerBIDatasetResponse,
-        DatasetServiceCreatePowerBIDatasetResponseTypedDict,
-    )
     from .datasetservice_createtableaudatasetop import (
         DatasetServiceCreateTableauDatasetRequest,
         DatasetServiceCreateTableauDatasetRequestTypedDict,
@@ -1989,23 +1983,11 @@ if TYPE_CHECKING:
         PowerBIServiceListPowerBIWorkspacesResponse,
         PowerBIServiceListPowerBIWorkspacesResponseTypedDict,
     )
-    from .powerbiservice_syncpowerbiitemsop import (
-        PowerBIServiceSyncPowerBIItemsRequest,
-        PowerBIServiceSyncPowerBIItemsRequestTypedDict,
-        PowerBIServiceSyncPowerBIItemsResponse,
-        PowerBIServiceSyncPowerBIItemsResponseTypedDict,
-    )
     from .powerbiservice_testpowerbiconnectionop import (
         PowerBIServiceTestPowerBIConnectionRequest,
         PowerBIServiceTestPowerBIConnectionRequestTypedDict,
         PowerBIServiceTestPowerBIConnectionResponse,
         PowerBIServiceTestPowerBIConnectionResponseTypedDict,
-    )
-    from .powerbiservice_unsyncpowerbiitemsop import (
-        PowerBIServiceUnsyncPowerBIItemsRequest,
-        PowerBIServiceUnsyncPowerBIItemsRequestTypedDict,
-        PowerBIServiceUnsyncPowerBIItemsResponse,
-        PowerBIServiceUnsyncPowerBIItemsResponseTypedDict,
     )
     from .rbacservice_approveaccessrequestop import (
         RBACServiceApproveAccessRequestRequest,
@@ -5535,14 +5517,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicDatasetCreateFolderResponse,
         TextqlRPCPublicDatasetCreateFolderResponseTypedDict,
     )
-    from .textql_rpc_public_dataset_createpowerbidatasetrequest import (
-        TextqlRPCPublicDatasetCreatePowerBIDatasetRequest,
-        TextqlRPCPublicDatasetCreatePowerBIDatasetRequestTypedDict,
-    )
-    from .textql_rpc_public_dataset_createpowerbidatasetresponse import (
-        TextqlRPCPublicDatasetCreatePowerBIDatasetResponse,
-        TextqlRPCPublicDatasetCreatePowerBIDatasetResponseTypedDict,
-    )
     from .textql_rpc_public_dataset_createtableaudatasetrequest import (
         TextqlRPCPublicDatasetCreateTableauDatasetRequest,
         TextqlRPCPublicDatasetCreateTableauDatasetRequestTypedDict,
@@ -7440,14 +7414,6 @@ if TYPE_CHECKING:
         TextqlRPCPublicPowerbiSyncedPowerBIReport,
         TextqlRPCPublicPowerbiSyncedPowerBIReportTypedDict,
     )
-    from .textql_rpc_public_powerbi_syncpowerbiitemsrequest import (
-        TextqlRPCPublicPowerbiSyncPowerBIItemsRequest,
-        TextqlRPCPublicPowerbiSyncPowerBIItemsRequestTypedDict,
-    )
-    from .textql_rpc_public_powerbi_syncpowerbiitemsresponse import (
-        TextqlRPCPublicPowerbiSyncPowerBIItemsResponse,
-        TextqlRPCPublicPowerbiSyncPowerBIItemsResponseTypedDict,
-    )
     from .textql_rpc_public_powerbi_testpowerbiconnectionrequest import (
         TextqlRPCPublicPowerbiTestPowerBIConnectionRequest,
         TextqlRPCPublicPowerbiTestPowerBIConnectionRequestTypedDict,
@@ -7455,14 +7421,6 @@ if TYPE_CHECKING:
     from .textql_rpc_public_powerbi_testpowerbiconnectionresponse import (
         TextqlRPCPublicPowerbiTestPowerBIConnectionResponse,
         TextqlRPCPublicPowerbiTestPowerBIConnectionResponseTypedDict,
-    )
-    from .textql_rpc_public_powerbi_unsyncpowerbiitemsrequest import (
-        TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest,
-        TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequestTypedDict,
-    )
-    from .textql_rpc_public_powerbi_unsyncpowerbiitemsresponse import (
-        TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse,
-        TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict,
     )
     from .textql_rpc_public_rbac_accessrequest import (
         TextqlRPCPublicRbacAccessRequest,
@@ -9486,10 +9444,6 @@ __all__ = [
     "DatasetServiceCreateFolderRequestTypedDict",
     "DatasetServiceCreateFolderResponse",
     "DatasetServiceCreateFolderResponseTypedDict",
-    "DatasetServiceCreatePowerBIDatasetRequest",
-    "DatasetServiceCreatePowerBIDatasetRequestTypedDict",
-    "DatasetServiceCreatePowerBIDatasetResponse",
-    "DatasetServiceCreatePowerBIDatasetResponseTypedDict",
     "DatasetServiceCreateTableauDatasetRequest",
     "DatasetServiceCreateTableauDatasetRequestTypedDict",
     "DatasetServiceCreateTableauDatasetResponse",
@@ -10401,18 +10355,10 @@ __all__ = [
     "PowerBIServiceListPowerBIWorkspacesRequestTypedDict",
     "PowerBIServiceListPowerBIWorkspacesResponse",
     "PowerBIServiceListPowerBIWorkspacesResponseTypedDict",
-    "PowerBIServiceSyncPowerBIItemsRequest",
-    "PowerBIServiceSyncPowerBIItemsRequestTypedDict",
-    "PowerBIServiceSyncPowerBIItemsResponse",
-    "PowerBIServiceSyncPowerBIItemsResponseTypedDict",
     "PowerBIServiceTestPowerBIConnectionRequest",
     "PowerBIServiceTestPowerBIConnectionRequestTypedDict",
     "PowerBIServiceTestPowerBIConnectionResponse",
     "PowerBIServiceTestPowerBIConnectionResponseTypedDict",
-    "PowerBIServiceUnsyncPowerBIItemsRequest",
-    "PowerBIServiceUnsyncPowerBIItemsRequestTypedDict",
-    "PowerBIServiceUnsyncPowerBIItemsResponse",
-    "PowerBIServiceUnsyncPowerBIItemsResponseTypedDict",
     "PowerbiCell",
     "PowerbiCellTypedDict",
     "PowerbiData",
@@ -12337,10 +12283,6 @@ __all__ = [
     "TextqlRPCPublicDatasetCreateFolderRequestTypedDict",
     "TextqlRPCPublicDatasetCreateFolderResponse",
     "TextqlRPCPublicDatasetCreateFolderResponseTypedDict",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetRequest",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetRequestTypedDict",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetResponse",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetResponseTypedDict",
     "TextqlRPCPublicDatasetCreateTableauDatasetRequest",
     "TextqlRPCPublicDatasetCreateTableauDatasetRequestTypedDict",
     "TextqlRPCPublicDatasetCreateTableauDatasetResponse",
@@ -13254,10 +13196,6 @@ __all__ = [
     "TextqlRPCPublicPowerbiPowerBITablePreviewTypedDict",
     "TextqlRPCPublicPowerbiPowerBIWorkspace",
     "TextqlRPCPublicPowerbiPowerBIWorkspaceTypedDict",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsRequest",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsRequestTypedDict",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsResponse",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsResponseTypedDict",
     "TextqlRPCPublicPowerbiSyncedPowerBIDataset",
     "TextqlRPCPublicPowerbiSyncedPowerBIDatasetTypedDict",
     "TextqlRPCPublicPowerbiSyncedPowerBIReport",
@@ -13266,10 +13204,6 @@ __all__ = [
     "TextqlRPCPublicPowerbiTestPowerBIConnectionRequestTypedDict",
     "TextqlRPCPublicPowerbiTestPowerBIConnectionResponse",
     "TextqlRPCPublicPowerbiTestPowerBIConnectionResponseTypedDict",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequestTypedDict",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict",
     "TextqlRPCPublicRbacAPIAccessKeyPermissionAction",
     "TextqlRPCPublicRbacAPIKey",
     "TextqlRPCPublicRbacAPIKeyScope",
@@ -14571,10 +14505,6 @@ _dynamic_imports: dict[str, str] = {
     "DatasetServiceCreateFolderRequestTypedDict": ".datasetservice_createfolderop",
     "DatasetServiceCreateFolderResponse": ".datasetservice_createfolderop",
     "DatasetServiceCreateFolderResponseTypedDict": ".datasetservice_createfolderop",
-    "DatasetServiceCreatePowerBIDatasetRequest": ".datasetservice_createpowerbidatasetop",
-    "DatasetServiceCreatePowerBIDatasetRequestTypedDict": ".datasetservice_createpowerbidatasetop",
-    "DatasetServiceCreatePowerBIDatasetResponse": ".datasetservice_createpowerbidatasetop",
-    "DatasetServiceCreatePowerBIDatasetResponseTypedDict": ".datasetservice_createpowerbidatasetop",
     "DatasetServiceCreateTableauDatasetRequest": ".datasetservice_createtableaudatasetop",
     "DatasetServiceCreateTableauDatasetRequestTypedDict": ".datasetservice_createtableaudatasetop",
     "DatasetServiceCreateTableauDatasetResponse": ".datasetservice_createtableaudatasetop",
@@ -15263,18 +15193,10 @@ _dynamic_imports: dict[str, str] = {
     "PowerBIServiceListPowerBIWorkspacesRequestTypedDict": ".powerbiservice_listpowerbiworkspacesop",
     "PowerBIServiceListPowerBIWorkspacesResponse": ".powerbiservice_listpowerbiworkspacesop",
     "PowerBIServiceListPowerBIWorkspacesResponseTypedDict": ".powerbiservice_listpowerbiworkspacesop",
-    "PowerBIServiceSyncPowerBIItemsRequest": ".powerbiservice_syncpowerbiitemsop",
-    "PowerBIServiceSyncPowerBIItemsRequestTypedDict": ".powerbiservice_syncpowerbiitemsop",
-    "PowerBIServiceSyncPowerBIItemsResponse": ".powerbiservice_syncpowerbiitemsop",
-    "PowerBIServiceSyncPowerBIItemsResponseTypedDict": ".powerbiservice_syncpowerbiitemsop",
     "PowerBIServiceTestPowerBIConnectionRequest": ".powerbiservice_testpowerbiconnectionop",
     "PowerBIServiceTestPowerBIConnectionRequestTypedDict": ".powerbiservice_testpowerbiconnectionop",
     "PowerBIServiceTestPowerBIConnectionResponse": ".powerbiservice_testpowerbiconnectionop",
     "PowerBIServiceTestPowerBIConnectionResponseTypedDict": ".powerbiservice_testpowerbiconnectionop",
-    "PowerBIServiceUnsyncPowerBIItemsRequest": ".powerbiservice_unsyncpowerbiitemsop",
-    "PowerBIServiceUnsyncPowerBIItemsRequestTypedDict": ".powerbiservice_unsyncpowerbiitemsop",
-    "PowerBIServiceUnsyncPowerBIItemsResponse": ".powerbiservice_unsyncpowerbiitemsop",
-    "PowerBIServiceUnsyncPowerBIItemsResponseTypedDict": ".powerbiservice_unsyncpowerbiitemsop",
     "RBACServiceApproveAccessRequestRequest": ".rbacservice_approveaccessrequestop",
     "RBACServiceApproveAccessRequestRequestTypedDict": ".rbacservice_approveaccessrequestop",
     "RBACServiceApproveAccessRequestResponse": ".rbacservice_approveaccessrequestop",
@@ -17431,10 +17353,6 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicDatasetCreateFolderRequestTypedDict": ".textql_rpc_public_dataset_createfolderrequest",
     "TextqlRPCPublicDatasetCreateFolderResponse": ".textql_rpc_public_dataset_createfolderresponse",
     "TextqlRPCPublicDatasetCreateFolderResponseTypedDict": ".textql_rpc_public_dataset_createfolderresponse",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetRequest": ".textql_rpc_public_dataset_createpowerbidatasetrequest",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetRequestTypedDict": ".textql_rpc_public_dataset_createpowerbidatasetrequest",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetResponse": ".textql_rpc_public_dataset_createpowerbidatasetresponse",
-    "TextqlRPCPublicDatasetCreatePowerBIDatasetResponseTypedDict": ".textql_rpc_public_dataset_createpowerbidatasetresponse",
     "TextqlRPCPublicDatasetCreateTableauDatasetRequest": ".textql_rpc_public_dataset_createtableaudatasetrequest",
     "TextqlRPCPublicDatasetCreateTableauDatasetRequestTypedDict": ".textql_rpc_public_dataset_createtableaudatasetrequest",
     "TextqlRPCPublicDatasetCreateTableauDatasetResponse": ".textql_rpc_public_dataset_createtableaudatasetresponse",
@@ -18410,18 +18328,10 @@ _dynamic_imports: dict[str, str] = {
     "TextqlRPCPublicPowerbiSyncedPowerBIDatasetTypedDict": ".textql_rpc_public_powerbi_syncedpowerbidataset",
     "TextqlRPCPublicPowerbiSyncedPowerBIReport": ".textql_rpc_public_powerbi_syncedpowerbireport",
     "TextqlRPCPublicPowerbiSyncedPowerBIReportTypedDict": ".textql_rpc_public_powerbi_syncedpowerbireport",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsRequest": ".textql_rpc_public_powerbi_syncpowerbiitemsrequest",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsRequestTypedDict": ".textql_rpc_public_powerbi_syncpowerbiitemsrequest",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsResponse": ".textql_rpc_public_powerbi_syncpowerbiitemsresponse",
-    "TextqlRPCPublicPowerbiSyncPowerBIItemsResponseTypedDict": ".textql_rpc_public_powerbi_syncpowerbiitemsresponse",
     "TextqlRPCPublicPowerbiTestPowerBIConnectionRequest": ".textql_rpc_public_powerbi_testpowerbiconnectionrequest",
     "TextqlRPCPublicPowerbiTestPowerBIConnectionRequestTypedDict": ".textql_rpc_public_powerbi_testpowerbiconnectionrequest",
     "TextqlRPCPublicPowerbiTestPowerBIConnectionResponse": ".textql_rpc_public_powerbi_testpowerbiconnectionresponse",
     "TextqlRPCPublicPowerbiTestPowerBIConnectionResponseTypedDict": ".textql_rpc_public_powerbi_testpowerbiconnectionresponse",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequest": ".textql_rpc_public_powerbi_unsyncpowerbiitemsrequest",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsRequestTypedDict": ".textql_rpc_public_powerbi_unsyncpowerbiitemsrequest",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponse": ".textql_rpc_public_powerbi_unsyncpowerbiitemsresponse",
-    "TextqlRPCPublicPowerbiUnsyncPowerBIItemsResponseTypedDict": ".textql_rpc_public_powerbi_unsyncpowerbiitemsresponse",
     "TextqlRPCPublicRbacAccessRequest": ".textql_rpc_public_rbac_accessrequest",
     "TextqlRPCPublicRbacAccessRequestTypedDict": ".textql_rpc_public_rbac_accessrequest",
     "TextqlRPCPublicRbacAgentPermissionAction": ".textql_rpc_public_rbac_agentpermissionaction",

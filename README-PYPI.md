@@ -364,7 +364,6 @@ with Textql(
 ### [Datasets](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md)
 
 * [create_folder](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#create_folder) - CreateFolder
-* [create_power_bi_dataset](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#create_power_bi_dataset) - CreatePowerBIDataset
 * [create_tableau_dataset](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#create_tableau_dataset) - Create Tableau dataset from views/datasources
 * [create_upload_presign_url](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#create_upload_presign_url) - uploads
 * [delete](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/datasets/README.md#delete) - Delete a dataset (soft delete)
@@ -557,9 +556,7 @@ with Textql(
 * [list](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/powerbisdk/README.md#list) - ListPowerBIDatasets
 * [list_reports](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/powerbisdk/README.md#list_reports) - ListPowerBIReports
 * [list_workspaces](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/powerbisdk/README.md#list_workspaces) - ListPowerBIWorkspaces
-* [sync_power_bi_items](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/powerbisdk/README.md#sync_power_bi_items) - SyncPowerBIItems
 * [test_connection](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/powerbisdk/README.md#test_connection) - TestPowerBIConnection
-* [unsync_items](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/powerbisdk/README.md#unsync_items) - UnsyncPowerBIItems
 
 ### [Rbac](https://github.com/TextQLLabs/textql-python-v3/blob/master/docs/sdks/rbac/README.md)
 
@@ -978,7 +975,7 @@ logging.basicConfig(level=logging.DEBUG)
 s = Textql(debug_logger=logging.getLogger("textql_sdk"))
 ```
 
-You can also enable a default debug logger by setting an environment variable `TEXTQL_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `TEXTQL_DEBUG` to `true`, `1`, `yes` or `on` (case-insensitive). Any other value leaves it off.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
