@@ -2,7 +2,16 @@
 
 from __future__ import annotations
 
+import math
+from decimal import Decimal
+import time
+
+from textql_sdk.sdk import Textql
 from textql_sdk.models import (
+    ConnectError,
+    RunComplete,
+    RunError,
+    TextqlRPCPublicDataframeDataFrameWithInfo,
     AnsCell,
     AppCell,
     BashCell,
@@ -160,3 +169,106 @@ def cell_text(cell: TextqlRPCPublicChatCell) -> tuple[str, str]:
     )):
         return type(cell).__name__.removesuffix("Cell").lower(), ""
     return "unknown", repr(cell)
+
+
+def wait_for_tables(
+    sdk: Textql, chat_id: str, *, timeout: float = 300.0,
+) -> list[TextqlRPCPublicDataframeDataFrameWithInfo]:
+    """Wait for a started run and return its latest turn's SQL dataframes.
+
+    Accepts the chat ID returned by a chat query, agent trigger, or playbook
+    run. Does not start a run. Uses existing PollChatEvents and GetChatHistory
+    RPCs; the SDK's credentials and HTTP transport apply to both.
+
+    Returns the existing dataframe objects, including ``preview`` (truncated
+    results), schema, records, and info. Text-only answers yield an empty list;
+    this does not parse prose or validate a caller-defined JSON schema.
+
+    Raises ``TimeoutError`` after ``timeout`` seconds, or ``RuntimeError`` for
+    a run error or failed/incomplete SQL cell. Transport errors propagate.
+    Do not start another turn on the same chat while waiting.
+    """
+    if not math.isfinite(timeout) or timeout <= 0:
+        raise ValueError("timeout must be finite and greater than zero")
+    deadline = time.monotonic() + timeout
+
+    def remaining_ms() -> int:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise TimeoutError(f"Timed out waiting for chat {chat_id}")
+        return max(1, math.ceil(remaining * 1000))
+
+    cursor = ""
+    generation: int | str = 0
+    while True:
+        result = sdk.chats.poll_events(
+            chat_id=chat_id, resume_cursor=cursor, min_generation=generation,
+            timeout_ms=remaining_ms(), retries=None,
+        )
+        if isinstance(result, ConnectError):
+            raise RuntimeError(f"Waiting for chat {chat_id}: {result}")
+        cursor = result.cursor or cursor
+        generation = result.generation if result.generation is not None else generation
+        events = result.events or []
+        for event in events:
+            if isinstance(event, RunError):
+                raise RuntimeError(f"Chat {chat_id} failed: {event.run_error.error}")
+        if result.running is not True and any(isinstance(e, RunComplete) for e in events):
+            break
+
+    # The server expands limit=1 backward to the start of the latest turn.
+    # Reading the whole history would return stale tables from earlier runs.
+    history = sdk.chats.get_history(
+        chat_id=chat_id, limit=1, timeout_ms=remaining_ms(), retries=None,
+    )
+    if isinstance(history, ConnectError):
+        raise RuntimeError(f"Reading results for chat {chat_id}: {history}")
+    tables = []
+    for cell in history.cells or []:
+        if not isinstance(cell, SQLCell):
+            continue
+        if cell.exec_error:
+            raise RuntimeError(f"SQL cell {cell.id} failed: {cell.exec_error}")
+        if not cell.complete:
+            raise RuntimeError(f"SQL cell {cell.id} is incomplete")
+        if cell.sql_cell.dataframe is not None:
+            tables.append(cell.sql_cell.dataframe)
+    return tables
+
+
+def table_rows(table: TextqlRPCPublicDataframeDataFrameWithInfo) -> list[list[object]]:
+    """Decode bounded SQL rows from ``wait_for_tables``; ``table.preview`` marks truncation.
+
+    The server sends one record per row. Empty column values represent SQL NULL.
+    Integer fields use protobuf JSON strings on the wire; this helper returns int.
+    Decimal columns use exact strings and decode as Decimal. Unsupported values stop the server preview.
+    A metadata-only response means the server did not grant inline data access.
+    """
+    if table.df is None and table.preview is True:
+        return []
+    if table.df is None:
+        raise ValueError("SQL rows are unavailable; check server version and data access")
+    rows: list[list[object]] = []
+    for record in table.df.records or []:
+        row: list[object] = [None] * len(table.df.schema_ or [])
+        for col in record.columns or []:
+            index = col.column_index or 0
+            if not 0 <= index < len(row):
+                raise ValueError("Invalid SQL result column index")
+            values = col.model_dump(exclude_none=True)
+            variants = [(key, val) for key, val in values.items() if key != "columnIndex"]
+            if len(variants) != 1:
+                raise ValueError("Invalid SQL result column values")
+            kind, payload = variants[0]
+            items = payload.get("values") or []
+            if len(items) > 1:
+                raise ValueError("SQL result records must contain one row")
+            value = items[0] if items else None
+            if value is not None and kind in {"int32", "int64", "uint32", "uint64"}:
+                value = int(value)
+            field = (table.df.schema_ or [])[index]
+            if value is not None and (field.column_type or "").startswith("decimal"):
+                value = Decimal(str(value))
+            row[index] = value
+        rows.append(row)
+    return rows
