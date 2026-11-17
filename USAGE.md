@@ -64,7 +64,7 @@ pagination (`GetChatHistory` with `limit=1`).
 
 The return value is a list of `TextqlRPCPublicDataframeDataFrameWithInfo` objects;
 it preserves schema, info, and preview flags. `table_rows` converts protobuf integer
-strings to Python integers and empty values to `None`. Decimal columns use doubles.
+strings to Python integers and empty values to `None`. Decimal columns use exact strings and decode as Python `Decimal`.
 Each record contains one row. The server caps each SQL table at 100 rows.
 The server caps inline rows at 64 KiB per history response. It does not download full tables
 when `preview` is true. A text-only answer returns `[]`: numbers written only in

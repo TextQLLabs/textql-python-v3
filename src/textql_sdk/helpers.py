@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from decimal import Decimal
 import time
 
 from textql_sdk.sdk import Textql
@@ -240,9 +241,11 @@ def table_rows(table: TextqlRPCPublicDataframeDataFrameWithInfo) -> list[list[ob
 
     The server sends one record per row. Empty column values represent SQL NULL.
     Integer fields use protobuf JSON strings on the wire; this helper returns int.
-    Decimal columns use double values. Unsupported values stop the server preview.
+    Decimal columns use exact strings and decode as Decimal. Unsupported values stop the server preview.
     A metadata-only response means the server did not grant inline data access.
     """
+    if table.df is None and table.preview is True:
+        return []
     if table.df is None:
         raise ValueError("SQL rows are unavailable; check server version and data access")
     rows: list[list[object]] = []
@@ -263,6 +266,9 @@ def table_rows(table: TextqlRPCPublicDataframeDataFrameWithInfo) -> list[list[ob
             value = items[0] if items else None
             if value is not None and kind in {"int32", "int64", "uint32", "uint64"}:
                 value = int(value)
+            field = (table.df.schema_ or [])[index]
+            if value is not None and (field.column_type or "").startswith("decimal"):
+                value = Decimal(str(value))
             row[index] = value
         rows.append(row)
     return rows

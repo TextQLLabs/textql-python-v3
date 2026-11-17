@@ -80,3 +80,14 @@ def test_auth_error_is_not_retried_as_a_running_chat(make_sdk):
         helpers.wait_for_tables(bundle.sdk, 'chat-1')
     assert len(bundle.transport.requests) == 1
 
+
+
+def test_decimal_rows_keep_all_digits_and_budget_exhaustion_is_empty():
+    from decimal import Decimal
+    from textql_sdk.models import TextqlRPCPublicDataframeDataFrameWithInfo as Table
+    table = Table.model_validate({"df": {
+        "schema": [{"columnName": "id", "columnType": "decimal128"}],
+        "records": [{"columns": [{"strings": {"values": ["9007199254740993.25"]}}]}],
+    }})
+    assert helpers.table_rows(table) == [[Decimal("9007199254740993.25")]]
+    assert helpers.table_rows(Table(preview=True)) == []
