@@ -35,7 +35,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 1.1.45
+  version: 1.1.46
   additionalDependencies:
     dev:
       types-protobuf: '>=6.31'
