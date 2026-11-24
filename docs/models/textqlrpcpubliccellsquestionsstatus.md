@@ -18,3 +18,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"QUESTIONS_STATUS_PENDING"`
 - `"QUESTIONS_STATUS_ANSWERED"`
 - `"QUESTIONS_STATUS_DISMISSED"`
+- `"QUESTIONS_STATUS_TIMED_OUT"`

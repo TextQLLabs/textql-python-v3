@@ -11,6 +11,7 @@ TextqlRPCPublicCellsQuestionsStatus = Union[
         "QUESTIONS_STATUS_PENDING",
         "QUESTIONS_STATUS_ANSWERED",
         "QUESTIONS_STATUS_DISMISSED",
+        "QUESTIONS_STATUS_TIMED_OUT",
     ],
     UnrecognizedStr,
 ]

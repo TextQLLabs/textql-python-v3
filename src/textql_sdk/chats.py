@@ -2381,7 +2381,7 @@ class Chats(BaseSDK):
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
             Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
-            Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
+            Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Fable 5.2, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
         :param model_name:
         :param harness:
         :param harness_endpoint_id:
@@ -2529,7 +2529,7 @@ class Chats(BaseSDK):
         :param fast_mode: fast_mode enables Anthropic's fast inference (speed: \"fast\") for this chat.
             Supported on Opus 5.5, Opus 5, and Opus 4.8. Pricing is 2x standard rates.
         :param max_thinking: max_thinking runs extended thinking at max effort with visible reasoning.
-            Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
+            Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Fable 5.2, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
         :param model_name:
         :param harness:
         :param harness_endpoint_id:
@@ -3086,6 +3086,8 @@ class Chats(BaseSDK):
         fast_mode: OptionalNullable[bool] = UNSET,
         methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         max_thinking: OptionalNullable[bool] = UNSET,
+        harness: OptionalNullable[str] = UNSET,
+        harness_endpoint_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3102,6 +3104,8 @@ class Chats(BaseSDK):
         :param fast_mode:
         :param methodology:
         :param max_thinking:
+        :param harness: Omit to keep the source harness. Use \"ana\" to select the native harness.
+        :param harness_endpoint_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3131,6 +3135,8 @@ class Chats(BaseSDK):
                 fast_mode=fast_mode,
                 methodology=methodology,
                 max_thinking=max_thinking,
+                harness=harness,
+                harness_endpoint_id=harness_endpoint_id,
             ),
         )
 
@@ -3219,6 +3225,8 @@ class Chats(BaseSDK):
         fast_mode: OptionalNullable[bool] = UNSET,
         methodology: Optional[models.TextqlRPCPublicChatMethodology] = None,
         max_thinking: OptionalNullable[bool] = UNSET,
+        harness: OptionalNullable[str] = UNSET,
+        harness_endpoint_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -3235,6 +3243,8 @@ class Chats(BaseSDK):
         :param fast_mode:
         :param methodology:
         :param max_thinking:
+        :param harness: Omit to keep the source harness. Use \"ana\" to select the native harness.
+        :param harness_endpoint_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -3264,6 +3274,8 @@ class Chats(BaseSDK):
                 fast_mode=fast_mode,
                 methodology=methodology,
                 max_thinking=max_thinking,
+                harness=harness,
+                harness_endpoint_id=harness_endpoint_id,
             ),
         )
 
