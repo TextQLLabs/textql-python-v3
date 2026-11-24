@@ -26,6 +26,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_OPUS_5_5"`
 - `"MODEL_SONNET_5_5"`
 - `"MODEL_HAIKU_5_5"`
+- `"MODEL_FABLE_5_2"`
 - `"MODEL_GPT_5_6_SOL"`
 - `"MODEL_GEMINI_3_FLASH"`
 - `"MODEL_GEMINI_3_PRO"`
@@ -39,6 +40,8 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_GPT_6_LUNA"`
 - `"MODEL_GPT_6_1_SOL"`
 - `"MODEL_GPT_6_1_TERRA"`
+- `"MODEL_GPT_6_2_ASTRA"`
+- `"MODEL_GPT_6_2_SOL"`
 - `"MODEL_DEEPSEEK_3_2"`
 - `"MODEL_GLM_5"`
 - `"MODEL_VLLM"`
@@ -52,3 +55,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"MODEL_DEEPSEEK_V4P1_FLASH"`
 - `"MODEL_MUSE_SPARK_1_1"`
 - `"MODEL_MUSE_SPARK_1_2"`
+- `"MODEL_GEMINI_4_NEON"`

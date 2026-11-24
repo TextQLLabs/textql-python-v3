@@ -32,6 +32,9 @@ class TextqlRPCPublicChatDuplicateChatRequestTypedDict(TypedDict):
     fast_mode: NotRequired[Nullable[bool]]
     methodology: NotRequired[TextqlRPCPublicChatMethodology]
     max_thinking: NotRequired[Nullable[bool]]
+    harness: NotRequired[Nullable[str]]
+    r"""Omit to keep the source harness. Use \"ana\" to select the native harness."""
+    harness_endpoint_id: NotRequired[Nullable[str]]
 
 
 class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
@@ -66,6 +69,13 @@ class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
         ),
     ] = UNSET
 
+    harness: OptionalNullable[str] = UNSET
+    r"""Omit to keep the source harness. Use \"ana\" to select the native harness."""
+
+    harness_endpoint_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="harnessEndpointId")
+    ] = UNSET
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self._serialize_model, handler, info)
@@ -80,10 +90,19 @@ class TextqlRPCPublicChatDuplicateChatRequest(BaseModel):
                 "fastMode",
                 "methodology",
                 "maxThinking",
+                "harness",
+                "harnessEndpointId",
             ]
         )
         nullable_fields = set(
-            ["onlyIfDifferentOwner", "upToCellId", "fastMode", "maxThinking"]
+            [
+                "onlyIfDifferentOwner",
+                "upToCellId",
+                "fastMode",
+                "maxThinking",
+                "harness",
+                "harnessEndpointId",
+            ]
         )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()

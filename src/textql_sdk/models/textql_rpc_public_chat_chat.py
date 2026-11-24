@@ -252,7 +252,7 @@ class TextqlRPCPublicChatChatTypedDict(TypedDict):
     agent_profile_image_url: NotRequired[Nullable[str]]
     max_thinking: NotRequired[Nullable[bool]]
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
+    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Fable 5.2, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
     Thinking tokens bill as output tokens.
     """
     harness: NotRequired[Nullable[str]]
@@ -547,7 +547,7 @@ class TextqlRPCPublicChatChat(BaseModel):
         ),
     ] = UNSET
     r"""max_thinking runs extended thinking at max effort with visible reasoning.
-    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
+    Supported on Sonnet 5, Sonnet 5.5, Fable 5, Fable 5.1, Fable 5.2, Opus 4.8, Opus 5, Opus 5.5, GPT 5.6 Sol/Terra/Luna, GPT-6 Astra/Sol/Luna, and GPT-6.1 Sol/Terra.
     Thinking tokens bill as output tokens.
     """
 
